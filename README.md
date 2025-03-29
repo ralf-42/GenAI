@@ -8,3 +8,5 @@ Verzeichnisse:
 + 02 data (Daten für Analysen/Modelle)
 + 03 doc (Skript und weitere Unterlagen)
 + 04 model (vortrainierte Modelle)
++ 05 podcast (Podcast zu verschiedenen Themen)
+
