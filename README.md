@@ -1,12 +1,12 @@
-# 1 Generative KI Kurs
+# Generative KI Kurs
 
 Ein umfassender deutschsprachiger Kurs zu praktischen Anwendungen von Generative AI Technologien.
 
-## 1.1 📚 Kursübersicht
+# 1 📚 Kursübersicht
 
 Dieser Kurs bietet eine praxisorientierte Einführung in moderne GenAI-Technologien mit Fokus auf OpenAI GPT-Modelle, Hugging Face und LangChain. Alle Materialien sind in deutscher Sprache verfasst und für die Ausführung in Google Colab optimiert.
 
-## 1.2 🎯 Lernziele
+# 2 🎯 Lernziele
 
 - Verstehen der Grundlagen von Generative AI
 - Praktische Anwendung von GPT-Modellen
@@ -17,18 +17,18 @@ Dieser Kurs bietet eine praxisorientierte Einführung in moderne GenAI-Technolog
 - Fine-Tuning-Techniken
 
 
-## 1.3 🛠️ Technische Voraussetzungen
+# 3 🛠️ Technische Voraussetzungen
 
-### 1.3.1 Entwicklungsumgebung
+## 3.1 Entwicklungsumgebung
 - **Plattform**: Google Colab (empfohlen)
 - **Sprache**: Python 3.11+
 - **Vorwissen**: Solide Python-Grundkenntnisse erforderlich
 
-### 1.3.2 Erforderliche API-Schlüssel
+## 3.2 Erforderliche API-Schlüssel
 - **OpenAI API Key**: Für GPT-Modelle (kostenpflichtig, ~5-10 EUR für den gesamten Kurs)
 - **Hugging Face Token**: Für Community-Modelle (kostenlos)
 
-### 1.3.3 Setup
+## 3.3 Setup
 Jedes Notebook beginnt mit diesem standardisierten Setup:
 
 ```python
@@ -37,7 +37,7 @@ from genai_lib.utilities import check_environment, get_ipinfo, setup_api_keys, m
 setup_api_keys(['OPENAI_API_KEY', 'HF_TOKEN'], create_globals=False)
 ```
 
-## 1.4 🚀 Schnellstart
+# 4 🚀 Schnellstart
 
 1. **Google Colab öffnen**: Gehen Sie zu [colab.research.google.com](https://colab.research.google.com)
 2. **Notebook hochladen**: Laden Sie eines der Notebooks aus dem `01 ipynb/` Ordner hoch
@@ -47,7 +47,7 @@ setup_api_keys(['OPENAI_API_KEY', 'HF_TOKEN'], create_globals=False)
 4. **Setup ausführen**: Führen Sie die erste Zelle für die Umgebungseinrichtung aus
 5. **Lernen beginnen**: Arbeiten Sie sich durch die Notebook-Zellen
 
-## 1.5 🔧 Verwendete Technologien
+# 5 🔧 Verwendete Technologien
 
 - **OpenAI**: GPT-4o-mini, o3-mini mit Parameteroptimierung
 - **LangChain**: Prompts, Chains, Parser, Runnables, Agents
@@ -57,7 +57,7 @@ setup_api_keys(['OPENAI_API_KEY', 'HF_TOKEN'], create_globals=False)
 - **Gradio**: Benutzeroberflächen-Entwicklung
 
 
-## 1.6 💡 Hinweise für Lernende
+# 6 💡 Hinweise für Lernende
 
 - Jedes Notebook ist eigenständig und kann unabhängig ausgeführt werden
 - Umgebungssetup erfolgt automatisch über das `genai_lib` Utility-Paket
@@ -65,7 +65,7 @@ setup_api_keys(['OPENAI_API_KEY', 'HF_TOKEN'], create_globals=False)
 - Fortschreitende Komplexität innerhalb jeder Modulreihe
 
 
-## 1.7 ⚖️ Lizenz
+# 7 ⚖️ Lizenz
 
 Dieses Repository enthält Bildungsmaterialien für den Kursgebrauch. MIT License.
 
