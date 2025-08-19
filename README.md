@@ -1,6 +1,6 @@
 # Generative KI Kurs
 
-Ein umfassender deutschsprachiger Kurs zu praktischen Anwendungen von Generative AI Technologien.
+Ein umfassender deutschsprachiger Kurs zu praktischen Anwendungen von Generative KI Technologien.
 
 # 1 📚 Kursübersicht
 
