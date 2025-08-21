@@ -6,7 +6,7 @@ Ein umfassender deutschsprachiger Kurs zu praktischen Anwendungen von Generative
 
 Dieser Kurs bietet eine praxisorientierte Einführung in moderne GenAI-Technologien mit Fokus auf OpenAI GPT-Modelle, Hugging Face und LangChain. Alle Materialien sind in deutscher Sprache verfasst und für die Ausführung in Google Colab optimiert.
 
-# 2 Zielgruppe
+# 2 ✨ Zielgruppe
 - **Entwickler:innen** mit guten Python-Grundkenntnissen
 - **IT-Fachkräfte**, die KI-Technologien in bestehende Projekte integrieren möchten
 - **Technikbegeisterte Quereinsteiger:innen** mit Programmiererfahrung
