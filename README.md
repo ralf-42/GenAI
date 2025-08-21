@@ -137,7 +137,6 @@ GenAI/
 - Modifikation der Beispiele wird ausdrücklich als Lernübung empfohlen
 - Fortschreitende Komplexität innerhalb jeder Modulreihe
 - Praktische Übungen am Ende jedes Moduls
-- Community-Support über GitHub Issues
 
 
 # 11 ⚖️ Lizenz
