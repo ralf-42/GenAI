@@ -69,6 +69,3 @@ setup_api_keys(['OPENAI_API_KEY', 'HF_TOKEN'], create_globals=False)
 
 Dieses Repository enthält Bildungsmaterialien für den Kursgebrauch. MIT License.
 
----
-
-*Entwickelt für deutschsprachige Entwickler und Data Scientists mit Fokus auf praktische GenAI-Anwendungen.*
