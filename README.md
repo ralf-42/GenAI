@@ -63,8 +63,7 @@ GenAI/
 │   ├── *_testset_final.jsonl
 │   └── *.mp3, *.mp4, *.wav       # Audio/Video-Beispiele
 ├── 03 doc/                     # 📖 Dokumentation und Ressourcen
-│   ├── GenAI_all_in_one.pdf       # Kompakte Kursübersicht
-│   └── (weitere PDFs ausgeschlossen durch .claudeignore)
+│   └── GenAI_all_in_one.pdf       # Kompakte Kursübersicht
 └── 04 model/                   # 🤖 Modellverzeichnis (derzeit leer)
 ```
 
