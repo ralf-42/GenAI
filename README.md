@@ -63,7 +63,7 @@ GenAI/
 │   ├── *_testset_final.jsonl
 │   └── *.mp3, *.mp4, *.wav       # Audio/Video-Beispiele
 ├── 03 doc/                     # 📖 Dokumentation und Ressourcen
-│   └── GenAI_all_in_one.pdf       # Kompakte Kursübersicht
+│   └── GenAI_all_in_one.pdf       # Kursskript
 └── 04 model/                   # 🤖 Modellverzeichnis (derzeit leer)
 ```
 
@@ -117,7 +117,7 @@ GenAI/
 # 8 🔑 Erforderliche API-Schlüssel
 - **Open-AI-Account:** : Für Zugang ChatGPT
 - **OpenAI API Key**: Für GPT-Modelle (kostenpflichtig, bis zu 10 EUR für den gesamten Kurs)
-- **Hugging Face Token**: Für Community-Modelle (kostenlos)
+- **Hugging Face Account und Hugging Face Token**: Für Community-Modelle (beides kostenlos)
 
 
 # 9 🔧 Verwendete Technologien
@@ -143,7 +143,7 @@ GenAI/
 
 Dieses Projekt steht unter der **MIT-Lizenz** (siehe `LICENSE`-Datei).
 
-**MIT License - Copyright (c) 2024 Ralf**
+**MIT License - Copyright (c) 2025 Ralf**
 
 Die Kursmaterialien können frei verwendet, modifiziert und weiterverbreitet werden.
 
