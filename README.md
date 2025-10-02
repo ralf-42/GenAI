@@ -28,10 +28,9 @@ Dieser Kurs bietet eine praxisorientierte Einführung in moderne GenAI-Technolog
 
 ```
 GenAI/
-├── README.md                     # Diese Datei
 ├── 01 ipynb/                   # 📚 Jupyter Notebooks (Hauptkursmaterialien)
-│   ├── M00_Kurs_Intro.ipynb       # Kurseinführung und Überblick
-│   ├── M01_GenAI_Intro.ipynb      # Einführung in Generative AI
+│   ├── M00_Kurs_Intro.ipynb      # Kurseinführung und Überblick
+│   ├── M01_GenAI_Intro.ipynb     # Einführung in Generative AI
 │   ├── M02_Modellsteuerung_und_optimierung.ipynb
 │   ├── M03_Codieren_mit_GenAI.ipynb
 │   ├── M04_LangChain101.ipynb
@@ -50,11 +49,11 @@ GenAI/
 │   ├── M17_MCP_Model_Context_Protocol.ipynb
 │   └── M18_Fine_Tuning.ipynb
 ├── 02 data/                    # 📊 Trainingsdaten und Beispieldateien
-│   ├── biografien_1.txt           # Beispielbiografien für RAG
+│   ├── biografien_1.txt          # Beispielbiografien für RAG
 │   ├── biografien_2.md
 │   ├── biografien_3.pdf
 │   ├── biografien_4.docx
-│   ├── customers.db               # SQLite Datenbank für SQL RAG
+│   ├── customers.db              # SQLite Datenbank für SQL RAG
 │   ├── northwind.db              # Beispiel-Datenbank
 │   ├── mein_buch.pdf             # Beispiel-PDF für Textverarbeitung
 │   ├── apfel.jpg                 # Beispielbilder für Bildverarbeitung
@@ -63,8 +62,9 @@ GenAI/
 │   ├── *_testset_final.jsonl
 │   └── *.mp3, *.mp4, *.wav       # Audio/Video-Beispiele
 ├── 03 doc/                     # 📖 Dokumentation und Ressourcen
-│   └── GenAI_all_in_one.pdf       # Kursskript
-└── 04 model/                   # 🤖 Modellverzeichnis (derzeit leer)
+│   └── GenAI_all_in_one.pdf      # Kursskript
+├── 04 model/                   # 🤖 Modellverzeichnis (derzeit leer)
+
 ```
 
 
