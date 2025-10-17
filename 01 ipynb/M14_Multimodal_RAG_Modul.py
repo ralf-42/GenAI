@@ -623,7 +623,7 @@ def multimodal_search(components, query, k_text=3, k_images=3, enable_cross_moda
         for i, img in enumerate(image_results, 1):
             result += f"   {i}. {img['filename']} (Ähnlichkeit: {img['similarity']})\n"
             if img['description']:
-                result += f"      📝 {img['description'][:300]}...\n"
+                result += f"      📝 {img['description'][:600]}...\n"
     else:
         result += f"🖼️ Keine relevanten Bilder via CLIP gefunden.\n"
 
@@ -632,7 +632,7 @@ def multimodal_search(components, query, k_text=3, k_images=3, enable_cross_moda
         for i, img in enumerate(cross_modal_images, 1):
             result += f"   {i}. {img['filename']}\n"
             if img['description']:
-                result += f"      📝 {img['description'][:300]}...\n"
+                result += f"      📝 {img['description'][:600]}...\n"
 
     return result
 
