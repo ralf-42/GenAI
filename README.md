@@ -202,10 +202,12 @@ GenAI/
 - LangChain Tutorials und Course
 
 
-# 12 ⚖️ Lizenz
+# 12 ⚖️ Lizenzen
 
 Der **Quellcode** steht unter der [MIT License](./LICENSE).  
 Die **Kursmaterialien** (z. B. Folien, Texte, Grafiken) sind unter der [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) veröffentlicht.
+**Northwind-Datenbank** von Microsoft unter Microsoft Public License (Ms-PL).
+Bilder und Videos erstellt mit **Hedra AI** – Nutzung gemäß Hedra Nutzungsbedingungen ([hedra terms)“](https://www.hedra.com/terms\)%E2%80%9C)
 
 © 2025 Ralf-42
 
