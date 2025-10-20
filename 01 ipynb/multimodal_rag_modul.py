@@ -635,19 +635,22 @@ def search_similar_images(components, query_image_path, k=5):
         return []
 
 
-def search_text_by_image(components, query_image_path, k=3):
+def search_text_by_image(components, query_image_path, k=3, k_text=3):
     """
-    Bild → Text Suche: Findet ähnliche Bilder und gibt deren Beschreibungen zurück
+    Bild → Text Suche: Findet ähnliche Bilder und relevante Text-Dokumente
 
-    Nutzt die vorhandenen Bildbeschreibungen in der Text-Collection.
+    Kombiniert:
+    1. Visuelle Ähnlichkeitssuche (Bild → Bild via CLIP)
+    2. Semantische Textsuche basierend auf Bildbeschreibungen
 
     Args:
         components: RAG-System-Komponenten
         query_image_path: Pfad zum Query-Bild
-        k: Anzahl Ergebnisse
+        k: Anzahl ähnlicher Bilder
+        k_text: Anzahl relevanter Text-Dokumente
 
     Returns:
-        Formatierter String mit Textinformationen zu ähnlichen Bildern
+        Formatierter String mit Bildern und Text-Dokumenten
     """
     path = Path(query_image_path)
 
@@ -664,14 +667,12 @@ def search_text_by_image(components, query_image_path, k=3):
     if not similar_images:
         return "❌ Keine ähnlichen Bilder gefunden"
 
-    # 2. Text-Dokument-IDs der Bildbeschreibungen holen
-    text_doc_ids = []
+    # 2. Bildbeschreibungen aus text_collection holen
+    image_descriptions = []
     for img in similar_images:
-        # Suche nach der Bildbeschreibung in text_collection über source
         img_path = img.get('path', '')
         if img_path:
             try:
-                # FIX: ChromaDB benötigt $and Operator für mehrere Bedingungen
                 text_docs = components.text_collection.get(
                     where={
                         "$and": [
@@ -681,54 +682,105 @@ def search_text_by_image(components, query_image_path, k=3):
                     }
                 )
                 if text_docs['ids']:
-                    text_doc_ids.append(text_docs['ids'][0])
+                    image_descriptions.append({
+                        'content': text_docs['documents'][0],
+                        'metadata': text_docs['metadatas'][0],
+                        'similarity': img['similarity']
+                    })
             except Exception as e:
                 print(f"⚠️ Fehler beim Abrufen der Beschreibung für {img.get('filename', 'Unbekannt')}: {e}")
                 continue
 
-    if not text_doc_ids:
+    if not image_descriptions:
         return "❌ Keine Textbeschreibungen für ähnliche Bilder gefunden"
 
-    # 3. Bildbeschreibungen aus text_collection holen
+    # 3. Semantische Textsuche basierend auf Bildbeschreibungen
+    # Erstelle Suchquery aus den Bildbeschreibungen
+    search_query = " ".join([desc['content'] for desc in image_descriptions[:2]])
+
+    print(f"🔍 Suche nach relevanten Text-Dokumenten basierend auf Bildbeschreibungen...")
+
+    # Suche Text-Dokumente (nicht Bildbeschreibungen)
     try:
-        descriptions_data = components.text_collection.get(ids=text_doc_ids)
+        docs_with_scores = components.text_collection.similarity_search_with_score(
+            search_query,
+            k=k_text * 2
+        )
 
-        if not descriptions_data['ids']:
-            return "❌ Keine Beschreibungen verfügbar"
+        # Filtere nur echte Text-Dokumente (keine Bildbeschreibungen)
+        text_documents = []
+        for doc, score in docs_with_scores:
+            if doc.metadata.get('doc_type') == 'text_document':
+                similarity = max(0, 1 - (score / 2))
+                if similarity >= 0.3:  # Mindest-Ähnlichkeit
+                    text_documents.append({
+                        'content': doc.page_content,
+                        'filename': doc.metadata.get('filename', 'Unbekannt'),
+                        'similarity': round(similarity, 3)
+                    })
+                    if len(text_documents) >= k_text:
+                        break
 
-        # Kontext für LLM zusammenstellen
-        context_parts = []
-        for doc_content, metadata, img in zip(
-            descriptions_data['documents'],
-            descriptions_data['metadatas'],
-            similar_images
-        ):
-            context_parts.append(
-                f"Bild: {metadata.get('filename', 'Unbekannt')} (Ähnlichkeit: {img['similarity']})\n"
-                f"{doc_content}"
+        print(f"✅ {len(text_documents)} relevante Text-Dokumente gefunden\n")
+
+    except Exception as e:
+        print(f"⚠️ Fehler bei Textsuche: {e}")
+        text_documents = []
+
+    # 4. LLM-Zusammenfassung generieren
+    try:
+        # Kontext für Bilder
+        image_context_parts = []
+        for desc in image_descriptions:
+            image_context_parts.append(
+                f"Bild: {desc['metadata'].get('filename', 'Unbekannt')} "
+                f"(Ähnlichkeit: {desc['similarity']})\n{desc['content']}"
             )
 
-        context = "\n\n---\n\n".join(context_parts)
+        image_context = "\n\n---\n\n".join(image_context_parts)
 
-        # LLM-Antwort generieren
-        prompt = f"""Du hast ein Query-Bild erhalten und folgende visuell ähnliche Bilder wurden gefunden.
-Fasse die Gemeinsamkeiten und wichtigsten Merkmale zusammen.
+        # Kontext für Text-Dokumente
+        text_context = ""
+        if text_documents:
+            text_context_parts = [
+                f"Dokument: {doc['filename']} (Ähnlichkeit: {doc['similarity']})\n{doc['content'][:500]}"
+                for doc in text_documents
+            ]
+            text_context = "\n\n---\n\n".join(text_context_parts)
 
-GEFUNDENE BILDER UND IHRE BESCHREIBUNGEN:
-{context}
+        # Prompt für LLM
+        prompt = f"""Du hast ein Query-Bild erhalten. Basierend auf visueller Ähnlichkeit und semantischer Suche wurden folgende Informationen gefunden.
 
-ZUSAMMENFASSUNG:"""
+VISUELL ÄHNLICHE BILDER UND IHRE BESCHREIBUNGEN:
+{image_context}
+
+{'RELEVANTE TEXT-DOKUMENTE:' if text_documents else '(Keine relevanten Text-Dokumente gefunden)'}
+{text_context if text_documents else ''}
+
+AUFGABE:
+Erstelle eine prägnante Zusammenfassung der wichtigsten Informationen, die zum Query-Bild passen.
+Beschreibe Gemeinsamkeiten, wichtige Merkmale und relevante Kontextinformationen aus den Texten."""
 
         response = components.llm.invoke(prompt).content
 
         # Formatierte Ausgabe
-        result = f"📄 Suche Bild → Text:\n{'-'*70}\n{response}\n\n"
-        result += f"🖼️ GEFUNDENE ÄHNLICHE BILDER ({len(similar_images)}):\n{'-'*70}\n"
+        result = f"📄 ZUSAMMENFASSUNG (Bild → Text):\n{'-'*70}\n{response}\n\n"
 
+        # Bild-Quellen
+        result += f"🖼️ GEFUNDENE ÄHNLICHE BILDER ({len(similar_images)}):\n{'-'*70}\n"
         for i, img in enumerate(similar_images, 1):
             result += f"   {i}. {img['filename']} (Ähnlichkeit: {img['similarity']})\n"
             if img['description']:
                 result += f"      📝 {img['description'][:300]}...\n"
+
+        # Text-Quellen
+        if text_documents:
+            result += f"\n📚 RELEVANTE TEXT-DOKUMENTE ({len(text_documents)}):\n{'-'*70}\n"
+            for i, doc in enumerate(text_documents, 1):
+                result += f"   {i}. {doc['filename']} (Ähnlichkeit: {doc['similarity']})\n"
+                result += f"      📄 {doc['content'][:200]}...\n"
+        else:
+            result += f"\n📚 Keine relevanten Text-Dokumente gefunden.\n"
 
         return result
 
