@@ -1,6 +1,6 @@
 # Generative KI Kurs
 
-Ein umfassender deutschsprachiger Kurs zu praktischen Anwendungen von Generative KI Technologien.
+Ein deutschsprachiger Kurs zu praktischen Anwendungen von Generative KI Technologien.
 
 # 1 📚 Kursübersicht
 
@@ -63,7 +63,8 @@ GenAI/
 │   └── *.mp3, *.mp4, *.wav       # Audio/Video-Beispiele
 ├── 03 doc/                     # 📖 Dokumentation und Ressourcen
 │   └── GenAI_all_in_one.pdf      # Kursskript
-├── 04 model/                   # 🤖 Modellverzeichnis (derzeit leer)
+├── LICENSE                     # MIT-Lizenzinformationen
+└── README.md                   # Projekt-README
 
 ```
 
@@ -105,30 +106,39 @@ GenAI/
 # 6 🛠️ Technisches Setup
 
 - Browser mit Internet-Zugang
-- Goggle-Account
+- Google-Account
 - Installation Google Colab
 
 
 # 7 🌟 Entwicklungsumgebung
-- **Plattform**: Google Colab 
+- **Plattform**: Google Colab
 - **Sprache**: Python 3.11+
 - **Vorwissen**: Solide Python-Grundkenntnisse erforderlich
 
 # 8 🔑 Erforderliche API-Schlüssel
-- **Open-AI-Account:** : Für Zugang ChatGPT
-- **OpenAI API Key**: Für GPT-Modelle (kostenpflichtig, bis zu 10 EUR für den gesamten Kurs)
+- **OpenAI-Account**: Für Zugang ChatGPT
+- **OpenAI API Key**: Für GPT-Modelle (kostenpflichtig, ca. 5 EUR für den gesamten Kurs)
 - **Hugging Face Account und Hugging Face Token**: Für Community-Modelle (beides kostenlos)
 
 
 # 9 🔧 Verwendete Technologien
 
-- **OpenAI**: GPT-4o-mini, Text-Embedding-3-small, DALL-E
-- **LangChain**: Prompts, Chains, Parser, Runnables, Agents, ChromaDB Integration
+### Hauptframeworks
+- **OpenAI API** (>=1.0.0): GPT-4o-mini, Text-Embedding-3-small, DALL-E
+- **LangChain** (>=0.2.0): Prompts, Chains, Parser, Runnables, Agents, ChromaDB Integration
 - **Hugging Face**: Transformers, Community-Modelle, Tokenizer
+
+### Spezialisierte Tools
 - **ChromaDB**: Vektor-Datenbank für RAG-Systeme und Embeddings
 - **Ollama**: Lokale Modellausführung (Llama, Mistral, etc.)
-- **Gradio**: Benutzeroberflächen-Entwicklung für KI-Apps
-- **Weitere**: MarkItDown, Unstructured, PyPDF, SQLite, ...
+- **Gradio** (>=3.x): Benutzeroberflächen-Entwicklung für KI-Apps
+
+### Weitere Tools
+- **MarkItDown**: Markdown-Verarbeitung
+- **Unstructured**: Dokumentenverarbeitung
+- **PyPDF**: PDF-Verarbeitung
+- **SQLite**: Datenbank-Integration
+- **NumPy** (>=1.24.0) & **Pandas** (>=2.0.0): Datenverarbeitung
 
 # 10 💡 Hinweise für Lernende
 
@@ -138,14 +148,71 @@ GenAI/
 - Fortschreitende Komplexität innerhalb jeder Modulreihe
 - Praktische Übungen am Ende jedes Moduls
 
+## Code-Konventionen
 
-# 11 ⚖️ Lizenz
+### Namenskonventionen
+- **snake_case** für Variablen, Funktionen und Klassennamen
+  - Beispiele: `model_output`, `training_data`, `load_model()`, `text_generator`
 
-Dieses Projekt steht unter der **MIT-Lizenz** (siehe `LICENSE`-Datei).
+### Stil-Richtlinien
+- Befolgen des Python Style Guide (PEP 8)
+- Kurze, verständliche Kommentare für Code-Blöcke
+- Aussagekräftige Variablen- und Funktionsnamen
+- Maximale Zeilenlänge: 88 Zeichen (Black-Standard)
+- Docstrings für alle Funktionen und Klassen
 
-**MIT License - Copyright (c) 2025 Ralf**
+## Best Practices
 
-Die Kursmaterialien können frei verwendet, modifiziert und weiterverbreitet werden.
+### API-Integration
+- Sichere Verwaltung von API-Keys über Umgebungsvariablen
+- Rate Limiting beachten
+- Fehlerbehandlung und Retry-Logik implementieren
+- Caching für wiederholte Anfragen nutzen
+
+### Deployment
+- Gradio-Apps für schnelles Prototyping
+- Monitoring und Logging einrichten
+- Performance-Optimierung durchführen
+
+## Sicherheit & Ethik
+
+- Verantwortungsvoller Umgang mit generierten Inhalten
+- Bias-Erkennung und -Minimierung
+- Transparenz über KI-generierte Inhalte
+- Datenschutz und DSGVO-Konformität beachten
+
+
+# 11 📚 Ressourcen & Dokumentation
+
+### Externe Dokumentationen
+- [LangChain Docs](https://python.langchain.com/) - LangChain Python Dokumentation
+- [OpenAI API Reference](https://platform.openai.com/docs) - OpenAI API Dokumentation
+- [Gradio Documentation](https://www.gradio.app/docs) - Gradio Framework Dokumentation
+- [Hugging Face Docs](https://huggingface.co/docs) - Hugging Face Transformers
+
+### Interne Dokumentation
+- Vollständiges Kursskript: `03 doc/GenAI_all_in_one.pdf`
+- Jupyter Notebooks mit ausführlichen Beispielen im `01 ipynb/` Verzeichnis
+- Code-Kommentare und Docstrings in allen Python-Modulen
+- CLAUDE.md: Projektinstruktionen für Claude Code
+
+### Externe Kurse (im Repository enthalten)
+- Google Course GenAI (5-tägig)
+- DeepLearning.AI Kurse zu RAG und Chroma
+- LangChain Tutorials und Course
+
+
+# 12 ⚖️ Lizenz
+
+Der **Quellcode** steht unter der [MIT License](./LICENSE).  
+Die **Kursmaterialien** (z. B. Folien, Texte, Grafiken) sind unter der [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) veröffentlicht.
+
+© 2025 Ralf-42
 
 
 
+---
+
+**Letzte Aktualisierung:** Oktober 2025
+**Version:** 1.1
+**Maintainer:** Ralf-42
