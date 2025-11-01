@@ -23,12 +23,13 @@ GenAI/
 
 ### Kernframeworks
 - **OpenAI API** (>=1.0.0) - GPT-4o-mini, Embeddings, DALL-E
-- **LangChain** (>=0.2.0) - Orchestrierung, Chains, Agents, RAG
+- **LangChain** (>=1.0.0) - Orchestrierung, Chains, Agents, RAG
+- **LangGraph** (>=0.2.0) - Zustandsbasierte Multi-Agent-Workflows
 - **Hugging Face** - Transformers und Community-Modelle
 
 ### Spezialisierte Tools
-- **ChromaDB** - Vektordatenbank für RAG-Systeme
-- **Sentence Transformers** - CLIP für multimodale Embeddings
+- **ChromaDB** (>=0.5.0) - Vektordatenbank für RAG-Systeme
+- **Sentence Transformers** (>=3.0.0) - CLIP für multimodale Embeddings
 - **Gradio** (>=3.x) - UI-Entwicklung für KI-Apps
 - **Ollama** - Lokale Open-Source-Modelle
 
@@ -44,7 +45,8 @@ GenAI/
 | M05 | LLM & Transformer | Architektur und Foundation Models |
 | M06 | Chat & Memory | Konversations-Management |
 | M07 | Output Parser | Strukturierte Ausgaben |
-| M08 | RAG | Retrieval Augmented Generation |
+| M08a | RAG LangChain | Retrieval Augmented Generation |
+| M08b | RAG LangGraph | Advanced RAG (Self-RAG, Corrective RAG) |
 | M09 | Multimodal Bild | Bildgenerierung und -verarbeitung |
 | M10 | Agents | KI-Agenten und Multi-Agent-Systeme |
 | M11 | Gradio | UI-Entwicklung |
@@ -64,6 +66,18 @@ GenAI/
 - Google Colab Account
 - OpenAI API Key (ca. 5 EUR für gesamten Kurs)
 - Hugging Face Account (kostenlos)
+
+## 📦 Installation
+
+Das `genai_lib` Modul kann direkt aus diesem Repository installiert werden:
+
+```bash
+# Mit pip
+pip install git+https://github.com/ralf-42/GenAI.git#subdirectory=04_modul
+
+# Mit uv (empfohlen für Google Colab)
+uv pip install --system git+https://github.com/ralf-42/GenAI.git#subdirectory=04_modul
+```
 
 ## 💡 Nutzung
 
