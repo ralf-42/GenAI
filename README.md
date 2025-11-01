@@ -75,10 +75,10 @@ Alle Notebooks sind eigenständig lauffähig und für Google Colab optimiert. Da
 
 ## ⚖️ Lizenzen
 
-Der **Quellcode** steht unter der [MIT License](./LICENSE).
-Die **Kursmaterialien** (z. B. Folien, Texte, Grafiken) sind unter der [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) veröffentlicht.
-**Northwind-Datenbank** von Microsoft unter Microsoft Public License (Ms-PL).
-Bilder und Videos erstellt mit **Hedra AI** – Nutzung gemäß [Hedra Terms](https://www.hedra.com/terms).
+Der **Quellcode** steht unter der [MIT License](./LICENSE).    
+Die **Kursmaterialien** (z. B. Folien, Texte, Grafiken) sind unter der [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) veröffentlicht.    
+**Northwind-Datenbank** von Microsoft unter Microsoft Public License (Ms-PL).    
+Bilder und Videos erstellt mit **Hedra AI** – Nutzung gemäß [Hedra Terms](https://www.hedra.com/terms).    
 
 © 2025 Ralf-42
 
