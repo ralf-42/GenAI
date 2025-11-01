@@ -7,10 +7,10 @@ def read_requirements():
  
 setup(
     name='genai_lib',
-    version='2.0.1',
+    version='2.1.0',
     author='Ralf Bendig',
     author_email='deine_email@example.com',
-    description='Leichtgewichtige Bibliothek für den Kurs GenAI mit modernem LangChain Support.',
+    description='Leichtgewichtige Bibliothek für den Kurs GenAI mit LangChain 1.0+ Support.',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
     url='https://github.com/ralf-42/GenAI',
