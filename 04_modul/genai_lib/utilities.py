@@ -14,15 +14,15 @@ import subprocess
 
 def check_environment():
     """
-    Gibt die installierte Python-Version aus, listet installierte LangChain-Bibliotheken auf 
+    Gibt die installierte Python-Version aus, listet installierte LangChain- und LangGraph-Bibliotheken auf
     und unterdrückt typische Deprecation-Warnungen im Zusammenhang mit LangChain.
 
-    Diese Funktion ist hilfreich, um schnell die Entwicklungsumgebung für LangChain-Projekte 
+    Diese Funktion ist hilfreich, um schnell die Entwicklungsumgebung für LangChain-Projekte
     zu überprüfen und störende Warnungen im Notebook oder in der Konsole zu vermeiden.
 
     Ausgabe:
         - Python-Version
-        - Liste installierter Pakete, die mit "langchain" beginnen
+        - Liste installierter Pakete, die mit "langchain" oder "langgraph" beginnen
     """
 
     # Python-Version anzeigen
@@ -35,6 +35,20 @@ def check_environment():
         for line in result.stdout.splitlines():
             if line.lower().startswith("langchain"):
                 print(line)
+    except Exception as e:
+        print("Fehler beim Abrufen der Paketliste:", e)
+
+    # LangGraph-Pakete anzeigen
+    print("\nInstallierte LangGraph-Bibliotheken:")
+    try:
+        result = subprocess.run(["pip", "list"], stdout=subprocess.PIPE, text=True)
+        langgraph_found = False
+        for line in result.stdout.splitlines():
+            if line.lower().startswith("langgraph"):
+                print(line)
+                langgraph_found = True
+        if not langgraph_found:
+            print("  (keine installiert)")
     except Exception as e:
         print("Fehler beim Abrufen der Paketliste:", e)
 
