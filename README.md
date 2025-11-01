@@ -74,7 +74,6 @@ Alle Notebooks sind eigenständig lauffähig und für Google Colab optimiert. Da
 
 - Vollständiges Kursskript: `03_skript/GenAI_all_in_one.pdf`
 - Projektinstruktionen: `CLAUDE.md`
-- Externe Kurse: `09_cources/`
 
 ## ⚖️ Lizenzen
 
