@@ -248,15 +248,45 @@ Beispiel:
          "Use three sentences maximum and keep the answer concise.\n\n"
          "Question: {question}\n\nContext: {context}\n\nAnswer:")
     ]
+
+Funktion:
+    load_chat_prompt_template(path)
+        Lädt ein ChatPromptTemplate aus einer .py-Datei (lokal oder GitHub).
+        Bei GitHub-Tree-Links erfolgt automatisch die Umwandlung in einen Raw-Link.
 """
 
+import tempfile
 import importlib.util
+import requests
 from langchain.prompts import ChatPromptTemplate
+
+
+def _convert_github_tree_to_raw(url):
+    """
+    Wandelt einen GitHub-Tree-Link in einen Raw-Link um.
+
+    Beispiel:
+        Input:
+            https://github.com/user/repo/tree/main/path/to/file.py
+        Output:
+            https://raw.githubusercontent.com/user/repo/main/path/to/file.py
+
+    Wird intern von load_chat_prompt_template verwendet, um GitHub-Links
+    automatisch in ladbare Raw-Datei-URLs umzuwandeln.
+    """
+    if "github.com" in url and "/tree/" in url:
+        return url.replace("github.com", "raw.githubusercontent.com").replace("/tree/", "/")
+    return url
 
 
 def load_chat_prompt_template(path):
     """
     Lädt ein Python-basiertes Prompt-Template (.py) und erzeugt ein ChatPromptTemplate-Objekt.
+
+    Unterstützt:
+      - lokale Pfade (z. B. '05_prompt/qa_prompt.py')
+      - GitHub-Tree-Links (automatische Umwandlung in Raw-Link)
+      - direkte Raw-Links
 
     Erwartetes Format in der .py-Datei:
         messages = [
@@ -264,15 +294,26 @@ def load_chat_prompt_template(path):
             ("human", "Question: {question}\\nContext: {context}\\nAnswer:")
         ]
 
-    Parameter:
-        path: Pfad zur .py-Datei, die das Prompt-Template enthält.
-
     Rückgabe:
         ChatPromptTemplate – ein von LangChain nutzbares Prompt-Template-Objekt.
     """
-    if not path.endswith(".py"):
-        raise ValueError("Only .py files are supported.")
+    # GitHub-Tree-URL automatisch umwandeln
+    path = _convert_github_tree_to_raw(path)
 
+    # Falls URL → herunterladen und temporär speichern
+    if path.startswith("http"):
+        response = requests.get(path)
+        response.raise_for_status()
+        with tempfile.NamedTemporaryFile(suffix=".py", delete=False) as tmp:
+            tmp.write(response.content)
+            tmp_path = tmp.name
+        path = tmp_path
+
+    # Sicherstellen, dass eine Python-Datei vorliegt
+    if not path.endswith(".py"):
+        raise ValueError("Only .py prompt files are supported.")
+
+    # Modul dynamisch laden
     spec = importlib.util.spec_from_file_location("prompt_module", path)
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
@@ -280,5 +321,4 @@ def load_chat_prompt_template(path):
     if not hasattr(module, "messages"):
         raise KeyError("Python prompt file must define a variable 'messages'.")
 
-    messages = module.messages
-    return ChatPromptTemplate.from_messages(messages)
+    return ChatPromptTemplate.from_messages(module.messages)
