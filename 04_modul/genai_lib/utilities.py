@@ -258,7 +258,7 @@ Funktion:
 import tempfile
 import importlib.util
 import requests
-from langchain.prompts import ChatPromptTemplate
+from langchain_core.prompts import ChatPromptTemplate
 
 
 def _convert_github_tree_to_raw(url):
