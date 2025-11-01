@@ -16,8 +16,7 @@ GenAI/
 ├── 02_daten/       # Trainingsdaten und Beispieldateien
 ├── 03_skript/      # Kursdokumentation und Präsentationen
 ├── 04_modul/       # Python-Module und Bibliotheken
-├── 05_prompt/      # Prompt-Templates
-└── 06_podcast/     # Podcast-Materialien
+└── 05_prompt/      # Prompt-Templates
 ```
 
 ## 🛠️ Technologie-Stack
