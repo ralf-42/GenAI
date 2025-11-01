@@ -474,8 +474,8 @@ ANTWORT:"""
     text_sources = [s for s in sources if s['type'] == 'text_document']
     image_sources = [s for s in sources if s['type'] == 'image_description']
 
-    result = f"🤖 LLM-ANTWORT:\n{'='*50}\n{response}\n\n"
-    result += f"📚 VERWENDETE QUELLEN:\n{'='*50}\n"
+    result = f"### 🤖 LLM-Antwort\n\n{response}\n\n"
+    result += f"### 📚 Verwendete Quellen\n"
 
     if text_sources:
         result += f"\n   📄 Text-Dokumente ({len(text_sources)}):\n"
@@ -659,9 +659,9 @@ def search_text_by_image(components, query_image_path, k=3, k_text=3):
     if not path.exists():
         return f"❌ Query-Bild nicht gefunden: {query_image_path}"
 
-    print(f"\n{'='*50}")
+    print(f"\n{'='*40}")
     print(f"🔍 Bild → Text Suche für: {path.name}")
-    print(f"{'='*50}\n")
+    print(f"{'='*40}\n")
 
     # 1. Ähnliche Bilder finden
     similar_images = search_similar_images(components, query_image_path, k)
@@ -753,30 +753,30 @@ def search_text_by_image(components, query_image_path, k=3, k_text=3):
         # Prompt für LLM
         prompt = f"""Du hast ein Query-Bild erhalten. Basierend auf visueller Ähnlichkeit und semantischer Suche wurden folgende Informationen gefunden.
 
-VISUELL ÄHNLICHE BILDER UND IHRE BESCHREIBUNGEN:
+Visuell ähnliche Bilder und ihre Beschreibungen:
 {image_context}
 
-{'RELEVANTE TEXT-DOKUMENTE:' if text_documents else '(Keine relevanten Text-Dokumente gefunden)'}
+{'Relevante Text-Dokumente:' if text_documents else '(Keine relevanten Text-Dokumente gefunden)'}
 {text_context if text_documents else ''}
 
-AUFGABE:
+Aufgabe:
 Erstelle eine prägnante Zusammenfassung der wichtigsten Informationen, die zum Query-Bild passen.
 Beschreibe Gemeinsamkeiten, wichtige Merkmale und relevante Kontextinformationen aus den Texten."""
 
         response = components.llm.invoke(prompt).content
 
         # Klar strukturierte Ausgabe
-        result = f"🤖 LLM-ZUSAMMENFASSUNG:\n{'='*50}\n{response}\n\n"
+        result = f"### 🤖 LLM-Antwort\n\n{response}\n\n"
 
         # Bild-Quellen (visuell ähnlich via CLIP)
-        result += f"🔍 VERWENDETE QUELLEN (visuell ähnliche Bilder via CLIP):\n{'='*50}\n"
+        result += f"### 🔍 Verwendete Quellen (visuell ähnliche Bilder via CLIP)\n"
         for i, img in enumerate(similar_images, 1):
             result += f"   {i}. {img['filename']} (Ähnlichkeit: {img['similarity']})\n"
             if img['description']:
                 result += f"      📝 {img['description'][:300]}...\n"
 
         # Text-Dokumente (via semantische Suche basierend auf Bildbeschreibungen)
-        result += f"\n📚 RELEVANTE TEXT-DOKUMENTE (via semantische Suche):\n{'='*50}\n"
+        result += f"\n### 📚 Relevante Text-Dokumente (via semantische Suche)\n"
         if text_documents:
             for i, doc in enumerate(text_documents, 1):
                 result += f"   {i}. {doc['filename']} (Ähnlichkeit: {doc['similarity']})\n"
@@ -810,9 +810,9 @@ def multimodal_search(components, query, k_text=3, k_images=3, enable_cross_moda
     Returns:
         Formatierter String mit allen Ergebnissen
     """
-    print(f"\n{'='*50}")
+    print(f"\n{'='*40}")
     print(f"🔍 Multimodale Suche: {query}")
-    print(f"{'='*50}\n")
+    print(f"{'='*40}\n")
 
     # FIX 3: Text-Suche nur EINMAL durchführen und Ergebnisse wiederverwenden
     docs_with_scores = components.text_collection.similarity_search_with_score(query, k=k_text*2)
@@ -924,13 +924,13 @@ ANTWORT:"""
     # Ergebnisse klar strukturiert ausgeben
     result = ""
 
-    # 1. LLM-ZUSAMMENFASSUNG
+    # 1. LLM-ANTWORT
     if isinstance(text_results, dict):
-        result += f"🤖 LLM-ZUSAMMENFASSUNG:\n{'='*50}\n"
+        result += f"### 🤖 LLM-Antwort\n\n"
         result += f"{text_results['llm_response']}\n\n"
 
         # 2. QUELLEN AUS TEXTSUCHE
-        result += f"📚 VERWENDETE QUELLEN (via semantische Textsuche):\n{'='*50}\n"
+        result += f"### 📚 Verwendete Quellen (via semantische Textsuche)\n"
 
         if text_results['text_sources']:
             result += f"\n   📄 Text-Dokumente ({len(text_results['text_sources'])}):\n"
@@ -948,10 +948,10 @@ ANTWORT:"""
         result += "\n"
     else:
         # Falls keine relevanten Dokumente gefunden wurden
-        result += f"📚 TEXT-SUCHE:\n{'='*50}\n{text_results}\n\n"
+        result += f"### 📚 Text-Suche\n\n{text_results}\n\n"
 
     # 3. BILDER VIA CLIP (direkte visuelle Suche)
-    result += f"🔍 BILDER VIA CLIP (direkte visuelle Ähnlichkeitssuche):\n{'='*50}\n"
+    result += f"### 🔍 Bilder via CLIP (direkte visuelle Ähnlichkeitssuche)\n"
     if image_results:
         for i, img in enumerate(image_results, 1):
             result += f"   {i}. {img['filename']} (Ähnlichkeit: {img['similarity']})\n"
@@ -963,7 +963,7 @@ ANTWORT:"""
     result += "\n"
 
     # 4. CROSS-MODAL RETRIEVAL (Text → Bild Verknüpfung)
-    result += f"🔗 BILDER VIA CROSS-MODAL RETRIEVAL (Text → Bild Verknüpfung):\n{'='*50}\n"
+    result += f"### 🔗 Bilder via Cross-Modal Retrieval (Text → Bild Verknüpfung)\n"
     if cross_modal_images:
         for i, img in enumerate(cross_modal_images, 1):
             result += f"   {i}. {img['filename']}\n"
