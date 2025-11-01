@@ -228,31 +228,57 @@ def mprint(text):
     display(Markdown(text))
 
 
-def process_response(response):
+
+"""
+prompt_loader.py
+----------------
+Hilfsfunktion zum Laden von ChatPromptTemplates aus Python-Dateien.
+
+Ein Prompt-Template wird in einer separaten .py-Datei definiert,
+die eine Variable `messages` enthält. Diese Struktur kann leicht
+versioniert und in Kursprojekten oder RAG-Pipelines wiederverwendet werden.
+
+Beispiel:
+    messages = [
+        ("system", "{system_prompt}"),
+        ("human",
+         "You are an assistant for question-answering tasks. "
+         "Use the following pieces of retrieved context to answer the question. "
+         "If you don't know the answer, just say that you don't know. "
+         "Use three sentences maximum and keep the answer concise.\n\n"
+         "Question: {question}\n\nContext: {context}\n\nAnswer:")
+    ]
+"""
+
+import importlib.util
+from langchain.prompts import ChatPromptTemplate
+
+
+def load_chat_prompt_template(path):
     """
-    Verarbeitet die Antwort eines LLM-Aufrufs und extrahiert strukturierte Informationen.
+    Lädt ein Python-basiertes Prompt-Template (.py) und erzeugt ein ChatPromptTemplate-Objekt.
 
-    Diese Hilfsfunktion nimmt ein Antwortobjekt (z. B. vom Typ `AIMessage`) entgegen,
-    extrahiert den Textinhalt sowie Token-Nutzungsdaten und gibt diese als Wörterbuch zurück.
+    Erwartetes Format in der .py-Datei:
+        messages = [
+            ("system", "{system_prompt}"),
+            ("human", "Question: {question}\\nContext: {context}\\nAnswer:")
+        ]
 
-    Args:
-        response (AIMessage): Das Antwortobjekt des LLMs mit Metadaten.
+    Parameter:
+        path: Pfad zur .py-Datei, die das Prompt-Template enthält.
 
-    Returns:
-        dict: Ein Dictionary mit folgenden Schlüsseln:
-            - 'text' (str): Der bereinigte Textinhalt der Modellantwort.
-            - 'tokens_total' (int or None): Gesamtanzahl der verwendeten Tokens.
-            - 'tokens_prompt' (int or None): Anzahl Tokens für den Prompt.
-            - 'tokens_completion' (int or None): Anzahl Tokens für die generierte Antwort.
+    Rückgabe:
+        ChatPromptTemplate – ein von LangChain nutzbares Prompt-Template-Objekt.
     """
-    meta = response.response_metadata or {}
-    usage = meta.get("token_usage", {})
+    if not path.endswith(".py"):
+        raise ValueError("Only .py files are supported.")
 
-    return {
-        "text": response.content.strip(),
-        "tokens_total": usage.get("total_tokens"),
-        "tokens_prompt": usage.get("prompt_tokens"),
-        "tokens_completion": usage.get("completion_tokens")
-    }
+    spec = importlib.util.spec_from_file_location("prompt_module", path)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
 
+    if not hasattr(module, "messages"):
+        raise KeyError("Python prompt file must define a variable 'messages'.")
 
+    messages = module.messages
+    return ChatPromptTemplate.from_messages(messages)
