@@ -277,19 +277,24 @@ from langchain_core.prompts import ChatPromptTemplate
 
 def _convert_github_tree_to_raw(url):
     """
-    Wandelt einen GitHub-Tree-Link in einen Raw-Link um.
+    Wandelt einen GitHub-Tree- oder Blob-Link in einen Raw-Link um.
 
-    Beispiel:
-        Input:
+    Beispiele:
+        Input (Tree):
             https://github.com/user/repo/tree/main/path/to/file.py
+        Input (Blob):
+            https://github.com/user/repo/blob/main/path/to/file.py
         Output:
             https://raw.githubusercontent.com/user/repo/main/path/to/file.py
 
     Wird intern von load_chat_prompt_template verwendet, um GitHub-Links
     automatisch in ladbare Raw-Datei-URLs umzuwandeln.
     """
-    if "github.com" in url and "/tree/" in url:
-        return url.replace("github.com", "raw.githubusercontent.com").replace("/tree/", "/")
+    if "github.com" in url:
+        if "/tree/" in url:
+            return url.replace("github.com", "raw.githubusercontent.com").replace("/tree/", "/")
+        elif "/blob/" in url:
+            return url.replace("github.com", "raw.githubusercontent.com").replace("/blob/", "/")
     return url
 
 
