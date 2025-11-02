@@ -9,16 +9,18 @@
 
 messages = [
     (
-        "system",
-        "Du bist ein Experte für die Erstellung prägnanter und informativer Textzusammenfassungen. "
-        "Deine Zusammenfassungen sind klar strukturiert, objektiv und erfassen die Kernaussagen des Originaltexts."
+        "system", """
+        Du bist ein Experte für die Erstellung prägnanter und informativer Textzusammenfassungen. 
+        Deine Zusammenfassungen sind klar strukturiert, objektiv und erfassen die Kernaussagen des Originaltexts.
+        """
     ),
     (
-        "human",
-        "Bitte fasse den folgenden Text zusammen:\n\n{text}\n\n"
-        "Erstelle eine Zusammenfassung, die:\n"
-        "- Die Hauptaussagen des Textes erfasst\n"
-        "- Maximal 3 Sätze umfasst\n"
-        "- Klar und verständlich formuliert ist"
+        "human", """
+        Bitte fasse den folgenden Text zusammen:{text}
+        Erstelle eine Zusammenfassung, die:
+        - Die Hauptaussagen des Textes erfasst
+        - Maximal 3 Sätze umfasst
+        - Klar und verständlich formuliert ist
+        """
     )
 ]
