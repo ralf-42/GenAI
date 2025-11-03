@@ -493,9 +493,9 @@ ANTWORT:"""
     return result
 
 
-def search_images(components, query, k=3):
+def _get_images_raw(components, query, k=3):
     """
-    Durchsucht Bilder mit Text-Query über CLIP und generiert LLM-Antwort
+    Interne Hilfsfunktion: Durchsucht Bilder mit Text-Query über CLIP
 
     Args:
         components: RAG-System-Komponenten
@@ -503,10 +503,10 @@ def search_images(components, query, k=3):
         k: Anzahl Ergebnisse
 
     Returns:
-        Formatierter String mit LLM-Antwort und Bildquellen
+        Liste von Bild-Dictionaries oder leere Liste
     """
     if components.image_collection.count() == 0:
-        return "❌ Keine Bilder in der Datenbank"
+        return []
 
     # Text-Query in Bild-Embedding-Raum umwandeln
     query_embedding = components.clip_model.encode(query).tolist()
@@ -519,7 +519,7 @@ def search_images(components, query, k=3):
     )
 
     if not results['ids'][0]:
-        return "❌ Keine relevanten Bilder gefunden"
+        return []
 
     # Ergebnisse filtern und formatieren
     image_results = [
@@ -533,6 +533,24 @@ def search_images(components, query, k=3):
         for distance, metadata in zip(results['distances'][0], results['metadatas'][0])
         if distance < components.config.image_threshold
     ]
+
+    return image_results
+
+
+def search_images(components, query, k=3):
+    """
+    Durchsucht Bilder mit Text-Query über CLIP und generiert LLM-Antwort
+
+    Args:
+        components: RAG-System-Komponenten
+        query: Suchanfrage
+        k: Anzahl Ergebnisse
+
+    Returns:
+        Formatierter String mit LLM-Antwort und Bildquellen
+    """
+    # Hole rohe Bildergebnisse
+    image_results = _get_images_raw(components, query, k)
 
     if not image_results:
         return "❌ Keine ausreichend ähnlichen Bilder gefunden"
@@ -920,8 +938,8 @@ ANTWORT:"""
             'image_desc_sources': image_desc_sources
         }
 
-    # 2. Direkte Bild-Suche über CLIP
-    image_results = search_images(components, query, k_images)
+    # 2. Direkte Bild-Suche über CLIP (nutzt interne Funktion für raw data)
+    image_results = _get_images_raw(components, query, k_images)
 
     # 3. Cross-Modal-Retrieval (FIX 2: N+1 Query Problem behoben)
     cross_modal_images = []
