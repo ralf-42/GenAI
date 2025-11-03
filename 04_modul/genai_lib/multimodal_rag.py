@@ -714,10 +714,6 @@ def search_text_by_image(components, query_image_path, k=3, k_text=3):
     if not path.exists():
         return f"❌ Query-Bild nicht gefunden: {query_image_path}"
 
-    print(f"\n{'='*40}")
-    print(f"🔍 Bild → Text Suche für: {path.name}")
-    print(f"{'='*40}\n")
-
     # 1. Ähnliche Bilder finden
     similar_images = search_similar_images(components, query_image_path, k)
 
@@ -865,10 +861,6 @@ def multimodal_search(components, query, k_text=3, k_images=3, enable_cross_moda
     Returns:
         Formatierter String mit allen Ergebnissen
     """
-    print(f"\n{'='*40}")
-    print(f"🔍 Multimodale Suche: {query}")
-    print(f"{'='*40}\n")
-
     # FIX 3: Text-Suche nur EINMAL durchführen und Ergebnisse wiederverwenden
     docs_with_scores = components.text_collection.similarity_search_with_score(query, k=k_text*2)
 
