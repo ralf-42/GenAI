@@ -495,7 +495,7 @@ ANTWORT:"""
 
 def search_images(components, query, k=3):
     """
-    Durchsucht Bilder mit Text-Query über CLIP
+    Durchsucht Bilder mit Text-Query über CLIP und generiert LLM-Antwort
 
     Args:
         components: RAG-System-Komponenten
@@ -503,10 +503,10 @@ def search_images(components, query, k=3):
         k: Anzahl Ergebnisse
 
     Returns:
-        Liste von Bildern mit Metadaten
+        Formatierter String mit LLM-Antwort und Bildquellen
     """
     if components.image_collection.count() == 0:
-        return []
+        return "❌ Keine Bilder in der Datenbank"
 
     # Text-Query in Bild-Embedding-Raum umwandeln
     query_embedding = components.clip_model.encode(query).tolist()
@@ -519,10 +519,10 @@ def search_images(components, query, k=3):
     )
 
     if not results['ids'][0]:
-        return []
+        return "❌ Keine relevanten Bilder gefunden"
 
     # Ergebnisse filtern und formatieren
-    return [
+    image_results = [
         {
             "filename": metadata.get("filename", "Unbekannt"),
             "path": metadata.get("source", ""),
@@ -533,6 +533,43 @@ def search_images(components, query, k=3):
         for distance, metadata in zip(results['distances'][0], results['metadatas'][0])
         if distance < components.config.image_threshold
     ]
+
+    if not image_results:
+        return "❌ Keine ausreichend ähnlichen Bilder gefunden"
+
+    # Kontext aus Bildbeschreibungen zusammenstellen
+    context_parts = []
+    for img in image_results:
+        if img['description']:
+            context_parts.append(
+                f"Bild: {img['filename']} (Ähnlichkeit: {img['similarity']})\n"
+                f"Beschreibung: {img['description']}"
+            )
+
+    context = "\n\n---\n\n".join(context_parts)
+
+    # LLM-Antwort generieren
+    prompt = f"""Beantworte die Frage präzise basierend auf den gefundenen Bildbeschreibungen.
+
+BILDBESCHREIBUNGEN:
+{context}
+
+FRAGE: {query}
+
+ANTWORT:"""
+
+    llm_response = components.llm.invoke(prompt).content
+
+    # Ausgabe formatieren
+    result = f"### 🤖 LLM-Antwort\n\n{llm_response}\n\n"
+    result += f"### 🖼️ Gefundene Bilder (via CLIP)\n\n"
+
+    for i, img in enumerate(image_results, 1):
+        result += f"   {i}. {img['filename']} (Ähnlichkeit: {img['similarity']})\n"
+        if img['description']:
+            result += f"      📝 {img['description'][:300]}...\n"
+
+    return result
 
 
 def find_related_images_from_text(components, text_doc_ids, k=3):
