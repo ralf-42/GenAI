@@ -1,20 +1,24 @@
 #
 # utilities.py
 #
-# Stand: 21.07.2025
+# Stand: 23.11.2025
 #
-from IPython.display import display, Markdown
+from IPython.display import display, Markdown, SVG
+from IPython import get_ipython
 import requests
 import sys
 import warnings
 import subprocess
+import tempfile
+import importlib.util
+from langchain_core.prompts import ChatPromptTemplate
 #
 # -- Sammlung von Standard-Funktionen für den Kurs
 #
 
 def check_environment():
     """
-    Gibt die installierte Python-Version aus, listet installierte LangChain- und LangGraph-Bibliotheken auf
+    Gibt die installierte Python-Version aus, listet installierte LangChain-Bibliotheken auf
     und unterdrückt typische Deprecation-Warnungen im Zusammenhang mit LangChain.
 
     Diese Funktion ist hilfreich, um schnell die Entwicklungsumgebung für LangChain-Projekte
@@ -22,7 +26,7 @@ def check_environment():
 
     Ausgabe:
         - Python-Version
-        - Liste installierter Pakete, die mit "langchain" oder "langgraph" beginnen
+        - Liste installierter Pakete, die mit "langchain" beginnen
     """
 
     # Python-Version anzeigen
@@ -38,52 +42,33 @@ def check_environment():
     except Exception as e:
         print("Fehler beim Abrufen der Paketliste:", e)
 
-    # LangGraph-Pakete anzeigen
-    print("\nInstallierte LangGraph-Bibliotheken:")
-    try:
-        result = subprocess.run(["pip", "list"], stdout=subprocess.PIPE, text=True)
-        langgraph_found = False
-        for line in result.stdout.splitlines():
-            if line.lower().startswith("langgraph"):
-                print(line)
-                langgraph_found = True
-        if not langgraph_found:
-            print("  (keine installiert)")
-    except Exception as e:
-        print("Fehler beim Abrufen der Paketliste:", e)
-
     # Warnungen unterdrücken
     warnings.filterwarnings("ignore")
     warnings.filterwarnings("ignore", category=DeprecationWarning)
     warnings.filterwarnings("ignore", category=UserWarning, module="langsmith.client")
+    warnings.simplefilter("ignore", ImportWarning)
 
-# Importiere die IPython-Umgebung, um Shell-Befehle wie !uv pip install ausführen zu können
-from IPython import get_ipython
-
-# Unterdrücke ImportWarnings, die z. B. durch inkompatible Import-Hooks in Colab ausgelöst werden können
-import warnings
-warnings.simplefilter("ignore", ImportWarning)
 
 def install_packages(packages):
     """
     Installiert eine Liste von Python-Paketen mit 'uv pip install' in einer Google-Colab-Umgebung,
     wenn sie noch nicht importierbar sind.
-    
+
     Parameter:
     ----------
     packages : list of str or list of tuple
         Eine Liste von Paketnamen oder Tupeln (install_name, import_name).
         Beispiele:
-        - ['numpy', 'pandas'] 
+        - ['numpy', 'pandas']
         - [('markitdown[all]', 'markitdown'), 'langchain_chroma']
-    
+
     Funktionsweise:
     ---------------
     - Trennt zwischen Installationsname (für pip) und Importname (für Python).
     - Versucht, jedes angegebene Modul mit 'import' zu laden.
     - Falls der Import fehlschlägt: führt 'uv pip install --system -q <paketname>' aus.
     - Gibt für jedes Paket eine Erfolgsmeldung oder eine Fehlermeldung aus.
-    
+
     Voraussetzungen:
     ----------------
     - Die Funktion ist für die Ausführung in Google Colab gedacht.
@@ -91,10 +76,10 @@ def install_packages(packages):
     - Die IPython-Umgebung muss aktiv sein (z. B. in Colab-Notebooks).
     """
     import importlib
-    
+
     # Zugriff auf das aktuelle IPython-Shell-Objekt
     shell = get_ipython()
-    
+
     for package in packages:
         # Bestimme Install- und Import-Namen
         if isinstance(package, tuple):
@@ -102,23 +87,23 @@ def install_packages(packages):
         else:
             # Falls nur ein Name gegeben ist, verwende ihn für beide
             install_name = import_name = package
-        
+
         try:
             # Versuche, das Modul zu importieren
             # Verwende importlib anstatt exec für sicheren Import
             importlib.import_module(import_name)
             print(f"✅ {import_name} bereits verfügbar")
-            
+
         except ImportError:
             try:
                 # Falls ImportError: Installiere das Paket über uv
                 print(f"🔄 Installiere {install_name}...")
                 shell.run_line_magic("system", f"uv pip install --system -q {install_name}")
-                
+
                 # Versuche erneut zu importieren nach der Installation
                 importlib.import_module(import_name)
                 print(f"✅ {install_name} erfolgreich installiert und importiert")
-                
+
             except ImportError as import_error:
                 print(f"❌ {install_name} installiert, aber Import von {import_name} fehlgeschlagen: {import_error}")
             except Exception as install_error:
@@ -169,11 +154,11 @@ def setup_api_keys(key_names, create_globals=True):
     """
     Setzt angegebene API-Keys aus Google Colab userdata als Umgebungsvariablen
     und optional als globale Variablen.
-    
+
     Args:
         key_names (list[str]): Liste der Namen der API-Keys (z.B. ["OPENAI_API_KEY", "HF_TOKEN"]).
         create_globals (bool): Wenn True, werden auch globale Variablen erstellt (Standard: True).
-    
+
     Hinweis:
         Die API-Keys werden direkt in die Umgebungsvariablen geschrieben,
         aber NICHT zurückgegeben, um unbeabsichtigte Sichtbarkeit zu vermeiden.
@@ -182,52 +167,35 @@ def setup_api_keys(key_names, create_globals=True):
     from google.colab import userdata
     from os import environ
     import inspect
-    
+
     # Zugriff auf den globalen Namespace des aufrufenden Moduls
     caller_frame = inspect.currentframe().f_back
     caller_globals = caller_frame.f_globals
-    
+
     for key in key_names:
         try:
             value = userdata.get(key)
             if value:
                 # Umgebungsvariable setzen
                 environ[key] = value
-                
+
                 # Optional: Globale Variable im aufrufenden Modul erstellen
                 if create_globals:
                     caller_globals[key] = value
-                    
+
                 print(f"✓ {key} erfolgreich gesetzt")
             else:
                 print(f"⚠ {key} nicht in userdata gefunden")
-                
+
         except Exception as e:
             print(f"✗ Fehler beim Setzen von {key}: {e}")
-
-
-# Beispiel für die Verwendung:
-if __name__ == "__main__":
-    # API-Keys setzen (mit globalen Variablen)
-    setup_api_keys([
-        "OPENAI_API_KEY", 
-        "HF_TOKEN", 
-        "ANTHROPIC_API_KEY"
-    ])
-    
-    # Jetzt können die Keys sowohl als Umgebungsvariable als auch als globale Variable verwendet werden:
-    # print(OPENAI_API_KEY)  # Globale Variable
-    # print(os.environ["OPENAI_API_KEY"])  # Umgebungsvariable
-    
-    # Ohne globale Variablen (nur Umgebungsvariablen):
-    # setup_api_keys(["ANOTHER_KEY"], create_globals=False)            
 
 
 def mprint(text):
     """
     Gibt den übergebenen Text als Markdown in Jupyter-Notebooks aus.
 
-    Diese Funktion nutzt IPythons `display()` zusammen mit `Markdown()`, 
+    Diese Funktion nutzt IPythons `display()` zusammen mit `Markdown()`,
     um formatierte Markdown-Ausgabe in einem Jupyter-Notebook zu ermöglichen.
 
     Parameter:
@@ -237,64 +205,78 @@ def mprint(text):
 
     Beispiel:
     ---------
-    >>> mdprint("# Überschrift\n**fett** und *kursiv*")
+    >>> mprint("# Überschrift\n**fett** und *kursiv*")
     """
     display(Markdown(text))
 
 
+def mermaid(code: str):
+    """
+    Rendert Mermaid-Diagramme über den kroki.io Service.
 
-"""
-prompt_loader.py
-----------------
-Hilfsfunktion zum Laden von ChatPromptTemplates aus Python-Dateien.
+    Diese Funktion sendet Mermaid-Code an den kroki.io Online-Service
+    und zeigt das resultierende SVG-Diagramm direkt im Jupyter-Notebook an.
 
-Ein Prompt-Template wird in einer separaten .py-Datei definiert,
-die eine Variable `messages` enthält. Diese Struktur kann leicht
-versioniert und in Kursprojekten oder RAG-Pipelines wiederverwendet werden.
+    Mermaid ist eine JavaScript-basierte Diagramm- und Charting-Tool,
+    das aus Text-Definitionen Diagramme generiert (z.B. Flowcharts,
+    Sequenzdiagramme, Gantt-Diagramme, etc.).
 
-Beispiel:
-    messages = [
-        ("system", "{system_prompt}"),
-        ("human",
-         "You are an assistant for question-answering tasks. "
-         "Use the following pieces of retrieved context to answer the question. "
-         "If you don't know the answer, just say that you don't know. "
-         "Use three sentences maximum and keep the answer concise.\n\n"
-         "Question: {question}\n\nContext: {context}\n\nAnswer:")
-    ]
+    Parameter:
+    ----------
+    code : str
+        Mermaid-Code, der das gewünschte Diagramm beschreibt.
 
-Funktion:
-    load_chat_prompt_template(path)
-        Lädt ein ChatPromptTemplate aus einer .py-Datei (lokal oder GitHub).
-        Bei GitHub-Tree-Links erfolgt automatisch die Umwandlung in einen Raw-Link.
-"""
+    Beispiel:
+    ---------
+    >>> mermaid('''
+    ... graph TD
+    ...     A[Start] --> B[Process]
+    ...     B --> C[End]
+    ... ''')
 
-import tempfile
-import importlib.util
-import requests
-from langchain_core.prompts import ChatPromptTemplate
+    >>> mermaid('''
+    ... sequenceDiagram
+    ...     User->>Agent: Frage stellen
+    ...     Agent->>LLM: Query senden
+    ...     LLM-->>Agent: Antwort
+    ...     Agent-->>User: Ergebnis
+    ... ''')
 
+    Hinweise:
+    ---------
+    - Benötigt eine aktive Internetverbindung zu kroki.io
+    - Unterstützt alle Mermaid-Diagrammtypen (graph, sequenceDiagram, gantt, etc.)
+    - Timeout ist auf 15 Sekunden gesetzt
+
+    Raises:
+    -------
+    requests.HTTPError
+        Wenn der kroki.io Service nicht erreichbar ist oder ein Fehler auftritt.
+    """
+    r = requests.post("https://kroki.io/mermaid/svg", data=code.encode("utf-8"), timeout=15)
+    r.raise_for_status()
+    display(SVG(r.text))
+
+
+# ============================================================================
+# PROMPT TEMPLATE LOADER
+# ============================================================================
 
 def _convert_github_tree_to_raw(url):
     """
-    Wandelt einen GitHub-Tree- oder Blob-Link in einen Raw-Link um.
+    Wandelt einen GitHub-Tree-Link in einen Raw-Link um.
 
-    Beispiele:
-        Input (Tree):
+    Beispiel:
+        Input:
             https://github.com/user/repo/tree/main/path/to/file.py
-        Input (Blob):
-            https://github.com/user/repo/blob/main/path/to/file.py
         Output:
             https://raw.githubusercontent.com/user/repo/main/path/to/file.py
 
     Wird intern von load_chat_prompt_template verwendet, um GitHub-Links
     automatisch in ladbare Raw-Datei-URLs umzuwandeln.
     """
-    if "github.com" in url:
-        if "/tree/" in url:
-            return url.replace("github.com", "raw.githubusercontent.com").replace("/tree/", "/")
-        elif "/blob/" in url:
-            return url.replace("github.com", "raw.githubusercontent.com").replace("/blob/", "/")
+    if "github.com" in url and "/tree/" in url:
+        return url.replace("github.com", "raw.githubusercontent.com").replace("/tree/", "/")
     return url
 
 
@@ -302,19 +284,35 @@ def load_chat_prompt_template(path):
     """
     Lädt ein Python-basiertes Prompt-Template (.py) und erzeugt ein ChatPromptTemplate-Objekt.
 
+    Ein Prompt-Template wird in einer separaten .py-Datei definiert,
+    die eine Variable `messages` enthält. Diese Struktur kann leicht
+    versioniert und in Kursprojekten oder RAG-Pipelines wiederverwendet werden.
+
+    Beispiel Prompt-Datei:
+        messages = [
+            ("system", "{system_prompt}"),
+            ("human",
+             "You are an assistant for question-answering tasks. "
+             "Use the following pieces of retrieved context to answer the question. "
+             "If you don't know the answer, just say that you don't know. "
+             "Use three sentences maximum and keep the answer concise.\n\n"
+             "Question: {question}\n\nContext: {context}\n\nAnswer:")
+        ]
+
     Unterstützt:
       - lokale Pfade (z. B. '05_prompt/qa_prompt.py')
       - GitHub-Tree-Links (automatische Umwandlung in Raw-Link)
       - direkte Raw-Links
 
-    Erwartetes Format in der .py-Datei:
-        messages = [
-            ("system", "{system_prompt}"),
-            ("human", "Question: {question}\\nContext: {context}\\nAnswer:")
-        ]
+    Args:
+        path (str): Pfad zur .py-Datei (lokal oder URL)
 
-    Rückgabe:
-        ChatPromptTemplate – ein von LangChain nutzbares Prompt-Template-Objekt.
+    Returns:
+        ChatPromptTemplate: Ein von LangChain nutzbares Prompt-Template-Objekt.
+
+    Raises:
+        ValueError: Wenn die Datei keine .py-Datei ist
+        KeyError: Wenn die Datei keine 'messages'-Variable enthält
     """
     # GitHub-Tree-URL automatisch umwandeln
     path = _convert_github_tree_to_raw(path)
@@ -341,3 +339,25 @@ def load_chat_prompt_template(path):
         raise KeyError("Python prompt file must define a variable 'messages'.")
 
     return ChatPromptTemplate.from_messages(module.messages)
+
+
+# ============================================================================
+# BEISPIEL-VERWENDUNG
+# ============================================================================
+
+if __name__ == "__main__":
+    # API-Keys setzen (mit globalen Variablen)
+    # setup_api_keys([
+    #     "OPENAI_API_KEY",
+    #     "HF_TOKEN",
+    #     "ANTHROPIC_API_KEY"
+    # ])
+
+    # Jetzt können die Keys sowohl als Umgebungsvariable als auch als globale Variable verwendet werden:
+    # print(OPENAI_API_KEY)  # Globale Variable
+    # print(os.environ["OPENAI_API_KEY"])  # Umgebungsvariable
+
+    # Ohne globale Variablen (nur Umgebungsvariablen):
+    # setup_api_keys(["ANOTHER_KEY"], create_globals=False)
+
+    print("✅ utilities.py geladen")
