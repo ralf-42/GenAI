@@ -375,8 +375,9 @@ Die Embeddings sind die **Brücke zwischen rohem Text und neuronaler Verarbeitun
 > Die siebenstufige Fine-Tuning-Pipeline bietet einen strukturierten Ansatz vom Datenmanagement bis zur kontinuierlichen Überwachung, während parameter-effiziente Methoden die Ressourcennutzung optimieren. Durch den gezielten Einsatz dieser Techniken können Entwickler leistungsfähige KI-Lösungen erstellen, die genau auf ihre spezifischen Anforderungen zugeschnitten sind.
 ---
 
+
 ---
 
-**Version:** 1.0
-**Stand:** November 2025
-**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
+**Version:** 1.0     
+**Stand:** November 2025    
+**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.     

@@ -110,9 +110,10 @@ Durch die Kombination verschiedener Datentypen ermöglichen multimodale Modelle 
 
 Mithilfe neuronaler Netze – typischerweise Convolutional Neural Networks (CNNs) oder Transformer-Modelle wie CLIP – werden hochdimensionale Bilddaten in kompakte Vektoren umgewandelt. Diese Embeddings ermöglichen Aufgaben wie Bildähnlichkeitssuche, Clustering oder die Kombination von Bild- und Textdaten für multimodale Modelle.  
 
-[Image-Embeddings](https://mediapipe-studio.webapps.google.com/studio/demo/image_embedder)
+[Image-Embeddings](https://mediapipe-studio.webapps.google.com/studio/demo/image_embedder)     
+
 ---
 
-**Version:** 1.0
-**Stand:** November 2025
-**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
+**Version:** 1.0     
+**Stand:** November 2025     
+**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.     

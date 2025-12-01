@@ -53,7 +53,7 @@ Ein Transformer lernt diese Verbindungen automatisch durch **Aufmerksamkeit**:
 
 # 3 Wie funktioniert das technisch? 
 
-![](https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250309190825.png)
+<img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250309190825.png" alt="Transformer Architektur" width="600">
 
 ## 3.1 Wörter werden zu Zahlen → Embedding
 - Computer können nur mit Zahlen arbeiten
@@ -103,7 +103,7 @@ Dazu stellt sich der Transformer bei jedem Wort drei zentrale Fragen:
 
 
 
-![](https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/self_attention.png)
+<img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/self_attention.png" alt="Self-Attention Mechanismus" width="600">
 
 
 
@@ -162,14 +162,14 @@ Es sieht beim Vorhersagen nur den bisherigen Kontext, genau wie ein Mensch, der 
 Es simuliert damit echtes Sprachverständnis im Schreibprozess.
 
 
-![](https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/self_attention_2.png)
+<img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/self_attention_2.png" alt="Masked Self-Attention" width="600">
 
 
 
 # 4 Drei Haupttypen von Transformern
 
-[Transformer](https://editor.p5js.org/ralf.bendig.rb/full/I1TTpJk-D)
-[Autoregressives Modell](https://poloclub.github.io/transformer-explainer/)    
+[Transformer](https://editor.p5js.org/ralf.bendig.rb/full/I1TTpJk-D)          
+[Autoregressives Modell](https://poloclub.github.io/transformer-explainer/)           
 
 ## 4.1 Verstehen - Encoder-Only (wie BERT)
 
@@ -258,6 +258,6 @@ Es simuliert damit echtes Sprachverständnis im Schreibprozess.
 
 ---
 
-**Version:** 1.0
-**Stand:** November 2025
-**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
+**Version:** 1.0     
+**Stand:** November 2025     
+**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.     
