@@ -307,8 +307,9 @@ Die Wahl der richtigen Kombination aus Tokenizer, Chunk-Größe und Chunking-Str
 - [LangChain Text Splitters](https://python.langchain.com/docs/modules/data_connection/document_transformers/)
 - [Chunking Strategies Vergleich](https://www.pinecone.io/learn/chunking-strategies/)
 - [Token vs. Character Splitting](https://cookbook.openai.com/examples/how_to_count_tokens_with_tiktoken)
+
 ---
 
-**Version:** 1.0
-**Stand:** November 2025
-**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
+**Version:** 1.0     
+**Stand:** November 2025     
+**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.     

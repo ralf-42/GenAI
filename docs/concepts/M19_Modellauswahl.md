@@ -291,6 +291,6 @@ Ein 2-3 seitiges Konzeptpapier mit Ihrem Evaluationsschema, den Testfragen und d
 
 ---
 
-**Version:** 1.0
-**Stand:** November 2025
-**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
+**Version:** 1.0     
+**Stand:** November 2025     
+**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.     

@@ -410,6 +410,6 @@ Bei Fragen oder Problemen während der Projektentwicklung können Sie das `Kurs-
 </font></p>
 ---
 
-**Version:** 1.0
-**Stand:** November 2025
-**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
+**Version:** 1.0     
+**Stand:** November 2025     
+**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.     
