@@ -57,7 +57,7 @@ has_toc: true
 - **Akteure:** Technologieunternehmen (oft marktgetrieben), Forschung (wissensgetrieben), Politik (regulierend), Zivilgesellschaft (wertorientiert), Nutzer:innen (praktisch-orientiert) prägen gemeinsam das öffentliche Verständnis und die Entwicklungspfade von KI.
     
 
-![](https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250416161530.png)
+<img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250416161530.png" alt="Ethische Grundsätze generativer KI" width="500">
 
 
 
@@ -113,7 +113,7 @@ has_toc: true
     
 
 
-![](https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250416161648.png)
+<img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250416161648.png" alt="KI Risiken und Fehlerquellen" width="500">
 
 
 **Ethische Spannungsfelder:**
