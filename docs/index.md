@@ -15,11 +15,11 @@ permalink: /
 ---
 
 
-Generative KI bezeichnet eine Klasse von Algorithmen, die in der Lage sind, eigenständig Inhalte zu erzeugen – darunter Texte, Bilder, Audio, Code oder ganze Videos. Im Gegensatz zu klassischen KI-Systemen, die primär analysieren oder vorhersagen, liegt der Fokus hier auf dem kreativen Schaffen: Maschinen, die schreiben, gestalten, komponieren oder programmieren.
+Generative KI bezeichnet eine Klasse von Anwendungen, die in der Lage sind, eigenständig Inhalte zu erzeugen – darunter Texte, Bilder, Audio, Code oder ganze Videos. Im Gegensatz zu klassischen KI-Systemen, die primär analysieren oder vorhersagen, liegt der Fokus hier auf dem kreativen Schaffen: Maschinen, die schreiben, gestalten, komponieren oder programmieren.
 
 Im Zentrum dieser Entwicklung stehen sogenannte **Large Language Models (LLMs)** wie GPT, Claude oder Gemini. Sie basieren auf der **Transformer-Architektur**, die es ermöglicht, riesige Textmengen kontextsensitiv zu verarbeiten und daraus neue Inhalte zu generieren. Dabei werden keine Regeln befolgt, sondern Wahrscheinlichkeiten berechnet – gelernt aus Milliarden von Beispielen.
 
-Generative KI lässt sich aus drei Perspektiven betrachten:
+Generative KI lässt sich aus drei **Perspektiven** betrachten:
 
 ## Verstehen
 

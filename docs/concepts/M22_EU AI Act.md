@@ -51,7 +51,7 @@ Der risikobasierte Ansatz ist das zentrale Steuerungsinstrument des EU AI Acts. 
 Diese Einteilung ermöglicht eine differenzierte Regulierung: Statt alle KI-Technologien über einen Kamm zu scheren, werden Anforderungen gezielt dort angesetzt, wo die potenziellen Gefahren für Individuum und Gesellschaft am größten sind.
 
 
-<img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250416154437.png" alt="EU AI Act Risikoklassen" width="500">
+<img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250416154437.png" alt="EU AI Act Risikoklassen" width="600">
 
 # 4 Herausforderungen & Kritikpunkte
 
