@@ -49,21 +49,15 @@
     const config = CALLOUT_CONFIG[calloutType];
     const title = customTitle || config.title;
 
-    // Get all content paragraphs (excluding the first one with [!TYPE])
-    const contentParagraphs = Array.from(blockquote.querySelectorAll('p')).slice(1);
+    // Remove the [!TYPE] marker from the first paragraph
+    firstParagraph.remove();
 
-    // Build content HTML
-    let contentHTML = '';
-    contentParagraphs.forEach(p => {
-      contentHTML += p.outerHTML;
-    });
+    // Get remaining content
+    let contentHTML = blockquote.innerHTML.trim();
 
-    // If no additional paragraphs, use the rest of the first paragraph
+    // If no content after removing marker, leave empty
     if (!contentHTML) {
-      const textWithoutMarker = text.replace(/^\[!\w+\](?:\s+[^\n]*)?/, '').trim();
-      if (textWithoutMarker) {
-        contentHTML = `<p>${textWithoutMarker}</p>`;
-      }
+      contentHTML = '';
     }
 
     // Create callout HTML structure
