@@ -33,8 +33,8 @@
 
     let text = firstParagraph.innerHTML.trim();
 
-    // Match pattern: [!TYPE] at start (may include newline/br after it)
-    const match = text.match(/^\[!(\w+)\](<br\s*\/?>\s*|\s+)/);
+    // Match pattern: [!TYPE] at start
+    const match = text.match(/^\[!(\w+)\]/);
     if (!match) return;
 
     const calloutType = match[1].toUpperCase();
@@ -49,22 +49,42 @@
     let title = config.title;
     let contentHTML = '';
 
-    // Check if there's a custom title on the same line (no <br> after [!TYPE])
-    const sameLine = text.match(/^\[!\w+\]\s+([^<\n]+)(<br|$)/);
+    // Remove [!TYPE] marker
+    text = text.replace(/^\[!\w+\]/, '').trim();
 
-    if (sameLine && sameLine[1].trim()) {
-      // Custom title found on same line
-      title = sameLine[1].trim();
-      // Remove [!TYPE] Title part, keep rest as content
-      text = text.replace(/^\[!\w+\]\s+[^<\n]+(<br\s*\/?>)?/, '').trim();
-    } else {
-      // No custom title, remove [!TYPE] and any following br/whitespace
-      text = text.replace(/^\[!\w+\](<br\s*\/?>\s*|\s+)/, '').trim();
-    }
+    // Check what comes after [!TYPE]
+    if (text.startsWith('<br')) {
+      // Pattern: [!TYPE]<br>Content
+      // No custom title, everything after <br> is content
+      text = text.replace(/^<br\s*\/?>\s*/, '').trim();
+      if (text) {
+        contentHTML = '<p>' + text + '</p>';
+      }
+    } else if (text) {
+      // Pattern: [!TYPE] Custom Title<br>Content OR [!TYPE] Content
+      // Check if there's a <br> to separate title from content
+      const brIndex = text.search(/<br\s*\/?>/i);
 
-    // All remaining text is content (always in content area, never as title)
-    if (text) {
-      contentHTML = '<p>' + text + '</p>';
+      if (brIndex > 0) {
+        // Has <br>, so first part is custom title
+        title = text.substring(0, brIndex).trim();
+        const remainingText = text.substring(brIndex).replace(/^<br\s*\/?>\s*/, '').trim();
+        if (remainingText) {
+          contentHTML = '<p>' + remainingText + '</p>';
+        }
+      } else {
+        // No <br>, check if it looks like a title or content
+        // If it has sentence-ending punctuation, treat as content
+        if (text.match(/[.!?:]$/)) {
+          contentHTML = '<p>' + text + '</p>';
+        } else if (text.length < 50) {
+          // Short text without punctuation = custom title
+          title = text;
+        } else {
+          // Long text = content
+          contentHTML = '<p>' + text + '</p>';
+        }
+      }
     }
 
     // Remove the first paragraph with [!TYPE]

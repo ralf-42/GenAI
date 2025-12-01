@@ -1119,3 +1119,9 @@ graph LR
 - [Model Context Protocol](https://modelcontextprotocol.io/)
 - [LangGraph Documentation](https://langchain-ai.github.io/langgraph/)
 - [What Is OpenAI ChatGPT Agent Builder? A Complete 2025 Guide](https://sider.ai/blog/ai-tools/what-is-openai-chatgpt-agent-builder-a-complete-2025-guide)
+
+---
+
+**Version:** 1.0  
+**Stand:** November 2025  
+**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
