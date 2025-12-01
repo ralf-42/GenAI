@@ -9,7 +9,7 @@ permalink: /
 # Generative KI
 
 > **Generative KI. Verstehen. Anwenden. Gestalten.**       
-> Praktische Implementierungen mit LangChain, LangGraph und modernen Foundation Models
+> Praktische Anwendung von Sprachmodellen, LangChain, LangGraph und modernen Foundation Models
 
 
 ---
