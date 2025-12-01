@@ -49,26 +49,22 @@
     let title = config.title;
     let contentHTML = '';
 
-    // Remove the [!TYPE] marker and any following br or whitespace
-    text = text.replace(/^\[!\w+\](<br\s*\/?>\s*|\s+)/, '').trim();
+    // Check if there's a custom title on the same line (no <br> after [!TYPE])
+    const sameLine = text.match(/^\[!\w+\]\s+([^<\n]+)(<br|$)/);
 
-    // Check if remaining text looks like a custom title (short, no punctuation at end, single line)
-    const lines = text.split(/<br\s*\/?>/);
+    if (sameLine && sameLine[1].trim()) {
+      // Custom title found on same line
+      title = sameLine[1].trim();
+      // Remove [!TYPE] Title part, keep rest as content
+      text = text.replace(/^\[!\w+\]\s+[^<\n]+(<br\s*\/?>)?/, '').trim();
+    } else {
+      // No custom title, remove [!TYPE] and any following br/whitespace
+      text = text.replace(/^\[!\w+\](<br\s*\/?>\s*|\s+)/, '').trim();
+    }
 
-    if (lines.length > 0 && lines[0].trim()) {
-      const firstLine = lines[0].trim();
-
-      // If first line is short and doesn't end with punctuation, treat as title
-      if (firstLine.length < 50 && !firstLine.match(/[.!?]$/)) {
-        title = firstLine;
-        // Remaining lines are content
-        if (lines.length > 1) {
-          contentHTML = '<p>' + lines.slice(1).join('<br>') + '</p>';
-        }
-      } else {
-        // All remaining text is content
-        contentHTML = '<p>' + text + '</p>';
-      }
+    // All remaining text is content (always in content area, never as title)
+    if (text) {
+      contentHTML = '<p>' + text + '</p>';
     }
 
     // Remove the first paragraph with [!TYPE]
