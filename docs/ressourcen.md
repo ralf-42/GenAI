@@ -9,17 +9,23 @@ permalink: /ressourcen/
 
 # Ressourcen
 
-Praktische Anleitungen, Werkzeuge und Hilfestellungen für die Arbeit mit Generative KI.
+Praktische Anleitungen, Best Practices und Hilfestellungen für die Arbeit mit Generativer KI.
 
 ## Übersicht
 
-### Anleitungen
-- **Quick Start** - Schnelleinstieg in das Projekt
-- **Dokumentation** - Detaillierte Informationen zu den Modulen
-- **Standards** - Best Practices und Code-Konventionen
-- **Troubleshooting** - Lösungen für häufige Probleme
+### Best Practices & Standards
+- **Standards** - Code-Konventionen, Naming-Standards und Best Practices für GenAI-Projekte
+  - Projekt-Struktur und Organisation
+  - Coding Standards für Python und LangChain
+  - Prompt-Design-Richtlinien
+  - Dokumentations-Standards
 
-### Werkzeuge
-- **Deploy Python** - Deployment-Guide für Python-Anwendungen
+### Hilfe & Support
+- **Troubleshooting** - Lösungen für häufige Probleme und Fehler
+  - LangChain/LangGraph Debugging
+  - Vektordatenbank-Probleme
+  - API-Integration Issues
+  - Performance-Optimierung
+  - Häufige Fehler und deren Lösungen
 
 Nutzen Sie die Navigation links, um zu den einzelnen Ressourcen zu navigieren.
