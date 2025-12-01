@@ -1113,8 +1113,8 @@ graph LR
 
 ## 11 Quellen
 
-- [OpenAI Agent Builder Dokumentation](https://platform.openai.com/docs/guides/agent-builder)
-- [Introducing AgentKit | OpenAI](https://openai.com/index/introducing-agentkit/)
+- [OpenAI Agent Builder Dokumentation](https://platform.openai.com/docs/guides/agent-builder)          
+- [Introducing AgentKit OpenAI](https://openai.com/index/introducing-agentkit/)
 - [AgentKit vs GPTs: A complete guide](https://www.eesel.ai/blog/agentkit-vs-gpts)
 - [Model Context Protocol](https://modelcontextprotocol.io/)
 - [LangGraph Documentation](https://langchain-ai.github.io/langgraph/)

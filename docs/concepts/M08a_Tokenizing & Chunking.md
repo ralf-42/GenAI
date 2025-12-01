@@ -59,7 +59,7 @@ Die effiziente Textverarbeitung beruht auf drei zentralen Elementen: der Wahl de
 # 2 Beispiel
 
 
-<img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250310180654.png" alt="Tokenizing & Chunking Prozess" width="500">
+<img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250310180654.png" alt="Tokenizing & Chunking Prozess" width="600">
 + Tokenizing:
 	+ Zerlegt Text in kleinste Einheiten (Token)
 	+ Diese Token werden in Zahlen (IDs) umgewandelt

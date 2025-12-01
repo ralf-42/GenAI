@@ -26,6 +26,13 @@
 
   /**
    * Transform a blockquote into a callout if it matches the pattern
+   *
+   * Callout-Struktur im Markdown:
+   * > [!NOTE]                  <- Zeile 1: Titel-Zeile (nach erstem >)
+   * > Details siehe Skript...  <- Zeile 2: Content-Zeile (nach zweitem >)
+   *
+   * Jekyll/kramdown wandelt dies um in:
+   * <p>[!NOTE]<br>Details siehe Skript...</p>
    */
   function transformCallout(blockquote) {
     const firstParagraph = blockquote.querySelector('p');
@@ -49,41 +56,31 @@
     let title = config.title;
     let contentHTML = '';
 
-    // Remove [!TYPE] marker
+    // Remove [!TYPE] marker from text
     text = text.replace(/^\[!\w+\]/, '').trim();
 
-    // Check what comes after [!TYPE]
-    if (text.startsWith('<br')) {
-      // Pattern: [!TYPE]<br>Content
-      // No custom title, everything after <br> is content
-      text = text.replace(/^<br\s*\/?>\s*/, '').trim();
+    // Split at first <br> tag - this separates title line from content line
+    const brMatch = text.match(/^(.*?)<br\s*\/?>\s*(.*)/is);
+
+    if (brMatch) {
+      // Format: [!TYPE] Optional Custom Title<br>Content
+      const titlePart = brMatch[1].trim();
+      const contentPart = brMatch[2].trim();
+
+      // If titlePart is not empty, use it as custom title
+      if (titlePart) {
+        title = titlePart;
+      }
+
+      // contentPart always goes into content area
+      if (contentPart) {
+        contentHTML = '<p>' + contentPart + '</p>';
+      }
+    } else {
+      // No <br> found - edge case (shouldn't happen in 2-line callouts)
+      // Treat everything as content
       if (text) {
         contentHTML = '<p>' + text + '</p>';
-      }
-    } else if (text) {
-      // Pattern: [!TYPE] Custom Title<br>Content OR [!TYPE] Content
-      // Check if there's a <br> to separate title from content
-      const brIndex = text.search(/<br\s*\/?>/i);
-
-      if (brIndex > 0) {
-        // Has <br>, so first part is custom title
-        title = text.substring(0, brIndex).trim();
-        const remainingText = text.substring(brIndex).replace(/^<br\s*\/?>\s*/, '').trim();
-        if (remainingText) {
-          contentHTML = '<p>' + remainingText + '</p>';
-        }
-      } else {
-        // No <br>, check if it looks like a title or content
-        // If it has sentence-ending punctuation, treat as content
-        if (text.match(/[.!?:]$/)) {
-          contentHTML = '<p>' + text + '</p>';
-        } else if (text.length < 50) {
-          // Short text without punctuation = custom title
-          title = text;
-        } else {
-          // Long text = content
-          contentHTML = '<p>' + text + '</p>';
-        }
       }
     }
 
