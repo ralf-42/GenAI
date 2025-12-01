@@ -36,6 +36,9 @@ Mit zunehmender Verfügbarkeit von Open-Source-Modellen, APIs und Werkzeugen er�
 Generative KI markiert damit einen technologischen und kulturellen Wendepunkt. Sie verändert nicht nur die Art, wie Inhalte produziert werden, sondern auch das Verhältnis von Mensch und Maschine im kreativen, forschenden und problemlösenden Denken.
 
 
+> [!danger]
+> Test
+
 ---
 
 **Version:** 1.0     
