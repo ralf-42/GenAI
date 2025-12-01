@@ -39,7 +39,7 @@ Der Prozess der Bilderkennung umfasst folgende Schritte:
 
 **Raster aus Pixelwerten**
 
-![](https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250311170432.png|300)
+![](https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250311170432.png)
 
 
 
@@ -73,7 +73,7 @@ Moderne Ansätze setzen auf neuronale Netze, insbesondere Convolutional Neural N
 Deep-Learning-Modelle werden auf große Datensätze trainiert, wodurch sie eine hohe Generalisierungsfähigkeit erreichen und in der Lage sind, komplexe Muster autonom zu lernen.
 
 
-![](https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250311193143.png|700)
+![](https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250311193143.png)
 
 
 Bild: [A Comprehensive Guide to Convolutional Neural Networks — the ELI5 way | by Sumit Saha | Towards Data Science](https://towardsdatascience.com/a-comprehensive-guide-to-convolutional-neural-networks-the-eli5-way-3bd2b1164a53)
@@ -89,7 +89,7 @@ Ein zentrales Merkmal dieser Modelle ist ihre Fähigkeit, Zusammenhänge zwische
 
 Hier wird veranschaulicht, wie DALL·E ein Bild mit einem zauberhaften Märchenwald generiert:
 
-![](https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250311185414.png|600)
+![](https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250311185414.png)
 
 
 ## 3.2 Multimodale Modelle
@@ -100,7 +100,7 @@ Während spezialisierte Modelle, etwa Text-zu-Bild-Systeme, bereits einzelne Ver
 
 Ein anschauliches Beispiel für multimodale Fähigkeiten ist die Analyse eines handgezeichneten Tic-Tac-Toe-Bretts. Ein solches Modell kann ein Bild des Spiels interpretieren, die Platzierung von X und O erkennen und basierend auf den Spielregeln den Gewinner bestimmen – ohne zusätzliche textliche Informationen über das Spielfeld zu benötigen.
 
-![](https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250311190642.png|650)
+![](https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250311190642.png)
 
 Durch die Kombination verschiedener Datentypen ermöglichen multimodale Modelle eine fortschrittlichere und intuitivere Interaktion zwischen Mensch und KI. Dies macht sie zu einem vielseitigen Werkzeug mit breiten Anwendungsmöglichkeiten – von Gesundheitswesen und Bildung bis hin zu Unterhaltung und Design.  
 

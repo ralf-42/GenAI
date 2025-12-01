@@ -59,7 +59,7 @@ Stand: 04.2025
 - **Akteure:** Technologieunternehmen (oft marktgetrieben), Forschung (wissensgetrieben), Politik (regulierend), Zivilgesellschaft (wertorientiert), Nutzer:innen (praktisch-orientiert) prägen gemeinsam das öffentliche Verständnis und die Entwicklungspfade von KI.
     
 
-![](https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250416161530.png|700)
+![](https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250416161530.png)
 
 
 
@@ -115,7 +115,7 @@ Stand: 04.2025
     
 
 
-![](https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250416161648.png|700)
+![](https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250416161648.png)
 
 
 **Ethische Spannungsfelder:**

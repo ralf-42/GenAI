@@ -55,7 +55,7 @@ Ein Transformer lernt diese Verbindungen automatisch durch **Aufmerksamkeit**:
 
 # 3 Wie funktioniert das technisch? 
 
-![](https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250309190825.png|450)
+![](https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250309190825.png)
 
 ## 3.1 Wörter werden zu Zahlen → Embedding
 - Computer können nur mit Zahlen arbeiten
@@ -104,7 +104,7 @@ Dazu stellt sich der Transformer bei jedem Wort drei zentrale Fragen:
 
 
 
-![My Image](https://raw.githubusercontent.com/ralf-42/Image/main/self_attention.png)
+![](https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/self_attention.png)
 
 
 
@@ -163,7 +163,7 @@ Es sieht beim Vorhersagen nur den bisherigen Kontext, genau wie ein Mensch, der 
 Es simuliert damit echtes Sprachverständnis im Schreibprozess.
 
 
-![My Image|650](https://raw.githubusercontent.com/ralf-42/Image/main/self_attention_2.png)
+![](https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/self_attention_2.png)
 
 
 
