@@ -2,7 +2,7 @@
 layout: default
 title: Prompt Engineering
 parent: Konzepte
-nav_order: 2
+nav_order: 17
 description: "Strategien für effektive Prompts in KI-Agenten-Systemen"
 has_toc: true
 ---
