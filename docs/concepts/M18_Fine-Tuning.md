@@ -2,7 +2,7 @@
 layout: default
 title: Fine-Tuning
 parent: Konzepte
-nav_order: 15
+nav_order: 7
 description: "Model Adaptation: Fine-Tuning-Strategien, LoRA und PEFT-Methoden"
 has_toc: true
 ---

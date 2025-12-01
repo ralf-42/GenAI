@@ -2,7 +2,7 @@
 layout: default
 title: Multimodal - Audio
 parent: Konzepte
-nav_order: 14
+nav_order: 6
 description: "Audio-Processing mit LLMs: Speech-to-Text, Text-to-Speech und Audio-Analyse"
 has_toc: true
 ---
@@ -38,13 +38,12 @@ Audio ist physikalisch betrachtet eine Schallwelle, die durch Druckschwankungen 
 
 
 [Audio_Viz](https://editor.p5js.org/ralf.bendig.rb/full/_oMmtCprP)       
-
 [MediaPipe](https://mediapipe-studio.webapps.google.com/studio/demo/audio_classifier)
 
 ## 1.2 Wie funktionieren Audio-KI-Modelle?
 
 
-### 1.3 Speech-to-Text (Whisper)
+### 1.2.1 Speech-to-Text (Whisper)
 OpenAI's Whisper nutzt eine **Encoder-Decoder-Architektur** mit Transformer-Technologie:
 
 - Der **Encoder** wandelt das Audiosignal in eine kompakte Repräsentation um
@@ -52,7 +51,7 @@ OpenAI's Whisper nutzt eine **Encoder-Decoder-Architektur** mit Transformer-Tech
 
 Whisper wurde mit über 680.000 Stunden mehrsprachiger Audiodaten trainiert, wodurch es verschiedene Sprachen, Akzente und Umgebungsgeräusche verarbeiten kann.
 
-### 1.4 Text-to-Speech (TTS-1)
+### 1.2.2 Text-to-Speech (TTS-1)
 TTS-1 verwendet ebenfalls eine komplexe neuronale Netzwerkarchitektur:
 
 1. **Text-Encoder**: Wandelt Text in linguistische Merkmale um
@@ -61,7 +60,7 @@ TTS-1 verwendet ebenfalls eine komplexe neuronale Netzwerkarchitektur:
 
 Diese Komponenten arbeiten zusammen, um Text in natürlich klingende Sprache umzuwandeln, die Emotionen und Betonungen enthält.
 
-## 1.5 Von der Audiowelle zum Verständnis
+## 1.3 Von der Audiowelle zum Verständnis
 
 Wie "verstehen" KI-Modelle Audioinhalte? Der Prozess umfasst mehrere Schritte:
 
@@ -80,41 +79,41 @@ Obwohl moderne Audio-KI-Systeme beeindruckende Ergebnisse erzielen, stoßen sie 
 
 ## 2.1 Herausforderungen bei Speech-to-Text (STT)
 
-### 2.2 Sprachvariationen
+### 2.1.1 Sprachvariationen
 - **Akzente und Dialekte**: Regionale Sprachvarianten können die Erkennungsgenauigkeit erheblich beeinflussen
 - **Sprechgeschwindigkeit**: Sehr schnelles oder langsames Sprechen erschwert die korrekte Erkennung
 - **Umgangssprache und Slang**: Informelle Ausdrücke werden oft nicht korrekt erkannt
 
-### 2.3 Umgebungsfaktoren
+### 2.1.2 Umgebungsfaktoren
 - **Hintergrundgeräusche**: Lärm, Musik oder andere Gespräche können die Qualität der Transkription beeinträchtigen
 - **Halleffekte**: In halligen Räumen aufgenommene Sprache ist schwieriger zu transkribieren
 - **Mikrofonqualität**: Niedrige Aufnahmequalität führt zu schlechteren Transkriptionsergebnissen
 
-### 2.4 Inhaltliche Komplexität
+### 2.1.3 Inhaltliche Komplexität
 - **Fachbegriffe**: Spezialisierte Terminologie wird oft falsch transkribiert
 - **Eigennamen**: Ungewöhnliche Namen werden häufig falsch erkannt
 - **Homophone**: Wörter, die gleich klingen aber unterschiedlich geschrieben werden, führen zu Fehlern
 
-### 2.5 Grenzen bei Text-to-Speech (TTS)
+### 2.1.4 Grenzen bei Text-to-Speech (TTS)
 
 - **Emotionale Nuancen**: Subtile emotionale Ausdrücke sind schwer zu reproduzieren
 - **Sprechpausen und Rhythmus**: Natürliches Sprechtempo ist eine Herausforderung
 - **Aussprache seltener Wörter**: Ungewöhnliche oder fremdsprachige Begriffe werden oft falsch ausgesprochen
 - **Kontextuelle Anpassung**: Die Anpassung an den inhaltlichen Kontext (z.B. Frage vs. Aussage) ist begrenzt
 
-## 2.6 Strategie zur Verbesserung der Ergebnisse
+## 2.2 Strategie zur Verbesserung der Ergebnisse
 
-### 2.6.1 Transkriptionen:
+### 2.2.1 Transkriptionen:
 1. **Qualität der Aufnahme optimieren**: Ruhige Umgebung, gutes Mikrofon, angemessener Abstand zum Mikrofon
 2. **Deutlich sprechen**: Gleichmäßiges Tempo, klare Aussprache
 3. **Fachbegriffe bereitstellen**: Bei Bedarf eine Liste spezieller Begriffe vorbereiten
 
-### 2.6.2 Sprachsynthese:
+### 2.2.2 Sprachsynthese:
 1. **Textformatierung anpassen**: Interpunktion für natürliche Pausen nutzen
 2. **Aussprache-Hinweise**: Für schwierige Wörter phonetische Schreibweisen verwenden
 3. **Stimme passend wählen**: Verschiedene Stimmen für unterschiedliche Inhalte
 
-## 2.7 Ethische und praktische Grenzen
+## 2.3 Ethische und praktische Grenzen
 
 - **Stimmimitation**: Die Fähigkeit, Stimmen zu imitieren, wirft Fragen bezüglich Identitätsdiebstahl auf
 - **Mehrsprachigkeit**: Die Qualität variiert stark zwischen verschiedenen Sprachen

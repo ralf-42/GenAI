@@ -2,7 +2,7 @@
 layout: default
 title: Multimodal - Bild
 parent: Konzepte
-nav_order: 13
+nav_order: 5
 description: "Vision Language Models: Bildanalyse und Generierung mit LLMs"
 has_toc: true
 ---
@@ -38,7 +38,7 @@ Der Prozess der Bilderkennung umfasst folgende Schritte:
 
 **Raster aus Pixelwerten**
 
-<img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250311170432.png" alt="Raster aus Pixelwerten" width="500">
+<img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250311170432.png" alt="Raster aus Pixelwerten" width="400">
 
 
 
@@ -72,7 +72,7 @@ Moderne Ansätze setzen auf neuronale Netze, insbesondere Convolutional Neural N
 Deep-Learning-Modelle werden auf große Datensätze trainiert, wodurch sie eine hohe Generalisierungsfähigkeit erreichen und in der Lage sind, komplexe Muster autonom zu lernen.
 
 
-<img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250311193143.png" alt="Convolutional Neural Network" width="500">
+<img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250311193143.png" alt="Convolutional Neural Network" width="600">
 
 
 [Bild](https://towardsdatascience.com/a-comprehensive-guide-to-convolutional-neural-networks-the-eli5-way-3bd2b1164a53)

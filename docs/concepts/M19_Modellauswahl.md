@@ -2,7 +2,7 @@
 layout: default
 title: Modellauswahl
 parent: Konzepte
-nav_order: 16
+nav_order: 8
 description: "LLM-Auswahl: Kriterien, Benchmarks und Entscheidungshilfen"
 has_toc: true
 ---

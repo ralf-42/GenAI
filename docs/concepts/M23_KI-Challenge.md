@@ -2,7 +2,7 @@
 layout: default
 title: KI-Challenge
 parent: Konzepte
-nav_order: 21
+nav_order: 13
 description: "Praxisprojekt: End-to-End GenAI-Anwendung entwickeln"
 has_toc: true
 ---
