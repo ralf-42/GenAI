@@ -75,7 +75,11 @@ Zudem ist Fine-Tuning ein zentraler Bestandteil des sogenannten Model Optimizati
     
 - **Anwendungen**: Sprachassistenten, automatisierte Kommunikation, LLM-basierte Tools.
 
-- **Formatbeispiel**: Oft in diesem Format: "###Human: $<Input Query>$ ###Assistant: $<Generated Output>$"
+- **Formatbeispiel**: Oft in diesem Format:
+  
+  ```
+  "###Human: $<Input Query>$ ###Assistant: $<Generated Output>$"
+  ```
 
 ## 2.4 Supervised Fine-Tuning (SFT)
 
