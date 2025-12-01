@@ -145,10 +145,10 @@ Die von Ihnen an uns per Kontaktanfragen übersandten Daten verbleiben bei uns, 
 Diese Website enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.
 
 **Verlinkte externe Dienste:**
-- [GitHub Repository](https://github.com/ralf-42/GenAI)
-- [LangChain Documentation](https://python.langchain.com/)
-- [LangGraph Documentation](https://langchain-ai.github.io/langgraph/)
-- [OpenAI API Reference](https://platform.openai.com/docs)
+- GitHub Repository: [https://github.com/ralf-42/GenAI](https://github.com/ralf-42/GenAI)
+- LangChain Documentation: [https://python.langchain.com/](https://python.langchain.com/)
+- LangGraph Documentation: [https://langchain-ai.github.io/langgraph/](https://langchain-ai.github.io/langgraph/)
+- OpenAI API Reference: [https://platform.openai.com/docs](https://platform.openai.com/docs)
 
 Beim Anklicken externer Links werden Sie auf die Website des jeweiligen Anbieters weitergeleitet. Es gilt dann die Datenschutzerklärung des jeweiligen Anbieters.
 
@@ -206,7 +206,8 @@ Sie haben das Recht, sich bei einer Aufsichtsbehörde zu beschweren, wenn Sie de
 
 ### GitHub Repository
 
-[Der Quellcode dieser Website ist auf GitHub öffentlich zugänglich](https://github.com/ralf-42/GenAI).
+Der Quellcode dieser Website ist öffentlich zugänglich unter:
+[https://github.com/ralf-42/GenAI](https://github.com/ralf-42/GenAI)
 
 **Hinweis:** Alle Beiträge (Commits, Issues, Pull Requests) zu diesem Repository sind öffentlich einsehbar. Bitte teilen Sie keine personenbezogenen oder vertraulichen Informationen in öffentlichen Beiträgen.
 

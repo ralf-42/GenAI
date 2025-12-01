@@ -23,9 +23,6 @@ has_toc: true
 ---
 
 
-Stand: 07.2025
-
-
 # 1 Was ist Context Engineering?
 
 
@@ -334,15 +331,8 @@ Kundenzufriedenheit: +30%
 
 
 
-<div class="callout" data-callout="note">
-  <div class="callout-title">
-    <div class="callout-icon">ℹ️</div>
-    <div class="callout-title-inner">Tipp</div>
-  </div>
-  <div class="callout-content">
-Context Engineering ist eine erlernbare Fähigkeit, die sofort bessere KI-Ergebnisse liefert. Beginnen Sie heute mit einfachen Techniken und bauen Sie schrittweise Expertise auf!
-  </div>
-</div>
+> [!NOTE]
+> Context Engineering ist eine erlernbare Fähigkeit, die sofort bessere KI-Ergebnisse liefert. Beginnen Sie heute mit einfachen Techniken und bauen Sie schrittweise Expertise auf!
 
 
 # 9 Aufgabe
@@ -393,5 +383,8 @@ QUALITÄTSKRITERIEN:
 □ Ignorierte Ausschlusskriterien
 □ Widersprüchliche Datenquellen
 ```
+---
 
-
+**Version:** 1.0
+**Stand:** November 2025
+**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

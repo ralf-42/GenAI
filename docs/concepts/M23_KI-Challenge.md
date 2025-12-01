@@ -22,8 +22,6 @@ has_toc: true
 
 ---
 
-Stand: 07.2025
-
 
 # 1 | Überblick KI-Challenge
 
@@ -410,3 +408,8 @@ Bei Fragen oder Problemen während der Projektentwicklung können Sie das `Kurs-
   🏅 Viel Erfolg!
 
 </font></p>
+---
+
+**Version:** 1.0
+**Stand:** November 2025
+**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

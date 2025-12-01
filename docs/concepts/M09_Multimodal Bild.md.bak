@@ -22,6 +22,7 @@ has_toc: true
 
 ---
 
+Stand: 11.2025
 
 # 1 Grundlagen Bilderkennung
 
@@ -56,9 +57,9 @@ Bei traditionellen Methoden müssen explizit Merkmale definiert werden, die als 
 
 Diese Verfahren erfordern umfassendes domänenspezifisches Wissen und sind oft anfällig für Variationen in Beleuchtung, Perspektive oder Bildrauschen.
 
-[Merkmals-Filter](https://editor.p5js.org/ralf.bendig.rb/full/zLXqi5u6f)
+Merkmals-Filter:  [https://editor.p5js.org/ralf.bendig.rb/full/zLXqi5u6f](https://editor.p5js.org/ralf.bendig.rb/full/zLXqi5u6f)
 
-[Merkmals-Filter-Anwendung](https://editor.p5js.org/ralf.bendig.rb/full/Xi2uabjR9)
+Merkmals-Filter-Anwendung:  [https://editor.p5js.org/ralf.bendig.rb/full/Xi2uabjR9](https://editor.p5js.org/ralf.bendig.rb/full/Xi2uabjR9)
 
 
 ## 2.2 Deep Learning
@@ -75,7 +76,7 @@ Deep-Learning-Modelle werden auf große Datensätze trainiert, wodurch sie eine 
 ![](https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250311193143.png)
 
 
-[Bild](https://towardsdatascience.com/a-comprehensive-guide-to-convolutional-neural-networks-the-eli5-way-3bd2b1164a53)
+Bild: [A Comprehensive Guide to Convolutional Neural Networks — the ELI5 way | by Sumit Saha | Towards Data Science](https://towardsdatascience.com/a-comprehensive-guide-to-convolutional-neural-networks-the-eli5-way-3bd2b1164a53)
 
 # 3 Bild-Modelle
 
@@ -111,8 +112,3 @@ Durch die Kombination verschiedener Datentypen ermöglichen multimodale Modelle 
 Mithilfe neuronaler Netze – typischerweise Convolutional Neural Networks (CNNs) oder Transformer-Modelle wie CLIP – werden hochdimensionale Bilddaten in kompakte Vektoren umgewandelt. Diese Embeddings ermöglichen Aufgaben wie Bildähnlichkeitssuche, Clustering oder die Kombination von Bild- und Textdaten für multimodale Modelle.  
 
 [Image-Embeddings](https://mediapipe-studio.webapps.google.com/studio/demo/image_embedder)
----
-
-**Version:** 1.0
-**Stand:** November 2025
-**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

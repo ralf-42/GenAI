@@ -22,8 +22,6 @@ has_toc: true
 
 ---
 
-Stand: 05.2025
-
 
 
 # 1 Technische Grundlagen
@@ -277,4 +275,8 @@ def transcribe_with_retry(file_path):
    # Oder durch Beschreibungen
    text = "[begeistert] Das ist eine fantastische Nachricht! [/begeistert]"
    ```
+---
 
+**Version:** 1.0
+**Stand:** November 2025
+**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

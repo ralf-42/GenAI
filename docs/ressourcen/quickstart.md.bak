@@ -269,7 +269,7 @@ export LANGCHAIN_API_KEY=lsv2_...
 
 ## 6 ❓ Troubleshooting
 
-[Für umfassende Lösungen siehe](Troubleshooting%20Sheets.html)
+Für umfassende Lösungen siehe: [Troubleshooting Sheets](Troubleshooting%20Sheets.html)
 
 ### 6.1 Problem: Module nicht gefunden
 

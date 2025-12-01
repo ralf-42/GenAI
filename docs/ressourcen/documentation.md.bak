@@ -158,9 +158,9 @@ Monitoring und Debugging für produktionsreife Systeme:
 1. **Setup:** [Quick Start Guide](quickstart.html)
 2. **Standards beachten:** [Code Standards](standards.html)
 3. **Framework lernen:**
-[- LangChain](Einsteiger_LangChain.html)
-[- LangGraph](Einsteiger_LangGraph.html)
-[- LangSmith](Einsteiger_LangSmith.html)
+   - LangChain: [Einsteiger LangChain](Einsteiger_LangChain.html)
+   - LangGraph: [Einsteiger LangGraph](Einsteiger_LangGraph.html)
+   - LangSmith: [Einsteiger LangSmith](Einsteiger_LangSmith.html)
 4. **Bei Problemen:** [Troubleshooting](Troubleshooting%20Sheets.html)
 
 ### 4.2 Für bestehende Projekte

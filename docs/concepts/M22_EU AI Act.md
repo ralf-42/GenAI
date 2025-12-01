@@ -22,8 +22,6 @@ has_toc: true
 
 ---
 
-Stand: 04.2025
-
 
 
 # 1 Einleitung & Zielsetzung
@@ -105,3 +103,9 @@ Empfohlene Maßnahmen für die Umsetzung:
 # 7 Ausblick
 
 Der langfristige Erfolg des EU AI Acts wird davon abhängen, ob es gelingt, die Balance zwischen Regulierung und Innovationsförderung zu halten. Die praktische Durchsetzbarkeit, die Kohärenz mit anderen EU-Gesetzen (z. B. DSGVO, Data Act, DSA) sowie die internationale Anschlussfähigkeit werden entscheidend sein. Wichtig wird auch sein, wie flexibel der AI Act auf technologische Entwicklungen reagieren kann und ob er Vertrauen in KI langfristig stärkt.
+
+---
+
+**Version:** 1.0
+**Stand:** November 2025
+**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
