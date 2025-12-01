@@ -2,7 +2,7 @@
 layout: default
 title: Context Engineering
 parent: Konzepte
-nav_order: 18
+nav_order: 10
 description: "Context Management: Optimierung von Context-Fenstern und Memory-Strategien"
 has_toc: true
 ---

@@ -2,7 +2,7 @@
 layout: default
 title: EU AI Act
 parent: Konzepte
-nav_order: 19
+nav_order: 11
 description: "Rechtliche Rahmenbedingungen: EU AI Act und regulatorische Anforderungen"
 has_toc: true
 ---
@@ -32,7 +32,7 @@ Der EU AI Act (Verordnung (EU) 2024/1689) ist das weltweit erste umfassende Gese
 
 Das Gesetz trat am 1. August 2024 in Kraft. Die Anwendung erfolgt gestaffelt bis 2030. Erste Verbote (z. B. manipulative KI, Social Scoring) gelten seit Februar 2025. Für Hochrisiko-KI-Systeme sind lange Übergangsfristen vorgesehen. Mitgliedstaaten müssen zuständige Behörden benennen, Sandkästen einrichten und über notwendige Ressourcen verfügen. Bisher zeigen sich Unterschiede im Umsetzungsstand. Auf EU-Ebene übernimmt das European AI Office zentrale Aufgaben, insbesondere bei General Purpose AI (GPAI). Die nationale Umsetzung variiert stark, was Risiken für Fragmentierung birgt. Sandkästen sollen Innovation fördern, insbesondere bei KMU.
 
-<img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250416154726.png" alt="EU AI Act Zeitplan" width="500">
+<img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250416154726.png" alt="EU AI Act Zeitplan" width="600">
 
 
 # 3 Risikoklassen im Detail

@@ -2,7 +2,7 @@
 layout: default
 title: Embeddings
 parent: Konzepte
-nav_order: 12
+nav_order: 3
 description: "Vektorrepräsentationen von Text: Embedding-Modelle und Ähnlichkeitssuche"
 has_toc: true
 ---

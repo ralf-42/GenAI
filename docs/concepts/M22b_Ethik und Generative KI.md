@@ -2,7 +2,7 @@
 layout: default
 title: Ethik und GenAI
 parent: Konzepte
-nav_order: 20
+nav_order: 12
 description: "Ethische Aspekte: Bias, Fairness und verantwortungsvoller KI-Einsatz"
 has_toc: true
 ---
@@ -219,6 +219,7 @@ has_toc: true
 - Nutzung internationaler Standards (z. B. NIST AI RMF, EU AI Act, ISO 42001).
     
 - Checklisten für ethisch orientierte Entwicklung und Deployment.
+
 ---
 
 **Version:** 1.0     

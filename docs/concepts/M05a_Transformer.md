@@ -2,7 +2,7 @@
 layout: default
 title: Transformer Architektur
 parent: Konzepte
-nav_order: 10
+nav_order: 1
 description: "Deep Dive in Transformer-Modelle: Attention, Encoder-Decoder und moderne Varianten"
 has_toc: true
 ---

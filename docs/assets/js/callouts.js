@@ -31,14 +31,13 @@
     const firstParagraph = blockquote.querySelector('p');
     if (!firstParagraph) return;
 
-    const text = firstParagraph.textContent.trim();
+    let text = firstParagraph.innerHTML.trim();
 
-    // Match pattern: [!TYPE] or [!TYPE] Custom Title
-    const match = text.match(/^\[!(\w+)\](?:\s+(.+))?$/);
+    // Match pattern: [!TYPE] at start (may include newline/br after it)
+    const match = text.match(/^\[!(\w+)\](<br\s*\/?>\s*|\s+)/);
     if (!match) return;
 
     const calloutType = match[1].toUpperCase();
-    const customTitle = match[2];
 
     // Check if this callout type is configured
     if (!CALLOUT_CONFIG[calloutType]) {
@@ -47,17 +46,38 @@
     }
 
     const config = CALLOUT_CONFIG[calloutType];
-    const title = customTitle || config.title;
+    let title = config.title;
+    let contentHTML = '';
 
-    // Remove the [!TYPE] marker from the first paragraph
+    // Remove the [!TYPE] marker and any following br or whitespace
+    text = text.replace(/^\[!\w+\](<br\s*\/?>\s*|\s+)/, '').trim();
+
+    // Check if remaining text looks like a custom title (short, no punctuation at end, single line)
+    const lines = text.split(/<br\s*\/?>/);
+
+    if (lines.length > 0 && lines[0].trim()) {
+      const firstLine = lines[0].trim();
+
+      // If first line is short and doesn't end with punctuation, treat as title
+      if (firstLine.length < 50 && !firstLine.match(/[.!?]$/)) {
+        title = firstLine;
+        // Remaining lines are content
+        if (lines.length > 1) {
+          contentHTML = '<p>' + lines.slice(1).join('<br>') + '</p>';
+        }
+      } else {
+        // All remaining text is content
+        contentHTML = '<p>' + text + '</p>';
+      }
+    }
+
+    // Remove the first paragraph with [!TYPE]
     firstParagraph.remove();
 
-    // Get remaining content
-    let contentHTML = blockquote.innerHTML.trim();
-
-    // If no content after removing marker, leave empty
-    if (!contentHTML) {
-      contentHTML = '';
+    // Add remaining blockquote content if any
+    const remainingHTML = blockquote.innerHTML.trim();
+    if (remainingHTML) {
+      contentHTML += remainingHTML;
     }
 
     // Create callout HTML structure
