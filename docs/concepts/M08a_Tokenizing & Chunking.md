@@ -22,7 +22,6 @@ has_toc: true
 
 ---
 
-Stand: 05.2025
 
 Die effiziente Textverarbeitung beruht auf drei zentralen Elementen: der Wahl des richtigen Tokenizers, der optimalen Chunk-Größe und einer passenden Chunking-Strategie. Diese Faktoren bilden die Basis für eine erfolgreiche Dokumentenanalyse in NLP-Anwendungen. Im Folgenden erfahren Sie, wie Sie diese Parameter systematisch an die Eigenschaften Ihres Dokuments und die Anforderungen der Anwendung (z. B. Fragebeantwortung, Zusammenfassung, Code-Verarbeitung) anpassen und optimieren können.
 
@@ -53,15 +52,8 @@ Die effiziente Textverarbeitung beruht auf drei zentralen Elementen: der Wahl de
 | **Code-Kommentierung/Erklärung** | Verständnis und Erklärung von Codeabschnitten | Pro Funktion/Modul, Überlappung nur bei Bedarf | Agentisches Chunking | Agentisches Chunking berücksichtigt syntaktische und semantische Aspekte des Codes. So bleiben logische Zusammenhänge, wie Funktionsdefinitionen, erhalten und können optimal erklärt werden. |
 
 
-<div class="callout" data-callout="note">
-  <div class="callout-title">
-    <div class="callout-icon">ℹ️</div>
-    <div class="callout-title-inner">Tipp</div>
-  </div>
-  <div class="callout-content">
-Bevor Sie eine konkrete Implementierung starten, sollten Sie Ihre Dokumente genau analysieren, um die für Ihren Anwendungsfall optimale Kombination aus Tokenizer, Chunk-Größe, Überlappung und Chunking-Strategie auszuwählen. Eine Pilotphase mit verschiedenen Einstellungen kann helfen, den besten Ansatz zu ermitteln.
-  </div>
-</div>
+> [!NOTE]
+> Bevor Sie eine konkrete Implementierung starten, sollten Sie Ihre Dokumente genau analysieren, um die für Ihren Anwendungsfall optimale Kombination aus Tokenizer, Chunk-Größe, Überlappung und Chunking-Strategie auszuwählen. Eine Pilotphase mit verschiedenen Einstellungen kann helfen, den besten Ansatz zu ermitteln.
 
 
 # 2 Beispiel
@@ -102,15 +94,8 @@ Bevor Sie eine konkrete Implementierung starten, sollten Sie Ihre Dokumente gena
     - **Kosten** können durch die Optimierung der Überlappung minimiert werden. Eine zu hohe Überlappung erhöht Redundanzen und Rechenaufwand, sodass hier ein ausgewogenes Verhältnis gefunden werden muss.
 
 
-<div class="callout" data-callout="note">
-  <div class="callout-title">
-    <div class="callout-icon">ℹ️</div>
-    <div class="callout-title-inner">Tipp</div>
-  </div>
-  <div class="callout-content">
-Um die Eignung von Chunk-Größen und -Strategien für Ihre Aufgabe zu beurteilen, führen Sie Tests mit echten Daten durch, messen Sie Abrufgenauigkeit (Recall/Precision) und werten Sie Antwortqualität aus – so stellen Sie sicher, dass Ihre Implementierung optimal auf den Anwendungsfall abgestimmt ist.
-  </div>
-</div>
+> [!NOTE]
+> Um die Eignung von Chunk-Größen und -Strategien für Ihre Aufgabe zu beurteilen, führen Sie Tests mit echten Daten durch, messen Sie Abrufgenauigkeit (Recall/Precision) und werten Sie Antwortqualität aus – so stellen Sie sicher, dass Ihre Implementierung optimal auf den Anwendungsfall abgestimmt ist.
 
 
 <div style="page-break-after: always;"></div>
@@ -322,3 +307,8 @@ Die Wahl der richtigen Kombination aus Tokenizer, Chunk-Größe und Chunking-Str
 - [LangChain Text Splitters](https://python.langchain.com/docs/modules/data_connection/document_transformers/)
 - [Chunking Strategies Vergleich](https://www.pinecone.io/learn/chunking-strategies/)
 - [Token vs. Character Splitting](https://cookbook.openai.com/examples/how_to_count_tokens_with_tiktoken)
+---
+
+**Version:** 1.0
+**Stand:** November 2025
+**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

@@ -22,8 +22,6 @@ has_toc: true
 
 ---
 
-Stand: 04.2025
-
 # 1 Ethische Dimensionen
 
 **Definition & Abgrenzung:**
@@ -221,4 +219,8 @@ Stand: 04.2025
 - Nutzung internationaler Standards (z. B. NIST AI RMF, EU AI Act, ISO 42001).
     
 - Checklisten für ethisch orientierte Entwicklung und Deployment.
-    
+---
+
+**Version:** 1.0
+**Stand:** November 2025
+**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

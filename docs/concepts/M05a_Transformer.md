@@ -22,8 +22,6 @@ has_toc: true
 
 ---
 
-Stand: 07.2025
-
 
 # 1 Was ist ein Transformer?
 
@@ -61,7 +59,8 @@ Ein Transformer lernt diese Verbindungen automatisch durch **Aufmerksamkeit**:
 - Computer können nur mit Zahlen arbeiten
 - Jedes Wort wird in eine Liste von Zahlen umgewandelt (wie ein Fingerabdruck des Wortes)
 
-`[!!note:note]` Details siehe Skript: M08 - Embeddings
+> [!NOTE]
+> Details siehe Skript: M08 - Embeddings
 
 ## 3.2 Position ist wichtig → Positional Encoding
 - "Der Lehrer fragt den Schüler." bedeutet etwas anderes als "Den Lehrer fragt der Schüler."
@@ -257,3 +256,8 @@ Es simuliert damit echtes Sprachverständnis im Schreibprozess.
 
 **Warum ist das wichtig?** Diese neuen Ansätze könnten in Zukunft die Transformer-Dominanz herausfordern, besonders wenn es um Effizienz und Geschwindigkeit geht.
 
+---
+
+**Version:** 1.0
+**Stand:** November 2025
+**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
