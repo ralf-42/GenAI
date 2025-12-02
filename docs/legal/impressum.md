@@ -46,4 +46,4 @@ Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden 
 
 ---
 
-**Letzte Aktualisierung:** Dezember 2024
+**Letzte Aktualisierung:** Dezember 2025

@@ -181,7 +181,6 @@ E-Mail: ralf.bendig.rb@gmail.com
 
 ---
 
-**Letzte Aktualisierung:** Dezember 2024
+**Letzte Aktualisierung:** Dezember 2025
 **Version:** 1.0
 
-**Wichtiger Hinweis:** Dieser Haftungsausschluss dient Informationszwecken und stellt keine Rechtsberatung dar. Für eine rechtssichere Gestaltung konsultieren Sie bitte einen Rechtsanwalt.
