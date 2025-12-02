@@ -182,6 +182,6 @@ llm = Ollama(model="llama3")
 
 ---
 
-**Version:** 1.0
-**Letzte Aktualisierung:** Dezember 2024
-**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
+**Version:** 1.0     
+**Letzte Aktualisierung:** Dezember 2025     
+**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.     
