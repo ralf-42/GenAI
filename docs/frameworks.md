@@ -43,4 +43,11 @@ Diese Guides führen Sie Schritt für Schritt in die wichtigsten Frameworks und 
   - Prompt-Design und Testing
   - Deployment und Sharing
 
+## Projektspezifische Bibliotheken
+
+- **genai_lib Einsteiger** - Projektspezifische Python-Bibliothek für Kursanwendungen
+  - **utilities.py** - Environment-Checks, Paket-Installation, API-Keys, Prompt-Templates
+  - **multimodal_rag.py** - Multimodales RAG-System mit Text- und Bildsuche (Bild ↔ Bild, Bild ↔ Text)
+  - **mcp_modul.py** - Model Context Protocol (MCP) Integration für Server, Clients und AI-Assistenten
+
 Wählen Sie ein Framework aus der Navigation links aus, um zu beginnen.
