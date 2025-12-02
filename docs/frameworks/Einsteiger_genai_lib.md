@@ -193,7 +193,12 @@ from genai_lib.utilities import load_chat_prompt_template
 # Lokal
 prompt = load_chat_prompt_template('05_prompt/qa_prompt.py')
 
-# Von GitHub
+# Von GitHub (tree oder blob URLs werden automatisch konvertiert)
+prompt = load_chat_prompt_template(
+    'https://github.com/ralf-42/GenAI/blob/main/05_prompt/text_zusammenfassung.py'
+)
+
+# Oder mit tree-URL
 prompt = load_chat_prompt_template(
     'https://github.com/user/repo/tree/main/prompts/qa_prompt.py'
 )
