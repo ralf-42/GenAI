@@ -143,25 +143,45 @@ from genai_lib.utilities import mprint
 mprint("# Überschrift\n**Fett** und *kursiv*")
 ```
 
-#### 6. `mermaid(code)`
+#### 6. `mermaid(code, width=None, height=None)`
 
-Rendert Mermaid-Diagramme direkt im Notebook.
+Rendert Mermaid-Diagramme direkt im Notebook mit anpassbarer Größe.
 
 ```python
 from genai_lib.utilities import mermaid
 
+# Standard (automatische Größe)
 mermaid('''
 graph TD
     A[Start] --> B[Process]
     B --> C[End]
 ''')
+
+# Mit angepasster Größe
+mermaid('''
+sequenceDiagram
+    User->>Agent: Frage stellen
+    Agent->>LLM: Query senden
+    LLM-->>Agent: Antwort
+    Agent-->>User: Ergebnis
+''', width=800, height=600)
 ```
+
+**Parameter:**
+- `code` (str): Mermaid-Code für das Diagramm
+- `width` (int, optional): Breite in Pixeln
+- `height` (int, optional): Höhe in Pixeln
 
 **Unterstützte Diagrammtypen:**
 - Flowcharts (`graph TD`, `graph LR`)
 - Sequenzdiagramme (`sequenceDiagram`)
 - Gantt-Charts (`gantt`)
 - State Machines (`stateDiagram`)
+
+**Features:**
+- Automatische oder manuelle Größenkontrolle
+- Robuste Fehlerbehandlung mit aussagekräftigen Fehlermeldungen
+- Timeout-Schutz (15 Sekunden)
 
 #### 7. `load_chat_prompt_template(path)`
 
