@@ -1,6 +1,7 @@
-# LangChain Stack (Version 1.0+)
-langchain>=1.0.0
-langchain-core>=1.0.0
+# LangChain Stack (Version 1.1.0+)
+# Updated: Dezember 2025 - LangChain v1.1.0 mit Model Profiles, Smart Structured Output & neuer Middleware
+langchain>=1.1.0
+langchain-core>=1.1.0
 langchain-openai>=0.2.0
 langchain-community>=0.3.0
 langchain-text-splitters>=0.3.0

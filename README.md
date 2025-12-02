@@ -23,7 +23,7 @@ GenAI/
 
 ### Kernframeworks
 - **OpenAI API** (>=1.0.0) - GPT-4o-mini, Embeddings, DALL-E
-- **LangChain** (>=1.0.0) - Orchestrierung, Chains, Agents, RAG
+- **LangChain** (>=1.1.0) 🆕 - Orchestrierung, Chains, Agents, RAG
 - **LangGraph** (>=0.2.0) - Zustandsbasierte Multi-Agent-Workflows
 - **Hugging Face** - Transformers und Community-Modelle
 
@@ -36,6 +36,22 @@ GenAI/
   - **multimodal_rag.py** - Multimodales RAG-System mit Bild-zu-Bild und Bild-zu-Text Suche
   - **mcp_modul.py** - Model Context Protocol (MCP) Integration für Server, Clients und AI-Assistenten
   - **utilities.py** - Hilfsfunktionen für Environment-Checks, Paket-Installation, API-Keys und Prompt-Templates
+
+### 🆕 LangChain v1.1.0 Features (Dezember 2025)
+
+Dieser Kurs nutzt die neuesten **LangChain v1.1.0** Features:
+
+- ✨ **Model Profiles** - Automatische Capability-Detection via `.profile` Attribut
+- ✨ **Smart Structured Output** - Auto-Inference von `ProviderStrategy`
+- ✨ **SystemMessage in Agents** - Cache-Control für Anthropic Claude
+- ✨ **ModelRetryMiddleware** - Automatische Retries mit exponential backoff
+- ✨ **ContentModerationMiddleware** - OpenAI Moderation für Safety-Layer
+
+**Dokumentation:**
+- [LangChain 1.0 Must-Haves](./LangChain_1.0_Must_Haves.md) - PFLICHT-Features für alle Notebooks
+- [LangGraph 1.0 Must-Haves](./LangGraph_1.0_Must_Haves.md) - Multi-Agent & State Machines
+- [Notebook Template Guide](./Notebook_Template_Guide.md) - Standard-Struktur für Notebooks
+- [CLAUDE.md](./CLAUDE.md) - Vollständige Projektinstruktionen
 
 ## 📚 Kursmodule
 
@@ -102,5 +118,11 @@ Bilder und Videos erstellt mit **Hedra AI** – Nutzung gemäß [Hedra Terms](ht
 
 ---
 
-**Letzte Aktualisierung:** November 2025
-**Version:** 2.0
+**Letzte Aktualisierung:** Dezember 2025
+**Version:** 2.1
+
+**Changelog v2.1:**
+- ✅ LangChain v1.1.0 Support (Dezember 2025)
+- 🆕 Model Profiles, Smart Structured Output, SystemMessage Support
+- 🆕 2 neue Middleware: ModelRetryMiddleware & ContentModerationMiddleware
+- ✅ Dokumentation erweitert mit v1.1.0 Features
