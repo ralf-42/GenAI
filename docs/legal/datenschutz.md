@@ -170,5 +170,5 @@ E-Mail: ralf.bendig.rb@gmail.com
 
 ---
 
-**Letzte Aktualisierung:** Dezember 2024
+**Letzte Aktualisierung:** Dezember 2025
 **Version:** 1.0
