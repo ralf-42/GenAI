@@ -18,7 +18,7 @@ from langchain_core.prompts import ChatPromptTemplate
 
 def check_environment():
     """
-    Gibt die installierte Python-Version aus, listet installierte LangChain-Bibliotheken auf
+    Gibt die installierte Python-Version aus, listet installierte LangChain- und LangGraph-Bibliotheken auf
     und unterdrückt typische Deprecation-Warnungen im Zusammenhang mit LangChain.
 
     Diese Funktion ist hilfreich, um schnell die Entwicklungsumgebung für LangChain-Projekte
@@ -27,17 +27,18 @@ def check_environment():
     Ausgabe:
         - Python-Version
         - Liste installierter Pakete, die mit "langchain" beginnen
+        - Liste installierter Pakete, die mit "langgraph" beginnen
     """
 
     # Python-Version anzeigen
     print(f"Python Version: {sys.version}\n")
 
-    # LangChain-Pakete anzeigen
-    print("Installierte LangChain-Bibliotheken:")
+    # LangChain- und LangGraph-Pakete anzeigen
+    print("Installierte LangChain- und LangGraph-Bibliotheken:")
     try:
         result = subprocess.run(["pip", "list"], stdout=subprocess.PIPE, text=True)
         for line in result.stdout.splitlines():
-            if line.lower().startswith("langchain"):
+            if line.lower().startswith("langchain") or line.lower().startswith("langgraph"):
                 print(line)
     except Exception as e:
         print("Fehler beim Abrufen der Paketliste:", e)
