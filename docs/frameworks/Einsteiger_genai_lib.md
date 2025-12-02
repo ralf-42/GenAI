@@ -1,16 +1,18 @@
 ---
 layout: default
-title: genai_lib Einsteiger
+title: GenAI_Lib Einsteiger
 parent: Frameworks
 nav_order: 5
 description: Projektspezifische Python-Bibliothek für Kursanwendungen
 permalink: /frameworks/genai_lib/
 ---
 
-# genai_lib - Projektspezifische Bibliothek
+# GenAI_Lib - Projektspezifische Bibliothek
 {: .no_toc }
 
 > **Projektspezifische Bibliothek für den Kurs Generative KI**
+
+---
 
 Die `genai_lib` ist eine projektspezifische Python-Bibliothek, die speziell für die Anforderungen dieses Kurses entwickelt wurde. Sie bündelt wichtige Funktionen für multimodale RAG-Systeme, MCP-Integration und allgemeine Hilfsfunktionen.
 
