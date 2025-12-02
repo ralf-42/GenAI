@@ -25,7 +25,7 @@ has_toc: true
 
 ## Übersicht der LLM-Provider
 
-Diese Tabelle bietet eine Übersicht über die wichtigsten LLM-Provider mit ihren Zahlungsweisen, kostenlosen Optionen und der Integration in Google Colab.
+Diese Tabelle bietet eine Übersicht (Stand: 12.2025) über LLM-Provider mit ihren Zahlungsweisen, kostenlosen Optionen und der Integration in Google Colab.
 
 | Model Provider          | Integration Package           | Zahlungsweisen                    | PayPal verfügbar? | Kostenloser API-Key?       | Hinweise / Besonderheiten                                                  |
 | ----------------------- | ----------------------------- | --------------------------------- | ----------------- | -------------------------- | -------------------------------------------------------------------------- |
@@ -182,6 +182,6 @@ llm = Ollama(model="llama3")
 
 ---
 
-**Version:** 1.0     
-**Letzte Aktualisierung:** Dezember 2025     
-**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.     
+**Version:** 1.0       
+**Letzte Aktualisierung:** Dezember 2025        
+**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.        
