@@ -211,9 +211,9 @@ def mprint(text):
     display(Markdown(text))
 
 
-def mermaid(code: str):
+def mermaid(code: str, width=None, height=None):
     """
-    Rendert Mermaid-Diagramme über den kroki.io Service.
+    Rendert Mermaid-Diagramme über den kroki.io Service mit anpassbarer Größe.
 
     Diese Funktion sendet Mermaid-Code an den kroki.io Online-Service
     und zeigt das resultierende SVG-Diagramm direkt im Jupyter-Notebook an.
@@ -226,6 +226,10 @@ def mermaid(code: str):
     ----------
     code : str
         Mermaid-Code, der das gewünschte Diagramm beschreibt.
+    width : int, optional
+        Breite des Diagramms in Pixeln (Standard: None = automatische Größe).
+    height : int, optional
+        Höhe des Diagramms in Pixeln (Standard: None = automatische Größe).
 
     Beispiel:
     ---------
@@ -241,22 +245,28 @@ def mermaid(code: str):
     ...     Agent->>LLM: Query senden
     ...     LLM-->>Agent: Antwort
     ...     Agent-->>User: Ergebnis
-    ... ''')
+    ... ''', width=800, height=600)
 
     Hinweise:
     ---------
     - Benötigt eine aktive Internetverbindung zu kroki.io
     - Unterstützt alle Mermaid-Diagrammtypen (graph, sequenceDiagram, gantt, etc.)
     - Timeout ist auf 15 Sekunden gesetzt
+    - Width und Height sind optional für bessere Kontrolle über die Darstellung
 
     Raises:
     -------
     requests.HTTPError
         Wenn der kroki.io Service nicht erreichbar ist oder ein Fehler auftritt.
     """
-    r = requests.post("https://kroki.io/mermaid/svg", data=code.encode("utf-8"), timeout=15)
-    r.raise_for_status()
-    display(SVG(r.text))
+    try:
+        r = requests.post("https://kroki.io/mermaid/svg", data=code.encode("utf-8"), timeout=15)
+        r.raise_for_status()
+        display(SVG(r.text, width=width, height=height))
+    except requests.exceptions.HTTPError as e:
+        print(f"Fehler beim Rendern des Mermaid-Diagramms: {e}")
+    except Exception as e:
+        print(f"Ein unerwarteter Fehler ist aufgetreten: {e}")
 
 
 # ============================================================================
