@@ -45,7 +45,7 @@ Diese Guides führen Sie Schritt für Schritt in die wichtigsten Frameworks und 
 
 ## Projektspezifische Bibliotheken
 
-- **genai_lib Einsteiger** - Projektspezifische Python-Bibliothek für Kursanwendungen
+- **GenAI_Lib Einsteiger** - Projektspezifische Python-Bibliothek für Kursanwendungen
   - **utilities.py** - Environment-Checks, Paket-Installation, API-Keys, Prompt-Templates
   - **multimodal_rag.py** - Multimodales RAG-System mit Text- und Bildsuche (Bild ↔ Bild, Bild ↔ Text)
   - **mcp_modul.py** - Model Context Protocol (MCP) Integration für Server, Clients und AI-Assistenten
