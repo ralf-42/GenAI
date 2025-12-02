@@ -32,6 +32,10 @@ GenAI/
 - **Sentence Transformers** (>=3.0.0) - CLIP für multimodale Embeddings
 - **Gradio** (>=3.x) - UI-Entwicklung für KI-Apps
 - **Ollama** - Lokale Open-Source-Modelle
+- **genai_lib** (eigene Module in `04_modul/genai_lib/`) - Projektspezifische Bibliothek für Kursanwendungen
+  - **multimodal_rag.py** - Multimodales RAG-System mit Bild-zu-Bild und Bild-zu-Text Suche
+  - **mcp_modul.py** - Model Context Protocol (MCP) Integration für Server, Clients und AI-Assistenten
+  - **utilities.py** - Hilfsfunktionen für Environment-Checks, Paket-Installation, API-Keys und Prompt-Templates
 
 ## 📚 Kursmodule
 
