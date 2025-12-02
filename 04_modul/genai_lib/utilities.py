@@ -262,7 +262,28 @@ def mermaid(code: str, width=None, height=None):
     try:
         r = requests.post("https://kroki.io/mermaid/svg", data=code.encode("utf-8"), timeout=15)
         r.raise_for_status()
-        display(SVG(r.text, width=width, height=height))
+
+        # SVG-Code anpassen, wenn width oder height angegeben sind
+        svg_content = r.text
+        if width is not None or height is not None:
+            # Ersetze oder füge width/height Attribute im SVG-Tag hinzu
+            import re
+            # Suche nach dem öffnenden <svg> Tag
+            svg_match = re.search(r'<svg([^>]*)>', svg_content)
+            if svg_match:
+                attrs = svg_match.group(1)
+                # Entferne existierende width/height Attribute
+                attrs = re.sub(r'\s*width="[^"]*"', '', attrs)
+                attrs = re.sub(r'\s*height="[^"]*"', '', attrs)
+                # Füge neue Attribute hinzu
+                new_attrs = attrs
+                if width is not None:
+                    new_attrs += f' width="{width}"'
+                if height is not None:
+                    new_attrs += f' height="{height}"'
+                svg_content = svg_content.replace(svg_match.group(0), f'<svg{new_attrs}>')
+
+        display(SVG(svg_content))
     except requests.exceptions.HTTPError as e:
         print(f"Fehler beim Rendern des Mermaid-Diagramms: {e}")
     except Exception as e:
