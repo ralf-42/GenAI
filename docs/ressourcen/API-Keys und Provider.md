@@ -27,15 +27,29 @@ has_toc: true
 
 Diese Tabelle bietet eine Übersicht über die wichtigsten LLM-Provider mit ihren Zahlungsweisen, kostenlosen Optionen und der Integration in Google Colab.
 
-| Provider | Zahlungsweisen | PayPal verfügbar? | Kostenloser API-Key? | Colab-Kompatibilität |
-|---|---|---|---|---|
-| **OpenAI** | Kreditkarte, PayPal (ab 2026) | Ja (zukünftig) | Nein (Freemium) | Ja: `!pip install openai`, `os.environ["OPENAI_API_KEY"]` [bnaskrecki.faculty.wmi.amu](https://bnaskrecki.faculty.wmi.amu.edu.pl/jupybook/llm_workshop/google_colab_chatgpt_tutorial.html) |
-| **Google AI Studio** | Kreditkarte, PayPal | Ja | Ja (Gemini, hohe Limits) | Ja: Native Gemini in Colab, `ChatGoogleGenerativeAI` [colab.research.google](https://colab.research.google.com/) |
-| **Groq** | Kreditkarte | Nein | Ja (große Limits) | Ja: `!pip install langchain-groq`, `os.environ["GROQ_API_KEY"]` [apidog](https://apidog.com/de/blog/free-open-source-llm-apis-4/) |
-| **Together AI** | Kreditkarte | Nein | Ja (Freemium) | Ja: `ChatTogether` mit Key in Colab [madappgang](https://madappgang.com/blog/best-free-ai-apis-for-2025-build-with-llms-without/) |
-| **OVH Cloud** | Kreditkarte, Rechnung | Nein | Ja (Mistral/Llama) | Ja: Standard LangChain-Integration [benutzerfreun](https://www.benutzerfreun.de/websites-entwickeln-mit-ki/kostenloser-zugang-zu-open-source-sprachmodellen/) |
-| **OpenRouter** | Kreditkarte | Nein | Ja (Testlimits) | Ja: Multi-Provider Key via Colab [apidog](https://apidog.com/de/blog/free-open-source-llm-apis-4/) |
-| **Cloudflare Workers AI** | Kostenlos (Limits) | Nein | Ja (vollständig) | Ja: `ChatCloudflareWorkersAI` [madappgang](https://madappgang.com/blog/best-free-ai-apis-for-2025-build-with-llms-without/) |
+| Model Provider          | Integration Package           | Zahlungsweisen                    | PayPal verfügbar? | Kostenloser API-Key?       | Hinweise / Besonderheiten                                                  |
+| ----------------------- | ----------------------------- | --------------------------------- | ----------------- | -------------------------- | -------------------------------------------------------------------------- |
+| openai                  | langchain-openai              | Kreditkarte, PayPal (ab 2026)     | Ja (zukünftig)    | Nein (begrenztes Freemium) | Weit verbreitet, stabil, offizielle PayPal-Koordination mit Agent Toolkit. |
+| anthropic               | langchain-anthropic           | Kreditkarte                       | Nein              | Ja (Freemium)              | Fokus auf Sicherheit und RLHF, PayPal aktuell nicht unterstützt.           |
+| azure_openai            | langchain-openai              | Kreditkarte, Microsoft Abrechnung | Nein              | Nein                       | Azure-Wrapper für OpenAI, keine PayPal-Zahlung.                            |
+| azure_ai                | langchain-azure-ai            | Kreditkarte, Rechnung             | Nein              | Ja (Freemium)              | Microsoft Azure KI-Dienste, Enterprise-fokussiert.                         |
+| google_vertexai         | langchain-google-vertexai     | Kreditkarte, PayPal               | Ja                | Ja (hohe Limits)           | Google Cloud, Gemini Modelle, PayPal möglich.                              |
+| google_genai            | langchain-google-genai        | Kreditkarte, PayPal               | Ja                | Ja (hohe Limits)           | Google Generative AI mit nativer Cloud-Integration.                        |
+| bedrock                 | langchain-aws                 | Kreditkarte                       | Nein              | Nein                       | AWS Bedrock Modelle, keine PayPal-Unterstützung.                           |
+| bedrock_converse        | langchain-aws                 | Kreditkarte                       | Nein              | Nein                       | AWS Conversational Endpoints, kein PayPal.                                 |
+| cohere                  | langchain-cohere              | Kreditkarte                       | Nein              | Ja (Freemium)              | Gute Text- und Embedding-Leistung.                                         |
+| fireworks               | langchain-fireworks           | Kreditkarte                       | Nein              | Ja                         | Multimodale Anwendungsfälle, kein PayPal.                                  |
+| together                | langchain-together            | Kreditkarte                       | Nein              | Ja (Freemium)              | Community-getriebene Modelle.                                              |
+| mistralai               | langchain-mistralai           | Kreditkarte                       | Nein              | Ja                         | Effiziente Open-Source-Modelle.                                            |
+| huggingface             | langchain-huggingface         | Kreditkarte, Open Source          | Nein              | Ja                         | Zugang zum Huggingface Hub, große Modellvielfalt.                          |
+| groq                    | langchain-groq                | Kreditkarte                       | Nein              | Ja (gute Ratenlimits)      | Hochleistungs-Hardwareoptimierte Modelle.                                  |
+| ollama                  | langchain-ollama              | Lokalinstallation                 | Nein              | Ja                         | Lokal laufende Modelle, keine Cloudabhängigkeit.                           |
+| google_anthropic_vertex | langchain-google-vertexai     | Kreditkarte, PayPal               | Ja                | Ja                         | Google Vertex AI mit Anthropic Modellen.                                   |
+| deepseek                | langchain-deepseek            | PayPal (limitierte Länder)        | Ja                | Ja                         | Nur PayPal-Zahlung, API-Key Nutzung via PayPal-Authentifizierung.          |
+| ibm                     | langchain-ibm                 | Kreditkarte                       | Nein              | Nein                       | IBM Watson KI, hauptsächlich Enterprise.                                   |
+| nvidia                  | langchain-nvidia-ai-endpoints | Kreditkarte                       | Nein              | Nein                       | NVIDIA KI mit Hardwarefokus.                                               |
+| xai                     | langchain-xai                 | Kreditkarte                       | Nein              | Nein                       | Fokus auf erklärbare KI.                                                   |
+| perplexity              | langchain-perplexity          | Kreditkarte                       | Nein              | Ja                         | Dynamische Wissensextraktion, Websuche-basiert.                            |
 
 ---
 
@@ -48,20 +62,12 @@ Diese Tabelle bietet eine Übersicht über die wichtigsten LLM-Provider mit ihre
 ```python
 # Installiere benötigte Bibliothek
 !pip install langchain-{provider}
-
-# Sichere Key-Verwaltung über Colab Secrets
-from google.colab import userdata
-import os
-
-# API-Key aus Colab Secrets laden
-os.environ["OPENAI_API_KEY"] = userdata.get('OPENAI_API_KEY')
-os.environ["GROQ_API_KEY"] = userdata.get('GROQ_API_KEY')
 ```
 
 **So speichern Sie Keys in Colab Secrets:**
 1. Klicken Sie auf das Schlüssel-Symbol 🔑 in der linken Sidebar
 2. Fügen Sie Ihren API-Key hinzu (z.B. `OPENAI_API_KEY`)
-3. Verwenden Sie `userdata.get('KEY_NAME')` im Code
+
 
 ### Provider-spezifische Installation
 
@@ -162,24 +168,6 @@ llm = Ollama(model="llama3")
 - Colab Secrets für Notebooks nutzen
 - API-Keys regelmäßig rotieren
 - Nutzungslimits überwachen
-
-### Beispiel: Sichere `.env` Datei (lokal)
-
-```bash
-# .env (NIEMALS committen!)
-OPENAI_API_KEY=sk-...
-GROQ_API_KEY=gsk_...
-GOOGLE_API_KEY=...
-```
-
-```python
-# In Python laden
-from dotenv import load_dotenv
-import os
-
-load_dotenv()
-openai_key = os.getenv("OPENAI_API_KEY")
-```
 
 ---
 
