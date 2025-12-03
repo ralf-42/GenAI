@@ -181,7 +181,7 @@ print(safe_divide.invoke({"a": 10, "b": 0}))
 
 ## 6 Agenten erstellen: `create_agent()`
 
-Mit `create_agent()` werden Modell, Tools, Systemprompt und optional Middleware zu einer Einheit verbunden. Agenten basieren auf einer klaren Struktur, die intern auf der LangGraph-State-Machine aufsetzt.
+Mit `create_agent()` werden Modell, Tools, Systemprompt und optional Middleware zu einer Einheit verbunden.
 
 **Beispiel: Kleinstmöglicher Tool-Agent**
 
@@ -214,7 +214,7 @@ result = agent.invoke({"messages": messages})
 result
 ```
 
-Hier liefert `create_agent()` bereits ein kompiliertes LangGraph‑Objekt (CompiledStateGraph). Dadurch kann derselbe Agent später in komplexere Workflows eingebettet werden.
+Hier liefert `create_agent()` bereits ein kompiliertes Objekt. Dadurch kann derselbe Agent später in komplexere Workflows eingebettet werden.
 
 ---
 
@@ -437,7 +437,7 @@ antwort = rag_chain.invoke(frage)
 print(antwort)
 ```
 
-Dieses Pattern bildet die Grundlage für Wissens‑Chatbots, Dokumenten‑Assistenten oder interne Suchsysteme im Kurs und kann schrittweise um Evaluierung, Feedback‑Schleifen oder LangGraph‑Workflows erweitert werden.
+Dieses Pattern bildet die Grundlage für Wissens‑Chatbots, Dokumenten‑Assistenten oder interne Suchsysteme im Kurs und kann schrittweise um Evaluierung und Feedback‑Schleifen erweitert werden.
 
 ---
 

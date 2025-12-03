@@ -441,7 +441,7 @@ Effektives Prompt Engineering basiert auf drei Säulen:
 - **Strukturierte Ausgaben** ermöglichen Weiterverarbeitung
 - **Iteratives Testen** führt zu robusten Prompts
 
-Im weiteren Kursverlauf werden diese Strategien praktisch in LangChain-Agents und LangGraph-Workflows angewendet.
+Im weiteren Kursverlauf werden diese Strategien praktisch in LangChain-Agents angewendet.
 
 ---
 

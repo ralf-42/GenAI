@@ -3,7 +3,7 @@
 
 # Site settings
 title: "Generative KI."
-description: "Generative KI. Verstehen. Anwenden. Gestalten. - Praktische Implementierungen mit LangChain, LangGraph und modernen Foundation Models"
+description: "Generative KI. Verstehen. Anwenden. Gestalten. - Praktische Implementierungen mit LangChain und modernen Foundation Models"
 author: Ralf
 email: your-email@example.com
 baseurl: "/GenAI" # Repository name

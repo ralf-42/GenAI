@@ -69,7 +69,6 @@ check_environment()
 **Ausgabe:**
 - Python-Version
 - Alle installierten LangChain-Bibliotheken
-- Alle installierten LangGraph-Bibliotheken
 - Unterdrückt automatisch Deprecation-Warnungen
 
 #### 2. `install_packages(packages)`

@@ -81,7 +81,7 @@ def multiply(a: int, b: int) -> int:
 
 ### 4. ✅ `create_agent()` - Modern Agent API
 
-**Warum:** Moderne Agent-API basierend auf LangGraph (kein AgentExecutor mehr)
+**Warum:** Moderne Agent-API (kein AgentExecutor mehr)
 
 ```python
 from langchain.agents import create_agent
@@ -418,7 +418,6 @@ def test_agent_with_tools():
 - **Quick References:** [Dokumentation](documentation.html)
 - **Quick Start:** [Quick Start Guide](quickstart.html)
 - **LangChain Docs:** [python.langchain.com](https://python.langchain.com/)
-- **LangGraph Docs:** [langchain-ai.github.io/langgraph](https://langchain-ai.github.io/langgraph/)
 
 ---
 
