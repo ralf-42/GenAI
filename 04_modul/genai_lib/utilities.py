@@ -11,6 +11,8 @@ import warnings
 import subprocess
 import tempfile
 import importlib.util
+import re
+from typing import Tuple, Any
 from langchain_core.prompts import ChatPromptTemplate
 #
 # -- Sammlung von Standard-Funktionen für den Kurs
@@ -288,6 +290,81 @@ def mermaid(code: str, width=None, height=None):
         print(f"Fehler beim Rendern des Mermaid-Diagramms: {e}")
     except Exception as e:
         print(f"Ein unerwarteter Fehler ist aufgetreten: {e}")
+
+
+# ============================================================================
+# LLM RESPONSE PARSING
+# ============================================================================
+
+def extract_thinking(response: Any) -> Tuple[str, str]:
+    """
+    Universeller Parser für verschiedene Thinking-Formate von LLMs.
+
+    Diese Funktion extrahiert den "Thinking"-Teil (Denkprozess) und die eigentliche
+    Antwort aus verschiedenen LLM-Response-Formaten. Sie unterstützt mehrere
+    Provider und Modelle mit unterschiedlichen Ausgabestrukturen.
+
+    Unterstützte Formate:
+        1. Liste von Blöcken (Claude, Gemini): content = [{"type": "thinking", ...}, {"type": "text", ...}]
+        2. String mit <think> Tags (Qwen3, DeepSeek R1): "<think>...</think>Antwort"
+        3. DeepSeek reasoning_content Feld: response.additional_kwargs["reasoning_content"]
+
+    Parameter:
+    ----------
+    response : Any
+        Ein LLM-Response-Objekt (z.B. AIMessage) mit einem `content` Attribut.
+        Optional kann es auch `additional_kwargs` enthalten.
+
+    Returns:
+    --------
+    Tuple[str, str]
+        Ein Tuple bestehend aus:
+        - thinking (str): Der extrahierte Denkprozess (leer, wenn nicht vorhanden)
+        - answer (str): Die eigentliche Antwort
+
+    Beispiel:
+    ---------
+    >>> from langchain.chat_models import init_chat_model
+    >>> llm = init_chat_model("anthropic:claude-3-5-sonnet", temperature=0)
+    >>> response = llm.invoke("Erkläre kurz, was 2+2 ist.")
+    >>> thinking, answer = extract_thinking(response)
+    >>> print(f"Thinking: {thinking[:100]}...")
+    >>> print(f"Answer: {answer}")
+
+    Hinweise:
+    ---------
+    - Bei Modellen ohne Thinking-Feature wird thinking als leerer String zurückgegeben
+    - Die Funktion ist provider-agnostisch und passt sich automatisch an
+    - Für Claude muss extended thinking aktiviert sein (Beta-Feature)
+    """
+    thinking = ""
+    answer = ""
+    content = response.content
+
+    # Fall 1: Liste von Blöcken (Claude, Gemini)
+    if isinstance(content, list):
+        for block in content:
+            if isinstance(block, dict):
+                block_type = block.get("type", "")
+                if block_type == "thinking":
+                    thinking += block.get("thinking", "")
+                elif block_type == "text":
+                    answer += block.get("text", "")
+
+    # Fall 2: String mit <think> Tags (Qwen3, DeepSeek R1)
+    elif isinstance(content, str):
+        think_match = re.search(r"<think>(.*?)</think>", content, re.DOTALL)
+        if think_match:
+            thinking = think_match.group(1).strip()
+            answer = re.sub(r"<think>.*?</think>", "", content, flags=re.DOTALL).strip()
+        else:
+            answer = content
+
+    # Fall 3: DeepSeek reasoning_content Feld
+    if not thinking and hasattr(response, "additional_kwargs"):
+        thinking = response.additional_kwargs.get("reasoning_content", "")
+
+    return thinking, answer
 
 
 # ============================================================================
