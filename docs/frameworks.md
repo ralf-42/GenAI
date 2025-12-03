@@ -3,7 +3,7 @@ layout: default
 title: Frameworks
 nav_order: 3
 has_children: true
-description: "Einsteiger-Guides für LangChain, LangGraph, ChromaDB und Agent Builder"
+description: "Einsteiger-Guides für LangChain, ChromaDB und Agent Builder"
 permalink: /frameworks/
 ---
 
@@ -20,12 +20,6 @@ Diese Guides führen Sie Schritt für Schritt in die wichtigsten Frameworks und 
   - Tool Use und Function Calling
   - Chains und LCEL (LangChain Expression Language)
   - RAG-Systeme mit LangChain
-
-- **LangGraph Einsteiger** - Multi-Agent-Systeme und komplexe State-Machine-basierte Workflows
-  - StateGraph und Workflow-Design
-  - Multi-Agent-Koordination
-  - Conditional Routing und Human-in-the-Loop
-  - Persistierung und Checkpointing
 
 ## Vektordatenbanken
 

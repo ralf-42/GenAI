@@ -2,14 +2,14 @@
 layout: default
 title: Start
 nav_order: 1
-description: "Generative KI mit LangChain & LangGraph"
+description: "Generative KI mit LangChain"
 permalink: /
 ---
 
 # Generative KI
 
-> **Generative KI. Verstehen. Anwenden. Gestalten.**       
-> Praktische Anwendung von Sprachmodellen, LangChain, LangGraph und modernen Foundation Models
+> **Generative KI. Verstehen. Anwenden. Gestalten.**
+> Praktische Anwendung von Sprachmodellen, LangChain und modernen Foundation Models
 
 
 ---

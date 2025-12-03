@@ -31,7 +31,7 @@ Praktische Anleitungen, Best Practices und Hilfestellungen für die Arbeit mit G
 
 ### Hilfe & Support
 - **[Troubleshooting](ressourcen/troubleshooting.html)** - Lösungen für häufige Probleme und Fehler
-  - LangChain/LangGraph Debugging
+  - LangChain Debugging
   - Vektordatenbank-Probleme
   - API-Integration Issues
   - Performance-Optimierung
