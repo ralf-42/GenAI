@@ -293,54 +293,16 @@ middleware = [HumanInTheLoopMiddleware(tool_names=["delete_file"])]
 
 ---
 
-## ⚠️ Breaking Changes: 0.x → 1.0+
-
-### Migration-Tabelle
-
-| Alt (0.x) | Neu (1.0+) | Status |
-|-----------|------------|--------|
-| `ChatOpenAI()` direkt | `init_chat_model()` | ⛔ Deprecated |
-| `PydanticOutputParser` | `with_structured_output()` | ⛔ Deprecated |
-| `Tool()` wrapper | `@tool` decorator | ⛔ Deprecated |
-| `initialize_agent()` | `create_agent()` | ⛔ Deprecated |
-| `AgentExecutor` | `create_agent()` (gibt Graph zurück) | ⛔ Deprecated |
-
-### Beispiel-Migration
-
-**ALT (0.x):**
-```python
-from langchain.chat_models import ChatOpenAI
-from langchain.agents import initialize_agent, AgentType
-
-llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
-agent = initialize_agent(tools, llm, agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION)
-```
-
-**NEU (1.0+):**
-```python
-from langchain.chat_models import init_chat_model
-from langchain.agents import create_agent
-
-llm = init_chat_model("gpt-4o-mini", model_provider="openai", temperature=0.0)
-agent = create_agent(model=llm, tools=tools, debug=True)
-```
-
----
 
 ## 🔒 Security Best Practices
 
 ### 1. API-Keys sicher verwalten
 
 ```python
-# ✅ GUT: Umgebungsvariablen
-from dotenv import load_dotenv
-import os
+# ✅ GUT: Umgebungsvariablen - Übernahme aus secrets
+from genai_lib.utilities import setup_api_keys
 
-load_dotenv()
-api_key = os.getenv("OPENAI_API_KEY")
-
-# ❌ SCHLECHT: Hardcoded API-Keys
-api_key = "sk-..."  # NIEMALS!
+setup_api_keys(["OPENAI_API_KEY"])
 ```
 
 ### 2. Input-Validierung
