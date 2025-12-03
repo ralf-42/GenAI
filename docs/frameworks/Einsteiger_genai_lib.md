@@ -42,7 +42,7 @@ Die Bibliothek besteht aus drei Hauptmodulen:
 
 | Modul | Beschreibung | Hauptfunktionen |
 |-------|-------------|----------------|
-| **utilities.py** | Hilfsfunktionen für Environment-Setup | Environment-Checks, Paket-Installation, API-Keys, Prompt-Templates |
+| **utilities.py** | Hilfsfunktionen für Environment-Setup | Environment-Checks, Paket-Installation, API-Keys, Prompt-Templates, LLM-Response-Parsing |
 | **multimodal_rag.py** | Multimodales RAG-System | Text- und Bildsuche, Bild-zu-Bild-Suche, Bild-zu-Text-Suche |
 | **mcp_modul.py** | Model Context Protocol | MCP-Server, MCP-Client, AI-Assistant mit MCP-Tools |
 
@@ -212,6 +212,41 @@ messages = [
     ("human", "Question: {question}\n\nContext: {context}\n\nAnswer:")
 ]
 ```
+
+#### 8. `extract_thinking(response)` 🆕
+
+Universeller Parser für verschiedene Thinking-Formate von LLMs. Extrahiert den Denkprozess und die eigentliche Antwort aus unterschiedlichen Response-Strukturen.
+
+```python
+from genai_lib.utilities import extract_thinking
+
+# Response von beliebigem LLM
+response = llm.invoke("Erkläre Schritt für Schritt, was 2+2 ergibt")
+
+# Universeller Parser für alle Formate
+thinking, answer = extract_thinking(response)
+
+print(f"Denkprozess: {thinking[:200]}...")
+print(f"Antwort: {answer}")
+```
+
+**Unterstützte Formate:**
+
+| Provider/Modell | Format | Beispiel |
+|-----------------|--------|----------|
+| Claude (Extended Thinking) | Liste mit `{"type": "thinking"}` Blöcken | `content = [{"type": "thinking", "thinking": "..."}]` |
+| Gemini | Liste mit `{"type": "thinking"}` Blöcken | `content = [{"type": "thinking", "thinking": "..."}]` |
+| Qwen3, DeepSeek R1 | String mit `<think>` Tags | `"<think>Denkprozess</think>Antwort"` |
+| DeepSeek | `additional_kwargs["reasoning_content"]` | Separates Feld im Response |
+
+**Rückgabe:**
+- `thinking` (str): Extrahierter Denkprozess (leer, wenn nicht vorhanden)
+- `answer` (str): Eigentliche Antwort
+
+**Features:**
+- Provider-agnostisch: Ein Parser für alle LLMs
+- Fallback-Logik: Prüft automatisch alle bekannten Formate
+- Robust: Gibt leeren Thinking-String zurück, wenn kein Denkprozess vorhanden
 
 ---
 
@@ -659,7 +694,10 @@ Die Module stehen unter der MIT-Lizenz und können frei für eigene Projekte ver
 
 ---
 
-**Version:** 1.0       
-**Stand:** November 2025       
-**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.     
+**Version:** 1.1
+**Stand:** Dezember 2025
+**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
+
+**Changelog v1.1:**
+- 🆕 `extract_thinking()` - Universeller Parser für LLM-Thinking-Formate (Claude, Gemini, Qwen3, DeepSeek)     
 
