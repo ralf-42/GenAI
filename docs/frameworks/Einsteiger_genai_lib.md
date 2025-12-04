@@ -266,15 +266,23 @@ profile = get_model_profile("openai:gpt-4o-mini")
 #   ✓ Structured Output:  True
 #   ✓ Function Calling:   True
 #   ✓ JSON Mode:          True
+#   ✓ Reasoning:          False
 #
 # 🎨 Multimodal Capabilities:
-#   ✓ Vision (Images):    True
-#   ✓ Audio Input:        False
-#   ✓ Video Input:        False
+#   ✓ Input:  📝 Text, 🖼️ Image
+#   ✓ Output: 📝 Text
 #
 # 📊 Token Limits:
 #   ✓ Max Input Tokens:   128000
 #   ✓ Max Output Tokens:  16384
+#
+# ⚙️ Model Configuration:
+#   ✓ Temperature:        Yes
+#   ✓ Knowledge Cutoff:   2023-10
+#
+# 🔧 Additional Features:
+#   ✓ Streaming:          True
+#   ✓ Async:              True
 # ============================================================
 
 # Ohne Ausgabe (nur Profile-Dict zurückgeben)
@@ -286,6 +294,8 @@ for model in ["openai:gpt-4o-mini", "anthropic:claude-3-sonnet", "google:gemini-
     profile = get_model_profile(model, print_profile=False)
     print(f"  Context: {profile['max_input_tokens']} tokens")
     print(f"  Vision: {profile['image_inputs']}")
+    print(f"  Reasoning: {profile.get('reasoning', False)}")
+    print(f"  Knowledge: {profile.get('knowledge_cutoff', 'N/A')}")
 ```
 
 **Parameter:**
@@ -298,25 +308,52 @@ for model in ["openai:gpt-4o-mini", "anthropic:claude-3-sonnet", "google:gemini-
 - `dict`: Vollständiges Model-Profile mit allen Capabilities
 
 **Profile-Attribute (Auswahl):**
+
+**Core Capabilities:**
 - `structured_output`: Native Structured Output API
 - `tool_calling`: Function Calling Support
-- `image_inputs`: Vision Capabilities
-- `audio_inputs`: Audio Input Support
-- `video_inputs`: Video Input Support
+- `supports_json_mode`: JSON Mode Support
+- `reasoning`: Extended Thinking/Reasoning Support
+
+**Multimodal Input:**
+- `text_inputs`: Text Input (Standard) - Anzeige: 📝 Text
+- `image_inputs`: Bild Input (Vision) - Anzeige: 🖼️ Image
+- `audio_inputs`: Audio Input Support - Anzeige: 🎵 Audio
+- `video_inputs`: Video Input Support - Anzeige: 🎬 Video
+
+**Multimodal Output:**
+- `text_outputs`: Text Output (Standard) - Anzeige: 📝 Text
+- `image_outputs`: Bild-Generierung - Anzeige: 🖼️ Image
+- `audio_outputs`: Audio-Generierung (TTS) - Anzeige: 🎵 Audio
+- `video_outputs`: Video-Generierung - Anzeige: 🎬 Video
+
+**Token Limits:**
 - `max_input_tokens`: Context Window Größe
 - `max_output_tokens`: Max. Output-Länge
-- `supports_json_mode`: JSON Mode Support
+
+**Model Configuration:**
+- `temperature`: Temperature-Parameter Support
+- `knowledge_cutoff`: Knowledge Cutoff Date
+
+**Additional Features:**
+- `streaming`: Streaming Support
+- `async_capable`: Async Support
 
 **Features:**
 - Quelle: models.dev (Open-Source Model-Index)
 - Automatische Capability-Detection
-- Formatierte Übersicht oder Raw-Dict
+- Formatierte Übersicht mit Symbolen (📝🖼️🎵🎬) oder Raw-Dict
+- Reasoning/Thinking Support Detection
+- Temperature-Support-Check
+- Knowledge Cutoff Date
 - Perfekt für Modellvergleiche in Notebooks
 
 **Use Cases:**
-- Modell-Fähigkeiten vor Verwendung prüfen
-- Verschiedene LLMs vergleichen
+- Modell-Fähigkeiten vor Verwendung prüfen (Reasoning, Vision, Audio, etc.)
+- Verschiedene LLMs vergleichen (Context Window, Multimodal, Knowledge)
 - Feature-Gates in Code (z.B. "nur wenn Vision verfügbar")
+- Reasoning-Modelle identifizieren (Claude Extended Thinking, DeepSeek R1)
+- Temperature-Unterstützung prüfen
 - Debugging und Dokumentation
 
 ---
@@ -770,7 +807,11 @@ Die Module stehen unter der MIT-Lizenz und können frei für eigene Projekte ver
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
 
 **Changelog v1.2:**
-- 🆕 `get_model_profile()` - Abruf von Model-Capabilities von models.dev (Structured Output, Function Calling, Vision, Token-Limits)
+- 🆕 `get_model_profile()` - Abruf von Model-Capabilities von models.dev
+  - Core Capabilities: Structured Output, Function Calling, JSON Mode, **Reasoning**
+  - Multimodal: Vereinfachte Anzeige mit Symbolen (📝 Text, 🖼️ Image, 🎵 Audio, 🎬 Video)
+  - Model Configuration: **Temperature Support**, **Knowledge Cutoff**
+  - Token Limits, Streaming, Async
 
 **Changelog v1.1:**
 - 🆕 `extract_thinking()` - Universeller Parser für LLM-Thinking-Formate (Claude, Gemini, Qwen3, DeepSeek)     

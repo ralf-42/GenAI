@@ -41,7 +41,7 @@ GenAI/
 
 Dieser Kurs nutzt die neuesten **LangChain v1.1.0** Features:
 
-- ✨ **Model Profiles** - Automatische Capability-Detection via `.profile` Attribut
+- ✨ **Model Profiles** - Automatische Capability-Detection via `.profile` Attribut (Reasoning, Multimodal, Temperature, Knowledge Cutoff)
 - ✨ **Smart Structured Output** - Auto-Inference von `ProviderStrategy`
 - ✨ **SystemMessage in Agents** - Cache-Control für Anthropic Claude
 - ✨ **ModelRetryMiddleware** - Automatische Retries mit exponential backoff

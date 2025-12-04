@@ -348,14 +348,35 @@ def get_model_profile(model: str, temperature: float = 0.0, print_profile: bool 
 
     Profile-Attribute (Auswahl):
     ----------------------------
+    **Core Capabilities:**
     - structured_output: Native Structured Output API
     - tool_calling: Function Calling Support
-    - image_inputs: Vision Capabilities
+    - supports_json_mode: JSON Mode Support
+    - reasoning: Extended Thinking/Reasoning Support
+
+    **Multimodal Input:**
+    - text_inputs: Text Input (Standard)
+    - image_inputs: Bild Input (Vision)
     - audio_inputs: Audio Input Support
     - video_inputs: Video Input Support
+
+    **Multimodal Output:**
+    - text_outputs: Text Output (Standard)
+    - image_outputs: Bild-Generierung
+    - audio_outputs: Audio-Generierung (TTS)
+    - video_outputs: Video-Generierung
+
+    **Token Limits:**
     - max_input_tokens: Context Window Größe
     - max_output_tokens: Max. Output-Länge
-    - supports_json_mode: JSON Mode Support
+
+    **Model Configuration:**
+    - temperature: Temperature-Parameter Support
+    - knowledge_cutoff: Knowledge Cutoff Date
+
+    **Additional Features:**
+    - streaming: Streaming Support
+    - async_capable: Async Support
     """
     from langchain.chat_models import init_chat_model
 
@@ -383,12 +404,34 @@ def get_model_profile(model: str, temperature: float = 0.0, print_profile: bool 
         print(f"  ✓ Structured Output:  {profile.get('structured_output', False)}")
         print(f"  ✓ Function Calling:   {profile.get('tool_calling', False)}")
         print(f"  ✓ JSON Mode:          {profile.get('supports_json_mode', False)}")
+        print(f"  ✓ Reasoning:          {profile.get('reasoning', False)}")
 
-        # Multimodal Capabilities
+        # Multimodal Capabilities (vereinfacht mit Symbolen)
         print("\n🎨 Multimodal Capabilities:")
-        print(f"  ✓ Vision (Images):    {profile.get('image_inputs', False)}")
-        print(f"  ✓ Audio Input:        {profile.get('audio_inputs', False)}")
-        print(f"  ✓ Video Input:        {profile.get('video_inputs', False)}")
+
+        # Input Capabilities
+        input_symbols = []
+        if profile.get('text_inputs', True):  # Text ist Standard
+            input_symbols.append('📝 Text')
+        if profile.get('image_inputs', False):
+            input_symbols.append('🖼️ Image')
+        if profile.get('audio_inputs', False):
+            input_symbols.append('🎵 Audio')
+        if profile.get('video_inputs', False):
+            input_symbols.append('🎬 Video')
+        print(f"  ✓ Input:  {', '.join(input_symbols) if input_symbols else 'N/A'}")
+
+        # Output Capabilities
+        output_symbols = []
+        if profile.get('text_outputs', True):  # Text ist Standard
+            output_symbols.append('📝 Text')
+        if profile.get('image_outputs', False):
+            output_symbols.append('🖼️ Image')
+        if profile.get('audio_outputs', False):
+            output_symbols.append('🎵 Audio')
+        if profile.get('video_outputs', False):
+            output_symbols.append('🎬 Video')
+        print(f"  ✓ Output: {', '.join(output_symbols) if output_symbols else 'N/A'}")
 
         # Token Limits
         print("\n📊 Token Limits:")
@@ -396,6 +439,17 @@ def get_model_profile(model: str, temperature: float = 0.0, print_profile: bool 
         max_output = profile.get('max_output_tokens')
         print(f"  ✓ Max Input Tokens:   {max_input if max_input else 'N/A'}")
         print(f"  ✓ Max Output Tokens:  {max_output if max_output else 'N/A'}")
+
+        # Model Configuration
+        print("\n⚙️ Model Configuration:")
+        temperature_support = profile.get('temperature', 'N/A')
+        if temperature_support is True:
+            temperature_support = 'Yes'
+        elif temperature_support is False:
+            temperature_support = 'No'
+        print(f"  ✓ Temperature:        {temperature_support}")
+        knowledge = profile.get('knowledge_cutoff', 'N/A')
+        print(f"  ✓ Knowledge Cutoff:   {knowledge}")
 
         # Additional Info
         print("\n🔧 Additional Features:")
