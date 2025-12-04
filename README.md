@@ -35,7 +35,7 @@ GenAI/
 - **genai_lib** (eigene Module in `04_modul/genai_lib/`) - Projektspezifische Bibliothek für Kursanwendungen
   - **multimodal_rag.py** - Multimodales RAG-System mit Bild-zu-Bild und Bild-zu-Text Suche
   - **mcp_modul.py** - Model Context Protocol (MCP) Integration für Server, Clients und AI-Assistenten
-  - **utilities.py** - Hilfsfunktionen für Environment-Checks, Paket-Installation, API-Keys und Prompt-Templates
+  - **utilities.py** - Hilfsfunktionen für Environment-Checks, Paket-Installation, API-Keys, Prompt-Templates, Model-Profiles (`get_model_profile()`) und LLM-Response-Parsing (`extract_thinking()`)
 
 ### 🆕 LangChain v1.1.0 Features (Dezember 2025)
 
