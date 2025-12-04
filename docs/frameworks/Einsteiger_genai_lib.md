@@ -288,14 +288,18 @@ profile = get_model_profile("openai:gpt-4o-mini")
 # Ohne Ausgabe (nur Profile-Dict zurückgeben)
 profile = get_model_profile("anthropic:claude-3-sonnet", print_profile=False)
 
-# Verschiedene Models vergleichen
+# Verschiedene Models vergleichen (mit Fehlerbehandlung)
 for model in ["openai:gpt-4o-mini", "anthropic:claude-3-sonnet", "google:gemini-pro"]:
     print(f"\n{model}:")
     profile = get_model_profile(model, print_profile=False)
-    print(f"  Context: {profile['max_input_tokens']} tokens")
-    print(f"  Vision: {profile['image_inputs']}")
-    print(f"  Reasoning: {profile.get('reasoning', False)}")
-    print(f"  Knowledge: {profile.get('knowledge_cutoff', 'N/A')}")
+
+    if profile:  # Nur verarbeiten, wenn Model erfolgreich initialisiert
+        print(f"  Context: {profile['max_input_tokens']} tokens")
+        print(f"  Vision: {profile['image_inputs']}")
+        print(f"  Reasoning: {profile.get('reasoning', False)}")
+        print(f"  Knowledge: {profile.get('knowledge_cutoff', 'N/A')}")
+    else:
+        print(f"  ⚠️  Model konnte nicht initialisiert werden (Provider-Bibliothek fehlt?)")
 ```
 
 **Parameter:**
