@@ -248,6 +248,77 @@ print(f"Antwort: {answer}")
 - Fallback-Logik: Prüft automatisch alle bekannten Formate
 - Robust: Gibt leeren Thinking-String zurück, wenn kein Denkprozess vorhanden
 
+#### 9. `get_model_profile(model, temperature=0.0, print_profile=True, **kwargs)` 🆕
+
+Ruft Model-Profile von models.dev ab und zeigt die wichtigsten Capabilities eines LLM-Modells. Nutzt intern `init_chat_model()` und gibt detaillierte Informationen über Structured Output, Function Calling, Vision, Token-Limits, etc. zurück.
+
+```python
+from genai_lib.utilities import get_model_profile
+
+# Formatierte Ausgabe aller wichtigen Capabilities
+profile = get_model_profile("openai:gpt-4o-mini")
+
+# Output:
+# 🔍 Model Profile: openai:gpt-4o-mini
+# ============================================================
+#
+# 📋 Core Capabilities:
+#   ✓ Structured Output:  True
+#   ✓ Function Calling:   True
+#   ✓ JSON Mode:          True
+#
+# 🎨 Multimodal Capabilities:
+#   ✓ Vision (Images):    True
+#   ✓ Audio Input:        False
+#   ✓ Video Input:        False
+#
+# 📊 Token Limits:
+#   ✓ Max Input Tokens:   128000
+#   ✓ Max Output Tokens:  16384
+# ============================================================
+
+# Ohne Ausgabe (nur Profile-Dict zurückgeben)
+profile = get_model_profile("anthropic:claude-3-sonnet", print_profile=False)
+
+# Verschiedene Models vergleichen
+for model in ["openai:gpt-4o-mini", "anthropic:claude-3-sonnet", "google:gemini-pro"]:
+    print(f"\n{model}:")
+    profile = get_model_profile(model, print_profile=False)
+    print(f"  Context: {profile['max_input_tokens']} tokens")
+    print(f"  Vision: {profile['image_inputs']}")
+```
+
+**Parameter:**
+- `model` (str): Model-Name im Format "provider:model"
+- `temperature` (float): Temperatur-Einstellung (Standard: 0.0)
+- `print_profile` (bool): Formatierte Ausgabe aktivieren (Standard: True)
+- `**kwargs`: Zusätzliche Parameter für `init_chat_model()` (z.B. max_tokens)
+
+**Rückgabe:**
+- `dict`: Vollständiges Model-Profile mit allen Capabilities
+
+**Profile-Attribute (Auswahl):**
+- `structured_output`: Native Structured Output API
+- `tool_calling`: Function Calling Support
+- `image_inputs`: Vision Capabilities
+- `audio_inputs`: Audio Input Support
+- `video_inputs`: Video Input Support
+- `max_input_tokens`: Context Window Größe
+- `max_output_tokens`: Max. Output-Länge
+- `supports_json_mode`: JSON Mode Support
+
+**Features:**
+- Quelle: models.dev (Open-Source Model-Index)
+- Automatische Capability-Detection
+- Formatierte Übersicht oder Raw-Dict
+- Perfekt für Modellvergleiche in Notebooks
+
+**Use Cases:**
+- Modell-Fähigkeiten vor Verwendung prüfen
+- Verschiedene LLMs vergleichen
+- Feature-Gates in Code (z.B. "nur wenn Vision verfügbar")
+- Debugging und Dokumentation
+
 ---
 
 ## multimodal_rag.py - Multimodales RAG
@@ -694,9 +765,12 @@ Die Module stehen unter der MIT-Lizenz und können frei für eigene Projekte ver
 
 ---
 
-**Version:** 1.1
+**Version:** 1.2
 **Stand:** Dezember 2025
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
+
+**Changelog v1.2:**
+- 🆕 `get_model_profile()` - Abruf von Model-Capabilities von models.dev (Structured Output, Function Calling, Vision, Token-Limits)
 
 **Changelog v1.1:**
 - 🆕 `extract_thinking()` - Universeller Parser für LLM-Thinking-Formate (Claude, Gemini, Qwen3, DeepSeek)     

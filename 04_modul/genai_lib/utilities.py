@@ -1,7 +1,7 @@
 #
 # utilities.py
 #
-# Stand: 23.11.2025
+# Stand: 04.12.2025
 #
 from IPython.display import display, Markdown, SVG
 from IPython import get_ipython
@@ -290,6 +290,122 @@ def mermaid(code: str, width=None, height=None):
         print(f"Fehler beim Rendern des Mermaid-Diagramms: {e}")
     except Exception as e:
         print(f"Ein unerwarteter Fehler ist aufgetreten: {e}")
+
+
+# ============================================================================
+# MODEL PROFILE UTILITIES
+# ============================================================================
+
+def get_model_profile(model: str, temperature: float = 0.0, print_profile: bool = True, **kwargs):
+    """
+    Ruft Model-Profile von models.dev ab und zeigt die wichtigsten Capabilities.
+
+    Diese Funktion initialisiert ein LLM mit init_chat_model() und gibt dessen
+    Profile zurück. Das Profile enthält wichtige Informationen über die Fähigkeiten
+    des Modells (Structured Output, Function Calling, Vision, etc.), die von
+    https://models.dev abgerufen werden.
+
+    Parameter:
+    ----------
+    model : str
+        Model-Name im Format "provider:model" (z.B. "openai:gpt-4o-mini")
+        oder als separater String (dann muss provider über kwargs übergeben werden)
+    temperature : float, optional
+        Temperatur-Einstellung für das Modell (Standard: 0.0)
+    print_profile : bool, optional
+        Wenn True, werden die wichtigsten Profile-Informationen ausgegeben (Standard: True)
+    **kwargs : dict
+        Zusätzliche Parameter für init_chat_model() (z.B. max_tokens, top_p, etc.)
+
+    Returns:
+    --------
+    dict
+        Das vollständige Model-Profile mit allen Capabilities
+
+    Beispiel:
+    ---------
+    >>> from genai_lib.utilities import get_model_profile
+    >>>
+    >>> # Kurznotation (empfohlen)
+    >>> profile = get_model_profile("openai:gpt-4o-mini")
+    >>>
+    >>> # Mit zusätzlichen Parametern
+    >>> profile = get_model_profile("anthropic:claude-3-sonnet", temperature=0.3, max_tokens=1000)
+    >>>
+    >>> # Ohne Ausgabe (nur Rückgabe)
+    >>> profile = get_model_profile("google:gemini-pro", print_profile=False)
+    >>>
+    >>> # Zugriff auf spezifische Capabilities
+    >>> if profile['image_inputs']:
+    >>>     print("Modell unterstützt Vision!")
+
+    Hinweise:
+    ---------
+    - Die Model-Profile werden von models.dev abgerufen
+    - Nutzt intern init_chat_model() für konsistente Model-Initialisierung
+    - Profile werden automatisch gecacht für schnellere Zugriffe
+    - Nicht alle Models haben alle Profile-Attribute (Fallback auf None/False)
+
+    Profile-Attribute (Auswahl):
+    ----------------------------
+    - structured_output: Native Structured Output API
+    - tool_calling: Function Calling Support
+    - image_inputs: Vision Capabilities
+    - audio_inputs: Audio Input Support
+    - video_inputs: Video Input Support
+    - max_input_tokens: Context Window Größe
+    - max_output_tokens: Max. Output-Länge
+    - supports_json_mode: JSON Mode Support
+    """
+    from langchain.chat_models import init_chat_model
+
+    # Model initialisieren
+    try:
+        llm = init_chat_model(model, temperature=temperature, **kwargs)
+    except Exception as e:
+        print(f"❌ Fehler beim Initialisieren des Modells: {e}")
+        return None
+
+    # Profile abrufen
+    try:
+        profile = llm.profile
+    except AttributeError:
+        print(f"⚠️  Modell hat kein .profile Attribut (möglicherweise veraltete LangChain-Version)")
+        return None
+
+    # Profile ausgeben (wenn gewünscht)
+    if print_profile:
+        print(f"🔍 Model Profile: {model}")
+        print("=" * 60)
+
+        # Core Capabilities
+        print("\n📋 Core Capabilities:")
+        print(f"  ✓ Structured Output:  {profile.get('structured_output', False)}")
+        print(f"  ✓ Function Calling:   {profile.get('tool_calling', False)}")
+        print(f"  ✓ JSON Mode:          {profile.get('supports_json_mode', False)}")
+
+        # Multimodal Capabilities
+        print("\n🎨 Multimodal Capabilities:")
+        print(f"  ✓ Vision (Images):    {profile.get('image_inputs', False)}")
+        print(f"  ✓ Audio Input:        {profile.get('audio_inputs', False)}")
+        print(f"  ✓ Video Input:        {profile.get('video_inputs', False)}")
+
+        # Token Limits
+        print("\n📊 Token Limits:")
+        max_input = profile.get('max_input_tokens')
+        max_output = profile.get('max_output_tokens')
+        print(f"  ✓ Max Input Tokens:   {max_input if max_input else 'N/A'}")
+        print(f"  ✓ Max Output Tokens:  {max_output if max_output else 'N/A'}")
+
+        # Additional Info
+        print("\n🔧 Additional Features:")
+        print(f"  ✓ Streaming:          {profile.get('streaming', False)}")
+        print(f"  ✓ Async:              {profile.get('async_capable', False)}")
+
+        print("=" * 60)
+        print(f"📚 Vollständiges Profile: llm.profile (dict mit allen Attributen)")
+
+    return profile
 
 
 # ============================================================================
