@@ -38,13 +38,12 @@ uv pip install --system git+https://github.com/ralf-42/GenAI.git#subdirectory=04
 
 ## Module im Überblick
 
-Die Bibliothek besteht aus drei Hauptmodulen:
+Die Bibliothek besteht aus zwei Hauptmodulen:
 
 | Modul | Beschreibung | Hauptfunktionen |
 |-------|-------------|----------------|
 | **utilities.py** | Hilfsfunktionen für Environment-Setup | Environment-Checks, Paket-Installation, API-Keys, Prompt-Templates, LLM-Response-Parsing |
 | **multimodal_rag.py** | Multimodales RAG-System | Text- und Bildsuche, Bild-zu-Bild-Suche, Bild-zu-Text-Suche |
-| **mcp_modul.py** | Model Context Protocol | MCP-Server, MCP-Client, AI-Assistant mit MCP-Tools |
 
 ---
 
@@ -535,167 +534,6 @@ print(answer)
 
 ---
 
-## mcp_modul.py - Model Context Protocol
-
-### Überblick
-
-Das `mcp_modul` implementiert das **Model Context Protocol (MCP)** - einen Standard für die Kommunikation zwischen LLMs und externen Tools/Datenquellen.
-
-### Architektur
-
-```
-MCP-Architektur
-├── Server: Stellt Tools bereit (read_file, write_file, list_files, etc.)
-├── Client: Verbindet sich mit Servern und ruft Tools auf
-└── AI-Assistant: LLM mit MCP-Tool-Integration
-```
-
-### Hauptfunktionen
-
-#### 1. MCP-Server
-
-##### `handle_mcp_request(method, params=None)`
-
-Verarbeitet MCP-Anfragen.
-
-```python
-from genai_lib.mcp_modul import handle_mcp_request
-
-# Server-Info abrufen
-response = handle_mcp_request("initialize")
-
-# Tool aufrufen
-response = handle_mcp_request("tools/call", {
-    "name": "read_file",
-    "arguments": {"filepath": "test.txt"}
-})
-```
-
-##### `get_server_info()`
-
-Gibt Server-Konfiguration zurück.
-
-```python
-from genai_lib.mcp_modul import get_server_info
-
-info = get_server_info()
-print(info)
-```
-
-#### 2. MCP-Client
-
-##### `setup_full_connection(server_name="file-server")`
-
-Verbindet Client mit MCP-Server.
-
-```python
-from genai_lib.mcp_modul import setup_full_connection, call_server_tool
-
-# 1. Verbindung aufbauen
-setup_full_connection("file-server")
-
-# 2. Tool aufrufen
-result = call_server_tool("read_file", {"filepath": "example.txt"})
-print(result)
-```
-
-##### `call_server_tool(tool_name, arguments=None, server_name="file-server")`
-
-Ruft ein Server-Tool auf.
-
-```python
-from genai_lib.mcp_modul import call_server_tool
-
-# Datei lesen
-content = call_server_tool("read_file", {
-    "filepath": "data.txt"
-})
-
-# Datei schreiben
-call_server_tool("write_file", {
-    "filepath": "output.txt",
-    "content": "Hello World"
-})
-
-# Verzeichnis auflisten
-files = call_server_tool("list_files", {
-    "directory": "./data"
-})
-```
-
-#### 3. AI-Assistant mit MCP
-
-##### `setup_assistant_mcp_connection(server_name="file-server", api_key=None)`
-
-Initialisiert AI-Assistant mit MCP-Verbindung.
-
-```python
-from genai_lib.mcp_modul import (
-    setup_assistant_mcp_connection,
-    process_user_query
-)
-
-# 1. Assistant verbinden
-setup_assistant_mcp_connection("file-server")
-
-# 2. Anfrage verarbeiten
-response = process_user_query("Lies die Datei config.json und zeige den Inhalt")
-print(response)
-```
-
-##### `process_user_query(user_input, debug=False)`
-
-Verarbeitet Benutzeranfragen mit automatischer Tool-Verwendung.
-
-```python
-from genai_lib.mcp_modul import process_user_query
-
-# Einfache Anfrage
-response = process_user_query("Liste alle Dateien im Verzeichnis ./data auf")
-
-# Mit Debug-Ausgabe
-response = process_user_query(
-    "Erstelle eine Zusammenfassung aller .txt-Dateien",
-    debug=True
-)
-```
-
-### Verfügbare MCP-Tools
-
-| Tool | Beschreibung | Parameter |
-|------|-------------|-----------|
-| `read_file` | Liest Dateiinhalt | `filepath` (str) |
-| `write_file` | Schreibt in Datei | `filepath` (str), `content` (str) |
-| `list_files` | Listet Verzeichnis | `directory` (str, optional) |
-| `get_system_info` | System-Informationen | - |
-
-### Vollständiges Beispiel
-
-```python
-from genai_lib.mcp_modul import (
-    setup_full_connection,
-    setup_assistant_mcp_connection,
-    process_user_query,
-    call_server_tool
-)
-
-# 1. Direkte Tool-Nutzung (ohne LLM)
-setup_full_connection("file-server")
-files = call_server_tool("list_files", {"directory": "./"})
-print("Gefundene Dateien:", files)
-
-# 2. AI-Assistant mit automatischer Tool-Verwendung
-setup_assistant_mcp_connection("file-server")
-
-# Assistant kann jetzt selbstständig Tools nutzen
-response = process_user_query(
-    "Lies alle .txt-Dateien und erstelle eine Zusammenfassung"
-)
-print(response)
-```
-
----
-
 ## Best Practices
 
 ### 1. Environment-Setup in Notebooks
@@ -737,25 +575,6 @@ config = RAGConfig(
 
 rag = init_rag_system(config)
 process_directory(rag, './docs', auto_describe_images=True)
-```
-
-### 3. MCP-Integration
-
-```python
-from genai_lib.mcp_modul import (
-    setup_assistant_mcp_connection,
-    process_user_query
-)
-
-# Assistant mit File-Access
-setup_assistant_mcp_connection("file-server")
-
-# Multi-Step-Operationen
-response = process_user_query("""
-    1. Liste alle .pdf-Dateien
-    2. Lies die erste Datei
-    3. Erstelle eine Zusammenfassung
-""")
 ```
 
 ---
