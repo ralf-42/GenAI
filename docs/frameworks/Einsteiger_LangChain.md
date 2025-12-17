@@ -174,13 +174,41 @@ print(safe_divide.invoke({"a": 10, "b": 2}))
 print(safe_divide.invoke({"a": 10, "b": 0}))
 ```
 
+### 5.3 Tool Extras (LangChain v1.2.0) 🆕
+
+Seit Version 1.2.0 können Tools **provider-spezifische Features** nutzen, ohne die Provider-Agnostik zu verlieren. Ideal für Performance-Optimierungen und spezielle Provider-Funktionen.
+
+```python
+@tool(extras={
+    "anthropic": {"cache_control": {"type": "ephemeral"}},
+    "openai": {"strict": True}
+})
+def search_database(query: str, limit: int = 10) -> str:
+    """Durchsucht die Produktdatenbank."""
+    # Simulierte Datenbanksuche
+    return f"Gefunden: {limit} Ergebnisse für '{query}'"
+
+# Tool funktioniert mit allen Providern, nutzt aber spezifische Features wenn verfügbar
+print(search_database.invoke({"query": "Laptop", "limit": 5}))
+```
+
+**Unterstützte Tool Extras:**
+- **Anthropic:** `cache_control` für schnelleres Caching (Prompt Caching)
+- **OpenAI:** `strict: True` für strikte Schema-Validierung (Structured Outputs)
+- **Google:** Custom Parameter für Vertex AI
+
+**Wann nutzen?**
+- Performance-kritische Tools (häufige Aufrufe → Caching)
+- Strikte Validierung für kritische Operationen (Finanzen, Medizin)
+- Provider-spezifische Features ohne Vendor Lock-in
+
 ---
 
 ## 6 Agenten erstellen: `create_agent()`
 
 Mit `create_agent()` werden Modell, Tools, Systemprompt und optional Middleware zu einer Einheit verbunden.
 
-**Beispiel: Kleinstmöglicher Tool-Agent**
+### 6.1 Beispiel: Basis Tool-Agent
 
 ```python
 from langchain.agents import create_agent
@@ -211,7 +239,47 @@ result = agent.invoke({"messages": messages})
 result
 ```
 
-Hier liefert `create_agent()` bereits ein kompiliertes Objekt. Dadurch kann derselbe Agent später in komplexere Workflows eingebettet werden.
+### 6.2 Strikte Schema-Validierung mit `response_format` (LangChain v1.2.0) 🆕
+
+Seit Version 1.2.0 können Agenten ihre Ausgaben gegen ein Pydantic-Schema validieren – für garantiert strukturierte Antworten.
+
+```python
+from pydantic import BaseModel, Field
+
+# Schema für Agent-Antworten
+class CalculationResult(BaseModel):
+    operation: str = Field(description="Die durchgeführte Rechenoperation")
+    result: float = Field(description="Das numerische Ergebnis")
+    explanation: str = Field(description="Erklärung in 1-2 Sätzen")
+
+# Agent mit strikter Ausgabe-Validierung
+agent = create_agent(
+    model=llm,
+    tools=[multiply, safe_divide],
+    system_prompt="Du bist ein Taschenrechner. Gib strukturierte Ergebnisse zurück.",
+    response_format=CalculationResult,  # NEU in v1.2.0
+    provider_strategy="strict"  # Strikte Validierung (OpenAI, Anthropic)
+)
+
+result = agent.invoke({
+    "messages": [{"role": "user", "content": "Was ist 15 mal 4?"}]
+})
+
+# Garantiert valides CalculationResult-Objekt
+print(result.operation)  # "15 * 4"
+print(result.result)     # 60.0
+print(result.explanation)  # "15 multipliziert mit 4 ergibt 60."
+```
+
+**Vorteile von `response_format`:**
+- Garantiert strukturierte Ausgaben (keine JSON-Parsing-Fehler mehr)
+- Type-Safety für nachfolgende Verarbeitungsschritte
+- Automatische Retry bei Schema-Violations (bei `provider_strategy="strict"`)
+
+**Wann nutzen?**
+- Kritische Daten (Finanzen, Medizin, Recht)
+- Integration in Datenbanken oder APIs
+- Fehlertolerante Produktionssysteme
 
 ---
 
@@ -438,9 +506,14 @@ Dieses Pattern bildet die Grundlage für Wissens‑Chatbots, Dokumenten‑Assist
 
 ---
 
-**Version:** 1.1
+**Version:** 1.2
 **Stand:** Dezember 2025
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
+
+**Changelog v1.2:**
+- 🆕 **Tool Extras** - Provider-spezifische Features (Cache Control, Strict Mode) ohne Vendor Lock-in
+- 🆕 **response_format für Agents** - Strikte Schema-Validierung für garantiert strukturierte Ausgaben
+- ✅ Code-Beispiele mit LangChain v1.2.0 Features erweitert
 
 **Changelog v1.1:**
 - ✅ `init_chat_model()` auf Kurznotation `"provider:model"` aktualisiert (Standard seit Dezember 2025)

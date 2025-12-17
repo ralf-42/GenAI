@@ -373,9 +373,14 @@ Das `multimodal_rag`-Modul implementiert ein vollständiges RAG-System mit Unter
 multimodal_rag
 ├── Text-Pipeline: OpenAI Embeddings + ChromaDB
 ├── Bild-Pipeline: CLIP Embeddings + ChromaDB
-├── Vision-LLM: GPT-4o-mini für Bildbeschreibungen
+├── Vision-LLM: GPT-4o-mini für Bildbeschreibungen (via init_chat_model)
 └── Hybride Suche: Text ↔ Bild ↔ Bild
 ```
+
+**🆕 LangChain 1.0+ Integration (v3.1):**
+- Nutzt `init_chat_model("openai:gpt-4o-mini")` für LLM-Initialisierung
+- Vision-Analysen mit `HumanMessage` und Standard Content Blocks
+- Provider-agnostische Multimodal-Verarbeitung
 
 ### Hauptfunktionen
 
@@ -403,9 +408,21 @@ rag = init_rag_system(config)
 **Was wird initialisiert:**
 - OpenAI Text-Embeddings
 - CLIP-Modell für Bild-Embeddings
-- GPT-4o-mini für Text und Vision
+- GPT-4o-mini für Text und Vision (via `init_chat_model()` - LangChain 1.0+)
 - ChromaDB mit zwei Collections (texts, images)
 - MarkItDown für Dokumentenkonvertierung
+
+**Interne LangChain 1.0+ Patterns:**
+```python
+# System nutzt intern moderne LangChain APIs
+llm = init_chat_model("openai:gpt-4o-mini", temperature=0.0)
+
+# Vision-Analyse mit Standard Content Blocks
+message = HumanMessage(content=[
+    {"type": "text", "text": "Beschreibe dieses Bild"},
+    {"type": "image", "url": "data:image/png;base64,...", "mime_type": "image/png"}
+])
+```
 
 #### 2. `process_directory(rag, directory_path, auto_describe_images=True)`
 
@@ -625,9 +642,16 @@ Die Module stehen unter der MIT-Lizenz und können frei für eigene Projekte ver
 
 ---
 
-**Version:** 1.2
+**Version:** 1.3
 **Stand:** Dezember 2025
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
+
+**Changelog v1.3:**
+- ✅ **multimodal_rag v3.1** - LangChain 1.0+ Migration
+  - Nutzt `init_chat_model()` für unified model initialization
+  - Vision-Analyse mit `HumanMessage` und Standard Content Blocks
+  - Provider-agnostische Multimodal-Verarbeitung
+- ✅ Dokumentation aktualisiert mit LangChain 1.0+ Patterns
 
 **Changelog v1.2:**
 - 🆕 `get_model_profile()` - Abruf von Model-Capabilities von models.dev
