@@ -1,5 +1,9 @@
 # Generative KI Kurs
 
+[![LangChain 1.0+ Compliant](https://img.shields.io/badge/LangChain-1.0%2B%20Compliant-brightgreen)](./LangChain_Audit_Report_2025-12-17.md)
+[![Code Quality](https://img.shields.io/badge/Compliance-100%25-success)](./LangChain_Audit_Report_2025-12-17.md)
+[![Last Audit](https://img.shields.io/badge/Last%20Audit-2025--12--17-blue)](./LangChain_Audit_Report_2025-12-17.md)
+
 Ein deutschsprachiger, praxisorientierter Kurs zu Generative AI Technologien mit Fokus auf OpenAI GPT-Modelle, LangChain und praktischen Anwendungen.
 
 ## 🎯 Zielgruppe
@@ -129,7 +133,14 @@ Bilder und Videos erstellt mit **Hedra AI** – Nutzung gemäß [Hedra Terms](ht
 ---
 
 **Letzte Aktualisierung:** Dezember 2025
-**Version:** 2.2
+**Version:** 2.3
+
+**Changelog v2.3:**
+- 🏆 **LangChain 1.0+ Compliance-Audit** abgeschlossen (100% compliant!)
+- ✅ Compliance-Badges zur README hinzugefügt
+- 📊 Audit-Report erstellt: `LangChain_Audit_Report_2025-12-17.md`
+- ✅ 13 von 13 LangChain-Notebooks sind vollständig 1.0+ konform
+- ✅ 0 deprecated Patterns gefunden
 
 **Changelog v2.2:**
 - 🤖 **AGENTS.md** hinzugefügt - Agent Governance für KI-Assistenten

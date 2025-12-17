@@ -37,12 +37,12 @@ Vollständige Code-Konventionen und Best Practices für das Agenten-Projekt.
 ```python
 from langchain.chat_models import init_chat_model
 
-# Separate Variablen für Konfiguration
-model_provider = "openai"
-model_name = "gpt-4o-mini"
-temperature = 0.0
+# ✨ Kurznotation: "provider:model" (STANDARD seit Dezember 2025)
+llm = init_chat_model("openai:gpt-4o-mini", temperature=0.0)
 
-llm = init_chat_model(model_name, model_provider=model_provider, temperature=temperature)
+# Weitere Beispiele:
+llm = init_chat_model("anthropic:claude-3-sonnet", temperature=0.3)
+llm = init_chat_model("google:gemini-pro", temperature=0.5)
 ```
 
 ---
@@ -77,6 +77,18 @@ def multiply(a: int, b: int) -> int:
     return a * b
 ```
 
+**🆕 Tool Extras (v1.2.0):** Provider-spezifische Features ohne Vendor Lock-in
+
+```python
+@tool(extras={
+    "anthropic": {"cache_control": {"type": "ephemeral"}},
+    "openai": {"strict": True}
+})
+def search_database(query: str) -> str:
+    """Durchsucht die Datenbank."""
+    return f"Ergebnisse für '{query}'"
+```
+
 ---
 
 ### 4. ✅ `create_agent()` - Modern Agent API
@@ -96,6 +108,23 @@ agent = create_agent(
 response = agent.invoke({
     "messages": [{"role": "user", "content": "your question"}]
 })
+```
+
+**🆕 response_format (v1.2.0):** Strikte Schema-Validierung für Agents
+
+```python
+from pydantic import BaseModel, Field
+
+class AgentResponse(BaseModel):
+    answer: str = Field(description="Die Antwort")
+    confidence: float = Field(description="Konfidenz 0-1")
+
+agent = create_agent(
+    model=llm,
+    tools=[tool1],
+    response_format=AgentResponse,  # NEU in v1.2.0
+    provider_strategy="strict"
+)
 ```
 
 ---
@@ -387,6 +416,11 @@ def test_agent_with_tools():
 
 ---
 
-**Version:** 1.0  
-**Stand:** November 2025  
+**Version:** 1.1
+**Stand:** Dezember 2025
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
+
+**Changelog v1.1:**
+- ✅ `init_chat_model()` auf Kurznotation `"provider:model"` aktualisiert
+- 🆕 **Tool Extras** für provider-spezifische Features (v1.2.0)
+- 🆕 **response_format** für strikte Agent-Ausgaben (v1.2.0)
