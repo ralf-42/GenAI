@@ -8,6 +8,16 @@ Ein deutschsprachiger, praxisorientierter Kurs zu Generative AI Technologien mit
 - IT-Fachkräfte, die KI-Technologien integrieren möchten
 - Technikbegeisterte mit Programmiererfahrung
 
+## 🤖 For AI Agents
+
+This repository includes **agent governance** documentation:
+
+- **[AGENTS.md](./AGENTS.md)** - How AI agents should work with this codebase (role, rules, scope, quality gates)
+- **[CLAUDE.md](./CLAUDE.md)** - Project structure, conventions, and technical documentation
+- **[LangChain_1.0_Must_Haves.md](./LangChain_1.0_Must_Haves.md)** - Required patterns for all LangChain code
+
+**Note:** AGENTS.md defines **behavior**, while CLAUDE.md describes **structure**. Read both before making changes.
+
 ## 📁 Projektstruktur
 
 ```
@@ -119,7 +129,12 @@ Bilder und Videos erstellt mit **Hedra AI** – Nutzung gemäß [Hedra Terms](ht
 ---
 
 **Letzte Aktualisierung:** Dezember 2025
-**Version:** 2.1
+**Version:** 2.2
+
+**Changelog v2.2:**
+- 🤖 **AGENTS.md** hinzugefügt - Agent Governance für KI-Assistenten
+- ✅ README.md erweitert mit "For AI Agents" Sektion
+- 📚 Klare Abgrenzung: AGENTS.md (Verhalten) vs. CLAUDE.md (Struktur)
 
 **Changelog v2.1:**
 - ✅ LangChain v1.1.0 Support (Dezember 2025)
