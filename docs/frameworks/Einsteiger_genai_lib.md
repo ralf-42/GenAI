@@ -642,9 +642,9 @@ Die Module stehen unter der MIT-Lizenz und können frei für eigene Projekte ver
 
 ---
 
-**Version:** 1.3
-**Stand:** Dezember 2025
-**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
+**Version:** 1.3    
+**Stand:** Dezember 2025     
+**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.      
 
 **Changelog v1.3:**
 - ✅ **multimodal_rag v3.1** - LangChain 1.0+ Migration

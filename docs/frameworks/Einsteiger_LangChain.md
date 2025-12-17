@@ -506,9 +506,9 @@ Dieses Pattern bildet die Grundlage für Wissens‑Chatbots, Dokumenten‑Assist
 
 ---
 
-**Version:** 1.2
-**Stand:** Dezember 2025
-**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
+**Version:** 1.2     
+**Stand:** Dezember 2025      
+**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.       
 
 **Changelog v1.2:**
 - 🆕 **Tool Extras** - Provider-spezifische Features (Cache Control, Strict Mode) ohne Vendor Lock-in

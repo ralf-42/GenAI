@@ -416,9 +416,9 @@ def test_agent_with_tools():
 
 ---
 
-**Version:** 1.1
-**Stand:** Dezember 2025
-**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
+**Version:** 1.1     
+**Stand:** Dezember 2025     
+**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.      
 
 **Changelog v1.1:**
 - ✅ `init_chat_model()` auf Kurznotation `"provider:model"` aktualisiert
