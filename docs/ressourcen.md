@@ -37,4 +37,12 @@ Praktische Anleitungen, Best Practices und Hilfestellungen für die Arbeit mit G
   - Performance-Optimierung
   - Häufige Fehler und deren Lösungen
 
+### Migrations-Analysen
+- **[Migration zu Mistral Medium 3](ressourcen/Migration_Mistral_Medium_3.html)** - Technische Analyse der Migration von gpt-4o-mini zu Mistral Medium 3
+  - Feature-Kompatibilitätsvergleich
+  - Kosten-Analyse (2.7-3.3x teurer)
+  - Notebook-spezifische Kompatibilität (75% kompatibel)
+  - Schritt-für-Schritt Migrations-Strategie
+  - Hybrid-Ansatz Empfehlung
+
 Nutzen Sie die Navigation links, um zu den einzelnen Ressourcen zu navigieren.
