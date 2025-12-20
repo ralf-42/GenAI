@@ -37,6 +37,14 @@ Praktische Anleitungen, Best Practices und Hilfestellungen für die Arbeit mit G
   - Performance-Optimierung
   - Häufige Fehler und deren Lösungen
 
+### Framework-Guides
+- **[Vom Modell zum Produkt](ressourcen/Vom_Modell_zum_Produkt_LangChain_Oekosystem.html)** - Das LangChain-Ökosystem verstehen und nutzen
+  - Von Prototypen zu produktionsreifen Systemen
+  - LangChain, LangGraph und LangSmith im Überblick
+  - Entscheidungshilfe: Wann welches Tool?
+  - Praktische Beispiele und Best Practices
+  - Alternativen zum LangChain-Ökosystem
+
 ### Migrations-Analysen
 - **[Migration zu Mistral Medium 3](ressourcen/Migration_Mistral_Medium_3.html)** - Technische Analyse der Migration von gpt-4o-mini zu Mistral Medium 3
   - Feature-Kompatibilitätsvergleich
