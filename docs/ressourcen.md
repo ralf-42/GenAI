@@ -53,4 +53,6 @@ Praktische Anleitungen, Best Practices und Hilfestellungen für die Arbeit mit G
   - Schritt-für-Schritt Migrations-Strategie
   - Hybrid-Ansatz Empfehlung
 
+---
+
 Nutzen Sie die Navigation links, um zu den einzelnen Ressourcen zu navigieren.

@@ -2,7 +2,7 @@
 layout: default
 title: Migration Mistral Medium 3
 parent: Ressourcen
-nav_order: 4
+nav_order: 6
 description: "Analyse der Migration von gpt-4o-mini zu Mistral Medium 3"
 has_toc: true
 ---
@@ -11,7 +11,7 @@ has_toc: true
 {: .no_toc }
 
 > **Technische Analyse der Migration zu Mistral Medium 3**       
-> Erstellt: 2025-12-20 | Status: Analyse abgeschlossen       
+     
 
 ---
 
