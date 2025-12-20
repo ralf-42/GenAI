@@ -10,8 +10,8 @@ has_toc: true
 # Migration-Analyse: gpt-4o-mini → Mistral Medium 3
 {: .no_toc }
 
-> **Technische Analyse der Migration zu Mistral Medium 3**
-> Erstellt: 2025-12-20 | Status: Analyse abgeschlossen
+> **Technische Analyse der Migration zu Mistral Medium 3**       
+> Erstellt: 2025-12-20 | Status: Analyse abgeschlossen       
 
 ---
 
