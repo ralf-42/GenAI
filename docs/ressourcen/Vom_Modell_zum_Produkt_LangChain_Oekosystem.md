@@ -265,11 +265,6 @@ Das Zusammenspiel aus LangChain, LangGraph und LangSmith bietet einen Ansatz, um
 - [LangGraph Docs](https://langchain-ai.github.io/langgraph/)
 - [LangSmith Docs](https://docs.smith.langchain.com/)
 
-### Interne Guides
-- [LangChain 1.0 Must-Haves](../LangChain_1.0_Must_Haves.html)
-- [LangGraph 1.0 Must-Haves](../LangGraph_1.0_Must_Haves.html)
-- [Einsteiger Guide: LangChain](../frameworks/Einsteiger_LangChain.html)
-- [Einsteiger Guide: Agent Builder](../frameworks/Einsteiger_Agent_Builder.html)
 
 ---
 
