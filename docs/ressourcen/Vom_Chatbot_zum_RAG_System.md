@@ -1,17 +1,17 @@
 ---
 layout: default
-title: Übungsaufgabe M04-M11
+title: Vom Chatbot zum RAG-System
 parent: Ressourcen
 nav_order: 10
-description: "Schrittweise Übungsaufgabe: Tech-Doku Assistent - vom einfachen Chatbot zur RAG-basierten Anwendung mit UI"
+description: "Schrittweise Workshop: Tech-Doku Assistent - vom einfachen Chatbot zur RAG-basierten Anwendung mit UI"
 has_toc: true
 ---
 
-# Übungsaufgabe M04-M11: Tech-Doku Assistent
+# Vom Chatbot zum RAG-System
 {: .no_toc }
 
-> **Vom einfachen Chatbot zum intelligenten Dokumentationsassistenten**    
-> Eine schrittweise Übungsaufgabe, die auf den Modulen M04-M11 aufbaut und in Komplexität zunimmt
+> **Workshop: Tech-Doku Assistent bauen**    
+> Schrittweise Entwicklung vom einfachen Chatbot zur intelligenten RAG-Anwendung mit UI (Module M04-M11)
 
 ---
 
