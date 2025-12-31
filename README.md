@@ -6,6 +6,12 @@
 
 Ein deutschsprachiger, praxisorientierter Kurs zu Generative AI Technologien mit Fokus auf OpenAI GPT-Modelle, LangChain und praktischen Anwendungen.
 
+## 🌐 Kurs-Website
+
+**[→ GenAI Kurs-Website (GitHub Pages)](https://ralf-42.github.io/GenAI/)**
+
+Die vollständige Kursdokumentation mit Konzepten, Frameworks-Guides und Ressourcen ist als interaktive Website verfügbar.
+
 ## 🎯 Zielgruppe
 
 - Entwickler:innen mit Python-Grundkenntnissen
@@ -51,11 +57,17 @@ GenAI/
   - **mcp_modul.py** - Model Context Protocol (MCP) Integration für Server, Clients und AI-Assistenten
   - **utilities.py** - Hilfsfunktionen für Environment-Checks, Paket-Installation, API-Keys, Prompt-Templates, Model-Profiles (`get_model_profile()`) und LLM-Response-Parsing (`extract_thinking()`)
 
-### 🆕 LangChain v1.1.0 Features (Dezember 2025)
+### 🆕 LangChain v1.2.0 Features (Dezember 2025)
 
-Dieser Kurs nutzt die neuesten **LangChain v1.1.0** Features:
+Dieser Kurs nutzt die neuesten **LangChain v1.2.0** Features:
 
-- ✨ **Model Profiles** - Automatische Capability-Detection via `.profile` Attribut (Reasoning, Multimodal, Temperature, Knowledge Cutoff)
+**v1.2.0 Updates:**
+- ✨ **Tool Extras** - Provider-native Features (Anthropic programmatic tool calling, OpenAI strict mode)
+- ✨ **Strict Schema Adherence** - `response_format` für garantierte Agent-Output-Konformität
+- ✨ **Built-in Client-Side Tools** - Anthropic, OpenAI und weitere Provider
+
+**v1.1.0 Features:**
+- ✨ **Model Profiles** - Automatische Capability-Detection via `.profile` Attribut
 - ✨ **Smart Structured Output** - Auto-Inference von `ProviderStrategy`
 - ✨ **SystemMessage in Agents** - Cache-Control für Anthropic Claude
 - ✨ **ModelRetryMiddleware** - Automatische Retries mit exponential backoff
@@ -117,9 +129,32 @@ uv pip install --system git+https://github.com/ralf-42/GenAI.git#subdirectory=04
 
 Alle Notebooks sind eigenständig lauffähig und für Google Colab optimiert. Das `genai_lib` Utility-Paket übernimmt das automatische Setup der Umgebung.
 
+## 🎓 Projekte & Übungen
+
+Der Kurs bietet zwei praxisorientierte Lernformate:
+
+### [Vom Chatbot zum RAG-System](https://ralf-42.github.io/GenAI/ressourcen/Vom_Chatbot_zum_RAG_System.html)
+**Workshop-Format** | Begleitete Schritt-für-Schritt-Übung
+
+Bauen Sie einen intelligenten Tech-Doku-Assistenten von Grund auf:
+- 📝 Kapitel 1-7: Vom einfachen Chatbot zur RAG-Anwendung
+- 🎯 Stufenweise Komplexität (M04-M11)
+- 🛠️ Hands-On mit LangChain, ChromaDB, Gradio
+- ⏱️ Zeitaufwand: 4-6 Stunden
+
+### [KI-Challenge](https://ralf-42.github.io/GenAI/ressourcen/M23_KI-Challenge.html)
+**End-to-End Projekt** | Eigenständige Implementierung
+
+Entwickeln Sie eine vollständige GenAI-Anwendung:
+- 🎯 4 Projektoptionen: Dokumentenanalyse, Multimodal, Multi-Agent, Domänen-Experte
+- 🚀 LangChain 1.0+ Best Practices
+- 📦 Abgabe: Jupyter Notebook + README.md
+- ⏱️ Zeitaufwand: 15-25 Stunden
+
 ## 📖 Dokumentation
 
-- Vollständiges Kursskript: `03_skript/GenAI_all_in_one.pdf`
+- **Kurs-Website:** [https://ralf-42.github.io/GenAI/](https://ralf-42.github.io/GenAI/)
+- **Kursskript:** `03_skript/GenAI_all_in_one.pdf`
 
 ## ⚖️ Lizenzen
 
@@ -132,8 +167,24 @@ Bilder und Videos erstellt mit **Hedra AI** – Nutzung gemäß [Hedra Terms](ht
 
 ---
 
-**Letzte Aktualisierung:** Dezember 2025
-**Version:** 2.3
+**Letzte Aktualisierung:** 31. Dezember 2025
+**Version:** 2.4
+
+**Changelog v2.4:**
+- 🌐 **GitHub Pages Struktur-Bereinigung** abgeschlossen
+  - 📁 Guides-Kategorie entfernt (deprecated)
+  - 📚 EU AI Act, Ethik, KI-Challenge → Ressourcen verschoben
+  - ✅ Neue Sektion "Projekte & Übungen" in Ressourcen
+  - 📝 "Übungsaufgabe M04-M11" → "Vom Chatbot zum RAG" umbenannt
+- 🆕 **KI-Challenge auf LangChain 1.0+ aktualisiert**
+  - ✅ Beispiel-Code auf init_chat_model, LCEL, moderne Imports migriert
+  - 📋 Abgabe-Format definiert (Jupyter Notebook + README.md)
+  - ⏱️ Zeitrahmen hinzugefügt (15-25 Stunden)
+  - 🔧 Troubleshooting-Sektion ergänzt
+- ✅ **LangChain v1.2.0 Features** integriert
+  - Tool Extras, response_format, Strict Schema Adherence
+- 🌐 **Kurs-Website Link** zur README hinzugefügt
+- 📚 **Projekte & Übungen Sektion** zur README hinzugefügt
 
 **Changelog v2.3:**
 - 🏆 **LangChain 1.0+ Compliance-Audit** abgeschlossen (100% compliant!)
@@ -146,9 +197,3 @@ Bilder und Videos erstellt mit **Hedra AI** – Nutzung gemäß [Hedra Terms](ht
 - 🤖 **AGENTS.md** hinzugefügt - Agent Governance für KI-Assistenten
 - ✅ README.md erweitert mit "For AI Agents" Sektion
 - 📚 Klare Abgrenzung: AGENTS.md (Verhalten) vs. CLAUDE.md (Struktur)
-
-**Changelog v2.1:**
-- ✅ LangChain v1.1.0 Support (Dezember 2025)
-- 🆕 Model Profiles, Smart Structured Output, SystemMessage Support
-- 🆕 2 neue Middleware: ModelRetryMiddleware & ContentModerationMiddleware
-- ✅ Dokumentation erweitert mit v1.1.0 Features
