@@ -11,7 +11,7 @@ description: "Praktische Hilfsmittel, Projekte und Referenzen"
 Praktische Hilfsmittel, Projekte, Übungen und Referenzen für die Arbeit mit generativer KI.
 
 ## Projekte & Übungen
-- [Übungsaufgabe M04-M11](./ressourcen/Uebungsaufgabe_M04-M11.html) - Schrittweise begleitete Übung
+- [Vom Chatbot zum RAG-System](./ressourcen/Vom_Chatbot_zum_RAG_System.html) - Workshop: Schrittweise RAG-Entwicklung
 - [KI-Challenge](./ressourcen/M23_KI-Challenge.html) - End-to-End Praxisprojekt
 
 ## Technische Ressourcen
