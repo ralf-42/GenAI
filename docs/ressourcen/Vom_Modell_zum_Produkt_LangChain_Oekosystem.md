@@ -1,13 +1,13 @@
 ---
 layout: default
-title: Vom Modell zum Produkt
+title: Vom Modell zur Anwendung
 parent: Ressourcen
 nav_order: 5
-description: "Das LangChain-Ökosystem verstehen und nutzen"
+description: Das LangChain-Ökosystem verstehen und nutzen
 has_toc: true
 ---
 
-# Vom Modell zum Produkt - Das LangChain-Ökosystem
+# Vom Modell zur Anwendung - Das LangChain-Ökosystem
 {: .no_toc }
 
 > **Von einfachen Prototypen zu produktionsreifen KI-Systemen**     
@@ -23,7 +23,7 @@ has_toc: true
 
 ---
 
-## 1. Das Problem: Ein Modell allein ist noch kein Produkt
+## 1. Das Problem: Ein Modell allein ist noch keine Anwendung
 
 Viele Einsteiger in die Generative KI beginnen mit einem großen Sprachmodell (LLM) und entwickeln darauf aufbauend einen einfachen Chatbot. Zwischen einem funktionierenden Prototyp und einer produktionsreifen Anwendung liegt jedoch ein weiter Weg. Ein Modell, das nur Texte generiert, löst noch keine konkreten Geschäftsanforderungen wie Zuverlässigkeit, Nachvollziehbarkeit oder Integrationsfähigkeit.
 

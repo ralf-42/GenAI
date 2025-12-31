@@ -10,7 +10,7 @@ has_toc: true
 # Aus der Entwicklung ins Deployment
 {: .no_toc }
 
-> **Vom Notebook zur Produktion**
+> **Vom Notebook zur Produktion**     
 > Eine praktische Anleitung für den Weg vom Jupyter Notebook zur produktionsreifen GenAI-Anwendung
 
 ---
