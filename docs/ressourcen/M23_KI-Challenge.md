@@ -39,9 +39,15 @@ Die KI-Challenge dient als praktische Anwendung und Integration der in den Kursm
 
 - Abschluss der Basismodule (Module 1-12)
 - Module aus dem Bereich Erweiterung
-- Kenntnisse in Python und LangChain
+- Kenntnisse in Python und LangChain 1.0+
 - Zugriff auf API-Keys (OpenAI, Hugging Face)
 - Grundlegende Vertrautheit mit Gradio für UI-Entwicklung
+
+## 1.3 Zeitrahmen & Umfang
+
+- **Zeitaufwand:** 15-25 Stunden (verteilt über 2-3 Wochen)
+- **Komplexität:** End-to-End Projekt mit Integration mehrerer Technologien
+- **Eigenständigkeit:** Freie Gestaltung innerhalb der gewählten Projektoption
 
 # 2 | Projektoptionen
 
@@ -114,52 +120,53 @@ Zur Auswahl stehen vier verschiedene Projekttypen, die jeweils unterschiedliche 
 
 # 3 | Projekt-Setup
 
+Hier finden Sie den Code für das grundlegende Setup Ihres Projekts mit **LangChain 1.0+** Best Practices.
 
-Hier finden Sie den Code für das grundlegende Setup Ihres Projekts, ähnlich wie in den Kursmodulen.
+## 3.1 Environment Setup
 
 ```python
-#@title
-#@markdown   <p><font size="4" color='green'>  Colab-Umfeld</font> </br></p>
-# Installierte Python Version
-import sys
-print(f"Python Version: ",sys.version)
-# Installierte LangChain Bibliotheken
-print()
-print("Installierte LangChain Bibliotheken:")
+#@title 🔧 Umgebung einrichten { display-mode: "form" }
+# genai_lib installieren (empfohlen)
+!uv pip install --system -q git+https://github.com/ralf-42/GenAI.git#subdirectory=04_modul
 
-!pip list | grep '^langchain'
-# Unterdrückt die "DeprecationWarning" von LangChain für die Memory-Funktionen
-import warnings
-warnings.filterwarnings("ignore", category=DeprecationWarning)
-warnings.filterwarnings("ignore", category=UserWarning, module="langsmith.client")
+from genai_lib.utilities import check_environment, setup_api_keys
+
+# API-Keys konfigurieren
+setup_api_keys(['OPENAI_API_KEY', 'HF_TOKEN'], create_globals=False)
+
+# Environment checken
+check_environment()
 ```
 
+## 3.2 LangChain 1.0+ Imports
+
 ```python
-#@title
-#@markdown   <p><font size="4" color='green'>  SetUp API-Keys (setup_api_keys)</font> </br></p>
-def setup_api_keys():
-    """Konfiguriert alle benötigten API-Keys aus Google Colab userdata"""
-    from google.colab import userdata
-    import os
-    from os import environ
+# ✅ LangChain 1.0+ - Moderne Imports (PFLICHT!)
 
-    # Dictionary der benötigten API-Keys
-    keys = {
-        'OPENAI_API_KEY': 'OPENAI_API_KEY',
-        'HF_TOKEN': 'HF_TOKEN',
-        # Weitere Keys bei Bedarf
-    }
+# Model Initialization
+from langchain.chat_models import init_chat_model
 
-    # Keys in Umgebungsvariablen setzen
-    for env_var, key_name in keys.items():
-        environ[env_var] = userdata.get(key_name)
+# Document Processing
+from langchain_community.document_loaders import PyPDFLoader, TextLoader
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 
-    return {k: environ[k] for k in keys.keys()}
+# Embeddings & Vectorstores
+from langchain_openai import OpenAIEmbeddings
+from langchain_chroma import Chroma
 
-# Verwendung
-all_keys = setup_api_keys()
-# Bei Bedarf einzelne Keys direkt zugreifen
-# WEATHER_API_KEY = all_keys['WEATHER_API_KEY']
+# Messages & Prompts
+from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
+from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
+
+# LCEL & Output Parsing
+from langchain_core.output_parsers import StrOutputParser
+from langchain_core.runnables import RunnablePassthrough
+
+# Tools & Agents (falls benötigt)
+from langchain.agents import create_agent
+from langchain_core.tools import tool
+
+print("✅ LangChain 1.0+ Imports erfolgreich")
 ```
 
 # 4 | Projektstruktur
@@ -210,31 +217,67 @@ Die  KI-Challenge wird anhand folgender Kriterien bewertet:
 
 | Kriterium | Beschreibung | Gewichtung |
 |-----------|--------------|------------|
-| Funktionalität | Die Anwendung erfüllt die definierten Anforderungen und funktioniert zuverlässig | 30% |
-| Integration | Erfolgreiche Kombination mehrerer Technologien und Module aus dem Kurs | 25% |
-| Code-Qualität | Sauberer, lesbarer und gut strukturierter Code mit angemessenen Kommentaren | 15% |
-| Innovation | Kreative Lösungsansätze und eigenständige Weiterentwicklung der Konzepte | 15% |
-| Dokumentation | Vollständige und verständliche Dokumentation des Projekts | 15% |
+| **Funktionalität** | Die Anwendung erfüllt die definierten Anforderungen und funktioniert zuverlässig | 30% |
+| **Integration** | Erfolgreiche Kombination mehrerer Technologien und Module aus dem Kurs | 25% |
+| **Code-Qualität** | Sauberer, lesbarer und gut strukturierter Code mit LangChain 1.0+ Best Practices | 15% |
+| **Innovation** | Kreative Lösungsansätze und eigenständige Weiterentwicklung der Konzepte | 15% |
+| **Dokumentation** | Vollständige und verständliche Dokumentation des Projekts (README.md) | 15% |
 
-# 6 | Beispielprojekt: Doku-Assi
+## 5.1 Abgabe-Anforderungen
 
+**Pflicht-Deliverables:**
 
-Als Orientierung dient hier ein vereinfachtes Beispiel für einen Dokumentenanalyse-Assistenten:
+1. **Jupyter Notebook** (`.ipynb`)
+   - Vollständiger, ausführbarer Code
+   - Markdown-Zellen mit Erklärungen
+   - Strukturiert nach Projektphasen (Setup, Implementierung, Evaluation)
+   - Alle Zellen müssen von oben nach unten ausführbar sein
+
+2. **README.md**
+   - Projektbeschreibung und Motivation
+   - Verwendete Technologien und Module
+   - Setup-Anleitung (Installation, API-Keys)
+   - Nutzungsanleitung mit Screenshots
+   - Ergebnisse und Learnings
+   - Bekannte Limitierungen
+
+**Optional (Bonus):**
+- Video-Demo (3-5 Minuten)
+- GitHub Repository mit sauberem Commit-History
+- Deployment-Link (z.B. Hugging Face Spaces)
+
+**Abgabeformat:**
+- ZIP-Datei mit Ordnerstruktur: `Projekt_Name/` → `notebook.ipynb`, `README.md`, `data/` (falls benötigt)
+- Oder: GitHub Repository Link
+
+**Checkliste vor Abgabe:**
+- [ ] Code läuft ohne Fehler durch
+- [ ] LangChain 1.0+ Patterns verwendet (keine deprecated Features)
+- [ ] README.md ist vollständig
+- [ ] API-Keys sind NICHT im Code (nur Platzhalter oder .env-Verweis)
+- [ ] Alle externen Abhängigkeiten sind dokumentiert
+- [ ] Beispiel-Daten oder Download-Links sind enthalten
+
+# 6 | Beispielprojekt: Doku-Assi (LangChain 1.0+)
+
+Als Orientierung dient hier ein vereinfachtes Beispiel für einen Dokumentenanalyse-Assistenten mit **modernen LangChain 1.0+ Patterns**.
 
 ```python
-# Import der benötigten Bibliotheken
-import os
-from langchain.document_loaders import PyPDFLoader
-from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.embeddings import OpenAIEmbeddings
-from langchain.vectorstores import Chroma
-from langchain.chat_models import ChatOpenAI
-from langchain.retrievers.multi_query import MultiQueryRetriever
-from langchain.chains import ConversationalRetrievalChain
+# ✅ LangChain 1.0+ - Moderne Imports
+from langchain.chat_models import init_chat_model
+from langchain_community.document_loaders import PyPDFLoader
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+from langchain_openai import OpenAIEmbeddings
+from langchain_chroma import Chroma
+from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
+from langchain_core.output_parsers import StrOutputParser
+from langchain_core.runnables import RunnablePassthrough
+from langchain_core.messages import HumanMessage, AIMessage
 import gradio as gr
 
-# API-Keys einrichten
-os.environ["OPENAI_API_KEY"] = "Ihr-OpenAI-Key"
+# API-Keys via genai_lib
+from genai_lib.utilities import setup_api_keys
+setup_api_keys(['OPENAI_API_KEY'], create_globals=False)
 
 # Funktion zum Laden und Verarbeiten von Dokumenten
 def load_and_process_document(file_path):
@@ -259,42 +302,63 @@ def load_and_process_document(file_path):
     chunks = text_splitter.split_documents(pages)
     
     # Embeddings erstellen und Vektorstore initialisieren
-    embeddings = OpenAIEmbeddings()
+    embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
     vectorstore = Chroma.from_documents(
         documents=chunks,
-        embedding=embeddings
+        embedding=embeddings,
+        collection_name="doc_assistant"
     )
-    
+
     return vectorstore
 
-# Chat-Modell und Retrieval-Kette initialisieren
+# ✅ LangChain 1.0+ - LCEL Chain statt ConversationalRetrievalChain
 def setup_qa_chain(vectorstore):
     """
-    Erstellt eine Konversations-Retrieval-Kette für Frage-Antwort-Interaktionen
-    
+    Erstellt eine RAG-Chain mit LCEL für Frage-Antwort-Interaktionen
+
     Args:
         vectorstore: Chroma-Vektordatenbank
-        
+
     Returns:
-        ConversationalRetrievalChain für QA
+        LCEL Chain für RAG mit Chat-History
     """
-    # LLM initialisieren
-    llm = ChatOpenAI(temperature=0, model="gpt-3.5-turbo")
-    
-    # Retriever mit Multi-Query-Strategie
-    retriever = MultiQueryRetriever.from_llm(
-        vectorstore.as_retriever(search_kwargs={"k": 3}),
-        llm
+    # ✅ LLM mit init_chat_model (LangChain 1.0+ Standard)
+    llm = init_chat_model("openai:gpt-4o-mini", temperature=0.0)
+
+    # Retriever konfigurieren
+    retriever = vectorstore.as_retriever(
+        search_type="similarity",
+        search_kwargs={"k": 3}
     )
-    
-    # QA-Kette erstellen
-    qa_chain = ConversationalRetrievalChain.from_llm(
-        llm=llm,
-        retriever=retriever,
-        return_source_documents=True
+
+    # RAG Prompt Template
+    rag_prompt = ChatPromptTemplate.from_messages([
+        ("system", """Du bist ein hilfreicher Assistent für Dokumentenanalyse.
+        Beantworte Fragen basierend auf dem bereitgestellten Kontext.
+        Wenn die Antwort nicht im Kontext steht, sage das ehrlich.
+
+        Kontext:
+        {context}"""),
+        MessagesPlaceholder(variable_name="chat_history"),
+        ("human", "{question}")
+    ])
+
+    # ✅ LCEL Chain (moderne Syntax mit | Operator)
+    def format_docs(docs):
+        return "\n\n".join([doc.page_content for doc in docs])
+
+    qa_chain = (
+        {
+            "context": retriever | format_docs,
+            "question": RunnablePassthrough(),
+            "chat_history": lambda x: x.get("chat_history", [])
+        }
+        | rag_prompt
+        | llm
+        | StrOutputParser()
     )
-    
-    return qa_chain
+
+    return qa_chain, retriever
 
 # Gradio-Interface für die Benutzerinteraktion
 def create_interface():
@@ -314,37 +378,46 @@ def create_interface():
     def upload_pdf(file):
         try:
             vectorstore = load_and_process_document(file.name)
-            state["qa_chain"] = setup_qa_chain(vectorstore)
+            state["qa_chain"], state["retriever"] = setup_qa_chain(vectorstore)
             state["chat_history"] = []
-            return "Dokument erfolgreich geladen und verarbeitet!"
+            return "✅ Dokument erfolgreich geladen und verarbeitet!"
         except Exception as e:
-            return f"Fehler beim Laden des Dokuments: {str(e)}"
-    
-    # Frage-Antwort-Funktion
+            return f"❌ Fehler beim Laden des Dokuments: {str(e)}"
+
+    # Frage-Antwort-Funktion mit LCEL
     def ask_question(question):
         if state["qa_chain"] is None:
-            return "Bitte laden Sie zuerst ein Dokument hoch."
-        
+            return "⚠️ Bitte laden Sie zuerst ein Dokument hoch."
+
         try:
-            result = state["qa_chain"](
-                {"question": question, "chat_history": state["chat_history"]}
-            )
-            
-            # Chat-Historie aktualisieren
-            state["chat_history"].append((question, result["answer"]))
-            
-            # Quellen hinzufügen
-            sources = set()
-            for doc in result["source_documents"]:
-                page_content = doc.page_content[:150] + "..." if len(doc.page_content) > 150 else doc.page_content
-                sources.add(f"Quelle (Seite {doc.metadata.get('page', 'N/A')}): {page_content}")
-            
-            sources_text = "\n\n".join(sources)
-            full_response = f"{result['answer']}\n\n---\n\nVerwendete Quellen:\n{sources_text}"
-            
+            # ✅ LCEL Chain mit Chat-History aufrufen
+            answer = state["qa_chain"].invoke({
+                "question": question,
+                "chat_history": state["chat_history"]
+            })
+
+            # Quellen separat abrufen
+            source_docs = state["retriever"].invoke(question)
+
+            # Chat-Historie aktualisieren (als Messages)
+            state["chat_history"].extend([
+                HumanMessage(content=question),
+                AIMessage(content=answer)
+            ])
+
+            # Quellen formatieren
+            sources = []
+            for i, doc in enumerate(source_docs, 1):
+                page = doc.metadata.get('page', 'N/A')
+                content_preview = doc.page_content[:150] + "..." if len(doc.page_content) > 150 else doc.page_content
+                sources.append(f"{i}. Seite {page}: {content_preview}")
+
+            sources_text = "\n".join(sources)
+            full_response = f"{answer}\n\n---\n\n📚 **Verwendete Quellen:**\n{sources_text}"
+
             return full_response
         except Exception as e:
-            return f"Fehler bei der Verarbeitung der Frage: {str(e)}"
+            return f"❌ Fehler bei der Verarbeitung der Frage: {str(e)}"
     
     # Gradio-Interface erstellen
     with gr.Blocks(title="Dokumentenanalyse-Assistent") as interface:
@@ -402,14 +475,46 @@ Folgende Ressourcen können bei der Entwicklung des Abschlussprojekts hilfreich 
 
 Bei Fragen oder Problemen während der Projektentwicklung können Sie das `Kurs-Forum` nutzen.
 
+---
+
+# 8 | Häufige Probleme & Lösungen
+
+## LangChain-spezifisch
+- **Problem:** `AttributeError: 'ChatOpenAI' object has no attribute 'with_structured_output'`
+  - **Lösung:** Nutze `init_chat_model()` statt direkter `ChatOpenAI()`-Import
+
+- **Problem:** Deprecated Warnings für Chains
+  - **Lösung:** Migration auf LCEL mit `|` Operator (siehe Beispielcode)
+
+## Performance
+- **Problem:** Gradio Share-Link funktioniert nicht
+  - **Lösung:** Nutze `interface.launch(share=True, debug=True)` für detaillierte Fehler
+
+- **Problem:** Vektordatenbank zu langsam
+  - **Lösung:** Kleinere Chunk-Größe (500-800 Tokens) oder FAISS statt Chroma
+
+## API-Limits
+- **Problem:** OpenAI Rate Limit erreicht
+  - **Lösung:** Implementiere Retry-Logic oder nutze kleinere Modelle (gpt-4o-mini)
+
+---
 
 <p><font color='green' size="7">
 
-  🏅 Viel Erfolg!
+  🏅 Viel Erfolg bei Ihrer KI-Challenge!
 
 </font></p>
+
 ---
 
-**Version:** 1.0     
-**Stand:** November 2025     
-**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.     
+**Version:** 2.0 (LangChain 1.0+ Update)
+**Stand:** Dezember 2025
+**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
+
+**Changelog v2.0:**
+- ✅ Code auf LangChain 1.0+ migriert (init_chat_model, LCEL, moderne Imports)
+- ✅ Abgabe-Anforderungen hinzugefügt (Jupyter Notebook + README.md)
+- ✅ Zeitrahmen definiert (15-25 Stunden)
+- ✅ Setup-Code modernisiert (genai_lib Integration)
+- ✅ Troubleshooting-Sektion ergänzt
+- ✅ Checkliste vor Abgabe hinzugefügt     
