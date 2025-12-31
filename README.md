@@ -133,7 +133,7 @@ Alle Notebooks sind eigenständig lauffähig und für Google Colab optimiert. Da
 
 Der Kurs bietet zwei praxisorientierte Lernformate:
 
-### [Vom Chatbot zum RAG-System](https://ralf-42.github.io/GenAI/ressourcen/Vom_Chatbot_zum_RAG_System.html)
+### [Vom Chatbot zum RAG-System](https://ralf-42.github.io/GenAI/projekte/Vom_Chatbot_zum_RAG_System.html)
 **Workshop-Format** | Begleitete Schritt-für-Schritt-Übung
 
 Bauen Sie einen intelligenten Tech-Doku-Assistenten von Grund auf:
@@ -142,7 +142,7 @@ Bauen Sie einen intelligenten Tech-Doku-Assistenten von Grund auf:
 - 🛠️ Hands-On mit LangChain, ChromaDB, Gradio
 - ⏱️ Zeitaufwand: 4-6 Stunden
 
-### [KI-Challenge](https://ralf-42.github.io/GenAI/ressourcen/M23_KI-Challenge.html)
+### [KI-Challenge](https://ralf-42.github.io/GenAI/projekte/M23_KI-Challenge.html)
 **End-to-End Projekt** | Eigenständige Implementierung
 
 Entwickeln Sie eine vollständige GenAI-Anwendung:

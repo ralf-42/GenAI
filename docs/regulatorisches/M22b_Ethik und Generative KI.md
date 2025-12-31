@@ -1,8 +1,8 @@
 ---
 layout: default
 title: Ethik und GenAI
-parent: Ressourcen
-nav_order: 9
+parent: Regulatorisches
+nav_order: 3
 description: "Ethische Aspekte: Bias, Fairness und verantwortungsvoller KI-Einsatz"
 has_toc: true
 ---

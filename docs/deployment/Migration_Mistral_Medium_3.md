@@ -1,8 +1,8 @@
 ---
 layout: default
 title: Migration-Analyse Provider
-parent: Ressourcen
-nav_order: 6
+parent: Deployment
+nav_order: 3
 description: Analyse der Migration von gpt-4o-mini zu Mistral Medium 3
 has_toc: true
 ---
