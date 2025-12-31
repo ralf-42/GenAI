@@ -53,6 +53,15 @@ Praktische Anleitungen, Best Practices und Hilfestellungen für die Arbeit mit G
   - Schritt-für-Schritt Migrations-Strategie
   - Hybrid-Ansatz Empfehlung
 
+### Digitale Souveränität
+- **[Digitale Souveränität](ressourcen/Digitale%20Souver%C3%A4nit%C3%A4t%20-%20Definition,%20Reifegrade,%20Europa.html)** - Definition, Reifegrade und europäische Strategien
+  - Konzeptionelle Grundlagen und Begriffsbestimmung
+  - Reifegradmodelle (EU Cloud Sovereignty Framework, SEAL-Stufen)
+  - Europäische Initiativen (Gaia-X, Catena-X, European Chips Act)
+  - Sovereign Cloud Angebote in der Praxis
+  - Zukunftstechnologien (Open RAN, Sovereign AI)
+  - Herausforderungen und pragmatische Lösungsansätze
+
 ---
 
 Nutzen Sie die Navigation links, um zu den einzelnen Ressourcen zu navigieren.
