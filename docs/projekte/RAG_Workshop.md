@@ -1,16 +1,16 @@
 ---
 layout: default
-title: Vom Chatbot zum RAG-System
+title: RAG Workshop
 parent: Projekte
 nav_order: 1
 description: "Schrittweise Workshop: Tech-Doku Assistent - vom einfachen Chatbot zur RAG-basierten Anwendung mit UI"
 has_toc: true
 ---
 
-# Vom Chatbot zum RAG-System
+# RAG Workshop
 {: .no_toc }
 
-> **Workshop: Tech-Doku Assistent bauen**    
+> **Tech-Doku Assistent bauen**    
 > Schrittweise Entwicklung vom einfachen Chatbot zur intelligenten RAG-Anwendung mit UI (Module M04-M11)
 
 ---

@@ -133,7 +133,7 @@ Alle Notebooks sind eigenständig lauffähig und für Google Colab optimiert. Da
 
 Der Kurs bietet zwei praxisorientierte Lernformate:
 
-### [Vom Chatbot zum RAG-System](https://ralf-42.github.io/GenAI/projekte/Vom_Chatbot_zum_RAG_System.html)
+### [RAG Workshop](https://ralf-42.github.io/GenAI/projekte/RAG_Workshop.html)
 **Workshop-Format** | Begleitete Schritt-für-Schritt-Übung
 
 Bauen Sie einen intelligenten Tech-Doku-Assistenten von Grund auf:
