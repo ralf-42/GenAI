@@ -1,29 +1,37 @@
 ---
 layout: default
 title: Ressourcen
-nav_order: 4
+nav_order: 8
 has_children: true
-description: "Praktische Hilfsmittel, Projekte und Referenzen"
+description: "Technische Guides und Hilfestellungen"
 ---
 
 # Ressourcen
 
-Praktische Hilfsmittel, Projekte, Übungen und Referenzen für die Arbeit mit generativer KI.
+Technische Anleitungen, Best Practices und Hilfestellungen für die Arbeit mit Generativer KI.
 
-## Projekte & Übungen
-- [Vom Chatbot zum RAG-System](./ressourcen/Vom_Chatbot_zum_RAG_System.html) - Workshop: Schrittweise RAG-Entwicklung
-- [KI-Challenge](./ressourcen/M23_KI-Challenge.html) - End-to-End Praxisprojekt
+## Übersicht
 
-## Technische Ressourcen
-- [Code Standards](./ressourcen/standards.html)
-- [GenAI Lib](./ressourcen/Einsteiger_GenAI_Lib.html) - Eigene Bibliothek
-- [API-Keys und Provider](./ressourcen/API-Keys%20und%20Provider.html)
-- [Troubleshooting](./ressourcen/troubleshooting.html)
-- [Migration Guides](./ressourcen/Migration_Mistral_Medium_3.html)
-- [Vom Modell zum Produkt](./ressourcen/Vom_Modell_zum_Produkt_LangChain_Oekosystem.html)
-- [Aus Entwicklung ins Deployment](./ressourcen/aus-entwicklung-ins-deployment.html)
+### API-Provider & Integration
+- **[API-Keys & Provider](./ressourcen/API-Keys%20und%20Provider.html)** - LLM-Provider im Überblick
+  - Kostenlose API-Keys und Zahlungsweisen
+  - Google Colab Integration
+  - Sichere API-Key Verwaltung
+  - Provider-Empfehlungen (OpenAI, Google, Groq, etc.)
+  - Lokale Modelle mit Ollama
 
-## Regulatorisches & Ethik
-- [EU AI Act](./ressourcen/M22_EU%20AI%20Act.html)
-- [Ethik und GenAI](./ressourcen/M22b_Ethik%20und%20Generative%20KI.html)
-- [Digitale Souveränität](./ressourcen/Digitale%20Souveränität%20-%20Definition,%20Reifegrade,%20Europa.html)
+### Best Practices & Standards
+- **[Code Standards](./ressourcen/standards.html)** - Code-Konventionen und Best Practices
+  - LangChain 1.0+ Must-Have Features
+  - Projekt-Struktur und Organisation
+  - Coding Standards für Python und LangChain
+  - Prompt-Design-Richtlinien
+  - Dokumentations-Standards
+
+### Hilfe & Support
+- **[Troubleshooting](./ressourcen/troubleshooting.html)** - Lösungen für häufige Probleme
+  - LangChain Debugging
+  - Vektordatenbank-Probleme
+  - API-Integration Issues
+  - Performance-Optimierung
+  - Häufige Fehler und deren Lösungen

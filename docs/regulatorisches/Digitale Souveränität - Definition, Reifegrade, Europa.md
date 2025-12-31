@@ -1,8 +1,8 @@
 ---
 layout: default
 title: Digitale Souveränität
-parent: Ressourcen
-nav_order: 7
+parent: Regulatorisches
+nav_order: 1
 description: Definition, Reifegrade und europäische Strategien zur digitalen Souveränität
 has_toc: true
 ---

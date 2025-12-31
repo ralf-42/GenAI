@@ -4,7 +4,6 @@ title: Frameworks
 nav_order: 3
 has_children: true
 description: "Einsteiger-Guides für LangChain, ChromaDB und Agent Builder"
-permalink: /frameworks/
 ---
 
 # Frameworks

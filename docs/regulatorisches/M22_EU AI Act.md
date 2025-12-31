@@ -1,8 +1,8 @@
 ---
 layout: default
 title: EU AI Act
-parent: Ressourcen
-nav_order: 8
+parent: Regulatorisches
+nav_order: 2
 description: "Rechtliche Rahmenbedingungen: EU AI Act und regulatorische Anforderungen"
 has_toc: true
 ---
