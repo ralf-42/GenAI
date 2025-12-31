@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Aus der Entwicklung ins Deployment
+title: Zur produktionsreife Anwendung
 parent: Ressourcen
 nav_order: 8
-description: "Praktische Anleitung für den Weg vom Jupyter Notebook zur produktionsreifen GenAI-Anwendung"
+description: Praktische Anleitung für den Weg vom Jupyter Notebook zur produktionsreifen GenAI-Anwendung
 has_toc: true
 ---
 
