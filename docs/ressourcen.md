@@ -3,76 +3,27 @@ layout: default
 title: Ressourcen
 nav_order: 4
 has_children: true
-description: "Praktische Anleitungen, Werkzeuge und Hilfestellungen"
-permalink: /ressourcen/
+description: "Praktische Hilfsmittel, Projekte und Referenzen"
 ---
 
 # Ressourcen
 
-Praktische Anleitungen, Best Practices und Hilfestellungen für die Arbeit mit Generativer KI.
+Praktische Hilfsmittel, Projekte, Übungen und Referenzen für die Arbeit mit generativer KI.
 
-## Übersicht
+## Projekte & Übungen
+- [Übungsaufgabe M04-M11](./ressourcen/Uebungsaufgabe_M04-M11.html) - Schrittweise begleitete Übung
+- [KI-Challenge](./ressourcen/M23_KI-Challenge.html) - End-to-End Praxisprojekt
 
-### API-Provider & Integration
-- **[API-Keys & Provider](ressourcen/API-Keys%20und%20Provider.html)** - LLM-Provider im Überblick
-  - Kostenlose API-Keys und Zahlungsweisen
-  - Google Colab Integration
-  - Sichere API-Key Verwaltung
-  - Provider-Empfehlungen (OpenAI, Google, Groq, etc.)
-  - Lokale Modelle mit Ollama
+## Technische Ressourcen
+- [Code Standards](./ressourcen/standards.html)
+- [GenAI Lib](./ressourcen/Einsteiger_GenAI_Lib.html) - Eigene Bibliothek
+- [API-Keys und Provider](./ressourcen/API-Keys%20und%20Provider.html)
+- [Troubleshooting](./ressourcen/troubleshooting.html)
+- [Migration Guides](./ressourcen/Migration_Mistral_Medium_3.html)
+- [Vom Modell zum Produkt](./ressourcen/Vom_Modell_zum_Produkt_LangChain_Oekosystem.html)
+- [Aus Entwicklung ins Deployment](./ressourcen/aus-entwicklung-ins-deployment.html)
 
-### Best Practices & Standards
-- **[Code Standards](ressourcen/standards.html)** - Code-Konventionen und Best Practices für GenAI-Projekte
-  - LangChain 1.0+ Must-Have Features
-  - Projekt-Struktur und Organisation
-  - Coding Standards für Python und LangChain
-  - Prompt-Design-Richtlinien
-  - Dokumentations-Standards
-
-### Hilfe & Support
-- **[Troubleshooting](ressourcen/troubleshooting.html)** - Lösungen für häufige Probleme und Fehler
-  - LangChain Debugging
-  - Vektordatenbank-Probleme
-  - API-Integration Issues
-  - Performance-Optimierung
-  - Häufige Fehler und deren Lösungen
-
-### Framework-Guides
-- **[Vom Modell zum Produkt](ressourcen/Vom_Modell_zum_Produkt_LangChain_Oekosystem.html)** - Das LangChain-Ökosystem verstehen und nutzen
-  - Von Prototypen zu produktionsreifen Systemen
-  - LangChain, LangGraph und LangSmith im Überblick
-  - Entscheidungshilfe: Wann welches Tool?
-  - Praktische Beispiele und Best Practices
-  - Alternativen zum LangChain-Ökosystem
-
-### Migrations-Analysen
-- **[Migration zu Mistral Medium 3](ressourcen/Migration_Mistral_Medium_3.html)** - Technische Analyse der Migration von gpt-4o-mini zu Mistral Medium 3
-  - Feature-Kompatibilitätsvergleich
-  - Kosten-Analyse (2.7-3.3x teurer)
-  - Notebook-spezifische Kompatibilität (75% kompatibel)
-  - Schritt-für-Schritt Migrations-Strategie
-  - Hybrid-Ansatz Empfehlung
-
-### Deployment & Produktion
-- **[Aus der Entwicklung ins Deployment](ressourcen/aus-entwicklung-ins-deployment.html)** - Vom Jupyter Notebook zur produktionsreifen GenAI-Anwendung
-  - Notebook aufräumen und Code extrahieren
-  - Projektstruktur und Best Practices
-  - Konfiguration externalisieren (.env, Umgebungsvariablen)
-  - Testing-Grundlagen für GenAI-Apps
-  - API-Endpunkte mit FastAPI
-  - Containerisierung mit Docker
-  - Deployment-Optionen im Vergleich
-  - Checkliste und typische Fehler
-
-### Digitale Souveränität
-- **[Digitale Souveränität](ressourcen/Digitale%20Souver%C3%A4nit%C3%A4t%20-%20Definition,%20Reifegrade,%20Europa.html)** - Definition, Reifegrade und europäische Strategien
-  - Konzeptionelle Grundlagen und Begriffsbestimmung
-  - Reifegradmodelle (EU Cloud Sovereignty Framework, SEAL-Stufen)
-  - Europäische Initiativen (Gaia-X, Catena-X, European Chips Act)
-  - Sovereign Cloud Angebote in der Praxis
-  - Zukunftstechnologien (Open RAN, Sovereign AI)
-  - Herausforderungen und pragmatische Lösungsansätze
-
----
-
-Nutzen Sie die Navigation links, um zu den einzelnen Ressourcen zu navigieren.
+## Regulatorisches & Ethik
+- [EU AI Act](./ressourcen/M22_EU%20AI%20Act.html)
+- [Ethik und GenAI](./ressourcen/M22b_Ethik%20und%20Generative%20KI.html)
+- [Digitale Souveränität](./ressourcen/Digitale%20Souveränität%20-%20Definition,%20Reifegrade,%20Europa.html)
