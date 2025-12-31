@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Migration Mistral Medium 3
+title: "Migration-Analyse: OpenAI zu Mistral"
 parent: Ressourcen
 nav_order: 6
-description: "Analyse der Migration von gpt-4o-mini zu Mistral Medium 3"
+description: Analyse der Migration von gpt-4o-mini zu Mistral Medium 3
 has_toc: true
 ---
 
