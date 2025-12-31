@@ -10,7 +10,7 @@ has_toc: true
 # Digitale Souveränität
 {: .no_toc }
 
-> **Digitale Souveränität: Definition, Reifegrade, Europa**     
+> **Digitale Souveränität: Definition, Reifegrade, Europa**      
 > Analyse des Status quo der digitalen Souveränität - von der Begriffsdefinition über Reifegradmodelle bis zu europäischen Strategien
 
 ---
