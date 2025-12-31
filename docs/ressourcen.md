@@ -53,6 +53,17 @@ Praktische Anleitungen, Best Practices und Hilfestellungen für die Arbeit mit G
   - Schritt-für-Schritt Migrations-Strategie
   - Hybrid-Ansatz Empfehlung
 
+### Deployment & Produktion
+- **[Aus der Entwicklung ins Deployment](ressourcen/aus-entwicklung-ins-deployment.html)** - Vom Jupyter Notebook zur produktionsreifen GenAI-Anwendung
+  - Notebook aufräumen und Code extrahieren
+  - Projektstruktur und Best Practices
+  - Konfiguration externalisieren (.env, Umgebungsvariablen)
+  - Testing-Grundlagen für GenAI-Apps
+  - API-Endpunkte mit FastAPI
+  - Containerisierung mit Docker
+  - Deployment-Optionen im Vergleich
+  - Checkliste und typische Fehler
+
 ### Digitale Souveränität
 - **[Digitale Souveränität](ressourcen/Digitale%20Souver%C3%A4nit%C3%A4t%20-%20Definition,%20Reifegrade,%20Europa.html)** - Definition, Reifegrade und europäische Strategien
   - Konzeptionelle Grundlagen und Begriffsbestimmung

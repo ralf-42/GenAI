@@ -2,16 +2,16 @@
 layout: default
 title: Digitale Souveränität
 parent: Ressourcen
-nav_order: 6
-description: "Definition, Reifegrade und europäische Strategien zur digitalen Souveränität"
+nav_order: 7
+description: Definition, Reifegrade und europäische Strategien zur digitalen Souveränität
 has_toc: true
 ---
 
 # Digitale Souveränität
 {: .no_toc }
 
-> **Digitale Souveränität: Definition, Reifegrade, Europa**
-> Erschöpfende Analyse des Status quo der digitalen Souveränität - von der Begriffsdefinition über Reifegradmodelle bis zu europäischen Strategien
+> **Digitale Souveränität: Definition, Reifegrade, Europa**     
+> Analyse des Status quo der digitalen Souveränität - von der Begriffsdefinition über Reifegradmodelle bis zu europäischen Strategien
 
 ---
 
@@ -363,7 +363,7 @@ Die digitale Souveränität Europas wird sich nicht daran entscheiden, ob ein eu
 
 ---
 
-**Version:** 1.0
-**Letzte Aktualisierung:** Dezember 2025
-**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
-**Quelle:** Powered by Google Gemini
+**Version:** 1.0     
+**Letzte Aktualisierung:** Dezember 2025     
+**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.     
+**Quelle:** *Powered by Google Gemini*     
