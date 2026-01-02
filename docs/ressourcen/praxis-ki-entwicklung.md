@@ -7,7 +7,7 @@ description: "Einblicke aus der Praxis: Von Training Runs bis Frontier Labs"
 has_toc: true
 ---
 
-# Praxis-Einblicke: KI-Entwicklung im Real-World Context
+# Praxis: KI-Entwicklung im Real-World Context
 {: .no_toc }
 
 > **Von der Forschung zur Produktion: Learnings aus OpenAI, Palantir und europäischen Frontier Labs**    
