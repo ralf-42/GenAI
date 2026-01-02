@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Praxis-Einblicke KI-Entwicklung
+title: Praxis KI-Entwicklung
 parent: Ressourcen
 nav_order: 5
 description: "Einblicke aus der Praxis: Von Training Runs bis Frontier Labs"
@@ -10,7 +10,7 @@ has_toc: true
 # Praxis-Einblicke: KI-Entwicklung im Real-World Context
 {: .no_toc }
 
-> **Von der Forschung zur Produktion: Learnings aus OpenAI, Palantir und europäischen Frontier Labs**
+> **Von der Forschung zur Produktion: Learnings aus OpenAI, Palantir und europäischen Frontier Labs**    
 
 ---
 
@@ -377,13 +377,10 @@ Nach dem YOLO Run kommen mehrere Schritte:
 
 ---
 
-**Version:** 1.0
-**Stand:** Januar 2025
-**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
-**Quelle:** Interview mit Johannes Otterbach (ex-OpenAI, SPRIN-D), Podcast "AI To the DNA"
+**Version:** 1.0    
+**Stand:** Januar 2025    
+**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.    
+**Quelle:** Interview mit Johannes Otterbach (ex-OpenAI, SPRIN-D), Podcast "AI To the DNA"    
 
-**Changelog v1.0:**
-- ✅ Initial Release basierend auf Interview-Transkript
-- ✅ 7 Haupt-Sektionen: Training Runs, Produkt, Reasoning, Frontier Labs, Learnings
-- ✅ Praktische Takeaways für KI-Challenge
-- ✅ Glossar und Ressourcen-Links
+
+
