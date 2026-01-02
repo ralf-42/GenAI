@@ -465,7 +465,7 @@ with gr.Blocks(title="Tech-Doku Assistent") as demo:
 
 ---
 
-## Bewertungskriterien
+## Bewertungskriterien (Selbstbewertung)
 
 | Phase | Punkte | Kriterien |
 |-------|--------|-----------|
@@ -489,9 +489,6 @@ with gr.Blocks(title="Tech-Doku Assistent") as demo:
 - [RAG Tutorial](https://python.langchain.com/docs/tutorials/rag/)
 - [Agents](https://python.langchain.com/docs/concepts/agents/)
 
-**Code-Vorlagen:**
-- [LangChain 1.0 Must-Haves](/GenAI/LangChain_1.0_Must_Haves.html)
-- [Notebook Template Guide](/GenAI/Notebook_Template_Guide.html)
 
 **Projekt-Beispiele:**
 - `01_notebook/M04_LangChain101.ipynb`
@@ -500,7 +497,7 @@ with gr.Blocks(title="Tech-Doku Assistent") as demo:
 
 ---
 
-## Abgabe
+## Erwartete Ergebnisse
 
 **Format:**
 - **Jupyter Notebook** (`Tech_Doku_Assistent.ipynb`)
@@ -514,14 +511,14 @@ with gr.Blocks(title="Tech-Doku Assistent") as demo:
   - Screenshot des Gradio-UI
 - Optional: **Demo-Video** (max. 5 Min.) oder **Colab-Link**
 
-**Deadline:** [Wird vom Dozenten festgelegt]
+**Deadline:** keine
 
 **Einreichung:**
 - Als **Colab-Link** (öffentlich freigegeben)
 - ODER als **ZIP-Archiv** mit .ipynb + docs/
 - ODER als **Git-Repository-Link**
 
-### Checkliste vor Abgabe
+### Checkliste RAG-Workshop     
 - [ ] Notebook läuft von oben bis unten fehlerfrei durch
 - [ ] Alle API-Keys sind über Colab Secrets eingebunden (nicht hardcodiert!)
 - [ ] Alle 7 Kapitel sind implementiert
@@ -534,32 +531,32 @@ with gr.Blocks(title="Tech-Doku Assistent") as demo:
 
 ## FAQ
 
-**Q: Muss ich alle Kapitel implementieren?**
+**Q: Muss ich alle Kapitel implementieren?**      
 A: Kapitel 1-5 sind Pflicht (70 Punkte). Kapitel 6-7 sind optional für Bonuspunkte (30 Punkte).
 
-**Q: Kann ich separate Notebooks erstellen statt einem großen?**
+**Q: Kann ich separate Notebooks erstellen statt einem großen?**      
 A: Ja! Sie können 7 separate Notebooks erstellen (z.B. `Kapitel_1_Chat.ipynb` bis `Kapitel_7_Gradio.ipynb`). Achten Sie dann darauf, dass Kapitel 6-7 auf vorherige Kapitelergebnisse zugreifen können.
 
-**Q: Welches LLM-Modell soll ich verwenden?**
+**Q: Welches LLM-Modell soll ich verwenden?**      
 A: `gpt-4o-mini` ist ausreichend und kosteneffizient. Für Kapitel 6 (Agent) funktioniert `gpt-4o-mini` ebenfalls, da es Function Calling unterstützt.
 
-**Q: Kann ich andere Vektordatenbanken nutzen?**
+**Q: Kann ich andere Vektordatenbanken nutzen?**      
 A: Ja, FAISS ist in Colab sogar etwas schneller als ChromaDB. Qdrant ist ebenfalls möglich.
 
-**Q: Wo bekomme ich Markdown-Dateien für RAG?**
+**Q: Wo bekomme ich Markdown-Dateien für RAG?**      
 A: Optionen:
   - Erstellen Sie eigene .md Dateien mit technischen Infos
   - Laden Sie offizielle Docs herunter (z.B. Docker, Kubernetes)
   - Nutzen Sie `markitdown` für PDF→Markdown Konvertierung
   - Kopieren Sie Wikipedia-Artikel als Markdown
 
-**Q: Mein Colab-Notebook stürzt beim Gradio-Launch ab**
+**Q: Mein Colab-Notebook stürzt beim Gradio-Launch ab**      
 A: Häufigste Ursachen:
   - RAM-Limit erreicht → Runtime → Factory reset runtime
   - Firewall blockiert share-Link → Versuchen Sie `share=False` für lokalen Zugriff
   - Alte Gradio-Version → `!pip install --upgrade gradio`
 
-**Q: Kann ich die Übung auch lokal (ohne Colab) machen?**
+**Q: Kann ich die Übung auch lokal (ohne Colab) machen?**      
 A: Ja! Verwenden Sie dann Jupyter Notebook/Lab lokal und ersetzen Sie:
   - `from google.colab import userdata` → `from dotenv import load_dotenv`
   - `files.upload()` → Lokale File-Pfade
