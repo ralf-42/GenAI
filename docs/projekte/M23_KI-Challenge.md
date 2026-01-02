@@ -561,14 +561,7 @@ Bei Fragen oder Problemen während der Projektentwicklung können Sie das `Kurs-
 
 ---
 
-**Version:** 2.0 (LangChain 1.0+ Update)
-**Stand:** Dezember 2025
-**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
-
-**Changelog v2.0:**
-- ✅ Code auf LangChain 1.0+ migriert (init_chat_model, LCEL, moderne Imports)
-- ✅ Abgabe-Anforderungen hinzugefügt (Jupyter Notebook + README.md)
-- ✅ Zeitrahmen definiert (15-25 Stunden)
-- ✅ Setup-Code modernisiert (genai_lib Integration)
-- ✅ Troubleshooting-Sektion ergänzt
-- ✅ Checkliste vor Abgabe hinzugefügt     
+**Version:** 2.0 (LangChain 1.0+ Update)     
+**Stand:** Dezember 2025     
+**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.     
+     
