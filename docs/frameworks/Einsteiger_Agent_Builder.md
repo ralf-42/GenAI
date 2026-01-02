@@ -138,12 +138,12 @@ graph TB
     COND -->|Technical| TECH[Tool: Create JIRA Ticket]
     COND -->|Sales| SALES[Tool: Notify Sales Team]
     COND -->|Billing| HUMAN[Human: Review]
-    TECH --> END([END])
-    SALES --> END
-    HUMAN --> END
+    TECH --> FINISH([FINISH])
+    SALES --> FINISH
+    HUMAN --> FINISH
 
     style START fill:#90EE90
-    style END fill:#FFB6C1
+    style FINISH fill:#FFB6C1
     style COND fill:#FFD700
     style LLM fill:#87CEEB
 ```
@@ -212,11 +212,11 @@ flowchart TB
     APPROVAL -->|Yes| EMAIL
     APPROVAL -->|No| REJECT[Send Rejection Notice]
 
-    EMAIL --> END([Workflow Complete])
-    REJECT --> END
+    EMAIL --> FINISH([Workflow Complete])
+    REJECT --> FINISH
 
     style START fill:#90EE90
-    style END fill:#FFB6C1
+    style FINISH fill:#FFB6C1
     style COND fill:#FFD700
     style LLM fill:#87CEEB
     style HUMAN fill:#FFA500
@@ -396,8 +396,8 @@ flowchart LR
     START([Daily Check]) --> GH[🔧 GitHub: Get Critical Issues]
     GH --> COND{🔀 Issues > 0?}
     COND -->|Yes| SLACK[🔧 Slack: Notify Team]
-    COND -->|No| END([END])
-    SLACK --> END
+    COND -->|No| FINISH([FINISH])
+    SLACK --> FINISH
 
     style GH fill:#FFA500
     style SLACK fill:#4A154B
@@ -591,9 +591,9 @@ graph TB
     DATA -->|PII| REDACT[PII Redaction]
     DATA -->|Public| PROCESS[Normal Processing]
 
-    ENCRYPT --> END([END])
-    REDACT --> END
-    PROCESS --> END
+    ENCRYPT --> FINISH([FINISH])
+    REDACT --> FINISH
+    PROCESS --> FINISH
 
     style RBAC fill:#FFD700
     style ENCRYPT fill:#ff6b6b
@@ -818,8 +818,8 @@ flowchart TB
 
     LOG --> NOTIFY[Notify Team]
 
-    NEXT --> END([Success])
-    NOTIFY --> END
+    NEXT --> FINISH([Success])
+    NOTIFY --> FINISH
 
     style CHECK fill:#FFD700
     style FALLBACK fill:#FFA500
@@ -932,52 +932,8 @@ graph TB
   - On-Premise Deployment erforderlich
   - Custom Python-Tools notwendig
 
-### 10.4 Empfohlener Lernpfad
 
-```mermaid
-journey
-    title Lernpfad: No-Code zu Production-Grade Agents
-    section Phase 1: Basics
-      Agent Builder Templates: 5: Einsteiger
-      Erste Workflows erstellen: 4: Einsteiger
-      MCP-Server integrieren: 3: Einsteiger
-    section Phase 2: Advanced
-      Conditional Workflows: 4: Fortgeschritten
-      Human-in-Loop: 4: Fortgeschritten
-      Multi-Agent-Systeme: 3: Fortgeschritten
-    section Phase 3: Production
-      Monitoring & Debugging: 5: Experte
-      Security Best Practices: 5: Experte
-      Code-Export & Migration: 4: Experte
-    section Phase 4: Scale
-      LangChain lernen: 3: Experte
-      Hybrid-Ansätze: 4: Experte
-      Custom MCP Server: 3: Experte
-```
-
-**Schritt-für-Schritt:**
-
-1. **Woche 1-2: Grundlagen**
-   - Agent Builder Interface kennenlernen
-   - Template-Workflows ausprobieren
-   - Erste eigene Workflows erstellen
-
-2. **Woche 3-4: Integration**
-   - MCP-Server einbinden (GitHub, Slack, etc.)
-   - Conditional Logic nutzen
-   - Multi-Step-Workflows bauen
-
-3. **Woche 5-6: Production**
-   - Security Best Practices umsetzen
-   - Monitoring & Debugging einrichten
-   - Versionierung & Deployment
-
-4. **Woche 7+: Skalierung**
-   - Komplexe Multi-Agent-Systeme
-   - Code-Export für Anpassungen
-   - Migration zu LangChain bei Bedarf
-
-### 10.5 Nächste Schritte
+### 10.4 Nächste Schritte
 
 ```mermaid
 graph LR
