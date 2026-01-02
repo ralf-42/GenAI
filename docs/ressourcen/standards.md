@@ -37,12 +37,12 @@ Vollständige Code-Konventionen und Best Practices für das Agenten-Projekt.
 ```python
 from langchain.chat_models import init_chat_model
 
-# ✨ Kurznotation: "provider:model" (STANDARD seit Dezember 2025)
+# ✨ Kurznotation "provider:model" (STANDARD seit Dezember 2025)
 llm = init_chat_model("openai:gpt-4o-mini", temperature=0.0)
 
 # Weitere Beispiele:
-llm = init_chat_model("anthropic:claude-3-sonnet", temperature=0.3)
-llm = init_chat_model("google:gemini-pro", temperature=0.5)
+# llm = init_chat_model("anthropic:claude-3-sonnet", temperature=0.3)
+# llm = init_chat_model("groq:llama-3.1-70b", temperature=0.7)
 ```
 
 ---
@@ -77,23 +77,35 @@ def multiply(a: int, b: int) -> int:
     return a * b
 ```
 
-**🆕 Tool Extras (v1.2.0):** Provider-spezifische Features ohne Vendor Lock-in
+
+**🆕 NEU in v1.2.0: Tool Extras für Provider-spezifische Features**
 
 ```python
+# ✨ NEU: Provider-spezifische Tool-Parameter
 @tool(extras={
-    "anthropic": {"cache_control": {"type": "ephemeral"}},
-    "openai": {"strict": True}
+    "anthropic": {
+        "cache_control": {"type": "ephemeral"},  # Anthropic Prompt Caching
+        "disable_parallel_tool_use": False
+    },
+    "openai": {
+        "strict": True  # OpenAI Strict Mode
+    }
 })
-def search_database(query: str) -> str:
+def search_database(query: str, limit: int = 10) -> str:
     """Durchsucht die Datenbank."""
-    return f"Ergebnisse für '{query}'"
+    return f"Gefunden: {limit} Ergebnisse für '{query}'"
 ```
+
+**Vorteile:**
+- ✅ Provider-native Features (Caching, Strict Mode, Computer Use)
+- ✅ Optimierte Performance
+- ✅ Backwards-compatible
 
 ---
 
 ### 4. ✅ `create_agent()` - Modern Agent API
 
-**Warum:** Moderne Agent-API (kein AgentExecutor mehr)
+**Warum:** Moderne Agent-API basierend auf LangGraph (kein AgentExecutor mehr)
 
 ```python
 from langchain.agents import create_agent
@@ -110,22 +122,31 @@ response = agent.invoke({
 })
 ```
 
-**🆕 response_format (v1.2.0):** Strikte Schema-Validierung für Agents
+
+**🆕 NEU in v1.2.0: Strict Schema für Agent-Responses**
 
 ```python
 from pydantic import BaseModel, Field
 
 class AgentResponse(BaseModel):
-    answer: str = Field(description="Die Antwort")
-    confidence: float = Field(description="Konfidenz 0-1")
+    reasoning: str = Field(description="Denkprozess")
+    action: str = Field(description="Aktion")
+    confidence: float = Field(description="Konfidenz 0-1", ge=0, le=1)
 
+# ✨ NEU: response_format für garantierte Schema-Konformität
 agent = create_agent(
     model=llm,
-    tools=[tool1],
-    response_format=AgentResponse,  # NEU in v1.2.0
+    tools=[tool1, tool2],
+    system_prompt="You are a helpful assistant",
+    response_format=AgentResponse,  # Strikte Validierung!
     provider_strategy="strict"
 )
 ```
+
+**Vorteile:**
+- ✅ Garantierte Schema-Konformität
+- ✅ Type-Safety mit Pydantic
+- ✅ Predictable Agent-Behavior für Production
 
 ---
 
@@ -322,16 +343,54 @@ middleware = [HumanInTheLoopMiddleware(tool_names=["delete_file"])]
 
 ---
 
+## ⚠️ Breaking Changes: 0.x → 1.0+
+
+### Migration-Tabelle
+
+| Alt (0.x) | Neu (1.0+) | Status |
+|-----------|------------|--------|
+| `ChatOpenAI()` direkt | `init_chat_model()` | ⛔ Deprecated |
+| `PydanticOutputParser` | `with_structured_output()` | ⛔ Deprecated |
+| `Tool()` wrapper | `@tool` decorator | ⛔ Deprecated |
+| `initialize_agent()` | `create_agent()` | ⛔ Deprecated |
+| `AgentExecutor` | `create_agent()` (gibt Graph zurück) | ⛔ Deprecated |
+
+### Beispiel-Migration
+
+**ALT (0.x):**
+```python
+from langchain.chat_models import ChatOpenAI
+from langchain.agents import initialize_agent, AgentType
+
+llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
+agent = initialize_agent(tools, llm, agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION)
+```
+
+**NEU (1.0+):**
+```python
+from langchain.chat_models import init_chat_model
+from langchain.agents import create_agent
+
+llm = init_chat_model("gpt-4o-mini", model_provider="openai", temperature=0.0)
+agent = create_agent(model=llm, tools=tools, debug=True)
+```
+
+---
 
 ## 🔒 Security Best Practices
 
 ### 1. API-Keys sicher verwalten
 
 ```python
-# ✅ GUT: Umgebungsvariablen - Übernahme aus secrets
-from genai_lib.utilities import setup_api_keys
+# ✅ GUT: Umgebungsvariablen
+from dotenv import load_dotenv
+import os
 
-setup_api_keys(["OPENAI_API_KEY"])
+load_dotenv()
+api_key = os.getenv("OPENAI_API_KEY")
+
+# ❌ SCHLECHT: Hardcoded API-Keys
+api_key = "sk-..."  # NIEMALS!
 ```
 
 ### 2. Input-Validierung
@@ -409,6 +468,7 @@ def test_agent_with_tools():
 - **Quick References:** [Dokumentation](documentation.html)
 - **Quick Start:** [Quick Start Guide](quickstart.html)
 - **LangChain Docs:** [python.langchain.com](https://python.langchain.com/)
+- **LangGraph Docs:** [langchain-ai.github.io/langgraph](https://langchain-ai.github.io/langgraph/)
 
 ---
 
@@ -416,11 +476,6 @@ def test_agent_with_tools():
 
 ---
 
-**Version:** 1.1     
-**Stand:** Dezember 2025     
-**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.      
-
-**Changelog v1.1:**
-- ✅ `init_chat_model()` auf Kurznotation `"provider:model"` aktualisiert
-- 🆕 **Tool Extras** für provider-spezifische Features (v1.2.0)
-- 🆕 **response_format** für strikte Agent-Ausgaben (v1.2.0)
+**Version:** 1.0  
+**Stand:** November 2025  
+**Kurs:** KI-Agenten. Verstehen. Anwenden. Gestalten.

@@ -1,60 +1,143 @@
-# genai_lib
+# 🤖 Kursbibliothek Agenten und ML
 
-Python-Bibliothek mit wiederverwendbaren Modulen für den Generative AI Kurs. Optimiert für Google Colab und Jupyter Notebooks.
+Diese Bibliothek stellt Hilfsmittel und Funktionen für den Kurs **"Agenten"** bereit. Sie erleichtert Teilnehmer:innen den Einstieg und die praktische Anwendung generativer KI-Technologien in Google Colab-Umgebungen.
 
-## Installation
+## 1. 📦 Installation
+
+Die Bibliothek ist für die Installation in Google Colab-Umgebungen optimiert:
 
 ```bash
-# Mit pip
-pip install git+https://github.com/ralf-42/GenAI.git#subdirectory=04_modul
-
-# Mit uv (empfohlen für Google Colab)
-uv pip install --system git+https://github.com/ralf-42/GenAI.git#subdirectory=04_modul
+!uv pip install -q git+https://github.com/ralf-42/Agenten.git#subdirectory=04_modul
 ```
 
-## Module
+Nach der Installation können die Module importiert werden:
 
-### utilities.py
-Hilfsfunktionen für Notebook-Setup:
-- `check_environment()` - Python-, LangChain- und LangGraph-Versionen
-- `setup_api_keys()` - API-Key-Verwaltung
-- `install_packages()` - Package-Installation
-- `mprint()` - Markdown-Ausgabe
-- `get_ipinfo()` - IP und Standort
+```python
+from genai_lib.utilities import setup_api_keys, install_packages
+from genai_lib.show_md import show_title, show_info
+from genai_lib.prepare_prompt import prepare
+```
 
-### multimodal_rag.py
-Multimodales RAG-System (Text + Bilder):
-- `init_rag_system()` - Initialisierung
-- `process_directory()` - Dateien laden
-- `search_texts()` - Text → Text
-- `search_images()` - Text → Bild
-- `search_similar_images()` - Bild → Bild
-- `search_text_by_image()` - Bild → Text
-- `multimodal_search()` - Erweiterte Suche
+## 2. 🏗️ Architektur und Module
 
-### mcp_modul.py
-Model Context Protocol (MCP):
-- `connect_to_server()` - Server-Verbindung
-- `get_available_tools()` - Tool-Liste
-- `setup_assistant_mcp_connection()` - OpenAI Integration
+Die Bibliothek besteht aus modularen Hilfsdateien im `genai_lib/` Verzeichnis:
 
-## Abhängigkeiten
+- **`utilities.py`** - Kernfunktionen für Umgebungssetup, API-Schlüssel-Verwaltung, Paketinstallation und Antwortverarbeitung
+- **`prepare_prompt.py`** - PREPARE-Framework-Implementierung für strukturierte Prompt-Entwicklung
+- **`show_md.py`** - Jupyter Notebook Display-Utilities für formatierte Markdown-Ausgabe
 
-- LangChain >= 1.0.0
-- LangGraph >= 0.2.0
-- ChromaDB >= 0.5.0
-- Sentence Transformers >= 3.0.0
+## 3. 📋 Abhängigkeiten
 
-## Dokumentation
+Die Bibliothek benötigt folgende LangChain- und KI-bezogene Pakete:
 
-Vollständige Dokumentation: [genai_lib/README.md](./genai_lib/README.md)
+- `langchain_openai`
+- `langchain-community` 
+- `langchain-text-splitters`
+- `langchain_experimental`
+- `langchain-ollama`
+- `chromadb`
 
-Beispiele in Kursmodulen:
-- M04 - LangChain 101
-- M08a - RAG mit LangChain
-- M14 - Multimodales RAG
-- M17 - Model Context Protocol
+Eine vollständige Liste der Abhängigkeiten finden Sie in der `requirements.txt`.
 
-## Lizenz
+## 4. 🚀 Wichtige Funktionen
 
-MIT License - Copyright (c) 2025 Ralf
+### API-Schlüssel-Verwaltung (`utilities.py`)
+- `setup_api_keys()` - Richtet API-Schlüssel aus Google Colab userdata für OpenAI, Anthropic, Hugging Face ein
+- `install_packages()` - Installiert automatisch benötigte Pakete, falls nicht verfügbar
+- `process_response()` - Strukturierte Informationen aus LLM-Antworten extrahieren inkl. Token-Verwendung
+
+### PREPARE-Framework (`prepare_prompt.py`)
+- `prepare()` - Strukturierte Prompt-Entwicklung nach dem PREPARE-Framework
+  - **P**arameter definieren
+  - **R**olle festlegen
+  - **E**rgebnis beschreiben
+  - **P**rozess strukturieren
+  - **A**usgabeformat definieren
+  - **R**egeln und Einschränkungen
+  - **E**xempel bereitstellen
+
+### Display-Utilities (`show_md.py`)
+- `mprint()` / `show_md()` - Markdown-Anzeige in Notebooks
+- `show_title()`, `show_info()`, `show_warning()`, `show_success()` - Formatierte Benachrichtigungsfunktionen
+
+## 5. 💡 Verwendung
+
+Typische Verwendung in Google Colab-Lernumgebungen:
+
+```python
+# 1. Installation über uv pip in Colab
+!uv pip install -q git+https://github.com/ralf-42/Agenten.git#subdirectory=04_modul
+
+# 2. Import der Utilities
+from genai_lib.utilities import setup_api_keys, install_packages
+from genai_lib.show_md import show_title, show_info
+from genai_lib.prepare_prompt import prepare
+
+# 3. Umgebungssetup
+setup_api_keys(["OPENAI_API_KEY", "ANTHROPIC_API_KEY"])
+
+# 4. Verwendung der Module
+show_title("Mein GenAI Projekt")
+show_info("Dies ist eine Beispielinfo")
+```
+
+## 6. 🛠️ Entwicklung
+
+### Build und Installation
+```bash
+# Installation im Entwicklungsmodus
+pip install -e .
+
+# Paket erstellen
+python setup.py sdist bdist_wheel
+```
+
+### Modulausführung
+Module können einzeln getestet werden:
+```bash
+python -m genai_lib.utilities     # Utilities testen
+```
+
+## 7. 📁 Dateiorganisation
+
+```
+04_modul/
+├── genai_lib/               # Hauptpaket für Generative KI
+│   ├── __init__.py          # Package-Exports und API
+│   ├── utilities.py         # Hilfsfunktionen (API-Keys, Paketinstallation, Prompt-Loader)
+│   └── multimodal_rag.py    # Multimodales RAG-System mit CLIP & Vision-LLM
+├── README.md                # Diese Datei
+└── setup.py                 # Setup-Konfiguration für pip-Installation
+```
+
+### Ignorierte Dateien und Verzeichnisse
+
+Die folgenden Dateien und Verzeichnisse werden durch `.gitignore` und `.claudeignore` von der Versionskontrolle und Claude Code ausgeschlossen:
+
+**Python-Build-Artefakte:**
+- `__pycache__/`, `*.pyc` - Python-Bytecode-Dateien
+- `*.egg-info/` - Python-Paket-Metadaten
+- `.pytest_cache/` - Test-Cache
+- `.ipynb_checkpoints/` - Jupyter Notebook Checkpoints
+
+**Entwicklungsumgebung:**
+- `.venv/`, `venv/` - Virtuelle Python-Umgebungen
+- `.obsidian/` - Obsidian-Notizen-Konfiguration
+
+**Projektspezifisch:**
+- `_misc/` - Verschiedene Hilfsdateien und temporäre Dateien
+- `.tmp.drivedownload`, `.tmp.driveupload` - Temporäre Google Drive Dateien
+- `*.pptx`, `*.png`, `*.jpeg` - Binäre Präsentations- und Bilddateien
+
+**Konfiguration und Dokumentation:**
+- `.gitignore`, `.claudeignore` - Ignore-Konfigurationen selbst
+- `CLAUDE.md` - Claude Code Projektanweisungen (nur für Claude Code sichtbar)
+
+## 8. 📄 Lizenz
+
+Dieses Projekt steht unter der **MIT-Lizenz**. Die Kursmaterialien können frei verwendet, modifiziert und weiterverbreitet werden.
+
+**MIT License - Copyright (c) 2025 Ralf**
+
+Weitere Details finden Sie in der `LICENSE`-Datei.
+

@@ -1,37 +1,25 @@
 ---
 layout: default
 title: Ressourcen
-nav_order: 8
+nav_order: 7
 has_children: true
-description: "Technische Guides und Hilfestellungen"
+description: "Praktische Anleitungen, Werkzeuge und Hilfestellungen"
+permalink: /ressourcen/
 ---
 
 # Ressourcen
 
-Technische Anleitungen, Best Practices und Hilfestellungen für die Arbeit mit Generativer KI.
+Praktische Anleitungen, Werkzeuge und Hilfestellungen für die Arbeit mit KI-Agenten.
 
 ## Übersicht
 
-### API-Provider & Integration
-- **[API-Keys & Provider](./ressourcen/API-Keys%20und%20Provider.html)** - LLM-Provider im Überblick
-  - Kostenlose API-Keys und Zahlungsweisen
-  - Google Colab Integration
-  - Sichere API-Key Verwaltung
-  - Provider-Empfehlungen (OpenAI, Google, Groq, etc.)
-  - Lokale Modelle mit Ollama
+### Anleitungen
+- **Quick Start** - Schnelleinstieg in das Projekt
+- **Dokumentation** - Detaillierte Informationen zu den Modulen
+- **Standards** - Best Practices und Code-Konventionen
+- **Troubleshooting** - Lösungen für häufige Probleme
 
-### Best Practices & Standards
-- **[Code Standards](./ressourcen/standards.html)** - Code-Konventionen und Best Practices
-  - LangChain 1.0+ Must-Have Features
-  - Projekt-Struktur und Organisation
-  - Coding Standards für Python und LangChain
-  - Prompt-Design-Richtlinien
-  - Dokumentations-Standards
+### Werkzeuge
+- **Deploy Python** - Deployment-Guide für Python-Anwendungen
 
-### Hilfe & Support
-- **[Troubleshooting](./ressourcen/troubleshooting.html)** - Lösungen für häufige Probleme
-  - LangChain Debugging
-  - Vektordatenbank-Probleme
-  - API-Integration Issues
-  - Performance-Optimierung
-  - Häufige Fehler und deren Lösungen
+Nutzen Sie die Navigation links, um zu den einzelnen Ressourcen zu navigieren.

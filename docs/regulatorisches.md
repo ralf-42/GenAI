@@ -1,14 +1,14 @@
 ---
 layout: default
 title: Regulatorisches
-nav_order: 7
+nav_order: 6
 has_children: true
 description: "Rechtliche Rahmenbedingungen, Ethik und Souveränität"
 ---
 
 # Regulatorisches
 
-Rechtliche, ethische und strategische Aspekte beim Einsatz von Generativer KI.
+Rechtliche, ethische und strategische Aspekte beim Einsatz von KI-Agenten.
 
 ## Übersicht
 
@@ -31,5 +31,5 @@ Rechtliche, ethische und strategische Aspekte beim Einsatz von Generativer KI.
 - **[Ethik und GenAI](./regulatorisches/M22b_Ethik%20und%20Generative%20KI.html)** - Verantwortungsvoller KI-Einsatz
   - Ethische Aspekte und Herausforderungen
   - Bias und Fairness
-  - Verantwortungsvoller Umgang mit GenAI
+  - Verantwortungsvoller Umgang mit KI-Agenten
   - Best Practices
