@@ -1,14 +1,14 @@
 ---
 layout: default
 title: Projekte
-nav_order: 5
+nav_order: 4
 has_children: true
 description: "Praktische Übungen und End-to-End Projekte"
 ---
 
 # Projekte
 
-Praxisorientierte Lernformate zum Aufbau von GenAI-Anwendungen.
+Praxisorientierte Lernformate zum Aufbau von Agent-Systemen.
 
 ## Übersicht
 
@@ -21,7 +21,7 @@ Praxisorientierte Lernformate zum Aufbau von GenAI-Anwendungen.
 
 ### End-to-End Projekt
 - **[KI-Challenge](./projekte/M23_KI-Challenge.html)** - Eigenständige Implementierung
-  - Entwickeln Sie eine vollständige GenAI-Anwendung
+  - Entwickeln Sie eine vollständige Agent-Anwendung
   - 4 Projektoptionen: Dokumentenanalyse, Multimodal, Multi-Agent, Domänen-Experte
   - Abgabe: Jupyter Notebook + README.md
   - Zeitaufwand: 15-25 Stunden

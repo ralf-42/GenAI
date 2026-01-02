@@ -1,14 +1,14 @@
 ---
 layout: default
 title: Deployment
-nav_order: 6
+nav_order: 5
 has_children: true
 description: "Von der Entwicklung zur produktionsreifen Anwendung"
 ---
 
 # Deployment
 
-Vom Prototyp zur produktionsreifen GenAI-Anwendung - Praktische Anleitungen für Deployment, Architektur und Provider-Migration.
+Vom Prototyp zur produktionsreifen Agent-Anwendung - Praktische Anleitungen für Deployment, Architektur und Provider-Migration.
 
 ## Übersicht
 

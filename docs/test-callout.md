@@ -6,7 +6,7 @@ nav_exclude: true
 
 # Callout Test Page
 
-Diese Seite testet die korrekte Darstellung von Callouts.
+Diese Seite testet die korrekte Darstellung von Callouts im Agenten-Projekt.
 
 ## Test 1: Einfacher Callout ohne Custom Title
 
