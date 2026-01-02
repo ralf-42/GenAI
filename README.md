@@ -18,15 +18,6 @@ Die vollständige Kursdokumentation mit Konzepten, Frameworks-Guides und Ressour
 - IT-Fachkräfte, die KI-Technologien integrieren möchten
 - Technikbegeisterte mit Programmiererfahrung
 
-## 🤖 For AI Agents
-
-This repository includes **agent governance** documentation:
-
-- **[AGENTS.md](./AGENTS.md)** - How AI agents should work with this codebase (role, rules, scope, quality gates)
-- **[CLAUDE.md](./CLAUDE.md)** - Project structure, conventions, and technical documentation
-- **[LangChain_1.0_Must_Haves.md](./LangChain_1.0_Must_Haves.md)** - Required patterns for all LangChain code
-
-**Note:** AGENTS.md defines **behavior**, while CLAUDE.md describes **structure**. Read both before making changes.
 
 ## 📁 Projektstruktur
 
@@ -34,7 +25,6 @@ This repository includes **agent governance** documentation:
 GenAI/
 ├── 01_notebook/    # Jupyter Notebooks (Kursmaterialien)
 ├── 02_daten/       # Trainingsdaten und Beispieldateien
-├── 03_skript/      # Kursdokumentation und Präsentationen
 ├── 04_modul/       # Python-Module und Bibliotheken
 └── 05_prompt/      # Prompt-Templates
 ```
@@ -54,7 +44,6 @@ GenAI/
 - **Ollama** - Lokale Open-Source-Modelle
 - **genai_lib** (eigene Module in `04_modul/genai_lib/`) - Projektspezifische Bibliothek für Kursanwendungen
   - **multimodal_rag.py** - Multimodales RAG-System mit Bild-zu-Bild und Bild-zu-Text Suche
-  - **mcp_modul.py** - Model Context Protocol (MCP) Integration für Server, Clients und AI-Assistenten
   - **utilities.py** - Hilfsfunktionen für Environment-Checks, Paket-Installation, API-Keys, Prompt-Templates, Model-Profiles (`get_model_profile()`) und LLM-Response-Parsing (`extract_thinking()`)
 
 ### 🆕 LangChain v1.2.0 Features (Dezember 2025)
@@ -73,11 +62,6 @@ Dieser Kurs nutzt die neuesten **LangChain v1.2.0** Features:
 - ✨ **ModelRetryMiddleware** - Automatische Retries mit exponential backoff
 - ✨ **ContentModerationMiddleware** - OpenAI Moderation für Safety-Layer
 
-**Dokumentation:**
-- [LangChain 1.0 Must-Haves](./LangChain_1.0_Must_Haves.md) - PFLICHT-Features für alle Notebooks
-- [LangGraph 1.0 Must-Haves](./LangGraph_1.0_Must_Haves.md) - Multi-Agent & State Machines
-- [Notebook Template Guide](./Notebook_Template_Guide.md) - Standard-Struktur für Notebooks
-- [CLAUDE.md](./CLAUDE.md) - Vollständige Projektinstruktionen
 
 ## 📚 Kursmodule
 
@@ -154,46 +138,20 @@ Entwickeln Sie eine vollständige GenAI-Anwendung:
 ## 📖 Dokumentation
 
 - **Kurs-Website:** [https://ralf-42.github.io/GenAI/](https://ralf-42.github.io/GenAI/)
-- **Kursskript:** `03_skript/GenAI_all_in_one.pdf`
+
 
 ## ⚖️ Lizenzen
 
-Der **Quellcode** steht unter der [MIT License](./LICENSE).    
-Die **Kursmaterialien** (z. B. Folien, Texte, Grafiken) sind unter der [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) veröffentlicht.    
-**Northwind-Datenbank** von Microsoft unter Microsoft Public License (Ms-PL).    
-Bilder und Videos erstellt mit **Hedra AI** – Nutzung gemäß [Hedra Terms](https://www.hedra.com/terms).    
+Der **Quellcode** steht unter der [MIT License](./LICENSE).       
+Die **Kursmaterialien** (z. B. Folien, Texte, Grafiken) sind unter der [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) veröffentlicht.     
+**Northwind-Datenbank** von Microsoft unter Microsoft Public License (Ms-PL).     
+Bilder und Videos erstellt mit **Hedra AI** – Nutzung gemäß [Hedra Terms](https://www.hedra.com/terms).     
 
 © 2025 Ralf-42
 
 ---
 
-**Letzte Aktualisierung:** 31. Dezember 2025
-**Version:** 2.4
+**Letzte Aktualisierung:** 31. Dezember 2025     
+**Version:** 2.4     
 
-**Changelog v2.4:**
-- 🌐 **GitHub Pages Struktur-Bereinigung** abgeschlossen
-  - 📁 Guides-Kategorie entfernt (deprecated)
-  - 📚 EU AI Act, Ethik, KI-Challenge → Ressourcen verschoben
-  - ✅ Neue Sektion "Projekte & Übungen" in Ressourcen
-  - 📝 "Übungsaufgabe M04-M11" → "Vom Chatbot zum RAG" umbenannt
-- 🆕 **KI-Challenge auf LangChain 1.0+ aktualisiert**
-  - ✅ Beispiel-Code auf init_chat_model, LCEL, moderne Imports migriert
-  - 📋 Abgabe-Format definiert (Jupyter Notebook + README.md)
-  - ⏱️ Zeitrahmen hinzugefügt (15-25 Stunden)
-  - 🔧 Troubleshooting-Sektion ergänzt
-- ✅ **LangChain v1.2.0 Features** integriert
-  - Tool Extras, response_format, Strict Schema Adherence
-- 🌐 **Kurs-Website Link** zur README hinzugefügt
-- 📚 **Projekte & Übungen Sektion** zur README hinzugefügt
 
-**Changelog v2.3:**
-- 🏆 **LangChain 1.0+ Compliance-Audit** abgeschlossen (100% compliant!)
-- ✅ Compliance-Badges zur README hinzugefügt
-- 📊 Audit-Report erstellt: `LangChain_Audit_Report_2025-12-17.md`
-- ✅ 13 von 13 LangChain-Notebooks sind vollständig 1.0+ konform
-- ✅ 0 deprecated Patterns gefunden
-
-**Changelog v2.2:**
-- 🤖 **AGENTS.md** hinzugefügt - Agent Governance für KI-Assistenten
-- ✅ README.md erweitert mit "For AI Agents" Sektion
-- 📚 Klare Abgrenzung: AGENTS.md (Verhalten) vs. CLAUDE.md (Struktur)
