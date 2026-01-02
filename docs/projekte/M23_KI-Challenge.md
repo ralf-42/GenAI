@@ -49,6 +49,60 @@ Die KI-Challenge dient als praktische Anwendung und Integration der in den Kursm
 - **Komplexität:** End-to-End Projekt mit Integration mehrerer Technologien
 - **Eigenständigkeit:** Freie Gestaltung innerhalb der gewählten Projektoption
 
+## 1.4 Praxiseinblick: Von der Idee zum Deployment
+
+{: .highlight }
+> "Ein Open Source Modell ist kein Produkt. Für ein Produkt zu machen, kommen noch viel dazu."
+> — Johannes Otterbach (ex-OpenAI, SPRIN-D)
+
+Die KI-Challenge bereitet Sie auf **realistische Herausforderungen** vor, die in der Industrie täglich auftreten:
+
+### Was unterscheidet ein Experiment von einem Produkt?
+
+| **Experiment/Notebook** | **Produkt (Challenge-Ziel)** |
+|-------------------------|------------------------------|
+| Code läuft einmal | Robuster, wiederholbarer Code |
+| Keine Fehlerbehandlung | Graceful Error Handling |
+| Lokale Umgebung | Deployment-ready (Gradio, Streamlit) |
+| Keine Dokumentation | README.md, Setup-Anleitung |
+| "Es funktioniert bei mir" | Reproduzierbar für andere |
+
+### Learnings aus der Praxis
+
+**1. Engineering > Hype**
+- Training Runs kosten Millionen und erfordern präzise Planung
+- **Ihr Projekt:** Definieren Sie klare Benchmarks, bevor Sie starten
+- **Takeaway:** Messbarkeit ist der Schlüssel zum Erfolg
+
+**2. Iteration & Feedback**
+- Frontier Labs (OpenAI, Anthropic) iterieren **wöchentlich** basierend auf User-Feedback
+- **Ihr Projekt:** Testen Sie früh mit echten Nutzern (Familie, Freunde, Kommilitonen)
+- **Takeaway:** MVP first, dann verfeinern
+
+**3. Produkt-Mindset**
+- Guardrails, System Prompts, Prompt Injection Prevention
+- **Ihr Projekt:** Implementieren Sie mindestens einen Safety-Layer
+- **Takeaway:** Robustheit > Features
+
+{: .info }
+> **Empfehlung:** Lesen Sie die [Praxis-Einblicke KI-Entwicklung](../ressourcen/praxis-ki-entwicklung.md) für detaillierte Insights aus OpenAI, Palantir und europäischen Frontier Labs.
+
+### Konkrete Tipps für Ihre Challenge
+
+✅ **Do's:**
+- Start small: Nutzen Sie bestehende Modelle (OpenAI, Groq, Anthropic)
+- Fokus auf Deployment: Gradio/Streamlit → echte User testen lassen
+- Messbare Ziele: Definieren Sie 3-5 Erfolgsmetriken
+- Frühes Feedback: Zeigen Sie Ihr MVP nach 1 Woche
+
+❌ **Don'ts:**
+- Nicht von Grund auf trainieren (kein 10-50 Mio. Dollar Budget 😉)
+- Kein "Open Source = fertig": Ein Modell allein ist kein Produkt
+- Keine Blackbox: Verstehen Sie, was Ihr Modell tut
+- Kein Overengineering: Lieber 3 Features perfekt als 10 halbfertig
+
+---
+
 # 2 | Projektoptionen
 
 
