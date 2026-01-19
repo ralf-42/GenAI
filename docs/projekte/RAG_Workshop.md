@@ -566,6 +566,5 @@ A: Ja! Verwenden Sie dann Jupyter Notebook/Lab lokal und ersetzen Sie:
 
 **Version:** 1.2           
 **Letzte Aktualisierung:** Januar 2026     
-**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.     
-**Module:** M04, M05, M06, M07, M08, M10, M11     
-**Arbeitsumgebung:** Google Colab oder Jupyter Notebook     
+**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.       
+

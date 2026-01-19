@@ -592,6 +592,6 @@ RAG ermöglicht es, LLMs mit aktuellem, domänenspezifischem Wissen auszustatten
 
 ---
 
-**Version:** 1.0  
-**Stand:** November 2025  
-**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
+**Version:** 1.0    
+**Stand:** November 2025    
+**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.  
