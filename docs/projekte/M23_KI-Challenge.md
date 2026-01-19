@@ -561,7 +561,7 @@ Bei Fragen oder Problemen während der Projektentwicklung können Sie das `Kurs-
 
 ---
 
-**Version:** 2.0 (LangChain 1.0+ Update)     
-**Stand:** Dezember 2025     
-**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.     
+**Version:** 2.0            
+**Stand:** Dezember 2025        
+**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.        
      

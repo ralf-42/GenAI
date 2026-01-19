@@ -643,23 +643,7 @@ Die Module stehen unter der MIT-Lizenz und können frei für eigene Projekte ver
 ---
 
 **Version:** 1.3    
-**Stand:** Dezember 2025     
-**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.      
+**Stand:** Dezember 2025      
+**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.       
 
-**Changelog v1.3:**
-- ✅ **multimodal_rag v3.1** - LangChain 1.0+ Migration
-  - Nutzt `init_chat_model()` für unified model initialization
-  - Vision-Analyse mit `HumanMessage` und Standard Content Blocks
-  - Provider-agnostische Multimodal-Verarbeitung
-- ✅ Dokumentation aktualisiert mit LangChain 1.0+ Patterns
-
-**Changelog v1.2:**
-- 🆕 `get_model_profile()` - Abruf von Model-Capabilities von models.dev
-  - Core Capabilities: Structured Output, Function Calling, JSON Mode, **Reasoning**
-  - Multimodal: Vereinfachte Anzeige mit Symbolen (📝 Text, 🖼️ Image, 🎵 Audio, 🎬 Video)
-  - Model Configuration: **Temperature Support**, **Knowledge Cutoff**
-  - Token Limits, Streaming, Async
-
-**Changelog v1.1:**
-- 🆕 `extract_thinking()` - Universeller Parser für LLM-Thinking-Formate (Claude, Gemini, Qwen3, DeepSeek)     
 

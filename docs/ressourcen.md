@@ -22,4 +22,4 @@ Praktische Anleitungen, Werkzeuge und Hilfestellungen für die Arbeit mit KI-Age
 ### Werkzeuge
 - **Deploy Python** - Deployment-Guide für Python-Anwendungen
 
-Nutzen Sie die Navigation links, um zu den einzelnen Ressourcen zu navigieren.
+
