@@ -22,189 +22,25 @@ has_toc: true
 
 ---
 
-Vollständige Code-Konventionen und Best Practices für das Agenten-Projekt.
+## 🎯 LangChain 1.0+ Features
 
----
+Die 7 MUST-HAVE Features für LangChain 1.0+ sind vollständig dokumentiert in:
 
-## 🎯 Die 7 MUST-HAVE Features (LangChain 1.0+)
+👉 **[Einsteiger LangChain](../frameworks/Einsteiger_LangChain.html)** - Tutorial mit ausführlichen Erklärungen und Mermaid-Diagrammen
 
-**PFLICHT für alle neuen Implementierungen:**
+**Kurzübersicht der 7 Patterns:**
 
-### 1. ✅ `init_chat_model()` - Unified Model Initialization
+| # | Feature | Beschreibung |
+|---|---------|--------------|
+| 1 | `init_chat_model()` | Unified Model Initialization für alle Provider |
+| 2 | `with_structured_output()` | Native Structured Outputs mit Pydantic |
+| 3 | `@tool` Decorator | Tool-Definitionen mit Type Hints |
+| 4 | `create_agent()` | Moderne Agent-API basierend auf LangGraph |
+| 5 | LCEL `\|` Chains | Lesbare Chain-Syntax mit Pipe-Operator |
+| 6 | Middleware | Granulare Kontrolle über Agent-Loop |
+| 7 | Content Blocks | Provider-agnostische multimodale Inhalte |
 
-**Warum:** Einheitliche API für alle LLM-Provider (OpenAI, Anthropic, Google, etc.)
-
-```python
-from langchain.chat_models import init_chat_model
-
-# ✨ Kurznotation "provider:model" (STANDARD seit Dezember 2025)
-llm = init_chat_model("openai:gpt-4o-mini", temperature=0.0)
-
-# Weitere Beispiele:
-# llm = init_chat_model("anthropic:claude-3-sonnet", temperature=0.3)
-# llm = init_chat_model("groq:llama-3.1-70b", temperature=0.7)
-```
-
----
-
-### 2. ✅ `with_structured_output()` - Native Structured Outputs
-
-**Warum:** Nutzt OpenAI's Native Structured Output API für garantierte Schema-Konformität
-
-```python
-from pydantic import BaseModel, Field
-
-class Person(BaseModel):
-    name: str = Field(description="Name der Person")
-    age: int = Field(description="Alter in Jahren")
-
-structured_llm = llm.with_structured_output(Person)
-result = structured_llm.invoke("Max ist 25 Jahre alt")
-```
-
----
-
-### 3. ✅ `@tool` Decorator - Tool Definitions
-
-**Warum:** Automatische Tool-Schema-Generierung aus Docstring und Type Hints
-
-```python
-from langchain_core.tools import tool
-
-@tool
-def multiply(a: int, b: int) -> int:
-    """Multipliziert zwei Zahlen."""
-    return a * b
-```
-
-
-**🆕 NEU in v1.2.0: Tool Extras für Provider-spezifische Features**
-
-```python
-# ✨ NEU: Provider-spezifische Tool-Parameter
-@tool(extras={
-    "anthropic": {
-        "cache_control": {"type": "ephemeral"},  # Anthropic Prompt Caching
-        "disable_parallel_tool_use": False
-    },
-    "openai": {
-        "strict": True  # OpenAI Strict Mode
-    }
-})
-def search_database(query: str, limit: int = 10) -> str:
-    """Durchsucht die Datenbank."""
-    return f"Gefunden: {limit} Ergebnisse für '{query}'"
-```
-
-**Vorteile:**
-- ✅ Provider-native Features (Caching, Strict Mode, Computer Use)
-- ✅ Optimierte Performance
-- ✅ Backwards-compatible
-
----
-
-### 4. ✅ `create_agent()` - Modern Agent API
-
-**Warum:** Moderne Agent-API basierend auf LangGraph (kein AgentExecutor mehr)
-
-```python
-from langchain.agents import create_agent
-
-agent = create_agent(
-    model=llm,
-    tools=[tool1, tool2],
-    system_prompt="You are a helpful assistant",
-    debug=True
-)
-
-response = agent.invoke({
-    "messages": [{"role": "user", "content": "your question"}]
-})
-```
-
-
-**🆕 NEU in v1.2.0: Strict Schema für Agent-Responses**
-
-```python
-from pydantic import BaseModel, Field
-
-class AgentResponse(BaseModel):
-    reasoning: str = Field(description="Denkprozess")
-    action: str = Field(description="Aktion")
-    confidence: float = Field(description="Konfidenz 0-1", ge=0, le=1)
-
-# ✨ NEU: response_format für garantierte Schema-Konformität
-agent = create_agent(
-    model=llm,
-    tools=[tool1, tool2],
-    system_prompt="You are a helpful assistant",
-    response_format=AgentResponse,  # Strikte Validierung!
-    provider_strategy="strict"
-)
-```
-
-**Vorteile:**
-- ✅ Garantierte Schema-Konformität
-- ✅ Type-Safety mit Pydantic
-- ✅ Predictable Agent-Behavior für Production
-
----
-
-### 5. ✅ LCEL `|` Chains
-
-**Warum:** Moderne, lesbare Chain-Syntax mit automatischem Streaming-Support
-
-```python
-from langchain_core.output_parsers import StrOutputParser
-from langchain_core.runnables import RunnablePassthrough
-
-chain = prompt | llm | StrOutputParser()
-result = chain.invoke({"input": "text"})
-```
-
----
-
-### 6. ✅ Middleware für Agents
-
-**Warum:** Middleware bietet granulare Kontrolle über die Agent-Loop
-
-```python
-from langchain.agents.middleware import HumanInTheLoopMiddleware, SummarizationMiddleware
-
-middleware = [
-    HumanInTheLoopMiddleware(tool_names=["delete_file"]),
-    SummarizationMiddleware(max_tokens=1000)
-]
-
-agent = create_agent(
-    model=llm,
-    tools=tools,
-    middleware=middleware
-)
-```
-
----
-
-### 7. ✅ Standard Message Content Blocks
-
-**Warum:** Provider-agnostische Content-Verarbeitung (Text, Bilder, Audio, Video)
-
-```python
-from langchain_core.messages import AIMessage
-
-message = AIMessage(
-    content=[
-        {"type": "text", "text": "Here's the image analysis:"},
-        {"type": "image", "url": "data:image/png;base64,...", "mime_type": "image/png"}
-    ]
-)
-
-for block in message.content_blocks:
-    if block["type"] == "text":
-        print(block["text"])
-    elif block["type"] == "image":
-        display_image(block["url"])
-```
+**Neu in v1.2.0:** Tool Extras und response_format für Agents (siehe Einsteiger LangChain Abschnitte 5.3 und 6.2)
 
 ---
 
@@ -371,7 +207,7 @@ agent = initialize_agent(tools, llm, agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION
 from langchain.chat_models import init_chat_model
 from langchain.agents import create_agent
 
-llm = init_chat_model("gpt-4o-mini", model_provider="openai", temperature=0.0)
+llm = init_chat_model("openai:gpt-4o-mini", temperature=0.0)
 agent = create_agent(model=llm, tools=tools, debug=True)
 ```
 
@@ -446,7 +282,7 @@ def test_calculator_tool():
 
 ```python
 def test_agent_with_tools():
-    llm = init_chat_model("gpt-4o-mini", model_provider="openai")
+    llm = init_chat_model("openai:gpt-4o-mini")
 
     @tool
     def get_weather(location: str) -> str:
@@ -465,17 +301,16 @@ def test_agent_with_tools():
 
 ## 📚 Weitere Ressourcen
 
-- **Quick References:** [Dokumentation](documentation.html)
-- **Quick Start:** [Quick Start Guide](quickstart.html)
+- **LangChain Tutorial:** [Einsteiger LangChain](../frameworks/Einsteiger_LangChain.html)
 - **LangChain Docs:** [python.langchain.com](https://python.langchain.com/)
 - **LangGraph Docs:** [langchain-ai.github.io/langgraph](https://langchain-ai.github.io/langgraph/)
 
 ---
 
-> 💡 **Tipp:** Nutze die [Quick References](documentation.html) für konkrete Code-Beispiele!
+> 💡 **Tipp:** Für ausführliche LangChain-Beispiele mit Mermaid-Diagrammen siehe [Einsteiger LangChain](../frameworks/Einsteiger_LangChain.html)!
 
 ---
 
-**Version:** 1.0  
-**Stand:** November 2025  
+**Version:** 2.0 (konsolidiert)
+**Stand:** Januar 2026
 **Kurs:** KI-Agenten. Verstehen. Anwenden. Gestalten.
