@@ -222,21 +222,28 @@ Verschiedene Chunking-Strategien haben spezifische Vor- und Nachteile, die je na
 
 ## 6.3 Strategie-Auswahl
 
-```
-Entscheidungsbaum:
+```mermaid
+flowchart TD
+    START([Text analysieren]) --> Q1{Ist der Text<br>strukturiert?}
 
-Ist der Text strukturiert? (z.B. Markdown, HTML)
-  ├─ JA → Dokumentbasiertes Chunking
-  └─ NEIN → Weiter
+    Q1 -->|JA| DOK[Dokumentbasiertes<br>Chunking]
+    Q1 -->|NEIN| Q2{Ist semantische<br>Kohärenz wichtig?}
 
-Ist semantische Kohärenz wichtig?
-  ├─ JA → Ist Rechenleistung verfügbar?
-  │        ├─ JA → Embeddingbasiertes oder Semantisches Chunking
-  │        └─ NEIN → Rekursives Zeichen-Chunking
-  └─ NEIN → Einfaches Zeichenbasiertes Chunking
+    Q2 -->|NEIN| ZEICHEN[Einfaches<br>Zeichenbasiertes Chunking]
+    Q2 -->|JA| Q3{Ist Rechenleistung<br>verfügbar?}
 
-Ist es Code?
-  └─ JA → Agentisches oder Dokumentbasiertes Chunking (AST-basiert)
+    Q3 -->|JA| EMBED[Embeddingbasiertes oder<br>Semantisches Chunking]
+    Q3 -->|NEIN| REKURSIV[Rekursives<br>Zeichen-Chunking]
+
+    START --> Q4{Ist es Code?}
+    Q4 -->|JA| AGENT[Agentisches oder<br>AST-basiertes Chunking]
+
+    style START fill:#e3f2fd,stroke:#1976d2
+    style DOK fill:#c8e6c9,stroke:#388e3c
+    style ZEICHEN fill:#c8e6c9,stroke:#388e3c
+    style EMBED fill:#c8e6c9,stroke:#388e3c
+    style REKURSIV fill:#c8e6c9,stroke:#388e3c
+    style AGENT fill:#c8e6c9,stroke:#388e3c
 ```
 
 
@@ -310,6 +317,6 @@ Die Wahl der richtigen Kombination aus Tokenizer, Chunk-Größe und Chunking-Str
 
 ---
 
-**Version:** 1.0     
-**Stand:** November 2025     
+**Version:** 1.1   
+**Stand:** Januar 2026     
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.     

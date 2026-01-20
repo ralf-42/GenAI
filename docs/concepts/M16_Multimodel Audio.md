@@ -69,6 +69,23 @@ Wie "verstehen" KI-Modelle Audioinhalte? Der Prozess umfasst mehrere Schritte:
 3. **Kontext-Analyse**: Durch Aufmerksamkeitsmechanismen wird der Kontext berücksichtigt
 4. **Ausgabe-Generierung**: Erzeugung der Transkription oder der synthetisierten Sprache
 
+```mermaid
+flowchart LR
+    A[Feature-Extraktion] --> B[Mustererkennung]
+    B --> C[Kontext-Analyse]
+    C --> D[Ausgabe-Generierung]
+
+    A1[Spektrogramme<br>Frequenzanalyse] -.-> A
+    B1[Neuronale Netze<br>Pattern Recognition] -.-> B
+    C1[Attention-<br>Mechanismen] -.-> C
+    D1[Transkription<br>Sprachsynthese] -.-> D
+
+    style A fill:#e3f2fd,stroke:#1976d2
+    style B fill:#fff3e0,stroke:#ff9800
+    style C fill:#f3e5f5,stroke:#9c27b0
+    style D fill:#c8e6c9,stroke:#388e3c
+```
+
 Diese technischen Grundlagen erklären, warum moderne Audio-KI-Modelle so leistungsfähig sind und warum sie in der Lage sind, auch komplexe Audioinhalte zu verarbeiten und zu generieren.
 
 
@@ -278,6 +295,6 @@ def transcribe_with_retry(file_path):
 
 ---
 
-**Version:** 1.0    
-**Stand:** November 2025    
+**Version:** 1.1   
+**Stand:** Januar 2026    
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.    

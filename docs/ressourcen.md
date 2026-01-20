@@ -13,6 +13,13 @@ Praktische Anleitungen, Werkzeuge und Hilfestellungen für die Arbeit mit Genera
 
 Dieser Bereich enthält praktische Guides und Referenzen:
 
+## Interaktive Demos
+
+- **[Interaktive Visualisierungen](ressourcen/interaktive_visualisierungen.html)** - Web-Demos für GenAI-Konzepte
+  - Transformer-Architektur & Embeddings
+  - Multimodal: Bild-Filter & Audio-Visualisierung
+  - Modellauswahl-Entscheidungshilfe
+
 ## LLM-Provider & Setup
 
 - **[API-Keys & Provider](ressourcen/API-Keys%20und%20Provider.html)** - Übersicht über LLM-Provider, kostenlose API-Keys und Google Colab Integration
