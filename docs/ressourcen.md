@@ -40,3 +40,10 @@ Dieser Bereich enthält praktische Guides und Referenzen:
   - 5 Stufen: Passiv → Explorativ → Befähigt → Operativ → Transformativ
   - Dimensionen: Technologie, Mensch, Prozesse, Governance
 
+## Externe Links
+
+- **[Links](ressourcen/Links.html)** - Kuratierte Sammlung externer Ressourcen
+  - KI-Modelle & Benchmarks (MTEB, LMArena, Models.dev)
+  - Lernressourcen & Visualisierungen (CNN/Transformer Explainer, DeepLearning.AI)
+  - OpenAI, LangChain Ökosystem, Hugging Face
+
