@@ -14,7 +14,7 @@ permalink: /frameworks/genai_lib/
 
 ---
 
-Die `genai_lib` ist eine projektspezifische Python-Bibliothek, die speziell für die Anforderungen dieses Kurses entwickelt wurde. Sie bündelt wichtige Funktionen für multimodale RAG-Systeme, MCP-Integration und allgemeine Hilfsfunktionen.
+Die `genai_lib` ist eine projektspezifische Python-Bibliothek, die speziell für die Anforderungen dieses Kurses entwickelt wurde. Sie bündelt wichtige Funktionen für multimodale RAG-Systeme und allgemeine Hilfsfunktionen.
 
 ## Inhalt
 {: .no_toc .text-delta }
@@ -42,8 +42,8 @@ Die Bibliothek besteht aus zwei Hauptmodulen:
 
 | Modul | Beschreibung | Hauptfunktionen |
 |-------|-------------|----------------|
-| **utilities.py** | Hilfsfunktionen für Environment-Setup | Environment-Checks, Paket-Installation, API-Keys, Prompt-Templates, LLM-Response-Parsing |
-| **multimodal_rag.py** | Multimodales RAG-System | Text- und Bildsuche, Bild-zu-Bild-Suche, Bild-zu-Text-Suche |
+| **utilities.py** | Hilfsfunktionen für Environment-Setup | Environment-Checks, Paket-Installation, API-Keys, Prompt-Templates, LLM-Response-Parsing, Model-Profile |
+| **multimodal_rag.py** | Multimodales RAG-System (v3.1) | Text- und Bildsuche, Bild-zu-Bild-Suche, Cross-Modal-Retrieval, System-Status |
 
 ---
 
@@ -509,21 +509,34 @@ for doc in texts:
 - Dokumentation zu Screenshots suchen
 - Bild-Text-Verknüpfung in Datenbanken
 
-#### 6. `generate_rag_answer(rag, query, k=3)`
+#### 6. `get_system_status(rag)`
 
-Generiert eine Antwort basierend auf gefundenen Dokumenten.
+Gibt Statistiken über das RAG-System zurück.
 
 ```python
-from genai_lib.multimodal_rag import generate_rag_answer
+from genai_lib.multimodal_rag import get_system_status
 
-answer = generate_rag_answer(rag, "Was ist ein Transformer?", k=3)
-print(answer)
+status = get_system_status(rag)
+print(f"Text-Chunks: {status['text_chunks']}")
+print(f"Bilder: {status['images']}")
+print(f"Bildbeschreibungen: {status['image_descriptions']}")
 ```
 
-**Features:**
-- Kombiniert Text- und Bildkontext
-- Verwendet GPT-4o-mini für Antwortgenerierung
-- Zeigt Quellendokumente an
+**Rückgabe:**
+- `text_chunks`: Anzahl der Text-Dokument-Chunks
+- `images`: Anzahl der Bilder in der Datenbank
+- `image_descriptions`: Anzahl der Bildbeschreibungen
+- `total_documents`: Gesamtanzahl aller Einträge
+
+#### 7. `cleanup_database(db_path)`
+
+Löscht die Datenbank komplett für einen Neustart.
+
+```python
+from genai_lib.multimodal_rag import cleanup_database
+
+cleanup_database('./multimodal_rag_db')
+```
 
 ### Vollständiges Beispiel
 
@@ -532,7 +545,8 @@ from genai_lib.multimodal_rag import (
     init_rag_system,
     process_directory,
     multimodal_search,
-    generate_rag_answer
+    search_similar_images,
+    get_system_status
 )
 
 # 1. System initialisieren
@@ -541,12 +555,18 @@ rag = init_rag_system()
 # 2. Dokumente verarbeiten
 process_directory(rag, './knowledge_base', auto_describe_images=True)
 
-# 3. Suche durchführen
-results = multimodal_search(rag, "Neuronale Netze", k=5)
+# 3. Status prüfen
+status = get_system_status(rag)
+print(f"Verarbeitet: {status['text_chunks']} Texte, {status['images']} Bilder")
 
-# 4. Antwort generieren
-answer = generate_rag_answer(rag, "Erkläre Neuronale Netze")
-print(answer)
+# 4. Multimodale Suche (Text + Bilder + Cross-Modal)
+results = multimodal_search(rag, "Neuronale Netze", k_text=3, k_images=3)
+print(results)
+
+# 5. Bild-zu-Bild Suche
+similar = search_similar_images(rag, "./query_image.jpg", k=5)
+for img in similar:
+    print(f"{img['filename']}: {img['similarity']}")
 ```
 
 ---
@@ -642,8 +662,8 @@ Die Module stehen unter der MIT-Lizenz und können frei für eigene Projekte ver
 
 ---
 
-**Version:** 1.3    
-**Stand:** Dezember 2025      
+**Version:** 3.1
+**Stand:** Januar 2026
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.       
 
 
