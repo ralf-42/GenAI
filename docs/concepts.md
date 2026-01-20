@@ -14,7 +14,6 @@ Theoretische Grundlagen, technische Konzepte und fundamentale Prinzipien der gen
 - [Transformer-Architektur](./concepts/M05a_Transformer.html) - Das Fundament moderner LLMs
 - [Tokenizing & Chunking](./concepts/M08a_Tokenizing%20&%20Chunking.html) - Text-Verarbeitung für LLMs
 - [Embeddings](./concepts/M08b_Embeddings.html) - Vektorrepräsentationen von Text
-- [Context Engineering](./concepts/M21_Context%20Engineering.html) - Kontext-Optimierung für LLMs
 
 ## Multimodale Konzepte
 - [Multimodal Bild](./concepts/M09_Multimodal%20Bild.html) - Bildgenerierung und -analyse
@@ -22,6 +21,7 @@ Theoretische Grundlagen, technische Konzepte und fundamentale Prinzipien der gen
 - [Fine-Tuning](./concepts/M18_Fine-Tuning.html) - Modell-Anpassung
 
 ## Erweiterte Techniken
-- [RAG-Konzepte](./concepts/RAG_Konzepte.html) - Retrieval Augmented Generation
 - [Prompt Engineering](./concepts/Prompt_Engineering.html) - Effektive Prompt-Gestaltung
+- [Context Engineering](./concepts/M21_Context%20Engineering.html) - Kontext-Optimierung für LLMs
+- [RAG-Konzepte](./concepts/RAG_Konzepte.html) - Retrieval Augmented Generation
 - [Modellauswahl](./concepts/M19_Modellauswahl.html) - Das richtige Modell wählen
