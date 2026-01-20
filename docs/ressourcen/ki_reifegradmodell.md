@@ -3,7 +3,7 @@ layout: default
 title: KI-Reifegradmodell
 parent: Ressourcen
 nav_order: 4
-description: "Nüchterne, managementtaugliche Einordnung des organisatorischen, kulturellen und technischen Reifegrads bei der KI-Einführung"
+description: "Managementtaugliche Einordnung des KI-Reifegrads"
 has_toc: true
 ---
 
