@@ -2,8 +2,8 @@
 layout: default
 title: Troubleshooting
 parent: Ressourcen
-nav_order: 3
-description: "Lösungen für häufige Probleme"
+nav_order: 4
+description: Lösungen für häufige Probleme
 has_toc: true
 ---
 

@@ -2,8 +2,8 @@
 layout: default
 title: KI-Reifegradmodell
 parent: Ressourcen
-nav_order: 4
-description: "Managementtaugliche Einordnung des KI-Reifegrads"
+nav_order: 5
+description: Managementtaugliche Einordnung des KI-Reifegrads
 has_toc: true
 ---
 

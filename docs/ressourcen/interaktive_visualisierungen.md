@@ -36,7 +36,7 @@ Transformer-Architektur und Embedding-Konzepte
 | **Embeddings 3D**      | Fahrzeug-Beispiel für Vektorräume - 3D                 | [Embedding_Visual_3D](https://editor.p5js.org/ralf.bendig.rb/full/gFBwB2E8n)         |
 | **Kontext-Management** | Beispiel Kontext-Management                            | [Kontextfenster](https://editor.p5js.org/ralf.bendig.rb/full/tLnUgyZRK)              |
 | **Neuronales Netz**    | Training eines neuronalen Netzes                       | [NN - Training](https://editor.p5js.org/ralf.bendig.rb/full/FsQx83Adk)               |
-|                        |                                                        |                                                                                      |
+
 
 ---
 
