@@ -2,8 +2,8 @@
 layout: default
 title: GenAI_Lib Einsteiger
 parent: Frameworks
-nav_order: 5
-description: Projektspezifische Python-Bibliothek für Kursanwendungen
+nav_order: 4
+description: "Projektspezifische Python-Bibliothek für Kursanwendungen"
 permalink: /frameworks/genai_lib/
 ---
 
@@ -645,14 +645,6 @@ requests>=2.31.0
 
 ---
 
-## Ressourcen
-
-- **GitHub Repository**: [ralf-42/GenAI](https://github.com/ralf-42/GenAI)
-- **Installationsordner**: `04_modul/genai_lib/`
-- **Beispiel-Notebooks**: Siehe Kursmodule M08-M18
-
----
-
 ## Lizenz
 
 MIT License - Copyright (c) 2025 Ralf
@@ -662,8 +654,8 @@ Die Module stehen unter der MIT-Lizenz und können frei für eigene Projekte ver
 
 ---
 
-**Version:** 3.1
-**Stand:** Januar 2026
-**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.       
+**Version:** 3.1       
+**Stand:** Januar 2026       
+**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.          
 
 
