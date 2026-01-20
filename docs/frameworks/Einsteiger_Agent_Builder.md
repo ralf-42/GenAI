@@ -2,8 +2,8 @@
 layout: default
 title: Agent Builder Einsteiger
 parent: Frameworks
-nav_order: 4
-description: "Agenten ohne Code: Visuelle Workflow-Erstellung mit  OpenAI Agent Builder"
+nav_order: 3
+description: "Agenten ohne Code: Visuelle Workflow-Erstellung mit OpenAI Agent Builder"
 has_toc: true
 ---
 
