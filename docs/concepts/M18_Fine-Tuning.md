@@ -146,6 +146,37 @@ Zudem ist Fine-Tuning ein zentraler Bestandteil des sogenannten Model Optimizati
 
 # 4 Fine-Tuning-Pipeline für LLMs
 
+```mermaid
+flowchart TB
+    subgraph Pipeline["Fine-Tuning Pipeline"]
+        direction TB
+        A[1. Datenvorbereitung] --> B[2. Modellinitialisierung]
+        B --> C[3. Trainingsumgebung]
+        C --> D[4. Fine-Tuning-Prozess]
+        D --> E[5. Evaluierung]
+        E --> F[6. Deployment]
+        F --> G[7. Monitoring]
+    end
+
+    A1[Datensammlung<br>JSONL-Format] -.-> A
+    B1[Vortrainiertes<br>Modell laden] -.-> B
+    C1[GPU/TPU<br>Hyperparameter] -.-> C
+    D1[Training<br>Validierung] -.-> D
+    E1[Metriken<br>Analyse] -.-> E
+    F1[API<br>Infrastruktur] -.-> F
+    G1[Performance<br>Updates] -.-> G
+
+    G -->|Feedback| A
+
+    style A fill:#e3f2fd,stroke:#1976d2
+    style B fill:#e8f5e9,stroke:#4caf50
+    style C fill:#fff3e0,stroke:#ff9800
+    style D fill:#f3e5f5,stroke:#9c27b0
+    style E fill:#e0f7fa,stroke:#00bcd4
+    style F fill:#fce4ec,stroke:#e91e63
+    style G fill:#f5f5f5,stroke:#9e9e9e
+```
+
 ## 4.1 Datenvorbereitung
 - Datensammlung aus verschiedenen Quellen
 - Vorverarbeitung und Formatierung (z.B. JSONL-Format)
@@ -378,6 +409,6 @@ Die Embeddings sind die **Brücke zwischen rohem Text und neuronaler Verarbeitun
 
 ---
 
-**Version:** 1.0     
-**Stand:** November 2025    
+**Version:** 1.1    
+**Stand:** Januar 2026       
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.     

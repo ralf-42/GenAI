@@ -82,6 +82,26 @@ Die Wahl des richtigen Modells ist entscheidend für optimale Ergebnisse, Ressou
 
 Die Auswahl des optimalen KI-Modells erfordert einen strukturierten Prozess:
 
+```mermaid
+flowchart LR
+    A[1. Anforderungs-<br>analyse] --> B[2. Bewertungs-<br>kriterien]
+    B --> C[3. Recherche &<br>Vorauswahl]
+    C --> D[4. Praktische<br>Bewertung]
+    D --> E[5. Finale Auswahl &<br>Implementierung]
+
+    A1[Aufgaben<br>Budget<br>Qualität] -.-> A
+    B1[Effizienz<br>Kosten<br>Skalierbarkeit] -.-> B
+    C1[Modelle<br>filtern] -.-> C
+    D1[Benchmarks<br>Tests] -.-> D
+    E1[Integration<br>Deployment] -.-> E
+
+    style A fill:#e3f2fd,stroke:#1976d2
+    style B fill:#fff3e0,stroke:#ff9800
+    style C fill:#f3e5f5,stroke:#9c27b0
+    style D fill:#e0f7fa,stroke:#00bcd4
+    style E fill:#c8e6c9,stroke:#388e3c
+```
+
 ## 3.1 Anforderungsanalyse
 - **Definition der Aufgaben**: Legen Sie fest, welche spezifischen Funktionen das Modell erfüllen soll (z.B. Textgenerierung, Fragebeantwortung).
 - **Qualitätskriterien**: Bestimmen Sie, welche Qualitätsstandards (Kohärenz, Genauigkeit) erfüllt werden müssen.
@@ -291,6 +311,6 @@ Ein 2-3 seitiges Konzeptpapier mit Ihrem Evaluationsschema, den Testfragen und d
 
 ---
 
-**Version:** 1.0     
-**Stand:** November 2025     
-**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.     
+**Version:** 1.1    
+**Stand:** Januar 2026      
+**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.       

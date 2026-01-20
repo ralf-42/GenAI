@@ -67,7 +67,26 @@ has_toc: true
 
 # 2 Die vier Grundstrategien
 
-
+```mermaid
+mindmap
+  root((Context<br>Engineering))
+    Selection
+      Relevante Infos
+      Zur richtigen Zeit
+      Priorisierung
+    Compression
+      Zusammenfassen
+      Token-Effizienz
+      Kernaussagen
+    Memory
+      Langzeit-Speicher
+      Präferenzen
+      Historie
+    Isolation
+      Separate Kontexte
+      Multi-Agent
+      Aufgabentrennung
+```
 
 ## 2.1 Kontext Auswählen(Context Selection)
 Die richtigen Informationen zur richtigen Zeit bereitstellen.
@@ -387,6 +406,6 @@ QUALITÄTSKRITERIEN:
 
 ---
  
-**Version:** 1.0     
-**Stand:** November 2025    
+**Version:** 1.1    
+**Stand:** Januar 2026    
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.    

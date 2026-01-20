@@ -34,6 +34,23 @@ Der Prozess der Bilderkennung umfasst folgende Schritte:
 3. **Merkmalsextraktion**: Wichtige Merkmale wie Kanten, Formen oder Farbverteilungen werden identifiziert. Hier können Methoden wie Histogramm-basierte Ansätze oder Kantendetektion (z. B. Sobel-Operator) angewendet werden.
 4. **Klassifikation**: Basierend auf den extrahierten Merkmalen erfolgt eine Klassifikation des Bildes. Dies geschieht mithilfe von maschinellen Lernmodellen oder regelbasierten Systemen.
 
+```mermaid
+flowchart LR
+    A[Bilderfassung] --> B[Vorverarbeitung]
+    B --> C[Merkmalsextraktion]
+    C --> D[Klassifikation]
+
+    A1[JPEG/PNG zu<br>Pixelmatrix] -.-> A
+    B1[Normalisierung<br>Skalierung] -.-> B
+    C1[Kanten, Formen<br>Farbverteilung] -.-> C
+    D1[ML-Modell oder<br>Regelsystem] -.-> D
+
+    style A fill:#e3f2fd,stroke:#1976d2
+    style B fill:#fff3e0,stroke:#ff9800
+    style C fill:#f3e5f5,stroke:#9c27b0
+    style D fill:#c8e6c9,stroke:#388e3c
+```
+
 <div style="page-break-after: always;"></div>
 
 **Raster aus Pixelwerten**
@@ -114,6 +131,6 @@ Mithilfe neuronaler Netze – typischerweise Convolutional Neural Networks (CNNs
 
 ---
 
-**Version:** 1.0     
-**Stand:** November 2025     
+**Version:** 1.1   
+**Stand:** Januar 2026     
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.     
