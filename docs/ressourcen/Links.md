@@ -77,6 +77,30 @@ LangChain, LangGraph, LangSmith und verwandte Tools.
 
 ---
 
+## Model Context Protocol (MCP)
+
+Standard-Protokoll für die Kommunikation zwischen LLMs und externen Tools/Datenquellen.
+
+| Ressource | Beschreibung |
+|-----------|--------------|
+| [MCP Docs - Getting Started](https://modelcontextprotocol.io/docs/getting-started/intro) | Offizielle MCP-Dokumentation und Einführung |
+| [FastMCP](https://gofastmcp.com/getting-started/welcome) | Schneller Einstieg in MCP mit Python |
+| [LangChain MCP Adapters](https://github.com/langchain-ai/langchain-mcp-adapters) | MCP-Integration für LangChain |
+
+---
+
+## Computer Vision
+
+Frameworks und Tools für Bildverarbeitung und Objekterkennung.
+
+| Ressource | Beschreibung |
+|-----------|--------------|
+| [Ultralytics YOLO](https://www.ultralytics.com/de) | Computer Vision Framework (Objekterkennung, Segmentierung) |
+| [MediaPipe Studio](https://mediapipe-studio.webapps.google.com/home) | Google ML-Lösungen für Vision, Text und Audio |
+| [MediaPipe Solutions Guide](https://ai.google.dev/edge/mediapipe/solutions/guide?hl=de) | Dokumentation der MediaPipe-Lösungen |
+
+---
+
 ## Hugging Face
 
 Community-Platform für Machine Learning.

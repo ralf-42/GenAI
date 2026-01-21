@@ -36,6 +36,7 @@ Transformer-Architektur und Embedding-Konzepte
 | **Embeddings 3D**      | Fahrzeug-Beispiel für Vektorräume - 3D                 | [Embedding_Visual_3D](https://editor.p5js.org/ralf.bendig.rb/full/gFBwB2E8n)         |
 | **Kontext-Management** | Beispiel Kontext-Management                            | [Kontextfenster](https://editor.p5js.org/ralf.bendig.rb/full/tLnUgyZRK)              |
 | **Neuronales Netz**    | Training eines neuronalen Netzes                       | [NN - Training](https://editor.p5js.org/ralf.bendig.rb/full/FsQx83Adk)               |
+| **Fine-Tuning LoRA**   | Low-Rank Adaptation für effizientes Fine-Tuning        | [LoRA](https://editor.p5js.org/ralf.bendig.rb/full/6EOMAf2BZ)                        |
 
 
 ---
@@ -78,6 +79,21 @@ Entscheidungshilfen für die richtige Modellwahl
 | Thema             | Beschreibung                   | Link                                                                   |
 | ----------------- | ------------------------------ | ---------------------------------------------------------------------- |
 | **Modellauswahl** | Interaktive Entscheidungshilfe | [Modellauswahl](https://editor.p5js.org/ralf.bendig.rb/full/8BbTi8Ico) |
+
+---
+
+## 📚 RAG (Retrieval Augmented Generation)
+
+Retrieval Augmented Generation - Wissensabruf und Anreicherung
+
+| Thema                   | Beschreibung                                           | Link                                                                                 |
+| ----------------------- | ------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| **RAG-Pipeline**        | Visualisierung der RAG-Architektur                     | [RAG](https://editor.p5js.org/ralf.bendig.rb/full/RrfB3nCwK)                         |
+| **Embeddings**          | Fahrzeug-Beispiel für Vektorräume                      | [Embedding-Beispiel Fahrzeug](https://editor.p5js.org/ralf.bendig.rb/full/LPjLkzWbE) |
+| **Embeddings 3D**       | Fahrzeug-Beispiel für Vektorräume - 3D                 | [Embedding_Visual_3D](https://editor.p5js.org/ralf.bendig.rb/full/gFBwB2E8n)         |
+| **Embedding Projector** | TensorFlow Embedding-Visualisierung (PCA, t-SNE, UMAP) | [TF Projector](https://projector.tensorflow.org/?hl=de)                              |
+| **Tokenizer**           | OpenAI Tokenizer - Token-Visualisierung                | [OpenAI Tokenizer](https://platform.openai.com/tokenizer)                            |
+| **ChunkViz**            | Text-Chunking Visualisierung für RAG                   | [ChunkViz](https://chunkviz.up.railway.app/)                                         |
 
 ---
 
