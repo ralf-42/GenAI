@@ -1,8 +1,9 @@
 # Generative KI Kurs
 
-[![LangChain 1.0+ Compliant](https://img.shields.io/badge/LangChain-1.0%2B%20Compliant-brightgreen)](./LangChain_Audit_Report_2025-12-17.md)
+[![LangChain 1.2+ Compliant](https://img.shields.io/badge/LangChain-1.2%2B%20Compliant-brightgreen)](./LangChain_Audit_Report_2025-12-17.md)
 [![Code Quality](https://img.shields.io/badge/Compliance-100%25-success)](./LangChain_Audit_Report_2025-12-17.md)
 [![Last Audit](https://img.shields.io/badge/Last%20Audit-2025--12--17-blue)](./LangChain_Audit_Report_2025-12-17.md)
+[![Python](https://img.shields.io/badge/Python-3.11%2B-blue)](https://www.python.org/)
 
 Ein deutschsprachiger, praxisorientierter Kurs zu Generative AI Technologien mit Fokus auf OpenAI GPT-Modelle, LangChain und praktischen Anwendungen.
 
@@ -16,7 +17,7 @@ Die vollständige Kursdokumentation mit Konzepten, Frameworks-Guides und Ressour
 
 - Entwickler:innen mit Python-Grundkenntnissen
 - IT-Fachkräfte, die KI-Technologien integrieren möchten
-- Technikbegeisterte mit Programmiererfahrung
+- Technikbegeisterte mit guter Programmiererfahrung
 
 
 ## 📁 Projektstruktur
@@ -25,6 +26,7 @@ Die vollständige Kursdokumentation mit Konzepten, Frameworks-Guides und Ressour
 GenAI/
 ├── 01_notebook/    # Jupyter Notebooks (Kursmaterialien)
 ├── 02_daten/       # Trainingsdaten und Beispieldateien
+├── 03_skript/      # Ergänzende Unterlagen zum Kurs
 ├── 04_modul/       # Python-Module und Bibliotheken
 └── 05_prompt/      # Prompt-Templates
 ```
@@ -68,6 +70,7 @@ Dieser Kurs nutzt die neuesten **LangChain v1.2.0** Features:
 ### Basismodule (M00-M12)
 | Modul | Thema | Beschreibung |
 |-------|-------|-------------|
+| M00 | Kurs Intro | Kursübersicht und Setup |
 | M01 | GenAI Intro | Grundlagen Generative AI |
 | M02 | Modellsteuerung | Prompting, Context Engineering |
 | M03 | Codieren mit GenAI | KI-gestütztes Programmieren |
@@ -75,8 +78,7 @@ Dieser Kurs nutzt die neuesten **LangChain v1.2.0** Features:
 | M05 | LLM & Transformer | Architektur und Foundation Models |
 | M06 | Chat & Memory | Konversations-Management |
 | M07 | Output Parser | Strukturierte Ausgaben |
-| M08a | RAG LangChain | Retrieval Augmented Generation |
-| M08b | RAG LangGraph | Advanced RAG (Self-RAG, Corrective RAG) |
+| M08 | RAG LangChain | Retrieval Augmented Generation |
 | M09 | Multimodal Bild | Bildgenerierung und -verarbeitung |
 | M10 | Agents | KI-Agenten und Multi-Agent-Systeme |
 | M11 | Gradio | UI-Entwicklung |
@@ -147,11 +149,11 @@ Die **Kursmaterialien** (z. B. Folien, Texte, Grafiken) sind unter der [CC BY 4.
 **Northwind-Datenbank** von Microsoft unter Microsoft Public License (Ms-PL).     
 Bilder und Videos erstellt mit **Hedra AI** – Nutzung gemäß [Hedra Terms](https://www.hedra.com/terms).     
 
-© 2025 Ralf-42
+© 2025-2026 Ralf-42       
 
 ---
 
-**Letzte Aktualisierung:** 31. Dezember 2025     
-**Version:** 2.4     
+**Letzte Aktualisierung:** Januar 2026         
+**Version:** 2.5          
 
 
