@@ -2,7 +2,7 @@
 layout: default
 title: Code Standards
 parent: Ressourcen
-nav_order: 4
+nav_order: 3
 description: Coding-Konventionen und Best Practices
 has_toc: true
 ---
