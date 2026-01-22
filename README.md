@@ -7,11 +7,6 @@
 
 Ein deutschsprachiger, praxisorientierter Kurs zu Generative AI Technologien mit Fokus auf OpenAI GPT-Modelle, LangChain und praktischen Anwendungen.
 
-## 🌐 Kurs-Website
-
-**[→ GenAI Kurs-Website (GitHub Pages)](https://ralf-42.github.io/GenAI/)**
-
-Die vollständige Kursdokumentation mit Konzepten, Frameworks-Guides und Ressourcen ist als interaktive Website verfügbar.
 
 ## 🎯 Zielgruppe
 
