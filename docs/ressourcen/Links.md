@@ -121,6 +121,6 @@ Community-Platform für Machine Learning.
 
 ---
 
-**Version:** 1.0     
-**Stand:** Januar 2026    
-**Kurs:** KI-Agenten. Verstehen. Anwenden. Gestalten.     
+**Version:** 1.0       
+**Stand:** Januar 2026       
+**Kurs:** KI-Agenten. Verstehen. Anwenden. Gestalten.      
