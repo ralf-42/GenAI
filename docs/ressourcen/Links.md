@@ -2,7 +2,7 @@
 layout: default
 title: Links
 parent: Ressourcen
-nav_order: 2
+nav_order: 6
 description: Kuratierte Sammlung externer Ressourcen zu KI, LLMs und Frameworks
 has_toc: true
 ---
