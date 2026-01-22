@@ -32,6 +32,7 @@ Transformer-Architektur und Embedding-Konzepte
 | **Entscheidungshilfe** | Entscheidungshilfe Modellsteuerung                     | [Modellsteuerung](https://editor.p5js.org/ralf.bendig.rb/full/xb3zPgRSr)             |
 | **LLM-Parameter**      | Bedeutung und Einstellung LLM-Parameter                | [LLM_Parameter](https://editor.p5js.org/ralf.bendig.rb/full/LBc3t3yP4)               |
 | **Transformer**        | Interaktive Visualisierung der Transformer-Architektur | [Transformer](https://editor.p5js.org/ralf.bendig.rb/full/I1TTpJk-D)                 |
+| **Transformer Explainer** | GPT-2 Transformer interaktiv erklärt (Georgia Tech) | [Transformer Explainer](https://poloclub.github.io/transformer-explainer/)           |
 | **Embeddings**         | Fahrzeug-Beispiel für Vektorräume                      | [Embedding-Beispiel Fahrzeug](https://editor.p5js.org/ralf.bendig.rb/full/LPjLkzWbE) |
 | **Embeddings 3D**      | Fahrzeug-Beispiel für Vektorräume - 3D                 | [Embedding_Visual_3D](https://editor.p5js.org/ralf.bendig.rb/full/gFBwB2E8n)         |
 | **Kontext-Management** | Beispiel Kontext-Management                            | [Kontextfenster](https://editor.p5js.org/ralf.bendig.rb/full/tLnUgyZRK)              |
@@ -59,6 +60,7 @@ Bildverarbeitung und Computer Vision
 |-------|--------------|------|
 | **Merkmals-Filter** | CNN-Filter und Kantendetektion | [Merkmals-Filter](https://editor.p5js.org/ralf.bendig.rb/full/zLXqi5u6f) |
 | **Filter-Anwendung** | Convolutional Filter in Aktion | [Merkmals-Filter-Anwendung](https://editor.p5js.org/ralf.bendig.rb/full/Xi2uabjR9) |
+| **CNN Explainer** | Convolutional Neural Networks interaktiv erklärt (Georgia Tech) | [CNN Explainer](https://poloclub.github.io/cnn-explainer/) |
 
 ---
 
@@ -108,6 +110,16 @@ Tools für KI-gestützte Prozessoptimierung und Entscheidungshilfen
 
 ---
 
-**Version:** 1.0     
+## 🌐 Externe Bildungsressourcen
+
+Weitere interaktive Visualisierungen von externen Anbietern
+
+| Thema | Beschreibung | Link |
+|-------|--------------|------|
+| **Imaginary** | Interaktive Mathematik-Programme und Visualisierungen | [Imaginary](https://www.imaginary.org/de/programs) |
+
+---
+
+**Version:** 1.0
 **Stand:** Januar 2026     
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.     

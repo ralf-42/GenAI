@@ -39,12 +39,12 @@ Vergleichsplattformen und Datenbanken für KI-Modelle.
 
 Interaktive Erklärungen und Kurse zum Verständnis von KI.
 
-| Ressource | Beschreibung |
-|-----------|--------------|
-| [CNN Explainer](https://poloclub.github.io/cnn-explainer/) | Interaktive Visualisierung von Convolutional Neural Networks |
-| [Transformer Explainer](https://poloclub.github.io/transformer-explainer/) | LLM Transformer-Architektur visuell erklärt |
-| [Generative AI - FT](https://ig.ft.com/generative-ai/) | "Generative AI exists because of the transformer" - Financial Times |
-| [DeepLearning.AI Courses](https://www.deeplearning.ai/courses/) | Kurse von Andrew Ng zu Deep Learning und KI |
+| Ressource                                                                  | Beschreibung                                                        |
+| -------------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| [CNN Explainer](https://poloclub.github.io/cnn-explainer/)                 | Interaktive Visualisierung von Convolutional Neural Networks        |
+| [Transformer Explainer](https://poloclub.github.io/transformer-explainer/) | LLM Transformer-Architektur visuell erklärt                         |
+| [Generative AI - FT](https://ig.ft.com/generative-ai/)                     | "Generative AI exists because of the transformer" - Financial Times |
+| [DeepLearning.AI Courses](https://www.deeplearning.ai/courses/)            | Kurse von Andrew Ng zu Deep Learning und KI                         |
 
 ---
 
@@ -93,11 +93,12 @@ Standard-Protokoll für die Kommunikation zwischen LLMs und externen Tools/Daten
 
 Frameworks und Tools für Bildverarbeitung und Objekterkennung.
 
-| Ressource | Beschreibung |
-|-----------|--------------|
-| [Ultralytics YOLO](https://www.ultralytics.com/de) | Computer Vision Framework (Objekterkennung, Segmentierung) |
-| [MediaPipe Studio](https://mediapipe-studio.webapps.google.com/home) | Google ML-Lösungen für Vision, Text und Audio |
-| [MediaPipe Solutions Guide](https://ai.google.dev/edge/mediapipe/solutions/guide?hl=de) | Dokumentation der MediaPipe-Lösungen |
+| Ressource                                                                               | Beschreibung                                                 |
+| --------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
+| [Ultralytics YOLO](https://www.ultralytics.com/de)                                      | Computer Vision Framework (Objekterkennung, Segmentierung)   |
+| [CNN Explainer](https://poloclub.github.io/cnn-explainer/)                              | Interaktive Visualisierung von Convolutional Neural Networks |
+| [MediaPipe Studio](https://mediapipe-studio.webapps.google.com/home)                    | Google ML-Lösungen für Vision, Text und Audio                |
+| [MediaPipe Solutions Guide](https://ai.google.dev/edge/mediapipe/solutions/guide?hl=de) | Dokumentation der MediaPipe-Lösungen                         |
 
 ---
 
