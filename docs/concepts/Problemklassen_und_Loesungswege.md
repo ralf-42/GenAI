@@ -763,3 +763,10 @@ Die Grenzen zwischen den Lösungswegen werden zunehmend fließend:
 - [ ] Exit-Strategie überlegt?
 
 Die Welt der generativen KI ist komplex, aber mit dieser systematischen Herangehensweise lässt sich für jede Aufgabe der richtige Einstieg finden. Der Schlüssel liegt darin, **Datenschutz zuerst** zu klären und dann **problemgetrieben** statt tool-getrieben zu denken.
+
+
+---
+
+**Version:** 1.0       
+**Stand:** Februar 2026            
+**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.        
