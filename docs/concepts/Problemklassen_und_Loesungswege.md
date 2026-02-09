@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Probleme - Lösungen
+title: Probleme & Lösungen
 parent: Konzepte
 nav_order: 0
 description: Wie sich für konkrete Aufgaben der richtige GenAI-Lösungsweg finden lässt
@@ -10,7 +10,7 @@ has_toc: true
 # Problemklassen & Lösungswege 
 {: .no_toc }
 
-> **Das Problem bestimmt das Tool**
+> **Das Problem bestimmt das Tool**         
 > Wie sich für konkrete Aufgaben der richtige GenAI-Lösungsweg finden lässt – von Chat über Automation bis hin zu Agenten-Systemen
 
 ---
