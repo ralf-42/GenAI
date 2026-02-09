@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Problemklassen & Lösungswege
+title: Probleme - Lösungen
 parent: Konzepte
 nav_order: 0
 description: Wie sich für konkrete Aufgaben der richtige GenAI-Lösungsweg finden lässt
