@@ -10,6 +10,12 @@ description: "Theoretische Grundlagen und technische Konzepte"
 
 Theoretische Grundlagen, technische Konzepte und fundamentale Prinzipien der generativen KI.
 
+## Orientierung & Strategie
+- [Problemklassen & Lösungswege](./concepts/Problemklassen_und_Loesungswege.html) - Das richtige Tool für die Aufgabe
+  - 7 Lösungswege: Chat, Workflow, App-Builder, Python, Agenten, Lokale LLMs, Custom GPTs
+  - Entscheidungsbaum mit Datenschutz als Killer-Kriterium
+  - 10 Praxisbeispiele mit Entscheidungspfaden
+
 ## Technische Grundlagen
 - [Transformer-Architektur](./concepts/M05a_Transformer.html) - Das Fundament moderner LLMs
 - [Tokenizing & Chunking](./concepts/M08a_Tokenizing%20&%20Chunking.html) - Text-Verarbeitung für LLMs
