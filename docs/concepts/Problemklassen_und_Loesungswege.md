@@ -281,7 +281,7 @@ Vor der Wahl des Lösungswegs sollten (mindestens) folgende Aspekte geklärt wer
 
 ---
 
-## Der optimierte Entscheidungsbaum
+## Der Entscheidungsbaum
 
 ```mermaid
 graph TD
