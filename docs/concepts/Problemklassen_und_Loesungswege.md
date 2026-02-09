@@ -1,13 +1,13 @@
 ---
 layout: default
-title: Tool-Wegweiser
+title: Problemklassen & Lösungswege
 parent: Konzepte
 nav_order: 0
 description: Wie sich für konkrete Aufgaben der richtige GenAI-Lösungsweg finden lässt
 has_toc: true
 ---
 
-# Problemklassen & Lösungswege
+# Problemklassen & Lösungswege    
 {: .no_toc }
 
 > **Das Problem bestimmt das Tool**
