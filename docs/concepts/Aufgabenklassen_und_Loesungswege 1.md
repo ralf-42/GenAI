@@ -37,36 +37,31 @@ Viele Anfänger machen denselben Fehler: Ein Tool wird gelernt (z.B. ChatGPT) un
 
 ## Die Entscheidungskriterien im Überblick
 
-Vor der Wahl des Lösungswegs sollten die Aspekte in folgender Reihenfolge geklärt werden:
+Vor der Wahl des Lösungswegs sollten (mindestens) folgende Aspekte geklärt werden:
 
-### 1. Aufgabencharakter (Primärkriterium)
+### 1. Datenschutz (Killer-Kriterium)
 
-Zuerst wird der Charakter der Aufgabe bestimmt:
+**Erste und wichtigste Frage:** Dürfen die Daten in die Cloud bzw. zu US-Anbietern?
 
-- **Einmalig & persönlich?** → Chat-Anwendungen
-- **Große Datenmengen oder komplexe Logik?** → Python & APIs
-- **Vollautomatisch mit Event-Triggern?** → Workflow-Automation
-- **Tool für Dritte mit Interface?** → KI-App-Builder
-- **Lösungsweg unklar/explorativ?** → Agenten-Systeme
-- **Wiederkehrende persönliche Erweiterung?** → Custom GPTs/Skills
+- **NEIN bei:** Patientendaten, Anwaltsdokumente, Personaldaten (DSGVO Art. 9), Geschäftsgeheimnisse, Behördendaten
+- **Falls NEIN:** Nur selbst gehostete oder lokale Lösungen möglich
+- **Falls JA:** Alle Cloud-basierten Optionen verfügbar
 
-### 2. Datenschutz (Sekundärkriterium: Cloud vs. Lokal)
+### 2. Frequenz und Komplexität
 
-Nachdem der Aufgabentyp feststeht, entscheidet der Datenschutz über die **Deployment-Variante**:
+- **Einmalig/persönlich:** Schnelle Antwort für aktuelle Aufgabe
+- **Große Datenmengen:** >1000 Datensätze, komplexe Verarbeitung
+- **Wiederkehrend automatisiert:** Regelmäßige automatische Ausführung
 
-- **Datenschutz unkritisch:** Cloud-Lösungen möglich (schneller, einfacher)
-- **Datenschutz kritisch:** Nur self-hosted oder lokale Lösungen
+### 3. Zielgruppe
 
-**Wann sind Daten kritisch?** Patientendaten, Anwaltsdokumente, Personaldaten (DSGVO Art. 9), Geschäftsgeheimnisse, Behördendaten
+- **Persönlich:** Nur für eigene Nutzung
+- **Team/Dritte:** Andere Personen sollen das Tool verwenden (Interface nötig)
 
-### 3. Weitere Faktoren
+### 4. Grad der Autonomie
 
-Nach der Grundentscheidung spielen weitere Aspekte eine Rolle:
-
-- **Budget:** Kosten für API-Calls, Hosting, Lizenzen
-- **Technische Expertise:** Verfügbare Kenntnisse im Team
-- **Skalierbarkeit:** Erwartetes Wachstum der Nutzung
-- **Wartungsaufwand:** Langfristige Pflege der Lösung
+- **Klar definiert:** Ablauf ist bekannt
+- **Explorativ:** KI soll selbstständig Lösungsweg finden
 
 ## Die Lösungswege im Detail
 
@@ -77,6 +72,7 @@ Nach der Grundentscheidung spielen weitere Aspekte eine Rolle:
 - Sofortige Antwort oder Hilfe wird benötigt
 - Einmalige oder seltene Aufgabe
 - Keine Integration in andere Systeme nötig
+- **Datenschutz unkritisch**
 
 **Beispiele:**
 
@@ -95,13 +91,6 @@ Nach der Grundentscheidung spielen weitere Aspekte eine Rolle:
 - ❌ Manuelle Übertragung von Ergebnissen nötig
 - ❌ Keine Automatisierung möglich
 - ❌ Arbeitet isoliert ("Silo")
-
-**Deployment-Varianten:**
-
-|Datenschutz|Lösung|
-|---|---|
-|Unkritisch|ChatGPT, Claude, Copilot|
-|Kritisch|Ollama, LM Studio (lokal)|
 
 ---
 
@@ -132,13 +121,6 @@ Nach der Grundentscheidung spielen weitere Aspekte eine Rolle:
 - ❌ Begrenzte Flexibilität für komplexe Logik
 - ❌ Kein Frontend für Endnutzer
 
-**Deployment-Varianten:**
-
-|Datenschutz|Lösung|
-|---|---|
-|Unkritisch|Make, n8n Cloud|
-|Kritisch|n8n self-hosted|
-
 ---
 
 ### Lösungsweg 3: KI-App-Builder (LangFlow, Dify, Stack AI, ...)
@@ -167,13 +149,6 @@ Nach der Grundentscheidung spielen weitere Aspekte eine Rolle:
 - ❌ Abhängigkeit von der Plattform
 - ❌ Weniger flexibel als reiner Code
 - ❌ Noch relativ junge Tools
-
-**Deployment-Varianten:**
-
-|Datenschutz|Lösung|
-|---|---|
-|Unkritisch|Dify Cloud, Stack AI|
-|Kritisch|Dify self-hosted|
 
 ---
 
@@ -206,13 +181,6 @@ Nach der Grundentscheidung spielen weitere Aspekte eine Rolle:
 - ❌ Erfordert Programmierkenntnisse
 - ❌ Längere Entwicklungszeit
 - ❌ Wartung und Updates nötig
-
-**Deployment-Varianten:**
-
-|Datenschutz|Lösung|
-|---|---|
-|Unkritisch|Cloud-LLM-APIs (OpenAI, Anthropic, etc.)|
-|Kritisch|Python + Ollama Library (lokal)|
 
 ---
 
@@ -247,18 +215,9 @@ Nach der Grundentscheidung spielen weitere Aspekte eine Rolle:
 - ❌ Erfordert Überwachung
 - ❌ Potenzielle Fehlerquellen
 
-**Deployment-Varianten:**
-
-|Datenschutz|Lösung|
-|---|---|
-|Unkritisch|Claude Code, LangGraph (Cloud)|
-|Kritisch|Claude Code + Ollama (lokal)|
-
 ---
 
 ### Lösungsweg 6: Lokale LLMs (Ollama, LM Studio)
-
-**Hinweis:** Lokale LLMs sind keine eigenständige Aufgabenkategorie, sondern die **datenschutzkonforme Deployment-Variante** für alle anderen Lösungswege.
 
 **Wann nutzen?**
 
@@ -310,34 +269,25 @@ Nach der Grundentscheidung spielen weitere Aspekte eine Rolle:
 
 **Vorteile:**
 
-- ✅ Sehr schnell erstellt (Minuten)
-- ✅ Keine Programmierkenntnisse nötig
-- ✅ Kostenlos oder Teil des Abos
-- ✅ Teilbar mit anderen
+- ✅ Sehr schnelles Setup
+- ✅ Keine Infrastruktur nötig
+- ✅ Direkt in Chat-Umgebung nutzbar
 
 **Nachteile:**
 
-- ❌ Nur innerhalb ChatGPT/Claude nutzbar
-- ❌ Begrenzte Anpassungsmöglichkeiten
+- ❌ Begrenzte Funktionalität
+- ❌ Abhängig von Plattform (OpenAI, Anthropic)
 - ❌ Keine echte Automatisierung
-- ❌ Keine Integration mit anderen Tools
-
-**Deployment-Varianten:**
-
-|Datenschutz|Lösung|
-|---|---|
-|Unkritisch|Custom GPTs, Claude Skills|
-|Kritisch|Open WebUI (lokal)|
 
 ---
 
 ## Der Entscheidungsbaum
 
-
 ```mermaid
 graph TD
     Start[Aufgabe für KI vorhanden] --> Q1{Einmalig &<br/>persönlich?}
-    %% === FLOW: AUFGABENTYP ZUERST ===
+
+    %% === FLOW: KOMPLEXITÄT ZUERST ===
     Q1 -->|Ja| Privacy_Chat{⚠️ DATENSCHUTZ<br/>KRITISCH?}
     
     Q1 -->|Nein| Q2{Große Datenmengen<br/>oder Logik?}
@@ -352,169 +302,270 @@ graph TD
     Q4 -->|Nein| Q5{Lösungsweg<br/>unklar?}
     Q5 -->|Ja| Privacy_Agents{⚠️ DATENSCHUTZ<br/>KRITISCH?}
     Q5 -->|Nein| Privacy_Custom{⚠️ DATENSCHUTZ<br/>KRITISCH?}
+
     %% === FINALE ENTSCHEIDUNGEN (LEAFS) ===
+
     %% Chat
     Privacy_Chat -->|Ja| Chat_Local[<b>CHAT LOKAL</b><br/>Ollama / LM Studio]
     Privacy_Chat -->|Nein| Chat_Cloud[<b>CHAT CLOUD</b><br/>ChatGPT / Claude]
+
     %% Python
     Privacy_Python -->|Ja| Python_Local[<b>PYTHON LOKAL</b><br/>Ollama Library]
     Privacy_Python -->|Nein| Python_Cloud[<b>PYTHON & APIs</b><br/>Cloud-LLM-APIs]
+
     %% Workflow
     Privacy_Workflow -->|Ja| Workflow_Local[<b>n8n self-hosted</b>]
     Privacy_Workflow -->|Nein| Workflow_Cloud[<b>Make / n8n Cloud</b>]
+
     %% App Builder
     Privacy_App -->|Ja| AppBuilder_Local[<b>Dify self-hosted</b>]
     Privacy_App -->|Nein| AppBuilder_Cloud[<b>Dify / Stack AI</b>]
+
     %% Agents
     Privacy_Agents -->|Ja| Agents_Local[<b>AGENTEN LOKAL</b><br/>Claude Code + Ollama]
     Privacy_Agents -->|Nein| Agents_Cloud[<b>AGENTEN CLOUD</b><br/>Claude Code / LangGraph]
+
     %% Custom
     Privacy_Custom -->|Ja| Custom_Local[<b>Assistenten lokal</b><br/>Open WebUI]
     Privacy_Custom -->|Nein| Custom_Cloud[<b>Custom GPTs / Skills</b>]
+
     %% === STYLING ===
     
     %% Datenschutz-Knoten (Orange)
     classDef privacy fill:#ffcc80,stroke:#e65100,stroke-width:2px
     class Privacy_Chat,Privacy_Python,Privacy_Workflow,Privacy_App,Privacy_Agents,Privacy_Custom privacy
+
     %% Lokale Lösungen (Rot)
     classDef local fill:#ffcdd2,stroke:#c62828
     class Chat_Local,Python_Local,Workflow_Local,AppBuilder_Local,Agents_Local,Custom_Local local
+
     %% Cloud Lösungen (Blau)
     classDef cloud fill:#bbdefb,stroke:#1565c0
     class Chat_Cloud,Python_Cloud,Workflow_Cloud,AppBuilder_Cloud,Agents_Cloud,Custom_Cloud cloud
 ```
 
-## Anwendungsbeispiele
+## Erläuterung der Entscheidungslogik
 
-### Beispiel 1: "Schnelle Hilfe bei einer E-Mail"
+### Ebene 0: Datenschutz als Killer-Kriterium
+
+**Die allerwichtigste Frage zuerst:** Dürfen die zu verarbeitenden Daten die Organisation verlassen oder zu US-Cloud-Anbietern?
+
+#### Wann ist Datenschutz KRITISCH?
+
+**JA (kritisch) bei:**
+
+- 🏥 **Gesundheitsdaten:** Patientenbriefe, Diagnosen, Behandlungspläne
+- ⚖️ **Anwaltsdokumente:** Mandantengeheimnisse, vertrauliche Verträge
+- 👥 **Personaldaten:** Bewerbungen, Leistungsbeurteilungen, Gehaltsdaten
+- 💼 **Geschäftsgeheimnisse:** Produktentwicklung, Strategiepapiere, M&A-Dokumente
+- 🏛️ **Behördendaten:** Verwaltungsdokumente mit sensiblen Bürgerdaten
+- 💰 **Finanzdaten:** Je nach Compliance-Anforderungen
+
+**NEIN (unkritisch) bei:**
+
+- Öffentlich verfügbare Informationen
+- Marketing-Content
+- Allgemeine Produktinformationen
+- Nicht-personenbezogene Daten
+- Daten ohne rechtliche Restriktionen
+
+#### Der sichere Pfad (rot markiert)
+
+Falls Datenschutz kritisch ist, bleiben nur drei Optionen:
+
+**1. n8n (self-hosted)** für Workflow-Automatisierung
+
+- Docker-Installation auf eigenen Servern
+- Volle Kontrolle über Datenfluss
+- EU-Hosting möglich (z.B. Hetzner)
+
+**2. Dify (self-hosted)** für Team-Tools mit RAG
+
+- On-Premise Installation
+- Lokale Vektordatenbank
+- Keine Daten verlassen das System
+
+**3. Python + Ollama** für Datenverarbeitung und Expertise
+
+- Komplette Offline-Fähigkeit
+- Lokale LLMs (Llama, Mistral)
+- Maximale Kontrolle
+
+### Ebene 1: Persönliche Ad-hoc-Nutzung
+
+Falls Datenschutz unkritisch ist, lautet die erste Frage: **Ist es eine einmalige Aufgabe nur für persönliche Nutzung?**
+
+**JA → CHAT**
+
+- Schnellste Lösung
+- Keine Vorbereitung nötig
+- Ideal für Exploration und Kreativität
+
+### Ebene 2: Komplexität und Datenvolumen
+
+Falls nicht nur persönlich/einmalig: **Sind große Datenmengen oder extrem komplexe Logik involviert?**
+
+**JA → PYTHON & APIs**
+
+- > 1000 Datensätze
+
+- Komplexe Algorithmen
+- Statistische Auswertungen
+- Batch-Processing
+- Kostenoptimierung bei Skalierung
+
+**Warum Python so früh im Baum?**
+Große Datenmengen in Workflow-Tools zu verarbeiten wird schnell teuer und langsam. Python ist hier die einzig sinnvolle Wahl, unabhängig von anderen Faktoren.
+
+### Ebene 3: Automatisierung
+
+Falls keine großen Datenmengen: **Soll der Prozess vollautomatisch durch Events getriggert werden?**
+
+**JA → WORKFLOW (Make oder n8n)**
+
+- Event-basiert (E-Mail, Webhook, Zeitplan)
+- Läuft im Hintergrund ohne manuelle Interaktion
+- Verbindet verschiedene Systeme
+
+### Ebene 4: Interface für Dritte
+
+Falls nicht automatisch: **Sollen andere Menschen das Tool aktiv nutzen? Wird ein Interface benötigt?**
+
+**JA → APP-BUILDER (Dify, Stack AI)**
+
+- Frontend wird benötigt
+- RAG mit eigenen Dokumenten
+- Team-Chatbots oder interne Tools
+
+### Ebene 5: Grad der Autonomie
+
+Falls kein Interface für andere: **Ist der Lösungsweg unklar? Soll die KI explorativ vorgehen?**
+
+**JA → AGENTEN**
+
+- Forschungsaufgaben
+- Code-Analyse und Debugging
+- Unklarer Aufgabenbereich
+
+**NEIN → Custom GPTs / Skills**
+
+- Erweiterte Chat-Funktionalität
+- Wiederkehrende Instructions
+- Persönliche Produktivitäts-Tools
+
+## Praxisbeispiele mit Entscheidungspfaden
+
+### Beispiel 1: "Blog-Artikel über KI-Trends schreiben"
 
 ```
-Einmalig & persönlich? → JA
-Datenschutz kritisch? → NEIN (keine sensiblen Daten)
-→ Chat Cloud (ChatGPT / Claude) ✅
-```
-
-### Beispiel 2: "50.000 Kundenbewertungen analysieren"
-
-```
-Einmalig & persönlich? → NEIN
-Große Datenmengen oder Logik? → JA (50.000 Datensätze)
-Datenschutz kritisch? → NEIN (öffentliche Bewertungen)
-→ Python & Cloud-APIs ✅
-```
-
-### Beispiel 3: "Patientenakten zusammenfassen"
-
-```
-Einmalig & persönlich? → NEIN (wiederkehrend)
-Große Datenmengen oder Logik? → JA (komplexe Dokumente)
-Datenschutz kritisch? → JA (Gesundheitsdaten!)
-→ Python lokal mit Ollama ✅
-```
-
-### Beispiel 4: "E-Mail-Eingang automatisch kategorisieren"
-
-```
-Einmalig & persönlich? → NEIN
-Große Datenmengen oder Logik? → NEIN
-Vollautomatisch? Event-Trigger? → JA (E-Mail-Eingang)
 Datenschutz kritisch? → NEIN
-→ Make / n8n Cloud ✅
+Einmalig & persönlich? → JA
+→ CHAT ✅
 ```
 
-### Beispiel 5: "Interner HR-Bot für Mitarbeiter"
+### Beispiel 2: "Patientenbriefe automatisch kategorisieren"
 
 ```
+Datenschutz kritisch? → JA (Gesundheitsdaten!)
+Was steht im Vordergrund? → Daten/Expert
+→ Python + Ollama ✅
+```
+
+### Beispiel 3: "Alle Rechnungen automatisch in Buchhaltung eintragen"
+
+```
+Datenschutz kritisch? → NEIN
 Einmalig & persönlich? → NEIN
-Große Datenmengen oder Logik? → NEIN
-Vollautomatisch? → NEIN
-Tool für Dritte? Interface nötig? → JA
+Große Datenmengen? → NEIN
+Vollautomatisch/Events? → JA (bei E-Mail-Eingang)
+→ Make oder n8n ✅
+```
+
+### Beispiel 4: "HR-Bot für 200 Mitarbeiter mit Unternehmensrichtlinien"
+
+```
 Datenschutz kritisch? → JA (Personaldaten!)
+Was steht im Vordergrund? → Team/RAG
 → Dify self-hosted ✅
 ```
 
-### Beispiel 6: "Chatbot für Website-Besucher"
+### Beispiel 5: "50.000 Kundenbewertungen analysieren und kategorisieren"
 
 ```
-Einmalig & persönlich? → NEIN
-Große Datenmengen oder Logik? → NEIN
-Vollautomatisch? → NEIN
-Tool für Dritte? Interface nötig? → JA
 Datenschutz kritisch? → NEIN
+Einmalig & persönlich? → NEIN
+Große Datenmengen? → JA (50.000 Items!)
+→ Python & APIs ✅
+```
+
+### Beispiel 6: "Interner Produktkatalog-Chatbot für Vertriebsteam"
+
+```
+Datenschutz kritisch? → NEIN (Produktinfo öffentlich)
+Einmalig & persönlich? → NEIN
+Große Datenmengen? → NEIN
+Vollautomatisch? → NEIN
+Tool für Dritte? → JA (Vertriebsteam)
 → Dify / Stack AI ✅
 ```
 
 ### Beispiel 7: "Code-Review und Refactoring meiner Codebasis"
 
 ```
+Datenschutz kritisch? → NEIN (eigener Code, kein IP-Problem)
 Einmalig & persönlich? → NEIN
-Große Datenmengen oder Logik? → NEIN
+Große Datenmengen? → NEIN
 Vollautomatisch? → NEIN
 Tool für Dritte? → NEIN
 Lösungsweg unklar? → JA (explorativ)
-Datenschutz kritisch? → NEIN (eigener Code)
-→ Agenten Cloud (Claude Code) ✅
+→ Agenten (Claude Code) ✅
 ```
 
 ### Beispiel 8: "Täglicher automatischer Social-Media-Report"
 
 ```
-Einmalig & persönlich? → NEIN
-Große Datenmengen oder Logik? → NEIN
-Vollautomatisch? Event-Trigger? → JA (täglich)
 Datenschutz kritisch? → NEIN
-→ Make / n8n Cloud ✅
+Einmalig & persönlich? → NEIN
+Große Datenmengen? → NEIN
+Vollautomatisch? → JA (täglich)
+→ Make oder n8n ✅
 ```
 
 ### Beispiel 9: "Persönlicher Mathe-Tutor mit meinem Lernstil"
 
 ```
+Datenschutz kritisch? → NEIN
 Einmalig & persönlich? → NEIN (wiederkehrend)
-Große Datenmengen oder Logik? → NEIN
+Große Datenmengen? → NEIN
 Vollautomatisch? → NEIN
 Tool für Dritte? → NEIN
 Lösungsweg unklar? → NEIN (klare Instructions)
-Datenschutz kritisch? → NEIN
-→ Custom GPTs / Skills ✅
+→ Custom GPTs ✅
 ```
 
 ### Beispiel 10: "Anwaltsschriftsätze auf Präzedenzfälle prüfen"
 
 ```
-Einmalig & persönlich? → NEIN
-Große Datenmengen oder Logik? → JA (komplexe Analyse)
 Datenschutz kritisch? → JA (Mandantengeheimnis!)
-→ Python lokal mit Ollama ✅
+Was steht im Vordergrund? → Daten/Expert
+→ Python + Ollama ✅
 ```
 
 ## Wichtige Prinzipien für die Praxis
 
-### 1. **Aufgabentyp zuerst**
+### 1. **Datenschutz first**
 
-Die Art der Aufgabe bestimmt die Tool-Kategorie. Erst danach entscheidet der Datenschutz über Cloud vs. Lokal.
+Niemals mit der technischen Lösung beginnen, bevor Datenschutz geklärt ist. Ein nachträglicher Wechsel von Cloud zu On-Premise ist aufwendig und teuer.
 
-### 2. **Datenschutz als Deployment-Entscheidung**
-
-Datenschutz ist kein Filter, der Optionen ausschließt, sondern bestimmt die **Variante** innerhalb der gewählten Tool-Kategorie:
-
-|Aufgabentyp|Cloud-Variante|Lokale Variante|
-|---|---|---|
-|Chat|ChatGPT, Claude|Ollama, LM Studio|
-|Python|Cloud-APIs|Ollama Library|
-|Workflow|Make, n8n Cloud|n8n self-hosted|
-|App-Builder|Dify Cloud, Stack AI|Dify self-hosted|
-|Agenten|Claude Code, LangGraph|Claude Code + Ollama|
-|Custom|Custom GPTs, Skills|Open WebUI|
-
-### 3. **Start Simple, Scale Later**
+### 2. **Start Simple, Scale Later**
 
 Immer mit dem einfachsten Lösungsweg beginnen. Ein Chat reicht oft aus. Wenn dieselbe Aufgabe zum 10. Mal manuell gemacht wird, sollte automatisiert werden.
 
-### 4. **Die "3-Mal-Regel"**
+### 3. **Die "3-Mal-Regel"**
 
 Wenn eine Aufgabe zum dritten Mal manuell ausgeführt wird, lohnt sich Automatisierung.
 
-### 5. **Kosten im Blick behalten**
+### 4. **Kosten im Blick behalten**
 
 - **Chat:** 0-20€/Monat, überschaubar
 - **Workflows:** Vorsicht bei vielen Steps (Pay-per-Operation)
@@ -523,7 +574,7 @@ Wenn eine Aufgabe zum dritten Mal manuell ausgeführt wird, lohnt sich Automatis
 - **Lokale LLMs:** Nur Hardware + Strom
 - **App-Builder:** Mittelfeld, oft Freemium-Modelle
 
-### 6. **Kombinieren ist erlaubt**
+### 5. **Kombinieren ist erlaubt**
 
 Die beste Lösung ist oft eine Kombination:
 
@@ -531,34 +582,43 @@ Die beste Lösung ist oft eine Kombination:
 - Python verarbeitet komplexe Berechnungen
 - Ergebnis wird in App-Builder als Chatbot verfügbar gemacht
 
-### 7. **Der Datenschutz-Reality-Check**
+### 6. **Der Datenschutz-Reality-Check**
 
 Bei Unsicherheit: Lieber zu vorsichtig als zu nachlässig. Bußgelder bei DSGVO-Verstößen können existenzbedrohend sein.
 
 ## Häufige Anfängerfehler
 
-❌ **"Datenschutz ignorieren":** Patientendaten direkt zu ChatGPT senden ✅ **Besser:** Nach Aufgabentyp die passende lokale Variante wählen
+❌ **"Datenschutz ignorieren":** Patientendaten direkt zu ChatGPT senden
+✅ **Besser:** Datenschutz-Anforderungen zuerst klären, dann Tool wählen
 
-❌ **"Over-Engineering":** Python-Skript für etwas schreiben, das ChatGPT in 10 Sekunden erledigt ✅ **Besser:** Die Frage stellen: "Wird das wirklich gebraucht?"
+❌ **"Over-Engineering":** Python-Skript für etwas schreiben, das ChatGPT in 10 Sekunden erledigt
+✅ **Besser:** Die Frage stellen: "Wird das wirklich gebraucht?"
 
-❌ **"Under-Engineering":** Versuch, 10.000 Datensätze in Make zu verarbeiten ✅ **Besser:** Bei großen Datenmengen direkt zu Python wechseln
+❌ **"Under-Engineering":** Versuch, 10.000 Datensätze in Make zu verarbeiten
+✅ **Besser:** Bei großen Datenmengen direkt zu Python wechseln
 
-❌ **"Tool-Verliebheit":** "Jetzt wird Dify gelernt, weil es cool ist" ✅ **Besser:** Aufgabengetrieben denken, nicht tool-getrieben
+❌ **"Tool-Verliebheit":** "Jetzt wird Dify gelernt, weil es cool ist"
+✅ **Besser:** Aufgabengetrieben denken, nicht tool-getrieben
 
-❌ **"Agenten überschätzen":** Agenten für einfache, deterministische Aufgaben einsetzen ✅ **Besser:** Agenten nur bei wirklich unklarem Lösungsweg nutzen
+❌ **"Agenten überschätzen":** Agenten für einfache, deterministische Aufgaben einsetzen
+✅ **Besser:** Agenten nur bei wirklich unklarem Lösungsweg nutzen
 
-❌ **"Cloud-First-Denken":** Standardmäßig Cloud-Tools wählen ✅ **Besser:** Bewusst entscheiden: Cloud vs. Self-Hosted vs. Lokal
+❌ **"Cloud-First-Denken":** Standardmäßig Cloud-Tools wählen
+✅ **Besser:** Bewusst entscheiden: Cloud vs. Self-Hosted vs. Lokal
 
 ## Zusammenfassung: Die Faustregel
 
-|Primärfrage|Tool-Kategorie|Cloud-Variante|Lokale Variante|
+|Ziel|Datenschutz|Primäre Fragen|Tool-Empfehlung|
 |---|---|---|---|
-|Einmalig & persönlich?|**Chat**|ChatGPT, Claude|Ollama, LM Studio|
-|Große Daten/Logik?|**Python**|Cloud-APIs|Ollama Library|
-|Vollautomatisch?|**Workflow**|Make, n8n Cloud|n8n self-hosted|
-|Tool für Dritte?|**App-Builder**|Dify, Stack AI|Dify self-hosted|
-|Lösungsweg unklar?|**Agenten**|Claude Code, LangGraph|Claude Code + Ollama|
-|Wiederkehrend persönlich?|**Custom**|Custom GPTs, Skills|Open WebUI|
+|Schnelle Hilfe|Unkritisch|Einmalig? Persönlich?|**Chat**|
+|Sensible Workflows|**KRITISCH**|Automatisierung?|**n8n self-hosted**|
+|Team-Tool sensitiv|**KRITISCH**|Interface nötig?|**Dify self-hosted**|
+|Große Daten sensitiv|**KRITISCH**|Datenverarbeitung?|**Python + Ollama**|
+|Prozess automatisieren|Unkritisch|Events? Trigger?|**Make/n8n**|
+|App für andere|Unkritisch|UI für Team?|**Dify/Stack AI**|
+|Große Daten|Unkritisch|>1000 Items?|**Python & APIs**|
+|Autonome Exploration|Unkritisch|Weg unklar?|**Agenten**|
+|Persönliche Erweiterung|Unkritisch|Wiederkehrend?|**Custom GPTs**|
 
 ## Datenschutz-Entscheidungshilfe
 
@@ -697,8 +757,7 @@ Die Grenzen zwischen den Lösungswegen werden zunehmend fließend:
 
 ## Checkliste vor der Tool-Wahl
 
-- [ ] Aufgabencharakter bestimmt? (einmalig, Daten, Automatisierung, Interface, explorativ)
-- [ ] Datenschutz-Anforderungen geklärt? (Cloud vs. Lokal)
+- [ ] Datenschutz-Anforderungen geklärt?
 - [ ] Datenvolumen geschätzt?
 - [ ] Frequenz der Nutzung bekannt?
 - [ ] Zielgruppe definiert (persönlich/Team)?
@@ -709,12 +768,11 @@ Die Grenzen zwischen den Lösungswegen werden zunehmend fließend:
 - [ ] Skalierbarkeit geprüft?
 - [ ] Exit-Strategie überlegt?
 
-Die Welt der generativen KI ist komplex, aber mit dieser systematischen Herangehensweise lässt sich für jede Aufgabe der richtige Einstieg finden. Der Schlüssel liegt darin, **aufgabengetrieben** statt tool-getrieben zu denken und dann die passende **Deployment-Variante** (Cloud vs. Lokal) basierend auf Datenschutzanforderungen zu wählen.
+Die Welt der generativen KI ist komplex, aber mit dieser systematischen Herangehensweise lässt sich für jede Aufgabe der richtige Einstieg finden. Der Schlüssel liegt darin, **Datenschutz zuerst** zu klären und dann **aufgabengetrieben** statt tool-getrieben zu denken.
+
 
 ---
 
-**Version:** 2.0  
-**Stand:** Februar 2026  
-**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
-
-   
+**Version:** 1.0       
+**Stand:** Februar 2026            
+**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.        
