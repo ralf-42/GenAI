@@ -8,7 +8,7 @@ permalink: /
 
 # Generative KI
 
-> **Generative KI. Verstehen. Anwenden. Gestalten.**
+> **Generative KI. Verstehen. Anwenden. Gestalten.**       
 > Praktische Anwendung von Sprachmodellen, LangChain und modernen Foundation Models
 
 
