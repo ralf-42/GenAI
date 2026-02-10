@@ -285,74 +285,63 @@ Vor der Wahl des Lösungswegs sollten (mindestens) folgende Aspekte geklärt wer
 
 ```mermaid
 graph TD
-    Start[Aufgabe für KI vorhanden] --> QData{⚠️ DATENSCHUTZ<br/>KRITISCH?}
+    Start[Aufgabe für KI vorhanden] --> Q1{Einmalig &<br/>persönlich?}
 
-    %% === DATENSCHUTZ KRITISCH (On-Premise) ===
-    QData -->|Ja| Q1a{Einmalig &<br/>persönlich?}
+    %% === FLOW: KOMPLEXITÄT ZUERST ===
+    Q1 -->|Ja| Privacy_Chat{⚠️ DATENSCHUTZ<br/>KRITISCH?}
     
-    Q1a -->|Ja| Chat_Local[<b>CHAT</b><br/>Ollama / LM Studio]
+    Q1 -->|Nein| Q2{Große Datenmengen<br/>oder Logik?}
+    Q2 -->|Ja| Privacy_Python{⚠️ DATENSCHUTZ<br/>KRITISCH?}
     
-    Q1a -->|Nein| Q2a{Große Datenmengen<br/>oder komplexe<br/>Logik?}
+    Q2 -->|Nein| Q3{Vollautomatisch?<br/>Event-Trigger?}
+    Q3 -->|Ja| Privacy_Workflow{⚠️ DATENSCHUTZ<br/>KRITISCH?}
     
-    Q2a -->|Ja| Python_Local[<b>PYTHON + Ollama</b><br/><i>Lokale Verarbeitung</i>]
+    Q3 -->|Nein| Q4{Tool für Dritte?<br/>Interface nötig?}
+    Q4 -->|Ja| Privacy_App{⚠️ DATENSCHUTZ<br/>KRITISCH?}
     
-    Q2a -->|Nein| Q3a{Vollautomatisch?<br/>Event-Trigger?}
-    
-    Q3a -->|Ja| Workflow_Local[<b>n8n self-hosted</b><br/><i>Lokale Automatisierung</i>]
-    
-    Q3a -->|Nein| Q4a{Tool für Dritte?<br/>Interface nötig?}
-    
-    Q4a -->|Ja| AppBuilder_Local[<b>Dify self-hosted</b><br/><i>Lokales RAG / UI</i>]
-    
-    Q4a -->|Nein| Q5a{Lösungsweg<br/>unklar?}
-    
-    Q5a -->|Ja| Agents_Local[<b>AGENTEN lokal</b><br/>Claude Code + Ollama]
-    
-    Q5a -->|Nein| Custom_Local[<b>Lokale Assistenten</b><br/>Ollama + Open WebUI]
+    Q4 -->|Nein| Q5{Lösungsweg<br/>unklar?}
+    Q5 -->|Ja| Privacy_Agents{⚠️ DATENSCHUTZ<br/>KRITISCH?}
+    Q5 -->|Nein| Privacy_Custom{⚠️ DATENSCHUTZ<br/>KRITISCH?}
 
-    %% === DATENSCHUTZ UNKRITISCH (Cloud) ===
-    QData -->|Nein| Q1b{Einmalig &<br/>persönlich?}
-    
-    Q1b -->|Ja| Chat_Cloud[<b>CHAT</b><br/>ChatGPT, Claude]
-    
-    Q1b -->|Nein| Q2b{Große Datenmengen<br/>oder komplexe<br/>Logik?}
-    
-    Q2b -->|Ja| Python_Cloud[<b>PYTHON & APIs</b><br/><i>Cloud-LLM-APIs</i>]
-    
-    Q2b -->|Nein| Q3b{Vollautomatisch?<br/>Event-Trigger?}
-    
-    Q3b -->|Ja| Workflow_Cloud[<b>Make / n8n Cloud</b><br/><i>Automatisierung</i>]
-    
-    Q3b -->|Nein| Q4b{Tool für Dritte?<br/>Interface nötig?}
-    
-    Q4b -->|Ja| AppBuilder_Cloud[<b>Dify / Stack AI</b><br/><i>App-Builder / RAG</i>]
-    
-    Q4b -->|Nein| Q5b{Lösungsweg<br/>unklar?}
-    
-    Q5b -->|Ja| Agents_Cloud[<b>AGENTEN</b><br/>Claude Code, LangGraph]
-    
-    Q5b -->|Nein| Custom_Cloud[<b>Custom GPTs / Skills</b>]
+    %% === FINALE ENTSCHEIDUNGEN (LEAFS) ===
+
+    %% Chat
+    Privacy_Chat -->|Ja| Chat_Local[<b>CHAT LOKAL</b><br/>Ollama / LM Studio]
+    Privacy_Chat -->|Nein| Chat_Cloud[<b>CHAT CLOUD</b><br/>ChatGPT / Claude]
+
+    %% Python
+    Privacy_Python -->|Ja| Python_Local[<b>PYTHON LOKAL</b><br/>Ollama Library]
+    Privacy_Python -->|Nein| Python_Cloud[<b>PYTHON & APIs</b><br/>Cloud-LLM-APIs]
+
+    %% Workflow
+    Privacy_Workflow -->|Ja| Workflow_Local[<b>n8n self-hosted</b>]
+    Privacy_Workflow -->|Nein| Workflow_Cloud[<b>Make / n8n Cloud</b>]
+
+    %% App Builder
+    Privacy_App -->|Ja| AppBuilder_Local[<b>Dify self-hosted</b>]
+    Privacy_App -->|Nein| AppBuilder_Cloud[<b>Dify / Stack AI</b>]
+
+    %% Agents
+    Privacy_Agents -->|Ja| Agents_Local[<b>AGENTEN LOKAL</b><br/>Claude Code + Ollama]
+    Privacy_Agents -->|Nein| Agents_Cloud[<b>AGENTEN CLOUD</b><br/>Claude Code / LangGraph]
+
+    %% Custom
+    Privacy_Custom -->|Ja| Custom_Local[<b>Assistenten lokal</b><br/>Open WebUI]
+    Privacy_Custom -->|Nein| Custom_Cloud[<b>Custom GPTs / Skills</b>]
 
     %% === STYLING ===
     
     %% Datenschutz-Knoten (Orange)
-    style QData fill:#ffcc80,stroke:#e65100,stroke-width:3px
-    
-    %% On-Premise Pfad (Rot-Töne)
-    style Chat_Local fill:#ffcdd2,stroke:#c62828
-    style Python_Local fill:#ffcdd2,stroke:#c62828
-    style Workflow_Local fill:#ffcdd2,stroke:#c62828
-    style AppBuilder_Local fill:#ffcdd2,stroke:#c62828
-    style Agents_Local fill:#ffcdd2,stroke:#c62828
-    style Custom_Local fill:#ffcdd2,stroke:#c62828
-    
-    %% Cloud Pfad (Blau/Grün-Töne)
-    style Chat_Cloud fill:#c8e6c9,stroke:#2e7d32
-    style Python_Cloud fill:#bbdefb,stroke:#1565c0
-    style Workflow_Cloud fill:#b3e5fc,stroke:#0277bd
-    style AppBuilder_Cloud fill:#fff9c4,stroke:#f9a825
-    style Agents_Cloud fill:#e1bee7,stroke:#7b1fa2
-    style Custom_Cloud fill:#c8e6c9,stroke:#2e7d32
+    classDef privacy fill:#ffcc80,stroke:#e65100,stroke-width:2px
+    class Privacy_Chat,Privacy_Python,Privacy_Workflow,Privacy_App,Privacy_Agents,Privacy_Custom privacy
+
+    %% Lokale Lösungen (Rot)
+    classDef local fill:#ffcdd2,stroke:#c62828
+    class Chat_Local,Python_Local,Workflow_Local,AppBuilder_Local,Agents_Local,Custom_Local local
+
+    %% Cloud Lösungen (Blau)
+    classDef cloud fill:#bbdefb,stroke:#1565c0
+    class Chat_Cloud,Python_Cloud,Workflow_Cloud,AppBuilder_Cloud,Agents_Cloud,Custom_Cloud cloud
 ```
 
 ## Erläuterung der Entscheidungslogik
