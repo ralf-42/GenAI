@@ -1,16 +1,16 @@
 ---
 layout: default
-title: Probleme & Lösungen
+title: Aufgabenklassen & Lösungswege
 parent: Konzepte
 nav_order: 0
 description: Wie sich für konkrete Aufgaben der richtige GenAI-Lösungsweg finden lässt
 has_toc: true
 ---
 
-# Problemklassen & Lösungswege 
+# Aufgabenklassen & Lösungswege 
 {: .no_toc }
 
-> **Das Problem bestimmt das Tool**         
+> **Die Aufgabe bestimmt das Tool**         
 > Wie sich für konkrete Aufgaben der richtige GenAI-Lösungsweg finden lässt – von Chat über Automation bis hin zu Agenten-Systemen
 
 ---
@@ -29,11 +29,11 @@ Wer heute mit generativer Künstlicher Intelligenz (GenAI) arbeiten möchte, ste
 
 Die gute Nachricht: Es gibt eine Logik dahinter. Dieser Text zeigt, wie sich für konkrete Aufgaben der richtige Lösungsweg finden lässt – ohne dass bereits Expertise vorhanden sein muss.
 
-## Die zentrale Erkenntnis: Das Problem bestimmt das Tool
+## Die zentrale Erkenntnis: Die Aufgabe bestimmt das Tool
 
-Viele Anfänger machen denselben Fehler: Ein Tool wird gelernt (z.B. ChatGPT) und dann wird versucht, damit alle Probleme zu lösen. Das ist, als würde man mit einem Hammer sowohl Nägel einschlagen als auch Suppe essen wollen.
+Viele Anfänger machen denselben Fehler: Ein Tool wird gelernt (z.B. ChatGPT) und dann wird versucht, damit alle Aufgaben zu lösen. Das ist, als würde man mit einem Hammer sowohl Nägel einschlagen als auch Suppe essen wollen.
 
-**Besser:** Erst das Problem verstehen, dann das passende Werkzeug wählen.
+**Besser:** Erst die Aufgabe verstehen, dann das passende Werkzeug wählen.
 
 ## Die Entscheidungskriterien im Überblick
 
@@ -49,7 +49,7 @@ Vor der Wahl des Lösungswegs sollten (mindestens) folgende Aspekte geklärt wer
 
 ### 2. Frequenz und Komplexität
 
-- **Einmalig/persönlich:** Schnelle Antwort für aktuelles Problem
+- **Einmalig/persönlich:** Schnelle Antwort für aktuelle Aufgabe
 - **Große Datenmengen:** >1000 Datensätze, komplexe Verarbeitung
 - **Wiederkehrend automatisiert:** Regelmäßige automatische Ausführung
 
@@ -188,7 +188,7 @@ Vor der Wahl des Lösungswegs sollten (mindestens) folgende Aspekte geklärt wer
 
 **Wann nutzen?**
 
-- Die KI soll eigenständig Probleme lösen
+- Die KI soll eigenständig Aufgaben lösen
 - Der genaue Lösungsweg ist vorher nicht bekannt
 - Zugriff auf lokale Dateien und Tools nötig
 - Explorative oder Research-Aufgaben
@@ -203,7 +203,7 @@ Vor der Wahl des Lösungswegs sollten (mindestens) folgende Aspekte geklärt wer
 
 **Vorteile:**
 
-- ✅ Autonomes Problemlösen
+- ✅ Autonome Aufgabenlösung
 - ✅ Zugriff auf lokales Dateisystem (MCP)
 - ✅ Ideal für explorative Aufgaben
 - ✅ Multi-Step-Reasoning
@@ -285,57 +285,74 @@ Vor der Wahl des Lösungswegs sollten (mindestens) folgende Aspekte geklärt wer
 
 ```mermaid
 graph TD
-    Start[Aufgabe für KI vorhanden] --> QDataFirst{⚠️ DATENSCHUTZ<br/>KRITISCH?}
+    Start[Aufgabe für KI vorhanden] --> QData{⚠️ DATENSCHUTZ<br/>KRITISCH?}
 
-    %% --- SICHERER PFAD (ROT) ---
-    QDataFirst -->|Ja| SecurePath{Was steht im<br/>Vordergrund?}
-    SecurePath -->|Workflow| SecureWorkflow[<b>n8n</b> self-hosted]
-    SecurePath -->|Team/RAG| SecureDify[<b>Dify</b> self-hosted]
-    SecurePath -->|Daten/Expert| SecurePython[<b>Python + Ollama</b>]
+    %% === DATENSCHUTZ KRITISCH (On-Premise) ===
+    QData -->|Ja| Q1a{Einmalig &<br/>persönlich?}
+    
+    Q1a -->|Ja| Chat_Local[<b>CHAT</b><br/>Ollama / LM Studio]
+    
+    Q1a -->|Nein| Q2a{Große Datenmengen<br/>oder komplexe<br/>Logik?}
+    
+    Q2a -->|Ja| Python_Local[<b>PYTHON + Ollama</b><br/><i>Lokale Verarbeitung</i>]
+    
+    Q2a -->|Nein| Q3a{Vollautomatisch?<br/>Event-Trigger?}
+    
+    Q3a -->|Ja| Workflow_Local[<b>n8n self-hosted</b><br/><i>Lokale Automatisierung</i>]
+    
+    Q3a -->|Nein| Q4a{Tool für Dritte?<br/>Interface nötig?}
+    
+    Q4a -->|Ja| AppBuilder_Local[<b>Dify self-hosted</b><br/><i>Lokales RAG / UI</i>]
+    
+    Q4a -->|Nein| Q5a{Lösungsweg<br/>unklar?}
+    
+    Q5a -->|Ja| Agents_Local[<b>AGENTEN lokal</b><br/>Claude Code + Ollama]
+    
+    Q5a -->|Nein| Custom_Local[<b>Lokale Assistenten</b><br/>Ollama + Open WebUI]
 
-    %% --- CLOUD PFAD ---
-    QDataFirst -->|Nein| Q1{Einmalig &<br/>persönlich?}
+    %% === DATENSCHUTZ UNKRITISCH (Cloud) ===
+    QData -->|Nein| Q1b{Einmalig &<br/>persönlich?}
+    
+    Q1b -->|Ja| Chat_Cloud[<b>CHAT</b><br/>ChatGPT, Claude]
+    
+    Q1b -->|Nein| Q2b{Große Datenmengen<br/>oder komplexe<br/>Logik?}
+    
+    Q2b -->|Ja| Python_Cloud[<b>PYTHON & APIs</b><br/><i>Cloud-LLM-APIs</i>]
+    
+    Q2b -->|Nein| Q3b{Vollautomatisch?<br/>Event-Trigger?}
+    
+    Q3b -->|Ja| Workflow_Cloud[<b>Make / n8n Cloud</b><br/><i>Automatisierung</i>]
+    
+    Q3b -->|Nein| Q4b{Tool für Dritte?<br/>Interface nötig?}
+    
+    Q4b -->|Ja| AppBuilder_Cloud[<b>Dify / Stack AI</b><br/><i>App-Builder / RAG</i>]
+    
+    Q4b -->|Nein| Q5b{Lösungsweg<br/>unklar?}
+    
+    Q5b -->|Ja| Agents_Cloud[<b>AGENTEN</b><br/>Claude Code, LangGraph]
+    
+    Q5b -->|Nein| Custom_Cloud[<b>Custom GPTs / Skills</b>]
 
-    Q1 -->|Ja| Chat[<b>CHAT</b><br/>ChatGPT, Claude]
-
-    Q1 -->|Nein| QComplex{Große Datenmengen<br/>oder extrem<br/>komplexe Logik?}
-
-    %% Python Pfad
-    QComplex -->|Ja| Python[<b>PYTHON & APIs</b><br/><i>Skripte / Custom Apps</i>]
-
-    %% Standard Business Pfad
-    QComplex -->|Nein| Q2{Vollautomatisch?<br/>Trigger durch<br/>Events?}
-
-    Q2 -->|Ja| Workflow2[<b>Make oder n8n</b><br/><i>Automatisierung</i>]
-
-    Q2 -->|Nein| Q3{Tool für Dritte?<br/>Interface nötig?}
-
-    Q3 -->|Ja| AppBuilder[<b>Dify / Stack AI</b><br/><i>App-Builder / RAG</i>]
-
-    Q3 -->|Nein| Q6{Lösungsweg<br/>unklar?}
-
-    Q6 -->|Ja| Agents[<b>AGENTEN</b><br/>LangGraph, Claude Code]
-
-    Q6 -->|Nein| ChatAdv[<b>Custom GPTs / Skills</b>]
-
-    %% --- FARB-DEFINITIONEN ---
-
-    %% Sicherheit (Rot/Orange)
-    style SecureWorkflow fill:#ff9999,stroke:#333
-    style SecureDify fill:#ff9999,stroke:#333
-    style SecurePython fill:#ff9999,stroke:#333
-
-    %% Expert / Code (Violett)
-    style Python fill:#d1b3ff,stroke:#333
-    style Agents fill:#d1b3ff,stroke:#333
-
-    %% Automatisierung (Blau)
-    style Workflow2 fill:#99ccff,stroke:#333
-
-    %% Interfaces (Grün/Gelb)
-    style Chat fill:#ccffcc,stroke:#333
-    style AppBuilder fill:#ffffcc,stroke:#333
-    style ChatAdv fill:#ccffcc,stroke:#333
+    %% === STYLING ===
+    
+    %% Datenschutz-Knoten (Orange)
+    style QData fill:#ffcc80,stroke:#e65100,stroke-width:3px
+    
+    %% On-Premise Pfad (Rot-Töne)
+    style Chat_Local fill:#ffcdd2,stroke:#c62828
+    style Python_Local fill:#ffcdd2,stroke:#c62828
+    style Workflow_Local fill:#ffcdd2,stroke:#c62828
+    style AppBuilder_Local fill:#ffcdd2,stroke:#c62828
+    style Agents_Local fill:#ffcdd2,stroke:#c62828
+    style Custom_Local fill:#ffcdd2,stroke:#c62828
+    
+    %% Cloud Pfad (Blau/Grün-Töne)
+    style Chat_Cloud fill:#c8e6c9,stroke:#2e7d32
+    style Python_Cloud fill:#bbdefb,stroke:#1565c0
+    style Workflow_Cloud fill:#b3e5fc,stroke:#0277bd
+    style AppBuilder_Cloud fill:#fff9c4,stroke:#f9a825
+    style Agents_Cloud fill:#e1bee7,stroke:#7b1fa2
+    style Custom_Cloud fill:#c8e6c9,stroke:#2e7d32
 ```
 
 ## Erläuterung der Entscheidungslogik
@@ -439,7 +456,7 @@ Falls kein Interface für andere: **Ist der Lösungsweg unklar? Soll die KI expl
 
 - Forschungsaufgaben
 - Code-Analyse und Debugging
-- Unbekannter Problemraum
+- Unklarer Aufgabenbereich
 
 **NEIN → Custom GPTs / Skills**
 
@@ -592,7 +609,7 @@ Bei Unsicherheit: Lieber zu vorsichtig als zu nachlässig. Bußgelder bei DSGVO-
 ✅ **Besser:** Bei großen Datenmengen direkt zu Python wechseln
 
 ❌ **"Tool-Verliebheit":** "Jetzt wird Dify gelernt, weil es cool ist"
-✅ **Besser:** Problemgetrieben denken, nicht tool-getrieben
+✅ **Besser:** Aufgabengetrieben denken, nicht tool-getrieben
 
 ❌ **"Agenten überschätzen":** Agenten für einfache, deterministische Aufgaben einsetzen
 ✅ **Besser:** Agenten nur bei wirklich unklarem Lösungsweg nutzen
@@ -744,7 +761,7 @@ Die Grenzen zwischen den Lösungswegen werden zunehmend fließend:
 
 **Die wichtigste Kompetenz** wird nicht sein, ein spezifisches Tool zu beherrschen, sondern:
 
-- Probleme richtig zu klassifizieren
+- Aufgaben richtig zu klassifizieren
 - Trade-offs zu verstehen (Kosten, Zeit, Kontrolle, Datenschutz)
 - Architekturentscheidungen zu treffen
 - Datenschutz-Compliance sicherzustellen
@@ -762,7 +779,7 @@ Die Grenzen zwischen den Lösungswegen werden zunehmend fließend:
 - [ ] Skalierbarkeit geprüft?
 - [ ] Exit-Strategie überlegt?
 
-Die Welt der generativen KI ist komplex, aber mit dieser systematischen Herangehensweise lässt sich für jede Aufgabe der richtige Einstieg finden. Der Schlüssel liegt darin, **Datenschutz zuerst** zu klären und dann **problemgetrieben** statt tool-getrieben zu denken.
+Die Welt der generativen KI ist komplex, aber mit dieser systematischen Herangehensweise lässt sich für jede Aufgabe der richtige Einstieg finden. Der Schlüssel liegt darin, **Datenschutz zuerst** zu klären und dann **aufgabengetrieben** statt tool-getrieben zu denken.
 
 
 ---
