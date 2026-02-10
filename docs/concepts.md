@@ -11,7 +11,7 @@ description: "Theoretische Grundlagen und technische Konzepte"
 Theoretische Grundlagen, technische Konzepte und fundamentale Prinzipien der generativen KI.  
 
 ## Orientierung & Strategie      
-- [Probleme & Lösungen](./concepts/Problemklassen_und_Loesungswege.html) - Das richtige Tool für die Aufgabe
+- [Aufgabenklassen & Lösungswege](./concepts/Aufgabenklassen_und_Loesungswege.html) - Das richtige Tool für die Aufgabe
   - 7 Lösungswege: Chat, Workflow, App-Builder, Python, Agenten, Lokale LLMs, Custom GPTs
   - Entscheidungsbaum mit Datenschutz als Killer-Kriterium
   - 10 Praxisbeispiele mit Entscheidungspfaden
