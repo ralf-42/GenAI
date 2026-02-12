@@ -185,32 +185,45 @@ sequenceDiagram
 
 #### 7. `load_chat_prompt_template(path)`
 
-Lädt Prompt-Templates aus Python-Dateien.
+Lädt Prompt-Templates aus Markdown-Dateien (.md) oder Python-Dateien (.py, Abwärtskompatibilität).
 
 ```python
 from genai_lib.utilities import load_chat_prompt_template
 
-# Lokal
-prompt = load_chat_prompt_template('05_prompt/qa_prompt.py')
+# Lokal (Markdown-Format, empfohlen)
+prompt = load_chat_prompt_template('05_prompt/sql_prompt.md')
 
 # Von GitHub (tree oder blob URLs werden automatisch konvertiert)
 prompt = load_chat_prompt_template(
-    'https://github.com/ralf-42/GenAI/blob/main/05_prompt/text_zusammenfassung.py'
-)
-
-# Oder mit tree-URL
-prompt = load_chat_prompt_template(
-    'https://github.com/user/repo/tree/main/prompts/qa_prompt.py'
+    'https://github.com/ralf-42/GenAI/blob/main/05_prompt/text_zusammenfassung.md'
 )
 ```
 
-**Template-Format (qa_prompt.py):**
-```python
-messages = [
-    ("system", "{system_prompt}"),
-    ("human", "Question: {question}\n\nContext: {context}\n\nAnswer:")
-]
+**Template-Format (Markdown, empfohlen):**
+```markdown
+---
+name: rag_prompt
+description: RAG-Prompt für Question-Answering
+variables: [system_prompt, question, context]
+---
+
+## system
+
+{system_prompt}
+
+## human
+
+Question: {question}
+
+Context: {context}
+
+Answer:
 ```
+
+**Format-Konvention:**
+- YAML-Frontmatter: Metadaten (name, description, variables)
+- `## system` / `## human`: Message-Rollen als H2-Headings
+- `{variable}`: Platzhalter wie bei ChatPromptTemplate
 
 #### 8. `extract_thinking(response)` 🆕
 

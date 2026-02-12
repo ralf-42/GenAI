@@ -563,58 +563,140 @@ def _convert_github_tree_to_raw(url):
     return url
 
 
+def _parse_md_prompt(content):
+    """
+    Parst eine Markdown-Prompt-Datei und extrahiert die Messages.
+
+    Erwartetes Format:
+        ---
+        name: template_name
+        description: Beschreibung
+        variables: [var1, var2]
+        ---
+
+        ## system
+
+        System-Prompt-Text mit {var1} Platzhaltern...
+
+        ## human
+
+        Human-Prompt-Text mit {var2} Platzhaltern...
+
+    Args:
+        content (str): Inhalt der Markdown-Datei
+
+    Returns:
+        list[tuple]: Liste von (role, content) Tuples für ChatPromptTemplate
+    """
+    # Frontmatter entfernen (optional)
+    body = re.sub(r'^---\s*\n.*?\n---\s*\n', '', content, count=1, flags=re.DOTALL)
+
+    # Messages anhand von ## Headings splitten
+    sections = re.split(r'^##\s+', body, flags=re.MULTILINE)
+
+    messages = []
+    for section in sections:
+        section = section.strip()
+        if not section:
+            continue
+
+        # Erste Zeile = Rollenname, Rest = Inhalt
+        lines = section.split('\n', 1)
+        role = lines[0].strip().lower()
+
+        if role not in ('system', 'human', 'ai', 'assistant'):
+            continue
+
+        # 'assistant' → 'ai' für LangChain Kompatibilität
+        if role == 'assistant':
+            role = 'ai'
+
+        msg_content = lines[1].strip() if len(lines) > 1 else ''
+        messages.append((role, msg_content))
+
+    if not messages:
+        raise KeyError("Markdown prompt file must contain at least one ## system or ## human section.")
+
+    return messages
+
+
 def load_chat_prompt_template(path):
     """
-    Lädt ein Python-basiertes Prompt-Template (.py) und erzeugt ein ChatPromptTemplate-Objekt.
+    Lädt ein Prompt-Template (.md oder .py) und erzeugt ein ChatPromptTemplate-Objekt.
 
-    Ein Prompt-Template wird in einer separaten .py-Datei definiert,
-    die eine Variable `messages` enthält. Diese Struktur kann leicht
-    versioniert und in Kursprojekten oder RAG-Pipelines wiederverwendet werden.
+    Empfohlenes Format: Markdown (.md) mit YAML-Frontmatter und ## Headings.
 
-    Beispiel Prompt-Datei:
+    Beispiel Markdown-Datei (empfohlen):
+        ---
+        name: text_zusammenfassung
+        description: Erstellt prägnante Textzusammenfassungen
+        variables: [text]
+        ---
+
+        ## system
+
+        Du bist ein Experte für Textzusammenfassungen.
+
+        ## human
+
+        Bitte fasse folgenden Text zusammen: {text}
+
+    Python-Dateien (.py) werden weiterhin unterstützt (Abwärtskompatibilität):
         messages = [
-            ("system", "{system_prompt}"),
-            ("human",
-             "You are an assistant for question-answering tasks. "
-             "Use the following pieces of retrieved context to answer the question. "
-             "If you don't know the answer, just say that you don't know. "
-             "Use three sentences maximum and keep the answer concise.\n\n"
-             "Question: {question}\n\nContext: {context}\n\nAnswer:")
+            ("system", "System-Prompt..."),
+            ("human", "Human-Prompt mit {variable}...")
         ]
 
     Unterstützt:
-      - lokale Pfade (z. B. '05_prompt/qa_prompt.py')
+      - lokale Pfade (z. B. '05_prompt/sql_prompt.md')
       - GitHub-Tree-Links (automatische Umwandlung in Raw-Link)
       - GitHub-Blob-Links (automatische Umwandlung in Raw-Link)
       - direkte Raw-Links
 
     Args:
-        path (str): Pfad zur .py-Datei (lokal oder URL)
+        path (str): Pfad zur .md- oder .py-Datei (lokal oder URL)
 
     Returns:
         ChatPromptTemplate: Ein von LangChain nutzbares Prompt-Template-Objekt.
 
     Raises:
-        ValueError: Wenn die Datei keine .py-Datei ist
-        KeyError: Wenn die Datei keine 'messages'-Variable enthält
+        ValueError: Wenn die Datei weder .md noch .py ist
+        KeyError: Wenn die Datei keine gültigen Message-Sections enthält
     """
     # GitHub-Tree-URL automatisch umwandeln
+    original_path = path
     path = _convert_github_tree_to_raw(path)
 
-    # Falls URL → herunterladen und temporär speichern
+    # Dateiendung bestimmen (vor eventuellem Download)
+    is_markdown = original_path.rstrip('/').endswith('.md')
+    is_python = original_path.rstrip('/').endswith('.py')
+
+    if not is_markdown and not is_python:
+        raise ValueError("Only .md and .py prompt files are supported.")
+
+    # Falls URL → herunterladen
     if path.startswith("http"):
         response = requests.get(path)
         response.raise_for_status()
+        content = response.text
+
+        if is_markdown:
+            messages = _parse_md_prompt(content)
+            return ChatPromptTemplate.from_messages(messages)
+
+        # Python-Datei: temporär speichern und laden
         with tempfile.NamedTemporaryFile(suffix=".py", delete=False) as tmp:
             tmp.write(response.content)
-            tmp_path = tmp.name
-        path = tmp_path
+            path = tmp.name
 
-    # Sicherstellen, dass eine Python-Datei vorliegt
-    if not path.endswith(".py"):
-        raise ValueError("Only .py prompt files are supported.")
+    # Lokale Markdown-Datei
+    if is_markdown:
+        with open(path, 'r', encoding='utf-8') as f:
+            content = f.read()
+        messages = _parse_md_prompt(content)
+        return ChatPromptTemplate.from_messages(messages)
 
-    # Modul dynamisch laden
+    # Lokale Python-Datei (Abwärtskompatibilität)
     spec = importlib.util.spec_from_file_location("prompt_module", path)
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
