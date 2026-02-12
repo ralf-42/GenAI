@@ -1,16 +1,14 @@
 ---
 name: rag_prompt
-description: RAG-Prompt für Question-Answering Tasks mit Context-Retrieval
-variables: [system_prompt, question, context]
+description: Standard RAG-Prompt für Question-Answering
+variables: [context, question]
 ---
 
 ## system
 
-{system_prompt}
+You are an assistant for question-answering tasks. Use the following pieces of retrieved context to answer the question. If you don't know the answer, just say that you don't know. Use three sentences maximum and keep the answer concise.
 
 ## human
-
-You are an assistant for question-answering tasks. Use the following pieces of retrieved context to answer the question. If you don't know the answer, just say that you don't know. Use three sentences maximum and keep the answer concise.
 
 Question: {question}
 
