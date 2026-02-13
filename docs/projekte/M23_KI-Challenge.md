@@ -43,11 +43,7 @@ Die KI-Challenge dient als praktische Anwendung und Integration der in den Kursm
 - Zugriff auf API-Keys (OpenAI, Hugging Face)
 - Grundlegende Vertrautheit mit Gradio für UI-Entwicklung
 
-## 1.3 Zeitrahmen & Umfang
 
-- **Zeitaufwand:** 15-25 Stunden (verteilt über 2-3 Wochen)
-- **Komplexität:** End-to-End Projekt mit Integration mehrerer Technologien
-- **Eigenständigkeit:** Freie Gestaltung innerhalb der gewählten Projektoption
 
 ## 1.4 Praxiseinblick: Von der Idee zum Deployment
 
@@ -561,7 +557,7 @@ Bei Fragen oder Problemen während der Projektentwicklung können Sie das `Kurs-
 
 ---
 
-**Version:** 2.0            
-**Stand:** Dezember 2025        
-**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.        
+**Version:** 2.1            
+**Stand:** Februar 2026             
+**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.           
      

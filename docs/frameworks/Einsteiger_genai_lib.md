@@ -183,23 +183,30 @@ sequenceDiagram
 - Robuste Fehlerbehandlung mit aussagekräftigen Fehlermeldungen
 - Timeout-Schutz (15 Sekunden)
 
-#### 7. `load_chat_prompt_template(path)`
+#### 7. `load_prompt(path, mode="T")`
 
-Lädt Prompt-Templates aus Markdown-Dateien (.md) oder Python-Dateien (.py, Abwärtskompatibilität).
+Lädt Prompt-Templates aus Markdown-Dateien (.md) als ChatPromptTemplate oder String.
 
 ```python
-from genai_lib.utilities import load_chat_prompt_template
+from genai_lib.utilities import load_prompt
 
-# Lokal (Markdown-Format, empfohlen)
-prompt = load_chat_prompt_template('05_prompt/sql_prompt.md')
+# ChatPromptTemplate (default, mode="T")
+prompt = load_prompt('05_prompt/sql_prompt.md')
+
+# Nur als String ohne Frontmatter (mode="S")
+text = load_prompt('05_prompt/sql_prompt.md', mode="S")
 
 # Von GitHub (tree oder blob URLs werden automatisch konvertiert)
-prompt = load_chat_prompt_template(
+prompt = load_prompt(
     'https://github.com/ralf-42/GenAI/blob/main/05_prompt/text_zusammenfassung.md'
 )
 ```
 
-**Template-Format (Markdown, empfohlen):**
+**Parameter:**
+- `mode="T"`: Gibt ein `ChatPromptTemplate` zurück (benötigt `## system` / `## human` Sections)
+- `mode="S"`: Gibt den Inhalt ohne Frontmatter als String zurück
+
+**Template-Format (Markdown):**
 ```markdown
 ---
 name: rag_prompt
