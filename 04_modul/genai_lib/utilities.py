@@ -295,7 +295,7 @@ def mermaid(code: str, width=None, height=None):
 # MODEL PROFILE UTILITIES
 # ============================================================================
 
-def get_model_profile(model: str, temperature: float = 0.0, print_profile: bool = True, **kwargs):
+def get_model_profile(model: str, print_profile: bool = True, **kwargs):
     """
     Ruft Model-Profile von models.dev ab und zeigt die wichtigsten Capabilities.
 
@@ -309,8 +309,6 @@ def get_model_profile(model: str, temperature: float = 0.0, print_profile: bool 
     model : str
         Model-Name im Format "provider:model" (z.B. "openai:gpt-4o-mini")
         oder als separater String (dann muss provider über kwargs übergeben werden)
-    temperature : float, optional
-        Temperatur-Einstellung für das Modell (Standard: 0.0)
     print_profile : bool, optional
         Wenn True, werden die wichtigsten Profile-Informationen ausgegeben (Standard: True)
     **kwargs : dict
@@ -329,7 +327,7 @@ def get_model_profile(model: str, temperature: float = 0.0, print_profile: bool 
     >>> profile = get_model_profile("openai:gpt-4o-mini")
     >>>
     >>> # Mit zusätzlichen Parametern
-    >>> profile = get_model_profile("anthropic:claude-3-sonnet", temperature=0.3, max_tokens=1000)
+    >>> profile = get_model_profile("anthropic:claude-3-sonnet", max_tokens=1000)
     >>>
     >>> # Ohne Ausgabe (nur Rückgabe)
     >>> profile = get_model_profile("google:gemini-pro", print_profile=False)
@@ -381,7 +379,7 @@ def get_model_profile(model: str, temperature: float = 0.0, print_profile: bool 
 
     # Model initialisieren
     try:
-        llm = init_chat_model(model, temperature=temperature, **kwargs)
+        llm = init_chat_model(model, **kwargs)
     except Exception as e:
         print(f"❌ Fehler beim Initialisieren des Modells: {e}")
         return None

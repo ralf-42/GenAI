@@ -90,7 +90,7 @@ install_packages([
 **Features:**
 - Prüft, ob Pakete bereits installiert sind
 - Verwendet `uv pip install` für schnelle Installation in Google Colab
-- Gibt klare Statusmeldungen (✅ ✗ 🔄)
+- Gibt klare Statusmeldungen (✅ ❌ ⚠️ 🔄)
 - Unterstützt Tupel für verschiedene Install- und Import-Namen
 
 #### 3. `setup_api_keys(key_names, create_globals=True)`
@@ -267,7 +267,7 @@ print(f"Antwort: {answer}")
 - Fallback-Logik: Prüft automatisch alle bekannten Formate
 - Robust: Gibt leeren Thinking-String zurück, wenn kein Denkprozess vorhanden
 
-#### 9. `get_model_profile(model, temperature=0.0, print_profile=True, **kwargs)` 🆕
+#### 9. `get_model_profile(model, print_profile=True, **kwargs)` 🆕
 
 Ruft Model-Profile von models.dev ab und zeigt die wichtigsten Capabilities eines LLM-Modells. Nutzt intern `init_chat_model()` und gibt detaillierte Informationen über Structured Output, Function Calling, Vision, Token-Limits, etc. zurück.
 
@@ -318,12 +318,11 @@ for model in ["openai:gpt-4o-mini", "anthropic:claude-3-sonnet", "google:gemini-
         print(f"  Reasoning: {profile.get('reasoning', False)}")
         print(f"  Knowledge: {profile.get('knowledge_cutoff', 'N/A')}")
     else:
-        print(f"  ⚠️  Model konnte nicht initialisiert werden (Provider-Bibliothek fehlt?)")
+        print(f"  ❌ Fehler beim Initialisieren des Modells (Provider-Bibliothek fehlt?)")
 ```
 
 **Parameter:**
 - `model` (str): Model-Name im Format "provider:model"
-- `temperature` (float): Temperatur-Einstellung (Standard: 0.0)
 - `print_profile` (bool): Formatierte Ausgabe aktivieren (Standard: True)
 - `**kwargs`: Zusätzliche Parameter für `init_chat_model()` (z.B. max_tokens)
 
