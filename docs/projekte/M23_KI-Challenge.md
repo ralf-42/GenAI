@@ -45,7 +45,7 @@ Die KI-Challenge dient als praktische Anwendung und Integration der in den Kursm
 
 
 
-## 1.4 Praxiseinblick: Von der Idee zum Deployment
+## 1.3 Praxiseinblick: Von der Idee zum Deployment
 
 {: .highlight }
 > "Ein Open Source Modell ist kein Produkt. Für ein Produkt zu machen, kommen noch viel dazu."
@@ -526,34 +526,6 @@ Folgende Ressourcen können bei der Entwicklung des Abschlussprojekts hilfreich 
 Bei Fragen oder Problemen während der Projektentwicklung können Sie das `Kurs-Forum` nutzen.
 
 ---
-
-# 8 | Häufige Probleme & Lösungen
-
-## LangChain-spezifisch
-- **Problem:** `AttributeError: 'ChatOpenAI' object has no attribute 'with_structured_output'`
-  - **Lösung:** Nutze `init_chat_model()` statt direkter `ChatOpenAI()`-Import
-
-- **Problem:** Deprecated Warnings für Chains
-  - **Lösung:** Migration auf LCEL mit `|` Operator (siehe Beispielcode)
-
-## Performance
-- **Problem:** Gradio Share-Link funktioniert nicht
-  - **Lösung:** Nutze `interface.launch(share=True, debug=True)` für detaillierte Fehler
-
-- **Problem:** Vektordatenbank zu langsam
-  - **Lösung:** Kleinere Chunk-Größe (500-800 Tokens) oder FAISS statt Chroma
-
-## API-Limits
-- **Problem:** OpenAI Rate Limit erreicht
-  - **Lösung:** Implementiere Retry-Logic oder nutze kleinere Modelle (gpt-4o-mini)
-
----
-
-<p><font color='green' size="7">
-
-  🏅 Viel Erfolg bei Ihrer KI-Challenge!
-
-</font></p>
 
 ---
 
