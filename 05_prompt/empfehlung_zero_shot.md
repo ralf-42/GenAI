@@ -4,7 +4,7 @@ description: Zero-Shot Prompt für ein akademisches Empfehlungsschreiben
 variables: []
 ---
 
-Erstellen Sie ein positives Empfehlungsschreiben für Maria Weber, eine meiner Studierenden im Kurs ML 401 an der Technischen Universität München. Mein Name ist Dr. Julia Berger. Sie bewirbt sich für einen Master of Science in Data Science. Geben Sie mir nur den Haupttext des Schreibens, keine Kopf- oder Fußzeile.
+Erstelle ein positives Empfehlungsschreiben für Maria Weber, eine meiner Studierenden im Kurs ML 401 an der Technischen Universität München. Mein Name ist Dr. Julia Berger. Sie bewirbt sich für einen Master of Science in Data Science. Geben Sie mir nur den Haupttext des Schreibens, keine Kopf- oder Fußzeile.
 
 Unten ist ihre Anfrage:
 
