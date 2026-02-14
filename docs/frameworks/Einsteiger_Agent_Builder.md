@@ -2,15 +2,15 @@
 layout: default
 title: Agent Builder Einsteiger
 parent: Frameworks
-nav_order: 3
-description: "Agenten ohne Code: Visuelle Workflow-Erstellung mit OpenAI Agent Builder"
+nav_order: 4
+description: "Agenten ohne Code: Visuelle Workflow-Erstellung mit  OpenAI Agent Builder"
 has_toc: true
 ---
 
 # Agent Builder Einsteiger
 {: .no_toc }
 
-> **Agenten ohne Code: Visuelle Workflow-Erstellung mit OpenAI Agent Builder**
+> **Agenten ohne Code: Visuelle Workflow-Erstellung mit OpenAI Agent Builder**     
 
 ---
 
@@ -989,6 +989,6 @@ graph LR
 
 ---
 
-**Version:** 1.0     
-**Stand:** November 2025     
-**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.      
+**Version:** 1.0  
+**Stand:** November 2025  
+**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

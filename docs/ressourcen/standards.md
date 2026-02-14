@@ -3,7 +3,7 @@ layout: default
 title: Code Standards
 parent: Ressourcen
 nav_order: 3
-description: Coding-Konventionen und Best Practices
+description: "Coding-Konventionen und Best Practices"
 has_toc: true
 ---
 
@@ -302,6 +302,7 @@ def test_agent_with_tools():
 ## 📚 Weitere Ressourcen
 
 - **LangChain Tutorial:** [Einsteiger LangChain](../frameworks/Einsteiger_LangChain.html)
+- **LangGraph Tutorial:** [Einsteiger LangGraph](../frameworks/Einsteiger_LangGraph.html)
 - **LangChain Docs:** [python.langchain.com](https://python.langchain.com/)
 - **LangGraph Docs:** [langchain-ai.github.io/langgraph](https://langchain-ai.github.io/langgraph/)
 

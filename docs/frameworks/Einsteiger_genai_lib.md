@@ -640,9 +640,9 @@ process_directory(rag, './docs', auto_describe_images=True)
 ### Kern-Abhängigkeiten
 ```python
 # LangChain Stack
-langchain>=1.0.0
-langchain-core>=1.0.0
-langchain-openai>=0.2.0
+langchain>=1.1.0
+langchain-core>=1.1.0
+langchain-openai>=1.0.0
 langchain-community>=0.3.0
 langchain-chroma>=0.1.0
 
