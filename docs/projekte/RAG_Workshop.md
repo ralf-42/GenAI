@@ -77,7 +77,7 @@ Führen Sie zu Beginn des Notebooks aus:
 # 📦 INSTALLATION (Einmalig ausführen)
 # ═══════════════════════════════════════════════════
 
-!pip install -q langchain>=1.0.0 langchain-openai>=0.2.0 langchain-community
+!pip install -q langchain>=1.1.0 langchain-openai>=1.0.0 langchain-community
 !pip install -q chromadb tiktoken gradio
 ```
 
