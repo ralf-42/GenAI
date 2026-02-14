@@ -649,7 +649,8 @@ def load_prompt(path, mode="T"):
     Args:
         path (str): Pfad zur .md-Datei (lokal oder URL)
         mode (str): "T" für ChatPromptTemplate (default), "S" für String
-                    Bei "S" wird der Inhalt ohne Frontmatter als String zurückgegeben.
+                    Bei "S" wird der Inhalt als reinen String zurückgegeben. Ein vorhandenes
+                    YAML-Frontmatter wird dabei automatisch entfernt und das Ergebnis bereinigt (strip).
 
     Returns:
         ChatPromptTemplate (mode="T") oder str (mode="S")

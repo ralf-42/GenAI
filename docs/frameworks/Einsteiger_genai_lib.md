@@ -204,7 +204,7 @@ prompt = load_prompt(
 
 **Parameter:**
 - `mode="T"`: Gibt ein `ChatPromptTemplate` zurück (benötigt `## system` / `## human` Sections)
-- `mode="S"`: Gibt den Inhalt ohne Frontmatter als String zurück
+- `mode="S"`: Gibt den Inhalt als reinen String zurück. Ein vorhandenes YAML-Frontmatter (Metadaten-Block zwischen `---` am Dateianfang) wird dabei automatisch entfernt und das Ergebnis mit `strip()` von führenden/folgenden Leerzeichen bereinigt.
 
 **Template-Format (Markdown):**
 ```markdown
