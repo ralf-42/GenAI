@@ -30,18 +30,17 @@ Die KI-Challenge dient als praktische Anwendung und Integration der in den Kursm
 
 ## 1.1 Lernziele
 
-- Integration mehrerer Technologien aus den Basismodulen
+- Integration mehrerer Technologien aus den Kursmodulen
 - Praktische Anwendung von LLM-basierten Lösungen
 - Entwicklung einer vollständigen End-to-End-Anwendung
 - Präsentation und Dokumentation der eigenen Lösung
 
 ## 1.2 Voraussetzungen
 
-- Abschluss der Basismodule (Module 1-12)
-- Module aus dem Bereich Erweiterung
+- Abschluss der Module M01–M10
 - Kenntnisse in Python und LangChain 1.0+
 - Zugriff auf API-Keys (OpenAI, Hugging Face)
-- Grundlegende Vertrautheit mit Gradio für UI-Entwicklung
+- Grundlegende Vertrautheit mit Gradio für UI-Entwicklung (M13)
 
 
 
@@ -71,13 +70,13 @@ Die KI-Challenge bereitet Sie auf **realistische Herausforderungen** vor, die in
 - **Takeaway:** Messbarkeit ist der Schlüssel zum Erfolg
 
 **2. Iteration & Feedback**
-- Frontier Labs (OpenAI, Anthropic) iterieren **wöchentlich** basierend auf User-Feedback
+- Frontier Labs (OpenAI, Anthropic) iterieren regelmäßig basierend auf User-Feedback
 - **Ihr Projekt:** Testen Sie früh mit echten Nutzern (Familie, Freunde, Kommilitonen)
 - **Takeaway:** MVP first, dann verfeinern
 
 **3. Produkt-Mindset**
 - Guardrails, System Prompts, Prompt Injection Prevention
-- **Ihr Projekt:** Implementieren Sie mindestens einen Safety-Layer
+- **Ihr Projekt:** Implementieren Sie mindestens einen Safety-Layer (z.B. Middleware)
 - **Takeaway:** Robustheit > Features
 
 {: .info }
@@ -89,7 +88,7 @@ Die KI-Challenge bereitet Sie auf **realistische Herausforderungen** vor, die in
 - Start small: Nutzen Sie bestehende Modelle (OpenAI, Groq, Anthropic)
 - Fokus auf Deployment: Gradio/Streamlit → echte User testen lassen
 - Messbare Ziele: Definieren Sie 3-5 Erfolgsmetriken
-- Frühes Feedback: Zeigen Sie Ihr MVP nach 1 Woche
+- Frühes Feedback: Zeigen Sie Ihr MVP so früh wie möglich
 
 ❌ **Don'ts:**
 - Nicht von Grund auf trainieren (kein 10-50 Mio. Dollar Budget 😉)
@@ -115,10 +114,11 @@ Zur Auswahl stehen vier verschiedene Projekttypen, die jeweils unterschiedliche 
 - Benutzeroberfläche mit Gradio
 
 **Erwartete Module:**
-- Modul 4 (LangChain)
-- Modul 7 (Output Parser)
-- Modul 8 (RAG)
-- Modul 11 (Gradio)
+- M04 (LangChain 101)
+- M06 (Structured Output)
+- M08 (RAG)
+- M09 (SQL RAG – optional für strukturierte Metadaten)
+- M13 (Gradio)
 
 ## 2.2 Multimodaler Assistent
 
@@ -131,10 +131,12 @@ Zur Auswahl stehen vier verschiedene Projekttypen, die jeweils unterschiedliche 
 - Interaktive Benutzeroberfläche
 
 **Erwartete Module:**
-- Modul 5 (LLMs und Transformer)
-- Modul 6 (Chat und Memory)
-- Modul 9 (Multimodal Bild)
-- Modul 14 (optional: Multimodal Audio)
+- M04 (LangChain 101)
+- M05 (LLMs und Transformer)
+- M07 (Chat und Memory)
+- M13 (Gradio)
+- M16 (Multimodal Bild)
+- M18 (optional: Multimodal Audio)
 
 ## 2.3 Agentenbasiertes System
 
@@ -143,14 +145,16 @@ Zur Auswahl stehen vier verschiedene Projekttypen, die jeweils unterschiedliche 
 **Kernelemente:**
 - Multi-Agenten-Architektur
 - Werkzeugintegration (APIs, Datenbanken)
-- Planung und Zielverfolgung
+- Middleware für Logging, Safety und Retry
 - Benutzerinteraktion und Transparenz
 
 **Erwartete Module:**
-- Modul 3 (Codieren mit GenAI)
-- Modul 10 (Agents)
-- Modul 12 (Lokale Modelle)
-- Modul 18 (optional: Advanced Prompt Engineering)
+- M04 (LangChain 101)
+- M10 (Agenten)
+- M11 (Middleware)
+- M12 (MCP – optional für externe Tool-Integration)
+- M13 (Gradio)
+- M14 (optional: Lokale Modelle)
 
 ## 2.4 Domänen Fachexperte
 
@@ -163,10 +167,12 @@ Zur Auswahl stehen vier verschiedene Projekttypen, die jeweils unterschiedliche 
 - Optional: Feinabstimmung eines bestehenden Modells
 
 **Erwartete Module:**
-- Modul 2 (Grundlagen Modellansteuerung)
-- Modul 8 (RAG)
-- Modul 16 (optional: Fine-Tuning)
-- Modul 19 (optional: EU AI Act/Ethik)
+- M04 (LangChain 101)
+- M06 (Structured Output)
+- M08 (RAG)
+- M09 (SQL RAG – für strukturierte Fachdaten)
+- M13 (Gradio)
+- M15 (optional: Fine-Tuning)
 
 # 3 | Projekt-Setup
 
@@ -215,6 +221,13 @@ from langchain_core.runnables import RunnablePassthrough
 # Tools & Agents (falls benötigt)
 from langchain.agents import create_agent
 from langchain_core.tools import tool
+
+# Middleware (falls benötigt)
+from langchain.agents.middleware import (
+    before_model, after_model, wrap_tool_call,
+    HumanInTheLoopMiddleware,
+    ModelRetryMiddleware, ToolRetryMiddleware
+)
 
 print("✅ LangChain 1.0+ Imports erfolgreich")
 ```
@@ -292,7 +305,7 @@ Die  KI-Challenge wird anhand folgender Kriterien bewertet:
    - Bekannte Limitierungen
 
 **Optional (Bonus):**
-- Video-Demo (3-5 Minuten)
+- Video-Demo
 - GitHub Repository mit sauberem Commit-History
 - Deployment-Link (z.B. Hugging Face Spaces)
 
@@ -333,24 +346,24 @@ setup_api_keys(['OPENAI_API_KEY'], create_globals=False)
 def load_and_process_document(file_path):
     """
     Lädt ein PDF-Dokument und bereitet es für die Verarbeitung vor
-    
+
     Args:
         file_path: Pfad zur PDF-Datei
-        
+
     Returns:
         Chroma-Vektordatenbank mit den Dokumentenchunks
     """
     # PDF laden
     loader = PyPDFLoader(file_path)
     pages = loader.load()
-    
+
     # Text in Chunks aufteilen
     text_splitter = RecursiveCharacterTextSplitter(
         chunk_size=1000,
         chunk_overlap=100
     )
     chunks = text_splitter.split_documents(pages)
-    
+
     # Embeddings erstellen und Vektorstore initialisieren
     embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
     vectorstore = Chroma.from_documents(
@@ -414,7 +427,7 @@ def setup_qa_chain(vectorstore):
 def create_interface():
     """
     Erstellt ein Gradio-Interface für die Benutzerinteraktion
-    
+
     Returns:
         Gradio-Interface
     """
@@ -423,7 +436,7 @@ def create_interface():
         "qa_chain": None,
         "chat_history": []
     }
-    
+
     # PDF-Upload-Funktion
     def upload_pdf(file):
         try:
@@ -468,27 +481,27 @@ def create_interface():
             return full_response
         except Exception as e:
             return f"❌ Fehler bei der Verarbeitung der Frage: {str(e)}"
-    
+
     # Gradio-Interface erstellen
     with gr.Blocks(title="Dokumentenanalyse-Assistent") as interface:
         gr.Markdown("# 📚 Dokumentenanalyse-Assistent")
         gr.Markdown("Laden Sie ein PDF-Dokument hoch und stellen Sie Fragen dazu.")
-        
+
         with gr.Row():
             with gr.Column():
                 file_input = gr.File(label="PDF-Dokument hochladen")
                 upload_button = gr.Button("Dokument verarbeiten")
                 status_text = gr.Textbox(label="Status", interactive=False)
-            
+
             with gr.Column():
                 question_input = gr.Textbox(label="Ihre Frage zum Dokument", placeholder="Stellen Sie eine Frage zum Inhalt des Dokuments...")
                 answer_output = gr.Textbox(label="Antwort", interactive=False, lines=15)
                 ask_button = gr.Button("Frage stellen")
-        
+
         # Ereignisbehandlung
         upload_button.click(upload_pdf, inputs=[file_input], outputs=[status_text])
         ask_button.click(ask_question, inputs=[question_input], outputs=[answer_output])
-        
+
     return interface
 
 # Hauptfunktion
@@ -513,10 +526,14 @@ Folgende Ressourcen können bei der Entwicklung des Abschlussprojekts hilfreich 
   - [Hugging Face Dokumentation](https://huggingface.co/docs)
   - [Gradio Dokumentation](https://www.gradio.app/docs/interface)
 
-- **Beispielprojekte und Tutorials:**
-  - LangChain Cookbook im GitHub-Repository
-  - Beispiel-Implementierungen aus den Kursmodulen
-  - Hugging Face Spaces für Beispielanwendungen
+- **Kurs-Notebooks:**
+  - `01_notebook/M04_LangChain101.ipynb` – LangChain Grundlagen
+  - `01_notebook/M06_OutputParser.ipynb` – Structured Output
+  - `01_notebook/M08_RAG_LangChain.ipynb` – RAG
+  - `01_notebook/M09_SQL_RAG.ipynb` – SQL RAG
+  - `01_notebook/M10_Agenten_LangChain.ipynb` – Agenten
+  - `01_notebook/M11_Middleware.ipynb` – Middleware
+  - `01_notebook/M13_Gradio.ipynb` – Gradio UI
 
 - **Online-Tools:**
   - GenAI Tutor
@@ -529,7 +546,6 @@ Bei Fragen oder Problemen während der Projektentwicklung können Sie das `Kurs-
 
 ---
 
-**Version:** 2.1            
-**Stand:** Februar 2026             
-**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.           
-     
+**Version:** 3.0
+**Letzte Aktualisierung:** Februar 2026
+**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

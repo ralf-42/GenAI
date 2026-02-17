@@ -11,7 +11,7 @@ has_toc: true
 {: .no_toc }
 
 > **Tech-Doku Assistent bauen**
-> Schrittweise Entwicklung vom einfachen Chatbot zur intelligenten RAG-Anwendung mit UI (Module M04-M11)
+> Schrittweise Entwicklung vom einfachen Chatbot zur intelligenten RAG-Anwendung mit Agent, Middleware und UI (Module M04–M13)
 
 ---
 
@@ -30,10 +30,8 @@ In dieser Übungsaufgabe bauen Sie schrittweise einen **Tech-Doku Assistenten**,
 **Lernziele:**
 - Aufbau einer GenAI-Anwendung von Grund auf
 - Schrittweise Integration von LangChain-Features
-- Praktische Anwendung der Module M04-M11
+- Praktische Anwendung der Module M04–M13
 - Best Practices für strukturierten Notebook-Code
-
-**Zeitaufwand:** ca. 4-6 Stunden (je nach Vorkenntnissen)
 
 **Arbeitsumgebung:** Google Colab oder Jupyter Notebook
 
@@ -41,17 +39,19 @@ In dieser Übungsaufgabe bauen Sie schrittweise einen **Tech-Doku Assistenten**,
 
 ## Notebook-Struktur
 
-Sie erstellen **ein Notebook** mit **7 aufbauenden Kapiteln** (oder 7 separate Notebooks):
+Sie erstellen **ein Notebook** mit **9 aufbauenden Kapiteln** (oder 9 separate Notebooks):
 
 ```
 📓 Tech_Doku_Assistent.ipynb
    ├── 🎯 Kapitel 1: Basis-Chatbot (M04)
    ├── 📊 Kapitel 2: Token-Optimierung (M05)
-   ├── 💬 Kapitel 3: Chat-History & Memory (M06)
-   ├── 🔧 Kapitel 4: Strukturierte Ausgaben (M07)
+   ├── 🔧 Kapitel 3: Strukturierte Ausgaben (M06)
+   ├── 💬 Kapitel 4: Chat-History & Memory (M07)
    ├── 📚 Kapitel 5: RAG-Integration (M08)
-   ├── 🤖 Kapitel 6: Agent mit Tools (M10)
-   └── 🌐 Kapitel 7: Gradio-UI (M11)
+   ├── 🗄️ Kapitel 6: SQL RAG (M09)
+   ├── 🤖 Kapitel 7: Agent mit Tools (M10)
+   ├── 🛡️ Kapitel 8: Middleware (M11)
+   └── 🌐 Kapitel 9: Gradio-UI (M13)
 ```
 
 **Empfehlung:** Beginnen Sie mit einem Notebook und fügen Sie nach jedem Kapitel eine Markdown-Zelle mit "---" zur Trennung hinzu.
@@ -172,57 +172,15 @@ def tech_chat_mit_tokens():
 
 ---
 
-## Kapitel 3: Chat-History & Memory (Modul M06)
-
-**Lernziel:** Konversationskontext verwalten, Chat-History nutzen
-
-### Aufgabe 3.1: Memory implementieren
-
-```python
-# ═══════════════════════════════════════════════════
-# 💬 KAPITEL 3: CHAT-HISTORY & MEMORY (M06)
-# ═══════════════════════════════════════════════════
-
-from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
-from langchain_core.chat_history import InMemoryChatMessageHistory
-from langchain_core.runnables.history import RunnableWithMessageHistory
-
-# Memory-Store (speichert alle Sessions)
-store = {}
-
-def get_session_history(session_id: str) -> InMemoryChatMessageHistory:
-    """Holt oder erstellt Chat-History für Session"""
-    if session_id not in store:
-        ...
-```
-
-### Aufgabe 3.2: Chat mit Kontext-Bewusstsein
-
-```python
-def tech_chat_mit_memory():
-    """Chat mit Konversationsgedächtnis"""
-    session_id = "user_session_1"
-    print("🤖 Tech-Doku Assistent (mit Memory)")
-    ...
-```
-
-**Erfolgskriterium:**
-- ✅ Bot erinnert sich an vorherige Fragen
-- ✅ Antworten beziehen sich auf Kontext
-- ✅ 'reset' Befehl löscht History
-- ✅ History-Länge wird angezeigt
-
----
-
-## Kapitel 4: Strukturierte Ausgaben (Modul M07)
+## Kapitel 3: Strukturierte Ausgaben (Modul M06)
 
 **Lernziel:** Pydantic-Modelle, `with_structured_output()`, JSON-Schema
 
-### Aufgabe 4.1: Pydantic-Modell definieren
+### Aufgabe 3.1: Pydantic-Modell definieren
 
 ```python
 # ═══════════════════════════════════════════════════
-# 🔧 KAPITEL 4: STRUKTURIERTE AUSGABEN (M07)
+# 🔧 KAPITEL 3: STRUKTURIERTE AUSGABEN (M06)
 # ═══════════════════════════════════════════════════
 
 from pydantic import BaseModel, Field
@@ -235,7 +193,7 @@ class FAQEntry(BaseModel):
     ...
 ```
 
-### Aufgabe 4.2: FAQ-Datenbank aufbauen
+### Aufgabe 3.2: FAQ-Datenbank aufbauen
 
 ```python
 import json
@@ -252,6 +210,48 @@ def create_faq_database():
 - ✅ Schema-Validierung funktioniert
 - ✅ Alle Felder korrekt befüllt
 - ✅ Export in JSON-Datei
+
+---
+
+## Kapitel 4: Chat-History & Memory (Modul M07)
+
+**Lernziel:** Konversationskontext verwalten, Chat-History nutzen
+
+### Aufgabe 4.1: Memory implementieren
+
+```python
+# ═══════════════════════════════════════════════════
+# 💬 KAPITEL 4: CHAT-HISTORY & MEMORY (M07)
+# ═══════════════════════════════════════════════════
+
+from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
+from langchain_core.chat_history import InMemoryChatMessageHistory
+from langchain_core.runnables.history import RunnableWithMessageHistory
+
+# Memory-Store (speichert alle Sessions)
+store = {}
+
+def get_session_history(session_id: str) -> InMemoryChatMessageHistory:
+    """Holt oder erstellt Chat-History für Session"""
+    if session_id not in store:
+        ...
+```
+
+### Aufgabe 4.2: Chat mit Kontext-Bewusstsein
+
+```python
+def tech_chat_mit_memory():
+    """Chat mit Konversationsgedächtnis"""
+    session_id = "user_session_1"
+    print("🤖 Tech-Doku Assistent (mit Memory)")
+    ...
+```
+
+**Erfolgskriterium:**
+- ✅ Bot erinnert sich an vorherige Fragen
+- ✅ Antworten beziehen sich auf Kontext
+- ✅ 'reset' Befehl löscht History
+- ✅ History-Länge wird angezeigt
 
 ---
 
@@ -319,15 +319,76 @@ def rag_chat():
 
 ---
 
-## Kapitel 6: Agent mit Tools (Modul M10)
+## Kapitel 6: SQL RAG (Modul M09)
 
-**Lernziel:** LangChain Agents, Tool-Definition, Function Calling
+**Lernziel:** Strukturierte Daten mit RAG abfragen, SQL-Generierung durch LLMs
 
-### Aufgabe 6.1: Tools definieren
+### Aufgabe 6.1: SQLite-Datenbank erstellen
 
 ```python
 # ═══════════════════════════════════════════════════
-# 🤖 KAPITEL 6: AGENT MIT TOOLS (M10)
+# 🗄️ KAPITEL 6: SQL RAG (M09)
+# ═══════════════════════════════════════════════════
+
+import sqlite3
+
+# Beispiel-Datenbank für Tech-Dokumentation
+conn = sqlite3.connect("tech_docs.db")
+cursor = conn.cursor()
+
+cursor.execute("""
+    CREATE TABLE IF NOT EXISTS dokumentation (
+        id INTEGER PRIMARY KEY,
+        titel TEXT,
+        kategorie TEXT,
+        inhalt TEXT,
+        version TEXT
+    )
+""")
+...
+```
+
+### Aufgabe 6.2: SQL-Chain mit LangChain
+
+```python
+from langchain_community.utilities import SQLDatabase
+from langchain.chains import create_sql_query_chain
+
+# Datenbank anbinden
+db = SQLDatabase.from_uri("sqlite:///tech_docs.db")
+
+# SQL-Chain erstellen
+sql_chain = create_sql_query_chain(llm, db)
+...
+```
+
+### Aufgabe 6.3: Kombination Vektor-RAG + SQL RAG
+
+```python
+def hybrid_chat():
+    """Chat mit Vektor-RAG und SQL RAG kombiniert"""
+    print("🤖 Tech-Doku Assistent (Hybrid-Modus)")
+    print("   📚 Dokumente + 🗄️ Datenbank")
+    ...
+```
+
+**Erfolgskriterium:**
+- ✅ SQLite-Datenbank mit Beispieldaten erstellt
+- ✅ Natürlichsprachliche Fragen werden in SQL übersetzt
+- ✅ Ergebnisse werden verständlich aufbereitet
+- ✅ Kombination mit Vektor-RAG funktioniert
+
+---
+
+## Kapitel 7: Agent mit Tools (Modul M10)
+
+**Lernziel:** LangChain Agents, Tool-Definition, Function Calling
+
+### Aufgabe 7.1: Tools definieren
+
+```python
+# ═══════════════════════════════════════════════════
+# 🤖 KAPITEL 7: AGENT MIT TOOLS (M10)
 # ═══════════════════════════════════════════════════
 
 from langchain_core.tools import tool
@@ -341,9 +402,15 @@ def search_documentation(query: str) -> str:
     ...
 
 @tool
+def query_database(question: str) -> str:
+    """Beantwortet Fragen über die Tech-Doku Datenbank mittels SQL."""
+    # Nutze SQL-Chain aus Kapitel 6
+    result = sql_chain.invoke({"question": question})
+    ...
+
+@tool
 def calculate_token_cost(text: str, model: str = "gpt-4o-mini") -> str:
     """Berechnet Token-Anzahl und geschätzte Kosten für einen Text."""
-    # Token zählen
     tokens = count_tokens(text, model)
     ...
 
@@ -355,46 +422,133 @@ def validate_python_code(code: str) -> str:
         ...
 ```
 
-### Aufgabe 6.2: Agent erstellen
+### Aufgabe 7.2: Agent erstellen
 
 ```python
 from langchain.agents import create_agent
 
-# Agent erstellen (benötigt gpt-4o oder gpt-4o-mini für Function Calling)
+# Agent erstellen
 agent = create_agent(
-    model="openai:gpt-4o-mini",  # Wichtig: Function Calling Support!
+    model="openai:gpt-4o-mini",
     tools=tools,
     ...
 )
 ```
 
-### Aufgabe 6.3: Agent-Chat
+### Aufgabe 7.3: Agent-Chat
 
 ```python
 def agent_chat():
     """Interactive Agent Chat"""
     print("🤖 Tech-Doku Assistent (Agent-Modus)")
-    print("   Tools: 📚 Doku-Suche | 📊 Token-Rechner | ✅ Code-Validator")
+    print("   Tools: 📚 Doku-Suche | 🗄️ DB-Abfrage | 📊 Token-Rechner | ✅ Code-Validator")
     ...
 ```
 
 **Erfolgskriterium:**
-- ✅ Alle 3 Tools funktionieren einzeln
+- ✅ Alle 4 Tools funktionieren einzeln
 - ✅ Agent nutzt Tools korrekt
 - ✅ Entscheidungslogik ist nachvollziehbar
 - ✅ Debug-Modus zeigt Tool-Aufrufe
 
 ---
 
-## Kapitel 7: Gradio-UI (Modul M11)
+## Kapitel 8: Middleware (Modul M11)
 
-**Lernziel:** Web-Interface mit Gradio, State-Management, Event-Handling
+**Lernziel:** Agent-Ausführung kontrollieren mit Middleware-Hooks und prebuilt Middleware
 
-### Aufgabe 7.1: Basis-UI erstellen
+### Aufgabe 8.1: Logging-Middleware mit Decorator-Hooks
 
 ```python
 # ═══════════════════════════════════════════════════
-# 🌐 KAPITEL 7: GRADIO-UI (M11)
+# 🛡️ KAPITEL 8: MIDDLEWARE (M11)
+# ═══════════════════════════════════════════════════
+
+from langchain.agents import AgentState
+from langchain.agents.middleware import before_model, after_model, wrap_tool_call
+from langchain.tools.tool_node import ToolCallRequest
+
+@before_model
+def log_before(state: AgentState, runtime):
+    """Loggt jede Modell-Anfrage"""
+    print(f"🧠 Model wird aufgerufen mit {len(state['messages'])} Nachrichten")
+    return None
+
+@after_model
+def log_after(state: AgentState, runtime):
+    """Loggt jede Modell-Antwort"""
+    msg = state["messages"][-1]
+    if hasattr(msg, "tool_calls") and msg.tool_calls:
+        print(f"⚡ Tool-Aufruf: {[tc['name'] for tc in msg.tool_calls]}")
+    else:
+        print(f"💬 Antwort generiert")
+    return None
+
+@wrap_tool_call
+def log_tool(request: ToolCallRequest, handler):
+    """Loggt jede Tool-Ausführung"""
+    print(f"🔧 Führe aus: {request.tool_call['name']}")
+    result = handler(request)
+    print(f"✅ Ergebnis: {str(result.content)[:100]}")
+    return result
+```
+
+### Aufgabe 8.2: Human-in-the-Loop für sensible Tools
+
+```python
+from langchain.agents.middleware import HumanInTheLoopMiddleware
+from langgraph.checkpoint.memory import MemorySaver
+
+# HITL für sensible Tools aktivieren
+hitl = HumanInTheLoopMiddleware(
+    interrupt_on={"query_database": True}
+)
+
+agent_safe = create_agent(
+    model="openai:gpt-4o-mini",
+    tools=tools,
+    middleware=[log_before, log_after, log_tool, hitl],
+    checkpointer=MemorySaver()
+)
+...
+```
+
+### Aufgabe 8.3: Retry-Middleware für Robustheit
+
+```python
+from langchain.agents.middleware import ModelRetryMiddleware, ToolRetryMiddleware
+
+agent_robust = create_agent(
+    model="openai:gpt-4o-mini",
+    tools=tools,
+    middleware=[
+        log_before, log_after, log_tool,
+        ModelRetryMiddleware(max_retries=3, backoff_factor=2.0, jitter=True),
+        ToolRetryMiddleware(max_retries=2, jitter=True),
+        hitl,
+    ],
+    checkpointer=MemorySaver()
+)
+...
+```
+
+**Erfolgskriterium:**
+- ✅ Logging zeigt Modell- und Tool-Aufrufe
+- ✅ HITL unterbricht bei Datenbank-Queries und wartet auf Bestätigung
+- ✅ Retry-Middleware fängt transiente Fehler ab
+- ✅ Middleware-Stack ist korrekt kombiniert
+
+---
+
+## Kapitel 9: Gradio-UI (Modul M13)
+
+**Lernziel:** Web-Interface mit Gradio, State-Management, Event-Handling
+
+### Aufgabe 9.1: Basis-UI erstellen
+
+```python
+# ═══════════════════════════════════════════════════
+# 🌐 KAPITEL 9: GRADIO-UI (M13)
 # ═══════════════════════════════════════════════════
 
 import gradio as gr
@@ -411,14 +565,14 @@ def rag_handler(message, history):
     ...
 
 def agent_handler(message, history):
-    """Verarbeitet Agent-Anfragen"""
-    response = agent.invoke({
+    """Verarbeitet Agent-Anfragen (mit Middleware)"""
+    response = agent_robust.invoke({
         "messages": [{"role": "user", "content": message}]
     })
     ...
 ```
 
-### Aufgabe 7.2: Gradio-App implementieren
+### Aufgabe 9.2: Gradio-App implementieren
 
 ```python
 # Gradio Interface
@@ -435,7 +589,7 @@ with gr.Blocks(title="Tech-Doku Assistent") as demo:
 
 **Erfolgskriterium:**
 - ✅ UI läuft in Colab mit öffentlichem Link
-- ✅ Alle 3 Tabs funktionieren
+- ✅ Alle Tabs funktionieren (Chat, RAG, Agent)
 - ✅ Token-Tracking wird live aktualisiert
 - ✅ "Chat löschen" Button funktioniert
 
@@ -453,10 +607,10 @@ with gr.Blocks(title="Tech-Doku Assistent") as demo:
 - Re-Ranking der Retrieval-Ergebnisse
 - Chunk-Overlap-Visualisierung
 
-### Bonus 3: Multi-Agenten-System mit LangGraph
-- Spezialisierte Agents (Docker-Expert, Kubernetes-Expert)
-- Supervisor-Agent zur Koordination
-- State Machine für komplexe Workflows
+### Bonus 3: MCP-Integration (M12)
+- MCP-Server für die Tech-Dokumentation erstellen
+- Agent über MCP-Client mit externen Tools verbinden
+- Vergleich: Tools direkt vs. Tools via MCP
 
 ### Bonus 4: Notebook dokumentieren
 - Erstellen Sie ein Inhaltsverzeichnis mit Markdown-Zellen
@@ -467,15 +621,17 @@ with gr.Blocks(title="Tech-Doku Assistent") as demo:
 
 ## Bewertungskriterien (Selbstbewertung)
 
-| Phase | Punkte | Kriterien |
-|-------|--------|-----------|
-| 1: Basis-Chatbot | 10 | Funktionalität, Code-Qualität, LCEL-Nutzung |
-| 2: Token-Optimierung | 10 | Korrekte Zählung, Statistiken, Warnungen |
-| 3: Chat-Memory | 15 | Context-Awareness, Memory-Management |
-| 4: Strukturierte Ausgaben | 15 | Pydantic-Modelle, Validierung |
-| 5: RAG-Integration | 20 | Retrieval-Qualität, Quellenangaben |
-| 6: Agent mit Tools | 20 | Tool-Implementation, Agent-Logik |
-| 7: Gradio-UI | 10 | Usability, Features, Design |
+| Kapitel | Punkte | Kriterien |
+|---------|--------|-----------|
+| 1: Basis-Chatbot (M04) | 10 | Funktionalität, Code-Qualität, LCEL-Nutzung |
+| 2: Token-Optimierung (M05) | 10 | Korrekte Zählung, Statistiken, Warnungen |
+| 3: Strukturierte Ausgaben (M06) | 10 | Pydantic-Modelle, Validierung |
+| 4: Chat-Memory (M07) | 10 | Context-Awareness, Memory-Management |
+| 5: RAG-Integration (M08) | 15 | Retrieval-Qualität, Quellenangaben |
+| 6: SQL RAG (M09) | 10 | SQL-Generierung, Hybrid-Modus |
+| 7: Agent mit Tools (M10) | 15 | Tool-Implementation, Agent-Logik |
+| 8: Middleware (M11) | 10 | Logging, HITL, Retry-Stack |
+| 9: Gradio-UI (M13) | 10 | Usability, Features, Design |
 | **Gesamt** | **100** | |
 
 **Bestanden:** ≥ 60 Punkte
@@ -490,10 +646,15 @@ with gr.Blocks(title="Tech-Doku Assistent") as demo:
 - [Agents](https://python.langchain.com/docs/concepts/agents/)
 
 
-**Projekt-Beispiele:**
+**Kurs-Notebooks:**
 - `01_notebook/M04_LangChain101.ipynb`
+- `01_notebook/M06_OutputParser.ipynb`
+- `01_notebook/M07_Chat_Memory_Patterns.ipynb`
 - `01_notebook/M08_RAG_LangChain.ipynb`
+- `01_notebook/M09_SQL_RAG.ipynb`
 - `01_notebook/M10_Agenten_LangChain.ipynb`
+- `01_notebook/M11_Middleware.ipynb`
+- `01_notebook/M13_Gradio.ipynb`
 
 ---
 
@@ -501,7 +662,7 @@ with gr.Blocks(title="Tech-Doku Assistent") as demo:
 
 **Format:**
 - **Jupyter Notebook** (`Tech_Doku_Assistent.ipynb`)
-  - Mit allen 7 Kapiteln ausführbar
+  - Mit allen 9 Kapiteln ausführbar
   - Saubere Markdown-Strukturierung
   - Code-Zellen mit Kommentaren
 - **Dokumentations-Dateien** (3-5 .md Dateien für RAG)
@@ -509,20 +670,20 @@ with gr.Blocks(title="Tech-Doku Assistent") as demo:
   - Kurzbeschreibung des Projekts
   - Setup-Anleitung (API-Keys, Colab-Link)
   - Screenshot des Gradio-UI
-- Optional: **Demo-Video** (max. 5 Min.) oder **Colab-Link**
-
-**Deadline:** keine
+- Optional: **Demo-Video** oder **Colab-Link**
 
 **Einreichung:**
 - Als **Colab-Link** (öffentlich freigegeben)
 - ODER als **ZIP-Archiv** mit .ipynb + docs/
 - ODER als **Git-Repository-Link**
 
-### Checkliste RAG-Workshop     
+### Checkliste RAG-Workshop
 - [ ] Notebook läuft von oben bis unten fehlerfrei durch
 - [ ] Alle API-Keys sind über Colab Secrets eingebunden (nicht hardcodiert!)
-- [ ] Alle 7 Kapitel sind implementiert
+- [ ] Alle 9 Kapitel sind implementiert
 - [ ] Mindestens 3 Markdown-Dateien für RAG vorhanden
+- [ ] SQLite-Datenbank für SQL RAG erstellt
+- [ ] Middleware-Stack (Logging + HITL + Retry) funktioniert
 - [ ] Gradio-UI läuft und erstellt share-Link
 - [ ] Erfolgskriterien aus allen Kapiteln erfüllt
 - [ ] README.md erklärt das Projekt
@@ -531,32 +692,32 @@ with gr.Blocks(title="Tech-Doku Assistent") as demo:
 
 ## FAQ
 
-**Q: Muss ich alle Kapitel implementieren?**      
-A: Kapitel 1-5 sind Pflicht (70 Punkte). Kapitel 6-7 sind optional für Bonuspunkte (30 Punkte).
+**Q: Muss ich alle Kapitel implementieren?**
+A: Kapitel 1–5 sind Pflicht. Kapitel 6–9 sind optional für zusätzliche Punkte.
 
-**Q: Kann ich separate Notebooks erstellen statt einem großen?**      
-A: Ja! Sie können 7 separate Notebooks erstellen (z.B. `Kapitel_1_Chat.ipynb` bis `Kapitel_7_Gradio.ipynb`). Achten Sie dann darauf, dass Kapitel 6-7 auf vorherige Kapitelergebnisse zugreifen können.
+**Q: Kann ich separate Notebooks erstellen statt einem großen?**
+A: Ja! Sie können 9 separate Notebooks erstellen (z.B. `Kapitel_1_Chat.ipynb` bis `Kapitel_9_Gradio.ipynb`). Achten Sie dann darauf, dass spätere Kapitel auf vorherige Ergebnisse zugreifen können.
 
-**Q: Welches LLM-Modell soll ich verwenden?**      
-A: `gpt-4o-mini` ist ausreichend und kosteneffizient. Für Kapitel 6 (Agent) funktioniert `gpt-4o-mini` ebenfalls, da es Function Calling unterstützt.
+**Q: Welches LLM-Modell soll ich verwenden?**
+A: `gpt-4o-mini` ist ausreichend und kosteneffizient. Für Kapitel 7 (Agent) funktioniert `gpt-4o-mini` ebenfalls, da es Function Calling unterstützt.
 
-**Q: Kann ich andere Vektordatenbanken nutzen?**      
+**Q: Kann ich andere Vektordatenbanken nutzen?**
 A: Ja, FAISS ist in Colab sogar etwas schneller als ChromaDB. Qdrant ist ebenfalls möglich.
 
-**Q: Wo bekomme ich Markdown-Dateien für RAG?**      
+**Q: Wo bekomme ich Markdown-Dateien für RAG?**
 A: Optionen:
   - Erstellen Sie eigene .md Dateien mit technischen Infos
   - Laden Sie offizielle Docs herunter (z.B. Docker, Kubernetes)
   - Nutzen Sie `markitdown` für PDF→Markdown Konvertierung
   - Kopieren Sie Wikipedia-Artikel als Markdown
 
-**Q: Mein Colab-Notebook stürzt beim Gradio-Launch ab**      
+**Q: Mein Colab-Notebook stürzt beim Gradio-Launch ab**
 A: Häufigste Ursachen:
   - RAM-Limit erreicht → Runtime → Factory reset runtime
   - Firewall blockiert share-Link → Versuchen Sie `share=False` für lokalen Zugriff
   - Alte Gradio-Version → `!pip install --upgrade gradio`
 
-**Q: Kann ich die Übung auch lokal (ohne Colab) machen?**      
+**Q: Kann ich die Übung auch lokal (ohne Colab) machen?**
 A: Ja! Verwenden Sie dann Jupyter Notebook/Lab lokal und ersetzen Sie:
   - `from google.colab import userdata` → `from dotenv import load_dotenv`
   - `files.upload()` → Lokale File-Pfade
@@ -564,7 +725,6 @@ A: Ja! Verwenden Sie dann Jupyter Notebook/Lab lokal und ersetzen Sie:
 
 ---
 
-**Version:** 1.2           
-**Letzte Aktualisierung:** Januar 2026     
-**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.       
-
+**Version:** 2.0
+**Letzte Aktualisierung:** Februar 2026
+**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
