@@ -8,7 +8,7 @@ description: "Theoretische Grundlagen und technische Konzepte"
 
 # Konzepte
 
-Theoretische Grundlagen, technische Konzepte und fundamentale Prinzipien der generativen KI.  
+Theoretische Grundlagen, technische Konzepte und fundamentale Prinzipien der generativen KI.    
 
 ## Orientierung & Strategie      
 - [Aufgabenklassen & Lösungswege](./concepts/Aufgabenklassen_und_Loesungswege.html) - Das richtige Tool für die Aufgabe
