@@ -34,6 +34,28 @@ Die GenAI-Anwendung wurde in einem Jupyter Notebook entwickelt und getestet. Jet
 └─────────────────┘     └─────────────────┘     └─────────────────┘
 ```
 
+### Deployment-Strategie zuerst festlegen
+
+Bevor die Umsetzung startet, sollte das Ziel-Betriebsmodell festgelegt werden. So werden Architektur, Build-Prozess und Betriebsaufwand von Anfang an passend geplant.
+
+### Übersicht Deploymentvarianten für Python (2026)
+
+Die folgende Marktübersicht hilft bei der Einordnung, welche Betriebsmodelle in der Praxis dominieren:
+
+| Variante                         | Beschreibung                          | Geschätzter Nutzungsanteil | Typische Tools                              |
+| -------------------------------- | ------------------------------------- | -------------------------- | ------------------------------------------- |
+| **Containerisiert (Docker/K8s)** | Images mit Python + App, orchestriert | ~65-75% (wachsend)         | Docker, Podman, Kubernetes, Helm            |
+| **PaaS/Cloud (managed)**         | Provider-managed Runtime              | ~15-20%                    | Heroku, Render, Railway, Vercel, AWS Lambda |
+| **Virtuelle Umgebung (venv)**    | Server + venv + Process Manager       | ~10-15%                    | systemd, Supervisor, Gunicorn, NGINX        |
+| **Standalone-Pakete**            | PyInstaller/shiv für EXEs/Archive     | ~3-5%                      | PyInstaller, cx_Freeze, Nuitka              |
+| **Bare-Metal/System**            | System-Python + pip                   | ~2-5% (Legacy)             | apt/yum + cron/systemd                      |
+
+**Praktische Einordnung:**
+- Container sind heute der Standard für Team-Setups, reproduzierbare Builds und CI/CD.
+- Managed Plattformen sind stark für schnelle Time-to-Market bei kleinen bis mittleren Anwendungen.
+- venv-Deployments bleiben relevant für bestehende Serverlandschaften und interne Tools.
+- Standalone- und Bare-Metal-Varianten sind eher Spezial- oder Legacy-Szenarien.
+
 ---
 
 ## Phase 1: Notebook aufräumen
@@ -237,9 +259,9 @@ Lokal testen mit: `uvicorn main:app --reload`
 
 ---
 
-## Phase 8: Containerisierung mit Docker
+## Phase 8: Containerisierung mit Docker (optional)
 
-Das `Dockerfile`:
+Wenn die gewählte Deployment-Strategie containerisiert ist, wird ein `Dockerfile` benötigt:
 
 ```dockerfile
 FROM python:3.11-slim
@@ -275,7 +297,7 @@ docker run -p 8000:8000 \
 
 ---
 
-## Phase 9: Deployment-Optionen
+## Phase 9: Deployment auf der Zielplattform
 
 Je nach Anforderung gibt es verschiedene Wege ins Deployment:
 
@@ -336,6 +358,6 @@ Vor dem Go-Live sollten diese Punkte geprüft werden:
 ---
 
 **Version:** 1.0      
-**Letzte Aktualisierung:** Dezember 2025      
+**Letzte Aktualisierung:** Februar 2026      
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.      
 **Quelle:** *Powered by Anthropic Claude Opus 4.5*      
