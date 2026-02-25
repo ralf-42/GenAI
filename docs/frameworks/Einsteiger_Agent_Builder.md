@@ -26,7 +26,7 @@ has_toc: true
 
 Während LangChain ein Code-basiertes Framework für KI-Agenten ist, ermöglicht **OpenAI Agent Builder** die No-Code-Erstellung komplexer Agent-Workflows durch eine visuelle Drag-and-Drop-Oberfläche.
 
-> [!NOTE] Einordnung
+> [!NOTE] Einordnung      
 > Agent Builder ist stark für schnelle Workflow-Entwicklung, ersetzt aber nicht in jedem Fall codebasierte Feinsteuerung.
 
 **Zentrale Fragen, die Agent Builder beantwortet:**
@@ -92,7 +92,7 @@ graph TB
 - Organisation mit Admin Console
 - Zugang über [platform.openai.com/agent-builder](https://platform.openai.com/agent-builder)
 
-> [!WARNING] Zugriffsvoraussetzung
+> [!WARNING] Zugriffsvoraussetzung       
 > Ohne Enterprise/Edu-Zugang ist der Funktionsumfang im Teamkontext eingeschränkt oder nicht verfügbar.
 
 ```mermaid
@@ -156,7 +156,7 @@ graph TB
 
 ### 3.2 Node-Typen im Detail
 
-> [!TIP] Modellierungsregel
+> [!TIP] Modellierungsregel       
 > Halten Sie Nodes fachlich eng geschnitten und verlagern Sie komplexe Logik in klar benannte Subworkflows.
 
 | Node-Typ | Symbol | Funktion | Beispiel |
@@ -307,7 +307,7 @@ Body:
 
 ### 4.4 Vorteile dieser Architektur
 
-> [!SUCCESS] Betriebsvorteil
+> [!SUCCESS] Betriebsvorteil       
 > Klare Node/Edge-Strukturen verbessern Nachvollziehbarkeit, Übergaben im Team und Debugging in Produktion.
 
 | Vorteil | Beschreibung |
@@ -325,7 +325,7 @@ Body:
 
 MCP verbindet Agent Builder mit 100+ externen Systemen durch standardisierte Server-Integrationen.
 
-> [!TIP] Integrationsstrategie
+> [!TIP] Integrationsstrategie       
 > Starten Sie mit 1-2 geschäftskritischen MCP-Integrationen und erweitern Sie erst nach stabilen End-to-End-Tests.
 
 ### 5.1 MCP-Architektur
@@ -461,7 +461,7 @@ server.listen(3000);
 
 ## 6 Entscheidungshilfe: Agent Builder vs. Code-basierte Frameworks
 
-> [!NOTE] Entscheidungsheuristik
+> [!NOTE] Entscheidungsheuristik       
 > Wenn Governance, Prototyping-Geschwindigkeit und visuelle Kollaboration dominieren, ist Agent Builder oft der schnellere Weg. Für maximale Flexibilität bleibt Code im Vorteil.
 
 ### 6.1 Vergleichsmatrix
@@ -594,7 +594,7 @@ graph TB
 
 ## 8 Sicherheit und Governance im Agent Builder
 
-> [!WARNING] Produktionsgrenze
+> [!WARNING] Produktionsgrenze      
 > Vor produktivem Einsatz sind Rechte, Datenzugriffe, Auditierbarkeit und Freigabeprozesse verbindlich zu definieren.
 
 ### 8.1 Sicherheits-Architektur
