@@ -37,6 +37,9 @@ Für KI-Agenten ist Prompt Engineering besonders relevant:
 
 **Kernprinzip:** Ein gut formulierter Prompt reduziert Fehler, verbessert die Konsistenz und macht das Verhalten eines Agenten vorhersagbar.
 
+> [!NOTE] Kernbotschaft
+> Prompt-Qualität ist in Agentensystemen ein zentraler Steuerhebel für Zuverlässigkeit und Reproduzierbarkeit.
+
 ---
 
 ## 2 Grundlegende Prompt-Strukturen
@@ -86,6 +89,9 @@ few_shot_prompt = ChatPromptTemplate.from_messages([
 
 Das Modell wird angewiesen, seinen Denkprozess schrittweise darzulegen.
 
+> [!WARNING] Sorgfältig einsetzen
+> Chain-of-Thought verbessert komplexe Aufgaben oft deutlich, erhöht aber Token-Verbrauch und Latenz. Für einfache Aufgaben ist Zero-/Few-Shot meist effizienter.
+
 ```python
 cot_prompt = ChatPromptTemplate.from_template(
     """Löse die folgende Aufgabe Schritt für Schritt.
@@ -113,6 +119,9 @@ Lösung:"""
 ## 3 System-Prompts für Agenten
 
 Der System-Prompt definiert die Identität und das Verhalten eines Agenten. Er ist der wichtigste Hebel für konsistentes Agentenverhalten.
+
+> [!TIP] Priorisierung im Prompt
+> Kritische Regeln zuerst platzieren (Sicherheit, Grenzen, Eskalation), danach Stil und Tonalität.
 
 ### 3.1 Struktur eines effektiven System-Prompts
 
@@ -199,6 +208,9 @@ def search_knowledge(query: str, max_results: int = 5) -> str:
 
 ### 4.2 Checkliste für Tool-Beschreibungen
 
+> [!SUCCESS] Qualitätskriterium
+> Wenn ein Tool klar beschreibt, wann es verwendet werden soll und wann nicht, sinken Fehlaufrufe und Halluzinationen deutlich.
+
 - [ ] **Zweck klar benannt** – Was macht das Tool?
 - [ ] **Anwendungsfälle** – Wann soll es verwendet werden?
 - [ ] **Gegenanzeigen** – Wann soll es NICHT verwendet werden?
@@ -234,6 +246,9 @@ KONFIDENZ: [hoch/mittel/niedrig]
 ### 5.2 Strukturierte Ausgaben mit Pydantic
 
 Für maschinelle Weiterverarbeitung bietet LangChain typsichere Ausgaben:
+
+> [!TIP] Für Produktion bevorzugen
+> Bei Weiterverarbeitung durch Code sind strukturierte Ausgaben mit Schema-Validierung robuster als freie Textantworten.
 
 ```python
 from pydantic import BaseModel, Field
@@ -362,6 +377,9 @@ current_version = "classify_email_v2"
 ---
 
 ## 8 Häufige Fehler und Lösungen
+
+> [!WARNING] Häufigster Praxisfehler
+> Ambige Anweisungen sind eine Hauptursache für instabile Ergebnisse. Erst Präzision im Prompt, dann Modellwechsel.
 
 ### 8.1 Fehler: Ambige Anweisungen
 
