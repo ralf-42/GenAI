@@ -32,6 +32,7 @@ Vergleichsplattformen und Datenbanken für KI-Modelle.
 | [LMArena Leaderboard](https://lmarena.ai/de/leaderboard) | Vergleich der besten Frontier AI Modelle |
 | [Models.dev](https://models.dev/) | Open-Source Datenbank von KI-Modellen |
 | [Anthropic Economic Index](https://www.anthropic.com/economic-index#job-explorer) | Wirtschaftliche Auswirkungen von KI auf Berufe |
+| [Inception Labs Chat](https://chat.inceptionlabs.ai/) | Chat-Interface für Mercury – Diffusion Language Model |
 
 ---
 
