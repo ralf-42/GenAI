@@ -3,7 +3,7 @@
 #
 # Stand: 04.12.2025
 #
-from IPython.display import display, Markdown, Image
+from IPython.display import display, Markdown, HTML
 from IPython import get_ipython
 import requests
 import sys
@@ -214,10 +214,11 @@ def mprint(text):
 
 def mermaid(code: str, width=None, height=None):
     """
-    Rendert Mermaid-Diagramme über den kroki.io Service mit anpassbarer Größe.
+    Rendert Mermaid-Diagramme clientseitig via Mermaid CDN im Browser.
 
-    Diese Funktion sendet Mermaid-Code an den kroki.io Online-Service
-    und zeigt das resultierende SVG-Diagramm direkt im Jupyter-Notebook an.
+    Diese Funktion erzeugt HTML mit eingebettetem Mermaid-Code und lädt
+    die Mermaid-Bibliothek vom CDN, sodass das Diagramm direkt im Browser
+    gerendert wird. Emojis werden korrekt dargestellt.
 
     Mermaid ist eine JavaScript-basierte Diagramm- und Charting-Tool,
     das aus Text-Definitionen Diagramme generiert (z.B. Flowcharts,
@@ -250,23 +251,31 @@ def mermaid(code: str, width=None, height=None):
 
     Hinweise:
     ---------
-    - Benötigt eine aktive Internetverbindung zu kroki.io
+    - Benötigt eine aktive Internetverbindung zum Mermaid CDN
     - Unterstützt alle Mermaid-Diagrammtypen (graph, sequenceDiagram, gantt, etc.)
-    - Timeout ist auf 15 Sekunden gesetzt
+    - Emojis werden korrekt dargestellt (Browser-Rendering)
+    - Funktioniert in Google Colab und JupyterLab; nicht in VS Code Notebooks
     - Width und Height sind optional für bessere Kontrolle über die Darstellung
-
-    Raises:
-    -------
-    requests.HTTPError
-        Wenn der kroki.io Service nicht erreichbar ist oder ein Fehler auftritt.
     """
-    try:
-        r = requests.post("https://kroki.io/mermaid/png", data=code.encode("utf-8"), timeout=15)
-        r.raise_for_status()
+    import uuid
+    div_id = f"mermaid-{uuid.uuid4().hex[:8]}"
 
-        display(Image(data=r.content, width=width, height=height))
-    except requests.exceptions.HTTPError as e:
-        print(f"Fehler beim Rendern des Mermaid-Diagramms: {e}")
+    style_parts = []
+    if width is not None:
+        style_parts.append(f"width:{width}px")
+    if height is not None:
+        style_parts.append(f"height:{height}px")
+    style = "; ".join(style_parts)
+
+    html = f"""<div id="{div_id}" style="{style}"><pre class="mermaid">{code}</pre></div>
+<script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({{ startOnLoad: false }});
+    await mermaid.run({{ nodes: [document.querySelector('#{div_id} .mermaid')] }});
+</script>"""
+
+    try:
+        display(HTML(html))
     except Exception as e:
         print(f"Ein unerwarteter Fehler ist aufgetreten: {e}")
 
