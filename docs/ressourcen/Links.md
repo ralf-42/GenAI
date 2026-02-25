@@ -26,13 +26,13 @@ has_toc: true
 
 Vergleichsplattformen und Datenbanken für KI-Modelle.
 
-| Ressource | Beschreibung |
-|-----------|--------------|
-| [MTEB Leaderboard](https://huggingface.co/spaces/mteb/leaderboard) | Benchmark für Embedding-Modelle |
-| [LMArena Leaderboard](https://lmarena.ai/de/leaderboard) | Vergleich der besten Frontier AI Modelle |
-| [Models.dev](https://models.dev/) | Open-Source Datenbank von KI-Modellen |
-| [Anthropic Economic Index](https://www.anthropic.com/economic-index#job-explorer) | Wirtschaftliche Auswirkungen von KI auf Berufe |
-| [Inception Labs Chat](https://chat.inceptionlabs.ai/) | Chat-Interface für Mercury – Diffusion Language Model |
+| Ressource                                                                         | Beschreibung                                                             |
+| --------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| [MTEB Leaderboard](https://huggingface.co/spaces/mteb/leaderboard)                | Benchmark für Embedding-Modelle                                          |
+| [LMArena Leaderboard](https://lmarena.ai/de/leaderboard)                          | Vergleich der besten Frontier AI Modelle                                 |
+| [Models.dev](https://models.dev/)                                                 | Open-Source Datenbank von KI-Modellen                                    |
+| [Anthropic Economic Index](https://www.anthropic.com/economic-index#job-explorer) | Wirtschaftliche Auswirkungen von KI auf Berufe                           |
+| [Diffusion Model](https://chat.inceptionlabs.ai/)                                 | Chat-Interface für Mercury – Diffusion Language Model - inceptionlabs.ai |
 
 ---
 
