@@ -40,6 +40,8 @@ Transformer-Architektur und Embedding-Konzepte
 | **Kontext-Management**    | Beispiel Kontext-Management                            | [Kontextfenster](https://editor.p5js.org/ralf.bendig.rb/full/tLnUgyZRK)                     |
 | **Neuronales Netz**       | Training eines neuronalen Netzes                       | [NN - Training](https://editor.p5js.org/ralf.bendig.rb/full/FsQx83Adk)                      |
 | **Fine-Tuning LoRA**      | Low-Rank Adaptation für effizientes Fine-Tuning        | [LoRA](https://editor.p5js.org/ralf.bendig.rb/full/6EOMAf2BZ)                               |
+| **Mixture of Experts**    | MoE-Architektur für effiziente LLM-Skalierung          | [Mixture of Experts](https://editor.p5js.org/ralf.bendig.rb/full/GT2XfGGTo)                 |
+| **Diffusion Model**       | Chat-Interface für Mercury – Diffusion Language Model  | [Inception Labs Chat](https://chat.inceptionlabs.ai/)                                       |
 
 
 ---
@@ -117,9 +119,10 @@ Tools für KI-gestützte Prozessoptimierung und Entscheidungshilfen
 
 Weitere interaktive Visualisierungen von externen Anbietern
 
-| Thema | Beschreibung | Link |
-|-------|--------------|------|
-| **Imaginary** | Interaktive Mathematik-Programme und Visualisierungen | [Imaginary](https://www.imaginary.org/de/programs) |
+| Thema               | Beschreibung                                          | Link                                                  |
+| ------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
+| **Imaginary**       | Interaktive Mathematik-Programme und Visualisierungen | [Imaginary](https://www.imaginary.org/de/programs)    |
+
 
 ---
 
