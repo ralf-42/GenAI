@@ -29,6 +29,9 @@ has_toc: true
 
 **Context Engineering** ist die **Kunst, KI-Systemen die richtigen Informationen zur richtigen Zeit zu geben**. Stellen Sie sich vor, Sie sind ein Berater, der einem Kunden hilft - Sie brauchen alle relevanten Informationen über den Kunden, seine Situation und seine Bedürfnisse, um eine gute Beratung zu geben.
 
+> [!NOTE] Kernidee
+> Nicht der "perfekte Prompt" allein entscheidet, sondern die Qualität und Struktur des gesamten Kontexts.
+
 ## 1.1 Der Unterschied zu Prompt Engineering
 
 | Aspekt                 | Prompt Engineering                                                                     | Context Engineering                                                                                    |
@@ -61,6 +64,9 @@ has_toc: true
 - **85% aller KI-Fehler** entstehen durch fehlende oder falsche Kontextinformationen
 - Ihr Prompt macht nur **0,1%** des gesamten Kontexts aus, den die KI verarbeitet
 - **38% bessere Ergebnisse** durch gutes Context Engineering
+
+> [!TIP] Startpunkt
+> Beginnen Sie mit einer kleinen, messbaren Kontext-Checkliste und erweitern Sie schrittweise statt alles gleichzeitig umzustellen.
 
 
 
@@ -137,6 +143,8 @@ Agent B: Kundenberatung (hat Zugang zu Produktdaten)
 
 # 3 Die drei häufigsten Fehler
 
+> [!WARNING] Typische Ursache für Instabilität
+> Instabile KI-Antworten sind oft kein Modellproblem, sondern ein Kontextproblem (zu viel, widersprüchlich oder veraltet).
 
 
 ## 3.1 Context Overload
@@ -241,6 +249,9 @@ AUFGABE: Identifiziere Versicherungslücken und empfehle passende Produkte mit B
 
 ## 4.4 Konsistenz-Checkliste:
 
+> [!SUCCESS] Qualitätsgate
+> Diese Checkliste eignet sich als "Definition of Done" vor jedem produktiven Prompt-Update.
+
 ```
 - [ ] Gleiche Kategorien in allen Abschnitten verwendet
 - [ ] Konkrete Beispiele statt Platzhalter
@@ -300,6 +311,9 @@ PRÄFERENZEN: [Besondere Wünsche]
 - ✅ 8 Min. Bearbeitungszeit
 
 ## 6.2 Erfolgs-Metriken
+
+> [!TIP] Wirkung sichtbar machen
+> Definieren Sie pro Use Case 2-3 Metriken (z. B. Fehlerrate, Nachfragen, Bearbeitungszeit) und vergleichen Sie Vorher/Nachher.
 ```
 Genauigkeit: +65%
 Effizienz: +47%
@@ -327,6 +341,9 @@ Kundenzufriedenheit: +30%
 - Nicht ohne Messungen optimieren
 - Nicht vergessen, das Team zu schulen
 - Nicht auf Feedback verzichten
+
+> [!WARNING] Häufiger Rollout-Fehler
+> Unmessbare Änderungen am Kontext erschweren Ursachenanalyse und führen zu schwer reproduzierbaren Ergebnissen.
 
 ---
 

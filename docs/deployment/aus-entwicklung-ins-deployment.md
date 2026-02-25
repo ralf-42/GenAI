@@ -38,6 +38,9 @@ Die GenAI-Anwendung wurde in einem Jupyter Notebook entwickelt und getestet. Jet
 
 Bevor die Umsetzung startet, sollte das Ziel-Betriebsmodell festgelegt werden. So werden Architektur, Build-Prozess und Betriebsaufwand von Anfang an passend geplant.
 
+> [!NOTE] Architektur-Entscheidung
+> Die gewählte Deployment-Variante beeinflusst frühzeitig Projektstruktur, CI/CD und Betriebsverantwortung.
+
 ### Übersicht Deploymentvarianten für Python (2026)
 
 Die folgende Marktübersicht hilft bei der Einordnung, welche Betriebsmodelle in der Praxis dominieren:
@@ -55,6 +58,9 @@ Die folgende Marktübersicht hilft bei der Einordnung, welche Betriebsmodelle in
 - Managed Plattformen sind stark für schnelle Time-to-Market bei kleinen bis mittleren Anwendungen.
 - venv-Deployments bleiben relevant für bestehende Serverlandschaften und interne Tools.
 - Standalone- und Bare-Metal-Varianten sind eher Spezial- oder Legacy-Szenarien.
+
+> [!TIP] Für Einsteiger
+> Für den ersten produktiven Rollout ist meist "managed" schneller. Container lohnen sich besonders bei Team-Betrieb und Portabilität.
 
 ---
 
@@ -171,6 +177,9 @@ if __name__ == "__main__":
 
 **Wichtig:** `.env` muss in `.gitignore` eingetragen werden – API-Keys gehören nicht ins Repository!
 
+> [!WARNING] Security-Baseline
+> Secrets niemals in Code, Notebooks oder Commit-Historie speichern. Im Zweifel Key sofort rotieren.
+
 ---
 
 ## Phase 5: Abhängigkeiten dokumentieren
@@ -191,6 +200,9 @@ uvicorn>=0.23.0
 ## Phase 6: Einfache Tests hinzufügen
 
 Auch ohne tiefe Testing-Erfahrung lassen sich grundlegende Tests schreiben:
+
+> [!SUCCESS] Mindeststandard
+> Schon wenige Smoke-Tests verhindern viele regressionsbedingte Ausfälle im Deployment.
 
 ```python
 # tests/test_llm_client.py
@@ -263,6 +275,9 @@ Lokal testen mit: `uvicorn main:app --reload`
 
 Wenn die gewählte Deployment-Strategie containerisiert ist, wird ein `Dockerfile` benötigt:
 
+> [!NOTE] Nur bei Container-Strategie
+> Diese Phase ist optional und nur relevant, wenn als Zielplattform Container genutzt werden.
+
 ```dockerfile
 FROM python:3.11-slim
 
@@ -316,6 +331,9 @@ Je nach Anforderung gibt es verschiedene Wege ins Deployment:
 ## Zusammenfassung: Die Checkliste
 
 Vor dem Go-Live sollten diese Punkte geprüft werden:
+
+> [!WARNING] Go-Live-Regel
+> Kein Produktionsstart, wenn Security-, Health-Check- oder Basis-Testpunkte offen sind.
 
 - [ ] Code aus Notebook in Module extrahiert
 - [ ] Keine Secrets im Code (API-Keys in Umgebungsvariablen)

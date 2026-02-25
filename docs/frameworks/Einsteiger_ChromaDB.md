@@ -31,6 +31,9 @@ Large Language Models haben trotz ihrer beeindruckenden Fähigkeiten klare Limit
 - **Halluzination:** Bei fehlendem Wissen werden plausibel klingende, aber falsche Antworten generiert
 - **Kontextlimit:** Nicht alle relevanten Dokumente passen in den Prompt
 
+> [!WARNING] Ohne Retrieval riskant
+> Bei wissensintensiven Aufgaben ohne RAG steigt das Risiko für Halluzinationen und veraltete Antworten deutlich.
+
 Vektordatenbanken lösen diese Probleme durch **semantische Suche**:
 
 | Aspekt | Keyword-Suche | Semantische Suche |
@@ -42,6 +45,9 @@ Vektordatenbanken lösen diese Probleme durch **semantische Suche**:
 | **Kontext** | ❌ Ignoriert | ✅ Berücksichtigt |
 
 **Kernidee:** Texte werden in Vektoren (Listen von Zahlen) umgewandelt. Ähnliche Bedeutungen ergeben ähnliche Vektoren. Die Suche findet die "nächsten Nachbarn" im Vektorraum.
+
+> [!NOTE] Merksatz
+> Semantische Suche findet Bedeutung, nicht nur exakte Wörter.
 
 ---
 
@@ -160,6 +166,9 @@ sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 Dieser Patch muss **vor** dem Import von ChromaDB ausgeführt werden.
 
+> [!WARNING] Reihenfolge beachten
+> Wird ChromaDB vor dem Patch importiert, treten in Colab häufig SQLite-Fehler auf.
+
 ### 3.2 Client erstellen
 
 ```python
@@ -202,6 +211,9 @@ print(client.list_collections())
 ```
 
 **Best Practice:** `get_or_create_collection()` verwenden, um Fehler bei wiederholter Ausführung zu vermeiden.
+
+> [!SUCCESS] Idempotenz im Alltag
+> `get_or_create_collection()` macht Notebooks robuster bei mehrfacher Ausführung und reduziert Setup-Fehler.
 
 ### 3.4 Dokumente hinzufügen
 
@@ -290,6 +302,9 @@ Bevor Dokumente durchsucht werden können, müssen sie in Chunks aufgeteilt und 
 - **Relevanz:** Nur relevante Teile werden dem LLM übergeben
 
 ### 5.2 Chunking-Strategien
+
+> [!TIP] Praktischer Startwert
+> Für viele deutschsprachige Wissensdokumente funktionieren `chunk_size=500` und `chunk_overlap=100` als stabiler Ausgangspunkt.
 
 ```python
 from langchain_text_splitters import RecursiveCharacterTextSplitter
@@ -675,6 +690,9 @@ Für die vollständige RAG-Chain-Implementierung siehe **Einsteiger_LangChain.md
 
 ## 8 Troubleshooting
 
+> [!TIP] Diagnose-Reihenfolge
+> Prüfen Sie zuerst Embedding-Modell, Chunking und `k`-Wert, bevor Sie die gesamte Pipeline umbauen.
+
 Häufige Probleme und deren Lösungen:
 
 ### 8.1 SQLite-Versionsfehler (Google Colab)
@@ -951,6 +969,5 @@ results = retriever.invoke("Meine Frage")
 **Version:** 1.0    
 **Stand:** November 2025    
 **Kurs:** KI-Agenten. Verstehen. Anwenden. Gestalten.  
-
 
 
