@@ -11,7 +11,7 @@ setup(
     author='Ralf Bendig',
     author_email='deine_email@example.com',
     description='Leichtgewichtige Bibliothek für den Kurs GenAI mit LangChain 1.0+ Support.',
-    long_description=open('README.md').read(),
+    long_description=open('README.md', encoding='utf-8').read(),
     long_description_content_type='text/markdown',
     url='https://github.com/ralf-42/GenAI',
     packages=find_packages(where="."),
