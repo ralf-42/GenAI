@@ -1,0 +1,6 @@
+Chinook-Datenbank
+Copyright (c) 2008-2024 Luis Rocha
+
+Die Erlaubnis wird hiermit kostenlos jeder Person erteilt, die eine Kopie dieser Software und der zugehörigen Software erhält Dokumentationsdateien (die "Software"), um die Software uneingeschränkt, einschließlich ohne Einschränkung, zu verarbeiten die Rechte zur Nutzung, Kopierung, Änderung, Zusammenführung, Veröffentlichung, Verbreitung, Unterlizenzierung und/oder Verkauf von Kopien der Software sowie Personen, denen die Software zur Verfügung gestellt wird, dies unter den folgenden Bedingungen zu ermöglichen:
+
+Der obige Urheberrechtshinweis und dieser Erlaubnishinweis sind in allen Kopien oder wesentlichen Teilen der Software enthalten. DIE SOFTWARE WIRD "WIE SIE IST" BEREITGESTELLT, OHNE JEGLICHE GARANTIE, AUSDRÜCKLICH ODER STILLSCHWEIGEND, EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF, DIE GARANTIEN AUF VERKAUFSFÄHIGKEIT, EIGNUNG FÜR EINEN BESTIMMTEN ZWECK UND DIE VERMEIDUNG VON RECHTSVERLETZUNGEN. IN KEINEM FALL HAFTEN DIE AUTOREN ODER URHEBERRECHTSINHABER FÜR ANSPRÜCHE, SCHÄDEN ODER SONSTIGE HAFTUNGEN, SEI ES IN EINER VERTRAGS-, UNERLAUBTEN HANDLUNG ODER ANDERWEITIG, DIE SICH AUS, AUS ODER IM ZUSAMMENHANG MIT DER SOFTWARE ODER DER NUTZUNG ODER ANDEREN GESCHÄFTEN MIT DER SOFTWARE ERGIBT.
