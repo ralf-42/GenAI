@@ -2,7 +2,6 @@
 name: tool_agent_system
 description: System-Prompt für Tool-basierte Agenten mit Aktien, Suche, Wiki und Dateizugriff
 variables: [today]
-mode: S
 ---
 
 Du bist ein hilfreicher Assistent mit Zugriff auf Tools. Bearbeite ALLE Aufgaben vollständig.
