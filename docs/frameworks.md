@@ -12,14 +12,6 @@ Willkommen zu den Einsteiger-Guides für die wichtigsten Frameworks und Tools de
 
 Diese Guides führen Sie Schritt für Schritt in die wichtigsten Frameworks und Werkzeuge ein:
 
-## Modell-Auswahl
-
-- **[Modell-Auswahl Guide](frameworks/Modell_Auswahl_Guide.html)** – Welches Modell für welche Aufgabe? Praktische Designregeln für den Kurs
-  - Designregeln: gpt-4o-mini / gpt-5.1 / gpt-4o — wann was
-  - Modul-Mapping: M00–M20 mit Modellempfehlung
-  - Code-Muster für Standard-Chain, RAG-Synthese und Multimodal
-  - Kosten-Orientierung und Baseline-Strategie
-
 ## LLM-Orchestrierung & Workflows
 
 - **[LangChain Einsteiger](frameworks/Einsteiger_LangChain.html)** - Grundlagen für LLM-Orchestrierung, Chains und Agents
@@ -49,5 +41,13 @@ Diese Guides führen Sie Schritt für Schritt in die wichtigsten Frameworks und 
 - **[GenAI_Lib Einsteiger](frameworks/genai_lib/)** - Projektspezifische Python-Bibliothek für Kursanwendungen
   - **utilities.py** - Environment-Checks, Paket-Installation, API-Keys, Prompt-Templates
   - **multimodal_rag.py** - Multimodales RAG-System mit Text- und Bildsuche (Bild ↔ Bild, Bild ↔ Text)
+
+## Modell-Auswahl
+
+- **[Modell-Auswahl Guide](frameworks/Modell_Auswahl_Guide.html)** – Welches Modell für welche Aufgabe? Praktische Designregeln für den Kurs
+  - Designregeln: gpt-4o-mini / gpt-5.1 / gpt-4o — wann was
+  - Modul-Mapping: M00–M20 mit Modellempfehlung
+  - Code-Muster für Standard-Chain, RAG-Synthese und Multimodal
+  - Kosten-Orientierung und Baseline-Strategie
 
 
