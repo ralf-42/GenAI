@@ -51,7 +51,8 @@ Die Bibliothek besteht aus zwei Hauptmodulen:
 
 ### Überblick
 
-Das `utilities`-Modul stellt grundlegende Hilfsfunktionen bereit, die in vielen Notebooks und Projekten wiederkehrend benötigt werden.
+> [!INFO] utilities.py auf einen Blick     
+> Das `utilities`-Modul stellt grundlegende Hilfsfunktionen bereit, die in vielen Notebooks und Projekten wiederkehrend benötigt werden. Alle Funktionen sind über `from genai_lib.utilities import ...` importierbar.
 
 ### Hauptfunktionen
 
@@ -379,6 +380,47 @@ for model in ["openai:gpt-4o-mini", "anthropic:claude-3-sonnet", "google:gemini-
 - Temperature-Unterstützung prüfen
 - Debugging und Dokumentation
 
+#### 10. `show_trace(project_name, limit=5, show_steps=False)` 🆕
+
+Zeigt die letzten LangSmith-Runs eines Projekts als formatierte Markdown-Tabelle direkt im Notebook.
+
+```python
+from genai_lib.utilities import show_trace
+
+# Letzte 5 Runs als Tabelle
+show_trace("M08-RAG-Projekt")
+
+# Mit Step-Analyse des letzten Runs
+show_trace("M08-RAG-Projekt", limit=3, show_steps=True)
+```
+
+**Parameter:**
+- `project_name` (str): Name des LangSmith-Projekts (z.B. `"M08-RAG-Projekt"`)
+- `limit` (int): Anzahl der anzuzeigenden Runs (Standard: 5)
+- `show_steps` (bool): Child-Runs (Tool-Calls, LLM-Calls) des letzten Runs anzeigen (Standard: False)
+
+**Ausgabe (Haupttabelle):**
+
+| Run | Status | Dauer | Child-Runs |
+|-----|--------|-------|------------|
+| `RunnableSequence` | ✅ success | 2.3s | 4 |
+| `RunnableSequence` | ❌ error | 1.1s | 2 |
+
+**Ausgabe mit `show_steps=True` (Step-Analyse):**
+
+| # | Typ | Name | Status | Dauer |
+|---|-----|------|--------|-------|
+| 1 | `llm` | `ChatOpenAI` | ✅ | 1.8s |
+| 2 | `tool` | `firmenwissen_suchen` | ✅ | 0.4s |
+
+**Erkannte Anti-Patterns (`show_steps=True`):**
+- **Retry-Loops:** Wiederholter Tool-Call mit gleichen Argumenten nach Fehler
+- **Over-Planning:** Viele interne Steps, wenig Ergebnis-Output
+- **Missing Tool Use:** Agent antwortet ohne Tool-Call trotz verfügbarer Tools
+- **Hohe Child-Run-Anzahl:** Deutet auf interne Loops oder Middleware hin
+
+**Voraussetzung:** LangSmith muss konfiguriert sein (`LANGSMITH_TRACING=true`, `LANGSMITH_API_KEY`).
+
 ---
 
 ## multimodal_rag.py - Multimodales RAG
@@ -397,10 +439,11 @@ multimodal_rag
 └── Hybride Suche: Text ↔ Bild ↔ Bild
 ```
 
-**🆕 LangChain 1.0+ Integration (v3.1):**
-- Nutzt `init_chat_model("openai:gpt-4o-mini")` für LLM-Initialisierung
-- Vision-Analysen mit `HumanMessage` und Standard Content Blocks
-- Provider-agnostische Multimodal-Verarbeitung
+> [!INFO] LangChain 1.0+ Integration (v3.1)     
+> Das `multimodal_rag`-Modul verwendet moderne LangChain 1.0+ Patterns:
+> - Nutzt `init_chat_model("openai:gpt-4o-mini")` für LLM-Initialisierung
+> - Vision-Analysen mit `HumanMessage` und Standard Content Blocks
+> - Provider-agnostische Multimodal-Verarbeitung
 
 ### Hauptfunktionen
 
@@ -612,7 +655,19 @@ install_packages([
 setup_api_keys(["OPENAI_API_KEY"])
 ```
 
-### 2. Multimodales RAG-System
+### 2. LangSmith Trace-Analyse
+
+```python
+from genai_lib.utilities import show_trace
+
+# Letzte Runs prüfen
+show_trace("M08-RAG-Projekt")
+
+# Step-Analyse für Debugging
+show_trace("M08-RAG-Projekt", show_steps=True)
+```
+
+### 3. Multimodales RAG-System
 
 ```python
 from genai_lib.multimodal_rag import (
@@ -661,6 +716,7 @@ chromadb>=0.5.0
 # Utilities
 python-dotenv>=1.0.0
 requests>=2.31.0
+langsmith>=0.1.0
 ```
 
 ---

@@ -39,7 +39,8 @@ Large Language Models besitzen beeindruckende Fähigkeiten, stoßen jedoch an kl
 Frage → Suche relevante Dokumente → Füge Kontext zum Prompt → LLM generiert Antwort
 ```
 
-**Kernidee:** Das LLM erhält genau die Informationen, die es für die aktuelle Frage benötigt – nicht mehr und nicht weniger.
+> [!INFO] Kernidee RAG    
+> Das LLM erhält genau die Informationen, die es für die aktuelle Frage benötigt – nicht mehr und nicht weniger. Ohne passenden Kontext halluziniert das Modell stattdessen eine Antwort.
 
 ---
 
@@ -220,6 +221,9 @@ docs = retriever.invoke("Wie funktioniert RAG?")
 | **MMR** | Maximum Marginal Relevance | Diversität der Ergebnisse | Etwas langsamer |
 | **Threshold** | Nur Ergebnisse über Schwellenwert | Qualitätskontrolle | Kann leer zurückkommen |
 | **Hybrid** | Keyword + Semantisch kombiniert | Beste Abdeckung | Komplexer aufzusetzen |
+
+> [!DANGER] Threshold-Retrieval: leerer Kontext     
+> Gibt der Threshold-Retriever keine Treffer zurück, erhält das LLM leeren Kontext — und halluziniert eine Antwort, anstatt "keine Information" zu melden. Immer ein Fallback definieren, wenn `score_threshold` verwendet wird.
 
 ### 5.3 Maximum Marginal Relevance (MMR)
 
