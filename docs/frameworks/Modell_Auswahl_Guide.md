@@ -31,7 +31,8 @@ has_toc: true
 | `gpt-5.1` | Coding, Inhalts-Generierung, konfigurierbare Reasoning-Tiefe | RAG-Synthese, komplexe Outputs, strukturierte Generierung |
 | `gpt-4o` | Multimodal (Text + Bild + Audio) | Bildanalyse, multimodales RAG, Audio-Verarbeitung |
 
-> **Faustregel:** Nicht das stärkste Modell wählen — das *passende* für die Aufgabe.
+> [!TIP] Faustregel Modellwahl     
+> Nicht das stärkste Modell wählen — das *passende* für die Aufgabe.
 > Mit `gpt-4o-mini` starten, nur bei echtem Bedarf upgraden.
 
 ---
@@ -58,8 +59,8 @@ Wenn die Ausgabequalität entscheidend ist — z. B. bei der Synthese von Dokume
 rag_llm = init_chat_model("openai:gpt-5.1")
 ```
 
-> ⚠️ **Parameter-Kompatibilität `gpt-5.1`:** `temperature` führt zu einem API-Fehler,
-> außer wenn `reasoning_effort="none"` gesetzt ist.
+> [!DANGER] temperature-Parameter führt zu API-Fehler     
+> `temperature` führt bei `gpt-5.1` zu einem API-Fehler, außer wenn `reasoning_effort="none"` gesetzt ist.
 > **Empfehlung:** `temperature` weglassen und `reasoning_effort` zur Qualitätssteuerung nutzen.
 
 ### Regel 3 — Multimodale Aufgaben: `gpt-4o`
@@ -233,6 +234,6 @@ antwort = multimodal_llm.invoke([message])
 
 ---
 
-**Version:** 1.0
-**Stand:** März 2026
-**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
+**Version:** 1.0    
+**Stand:** März 2026   
+**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.    

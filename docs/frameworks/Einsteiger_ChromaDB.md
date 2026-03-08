@@ -46,8 +46,8 @@ Vektordatenbanken lösen diese Probleme durch **semantische Suche**:
 
 **Kernidee:** Texte werden in Vektoren (Listen von Zahlen) umgewandelt. Ähnliche Bedeutungen ergeben ähnliche Vektoren. Die Suche findet die "nächsten Nachbarn" im Vektorraum.
 
-> [!NOTE] Merksatz      
-> Semantische Suche findet Bedeutung, nicht nur exakte Wörter.
+> [!NOTE] Merksatz     
+> Semantische Suche findet Bedeutung, nicht nur exakte Wörter. Das ermöglicht Treffer für Synonyme, verwandte Konzepte und paraphrasierte Satzstrukturen — selbst wenn kein Wort übereinstimmt.
 
 ---
 
@@ -166,8 +166,8 @@ sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 Dieser Patch muss **vor** dem Import von ChromaDB ausgeführt werden.
 
-> [!WARNING] Reihenfolge beachten      
-> Wird ChromaDB vor dem Patch importiert, treten in Colab häufig SQLite-Fehler auf.
+> [!DANGER] Reihenfolge beachten     
+> Wird ChromaDB vor dem Patch importiert, schlägt die Initialisierung in Colab mit einem SQLite-Fehler fehl — und ChromaDB-Daten gehen ggf. unbemerkt verloren. Der Patch muss zwingend **vor** jedem `import chromadb` stehen.
 
 ### 3.2 Client erstellen
 
@@ -212,8 +212,9 @@ print(client.list_collections())
 
 **Best Practice:** `get_or_create_collection()` verwenden, um Fehler bei wiederholter Ausführung zu vermeiden.
 
-> [!SUCCESS] Idempotenz im Alltag      
-> `get_or_create_collection()` macht Notebooks robuster bei mehrfacher Ausführung und reduziert Setup-Fehler.
+> [!SUCCESS] Idempotenz im Alltag       
+> `get_or_create_collection()` macht Notebooks robuster bei mehrfacher Ausführung und reduziert Setup-Fehler.     
+> *Idempotenz* = Operation kann mehrfach hintereinander ausgeführt werden kann, ohne dass sich das Ergebnis verändert
 
 ### 3.4 Dokumente hinzufügen
 
@@ -238,7 +239,8 @@ collection.add(
 | `metadatas` | ❌ | Zusätzliche Informationen pro Dokument |
 | `embeddings` | ❌ | Vorgefertigte Vektoren (sonst automatisch) |
 
-**Hinweis:** Ohne explizite `embeddings` verwendet ChromaDB ein internes Embedding-Modell. Für Konsistenz mit LangChain sollten Embeddings explizit übergeben werden.
+> [!TIP] Embedding-Konsistenz     
+> Ohne explizite `embeddings` verwendet ChromaDB ein internes Embedding-Modell. Für Konsistenz mit LangChain immer dasselbe Embedding-Modell für Indexierung und Query verwenden — ein Wechsel des Modells führt zu Dimensionsmismatch und fehlerhaften Suchergebnissen.
 
 ---
 
@@ -305,6 +307,7 @@ Bevor Dokumente durchsucht werden können, müssen sie in Chunks aufgeteilt und 
 
 > [!TIP] Praktischer Startwert      
 > Für viele deutschsprachige Wissensdokumente funktionieren `chunk_size=500` und `chunk_overlap=100` als stabiler Ausgangspunkt.
+> Für FAQ und Kurztexte eher 200–300, für Rechtsdokumente 800–1000 (vollständige Paragraphen). Kurs-Referenz: Tabelle in Kapitel 9.1.
 
 ```python
 from langchain_text_splitters import RecursiveCharacterTextSplitter
@@ -441,6 +444,9 @@ print("✅ Indexierung abgeschlossen!")
 ```
 
 ### 5.5 Batch-Indexierung (große Datenmengen)
+
+> [!WARNING] Hohe API-Kosten bei großen Datenmengen
+> 10.000 Dokumente × API-Calls für Embedding-Erzeugung können in einer Sitzung erhebliche Kosten verursachen. Batch-Größe und Gesamtvolumen vorher abschätzen, Fortschrittsanzeige (`tqdm`) verwenden.
 
 Bei vielen Dokumenten sollte in Batches indexiert werden:
 

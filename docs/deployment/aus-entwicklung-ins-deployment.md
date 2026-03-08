@@ -38,8 +38,8 @@ Die GenAI-Anwendung wurde in einem Jupyter Notebook entwickelt und getestet. Jet
 
 Bevor die Umsetzung startet, sollte das Ziel-Betriebsmodell festgelegt werden. So werden Architektur, Build-Prozess und Betriebsaufwand von Anfang an passend geplant.
 
-> [!NOTE] Architektur-Entscheidung     
-> Die gewählte Deployment-Variante beeinflusst frühzeitig Projektstruktur, CI/CD und Betriebsverantwortung.
+> [!WARNING] Architektur-Entscheidung     
+> Die gewählte Deployment-Variante beeinflusst frühzeitig Projektstruktur, CI/CD und Betriebsverantwortung. Fehlentscheidungen (z. B. Managed-PaaS statt On-Premise) sind schwer zu korrigieren und können erheblichen Migrations-Aufwand erzwingen.
 
 ### Übersicht Deploymentvarianten für Python (2026)
 
@@ -177,8 +177,8 @@ if __name__ == "__main__":
 
 **Wichtig:** `.env` muss in `.gitignore` eingetragen werden – API-Keys gehören nicht ins Repository!
 
-> [!WARNING] Security-Baseline     
-> Secrets niemals in Code, Notebooks oder Commit-Historie speichern. Im Zweifel Key sofort rotieren.
+> [!DANGER] Security-Baseline     
+> Secrets niemals in Code, Notebooks oder Commit-Historie speichern. Einmal eingecheckte Keys bleiben in der Git-Historie — auch nach `git rm`. Im Zweifel Key sofort rotieren und Repository-History bereinigen.
 
 ---
 
@@ -366,16 +366,8 @@ Vor dem Go-Live sollten diese Punkte geprüft werden:
 
 ---
 
-## Weiterführende Ressourcen
-
-- [FastAPI Dokumentation](https://fastapi.tiangolo.com/)
-- [Docker für Python-Entwickler](https://docs.docker.com/language/python/)
-- [12-Factor App Prinzipien](https://12factor.net/de/)
-- [LangServe für LangChain-Apps](https://python.langchain.com/docs/langserve)
-
----
 
 **Version:** 1.0      
 **Letzte Aktualisierung:** Februar 2026      
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.      
-**Quelle:** *Powered by Anthropic Claude Opus 4.5*      
+

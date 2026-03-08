@@ -89,7 +89,8 @@ variables: [context, question]      # Platzhalter im Prompt-Text
 | `description` | ✅ | Kurzbeschreibung (1 Satz) |
 | `variables` | ✅ | Liste der `{variable}`-Platzhalter, oder `[]` wenn keine |
 
-> ⚠️ **Häufiger Fehler:** `variables: []` vergessen, obwohl keine Platzhalter vorhanden.
+> [!WARNING] Häufiger Fehler     
+> `variables: []` vergessen, obwohl keine Platzhalter vorhanden.
 > `load_prompt()` erwartet dieses Feld immer — auch wenn die Liste leer ist.
 
 ---

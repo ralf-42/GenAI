@@ -26,8 +26,9 @@ has_toc: true
 
 Während LangChain ein Code-basiertes Framework für KI-Agenten ist, ermöglicht **OpenAI Agent Builder** die No-Code-Erstellung komplexer Agent-Workflows durch eine visuelle Drag-and-Drop-Oberfläche.
 
-> [!NOTE] Einordnung      
+> [!NOTE] Einordnung     
 > Agent Builder ist stark für schnelle Workflow-Entwicklung, ersetzt aber nicht in jedem Fall codebasierte Feinsteuerung.
+> **Grenzen:** Nur OpenAI-Modelle, kein On-Premise-Deployment, eingeschränkte Code-Kontrolle (nur Export).
 
 **Zentrale Fragen, die Agent Builder beantwortet:**
 
@@ -92,8 +93,8 @@ graph TB
 - Organisation mit Admin Console
 - Zugang über [platform.openai.com/agent-builder](https://platform.openai.com/agent-builder)
 
-> [!WARNING] Zugriffsvoraussetzung       
-> Ohne Enterprise/Edu-Zugang ist der Funktionsumfang im Teamkontext eingeschränkt oder nicht verfügbar.
+> [!WARNING] Zugriffsvoraussetzung     
+> Ohne Enterprise/Edu-Zugang ist der Funktionsumfang im Teamkontext eingeschränkt oder nicht verfügbar. **Plus/Team**-Accounts erhalten keinen Zugriff auf den Agent Builder — nur **Enterprise** und **Edu**-Accounts haben vollen Zugang.
 
 ```mermaid
 graph TB
@@ -156,8 +157,9 @@ graph TB
 
 ### 3.2 Node-Typen im Detail
 
-> [!TIP] Modellierungsregel       
+> [!TIP] Modellierungsregel     
 > Halten Sie Nodes fachlich eng geschnitten und verlagern Sie komplexe Logik in klar benannte Subworkflows.
+> **Anti-Pattern:** Ein einziger LLM-Node, der Kategorisierung, Priorität, Routing und E-Mail-Text gleichzeitig erzeugt — schwer zu debuggen und kaum wiederverwendbar.
 
 | Node-Typ | Symbol | Funktion | Beispiel |
 |----------|--------|----------|----------|
@@ -325,8 +327,9 @@ Body:
 
 MCP verbindet Agent Builder mit 100+ externen Systemen durch standardisierte Server-Integrationen.
 
-> [!TIP] Integrationsstrategie       
+> [!TIP] Integrationsstrategie     
 > Starten Sie mit 1-2 geschäftskritischen MCP-Integrationen und erweitern Sie erst nach stabilen End-to-End-Tests.
+> **Anti-Pattern:** Alle verfügbaren MCP-Server auf einmal einbinden — jeder Server ist eine potenzielle Fehlerquelle und erhöht die Testfläche erheblich.
 
 ### 5.1 MCP-Architektur
 
@@ -461,8 +464,9 @@ server.listen(3000);
 
 ## 6 Entscheidungshilfe: Agent Builder vs. Code-basierte Frameworks
 
-> [!NOTE] Entscheidungsheuristik       
-> Wenn Governance, Prototyping-Geschwindigkeit und visuelle Kollaboration dominieren, ist Agent Builder oft der schnellere Weg. Für maximale Flexibilität bleibt Code im Vorteil.
+> [!NOTE] Entscheidungsheuristik     
+> **Agent Builder** → Governance, schnelles Prototyping, kein Coding erforderlich.
+> **LangChain** → volle Code-Kontrolle, Multi-Provider-Support, On-Premise-Deployment.
 
 ### 6.1 Vergleichsmatrix
 
@@ -990,12 +994,6 @@ graph LR
 **Stand:** November 2025
 **Kurs:** KI-Agenten. Verstehen. Anwenden. Gestalten.
 
-**Changelog v2.0:**
-- ✅ Custom GPTs entfernt (fokussiert auf Agent Builder)
-- ✅ Mermaid-Diagramme für alle Grafiken hinzugefügt
-- ✅ Erweiterte Sicherheits- und Monitoring-Sektion
-- ✅ Migration zu LangChain detailliert beschrieben
-- ✅ Praktische Beispiele mit vollständigen Workflow-Diagrammen
 
 ---
 
