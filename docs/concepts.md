@@ -30,4 +30,5 @@ Theoretische Grundlagen, technische Konzepte und fundamentale Prinzipien der gen
 - [Prompt Engineering](./concepts/Prompt_Engineering.html) - Effektive Prompt-Gestaltung
 - [Context Engineering](./concepts/M21_Context%20Engineering.html) - Kontext-Optimierung für LLMs
 - [RAG-Konzepte](./concepts/RAG_Konzepte.html) - Retrieval Augmented Generation
-- [Modellauswahl](./concepts/M19_Modellauswahl.html) - Das richtige Modell wählen
+- [Modellauswahl](./concepts/M19_Modellauswahl.html) - Das richtige Modell wählen: Kriterien, Benchmarks, Evaluierung
+  - Praktische Designregeln für den Kurs: → [Modell-Auswahl Guide](../frameworks/Modell_Auswahl_Guide.html)
