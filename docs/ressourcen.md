@@ -4,7 +4,6 @@ title: Ressourcen
 nav_order: 7
 has_children: true
 description: "Praktische Anleitungen, Werkzeuge und Hilfestellungen"
-permalink: /ressourcen/
 ---
 
 # Ressourcen
