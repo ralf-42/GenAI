@@ -3,7 +3,7 @@ layout: default
 title: Aufgaben & Lösungswege
 parent: Konzepte
 nav_order: 0
-description: Entscheidungshilfe für GenAI: Für jede Aufgabe den passenden Lösungsweg wählen - von Chat bis Agentensystem.
+description: "Entscheidungshilfe für GenAI: Für jede Aufgabe den passenden Lösungsweg wählen - von Chat bis Agentensystem."
 has_toc: true
 ---
 
