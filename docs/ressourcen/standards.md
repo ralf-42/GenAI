@@ -302,7 +302,7 @@ def test_agent_with_tools():
 ## 📚 Weitere Ressourcen
 
 - **LangChain Tutorial:** [Einsteiger LangChain](../frameworks/Einsteiger_LangChain.html)
-- **LangGraph Tutorial:** [Einsteiger LangGraph](../frameworks/Einsteiger_LangGraph.html)
+- **LangGraph Tutorial:** [LangGraph Docs](https://langchain-ai.github.io/langgraph/)
 - **LangChain Docs:** [python.langchain.com](https://python.langchain.com/)
 - **LangGraph Docs:** [langchain-ai.github.io/langgraph](https://langchain-ai.github.io/langgraph/)
 

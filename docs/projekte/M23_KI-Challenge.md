@@ -80,7 +80,7 @@ Die KI-Challenge bereitet Sie auf **realistische Herausforderungen** vor, die in
 - **Takeaway:** Robustheit > Features
 
 {: .info }
-> **Empfehlung:** Lesen Sie die [Praxis-Einblicke KI-Entwicklung](../ressourcen/praxis-ki-entwicklung.md) für detaillierte Insights aus OpenAI, Palantir und europäischen Frontier Labs.
+> **Empfehlung:** Nutzen Sie die [Links-Sammlung](../ressourcen/links.html) für weiterführende Ressourcen zu KI-Entwicklung und Best Practices.
 
 ### Konkrete Tipps für Ihre Challenge
 
