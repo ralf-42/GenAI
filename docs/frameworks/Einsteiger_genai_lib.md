@@ -4,7 +4,6 @@ title: GenAI_Lib Einsteiger
 parent: Frameworks
 nav_order: 4
 description: "Projektspezifische Python-Bibliothek für Kursanwendungen"
-permalink: /frameworks/genai_lib/
 ---
 
 # GenAI_Lib - Projektspezifische Bibliothek

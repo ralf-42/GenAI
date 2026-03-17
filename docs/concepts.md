@@ -18,17 +18,17 @@ Theoretische Grundlagen, technische Konzepte und fundamentale Prinzipien der gen
 
 ## Technische Grundlagen
 - [Transformer-Architektur](./concepts/M05a_Transformer.html) - Das Fundament moderner LLMs
-- [Tokenizing & Chunking](./concepts/M08a_Tokenizing%20&%20Chunking.html) - Text-Verarbeitung für LLMs
+- [Tokenizing & Chunking](./concepts/M08a_Tokenizing_Chunking.html) - Text-Verarbeitung für LLMs
 - [Embeddings](./concepts/M08b_Embeddings.html) - Vektorrepräsentationen von Text
 
 ## Multimodale Konzepte
-- [Multimodal Bild](./concepts/M09_Multimodal%20Bild.html) - Bildgenerierung und -analyse
-- [Multimodal Audio](./concepts/M16_Multimodel%20Audio.html) - Speech-to-Text und Text-to-Speech
+- [Multimodal Bild](./concepts/M09_Multimodal_Bild.html) - Bildgenerierung und -analyse
+- [Multimodal Audio](./concepts/M16_Multimodal_Audio.html) - Speech-to-Text und Text-to-Speech
 - [Fine-Tuning](./concepts/M18_Fine-Tuning.html) - Modell-Anpassung
 
 ## Erweiterte Techniken
 - [Prompt Engineering](./concepts/Prompt_Engineering.html) - Effektive Prompt-Gestaltung
-- [Context Engineering](./concepts/M21_Context%20Engineering.html) - Kontext-Optimierung für LLMs
+- [Context Engineering](./concepts/M21_Context_Engineering.html) - Kontext-Optimierung für LLMs
 - [RAG-Konzepte](./concepts/RAG_Konzepte.html) - Retrieval Augmented Generation
 - [Modellauswahl](./concepts/M19_Modellauswahl.html) - Das richtige Modell wählen: Kriterien, Benchmarks, Evaluierung
   - Praktische Designregeln für den Kurs: → [Modell-Auswahl Guide](../frameworks/Modell_Auswahl_Guide.html)

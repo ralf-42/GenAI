@@ -2,7 +2,7 @@
 layout: default
 title: Von Colab zu Local
 parent: Ressourcen
-nav_order: 5
+nav_order: 6
 description: Anleitung zur Ausführung der Kurs-Notebooks in einer lokalen Jupyter-Umgebung
 has_toc: true
 ---
