@@ -13,7 +13,7 @@ Rechtliche, ethische und strategische Aspekte beim Einsatz von KI-Agenten.
 ## Übersicht
 
 ### Digitale Souveränität
-- **[Digitale Souveränität](./regulatorisches/Digitale_Souveraenitat.html)** - Definition, Reifegrade und europäische Strategien
+- **[Digitale Souveränität](https://ralf-42.github.io/GenAI/regulatorisches/Digitale_Souveraenitat.html)** - Definition, Reifegrade und europäische Strategien
   - Konzeptionelle Grundlagen und Begriffsbestimmung
   - Reifegradmodelle (EU Cloud Sovereignty Framework, SEAL-Stufen)
   - Europäische Initiativen (Gaia-X, Catena-X, European Chips Act)
@@ -21,14 +21,14 @@ Rechtliche, ethische und strategische Aspekte beim Einsatz von KI-Agenten.
   - Zukunftstechnologien (Open RAN, Sovereign AI)
 
 ### Rechtliche Rahmenbedingungen
-- **[EU AI Act](./regulatorisches/EU_AI_Act.html)** - Europäische KI-Regulierung
+- **[EU AI Act](https://ralf-42.github.io/GenAI/regulatorisches/EU_AI_Act.html)** - Europäische KI-Regulierung
   - Rechtliche Rahmenbedingungen
   - Risikostufen und Anforderungen
   - Compliance-Aspekte
   - Praktische Auswirkungen
 
 ### Ethik & Verantwortung
-- **[Ethik und GenAI](./regulatorisches/Ethik_und_GenAI.html)** - Verantwortungsvoller KI-Einsatz
+- **[Ethik und GenAI](https://ralf-42.github.io/GenAI/regulatorisches/Ethik_und_GenAI.html)** - Verantwortungsvoller KI-Einsatz
   - Ethische Aspekte und Herausforderungen
   - Bias und Fairness
   - Verantwortungsvoller Umgang mit KI-Agenten

@@ -13,7 +13,7 @@ Praxisorientierte Lernformate zum Aufbau von Agent-Systemen.
 ## Übersicht
 
 ### Workshop-Format
-- **[RAG Workshop](./projekte/RAG_Workshop.html)** - Begleitete Schritt-für-Schritt-Übung
+- **[RAG Workshop](https://ralf-42.github.io/GenAI/projekte/RAG_Workshop.html)** - Begleitete Schritt-für-Schritt-Übung
   - Bauen Sie ein Multi-Agent Support-System von Grund auf
   - 7 Kapitel: Von StateGraph zu komplexen Supervisor-Hierarchien
   - LangGraph 0.3+: State Machines, Checkpointing, Human-in-the-Loop
@@ -21,7 +21,7 @@ Praxisorientierte Lernformate zum Aufbau von Agent-Systemen.
   - Module M12-M20
 
 ### End-to-End Projekt
-- **[KI-Challenge](./projekte/M23_KI-Challenge.html)** - Eigenständige Implementierung
+- **[KI-Challenge](https://ralf-42.github.io/GenAI/projekte/M23_KI-Challenge.html)** - Eigenständige Implementierung
   - Entwickeln Sie ein Production-Ready Multi-Agent-System
   - 4 Projektoptionen: Support-System, Research-Team, Code-Review, Workflow-Automation
   - LangGraph Must-Haves: Supervisor-Pattern, HITL, Persistent Sessions
