@@ -8,54 +8,41 @@ description: "Einsteiger-Guides für LangChain, ChromaDB und Agent Builder"
 
 # Frameworks
 
-Willkommen zu den Einsteiger-Guides für die wichtigsten Frameworks und Tools der Generativen KI!
-
-Diese Guides führen Sie Schritt für Schritt in die wichtigsten Frameworks und Werkzeuge ein:
+Die Framework-Seiten dienen nicht als vollständige Produktkataloge. Sie erklären die Werkzeuge, die im Kurs tatsächlich gebraucht werden, und vor allem, an welcher Stelle welches Framework den Unterschied macht. Entscheidend ist weniger, was ein Tool alles kann, sondern wofür es im Projektaufbau taugt.
 
 ## LLM-Orchestrierung & Workflows
 
-- **[LangChain Einsteiger](frameworks/Einsteiger_LangChain.html)** - Grundlagen für LLM-Orchestrierung, Chains und Agents
-  - Model Integration und Prompting
-  - Tool Use und Function Calling
-  - Chains und LCEL (LangChain Expression Language)
-  - RAG-Systeme mit LangChain
+LangChain ist im Projekt die zentrale Schicht zwischen Modell und Anwendung. Wer verstehen will, warum Providerwechsel, Chains oder Tool-Integration im Kurs vergleichsweise kontrollierbar bleiben, beginnt hier.
+
+- **[LangChain Einsteiger](frameworks/Einsteiger_LangChain.html)** – *Wie werden Modelle, Prompts und Chains zusammengeführt?*
 
 ## Vektordatenbanken
 
-- **[ChromaDB Einsteiger](frameworks/Einsteiger_ChromaDB.html)** - Vektordatenbank für semantische Suche und RAG-Systeme
-  - Embedding-Speicherung und -Retrieval
-  - Similarity Search und Filtering
-  - Collections und Metadaten
-  - Integration mit LangChain
+ChromaDB wird dort relevant, wo semantische Suche nicht nur eine Idee bleiben soll. Die Seite zeigt weniger "was ChromaDB alles bietet", sondern wie daraus ein brauchbarer Retrieval-Pfad wird.
+
+- **[ChromaDB Einsteiger](frameworks/Einsteiger_ChromaDB.html)** – *Wie wird aus Embeddings ein nutzbarer Suchindex?*
 
 ## No-Code / Low-Code
 
-- **[Agent Builder Einsteiger](frameworks/Einsteiger_Agent_Builder.html)** - Agenten ohne Code: Custom GPTs und visueller Workflow-Builder
-  - Custom GPT-Erstellung
-  - Tool-Integration ohne Programmierung
-  - Prompt-Design und Testing
-  - Deployment und Sharing
+Nicht jede Anwendung beginnt mit Python-Code. Agent Builder ist im Kurs vor allem als Vergleich interessant: Wo reicht ein visueller Workflow, und ab wann wird Code unverzichtbar?
+
+- **[Agent Builder Einsteiger](frameworks/Einsteiger_Agent_Builder.html)** – *Wann genügt ein visueller Workflow-Builder?*
 
 ## Projektspezifische Bibliotheken
 
-- **[GenAI_Lib Einsteiger](frameworks/Einsteiger_GenAI_Lib.html)** - Projektspezifische Python-Bibliothek für Kursanwendungen
-  - **utilities.py** - Environment-Checks, Paket-Installation, API-Keys, Prompt-Templates
-  - **multimodal_rag.py** - Multimodales RAG-System mit Text- und Bildsuche (Bild ↔ Bild, Bild ↔ Text)
+Die `genai_lib` bündelt genau die Hilfsfunktionen, die im Kurs immer wieder gebraucht werden. Wer nachvollziehen möchte, warum Setups, API-Keys und Visualisierungen in den Notebooks vergleichsweise konsistent aussehen, findet hier die technische Basis.
+
+- **[GenAI_Lib Einsteiger](frameworks/Einsteiger_GenAI_Lib.html)** – *Welche Hilfsfunktionen trägt das Kursprojekt selbst bei?*
 
 ## Modell-Auswahl
 
-- **[Modell-Auswahl Guide](frameworks/Modell_Auswahl_Guide.html)** – Welches Modell für welche Aufgabe? Praktische Designregeln für den Kurs
-  - Designregeln: gpt-4o-mini / gpt-5.1 / gpt-4o — wann was
-  - Modul-Mapping: M00–M20 mit Modellempfehlung
-  - Code-Muster für Standard-Chain, RAG-Synthese und Multimodal
-  - Kosten-Orientierung und Baseline-Strategie
+Modellauswahl ist selten nur eine Qualitätsfrage. Häufiger geht es um Kosten, Latenz, Modalitäten und die Frage, ob ein stärkeres Modell den Mehraufwand überhaupt rechtfertigt.
+
+- **[Modell-Auswahl Guide](frameworks/Modell_Auswahl_Guide.html)** – *Welches Modell passt zu welcher Aufgabe?*
 
 ## Prompt-Templates
 
-- **[Prompt-Templates Einsteiger](frameworks/Einsteiger_Prompts.html)** – Eigene Prompt-Dateien in `05_prompt/` erstellen
-  - Was ist YAML? Frontmatter-Syntax und Felder erklärt
-  - Was sind XML-Tags? Warum strukturieren sie Prompts besser
-  - Die drei Typen: System-only, Template mit Variablen, Few-Shot
-  - `load_prompt()` nutzen und häufige Fehler vermeiden
+Prompt-Dateien werden im Kurs nicht als Textbausteine behandelt, sondern als wartbare Schnittstelle zwischen Idee und Anwendung. Die Seite zeigt, wie daraus mehr wird als eine Sammlung lose kopierter Prompts.
 
+- **[Prompt-Templates Einsteiger](frameworks/Einsteiger_Prompts.html)** – *Wie werden Prompts wiederverwendbar und pflegbar?*
 

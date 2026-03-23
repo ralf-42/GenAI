@@ -44,7 +44,9 @@ Vektordatenbanken lösen diese Probleme durch **semantische Suche**:
 | **Tippfehler** | ❌ Keine Treffer | ✅ Oft trotzdem Treffer |
 | **Kontext** | ❌ Ignoriert | ✅ Berücksichtigt |
 
-**Kernidee:** Texte werden in Vektoren (Listen von Zahlen) umgewandelt. Ähnliche Bedeutungen ergeben ähnliche Vektoren. Die Suche findet die "nächsten Nachbarn" im Vektorraum.
+**Kernidee:** Texte werden in Vektoren umgewandelt. Ähnliche Bedeutungen führen zu ähnlichen Vektoren. Die Suche arbeitet dann nicht primär mit exakten Wörtern, sondern mit Nähe im Vektorraum.
+
+Gerade bei RAG-Systemen ist das oft der entscheidende Unterschied. Wer nur auf Keywords setzt, findet vor allem exakte Treffer. Semantische Suche wird dann interessant, wenn Formulierungen variieren, Synonyme vorkommen oder Fragen den Wortlaut der Quelle nicht direkt wiederholen.
 
 > [!NOTE] Merksatz     
 > Semantische Suche findet Bedeutung, nicht nur exakte Wörter. Das ermöglicht Treffer für Synonyme, verwandte Konzepte und paraphrasierte Satzstrukturen — selbst wenn kein Wort übereinstimmt.
@@ -119,7 +121,7 @@ Für ein intuitives Verständnis von Embeddings:
 **Embedding Projector (Google):**  
 https://projector.tensorflow.org/?hl=de
 
-Hier lassen sich hochdimensionale Vektoren auf 2D/3D projizieren und interaktiv erkunden. Semantisch ähnliche Wörter bilden Cluster.
+Damit lassen sich hochdimensionale Vektoren auf 2D oder 3D projizieren und anschaulich erkunden. Sichtbar wird vor allem, dass semantisch verwandte Begriffe häufig Cluster bilden, auch wenn ihre Wortoberfläche voneinander abweicht.
 
 ### 2.4 Beispiel: Embedding erzeugen
 
@@ -142,6 +144,8 @@ print(f"Erste 5 Werte: {vector[:5]}")
 ## 3 ChromaDB Basics
 
 ChromaDB ist eine leichtgewichtige, Open-Source-Vektordatenbank, die sich ideal für Entwicklung und Prototyping eignet.
+
+Im Kurs ist ChromaDB vor allem deshalb nützlich, weil sich damit die Mechanik von Retrieval-Systemen gut nachvollziehen lässt. Für kleine bis mittlere Datenbestände funktioniert das meist unkompliziert. Die eigentlichen Qualitätsfragen entstehen nicht bei der Datenbank selbst, sondern bei Embeddings, Chunking und Retrieval-Parametern.
 
 ### 3.1 Installation
 
@@ -211,6 +215,8 @@ print(client.list_collections())
 ```
 
 **Best Practice:** `get_or_create_collection()` verwenden, um Fehler bei wiederholter Ausführung zu vermeiden.
+
+Gerade in Notebooks zahlt sich das sofort aus. Viele Probleme entstehen nicht durch ChromaDB selbst, sondern durch wiederholt ausgeführte Setup-Zellen, inkonsistente Collection-Namen oder wechselnde Embedding-Konfigurationen.
 
 > [!SUCCESS] Idempotenz im Alltag       
 > `get_or_create_collection()` macht Notebooks robuster bei mehrfacher Ausführung und reduziert Setup-Fehler.     
@@ -697,7 +703,7 @@ Für die vollständige RAG-Chain-Implementierung siehe **Einsteiger_LangChain.md
 ## 8 Troubleshooting
 
 > [!TIP] Diagnose-Reihenfolge      
-> Prüfen Sie zuerst Embedding-Modell, Chunking und `k`-Wert, bevor Sie die gesamte Pipeline umbauen.
+> Zuerst Embedding-Modell, Chunking und `k`-Wert prüfen. Erst danach lohnt ein Umbau der gesamten Pipeline.
 
 Häufige Probleme und deren Lösungen:
 
@@ -975,5 +981,3 @@ results = retriever.invoke("Meine Frage")
 **Version:** 1.0    
 **Stand:** November 2025    
 **Kurs:** KI-Agenten. Verstehen. Anwenden. Gestalten.  
-
-

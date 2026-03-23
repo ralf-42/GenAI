@@ -23,7 +23,9 @@ has_toc: true
 ---
 
 
-Die effiziente Textverarbeitung beruht auf drei zentralen Elementen: der Wahl des richtigen Tokenizers, der optimalen Chunk-Größe und einer passenden Chunking-Strategie. Diese Faktoren bilden die Basis für eine erfolgreiche Dokumentenanalyse in NLP-Anwendungen. Im Folgenden erfahren Sie, wie Sie diese Parameter systematisch an die Eigenschaften Ihres Dokuments und die Anforderungen der Anwendung (z. B. Fragebeantwortung, Zusammenfassung, Code-Verarbeitung) anpassen und optimieren können.
+Die Textverarbeitung in LLM-Systemen steht und fällt oft mit drei Entscheidungen: Welcher Tokenizer wird verwendet, wie groß sind die Chunks und nach welcher Logik werden sie gebildet. Auf dem Papier wirken diese Parameter technisch und nachgeordnet. In RAG- oder Analyseaufgaben entscheiden sie jedoch oft darüber, ob relevante Informationen überhaupt wiedergefunden werden.
+
+In der Praxis zeigt sich ein typisches Muster: Wenn Antworten unpräzise, unvollständig oder instabil sind, wird zunächst das Modell verdächtigt. Häufig liegt das Problem jedoch früher in der Pipeline. Chunks sind zu klein, Grenzen fallen ungünstig, oder Überlappungen erzeugen unnötiges Rauschen. Genau deshalb lohnt es sich, Tokenizing und Chunking nicht als reine Vorverarbeitung zu behandeln.
 
 
 # 1 Tokenizer-, Chunking- & Strategieauswahl
@@ -53,7 +55,7 @@ Die effiziente Textverarbeitung beruht auf drei zentralen Elementen: der Wahl de
 
 
 > [!NOTE]
-> Bevor Sie eine konkrete Implementierung starten, sollten Sie Ihre Dokumente genau analysieren, um die für Ihren Anwendungsfall optimale Kombination aus Tokenizer, Chunk-Größe, Überlappung und Chunking-Strategie auszuwählen. Eine Pilotphase mit verschiedenen Einstellungen kann helfen, den besten Ansatz zu ermitteln.
+> Vor einer konkreten Implementierung lohnt sich eine kurze Pilotphase mit echten Dokumenten. Häufig reichen schon zwei oder drei Varianten, um zu sehen, ob ein Setup eher Kontext erhält oder eher Rauschen produziert.
 
 
 # 2 Beispiel
@@ -93,9 +95,11 @@ Die effiziente Textverarbeitung beruht auf drei zentralen Elementen: der Wahl de
     - **Speicherverbrauch und Verarbeitungsgeschwindigkeit** lassen sich durch Anpassung der Chunk-Größe steuern. Kleinere Chunks reduzieren den Speicherbedarf und beschleunigen die Verarbeitung, was vor allem bei großen Datenmengen von Bedeutung ist.
     - **Kosten** können durch die Optimierung der Überlappung minimiert werden. Eine zu hohe Überlappung erhöht Redundanzen und Rechenaufwand, sodass hier ein ausgewogenes Verhältnis gefunden werden muss.
 
+Aus Kurssicht ist vor allem eine Erfahrung wichtig: Es gibt selten eine universell richtige Chunk-Größe. Gute Werte hängen stark davon ab, ob Absätze, Abschnitte, Funktionsblöcke oder stark strukturierte Datensätze verarbeitet werden. Wer ohne Testdaten sofort auf "Best Practices" vertraut, optimiert oft am eigentlichen Problem vorbei.
+
 
 > [!NOTE]
-> Um die Eignung von Chunk-Größen und -Strategien für Ihre Aufgabe zu beurteilen, führen Sie Tests mit echten Daten durch, messen Sie Abrufgenauigkeit (Recall/Precision) und werten Sie Antwortqualität aus – so stellen Sie sicher, dass Ihre Implementierung optimal auf den Anwendungsfall abgestimmt ist.
+> Die Eignung von Chunk-Größen und -Strategien zeigt sich am zuverlässigsten mit echten Daten, nicht mit Beispieltexten. Relevant sind dabei vor allem Abrufgenauigkeit, Antwortqualität und die Frage, ob wichtige Informationen an Chunk-Grenzen verloren gehen.
 
 
 <div style="page-break-after: always;"></div>
@@ -306,7 +310,7 @@ Die Wahl der richtigen Kombination aus Tokenizer, Chunk-Größe und Chunking-Str
 - **Dokumenttyp bestimmt Tokenizer:** Lange Texte → BPE/SentencePiece, Code → Whitespace/Symbol
 - **Anwendung bestimmt Chunk-Größe:** Q&A → größer mit Überlappung, Klassifikation → größer ohne Überlappung
 - **Strategie folgt Anforderungen:** Semantik wichtig → Semantisches/Embedding-basiert, Struktur wichtig → Dokumentbasiert
-- **Testen Sie!** A/B-Tests mit echten Daten sind unerlässlich
+- **Tests mit echten Daten:** A/B-Tests sind hier deutlich aussagekräftiger als Beispieltexte
 
 ---
 

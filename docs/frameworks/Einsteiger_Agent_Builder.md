@@ -30,7 +30,7 @@ Während LangChain ein Code-basiertes Framework für KI-Agenten ist, ermöglicht
 > Agent Builder ist stark für schnelle Workflow-Entwicklung, ersetzt aber nicht in jedem Fall codebasierte Feinsteuerung.
 > **Grenzen:** Nur OpenAI-Modelle, kein On-Premise-Deployment, eingeschränkte Code-Kontrolle (nur Export).
 
-**Zentrale Fragen, die Agent Builder beantwortet:**
+**Zentrale Fragen des Werkzeugs:**
 
 - **Wie erstelle ich komplexe Workflows ohne Programmierung?**
 - **Wie orchestriere ich mehrere spezialisierte Agenten?**
@@ -158,8 +158,8 @@ graph TB
 ### 3.2 Node-Typen im Detail
 
 > [!TIP] Modellierungsregel     
-> Halten Sie Nodes fachlich eng geschnitten und verlagern Sie komplexe Logik in klar benannte Subworkflows.
-> **Anti-Pattern:** Ein einziger LLM-Node, der Kategorisierung, Priorität, Routing und E-Mail-Text gleichzeitig erzeugt — schwer zu debuggen und kaum wiederverwendbar.
+> Sinnvoll sind fachlich eng geschnittene Nodes und klar benannte Subworkflows.
+> **Anti-Pattern:** Ein einzelner LLM-Node, der Kategorisierung, Priorität, Routing und E-Mail-Text gleichzeitig erzeugt. Das ist schwer zu debuggen und kaum wiederverwendbar.
 
 | Node-Typ | Symbol | Funktion | Beispiel |
 |----------|--------|----------|----------|
@@ -328,7 +328,7 @@ Body:
 MCP verbindet Agent Builder mit 100+ externen Systemen durch standardisierte Server-Integrationen.
 
 > [!TIP] Integrationsstrategie     
-> Starten Sie mit 1-2 geschäftskritischen MCP-Integrationen und erweitern Sie erst nach stabilen End-to-End-Tests.
+> Sinnvoll ist ein Start mit ein bis zwei geschäftskritischen MCP-Integrationen. Erst nach stabilen End-to-End-Tests sollte die Fläche erweitert werden.
 > **Anti-Pattern:** Alle verfügbaren MCP-Server auf einmal einbinden — jeder Server ist eine potenzielle Fehlerquelle und erhöht die Testfläche erheblich.
 
 ### 5.1 MCP-Architektur
@@ -423,7 +423,7 @@ flowchart LR
 
 ### 5.4 Custom MCP Server erstellen
 
-Falls kein passender MCP-Server existiert, können Sie einen eigenen erstellen:
+Falls kein passender MCP-Server existiert, lässt sich ein eigener Server erstellen:
 
 ```typescript
 // Beispiel: Simple MCP Server für Custom API
@@ -566,7 +566,7 @@ sequenceDiagram
     Note over CODE,DEP: Code kann unabhängig angepasst werden
 ```
 
-### 7.2 Wann sollten Sie zu LangChain migrieren?
+### 7.2 Wann ist eine Migration zu LangChain sinnvoll?
 
 ```mermaid
 graph TB
@@ -587,7 +587,7 @@ graph TB
 
 **Migrations-Checkliste:**
 
-- ✅ Benötigen Sie Multi-Provider-Support? → LangChain
+- ✅ Multi-Provider-Support benötigt? → LangChain
 - ✅ On-Premise Deployment erforderlich? → LangChain
 - ✅ Custom Python-Tools notwendig? → LangChain
 - ❌ Visual Workflows ausreichend? → Agent Builder
@@ -962,7 +962,7 @@ graph TB
 
 ```mermaid
 graph LR
-    YOU[Sie sind hier] --> TRY[Agent Builder ausprobieren]
+    YOU[Aktueller Einstieg] --> TRY[Agent Builder ausprobieren]
 
     TRY --> TEMP[Templates nutzen]
     TRY --> BUILD[Eigenen Workflow bauen]
@@ -988,15 +988,6 @@ graph LR
 - **Community:** OpenAI Developer Forum
 - **Vergleich:** [AgentKit vs GPTs Guide](https://www.eesel.ai/blog/agentkit-vs-gpts)
 
----
-
-**Version:** 2.0
-**Stand:** November 2025
-**Kurs:** KI-Agenten. Verstehen. Anwenden. Gestalten.
-
-
----
-
 ## 11 Quellen
 
 - [OpenAI Agent Builder Dokumentation](https://platform.openai.com/docs/guides/agent-builder)          
@@ -1008,6 +999,6 @@ graph LR
 
 ---
 
-**Version:** 1.0  
-**Stand:** November 2025  
-**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
+**Version:** 2.0  
+**Stand:** November 2025  
+**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

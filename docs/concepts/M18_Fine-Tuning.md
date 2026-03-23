@@ -25,11 +25,11 @@ has_toc: true
 
 # 1 Intro
 
-Fine-Tuning ist eine bewährte Technik, um ein vortrainiertes KI-Modell gezielt auf spezifische Aufgaben oder Datensätze anzupassen. Dabei werden die bereits gelernten Strukturen und Muster eines bestehenden Modells genutzt un weiterverfeinert. Dieser Prozess spart nicht nur Rechenressourcen und Zeit, sondern führt auch bei kleineren Datenmengen zu beeindruckenden Ergebnissen.
+Fine-Tuning ist eine Technik, um ein vortrainiertes Modell auf eine engere Aufgabe oder einen klar umrissenen Datensatz anzupassen. Dabei werden bestehende Modellstrukturen weiterverwendet und gezielt verändert. Das spart im Vergleich zum Training von Grund auf Zeit und Rechenaufwand, ist aber kein Automatismus für bessere Ergebnisse.
 
-In der Praxis bedeutet Fine-Tuning, dass Entwickler:innen lediglich einen Bruchteil der Rechenleistung und Datenmenge benötigen, die für das Training eines Modells von Grund auf erforderlich wären. Gleichzeitig wird die Möglichkeit geschaffen, eigene oder sensible Daten gezielt einzusetzen. Fine-Tuning ist somit nicht nur ein technisches Werkzeug, sondern auch ein strategischer Ansatz zur Effizienzsteigerung, Individualisierung und Qualitätssicherung von KI-Anwendungen.
+In der Praxis lohnt sich Fine-Tuning nur in einem Teil der Fälle. Häufig reicht eine Kombination aus besserem Prompting, sauberem Retrieval und klarer Evaluation aus. Erst wenn sich ein wiederkehrendes Fehlermuster trotz guter Daten, guter Prompts und stabiler Systemarchitektur hält, wird Fine-Tuning zur realistischen Option.
 
-Zudem ist Fine-Tuning ein zentraler Bestandteil des sogenannten Model Optimization Workflows. Dabei wird die Modellleistung durch eine Kombination aus **Evals**, **Prompt Engineering** und **Fine-Tuning** in einem iterativen Zyklus optimiert. Ziel ist es, die Qualität der Modellantworten durch Feedback und gezielte Anpassung kontinuierlich zu verbessern. Dieser sogenannte Optimierungs-Flywheel ermöglicht es, systematisch bessere Prompts, Trainingsdaten und daraus resultierende Modelle zu entwickeln.
+Fine-Tuning ist deshalb am sinnvollsten als Teil eines größeren Optimierungsprozesses zu verstehen. **Evals**, **Prompt Engineering** und **Fine-Tuning** greifen ineinander. Ohne belastbare Evaluation ist kaum erkennbar, ob ein Training wirklich geholfen hat oder nur die Fehler an andere Stellen verschoben wurden.
 
 # 2 Fine-Tuning-Ansätze
 
