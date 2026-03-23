@@ -23,8 +23,7 @@ has_toc: true
 ---
 
 
-# 1 Grundlagen Bilderkennung
-
+# Grundlagen Bilderkennung
 Ein Computer "sieht" ein Bild nicht wie ein Mensch. Für ihn stellt ein Bild lediglich eine Matrix aus Zahlenwerten dar, wobei jeder Wert die Intensität eines Pixels in verschiedenen Farbkanälen (meist Rot, Grün, Blau) repräsentiert. Diese Zahlenwerte werden von Algorithmen verarbeitet, um Muster und Strukturen zu erkennen, die für die Bilderkennung essenziell sind.
 
 Der Prozess der Bilderkennung umfasst folgende Schritte:
@@ -61,9 +60,8 @@ flowchart LR
 
 
 
-# 2 Methoden 
-
-## 2.1 Traditionelle Methoden
+# Methoden
+## Traditionelle Methoden
 
 Bei traditionellen Methoden müssen explizit Merkmale definiert werden, die als relevant gelten (z. B. Kanten, Farben, Texturen). Klassische Verfahren beinhalten Methoden wie:
 
@@ -78,7 +76,7 @@ Diese Verfahren erfordern umfassendes domänenspezifisches Wissen und sind oft a
 [Merkmals-Filter-Anwendung](https://editor.p5js.org/ralf.bendig.rb/full/Xi2uabjR9)
 
 
-## 2.2 Deep Learning
+## Deep Learning
 
 Moderne Ansätze setzen auf neuronale Netze, insbesondere Convolutional Neural Networks (CNNs), die eigenständig lernen, welche Merkmale relevant sind. CNNs bestehen aus mehreren Schichten, die folgende Aufgaben erfüllen:
 
@@ -94,9 +92,8 @@ Deep-Learning-Modelle werden auf große Datensätze trainiert, wodurch sie eine 
 
 [Bild](https://towardsdatascience.com/a-comprehensive-guide-to-convolutional-neural-networks-the-eli5-way-3bd2b1164a53)
 
-# 3 Bild-Modelle
-
-## 3.1 Text-zu-Bild-Modelle
+# Bild-Modelle
+## Text-zu-Bild-Modelle
 
 
 In diesem Abschnitt liegt der Fokus auf Text-zu-Bild-Modellen. Gemeint sind Systeme, die aus einer textlichen Beschreibung ein Bild erzeugen. Technisch verbinden sie Sprachverarbeitung mit Bildmodellen und übersetzen sprachliche Hinweise in visuelle Merkmale wie Objekte, Stil, Perspektive oder Farbgebung.  
@@ -108,7 +105,7 @@ Hier wird veranschaulicht, wie DALL·E ein Bild mit einem zauberhaften Märchenw
 <img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250311185414.png" alt="DALL·E Märchenwald Beispiel" width="500">
 
 
-## 3.2 Multimodale Modelle
+## Multimodale Modelle
 
 In diesem Abschnitt geht es um multimodale Modelle, die verschiedene Datentypen wie Text, Bilder, Audio oder Video gemeinsam verarbeiten. Der relevante Unterschied liegt nicht im Marketingbegriff, sondern darin, dass solche Systeme Beziehungen zwischen mehreren Eingabeformen auswerten können. Dadurch werden Aufgaben möglich, bei denen eine Modalität allein nicht ausreicht.  
 
@@ -121,16 +118,26 @@ Ein anschauliches Beispiel für multimodale Fähigkeiten ist die Analyse eines h
 Die Kombination verschiedener Datentypen erweitert den möglichen Einsatzbereich deutlich. Für den Kurs ist vor allem relevant, an welcher Stelle multimodale Systeme tatsächlich Mehrwert liefern und wo ein einfacherer Text- oder Workflow-Ansatz ausreicht.
 
 
-# 4 Image-Embeddings
-
+# Image-Embeddings
 Ähnlich wie bei Text-Embeddings, die Wörter oder Sätze in einer Weise kodieren, dass semantische Ähnlichkeiten erhalten bleiben, transformieren Image-Embeddings visuelle Merkmale in eine für Maschinen lernbare Form.  
 
 Mithilfe neuronaler Netze – typischerweise Convolutional Neural Networks (CNNs) oder Transformer-Modelle wie CLIP – werden hochdimensionale Bilddaten in kompakte Vektoren umgewandelt. Diese Embeddings ermöglichen Aufgaben wie Bildähnlichkeitssuche, Clustering oder die Kombination von Bild- und Textdaten für multimodale Modelle.  
 
 [Image-Embeddings](https://mediapipe-studio.webapps.google.com/studio/demo/image_embedder)     
 
+
 ---
 
-**Version:** 1.1   
-**Stand:** Januar 2026     
-**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.     
+## Abgrenzung zu verwandten Dokumenten
+
+| Dokument | Frage |
+|---|---|
+| [Multimodal Audio](./M16_Multimodal_Audio.html) | Wie unterscheiden sich multimodale Muster, wenn statt Bildern Audio verarbeitet wird? |
+| [Embeddings](./M08b_Embeddings.html) | Wie werden Inhalte mathematisch vergleichbar gemacht? |
+| [Modellauswahl](./M19_Modellauswahl.html) | Welche Modellklasse passt zu welchem multimodalen Vorhaben? |
+
+---
+
+**Version:**    1.1
+**Stand:**    Januar 2026
+**Kurs:**    Generative KI. Verstehen. Anwenden. Gestalten.

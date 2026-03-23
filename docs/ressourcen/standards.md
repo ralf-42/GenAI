@@ -81,24 +81,24 @@ mr = 3
 **Standard-Reihenfolge für Imports:**
 
 ```python
-# 1. Standardbibliotheken
+# . Standardbibliotheken
 import os
 from pathlib import Path
 from typing import List, Dict
 
-# 2. LangChain Community
+# . LangChain Community
 from langchain_community.vectorstores import Chroma
 
-# 3. LangChain Core (LCEL)
+# . LangChain Core (LCEL)
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.tools import tool
 from langchain_core.output_parsers import StrOutputParser
 
-# 4. LangChain Top-Level
+# . LangChain Top-Level
 from langchain.chat_models import init_chat_model
 from langchain.agents import create_agent
 
-# 5. Projekt-Module
+# . Projekt-Module
 from genai_lib.utilities import setup_api_keys
 ```
 
@@ -215,8 +215,7 @@ agent = create_agent(model=llm, tools=tools, debug=True)
 
 ## 🔒 Security Best Practices
 
-### 1. API-Keys sicher verwalten
-
+### . API-Keys sicher verwalten
 ```python
 # ✅ GUT: Umgebungsvariablen
 from dotenv import load_dotenv
@@ -229,8 +228,7 @@ api_key = os.getenv("OPENAI_API_KEY")
 api_key = "sk-..."  # NIEMALS!
 ```
 
-### 2. Input-Validierung
-
+### . Input-Validierung
 ```python
 from pydantic import BaseModel, Field, field_validator
 
@@ -244,8 +242,7 @@ class UserInput(BaseModel):
         return v.strip()
 ```
 
-### 3. PII-Handling
-
+### . PII-Handling
 ```python
 from langchain.agents.middleware import PIIMiddleware
 
@@ -312,6 +309,6 @@ def test_agent_with_tools():
 
 ---
 
-**Version:** 2.0 (konsolidiert)
-**Stand:** Januar 2026
-**Kurs:** KI-Agenten. Verstehen. Anwenden. Gestalten.
+**Version:**    2.0 (konsolidiert)
+**Stand:**    Januar 2026
+**Kurs:**    KI-Agenten. Verstehen. Anwenden. Gestalten.

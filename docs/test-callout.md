@@ -2,15 +2,27 @@
 layout: default
 title: Callout Test
 nav_exclude: true
+description: "Interne Testseite für GitHub-Alert-Callouts"
+has_toc: true
 ---
 
 # Callout Test Page
 
 Diese Seite testet die korrekte Darstellung von Callouts im Agenten-Projekt.
 
+---
+
+# Inhaltsverzeichnis
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
+---
+
 ## Test 1: Einfacher Callout ohne Custom Title
 
-> [!NOTE]
+> [!NOTE] Standard-Hinweis
 > Details siehe Skript: M08 - Embeddings
 
 **Erwartetes Ergebnis:**
@@ -22,17 +34,17 @@ Diese Seite testet die korrekte Darstellung von Callouts im Agenten-Projekt.
 ## Test 2: Callout mit Custom Title
 
 > [!TIP] Best Practice
-> Verwenden Sie immer Embeddings für semantische Suche.
+> Embeddings für semantische Suche konsequent einsetzen.
 
 **Erwartetes Ergebnis:**
 - Titel: "Best Practice" (Custom-Titel)
-- Content: "Verwenden Sie immer Embeddings für semantische Suche." (in neuer Zeile)
+- Content: "Embeddings für semantische Suche konsequent einsetzen." (in neuer Zeile)
 
 ---
 
 ## Test 3: Warning Callout
 
-> [!WARNING]
+> [!WARNING] Standard-Warnung
 > Achtung: Diese Funktion ist experimentell und kann sich ändern.
 
 **Erwartetes Ergebnis:**
@@ -43,13 +55,13 @@ Diese Seite testet die korrekte Darstellung von Callouts im Agenten-Projekt.
 
 ## Test 4: Mehrere Callout-Typen
 
-> [!INFO]
-> Weitere Informationen finden Sie in der offiziellen Dokumentation.
+> [!IMPORTANT] Weitere Information
+> Weitere Informationen stehen in der offiziellen Dokumentation.
 
-> [!DANGER]
-> Löschen Sie niemals Produktionsdaten ohne Backup!
+> [!DANGER] Kritischer Fehler
+> Produktionsdaten niemals ohne Backup löschen!
 
-> [!SUCCESS]
+> [!TIP] Erfolgreicher Test
 > Die Installation wurde erfolgreich abgeschlossen.
 
 **Erwartetes Ergebnis:**
@@ -60,9 +72,15 @@ Diese Seite testet die korrekte Darstellung von Callouts im Agenten-Projekt.
 
 ## Test 5: Kurzer Text (< 50 Zeichen)
 
-> [!NOTE]
+> [!NOTE] Kurzer Hinweis
 > Kurzer Hinweis
 
 **Erwartetes Ergebnis:**
 - Titel: "Hinweis" (Standard-Titel)
 - Content: "Kurzer Hinweis" (in neuer Zeile, NICHT als Custom-Titel behandelt)
+
+---
+
+**Version:**    1.0
+**Stand:**    März 2026
+**Kurs:**    Generative KI. Verstehen. Anwenden. Gestalten.

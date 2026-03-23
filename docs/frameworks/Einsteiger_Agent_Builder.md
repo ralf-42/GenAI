@@ -22,7 +22,7 @@ has_toc: true
 
 ---
 
-## 1 Kurzüberblick: Was ist OpenAI Agent Builder?
+## Kurzüberblick: Was ist OpenAI Agent Builder?
 
 Während LangChain ein Code-basiertes Framework für KI-Agenten ist, ermöglicht **OpenAI Agent Builder** die No-Code-Erstellung komplexer Agent-Workflows durch eine visuelle Drag-and-Drop-Oberfläche.
 
@@ -51,7 +51,7 @@ graph LR
     style F fill:#ff6b6b
 ```
 
-### 1.1 Kernfunktionen
+### Kernfunktionen
 
 Der **Agent Builder** (Teil von AgentKit, vorgestellt DevDay 2025) bietet:
 
@@ -85,9 +85,9 @@ graph TB
 
 ---
 
-## 2 Agent Builder: Zugang und Interface
+## Agent Builder: Zugang und Interface
 
-### 2.1 Voraussetzungen
+### Voraussetzungen
 
 - **ChatGPT Enterprise** oder **Edu** Account
 - Organisation mit Admin Console
@@ -110,7 +110,7 @@ graph TB
     style D fill:#ff6b6b
 ```
 
-### 2.2 Interface-Bereiche
+### Interface-Bereiche
 
 Das Agent Builder Interface ist in drei Hauptbereiche unterteilt:
 
@@ -132,11 +132,11 @@ stateDiagram-v2
 
 ---
 
-## 3 Workflow-Konzept: Nodes und Edges
+## Workflow-Konzept: Nodes und Edges
 
 Agent Builder arbeitet mit einem gerichteten Graphen aus **Nodes** (Aktionen) und **Edges** (Verbindungen).
 
-### 3.1 Grundlegende Architektur
+### Grundlegende Architektur
 
 ```mermaid
 graph TB
@@ -155,7 +155,7 @@ graph TB
     style LLM fill:#87CEEB
 ```
 
-### 3.2 Node-Typen im Detail
+### Node-Typen im Detail
 
 > [!TIP] Modellierungsregel     
 > Sinnvoll sind fachlich eng geschnittene Nodes und klar benannte Subworkflows.
@@ -190,9 +190,9 @@ flowchart LR
 
 ---
 
-## 4 Praxis-Beispiel: Support-Ticket-Routing
+## Praxis-Beispiel: Support-Ticket-Routing
 
-### 4.1 Szenario
+### Szenario
 
 Eingehende Support-Tickets sollen automatisch kategorisiert, priorisiert und an die richtige Abteilung weitergeleitet werden.
 
@@ -202,7 +202,7 @@ Eingehende Support-Tickets sollen automatisch kategorisiert, priorisiert und an 
 - Bedingte Weiterleitung
 - Bestätigungs-E-Mail an Kunden
 
-### 4.2 Workflow-Diagramm
+### Workflow-Diagramm
 
 ```mermaid
 flowchart TB
@@ -233,7 +233,7 @@ flowchart TB
     style HUMAN fill:#FFA500
 ```
 
-### 4.3 Node-Konfiguration
+### Node-Konfiguration
 
 **LLM Node: "Analyze & Categorize"**
 ```yaml
@@ -307,7 +307,7 @@ Body:
     summary: {output.summary}
 ```
 
-### 4.4 Vorteile dieser Architektur
+### Vorteile dieser Architektur
 
 > [!SUCCESS] Betriebsvorteil       
 > Klare Node/Edge-Strukturen verbessern Nachvollziehbarkeit, Übergaben im Team und Debugging in Produktion.
@@ -323,7 +323,7 @@ Body:
 
 ---
 
-## 5 Model Context Protocol (MCP)
+## Model Context Protocol (MCP)
 
 MCP verbindet Agent Builder mit 100+ externen Systemen durch standardisierte Server-Integrationen.
 
@@ -331,7 +331,7 @@ MCP verbindet Agent Builder mit 100+ externen Systemen durch standardisierte Ser
 > Sinnvoll ist ein Start mit ein bis zwei geschäftskritischen MCP-Integrationen. Erst nach stabilen End-to-End-Tests sollte die Fläche erweitert werden.
 > **Anti-Pattern:** Alle verfügbaren MCP-Server auf einmal einbinden — jeder Server ist eine potenzielle Fehlerquelle und erhöht die Testfläche erheblich.
 
-### 5.1 MCP-Architektur
+### MCP-Architektur
 
 ```mermaid
 graph TB
@@ -352,7 +352,7 @@ graph TB
     style AB fill:#87CEEB
 ```
 
-### 5.2 Verfügbare MCP-Server (Auswahl)
+### Verfügbare MCP-Server (Auswahl)
 
 | Kategorie | MCP-Server | Funktionen |
 |-----------|------------|------------|
@@ -363,12 +363,13 @@ graph TB
 | **CRM** | Salesforce, HubSpot | Leads, Contacts, Deals |
 | **Custom** | Your MCP Server | Beliebige APIs |
 
-### 5.3 Integration in Agent Builder
+### Integration in Agent Builder
 
 **Schritt-für-Schritt:**
 
 ```mermaid
 sequenceDiagram
+    autonumber
     participant AB as Agent Builder
     participant REG as Connector Registry
     participant MCP as MCP Server
@@ -421,7 +422,7 @@ flowchart LR
     style SLACK fill:#4A154B
 ```
 
-### 5.4 Custom MCP Server erstellen
+### Custom MCP Server erstellen
 
 Falls kein passender MCP-Server existiert, lässt sich ein eigener Server erstellen:
 
@@ -462,13 +463,13 @@ server.listen(3000);
 
 ---
 
-## 6 Entscheidungshilfe: Agent Builder vs. Code-basierte Frameworks
+## Entscheidungshilfe: Agent Builder vs. Code-basierte Frameworks
 
 > [!NOTE] Entscheidungsheuristik     
 > **Agent Builder** → Governance, schnelles Prototyping, kein Coding erforderlich.
 > **LangChain** → volle Code-Kontrolle, Multi-Provider-Support, On-Premise-Deployment.
 
-### 6.1 Vergleichsmatrix
+### Vergleichsmatrix
 
 ```mermaid
 graph TB
@@ -508,7 +509,7 @@ graph TB
 *Code-Export möglich, aber limitiert
 **Mit LangSmith möglich
 
-### 6.2 Use Cases nach Tool
+### Use Cases nach Tool
 
 **Agent Builder eignet sich für:**
 
@@ -544,14 +545,15 @@ mindmap
 
 ---
 
-## 7 Code-Export und Migration zu LangChain
+## Code-Export und Migration zu LangChain
 
 Agent Builder erlaubt Export von Workflows als TypeScript oder Python-Code für weitere Anpassungen.
 
-### 7.1 Export-Workflow
+### Export-Workflow
 
 ```mermaid
 sequenceDiagram
+    autonumber
     participant AB as Agent Builder
     participant EXP as Export Function
     participant CODE as Code Editor
@@ -566,7 +568,7 @@ sequenceDiagram
     Note over CODE,DEP: Code kann unabhängig angepasst werden
 ```
 
-### 7.2 Wann ist eine Migration zu LangChain sinnvoll?
+### Wann ist eine Migration zu LangChain sinnvoll?
 
 ```mermaid
 graph TB
@@ -596,12 +598,12 @@ graph TB
 
 ---
 
-## 8 Sicherheit und Governance im Agent Builder
+## Sicherheit und Governance im Agent Builder
 
 > [!WARNING] Produktionsgrenze      
 > Vor produktivem Einsatz sind Rechte, Datenzugriffe, Auditierbarkeit und Freigabeprozesse verbindlich zu definieren.
 
-### 8.1 Sicherheits-Architektur
+### Sicherheits-Architektur
 
 ```mermaid
 graph TB
@@ -625,7 +627,7 @@ graph TB
     style AUDIT fill:#10a37f
 ```
 
-### 8.2 Enterprise-Kontrollen
+### Enterprise-Kontrollen
 
 | Feature | Beschreibung | Best Practice |
 |---------|--------------|---------------|
@@ -636,7 +638,7 @@ graph TB
 | **Secrets Management** | API-Keys, Tokens sicher speichern | Nie hardcoded! |
 | **Input Validation** | User-Input validieren | Prompt Injection Prevention |
 
-### 8.3 Best Practices für sichere Workflows
+### Best Practices für sichere Workflows
 
 **1. Secrets Management:**
 
@@ -682,6 +684,7 @@ Permissions:
 
 ```mermaid
 sequenceDiagram
+    autonumber
     participant U as User
     participant W as Workflow
     participant A as Audit Log
@@ -701,7 +704,7 @@ sequenceDiagram
     Note over A: 90 days retention
 ```
 
-### 8.4 Compliance und Datenschutz
+### Compliance und Datenschutz
 
 **DSGVO-Konforme Workflows:**
 
@@ -733,9 +736,9 @@ Workflow Settings:
 
 ---
 
-## 9 Debugging und Monitoring
+## Debugging und Monitoring
 
-### 9.1 Built-in Debugging Tools
+### Built-in Debugging Tools
 
 Agent Builder bietet native Debugging-Features, die Code-basierte Workflows oft manuell implementieren müssen.
 
@@ -770,7 +773,7 @@ graph TB
 | **Replay** | Vergangene Executions wiederholen | Bug-Reproduktion |
 | **Logs** | Strukturierte Logs für jeden Step | Post-Mortem-Analyse |
 
-### 9.2 Monitoring Dashboard
+### Monitoring Dashboard
 
 ```mermaid
 graph LR
@@ -819,7 +822,7 @@ Dashboard Metrics:
     - Peak Load Times
 ```
 
-### 9.3 Error Handling und Fallbacks
+### Error Handling und Fallbacks
 
 ```mermaid
 flowchart TB
@@ -880,9 +883,9 @@ Error Handling:
 
 ---
 
-## 10 Zusammenfassung und Lernpfad
+## Zusammenfassung und Lernpfad
 
-### 10.1 Agent Builder im Überblick
+### Agent Builder im Überblick
 
 ```mermaid
 mindmap
@@ -909,7 +912,7 @@ mindmap
       Scale: LangChain für komplexe Fälle
 ```
 
-### 10.2 Kernkonzepte
+### Kernkonzepte
 
 | Konzept | Beschreibung |
 |---------|--------------|
@@ -919,7 +922,7 @@ mindmap
 | **Workflow** | Kompletter Agent als Graph |
 | **Versioning** | Built-in Workflow-Versionierung |
 
-### 10.3 Wann Agent Builder nutzen?
+### Wann Agent Builder nutzen?
 
 ```mermaid
 graph TB
@@ -958,7 +961,7 @@ graph TB
   - Custom Python-Tools notwendig
 
 
-### 10.4 Nächste Schritte
+### Nächste Schritte
 
 ```mermaid
 graph LR
@@ -988,7 +991,7 @@ graph LR
 - **Community:** OpenAI Developer Forum
 - **Vergleich:** [AgentKit vs GPTs Guide](https://www.eesel.ai/blog/agentkit-vs-gpts)
 
-## 11 Quellen
+## Quellen
 
 - [OpenAI Agent Builder Dokumentation](https://platform.openai.com/docs/guides/agent-builder)          
 - [Introducing AgentKit OpenAI](https://openai.com/index/introducing-agentkit/)
@@ -999,6 +1002,6 @@ graph LR
 
 ---
 
-**Version:** 2.0  
-**Stand:** November 2025  
-**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
+**Version:**    2.0
+**Stand:**    November 2025
+**Kurs:**    Generative KI. Verstehen. Anwenden. Gestalten.

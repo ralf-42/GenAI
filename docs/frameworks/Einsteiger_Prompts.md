@@ -23,7 +23,7 @@ has_toc: true
 
 ---
 
-## 1 Was ist eine Prompt-Datei?
+## Was ist eine Prompt-Datei?
 
 Prompts müssen  nicht direkt im Code/Notebook als String hardcodiert werden, sondern können auch als separate Markdown-Dateien im Ordner `05_prompt/` gespeichert.
 
@@ -53,7 +53,7 @@ Du bist ein hilfreicher Assistent...
 
 ---
 
-## 2 Was ist YAML?
+## Was ist YAML?
 
 **YAML** (*YAML Ain't Markup Language*) ist ein Format für strukturierte Daten —
 lesbar wie normaler Text, aber von Programmen direkt verarbeitbar.
@@ -95,7 +95,7 @@ variables: [context, question]      # Platzhalter im Prompt-Text
 
 ---
 
-## 3 Was sind XML-Tags?
+## Was sind XML-Tags?
 
 **XML** (*Extensible Markup Language*) ist eine Auszeichnungssprache, die Inhalte durch
 Tags mit öffnender und schließender Klammer strukturiert:
@@ -171,7 +171,7 @@ Mindestens 3 Kernfakten als Stichpunkte. Maximal 200 Wörter.
 
 ---
 
-## 4 Die drei Prompt-Typen
+## Die drei Prompt-Typen
 
 ### Typ 1 — System-only Prompt
 
@@ -298,11 +298,11 @@ Die Datei-Sektionen sind eine vereinfachte Schreibweise — unter der Haube erze
 | — | `ToolMessage` | Tool-Ergebnis zur Laufzeit — kein Template, von LangChain automatisch eingefügt |
 
 > `ToolMessage` und `ChatMessage` (freie Rollen) erscheinen **nicht** in Prompt-Dateien.
-> Sie entstehen zur Laufzeit und werden von LangChain intern verwaltet.
+> Diese Variablen entstehen zur Laufzeit und werden von LangChain intern verwaltet.
 
 ---
 
-## 5 load_prompt() — Übersicht
+## load_prompt() — Übersicht
 
 ```python
 from genai_lib.utilities import load_prompt
@@ -321,7 +321,7 @@ prompt_template = load_prompt("05_prompt/mein_prompt.md", mode="T")
 
 ---
 
-## 6 Schritt-für-Schritt: Eigenen Prompt erstellen
+## Schritt-für-Schritt: Eigenen Prompt erstellen
 
 **1.** Datei in `05_prompt/` anlegen: `mXX_rolle_prompt.md`
 
@@ -349,7 +349,7 @@ print(p)  # Prompt-Text prüfen
 
 ---
 
-## 7 Entscheidungshilfe
+## Entscheidungshilfe
 
 ```mermaid
 flowchart TD
@@ -367,7 +367,7 @@ flowchart TD
 
 ---
 
-## 8 Häufige Fehler
+## Häufige Fehler
 
 | Fehler | Ursache | Lösung |
 |---|---|---|
@@ -379,7 +379,7 @@ flowchart TD
 
 ---
 
-## 9 Referenz-Dateien im Kurs
+## Referenz-Dateien im Kurs
 
 | Typ | Datei | Modul |
 |---|---|---|
@@ -393,6 +393,6 @@ flowchart TD
 
 ---
 
-**Version:** 1.0    
-**Stand:** März 2026    
-**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.    
+**Version:**    1.0
+**Stand:**    März 2026
+**Kurs:**    Generative KI. Verstehen. Anwenden. Gestalten.

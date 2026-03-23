@@ -126,6 +126,6 @@ Weitere interaktive Visualisierungen von externen Anbietern
 
 ---
 
-**Version:** 1.0    
-**Stand:** Januar 2026        
-**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.        
+**Version:**    1.0
+**Stand:**    Januar 2026
+**Kurs:**    Generative KI. Verstehen. Anwenden. Gestalten.

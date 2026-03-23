@@ -24,19 +24,16 @@ has_toc: true
 
 
 
-# 1 Einleitung & Zielsetzung
-
+# Einleitung & Zielsetzung
 Der EU AI Act (Verordnung (EU) 2024/1689) ist das weltweit erste umfassende Gesetz zur Regulierung von Künstlicher Intelligenz (KI). Ziel ist es, ein vertrauenswürdiges KI-Ökosystem in Europa zu schaffen, das Sicherheit, Grundrechte und europäische Werte wahrt, gleichzeitig aber Innovation und Investitionen fördert. Kern des Gesetzes ist ein risikobasierter Ansatz, der KI-Systeme in vier Risikoklassen einteilt: inakzeptabel, hoch, begrenzt und minimal. Für jede Risikoklasse gelten abgestufte Anforderungen. Der Gesetzgebungsprozess wurde durch globale politische Entwicklungen, technologische Dynamik und zunehmende gesellschaftliche Debatten beschleunigt. Der AI Act ist Teil der Digitalstrategie der EU und steht im Kontext internationaler Regulierungsbemühungen.
 
-# 2 Umsetzung & Anwendbarkeit
-
+# Umsetzung & Anwendbarkeit
 Das Gesetz trat am 1. August 2024 in Kraft. Die Anwendung erfolgt gestaffelt bis 2030. Erste Verbote (z. B. manipulative KI, Social Scoring) gelten seit Februar 2025. Für Hochrisiko-KI-Systeme sind lange Übergangsfristen vorgesehen. Mitgliedstaaten müssen zuständige Behörden benennen, Sandkästen einrichten und über notwendige Ressourcen verfügen. Bisher zeigen sich Unterschiede im Umsetzungsstand. Auf EU-Ebene übernimmt das European AI Office zentrale Aufgaben, insbesondere bei General Purpose AI (GPAI). Die nationale Umsetzung variiert stark, was Risiken für Fragmentierung birgt. Sandkästen sollen Innovation fördern, insbesondere bei KMU.
 
 <img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250416154726.png" alt="EU AI Act Zeitplan" width="600">
 
 
-# 3 Risikoklassen im Detail
-
+# Risikoklassen im Detail
 Der risikobasierte Ansatz ist das zentrale Steuerungsinstrument des EU AI Acts. KI-Systeme werden in vier Klassen eingestuft, je nach potenzieller Auswirkung auf Sicherheit, Grundrechte und gesellschaftliche Werte:
 
 - **Inakzeptables Risiko**: KI-Systeme, die gegen Werte der EU verstoßen oder erhebliche Risiken für Individuen bergen, sind verboten. Beispiele: Social Scoring durch Behörden, Echtzeit-Gesichtserkennung im öffentlichen Raum (außer in engen Ausnahmefällen).
@@ -53,8 +50,7 @@ Diese Einteilung ermöglicht eine differenzierte Regulierung: Statt alle KI-Tech
 
 <img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250416154437.png" alt="EU AI Act Risikoklassen" width="600">
 
-# 4 Herausforderungen & Kritikpunkte
-
+# Herausforderungen & Kritikpunkte
 Zentrale Herausforderungen:
 
 - **Unklare Begriffsdefinitionen**: Begriffe wie "KI-System", "systemisches Risiko" oder "enge verfahrenstechnische Aufgabe" sind interpretationsbedürftig.
@@ -70,8 +66,7 @@ Zentrale Herausforderungen:
 - **Wirtschaftliche Sorgen**: Unternehmen kritisieren hohe Compliance-Kosten, vage Formulierungen und potenzielle Innovationshemmnisse.
     
 
-# 5 Potenziale & Chancen
-
+# Potenziale & Chancen
 Trotz der Kritik birgt der AI Act bedeutende Potenziale:
 
 - **Rechtssicherheit**: Einheitliche Regeln erleichtern die Planung und Investition für Unternehmen.
@@ -85,8 +80,7 @@ Trotz der Kritik birgt der AI Act bedeutende Potenziale:
 - **Weltweite Vorreiterrolle**: Der "Brussels Effect" – die globale Strahlkraft europäischer Regulierung – könnte KI-Regelsetzung weltweit beeinflussen.
     
 
-# 6 Best Practices & Empfehlungen
-
+# Best Practices & Empfehlungen
 Empfohlene Maßnahmen für die Umsetzung:
 
 - **Frühzeitige Systeminventur**: Unternehmen sollten ihre KI-Systeme erfassen und frühzeitig risikobasiert einstufen.
@@ -100,12 +94,11 @@ Empfohlene Maßnahmen für die Umsetzung:
 - **Offene Kommunikation**: Stakeholder-Dialoge und partizipative Gestaltung erhöhen Akzeptanz und Wirksamkeit.
     
 
-# 7 Ausblick
-
+# Ausblick
 Der langfristige Erfolg des EU AI Acts wird davon abhängen, ob es gelingt, die Balance zwischen Regulierung und Innovationsförderung zu halten. Die praktische Durchsetzbarkeit, die Kohärenz mit anderen EU-Gesetzen (z. B. DSGVO, Data Act, DSA) sowie die internationale Anschlussfähigkeit werden entscheidend sein. Wichtig wird auch sein, wie flexibel der AI Act auf technologische Entwicklungen reagieren kann und ob er Vertrauen in KI langfristig stärkt.
 
 ---
 
-**Version:** 1.0    
-**Stand:** November 2025    
-**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.      
+**Version:**    1.0
+**Stand:**    November 2025
+**Kurs:**    Generative KI. Verstehen. Anwenden. Gestalten.

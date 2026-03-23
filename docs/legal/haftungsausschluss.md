@@ -22,7 +22,7 @@ Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konk
 
 ## 3. Haftungsausschluss für KI-generierte Inhalte
 
-### 3.1 Verwendung von Large Language Models (LLMs)
+### Verwendung von Large Language Models (LLMs)
 
 Dieses Projekt befasst sich mit generativer Künstlicher Intelligenz und nutzt Large Language Models (LLMs) wie GPT-4, Claude, und andere. Die durch diese Modelle generierten Inhalte:
 
@@ -31,7 +31,7 @@ Dieses Projekt befasst sich mit generativer Künstlicher Intelligenz und nutzt L
 - Sollten nicht als professionelle Beratung (rechtlich, medizinisch, finanziell) verstanden werden
 - Können Biases oder diskriminierende Inhalte enthalten, die nicht beabsichtigt sind
 
-### 3.2 Keine Gewährleistung für KI-Outputs
+### Keine Gewährleistung für KI-Outputs
 
 Der Betreiber übernimmt keine Haftung für:
 
@@ -40,7 +40,7 @@ Der Betreiber übernimmt keine Haftung für:
 - Die Korrektheit, Vollständigkeit oder Eignung von KI-Outputs für einen bestimmten Zweck
 - Urheberrechtsverletzungen durch KI-generierte Inhalte
 
-### 3.3 Eigenverantwortung der Nutzer
+### Eigenverantwortung der Nutzer
 
 Nutzer, die die in diesem Repository bereitgestellten KI-Tools und Notebooks verwenden, tun dies auf eigene Verantwortung. Es wird dringend empfohlen:
 
@@ -51,7 +51,7 @@ Nutzer, die die in diesem Repository bereitgestellten KI-Tools und Notebooks ver
 
 ## 4. Haftungsausschluss für Code und Software
 
-### 4.1 "As-Is" Bereitstellung
+### "As-Is" Bereitstellung
 
 Der in diesem Repository bereitgestellte Code wird "wie besehen" (AS IS) ohne jegliche Gewährleistung zur Verfügung gestellt. Dies umfasst insbesondere:
 
@@ -60,7 +60,7 @@ Der in diesem Repository bereitgestellte Code wird "wie besehen" (AS IS) ohne je
 - Sicherheit und Datenschutzkonformität
 - Kompatibilität mit bestimmten Systemen oder Bibliotheken
 
-### 4.2 Keine Haftung für Schäden
+### Keine Haftung für Schäden
 
 Der Betreiber haftet nicht für Schäden, die durch die Nutzung oder Unfähigkeit zur Nutzung des bereitgestellten Codes entstehen, einschließlich aber nicht beschränkt auf:
 
@@ -70,7 +70,7 @@ Der Betreiber haftet nicht für Schäden, die durch die Nutzung oder Unfähigkei
 - Sicherheitsverletzungen
 - Schäden durch Dritte
 
-### 4.3 API-Keys und Kosten
+### API-Keys und Kosten
 
 Die Nutzung der in diesem Projekt verwendeten APIs (OpenAI, Anthropic, Google, etc.) kann Kosten verursachen. Der Betreiber übernimmt keine Haftung für:
 
@@ -93,7 +93,7 @@ Dieses Repository dient Bildungs- und Forschungszwecken. Die bereitgestellten No
 
 ## 6. Datensicherheit und Vertraulichkeit
 
-### 6.1 Keine Garantie für Datensicherheit
+### Keine Garantie für Datensicherheit
 
 Der Betreiber übernimmt keine Garantie dafür, dass:
 
@@ -101,7 +101,7 @@ Der Betreiber übernimmt keine Garantie dafür, dass:
 - Daten vor unbefugtem Zugriff geschützt sind
 - Keine Datenlecks auftreten
 
-### 6.2 Empfehlungen
+### Empfehlungen
 
 Nutzer sollten:
 
@@ -131,7 +131,7 @@ Dieses Projekt verwendet zahlreiche externe Bibliotheken und Dienste (siehe `req
 
 ## 9. Geistiges Eigentum Dritter
 
-### 9.1 KI-generierte Inhalte
+### KI-generierte Inhalte
 
 Bei der Verwendung von KI-Modellen können Inhalte generiert werden, die:
 
@@ -141,7 +141,7 @@ Bei der Verwendung von KI-Modellen können Inhalte generiert werden, die:
 
 Der Betreiber übernimmt keine Haftung für Urheberrechtsverletzungen durch KI-generierte Inhalte. Nutzer sind selbst dafür verantwortlich, die rechtliche Zulässigkeit der Verwendung zu prüfen.
 
-### 9.2 Training-Daten
+### Training-Daten
 
 Die in `02_daten/` bereitgestellten Daten können urheberrechtlich geschützt sein. Nutzer sind verpflichtet:
 
@@ -182,6 +182,4 @@ E-Mail: ralf.bendig.rb@gmail.com
 
 ---
 
-**Version:** 1.0       
-**Letzte Aktualisierung:** Dezember 2025    
-
+**Letzte Aktualisierung:** Dezember 2025

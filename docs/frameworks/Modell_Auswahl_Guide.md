@@ -23,7 +23,7 @@ has_toc: true
 
 ---
 
-## 1 Modelle im Kurs
+## Modelle im Kurs
 
 | Modell | Stärke | Typischer Einsatz im Kurs |
 |---|---|---|
@@ -37,7 +37,7 @@ has_toc: true
 
 ---
 
-## 2 Designregeln
+## Designregeln
 
 ### Regel 1 — Grundlagen und Demos: `gpt-4o-mini`
 
@@ -83,7 +83,7 @@ Upgrade auf `gpt-5.1` oder `gpt-4o` nur, wenn die Baseline-Qualität nachweislic
 
 ---
 
-## 3 Entscheidungsbaum
+## Entscheidungsbaum
 
 ```mermaid
 flowchart TD
@@ -117,7 +117,7 @@ als Baseline starten"]
 
 ---
 
-## 4 Modul-Mapping
+## Modul-Mapping
 
 ### Standard: `gpt-4o-mini` (Fokus Konzept, nicht Modellqualität)
 
@@ -163,7 +163,7 @@ local_llm = init_chat_model("ollama:llama3")
 
 ---
 
-## 5 Code-Muster
+## Code-Muster
 
 ### Standard-Chain (`gpt-4o-mini`)
 
@@ -205,7 +205,7 @@ antwort = multimodal_llm.invoke([message])
 
 ---
 
-## 6 Kosten-Orientierung
+## Kosten-Orientierung
 
 > Kursteilnehmer arbeiten mit einem begrenzten API-Budget.
 > `gpt-4o-mini` ist die kosteneffiziente Standardwahl für alle Lernschritte.
@@ -224,7 +224,7 @@ antwort = multimodal_llm.invoke([message])
 
 ---
 
-## 7 Abgrenzung zu verwandten Dokumenten
+## Abgrenzung zu verwandten Dokumenten
 
 | Dokument | Inhalt |
 |---|---|
@@ -234,6 +234,6 @@ antwort = multimodal_llm.invoke([message])
 
 ---
 
-**Version:** 1.0    
-**Stand:** März 2026   
-**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.    
+**Version:**    1.0
+**Stand:**    März 2026
+**Kurs:**    Generative KI. Verstehen. Anwenden. Gestalten.

@@ -25,8 +25,7 @@ has_toc: true
 
 Damit Künstliche Intelligenz (KI) sinnvoll mit Sprache, Bildern oder anderen Inhalten arbeiten kann, muss sie deren Bedeutung erfassen. Allerdings verarbeitet ein Computer keine Wörter oder Bilder direkt, sondern nur Zahlen. **Embeddings** sind eine Methode, um solche Inhalte als Zahlen zu kodieren, sodass die KI Zusammenhänge und Bedeutungen erkennen kann.
 
-# 1 Was sind Embeddings?
-
+# Was sind Embeddings?
 Ein **Embedding** ist eine mathematische Darstellung eines Wortes, Satzes oder Bildes in Form eines Vektors, also einer Zahlenliste. Diese Zahlen erfassen Ähnlichkeiten und Zusammenhänge zwischen verschiedenen Konzepten.
 
 **Beispiel für Sprache:**
@@ -58,8 +57,7 @@ Embeddings werden nicht nur für Sprache und Bilder genutzt, sondern auch in Emp
 [Embedding-Beispiel Fahrzeug](https://editor.p5js.org/ralf.bendig.rb/full/LPjLkzWbE)
 
 
-# 2 Wie entstehen Embeddings?
-
+# Wie entstehen Embeddings?
 Embeddings werden mit **künstlichen neuronalen Netzen** oder **statistischen Methoden** erzeugt. Dabei durchläuft der Prozess mehrere Schritte:
 
 1. **Daten sammeln**
@@ -93,8 +91,7 @@ Embeddings werden mit **künstlichen neuronalen Netzen** oder **statistischen Me
 
 ---
 
-# 3 Positional Encoding
-
+# Positional Encoding
 Die Positionskodierung fügt jedem Token-Vektor (aus der Einbettungsmatrix) Informationen über seine Position in der Sequenz hinzu.  Dies geschieht durch die Kombination von Positionsinformationen und den ursprünglichen Token-Einbettungen. Ohne zusätzliche Information gäbe es keinen Unterschied zwischen:
 + *Die Katze jagt den Hund* und
 + *Den Hund jagt die Katze*
@@ -104,8 +101,7 @@ Die Positionskodierung ist wie ein kleiner Hinweiszettel, der sagt, welches Wort
 
 ---
 
-# 4 Embedding-Modelle
-
+# Embedding-Modelle
 Es gibt verschiedene Einbettungsmodelle wie Word2Vec, GloVe und FastText für Wortrepräsentationen, BERT für kontextuelle Einbettungen sowie Node2Vec und LSTM-basierte Modelle für Netzwerke und Sequenzen, die jeweils auf spezifische Anwendungsfälle und Datenstrukturen optimiert sind.
 
 
@@ -126,8 +122,7 @@ Es gibt verschiedene Einbettungsmodelle wie Word2Vec, GloVe und FastText für Wo
 | Node2Vec                          | 64-256 Dimensionen                             | Graphenanalysen, soziale Netzwerke       |
 | LSTM-basierte Sequenzeinbettungen | 50-500 Dimensionen                             | Zeitreihen, Sprachmodellierung, NLP      |
 
-# 5 Training von Embedding-Modellen
-
+# Training von Embedding-Modellen
 Das Training von Embedding-Modellen wie Word2Vec basiert auf der Idee, dass Wörter, die in ähnlichen Kontexten vorkommen, ähnliche Bedeutungen haben. Hier wird detaillierter beschrieben, wie dieses Prinzip im Training umgesetzt wird:
 
 **Algorithmus-Auswahl**
@@ -156,9 +151,7 @@ Das Ergebnis des Trainings ist ein Set von Vektoren, eines für jedes Wort im Vo
 
 Um die Qualität der Embeddings zu überprüfen, werden oft qualitative Tests wie die Suche nach den nächsten Nachbarn (ähnliche Wörter finden) oder quantitative Benchmarks (z.B. auf Datensätzen für analoge Aufgaben) durchgeführt. Diese Evaluierungen helfen dabei festzustellen, ob das Modell die Wortbedeutungen effektiv erfasst hat.
 
-# 6 Kombi: Embedding - Token - Chunk
-
-
+# Kombi: Embedding - Token - Chunk
 Hier ist eine tabellarische Übersicht, die ausgehend vom **Embedding-Modell** zeigt, welche **Tokenizer** und **Chunking-Strategien** zulässig oder üblich sind
 
 | **Embeddingmodell**         | **Zulässiger Tokenizer**                                                               | **Empfohlene Chunking-Strategie**                                               |
@@ -170,8 +163,7 @@ Hier ist eine tabellarische Übersicht, die ausgehend vom **Embedding-Modell** z
 | `sentence-transformers/...` | `transformers.AutoTokenizer.from_pretrained(...)`                                      | Chunking nach **Max Token Length** des jeweiligen Modells (oft 384–512 Tokens)  |
 | `e5-base-v2`                | `transformers.AutoTokenizer.from_pretrained("intfloat/e5-base-v2")`                    | Max. **512 Tokens** ggf. Split mit Overlap, um Kontext zu erhalten              |
 
-# 7 Warum sind Embeddings so wichtig?
-
+# Warum sind Embeddings so wichtig?
 + **Sprachverarbeitung**: Chatbots, Übersetzungen und Textanalysen basieren auf Embeddings. 
 + **Bilderkennung**: KI kann ähnliche Bilder oder Objekte erkennen.  
 + **Suche & Empfehlungssysteme**: Personalisierte Vorschläge auf Plattformen wie Netflix, Spotify oder YouTube nutzen Embeddings.  
@@ -185,9 +177,16 @@ Hier ist eine tabellarische Übersicht, die ausgehend vom **Embedding-Modell** z
 > Embeddings sind ein zentrales Konzept in der modernen KI. Sie ermöglichen Maschinen, Bedeutungen zu erfassen, Muster zu erkennen und personalisierte Inhalte zu liefern. Ohne Embeddings wären viele heutige KI-Technologien nicht denkbar – von Chatbots über Bilderkennung bis hin zu Streaming-Diensten. Sie sind das **unsichtbare Gerüst**, das intelligente Systeme erst möglich macht.
 ---
 
+## Abgrenzung zu verwandten Dokumenten
+
+| Dokument | Frage |
+|---|---|
+| [Tokenizing & Chunking](./M08a_Tokenizing_Chunking.html) | Wie wird Rohtext so vorbereitet, dass Embeddings später sinnvoll berechnet werden können? |
+| [RAG-Konzepte](./RAG_Konzepte.html) | Wie werden Embeddings praktisch in Retrieval-Systemen genutzt? |
+| [Multimodal Bild](./M09_Multimodal_Bild.html) | Wie werden Vektorähnlichkeiten jenseits von reinem Text relevant? |
 
 ---
- 
-**Version:** 1.0     
-**Stand:** November 2025     
-**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.     
+
+**Version:**    1.0
+**Stand:**    November 2025
+**Kurs:**    Generative KI. Verstehen. Anwenden. Gestalten.

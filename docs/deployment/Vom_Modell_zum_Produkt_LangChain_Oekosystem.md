@@ -221,9 +221,9 @@ Das LangChain-Ökosystem ist nicht die einzige Lösung. Alternativen mit ähnlic
 ## 10. Best Practices für den Produktiv-Einsatz
 
 ### 1. Start Simple
-- Beginnen Sie mit LangChain Chains
-- Erweitern Sie zu Agents nur wenn nötig
-- Nutzen Sie LangGraph für komplexe Workflows
+- Mit LangChain Chains beginnen
+- Erst bei Bedarf zu Agents erweitern
+- Für komplexe Workflows LangGraph einsetzen
 
 ### 2. Monitor from Day One
 - LangSmith von Anfang an aktivieren
@@ -268,7 +268,6 @@ Das Zusammenspiel aus LangChain, LangGraph und LangSmith bietet einen Ansatz, um
 
 ---
 
-**Version:** 1.0      
-**Stand:** Dezember 2025      
-**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.         
-
+**Version:**    1.0
+**Stand:**    Dezember 2025
+**Kurs:**    Generative KI. Verstehen. Anwenden. Gestalten.

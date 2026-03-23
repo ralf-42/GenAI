@@ -64,9 +64,9 @@ Diese Tabelle bietet eine Übersicht (Stand: 12.2025) über LLM-Provider mit ihr
 !pip install langchain-{provider}
 ```
 
-**So speichern Sie Keys in Colab Secrets:**
-1. Klicken Sie auf das Schlüssel-Symbol 🔑 in der linken Sidebar
-2. Fügen Sie Ihren API-Key hinzu (z.B. `OPENAI_API_KEY`)
+**So werden Keys in Colab Secrets gespeichert:**
+1. Das Schlüssel-Symbol 🔑 in der linken Sidebar öffnen
+2. Den gewünschten API-Key hinzufügen (z.B. `OPENAI_API_KEY`)
 
 
 ### Provider-spezifische Installation
@@ -182,5 +182,6 @@ llm = Ollama(model="llama3")
 
 ---
 
-**Version:** 1.0
-**Letzte Aktualisierung:** Dezember 2025
+**Version:**    1.0
+**Stand:**    Dezember 2025
+**Kurs:**    Generative KI. Verstehen. Anwenden. Gestalten.

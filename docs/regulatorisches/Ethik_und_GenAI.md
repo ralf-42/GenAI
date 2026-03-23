@@ -22,8 +22,7 @@ has_toc: true
 
 ---
 
-# 1 Ethische Dimensionen
-
+# Ethische Dimensionen
 **Definition & Abgrenzung:**
 
 - Generative KI (GenAI) erzeugt neue Inhalte (Texte, Bilder, Musik, Code) auf Basis gelernter Muster und stellt damit eine kreative, wenn auch nicht bewusste, Nachbildung menschlicher Ausdrucksformen dar.
@@ -63,8 +62,7 @@ has_toc: true
 
 
 
-# 2 Rahmenwerke & Praxis
-
+# Rahmenwerke & Praxis
 **Regulatorische Grundlagen:**
 
 - Der **EU AI Act** ist das weltweit erste umfassende Gesetz zur Regulierung von KI und unterteilt Systeme in vier Risikokategorien. Besonders generative KI mit hohem Einfluss auf Meinungsbildung und Kreativbereiche steht dabei unter besonderer Beobachtung.
@@ -97,8 +95,7 @@ has_toc: true
 
 
 
-# 3 Risiken & Fehlerquellen
-
+# Risiken & Fehlerquellen
 **Kernrisiken:**
 
 - **Desinformation:** Halluzinierte Inhalte und generierte Fake News untergraben Vertrauen in Informationen.
@@ -150,8 +147,7 @@ has_toc: true
 
 
 
-# 4 Chancen & Potenziale
-
+# Chancen & Potenziale
 **Gesellschaftlicher Mehrwert:**
 
 - **Bildung:** Automatisierte Lernpfade, intelligente Nachhilfe und adaptive Lernumgebungen.
@@ -183,8 +179,7 @@ has_toc: true
 
 
 
-# 5 Best Practices
-
+# Best Practices
 **Technische Maßnahmen:**
 
 - **Explainable AI (XAI):** Methoden wie LIME, SHAP, RAG-basierte Erklärungen fördern Transparenz.
@@ -222,6 +217,6 @@ has_toc: true
 
 ---
 
-**Version:** 1.0      
-**Stand:** November 2025      
-**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.      
+**Version:**    1.0
+**Stand:**    November 2025
+**Kurs:**    Generative KI. Verstehen. Anwenden. Gestalten.

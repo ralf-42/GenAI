@@ -38,6 +38,6 @@ Der Kurs richtet sich damit nicht nur an Personen, die "mehr über KI" lesen wol
 
 ---
 
-**Version:** 1.0     
-**Stand:** November 2025     
-**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.     
+**Version:**    1.0
+**Stand:**    November 2025
+**Kurs:**    Generative KI. Verstehen. Anwenden. Gestalten.

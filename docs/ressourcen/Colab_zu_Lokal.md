@@ -22,7 +22,7 @@ has_toc: true
 
 ---
 
-## 1 Einmalige Einrichtung
+## Einmalige Einrichtung
 
 ### Python-Umgebung & genai_lib
 
@@ -58,7 +58,7 @@ os.environ["OPENAI_API_KEY"] = "sk-..."
 
 ---
 
-## 2 Anpassungen in der Setup-Zelle
+## Anpassungen in der Setup-Zelle
 
 Jedes Notebook enthält eine erste Zelle mit Colab-spezifischem Code. Diese Zeilen müssen angepasst werden:
 
@@ -88,7 +88,7 @@ check_environment()
 
 ---
 
-## 3 Besonderheiten einzelner Module
+## Besonderheiten einzelner Module
 
 | Modul | Besonderheit | Lokale Anpassung |
 |---|---|---|
@@ -100,7 +100,7 @@ check_environment()
 
 ---
 
-## 4 Was sich nicht ändert
+## Was sich nicht ändert
 
 {: .note }
 > Die Notebooks haben **minimale Colab-Abhängigkeiten** — der Großteil läuft lokal ohne jede Änderung.
@@ -113,7 +113,7 @@ check_environment()
 
 ---
 
-## 5 Kurzcheck vor dem ersten Start
+## Kurzcheck vor dem ersten Start
 
 - [ ] Virtuelle Umgebung aktiv? (`.venv\Scripts\activate`)
 - [ ] `genai_lib` installiert? (`pip show genai-lib`)
@@ -124,6 +124,6 @@ check_environment()
 
 ---
 
-**Version:** 1.0     
-**Stand:** März 2026    
-**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.    
+**Version:**    1.0
+**Stand:**    März 2026
+**Kurs:**    Generative KI. Verstehen. Anwenden. Gestalten.

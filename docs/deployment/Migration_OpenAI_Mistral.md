@@ -27,7 +27,7 @@ has_toc: true
 
 ---
 
-## 1 Kernaussage
+## Kernaussage
 
 Eine Migration von OpenAI zu Mistral ist im Projekt `GenAI` **nicht trivial**, aber sie ist deutlich einfacher, weil große Teile der LLM-Nutzung bereits über **LangChain-Abstraktionen** laufen.
 
@@ -46,9 +46,9 @@ Die Migration ist deshalb vor allem:
 
 ---
 
-## 2 Was LangChain bei der Migration vereinfacht
+## Was LangChain bei der Migration vereinfacht
 
-### 2.1 Vereinheitlichte Modellinitialisierung
+### Vereinheitlichte Modellinitialisierung
 
 Wo Modelle über `init_chat_model(...)` genutzt werden, wird die Migration deutlich leichter:
 
@@ -64,7 +64,7 @@ Wo Modelle über `init_chat_model(...)` genutzt werden, wird die Migration deutl
 - Agenten mit `@tool`
 - MCP-/Agenten-Setups
 
-### 2.2 Wiederverwendbare LangChain-Bausteine
+### Wiederverwendbare LangChain-Bausteine
 
 Im Projekt werden wiederkehrende Muster verwendet:
 
@@ -76,7 +76,7 @@ Im Projekt werden wiederkehrende Muster verwendet:
 
 Das ist migrationsfreundlich, weil diese Muster providerübergreifend ähnlich bleiben. Geändert wird primär, **welches Modell** dahinter hängt.
 
-### 2.3 Strukturierte Ausgaben bleiben strukturiert
+### Strukturierte Ausgaben bleiben strukturiert
 
 Wenn ein Modul Pydantic-Modelle oder `with_structured_output()` nutzt, muss bei einer Migration nicht die gesamte Extraktionslogik neu geschrieben werden. Geprüft werden muss nur:
 
@@ -84,7 +84,7 @@ Wenn ein Modul Pydantic-Modelle oder `with_structured_output()` nutzt, muss bei 
 - bleiben Validierung und Feldbelegung robust
 - ändern sich Fehlermuster oder Ausgabedisziplin
 
-### 2.4 Agenten- und Tool-Pfade bleiben grundsätzlich erhalten
+### Agenten- und Tool-Pfade bleiben grundsätzlich erhalten
 
 Wenn Tools sauber über LangChain gekapselt sind, bleibt bei einer Migration die Tool-Logik in der Regel gleich. Neu zu prüfen ist vor allem:
 
@@ -94,11 +94,11 @@ Wenn Tools sauber über LangChain gekapselt sind, bleibt bei einer Migration die
 
 ---
 
-## 3 Was trotz LangChain nicht automatisch gelöst ist
+## Was trotz LangChain nicht automatisch gelöst ist
 
 LangChain vereinfacht den Umbau, aber es hebt Providerunterschiede nicht auf.
 
-### 3.1 Modellrollen müssen sinnvoll gemappt werden
+### Modellrollen müssen sinnvoll gemappt werden
 
 Auch in `GenAI` gibt es faktisch unterschiedliche Modellrollen:
 
@@ -108,7 +108,7 @@ Auch in `GenAI` gibt es faktisch unterschiedliche Modellrollen:
 
 Die Migration besteht deshalb nicht nur darin, `"openai:..."` durch `"mistral:..."` zu ersetzen, sondern passende Mistral-Modelle je Einsatzzweck zu wählen.
 
-### 3.2 Embeddings bleiben ein eigenes Thema
+### Embeddings bleiben ein eigenes Thema
 
 RAG-Module und semantische Suche hängen nicht nur am Chat-Modell. Zu entscheiden ist:
 
@@ -117,7 +117,7 @@ RAG-Module und semantische Suche hängen nicht nur am Chat-Modell. Zu entscheide
 
 Das ist ein separates Migrationsthema.
 
-### 3.3 Multimodale Pfade müssen einzeln geprüft werden
+### Multimodale Pfade müssen einzeln geprüft werden
 
 In `GenAI` gibt es Bild-, Audio- und Video-Beispiele. Diese Pfade dürfen nicht pauschal als gleichwertig migrierbar angenommen werden. Besonders relevant ist:
 
@@ -125,15 +125,15 @@ In `GenAI` gibt es Bild-, Audio- und Video-Beispiele. Diese Pfade dürfen nicht 
 - ob der bisherige Kursablauf fachlich gleich bleibt
 - ob ein Hybridpfad sinnvoller ist
 
-### 3.4 Provider-spezifische Inhalte bleiben provider-spezifisch
+### Provider-spezifische Inhalte bleiben provider-spezifisch
 
 Wo Inhalte stark an OpenAI oder einen konkreten API-Pfad gebunden sind, hilft die LangChain-Abstraktion nur begrenzt. Solche Inhalte sollten nicht künstlich in eine generische Migration gezwungen werden.
 
 ---
 
-## 4 Welche Migrationsarbeiten konkret anfallen
+## Welche Migrationsarbeiten konkret anfallen
 
-### 4.1 Provider-Schicht abstrahieren
+### Provider-Schicht abstrahieren
 
 Die wichtigste technische Maßnahme ist eine zentrale Modellinitialisierung.
 
@@ -159,7 +159,7 @@ def get_llm(role: str = "baseline", provider: str = "openai", **kwargs):
 **Effekt:**  
 Die eigentliche LangChain-Logik bleibt weitgehend gleich, während die Providerwahl zentralisiert wird.
 
-### 4.2 Embeddings separat kapseln
+### Embeddings separat kapseln
 
 ```python
 from langchain_openai import OpenAIEmbeddings
@@ -173,7 +173,7 @@ def get_embeddings(provider: str = "openai"):
 **Effekt:**  
 Chat-Provider und Embedding-Provider werden sauber getrennt.
 
-### 4.3 Modul- und Doku-Markierungen ergänzen
+### Modul- und Doku-Markierungen ergänzen
 
 Sinnvolle Markierungen:
 
@@ -188,7 +188,7 @@ Die Migration wird transparent dokumentiert, ohne dass einzelne Notebooks als st
 
 ---
 
-## 5 Wie die Notebooks als Beispiele dienen
+## Wie die Notebooks als Beispiele dienen
 
 Die Notebooks dienen nur dazu, die Typen von Migrationsarbeit anschaulich zu machen:
 
@@ -204,7 +204,7 @@ Die eigentliche Aussage ist:
 
 ---
 
-## 6 Prüf- und Testpunkte
+## Prüf- und Testpunkte
 
 Für jede Migration auf Mistral bleiben dieselben Kernfragen relevant:
 
@@ -228,7 +228,7 @@ Für jede Migration auf Mistral bleiben dieselben Kernfragen relevant:
 
 ---
 
-## 7 Empfohlene Reihenfolge
+## Empfohlene Reihenfolge
 
 ### Phase 1: Provider-Schicht zentralisieren
 
@@ -265,7 +265,7 @@ Für jede Migration auf Mistral bleiben dieselben Kernfragen relevant:
 
 ---
 
-## 8 Fazit
+## Fazit
 
 Die eigentliche Botschaft dieser Migration ist:
 
@@ -287,6 +287,6 @@ Genau darin liegt der architektonische Vorteil des bestehenden Ökosystems.
 
 ---
 
-**Version:** 2.0    
-**Stand:** März 2026    
-**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.    
+**Version:**    2.0
+**Stand:**    März 2026
+**Kurs:**    Generative KI. Verstehen. Anwenden. Gestalten.

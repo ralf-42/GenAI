@@ -14,35 +14,34 @@ Die Framework-Seiten dienen nicht als vollständige Produktkataloge. Sie erklär
 
 LangChain ist im Projekt die zentrale Schicht zwischen Modell und Anwendung. Wer verstehen will, warum Providerwechsel, Chains oder Tool-Integration im Kurs vergleichsweise kontrollierbar bleiben, beginnt hier.
 
-- **[LangChain Einsteiger](frameworks/Einsteiger_LangChain.html)** – *Wie werden Modelle, Prompts und Chains zusammengeführt?*
+- **[LangChain Einsteiger](https://ralf-42.github.io/GenAI/frameworks/Einsteiger_LangChain.html)** – *Wie werden Modelle, Prompts und Chains zusammengeführt?*
 
 ## Vektordatenbanken
 
 ChromaDB wird dort relevant, wo semantische Suche nicht nur eine Idee bleiben soll. Die Seite zeigt weniger "was ChromaDB alles bietet", sondern wie daraus ein brauchbarer Retrieval-Pfad wird.
 
-- **[ChromaDB Einsteiger](frameworks/Einsteiger_ChromaDB.html)** – *Wie wird aus Embeddings ein nutzbarer Suchindex?*
+- **[ChromaDB Einsteiger](https://ralf-42.github.io/GenAI/frameworks/Einsteiger_ChromaDB.html)** – *Wie wird aus Embeddings ein nutzbarer Suchindex?*
 
 ## No-Code / Low-Code
 
 Nicht jede Anwendung beginnt mit Python-Code. Agent Builder ist im Kurs vor allem als Vergleich interessant: Wo reicht ein visueller Workflow, und ab wann wird Code unverzichtbar?
 
-- **[Agent Builder Einsteiger](frameworks/Einsteiger_Agent_Builder.html)** – *Wann genügt ein visueller Workflow-Builder?*
+- **[Agent Builder Einsteiger](https://ralf-42.github.io/GenAI/frameworks/Einsteiger_Agent_Builder.html)** – *Wann genügt ein visueller Workflow-Builder?*
 
 ## Projektspezifische Bibliotheken
 
 Die `genai_lib` bündelt genau die Hilfsfunktionen, die im Kurs immer wieder gebraucht werden. Wer nachvollziehen möchte, warum Setups, API-Keys und Visualisierungen in den Notebooks vergleichsweise konsistent aussehen, findet hier die technische Basis.
 
-- **[GenAI_Lib Einsteiger](frameworks/Einsteiger_GenAI_Lib.html)** – *Welche Hilfsfunktionen trägt das Kursprojekt selbst bei?*
+- **[GenAI_Lib Einsteiger](https://ralf-42.github.io/GenAI/frameworks/Einsteiger_GenAI_Lib.html)** – *Welche Hilfsfunktionen trägt das Kursprojekt selbst bei?*
 
 ## Modell-Auswahl
 
 Modellauswahl ist selten nur eine Qualitätsfrage. Häufiger geht es um Kosten, Latenz, Modalitäten und die Frage, ob ein stärkeres Modell den Mehraufwand überhaupt rechtfertigt.
 
-- **[Modell-Auswahl Guide](frameworks/Modell_Auswahl_Guide.html)** – *Welches Modell passt zu welcher Aufgabe?*
+- **[Modell-Auswahl Guide](https://ralf-42.github.io/GenAI/frameworks/Modell_Auswahl_Guide.html)** – *Welches Modell passt zu welcher Aufgabe?*
 
 ## Prompt-Templates
 
 Prompt-Dateien werden im Kurs nicht als Textbausteine behandelt, sondern als wartbare Schnittstelle zwischen Idee und Anwendung. Die Seite zeigt, wie daraus mehr wird als eine Sammlung lose kopierter Prompts.
 
-- **[Prompt-Templates Einsteiger](frameworks/Einsteiger_Prompts.html)** – *Wie werden Prompts wiederverwendbar und pflegbar?*
-
+- **[Prompt-Templates Einsteiger](https://ralf-42.github.io/GenAI/frameworks/Einsteiger_Prompts.html)** – *Wie werden Prompts wiederverwendbar und pflegbar?*
