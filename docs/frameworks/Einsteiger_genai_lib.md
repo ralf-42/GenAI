@@ -4,6 +4,7 @@ title: GenAI_Lib Einsteiger
 parent: Frameworks
 nav_order: 4
 description: "Projektspezifische Python-Bibliothek für Kursanwendungen"
+has_toc: true
 ---
 
 # GenAI_Lib - Projektspezifische Bibliothek
@@ -15,7 +16,7 @@ description: "Projektspezifische Python-Bibliothek für Kursanwendungen"
 
 Die `genai_lib` ist eine projektspezifische Python-Bibliothek, die speziell für die Anforderungen dieses Kurses entwickelt wurde. Sie bündelt wichtige Funktionen für multimodale RAG-Systeme und allgemeine Hilfsfunktionen.
 
-## Inhalt
+# Inhaltsverzeichnis
 {: .no_toc .text-delta }
 
 1. TOC
@@ -55,8 +56,7 @@ Die Bibliothek besteht aus zwei Hauptmodulen:
 
 ### Hauptfunktionen
 
-#### 1. `check_environment()`
-
+#### . `check_environment()`
 Überprüft die Entwicklungsumgebung und zeigt installierte Pakete an.
 
 ```python
@@ -70,8 +70,7 @@ check_environment()
 - Alle installierten LangChain-Bibliotheken
 - Unterdrückt automatisch Deprecation-Warnungen
 
-#### 2. `install_packages(packages)`
-
+#### . `install_packages(packages)`
 Installiert Python-Pakete automatisch, wenn sie noch nicht verfügbar sind.
 
 ```python
@@ -93,8 +92,7 @@ install_packages([
 - Gibt klare Statusmeldungen (✅ ❌ ⚠️ 🔄)
 - Unterstützt Tupel für verschiedene Install- und Import-Namen
 
-#### 3. `setup_api_keys(key_names, create_globals=True)`
-
+#### . `setup_api_keys(key_names, create_globals=True)`
 Lädt API-Keys aus Google Colab userdata und setzt sie als Umgebungsvariablen.
 
 ```python
@@ -117,8 +115,7 @@ setup_api_keys(["OPENAI_API_KEY"], create_globals=False)
 - Gibt Statusmeldungen für jeden Key aus
 - Verhindert unbeabsichtigte Sichtbarkeit durch Return-Werte
 
-#### 4. `get_ipinfo()`
-
+#### . `get_ipinfo()`
 Zeigt Geoinformationen zur aktuellen IP-Adresse an.
 
 ```python
@@ -133,8 +130,7 @@ get_ipinfo()
 - Provider
 - Koordinaten, Postleitzahl, Zeitzone
 
-#### 5. `mprint(text)`
-
+#### . `mprint(text)`
 Gibt Markdown-formatierten Text in Jupyter Notebooks aus.
 
 ```python
@@ -143,8 +139,7 @@ from genai_lib.utilities import mprint
 mprint("# Überschrift\n**Fett** und *kursiv*")
 ```
 
-#### 6. `mermaid(code, width=None, height=None)`
-
+#### . `mermaid(code, width=None, height=None)`
 Rendert Mermaid-Diagramme direkt im Notebook mit anpassbarer Größe.
 
 ```python
@@ -184,8 +179,7 @@ sequenceDiagram
 - Robuste Fehlerbehandlung mit aussagekräftigen Fehlermeldungen
 - Funktioniert in Google Colab und JupyterLab; nicht in VS Code Notebooks
 
-#### 7. `load_prompt(path, mode="T")`
-
+#### . `load_prompt(path, mode="T")`
 Lädt Prompt-Templates aus Markdown-Dateien (.md) als ChatPromptTemplate oder String.
 
 ```python
@@ -233,8 +227,7 @@ Answer:
 - `## system` / `## human`: Message-Rollen als H2-Headings
 - `{variable}`: Platzhalter wie bei ChatPromptTemplate
 
-#### 8. `extract_thinking(response)` 🆕
-
+#### . `extract_thinking(response)` 🆕
 Universeller Parser für verschiedene Thinking-Formate von LLMs. Extrahiert den Denkprozess und die eigentliche Antwort aus unterschiedlichen Response-Strukturen.
 
 ```python
@@ -268,8 +261,7 @@ print(f"Antwort: {answer}")
 - Fallback-Logik: Prüft automatisch alle bekannten Formate
 - Robust: Gibt leeren Thinking-String zurück, wenn kein Denkprozess vorhanden
 
-#### 9. `get_model_profile(model, print_profile=True, **kwargs)` 🆕
-
+#### . `get_model_profile(model, print_profile=True, **kwargs)` 🆕
 Ruft Model-Profile von models.dev ab und zeigt die wichtigsten Capabilities eines LLM-Modells. Nutzt intern `init_chat_model()` und gibt detaillierte Informationen über Structured Output, Function Calling, Vision, Token-Limits, etc. zurück.
 
 ```python
@@ -379,8 +371,7 @@ for model in ["openai:gpt-4o-mini", "anthropic:claude-3-sonnet", "google:gemini-
 - Temperature-Unterstützung prüfen
 - Debugging und Dokumentation
 
-#### 10. `show_trace(project_name, limit=5, show_steps=False)` 🆕
-
+#### . `show_trace(project_name, limit=5, show_steps=False)` 🆕
 Zeigt die letzten LangSmith-Runs eines Projekts als formatierte Markdown-Tabelle direkt im Notebook.
 
 ```python
@@ -446,8 +437,7 @@ multimodal_rag
 
 ### Hauptfunktionen
 
-#### 1. `init_rag_system(config=None)`
-
+#### . `init_rag_system(config=None)`
 Initialisiert das vollständige RAG-System.
 
 ```python
@@ -486,8 +476,7 @@ message = HumanMessage(content=[
 ])
 ```
 
-#### 2. `process_directory(rag, directory_path, auto_describe_images=True)`
-
+#### . `process_directory(rag, directory_path, auto_describe_images=True)`
 Verarbeitet ein Verzeichnis mit Text- und Bilddateien.
 
 ```python
@@ -511,8 +500,7 @@ process_directory(rag, './files', auto_describe_images=False)
 - CLIP-Embeddings für Bilder
 - Fortschrittsanzeige
 
-#### 3. `multimodal_search(rag, query, k=5, text_only=False, images_only=False)`
-
+#### . `multimodal_search(rag, query, k=5, text_only=False, images_only=False)`
 Durchsucht Text und Bilder gleichzeitig.
 
 ```python
@@ -532,8 +520,7 @@ image_results = multimodal_search(rag, "rote Autos", images_only=True)
 - `text_docs`: Liste von LangChain Documents mit Text-Chunks
 - `image_results`: Liste von Dictionaries mit Bildpfaden und Metadaten
 
-#### 4. `search_similar_images(rag, image_path, k=5)`
-
+#### . `search_similar_images(rag, image_path, k=5)`
 Findet ähnliche Bilder zu einem Query-Bild (Bild → Bild Suche).
 
 ```python
@@ -552,8 +539,7 @@ for img in similar:
 - Ähnliche Produkte vorschlagen
 - Bildkategorisierung
 
-#### 5. `search_text_by_image(rag, image_path, k=3)`
-
+#### . `search_text_by_image(rag, image_path, k=3)`
 Findet Textdokumente, die zum Bildinhalt passen (Bild → Text Suche).
 
 ```python
@@ -571,8 +557,7 @@ for doc in texts:
 - Dokumentation zu Screenshots suchen
 - Bild-Text-Verknüpfung in Datenbanken
 
-#### 6. `get_system_status(rag)`
-
+#### . `get_system_status(rag)`
 Gibt Statistiken über das RAG-System zurück.
 
 ```python
@@ -590,8 +575,7 @@ print(f"Bildbeschreibungen: {status['image_descriptions']}")
 - `image_descriptions`: Anzahl der Bildbeschreibungen
 - `total_documents`: Gesamtanzahl aller Einträge
 
-#### 7. `cleanup_database(db_path)`
-
+#### . `cleanup_database(db_path)`
 Löscht die Datenbank komplett für einen Neustart.
 
 ```python
@@ -611,21 +595,21 @@ from genai_lib.multimodal_rag import (
     get_system_status
 )
 
-# 1. System initialisieren
+# . System initialisieren
 rag = init_rag_system()
 
-# 2. Dokumente verarbeiten
+# . Dokumente verarbeiten
 process_directory(rag, './knowledge_base', auto_describe_images=True)
 
-# 3. Status prüfen
+# . Status prüfen
 status = get_system_status(rag)
 print(f"Verarbeitet: {status['text_chunks']} Texte, {status['images']} Bilder")
 
-# 4. Multimodale Suche (Text + Bilder + Cross-Modal)
+# . Multimodale Suche (Text + Bilder + Cross-Modal)
 results = multimodal_search(rag, "Neuronale Netze", k_text=3, k_images=3)
 print(results)
 
-# 5. Bild-zu-Bild Suche
+# . Bild-zu-Bild Suche
 similar = search_similar_images(rag, "./query_image.jpg", k=5)
 for img in similar:
     print(f"{img['filename']}: {img['similarity']}")
@@ -635,27 +619,25 @@ for img in similar:
 
 ## Best Practices
 
-### 1. Environment-Setup in Notebooks
-
+### . Environment-Setup in Notebooks
 ```python
 from genai_lib.utilities import check_environment, setup_api_keys, install_packages
 
-# 1. Environment checken
+# . Environment checken
 check_environment()
 
-# 2. Pakete installieren
+# . Pakete installieren
 install_packages([
     'langchain',
     'langchain-openai',
     ('markitdown[all]', 'markitdown')
 ])
 
-# 3. API-Keys setzen
+# . API-Keys setzen
 setup_api_keys(["OPENAI_API_KEY"])
 ```
 
-### 2. LangSmith Trace-Analyse
-
+### . LangSmith Trace-Analyse
 ```python
 from genai_lib.utilities import show_trace
 
@@ -666,8 +648,7 @@ show_trace("M08-RAG-Projekt")
 show_trace("M08-RAG-Projekt", show_steps=True)
 ```
 
-### 3. Multimodales RAG-System
-
+### . Multimodales RAG-System
 ```python
 from genai_lib.multimodal_rag import (
     init_rag_system,
@@ -729,8 +710,6 @@ Die Module stehen unter der MIT-Lizenz und können frei für eigene Projekte ver
 
 ---
 
-**Version:** 3.1       
-**Stand:** Januar 2026       
-**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.          
-
-
+**Version:**    3.1
+**Stand:**    Januar 2026
+**Kurs:**    Generative KI. Verstehen. Anwenden. Gestalten.

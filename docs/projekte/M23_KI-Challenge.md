@@ -23,19 +23,17 @@ has_toc: true
 ---
 
 
-# 1 | Überblick KI-Challenge
-
-
+# Überblick KI-Challenge
 Die KI-Challenge bündelt die Inhalte der vorangegangenen Module in einem zusammenhängenden Projekt. Ziel ist keine möglichst große Demo, sondern eine funktionsfähige Anwendung mit klarem Nutzen, nachvollziehbarem Scope und belastbarer technischer Umsetzung.
 
-## 1.1 Lernziele
+## Lernziele
 
 - Integration mehrerer Technologien aus den Kursmodulen
 - Praktische Anwendung von LLM-basierten Lösungen
 - Entwicklung einer vollständigen End-to-End-Anwendung
 - Präsentation und Dokumentation der eigenen Lösung
 
-## 1.2 Voraussetzungen
+## Voraussetzungen
 
 - Abschluss der Module M01–M10
 - Kenntnisse in Python und LangChain 1.0+
@@ -44,7 +42,7 @@ Die KI-Challenge bündelt die Inhalte der vorangegangenen Module in einem zusamm
 
 
 
-## 1.3 Praxiseinblick: Von der Idee zum Deployment
+## Praxiseinblick: Von der Idee zum Deployment
 
 {: .highlight }
 > "Ein Open Source Modell ist kein Produkt. Für ein Produkt zu machen, kommen noch viel dazu."
@@ -98,12 +96,10 @@ Die KI-Challenge greift **typische Herausforderungen** auf, die zwischen Noteboo
 
 ---
 
-# 2 | Projektoptionen
-
-
+# Projektoptionen
 Zur Auswahl stehen vier Projekttypen mit unterschiedlichem Schwerpunkt. Diese Typen eignen sich als Startpunkte und können bei Bedarf kombiniert werden, solange der Umfang beherrschbar bleibt.
 
-## 2.1 Dokumentenanalyse-Assistent
+## Dokumentenanalyse-Assistent
 
 **Beschreibung:** Ein System, das PDF-Dokumente, Word-Dateien oder Textdateien verarbeitet und intelligente Zusammenfassungen, Antworten auf Fragen oder strukturierte Analysen liefert.
 
@@ -120,7 +116,7 @@ Zur Auswahl stehen vier Projekttypen mit unterschiedlichem Schwerpunkt. Diese Ty
 - M09 (SQL RAG – optional für strukturierte Metadaten)
 - M13 (Gradio)
 
-## 2.2 Multimodaler Assistent
+## Multimodaler Assistent
 
 **Beschreibung:** Ein Assistent, der Bild, Text und optional Audio verarbeiten kann, um komplexe Aufgaben zu erfüllen oder Informationen zu analysieren.
 
@@ -138,7 +134,7 @@ Zur Auswahl stehen vier Projekttypen mit unterschiedlichem Schwerpunkt. Diese Ty
 - M16 (Multimodal Bild)
 - M18 (optional: Multimodal Audio)
 
-## 2.3 Agentenbasiertes System
+## Agentenbasiertes System
 
 **Beschreibung:** Ein System mit mehreren spezialisierten Agenten, die zusammenarbeiten, um komplexe Aufgaben zu lösen oder Workflow-Prozesse zu automatisieren.
 
@@ -156,7 +152,7 @@ Zur Auswahl stehen vier Projekttypen mit unterschiedlichem Schwerpunkt. Diese Ty
 - M13 (Gradio)
 - M14 (optional: Lokale Modelle)
 
-## 2.4 Domänen Fachexperte
+## Domänen Fachexperte
 
 **Beschreibung:** Ein spezialisierter Assistent für ein bestimmtes Fachgebiet (z.B. Recht, Medizin, Finanzen, Marketing), der tiefgreifendes Fachwissen bereitstellt und domänenspezifische Aufgaben löst.
 
@@ -174,11 +170,10 @@ Zur Auswahl stehen vier Projekttypen mit unterschiedlichem Schwerpunkt. Diese Ty
 - M13 (Gradio)
 - M15 (optional: Fine-Tuning)
 
-# 3 | Projekt-Setup
-
+# Projekt-Setup
 Der folgende Abschnitt zeigt ein mögliches Grundsetup für ein Projekt mit **LangChain 1.0+**. Gemeint ist kein starres Template, sondern ein belastbarer Ausgangspunkt.
 
-## 3.1 Environment Setup
+## Environment Setup
 
 ```python
 #@title 🔧 Umgebung einrichten { display-mode: "form" }
@@ -194,7 +189,7 @@ setup_api_keys(['OPENAI_API_KEY', 'HF_TOKEN'], create_globals=False)
 check_environment()
 ```
 
-## 3.2 LangChain 1.0+ Imports
+## LangChain 1.0+ Imports
 
 ```python
 # ✅ LangChain 1.0+ - Moderne Imports (PFLICHT!)
@@ -232,50 +227,46 @@ from langchain.agents.middleware import (
 print("✅ LangChain 1.0+ Imports erfolgreich")
 ```
 
-# 4 | Projektstruktur
-
-
+# Projektstruktur
 Ein erfolgreiches Abschlussprojekt sollte folgende Komponenten enthalten:
 
-## 4.1 Problemdefinition und Anforderungen
+## Problemdefinition und Anforderungen
 
 - Klare Beschreibung des Problems oder der Aufgabe
 - Definition der Anforderungen und Erfolgskriterien
 - Abgrenzung des Projektumfangs
 
-## 4.2 Datenstrukturen und Modellauswahl
+## Datenstrukturen und Modellauswahl
 
 - Auswahl und Begründung der verwendeten Modelle
 - Datenstrukturen und Datenvorbereitung
 - Embedding-Strategien (bei RAG-Anwendungen)
 
-## 4.3 Kernfunktionalität
+## Kernfunktionalität
 
 - LangChain-Pipelines oder -Ketten
 - Prompt-Engineering und Templates
 - Integration mit externen APIs oder Datenquellen
 
-## 4.4 Benutzeroberfläche und Interaktion
+## Benutzeroberfläche und Interaktion
 
 - Gradio-Interface für die Interaktion
 - Benutzerführung und Feedback
 - Fehlerbehandlung und Robustheit
 
-## 4.5 Evaluation und Tests
+## Evaluation und Tests
 
 - Testfälle für verschiedene Szenarien
 - Bewertung der Modellleistung
 - Benutzerfeedback und Verbesserungen
 
-## 4.6 Dokumentation und Präsentation
+## Dokumentation und Präsentation
 
 - Projektdokumentation (Markdown oder PDF)
 - Code-Kommentare und Erklärungen
 - Präsentation der Ergebnisse
 
-# 5 | Bewertungskriterien
-
-
+# Bewertungskriterien
 Die  KI-Challenge wird anhand folgender Kriterien bewertet:
 
 | Kriterium | Beschreibung | Gewichtung |
@@ -286,7 +277,7 @@ Die  KI-Challenge wird anhand folgender Kriterien bewertet:
 | **Innovation** | Kreative Lösungsansätze und eigenständige Weiterentwicklung der Konzepte | 15% |
 | **Dokumentation** | Vollständige und verständliche Dokumentation des Projekts (README.md) | 15% |
 
-## 5.1 Abgabe-Anforderungen
+## Abgabe-Anforderungen
 
 **Pflicht-Deliverables:**
 
@@ -321,8 +312,7 @@ Die  KI-Challenge wird anhand folgender Kriterien bewertet:
 - [ ] Alle externen Abhängigkeiten sind dokumentiert
 - [ ] Beispiel-Daten oder Download-Links sind enthalten
 
-# 6 | Beispielprojekt: Doku-Assi (LangChain 1.0+)
-
+# Beispielprojekt: Doku-Assi (LangChain 1.0+)
 Als Orientierung dient hier ein vereinfachtes Beispiel für einen Dokumentenanalyse-Assistenten mit **modernen LangChain 1.0+ Patterns**.
 
 ```python
@@ -515,9 +505,7 @@ if __name__ == "__main__":
 ```
 
 
-# 7 | Ressourcen und Hilfestellung
-
-
+# Ressourcen und Hilfestellung
 Folgende Ressourcen unterstützen die Entwicklung des Abschlussprojekts:
 
 - **Dokumentation**
@@ -541,6 +529,6 @@ Folgende Ressourcen unterstützen die Entwicklung des Abschlussprojekts:
 
 Bei Fragen oder Problemen während der Projektentwicklung steht das `Kurs-Forum` zur Verfügung.
 
-**Version:** 3.0
-**Stand:** Februar 2026
-**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
+**Version:**    3.0
+**Stand:**    Februar 2026
+**Kurs:**    Generative KI. Verstehen. Anwenden. Gestalten.

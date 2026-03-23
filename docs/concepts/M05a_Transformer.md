@@ -23,15 +23,12 @@ has_toc: true
 ---
 
 
-# 1 Was ist ein Transformer?
-
+# Was ist ein Transformer?
 Stellen wir uns vor, jemand liest einen Text und versucht ihn zu verstehen. Dabei schaut man nicht nur auf ein Wort nach dem anderen, sondern das Gehirn verbindet alle Wörter miteinander - manche sind wichtiger für das Verständnis als andere.
 
 Ein **Transformer** macht genau das: Es ist ein Computer-Programm, das Texte "liest" und dabei automatisch erkennt, welche Wörter zusammengehören und wichtig sind.
 
-# 2 Die Grundidee
-
-
+# Die Grundidee
 Nehmen wir den Satz: _„Der Hund bellt laut.“_
 
 - Ein Mensch versteht sofort: **„Hund“** ist das Subjekt der Handlung
@@ -51,22 +48,21 @@ Ein Transformer lernt diese Verbindungen automatisch durch **Aufmerksamkeit**:
 
 <div style="page-break-after: always;"></div>
 
-# 3 Wie funktioniert das technisch? 
-
+# Wie funktioniert das technisch?
 <img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250309190825.png" alt="Transformer Architektur" width="500">
 
-## 3.1 Wörter werden zu Zahlen → Embedding
+## Wörter werden zu Zahlen → Embedding
 - Computer können nur mit Zahlen arbeiten
 - Jedes Wort wird in eine Liste von Zahlen umgewandelt (wie ein Fingerabdruck des Wortes)
 
-> [!NOTE]
+> [!NOTE] Weiterführender Verweis
 > Details siehe Skript: M08 - Embeddings
 
-## 3.2 Position ist wichtig → Positional Encoding
+## Position ist wichtig → Positional Encoding
 - "Der Lehrer fragt den Schüler." bedeutet etwas anderes als "Den Lehrer fragt der Schüler."
 - Der Transformer fügt jedem Wort eine "Positionsnummer" hinzu
 
-## 3.3 Aufmerksamkeit berechnen → Self-Attention
+## Aufmerksamkeit berechnen → Self-Attention
 
 Self-Attention ist ein Mechanismus, bei dem jedes Wort in einem Satz mit allen anderen Wörtern – einschließlich sich selbst – verglichen wird, um deren inhaltliche Ähnlichkeit oder Relevanz zu bestimmen. Diese Ähnlichkeitswerte helfen dem Modell dabei zu entscheiden, wie stark jedes Wort in die Repräsentation eines anderen Wortes einfließen soll.
 
@@ -110,7 +106,7 @@ Dazu stellt sich der Transformer bei jedem Wort drei zentrale Fragen:
 
 Das passiert gleichzeitig für alle Wörter, sodass der Transformer alle wichtigen Beziehungen im Satz erkennt.
 
-## 3.4 Mehrere "Köpfe" gleichzeitig → Multi-Head-Attention
+## Mehrere "Köpfe" gleichzeitig → Multi-Head-Attention
 
 **Multi-Head-Attention** bedeutet, dass der Transformer **mehrere Self-Attention-Mechanismen gleichzeitig ausführt – mit unterschiedlichen Perspektiven (Köpfen)**.
 
@@ -139,7 +135,7 @@ Ein einzelner Attention-Mechanismus (ein „Kopf“) kann nur eine begrenzte Art
 - **feinere Unterscheidungen** im Satzbau zu erfassen
 
 
-## 3.5 In die Zukunft schauen verboten → Masked-Self-Attention
+## In die Zukunft schauen verboten → Masked-Self-Attention
 
 
 **Problem beim Text-Generieren:**
@@ -166,12 +162,11 @@ Es simuliert damit echtes Sprachverständnis im Schreibprozess.
 
 
 
-# 4 Drei Haupttypen von Transformern
-
+# Drei Haupttypen von Transformern
 [Transformer](https://editor.p5js.org/ralf.bendig.rb/full/I1TTpJk-D)          
 [Autoregressives Modell](https://poloclub.github.io/transformer-explainer/)           
 
-## 4.1 Verstehen - Encoder-Only (wie BERT)
+## Verstehen - Encoder-Only (wie BERT)
 
 **Fachbegriff**: Bidirectional Encoder Representations
 - Liest den ganzen Text und versteht ihn
@@ -180,7 +175,7 @@ Es simuliert damit echtes Sprachverständnis im Schreibprozess.
 
 **Beispiel**: "In welchem Jahr wurde Einstein geboren?" → Findet die Antwort im Text
 
-## 4.2 Schreiben - Decoder-Only (wie ChatGPT)
+## Schreiben - Decoder-Only (wie ChatGPT)
 
 **Fachbegriff**: Autoregressive Language Models
 - Schreibt Text Wort für Wort
@@ -189,7 +184,7 @@ Es simuliert damit echtes Sprachverständnis im Schreibprozess.
 
 **Beispiel**: "Es war einmal..." → "Es war einmal ein kleiner Drache, der fliegen lernen wollte..."
 
-## 4.3 Übersetzen - Encoder-Decoder (wie T5)
+## Übersetzen - Encoder-Decoder (wie T5)
 
 **Fachbegriff**: Sequence-to-Sequence Models
 - Liest Input vollständig, dann schreibt Output
@@ -198,26 +193,24 @@ Es simuliert damit echtes Sprachverständnis im Schreibprozess.
 
 **Beispiel**: "Hello world" → "Hallo Welt"
 
-# 5 Warum sind Transformer so revolutionär?
-
-## 5.1 Vorher (alte Methoden):
+# Warum sind Transformer so revolutionär?
+## Vorher (alte Methoden):
 - Computer lasen Texte Wort für Wort von links nach rechts
 - Langsam und vergaßen oft den Anfang des Textes
 - Wie jemand, der nur ein Wort nach dem anderen lesen kann
 
-## 5.2 Transformer:
+## Transformer:
 - Sehen alle Wörter gleichzeitig
 - Verstehen Zusammenhänge über weite Strecken
 - Viel schneller, weil parallel verarbeitet wird
 - Wie jemand, der den ganzen Text auf einmal erfasst
 
 
-# 6 Top 10 Post-Transformer
-
+# Top 10 Post-Transformer
 **Was kommt als Nächstes?** Die KI-Forschung entwickelt sich schnell weiter. Hier sind einige neue Ansätze, die möglicherweise die Zukunft prägen, aber noch nicht weit verbreitet sind:
 
 
-## 6.1 Übersicht
+## Übersicht
 
 | Rang   | Modelltyp                          | Was ist anders?                                                                  | Besonderheit                                                                           | Transformer-basiert | Beispiele/Status                                                                                   |
 | ------ | ---------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | ------------------- | -------------------------------------------------------------------------------------------------- |
@@ -246,7 +239,7 @@ Es simuliert damit echtes Sprachverständnis im Schreibprozess.
 - **Experimentell**: Funktionsfähige Prototypen, noch nicht produktionsreif
 - **Forschung**: Frühe Forschungsphase, Konzeptnachweis
 
-## 6.2 Trends für 2025:
+## Trends für 2025:
 
 - **Memory-Revolution**: Architekturen mit neuralen Gedächtnis-Modulen
 - **SSM-Adoption**: Lineare Skalierung wird Standard für lange Sequenzen
@@ -256,8 +249,19 @@ Es simuliert damit echtes Sprachverständnis im Schreibprozess.
 
 **Warum ist das wichtig?** Diese neuen Ansätze könnten in Zukunft die Transformer-Dominanz herausfordern, besonders wenn es um Effizienz und Geschwindigkeit geht.
 
+
 ---
 
-**Version:** 1.0     
-**Stand:** November 2025     
-**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.     
+## Abgrenzung zu verwandten Dokumenten
+
+| Dokument | Frage |
+|---|---|
+| [Tokenizing & Chunking](./M08a_Tokenizing_Chunking.html) | Wie wird Text für Modelle in verarbeitbare Einheiten zerlegt? |
+| [Embeddings](./M08b_Embeddings.html) | Wie wird Bedeutung als Vektor darstellbar gemacht? |
+| [Fine-Tuning](./M18_Fine-Tuning.html) | Wann reicht die Grundarchitektur nicht mehr und Anpassung per Training wird relevant? |
+
+---
+
+**Version:**    1.0
+**Stand:**    November 2025
+**Kurs:**    Generative KI. Verstehen. Anwenden. Gestalten.

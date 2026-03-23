@@ -347,8 +347,19 @@ Treffsichere GenAI-Umsetzung folgt einer einfachen Reihenfolge:
 
 So bleibt die Lösung fachlich passend, wirtschaftlich sinnvoll und langfristig wartbar.
 
+
 ---
 
-**Version:** 4.0    
-**Stand:** März 2026    
-**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.    
+## Abgrenzung zu verwandten Dokumenten
+
+| Dokument | Frage |
+|---|---|
+| [Prompt Engineering](./Prompt_Engineering.html) | Wie werden Modelle sprachlich und strukturell gesteuert? |
+| [RAG-Konzepte](./RAG_Konzepte.html) | Wann hilft Retrieval als Lösungsweg und wie ist eine RAG-Pipeline aufgebaut? |
+| [Modell-Auswahl Guide](../frameworks/Modell_Auswahl_Guide.html) | Welches Modell passt zur gewählten Lösung und zum Betriebsziel? |
+
+---
+
+**Version:**    4.0
+**Stand:**    März 2026
+**Kurs:**    Generative KI. Verstehen. Anwenden. Gestalten.

@@ -1,6 +1,29 @@
+---
+layout: default
+title: Anchor Test
+nav_exclude: true
+description: "Interne Testseite für Überschriftenanker"
+has_toc: true
+---
 
-# Test Header
+# Anchor Test
+{: .no_toc }
+
+> **Interne Testseite für Überschriftenanker**
+
+---
+
+## Test Header
+
+Testseite für die Prüfung interner Sprungmarken.
+
 ## Sub Header
 
 [Working Link](#sub-header)
 [Broken Link](#non-existent)
+
+---
+
+**Version:**    1.0
+**Stand:**    März 2026
+**Kurs:**    Generative KI. Verstehen. Anwenden. Gestalten.

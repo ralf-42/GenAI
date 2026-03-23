@@ -719,6 +719,6 @@ A: Ja. Dann lokal mit Jupyter Notebook oder JupyterLab arbeiten und Folgendes er
 
 ---
 
-**Version:** 2.0
-**Stand:** Februar 2026
-**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
+**Version:**    2.0
+**Stand:**    Februar 2026
+**Kurs:**    Generative KI. Verstehen. Anwenden. Gestalten.

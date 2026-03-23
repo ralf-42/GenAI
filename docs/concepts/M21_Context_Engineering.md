@@ -23,10 +23,7 @@ has_toc: true
 ---
 
 
-# 1 Was ist Context Engineering?
-
-
-
+# Was ist Context Engineering?
 **Context Engineering** beschreibt die Aufgabe, einem KI-System die richtigen Informationen zur richtigen Zeit bereitzustellen. In einfachen Demos wirkt das oft nebensächlich. In Anwendungen mit längeren Abläufen, mehreren Datenquellen oder wiederkehrenden Anfragen entscheidet der Kontext jedoch oft stärker über die Qualität als der eigentliche Prompt.
 
 In der Praxis zeigt sich schnell: Viele vermeintliche Modellfehler sind in Wirklichkeit Kontextfehler. Es fehlen Daten, irrelevante Informationen verdrängen die wichtigen, oder ältere Angaben werden zusammen mit neuen Informationen verarbeitet. Context Engineering behandelt genau diese Ebene systematisch.
@@ -34,7 +31,7 @@ In der Praxis zeigt sich schnell: Viele vermeintliche Modellfehler sind in Wirkl
 > [!NOTE] Kernidee       
 > Nicht der "perfekte Prompt" allein entscheidet, sondern die Qualität und Struktur des gesamten Kontexts.
 
-## 1.1 Der Unterschied zu Prompt Engineering
+## Der Unterschied zu Prompt Engineering
 
 | Aspekt                 | Prompt Engineering                                                                     | Context Engineering                                                                                    |
 | ---------------------- | -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
@@ -57,11 +54,11 @@ In der Praxis zeigt sich schnell: Viele vermeintliche Modellfehler sind in Wirkl
 | **Zukunftstrend**      | Integration in größere Systeme                                                         | Weiterentwicklung zu autonomen Agenten                                                                 |
 | **Best Practices**     | - Iterative Verbesserung  <br>- A/B-Testing  <br>- Klare Rollenverteilung              | - Datengovernance  <br>- Monitoring & Logging  <br>- Kontext-Versionierung                             |
 
-## 1.2 Fazit
+## Fazit
 
 **Prompt Engineering** eignet sich für die Optimierung einzelner Anfragen. **Context Engineering** wird relevant, sobald Informationen ausgewählt, priorisiert, gespeichert oder über mehrere Schritte hinweg konsistent gehalten werden müssen. Robuste Anwendungen brauchen in der Regel beides.
 
-## 1.3 Warum ist das wichtig?
+## Warum ist das wichtig?
 
 Nicht jeder Qualitätsgewinn entsteht durch bessere Formulierungen im Prompt. Sobald Dokumente, Memory, Tools oder externe Datenquellen beteiligt sind, verschiebt sich die eigentliche Arbeit in die Kontextarchitektur. Dort wird entschieden, welche Informationen überhaupt in das Modell gelangen und in welcher Form sie dort ankommen.
 
@@ -71,8 +68,7 @@ Nicht jeder Qualitätsgewinn entsteht durch bessere Formulierungen im Prompt. So
 
 
 
-# 2 Die vier Grundstrategien
-
+# Die vier Grundstrategien
 ```mermaid
 mindmap
   root((Context<br>Engineering))
@@ -94,7 +90,7 @@ mindmap
       Aufgabentrennung
 ```
 
-## 2.1 Kontext Auswählen(Context Selection)
+## Kontext Auswählen(Context Selection)
 Die richtigen Informationen zur richtigen Zeit bereitstellen.
 
 Selection ist meist der erste Engpass. In vielen Prototypen wird schlicht alles in den Prompt gelegt, was verfügbar ist. Das funktioniert kurzzeitig, skaliert aber schlecht. Gute Systeme entscheiden früh, was für die jeweilige Aufgabe wirklich relevant ist und was nicht in den aktuellen Lauf gehört.
@@ -110,7 +106,7 @@ Kundenkontext:
 → KI wählt passende Produktinformationen aus
 ```
 
-## 2.2 Kontext Komprimieren (Context Compression)
+## Kontext Komprimieren (Context Compression)
 Nur die wichtigsten Informationen behalten.
 
 Kompression ist keine kosmetische Kürzung, sondern eine Qualitätsfrage. Werden Nebensachen genauso ausführlich dargestellt wie entscheidende Fakten, sinkt die Trennschärfe. Zusammenfassungen müssen daher nicht nur kürzer, sondern auch priorisiert sein.
@@ -123,7 +119,7 @@ Zusammenfassung: "3 Kleinschäden in 5 Jahren,
 Gesamtschaden: 2.500€, keine Muster erkennbar"
 ```
 
-## 2.3 Kontext Speichern (Context Memory)
+## Kontext Speichern (Context Memory)
 Wichtige Informationen für später aufbewahren.
 
 Memory ist besonders dann nützlich, wenn Informationen nicht bei jeder Anfrage neu abgefragt werden sollen. Gleichzeitig entsteht hier schnell technischer und fachlicher Ballast: Was einmal gespeichert wurde, bleibt oft länger im System als sinnvoll. Deshalb gehört zu Memory immer auch eine Regel, wann Kontext verfällt oder überschrieben wird.
@@ -135,7 +131,7 @@ Kundeninteraktion 1: "Ich bevorzuge niedrige Beiträge"
 Kundeninteraktion 2: KI erinnert sich an Präferenz
 ```
 
-## 2.4 Kontext Trennen (Context Isolation)
+## Kontext Trennen (Context Isolation)
 Verschiedene Aufgaben mit separaten Kontexten bearbeiten.
 
 Isolation wird oft erst dann relevant, wenn ein System komplexer wird. Spätestens bei Agenten, Werkzeugnutzung oder sensiblen Daten ist sie jedoch zentral. Nicht jede Komponente sollte denselben Kontext sehen. Klare Trennung reduziert Fehler, vereinfacht Debugging und hilft bei Compliance-Fragen.
@@ -149,25 +145,24 @@ Agent B: Kundenberatung (hat Zugang zu Produktdaten)
 
 
 
-# 3 Die drei häufigsten Fehler
-
+# Die drei häufigsten Fehler
 > [!WARNING] Typische Ursache für Instabilität       
 > Instabile KI-Antworten sind oft kein Modellproblem, sondern ein Kontextproblem (zu viel, widersprüchlich oder veraltet).
 
 
-## 3.1 Context Overload
+## Context Overload
 **Problem:** Zu viele Informationen verwirren die KI
 **Lösung:** Nur relevante Informationen bereitstellen
 
 Overload entsteht nicht nur bei langen Dokumenten. Auch viele kleine, nur teilweise relevante Hinweise können den Fokus verschieben. Typisch ist dann eine Antwort, die formal plausibel wirkt, aber an der eigentlichen Aufgabe vorbeigeht.
 
-## 3.2 Context Conflict
+## Context Conflict
 **Problem:** Widersprüchliche Informationen
 **Lösung:** Informationen auf Konsistenz prüfen
 
 Konflikte sind besonders tückisch, weil sie von außen oft wie zufällige Modellschwankungen aussehen. Tatsächlich arbeitet das Modell dann mit mehreren konkurrierenden Quellen. Ohne Priorisierungsregeln oder Versionslogik wird die Antwort instabil.
 
-## 3.3 Context Staleness
+## Context Staleness
 **Problem:** Veraltete Informationen
 **Lösung:** Regelmäßige Updates implementieren
 
@@ -176,9 +171,8 @@ Veralteter Kontext fällt in Tests oft nicht auf, weil die Datenbasis dort klein
 
 
 
-# 4 Praktische Anwendung
-
-## 4.1 Kontext analysieren
+# Praktische Anwendung
+## Kontext analysieren
 
 Vor jeder Optimierung steht die Frage, welche Informationen wirklich notwendig sind. Die entscheidende Unterscheidung lautet nicht "vorhanden oder nicht vorhanden", sondern "kritisch, wichtig oder nur ergänzend". Diese Priorisierung reduziert unnötigen Ballast und macht spätere Entscheidungen nachvollziehbar.
 
@@ -203,7 +197,7 @@ Benötigte Kontextinformationen (nach Priorität):
   - Verfügbares Budget: 200€/Monat für Versicherungen
 ```
 
-## 4.2 Kontext strukturieren
+## Kontext strukturieren
 
 Struktur hilft nicht nur dem Modell, sondern auch der Entwicklung. Sobald klar benannte Abschnitte für Kundenkontext, Produktkontext und Beratungsziel existieren, lassen sich Fehler schneller lokalisieren. Unstrukturierte Kontextblöcke sind dagegen schwer zu pflegen und kaum testbar.
 
@@ -239,7 +233,7 @@ Beratungsziel: Bedarfsanalyse und Produktempfehlung
 Compliance: Versicherungsberatung nach §34d GewO
 ```
 
-## 4.3 Kontext optimieren
+## Kontext optimieren
 
 Optimierung bedeutet hier nicht, einen Prompt möglichst kompakt zu machen. Ziel ist vielmehr ein Verhältnis aus Kürze, Klarheit und fachlicher Relevanz. Ein guter Kontext spart Tokens, ohne die entscheidenden Signale zu verlieren.
 
@@ -267,7 +261,7 @@ AUFTRAG: Versicherungsbedarfsanalyse KUNDE: 32J, Soft-Dev, 65k€, verheiratet, 
 
 AUFGABE: Identifiziere Versicherungslücken und empfehle passende Produkte mit Begründung.
 
-## 4.4 Konsistenz-Checkliste:
+## Konsistenz-Checkliste:
 
 > [!SUCCESS] Qualitätsgate       
 > Diese Checkliste eignet sich als "Definition of Done" vor jedem produktiven Prompt-Update.
@@ -282,10 +276,8 @@ AUFGABE: Identifiziere Versicherungslücken und empfehle passende Produkte mit B
 
 Die Checkliste ist bewusst schlicht gehalten. In realen Projekten reicht oft schon eine kleine, konsequent angewendete Qualitätsroutine, um die häufigsten Kontextfehler zu vermeiden. Erst danach lohnt sich feinere Optimierung.
 
-# 5 Einfache Tools und Techniken
-
-
-## 5.1 Tool 1: Context-Checkliste
+# Einfache Tools und Techniken
+## Tool 1: Context-Checkliste
 ```
 ☐ Sind alle notwendigen Informationen vorhanden?
 ☐ Sind die Informationen aktuell?
@@ -294,7 +286,7 @@ Die Checkliste ist bewusst schlicht gehalten. In realen Projekten reicht oft sch
 ☐ Ist der Kontext relevant für die Aufgabe?
 ```
 
-## 5.2 Tool 2: Kontext-Templates
+## Tool 2: Kontext-Templates
 ```
 **Kundenberatung-Template:**
 KUNDE: [Name, Alter, Beruf]
@@ -304,7 +296,7 @@ BUDGET: [Verfügbare Mittel]
 PRÄFERENZEN: [Besondere Wünsche]
 ```
 
-## 5.3 Tool 3: Einfache Kontextregeln
+## Tool 3: Einfache Kontextregeln
 ```
 1. Immer aktuellste Daten verwenden
 2. Maximal 3 Hauptinformationen pro Kontext
@@ -316,11 +308,8 @@ PRÄFERENZEN: [Besondere Wünsche]
 
 
 
-# 6 Messbare Verbesserungen
-
-
-
-## 6.1 Vorher vs. Nachher
+# Messbare Verbesserungen
+## Vorher vs. Nachher
 
 **Ohne Context Engineering:**
 - ❌ 45% Fehlerrate bei Empfehlungen
@@ -332,7 +321,7 @@ PRÄFERENZEN: [Besondere Wünsche]
 - ✅ 1 Nachfrage pro Beratung
 - ✅ 8 Min. Bearbeitungszeit
 
-## 6.2 Erfolgs-Metriken
+## Erfolgs-Metriken
 
 > [!TIP] Wirkung sichtbar machen       
 > Sinnvoll sind pro Use Case zwei bis drei Metriken, etwa Fehlerrate, Nachfragen oder Bearbeitungszeit. Erst der Vorher-Nachher-Vergleich zeigt, ob eine Kontextänderung tatsächlich wirkt.
@@ -346,18 +335,15 @@ Kundenzufriedenheit: +30%
 
 
 
-# 7 Sofort umsetzbare Tipps
-
-
-
-## 7.1 Do's
+# Sofort umsetzbare Tipps
+## Do's
 - Mit einfachen Context-Checklisten beginnen
 - Feedback systematisch sammeln
 - Erfolgreiche Kontextmuster dokumentieren
 - Mit den häufigsten Anwendungsfällen starten
 - Verbesserungen kontinuierlich messen
 
-## 7.2 Don'ts
+## Don'ts
 - Nicht zu kompliziert beginnen
 - Nicht alle Kontextquellen auf einmal ändern
 - Nicht ohne Messungen optimieren
@@ -369,34 +355,30 @@ Kundenzufriedenheit: +30%
 
 ---
 
-# 8 Nächste Schritte
-
-
-## 8.1 Stufe 1: Grundlagen
+# Nächste Schritte
+## Stufe 1: Grundlagen
 - Context Engineering verstehen
 - Erste Tools anwenden
 - Einfache Verbesserungen umsetzen
 
-## 8.2 Stufe 2: Fortgeschrittene Techniken
+## Stufe 2: Fortgeschrittene Techniken
 - Automatisierte Kontextauswahl
 - KI-gestützte Kontextoptimierung
 - Multi-Agenten-Systeme
 
-## 8.3 Stufe 3: Expertenlevel
+## Stufe 3: Expertenlevel
 - Eigene Context-Engineering-Frameworks
 - Komplexe Gedächtnissysteme
 - Unternehmensweite Implementierung
 
 
 
-> [!NOTE]
+> [!NOTE] Skalierungshinweis
 > Context Engineering ist keine Spezialdisziplin nur für große Systeme. Schon einfache Techniken verbessern viele Anwendungen spürbar, sofern sie konsequent und messbar eingesetzt werden.
 
 
-# 9 Aufgabe
-
-
-## 9.1 Aufgabe 1: Kontext-Analyse
+# Aufgabe
+## Aufgabe 1: Kontext-Analyse
 **Aufgabe:** Eine typische Kundenanfrage aus dem eigenen Bereich analysieren.
 
 **Beispiel:**
@@ -411,7 +393,7 @@ Fehlende Kontextinformationen:
 - Definition von "günstig"?
 ```
 
-## 9.2 Aufgabe 2: Kontext-Design
+## Aufgabe 2: Kontext-Design
 **Aufgabe:** Ein Kontext-Template für die häufigste Aufgabe erstellen.
 
 **Vorlage:**
@@ -430,7 +412,7 @@ QUALITÄTSKRITERIEN:
 - [Wann ist der Kontext gut?]
 ```
 
-## 9.3 Aufgabe 3: Fehler-Identifikation
+## Aufgabe 3: Fehler-Identifikation
 **Aufgabe:** Typische Kontextfehler im eigenen Arbeitsbereich identifizieren.
 
 **Häufige Fehler:**
@@ -442,19 +424,17 @@ QUALITÄTSKRITERIEN:
 □ Widersprüchliche Datenquellen
 ```
 
-## 10 Abgrenzung
+## Abgrenzung zu verwandten Dokumenten
 
-| Begriff | Wofür gedacht? | Worin liegt der Unterschied zu Context Engineering? |
-|---------|----------------|------------------------------------------------------|
-| **Prompt Engineering** | Einzelne Anfragen sprachlich optimieren | Betrachtet primär die Formulierung, nicht das Gesamtsystem des Kontexts |
-| **RAG** | Externe Wissensquellen zur Laufzeit einbinden | Ist eine mögliche Technik innerhalb von Context Engineering, aber nicht die ganze Disziplin |
-| **Memory** | Informationen über mehrere Interaktionen hinweg behalten | Deckt nur einen Teilaspekt des Kontexts ab |
-| **Fine-Tuning** | Modellverhalten per Training anpassen | Verschiebt Wissen oder Verhalten ins Modell, statt Kontext zur Laufzeit zu organisieren |
-| **Agentenarchitektur** | Aufgaben auf Rollen, Tools und Schritte verteilen | Nutzt Context Engineering oft als Baustein, hat aber einen breiteren Fokus auf Orchestrierung |
+| Dokument | Frage |
+|---|---|
+| [Prompt Engineering](./Prompt_Engineering.html) | Wie wird eine einzelne Anfrage formuliert, statt den Gesamtkontext eines Systems zu gestalten? |
+| [RAG-Konzepte](./RAG_Konzepte.html) | Wann ist Retrieval nur ein Teil der Kontextstrategie? |
+| [Fine-Tuning](./M18_Fine-Tuning.html) | Wann wird Verhalten ins Modell verlagert statt zur Laufzeit organisiert? |
 
 
 ---
- 
-**Version:** 1.1    
-**Stand:** Januar 2026    
-**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.    
+
+**Version:**    1.1
+**Stand:**    Januar 2026
+**Kurs:**    Generative KI. Verstehen. Anwenden. Gestalten.
