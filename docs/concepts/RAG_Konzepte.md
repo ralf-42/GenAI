@@ -24,7 +24,9 @@ has_toc: true
 
 ## 1 Überblick: Was ist RAG?
 
-Large Language Models besitzen beeindruckende Fähigkeiten, stoßen jedoch an klare Grenzen:
+Large Language Models stoßen in der Praxis an drei typische Grenzen: Wissen ist nicht aktuell genug, internes Fachwissen fehlt und längere Dokumentbestände lassen sich nicht vollständig in einen einzelnen Prompt legen. Genau an dieser Stelle beginnt RAG seinen Nutzen zu zeigen. Nicht als magische Lösung, sondern als technische Antwort auf ein klar umrissenes Problem: relevantes Wissen zur Laufzeit in den Antwortprozess einzuspeisen.
+
+Die folgende Tabelle bündelt diese Ausgangslage, ersetzt aber nicht die eigentliche Entscheidung. RAG lohnt sich nur dann, wenn fehlendes oder externes Wissen wirklich das Problem ist. Wenn die Aufgabe bereits mit vorhandenem Modellwissen sauber lösbar ist, macht Retrieval den Ablauf oft nur langsamer und fehleranfälliger.
 
 | Limitation | Beschreibung |
 |------------|--------------|
@@ -33,7 +35,7 @@ Large Language Models besitzen beeindruckende Fähigkeiten, stoßen jedoch an kl
 | **Halluzination** | Bei Wissenslücken werden plausible, aber falsche Antworten generiert |
 | **Kontextlimit** | Nicht alle relevanten Dokumente passen in einen einzelnen Prompt |
 
-**Retrieval Augmented Generation (RAG)** löst diese Probleme durch einen eleganten Ansatz: Statt das LLM mit mehr Daten zu trainieren, werden relevante Informationen zur Laufzeit abgerufen und dem Prompt hinzugefügt.
+Retrieval Augmented Generation ergänzt das Modell also nicht durch neues Training, sondern durch einen zusätzlichen Arbeitsschritt: Zuerst wird gesucht, dann erst formuliert. In Trainings zeigt sich oft, dass genau diese Trennung Missverständnisse aufdeckt. Ist die Suche schlecht, wird auch die Antwort schlecht. RAG verschiebt das Problem deshalb nicht weg, sondern macht sichtbar, wo die eigentliche Schwäche liegt: im Retrieval, im Chunking oder in der Kontextzusammenstellung.
 
 ```
 Frage → Suche relevante Dokumente → Füge Kontext zum Prompt → LLM generiert Antwort
@@ -46,7 +48,7 @@ Frage → Suche relevante Dokumente → Füge Kontext zum Prompt → LLM generie
 
 ## 2 Die RAG-Architektur
 
-Ein RAG-System besteht aus zwei Hauptphasen: **Indexierung** (einmalig) und **Retrieval + Generation** (bei jeder Anfrage).
+Ein RAG-System besteht aus zwei Hauptphasen: **Indexierung** und **Retrieval + Generation**. Diese Trennung ist wichtig, weil Fehler in der ersten Phase später oft wie Modellfehler aussehen. Wenn Chunks unsauber gebildet oder Metadaten schlecht gepflegt sind, hilft auch ein starkes Modell kaum noch.
 
 ### 2.1 Indexierungsphase
 
@@ -88,7 +90,9 @@ flowchart LR
 
 ## 3 Chunking: Dokumente sinnvoll zerlegen
 
-Chunking ist eine der kritischsten Entscheidungen in einem RAG-System. Zu große Chunks verschwenden Kontext, zu kleine Chunks verlieren Zusammenhang.
+Chunking ist eine der Stellen, an denen RAG-Projekte am häufigsten an Präzision verlieren. Zu große Chunks verschwenden Kontextfenster und verwässern Treffer. Zu kleine Chunks verlieren fachlichen Zusammenhang. Beides führt dazu, dass das Retrieval formal funktioniert, inhaltlich aber an der falschen Stelle landet.
+
+In Übungen zeigt sich oft ein typischer erster Fehler: Die Chunk-Größe wird einmal festgelegt und dann als technischer Parameter behandelt. Tatsächlich ist sie eine fachliche Entscheidung. Ein Handbuch, ein juristischer Text und API-Dokumentation brauchen nicht dieselbe Granularität.
 
 ### 3.1 Chunking-Strategien
 
@@ -144,11 +148,15 @@ Mit Overlap (25%):
 | Rechtsdokumente | 800–1000 | 200 | Vollständige Paragraphen wichtig |
 | Code-Dokumentation | 300–500 | 100 | Funktionen zusammenhalten |
 
+Diese Werte sind keine feste Regel. Sie bilden einen sinnvollen Startpunkt. Entscheidend ist, ob die Treffer später tatsächlich die Antwort tragen. Wenn ein System zwar semantisch ähnliche Chunks findet, aber wiederholt am Absatzrand wichtige Informationen verliert, liegt das Problem oft nicht im Modell, sondern im Zuschnitt der Dokumente.
+
 ---
 
 ## 4 Embeddings: Text als Vektor
 
-Embeddings sind das Herzstück der semantischen Suche. Sie transformieren Text in numerische Vektoren, wobei ähnliche Bedeutungen zu ähnlichen Vektoren führen.
+Embeddings machen semantische Suche überhaupt erst möglich. Sie übersetzen Text in Vektoren, sodass Ähnlichkeit nicht mehr über exakte Worttreffer, sondern über Bedeutungsnähe berechnet werden kann. Das klingt abstrakt, wird aber praktisch sehr schnell greifbar: Ein System kann "Fahrzeug" finden, obwohl in der Frage "Auto" steht.
+
+Gleichzeitig werden Embeddings oft überschätzt. Sie lösen nicht automatisch schlechte Dokumentstruktur, unpräzise Queries oder schwache Metadaten. In vielen RAG-Projekten sind sie notwendig, aber nicht hinreichend.
 
 ### 4.1 Konzept
 
@@ -199,7 +207,7 @@ doc_vectors = embedding_model.embed_documents([
 
 ## 5 Retrieval: Die richtigen Dokumente finden
 
-Der Retriever ist die Brücke zwischen Frage und relevantem Wissen. Verschiedene Strategien optimieren die Trefferqualität.
+Der Retriever ist die eigentliche Arbeitsstelle des Systems. Hier entscheidet sich, ob eine Frage brauchbaren Kontext erhält oder nur ähnlich klingendes Material. Viele frühe RAG-Demos wirken überzeugend, weil die Fragen freundlich gewählt sind. Unter realen Bedingungen zeigt sich dann, ob das Retrieval auch bei unklaren Formulierungen, Synonymen oder Mischanfragen noch trägt.
 
 ### 5.1 Basis-Retrieval: Similarity Search
 
@@ -593,6 +601,16 @@ RAG kombiniert die Stärken von Retrieval-Systemen mit generativen LLMs:
 ```
 
 RAG ermöglicht es, LLMs mit aktuellem, domänenspezifischem Wissen auszustatten – ohne teures Fine-Tuning und mit voller Kontrolle über die Wissensbasis.
+
+## 13 Abgrenzung
+
+| Begriff | Wofür gedacht? | Worin liegt der Unterschied zu RAG? |
+|---------|----------------|--------------------------------------|
+| **Prompt Engineering** | Modell durch bessere Anweisungen steuern | Verändert die Eingabeform, fügt aber keine externe Wissensquelle hinzu |
+| **Context Engineering** | Gesamten Kontext eines Systems gestalten | Umfasst mehr als Retrieval, etwa Memory, Auswahlregeln und Priorisierung |
+| **Fine-Tuning** | Modellverhalten durch Training anpassen | Verändert das Modell selbst, nicht den Wissenszugriff zur Laufzeit |
+| **Vektordatenbank** | Ähnliche Inhalte auffindbar machen | Ist nur ein Baustein in RAG, noch keine vollständige Antwortpipeline |
+| **Agentensystem** | Mehrstufige Abläufe mit Tools und Entscheidungen umsetzen | Kann RAG nutzen, verfolgt aber ein breiteres Orchestrierungsziel |
 
 ---
 

@@ -8,28 +8,24 @@ description: "Von der Entwicklung zur produktionsreifen Anwendung"
 
 # Deployment
 
-Vom Prototyp zur produktionsreifen Agent-Anwendung - Praktische Anleitungen für Deployment, Architektur und Provider-Migration.
+Deployment beginnt im Kurs nicht erst bei Docker oder Hosting. Relevant wird es in dem Moment, in dem aus einem Notebook ein System werden soll, das wiederholbar läuft, konfigurierbar bleibt und nicht nur in genau einer Colab-Session funktioniert.
 
 ## Übersicht
 
 ### Architektur & Ökosystem
-- **[Vom Modell zum Produkt](https://ralf-42.github.io/GenAI/deployment/Vom_Modell_zum_Produkt_LangChain_Oekosystem.html)** - Das LangChain-Ökosystem verstehen
-  - Von Prototypen zu produktionsreifen Systemen
-  - LangChain, LangGraph und LangSmith im Überblick
-  - Entscheidungshilfe: Wann welches Tool?
-  - Alternativen zum LangChain-Ökosystem
+
+Diese Seite ordnet die Werkzeuge ein, bevor Architekturentscheidungen zu früh verfestigt werden.
+
+- **[Vom Modell zum Produkt](https://ralf-42.github.io/GenAI/deployment/Vom_Modell_zum_Produkt_LangChain_Oekosystem.html)** – *Wie wird aus einem Modell ein System?*
 
 ### Deployment-Prozess
-- **[Aus Entwicklung ins Deployment](https://ralf-42.github.io/GenAI/deployment/aus-entwicklung-ins-deployment.html)** - Vom Notebook zur produktionsreifen App
-  - Notebook aufräumen und Code extrahieren
-  - Projektstruktur und Best Practices
-  - Konfiguration externalisieren
-  - Testing, API-Endpunkte, Docker
-  - Deployment-Optionen im Vergleich
+
+Der praktische Übergang von Notebook zu Anwendung scheitert selten an einer einzelnen Technologie. Häufiger fehlen saubere Projektstruktur, Konfiguration und Testbarkeit. Genau dort setzt diese Seite an.
+
+- **[Aus Entwicklung ins Deployment](https://ralf-42.github.io/GenAI/deployment/aus-entwicklung-ins-deployment.html)** – *Was muss zwischen Notebook und Anwendung passieren?*
 
 ### Migration & Provider-Wechsel
-- **[Migration zu Mistral Medium 3](https://ralf-42.github.io/GenAI/deployment/Migration_Mistral_Medium_3.html)** - Technische Analyse
-  - Feature-Kompatibilitätsvergleich
-  - Kosten-Analyse (2.7-3.3x teurer)
-  - Notebook-spezifische Kompatibilität
-  - Schritt-für-Schritt Migrations-Strategie
+
+Providerwechsel wirken auf den ersten Blick technisch, sind in der Praxis aber meist Architekturfragen. Die Migrationsseite zeigt, warum ein gut strukturiertes LangChain-Projekt nicht bei null anfängt.
+
+- **[Migration OpenAI → Mistral](https://ralf-42.github.io/GenAI/deployment/Migration_OpenAI_Mistral.html)** – *Wie wird ein Providerwechsel ohne Neubau angegangen?*

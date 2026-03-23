@@ -25,7 +25,7 @@ has_toc: true
 
 ## Projektübersicht
 
-In dieser Übungsaufgabe bauen Sie schrittweise einen **Tech-Doku Assistenten**, der technische Fragen beantwortet und dabei immer intelligenter wird.
+Diese Übungsaufgabe entwickelt schrittweise einen **Tech-Doku-Assistenten**, der technische Fragen beantwortet und mit jedem Abschnitt systematischer aufgebaut wird.
 
 **Lernziele:**
 - Aufbau einer GenAI-Anwendung von Grund auf
@@ -39,7 +39,7 @@ In dieser Übungsaufgabe bauen Sie schrittweise einen **Tech-Doku Assistenten**,
 
 ## Notebook-Struktur
 
-Sie erstellen **ein Notebook** mit **9 aufbauenden Kapiteln** (oder 9 separate Notebooks):
+Vorgesehen ist **ein Notebook** mit **neun aufbauenden Kapiteln**. Alternativ kann jedes Kapitel als eigenes Notebook geführt werden:
 
 ```
 📓 Tech_Doku_Assistent.ipynb
@@ -54,23 +54,23 @@ Sie erstellen **ein Notebook** mit **9 aufbauenden Kapiteln** (oder 9 separate N
    └── 🌐 Kapitel 9: Gradio-UI (M13)
 ```
 
-**Empfehlung:** Beginnen Sie mit einem Notebook und fügen Sie nach jedem Kapitel eine Markdown-Zelle mit "---" zur Trennung hinzu.
+**Empfehlung:** Für den Einstieg reicht ein gemeinsames Notebook. Eine klare Trennung per Markdown-Zelle hält den Verlauf nachvollziehbar.
 
 ---
 
 ## Vorbereitung: Google Colab Setup
 
-Bevor Sie starten, richten Sie Ihre Colab-Umgebung ein:
+Vor dem Start wird die Colab-Umgebung eingerichtet:
 
 ### API-Key in Colab Secrets speichern
 
-1. Klicken Sie in Colab auf das Schlüssel-Symbol 🔑 (linke Sidebar)
-2. Fügen Sie `OPENAI_API_KEY` hinzu
-3. Aktivieren Sie "Notebook access"
+1. In Colab das Schlüssel-Symbol 🔑 in der linken Sidebar öffnen
+2. `OPENAI_API_KEY` anlegen
+3. "Notebook access" aktivieren
 
 ### Basis-Pakete installieren
 
-Führen Sie zu Beginn des Notebooks aus:
+Zu Beginn des Notebooks wird ausgeführt:
 
 ```python
 # ═══════════════════════════════════════════════════
@@ -595,12 +595,12 @@ with gr.Blocks(title="Tech-Doku Assistent") as demo:
 
 ---
 
-## Bonusaufgaben (Optional)
+## Bonusaufgaben
 
 ### Bonus 1: Persistenz
-- Speichern Sie Chat-History in JSON
-- Laden Sie vorherige Sessions beim Start
-- Implementieren Sie Session-Management
+- Chat-History in JSON speichern
+- Vorherige Sessions beim Start laden
+- Session-Management ergänzen
 
 ### Bonus 2: Erweiterte RAG-Features
 - Hybrid-Search (Keyword + Semantic)
@@ -613,13 +613,13 @@ with gr.Blocks(title="Tech-Doku Assistent") as demo:
 - Vergleich: Tools direkt vs. Tools via MCP
 
 ### Bonus 4: Notebook dokumentieren
-- Erstellen Sie ein Inhaltsverzeichnis mit Markdown-Zellen
-- Fügen Sie Emoji-Header für jedes Kapitel hinzu
-- Dokumentieren Sie Lernziele und Erfolgskriterien
+- Ein Inhaltsverzeichnis mit Markdown-Zellen anlegen
+- Emoji-Header für jedes Kapitel ergänzen
+- Lernziele und Erfolgskriterien dokumentieren
 
 ---
 
-## Bewertungskriterien (Selbstbewertung)
+## Bewertungskriterien
 
 | Kapitel | Punkte | Kriterien |
 |---------|--------|-----------|
@@ -661,21 +661,15 @@ with gr.Blocks(title="Tech-Doku Assistent") as demo:
 ## Erwartete Ergebnisse
 
 **Format:**
-- **Jupyter Notebook** (`Tech_Doku_Assistent.ipynb`)
-  - Mit allen 9 Kapiteln ausführbar
-  - Saubere Markdown-Strukturierung
-  - Code-Zellen mit Kommentaren
-- **Dokumentations-Dateien** (3-5 .md Dateien für RAG)
-- **README.md** mit:
-  - Kurzbeschreibung des Projekts
-  - Setup-Anleitung (API-Keys, Colab-Link)
-  - Screenshot des Gradio-UI
-- Optional: **Demo-Video** oder **Colab-Link**
+- **Jupyter Notebook** (`Tech_Doku_Assistent.ipynb`) mit allen neun Kapiteln, sauberer Markdown-Struktur und nachvollziehbaren Code-Zellen
+- **Dokumentations-Dateien** mit drei bis fünf `.md`-Dateien für den RAG-Teil
+- **README.md** mit Kurzbeschreibung, Setup-Hinweisen und einem Screenshot der Gradio-Oberfläche
+- Optional ein **Demo-Video** oder ein **Colab-Link**
 
 **Einreichung:**
-- Als **Colab-Link** (öffentlich freigegeben)
-- ODER als **ZIP-Archiv** mit .ipynb + docs/
-- ODER als **Git-Repository-Link**
+- Als **Colab-Link**
+- Oder als **ZIP-Archiv** mit `.ipynb` und `docs/`
+- Oder als **Git-Repository-Link**
 
 ### Checkliste RAG-Workshop
 - [ ] Notebook läuft von oben bis unten fehlerfrei durch
@@ -696,7 +690,7 @@ with gr.Blocks(title="Tech-Doku Assistent") as demo:
 A: Kapitel 1–5 sind Pflicht. Kapitel 6–9 sind optional für zusätzliche Punkte.
 
 **Q: Kann ich separate Notebooks erstellen statt einem großen?**
-A: Ja! Sie können 9 separate Notebooks erstellen (z.B. `Kapitel_1_Chat.ipynb` bis `Kapitel_9_Gradio.ipynb`). Achten Sie dann darauf, dass spätere Kapitel auf vorherige Ergebnisse zugreifen können.
+A: Ja. Möglich sind neun separate Notebooks, etwa `Kapitel_1_Chat.ipynb` bis `Kapitel_9_Gradio.ipynb`. Wichtig ist dann, dass spätere Kapitel auf frühere Ergebnisse zugreifen können.
 
 **Q: Welches LLM-Modell soll ich verwenden?**
 A: `gpt-4o-mini` ist ausreichend und kosteneffizient. Für Kapitel 7 (Agent) funktioniert `gpt-4o-mini` ebenfalls, da es Function Calling unterstützt.
@@ -706,19 +700,19 @@ A: Ja, FAISS ist in Colab sogar etwas schneller als ChromaDB. Qdrant ist ebenfal
 
 **Q: Wo bekomme ich Markdown-Dateien für RAG?**
 A: Optionen:
-  - Erstellen Sie eigene .md Dateien mit technischen Infos
-  - Laden Sie offizielle Docs herunter (z.B. Docker, Kubernetes)
-  - Nutzen Sie `markitdown` für PDF→Markdown Konvertierung
-  - Kopieren Sie Wikipedia-Artikel als Markdown
+  - Eigene `.md`-Dateien mit technischen Informationen erstellen
+  - Offizielle Dokumentation herunterladen, etwa zu Docker oder Kubernetes
+  - `markitdown` für PDF-zu-Markdown-Konvertierung nutzen
+  - Wikipedia-Artikel als Markdown übernehmen
 
 **Q: Mein Colab-Notebook stürzt beim Gradio-Launch ab**
 A: Häufigste Ursachen:
   - RAM-Limit erreicht → Runtime → Factory reset runtime
-  - Firewall blockiert share-Link → Versuchen Sie `share=False` für lokalen Zugriff
+  - Firewall blockiert share-Link → `share=False` für lokalen Zugriff testen
   - Alte Gradio-Version → `!pip install --upgrade gradio`
 
 **Q: Kann ich die Übung auch lokal (ohne Colab) machen?**
-A: Ja! Verwenden Sie dann Jupyter Notebook/Lab lokal und ersetzen Sie:
+A: Ja. Dann lokal mit Jupyter Notebook oder JupyterLab arbeiten und Folgendes ersetzen:
   - `from google.colab import userdata` → `from dotenv import load_dotenv`
   - `files.upload()` → Lokale File-Pfade
   - `share=True` → Optional für Gradio
@@ -726,5 +720,5 @@ A: Ja! Verwenden Sie dann Jupyter Notebook/Lab lokal und ersetzen Sie:
 ---
 
 **Version:** 2.0
-**Letzte Aktualisierung:** Februar 2026
+**Stand:** Februar 2026
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

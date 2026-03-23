@@ -26,7 +26,7 @@ has_toc: true
 # 1 | Überblick KI-Challenge
 
 
-Die KI-Challenge dient als praktische Anwendung und Integration der in den Kursmodulen erlernten Konzepte und Techniken. Ziel ist es, eine funktionsfähige KI-Anwendung zu entwickeln, die mehrere Aspekte der generativen KI kombiniert und einen praktischen Nutzen bietet.
+Die KI-Challenge bündelt die Inhalte der vorangegangenen Module in einem zusammenhängenden Projekt. Ziel ist keine möglichst große Demo, sondern eine funktionsfähige Anwendung mit klarem Nutzen, nachvollziehbarem Scope und belastbarer technischer Umsetzung.
 
 ## 1.1 Lernziele
 
@@ -50,7 +50,7 @@ Die KI-Challenge dient als praktische Anwendung und Integration der in den Kursm
 > "Ein Open Source Modell ist kein Produkt. Für ein Produkt zu machen, kommen noch viel dazu."
 > — Johannes Otterbach (ex-OpenAI, SPRIN-D)
 
-Die KI-Challenge bereitet Sie auf **realistische Herausforderungen** vor, die in der Industrie täglich auftreten:
+Die KI-Challenge greift **typische Herausforderungen** auf, die zwischen Notebook-Demo und belastbarer Anwendung entstehen:
 
 ### Was unterscheidet ein Experiment von einem Produkt?
 
@@ -66,34 +66,34 @@ Die KI-Challenge bereitet Sie auf **realistische Herausforderungen** vor, die in
 
 **1. Engineering > Hype**
 - Training Runs kosten Millionen und erfordern präzise Planung
-- **Ihr Projekt:** Definieren Sie klare Benchmarks, bevor Sie starten
+- **Für das Projekt:** Klare Benchmarks vor dem Start definieren
 - **Takeaway:** Messbarkeit ist der Schlüssel zum Erfolg
 
 **2. Iteration & Feedback**
 - Frontier Labs (OpenAI, Anthropic) iterieren regelmäßig basierend auf User-Feedback
-- **Ihr Projekt:** Testen Sie früh mit echten Nutzern (Familie, Freunde, Kommilitonen)
+- **Für das Projekt:** Früh mit echten Nutzern testen
 - **Takeaway:** MVP first, dann verfeinern
 
 **3. Produkt-Mindset**
 - Guardrails, System Prompts, Prompt Injection Prevention
-- **Ihr Projekt:** Implementieren Sie mindestens einen Safety-Layer (z.B. Middleware)
+- **Für das Projekt:** Mindestens einen Safety-Layer vorsehen, etwa Middleware
 - **Takeaway:** Robustheit > Features
 
 {: .info }
-> **Empfehlung:** Nutzen Sie die [Links-Sammlung](../ressourcen/links.html) für weiterführende Ressourcen zu KI-Entwicklung und Best Practices.
+> **Empfehlung:** Die [Links-Sammlung](../ressourcen/links.html) ergänzt den Projektteil um weiterführende Ressourcen zu GenAI-Entwicklung und Best Practices.
 
-### Konkrete Tipps für Ihre Challenge
+### Konkrete Hinweise für die Challenge
 
 ✅ **Do's:**
-- Start small: Nutzen Sie bestehende Modelle (OpenAI, Groq, Anthropic)
-- Fokus auf Deployment: Gradio/Streamlit → echte User testen lassen
-- Messbare Ziele: Definieren Sie 3-5 Erfolgsmetriken
-- Frühes Feedback: Zeigen Sie Ihr MVP so früh wie möglich
+- Start small: Bestehende Modelle verwenden (OpenAI, Groq, Anthropic)
+- Fokus auf Deployment: Gradio oder Streamlit früh in einen nutzbaren Stand bringen
+- Messbare Ziele: Drei bis fünf Erfolgsmetriken festlegen
+- Frühes Feedback: Ein MVP früh sichtbar machen
 
 ❌ **Don'ts:**
 - Nicht von Grund auf trainieren (kein 10-50 Mio. Dollar Budget 😉)
 - Kein "Open Source = fertig": Ein Modell allein ist kein Produkt
-- Keine Blackbox: Verstehen Sie, was Ihr Modell tut
+- Keine Blackbox: Das Verhalten des Modells muss nachvollziehbar bleiben
 - Kein Overengineering: Lieber 3 Features perfekt als 10 halbfertig
 
 ---
@@ -101,7 +101,7 @@ Die KI-Challenge bereitet Sie auf **realistische Herausforderungen** vor, die in
 # 2 | Projektoptionen
 
 
-Zur Auswahl stehen vier verschiedene Projekttypen, die jeweils unterschiedliche Aspekte der generativen KI betonen. Wählen Sie eine Option aus oder kombinieren Sie Elemente verschiedener Optionen.
+Zur Auswahl stehen vier Projekttypen mit unterschiedlichem Schwerpunkt. Diese Typen eignen sich als Startpunkte und können bei Bedarf kombiniert werden, solange der Umfang beherrschbar bleibt.
 
 ## 2.1 Dokumentenanalyse-Assistent
 
@@ -176,7 +176,7 @@ Zur Auswahl stehen vier verschiedene Projekttypen, die jeweils unterschiedliche 
 
 # 3 | Projekt-Setup
 
-Hier finden Sie den Code für das grundlegende Setup Ihres Projekts mit **LangChain 1.0+** Best Practices.
+Der folgende Abschnitt zeigt ein mögliches Grundsetup für ein Projekt mit **LangChain 1.0+**. Gemeint ist kein starres Template, sondern ein belastbarer Ausgangspunkt.
 
 ## 3.1 Environment Setup
 
@@ -518,34 +518,29 @@ if __name__ == "__main__":
 # 7 | Ressourcen und Hilfestellung
 
 
-Folgende Ressourcen können bei der Entwicklung des Abschlussprojekts hilfreich sein:
+Folgende Ressourcen unterstützen die Entwicklung des Abschlussprojekts:
 
-- **Dokumentation:**
+- **Dokumentation**
   - [LangChain Dokumentation](https://python.langchain.com/docs/get_started/introduction)
   - [OpenAI API Dokumentation](https://platform.openai.com/docs/api-reference)
   - [Hugging Face Dokumentation](https://huggingface.co/docs)
   - [Gradio Dokumentation](https://www.gradio.app/docs/interface)
 
-- **Kurs-Notebooks:**
-  - `01_notebook/M04_LangChain101.ipynb` – LangChain Grundlagen
+- **Kurs-Notebooks**
+  - `01_notebook/M04_LangChain101.ipynb` – LangChain-Grundlagen
   - `01_notebook/M06_OutputParser.ipynb` – Structured Output
   - `01_notebook/M08_RAG_LangChain.ipynb` – RAG
   - `01_notebook/M09_SQL_RAG.ipynb` – SQL RAG
   - `01_notebook/M10_Agenten_LangChain.ipynb` – Agenten
   - `01_notebook/M11_Middleware.ipynb` – Middleware
-  - `01_notebook/M13_Gradio.ipynb` – Gradio UI
+  - `01_notebook/M13_Gradio.ipynb` – Gradio-UI
 
-- **Online-Tools:**
+- **Weitere Hilfsmittel**
   - GenAI Tutor
-  - ChatBots, wie ChatGPT, Gemini, ...
-  - ...
+  - LLM-Chatbots wie ChatGPT oder Gemini als Sparringspartner
 
-Bei Fragen oder Problemen während der Projektentwicklung können Sie das `Kurs-Forum` nutzen.
-
----
-
----
+Bei Fragen oder Problemen während der Projektentwicklung steht das `Kurs-Forum` zur Verfügung.
 
 **Version:** 3.0
-**Letzte Aktualisierung:** Februar 2026
+**Stand:** Februar 2026
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

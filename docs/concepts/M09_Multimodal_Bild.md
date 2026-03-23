@@ -99,9 +99,9 @@ Deep-Learning-Modelle werden auf große Datensätze trainiert, wodurch sie eine 
 ## 3.1 Text-zu-Bild-Modelle
 
 
-In diesem Abschnitt wird der Fokus auf Text-zu-Bild-Modelle gelegt, einem innovativen Bereich der künstlichen Intelligenz, der es Maschinen ermöglicht, Bilder basierend auf Textbeschreibungen zu erzeugen. Diese Modelle überbrücken die Kluft zwischen Sprache und visuellen Inhalten, indem sie eine natürliche Spracheingabe in eine vollständige Bilddarstellung umsetzen. Die Generierung von Bildern aus Text basiert auf Deep-Learning-Methoden, insbesondere durch die Kombination von natürlicher Sprachverarbeitung (NLP) und Computer Vision.  
+In diesem Abschnitt liegt der Fokus auf Text-zu-Bild-Modellen. Gemeint sind Systeme, die aus einer textlichen Beschreibung ein Bild erzeugen. Technisch verbinden sie Sprachverarbeitung mit Bildmodellen und übersetzen sprachliche Hinweise in visuelle Merkmale wie Objekte, Stil, Perspektive oder Farbgebung.  
 
-Ein zentrales Merkmal dieser Modelle ist ihre Fähigkeit, Zusammenhänge zwischen sprachlichen und visuellen Elementen zu erfassen. Durch das Training mit umfangreichen Datensätzen, die Texte mit den dazugehörigen Bildern verknüpfen, lernen sie, sprachliche Beschreibungen wie „eine Katze sitzt auf einem Fensterbrett“ mit relevanten visuellen Eigenschaften wie Formen, Texturen, Farben und räumlichen Anordnungen zu verbinden. Modelle wie DALL·E, MidJourney und Stable Diffusion haben das kreative Potenzial dieser Technologie eindrucksvoll demonstriert, indem sie sowohl fotorealistische als auch künstlerische Bilder direkt aus textlichen Vorgaben generiert haben.
+Ein zentrales Merkmal dieser Modelle ist die Verknüpfung sprachlicher und visueller Muster. Durch große Datensätze mit Text-Bild-Paaren lernen sie, Beschreibungen wie „eine Katze sitzt auf einem Fensterbrett“ mit Formen, Texturen, Farben und räumlichen Beziehungen zu verbinden. In der Praxis ist dabei wichtig: Solche Modelle erzeugen oft überzeugende Bilder, arbeiten aber nicht im Sinne eines gesicherten Weltmodells. Details, Proportionen oder Schrift im Bild bleiben typische Fehlerquellen.
 
 Hier wird veranschaulicht, wie DALL·E ein Bild mit einem zauberhaften Märchenwald generiert:
 
@@ -110,15 +110,15 @@ Hier wird veranschaulicht, wie DALL·E ein Bild mit einem zauberhaften Märchenw
 
 ## 3.2 Multimodale Modelle
 
-In diesem Abschnitt wird die spannende Welt multimodaler Modelle untersucht, die verschiedene Datentypen wie Text, Bilder, Audio und Video verarbeiten und zu einem ganzheitlichen Verständnis verknüpfen. Diese Modelle markieren einen bedeutenden Fortschritt in der KI, da sie Eingaben aus unterschiedlichen Quellen kombinieren und dadurch komplexere Aufgaben bewältigen können – ähnlich wie der Mensch Informationen aus verschiedenen Sinneseindrücken zusammenführt.  
+In diesem Abschnitt geht es um multimodale Modelle, die verschiedene Datentypen wie Text, Bilder, Audio oder Video gemeinsam verarbeiten. Der relevante Unterschied liegt nicht im Marketingbegriff, sondern darin, dass solche Systeme Beziehungen zwischen mehreren Eingabeformen auswerten können. Dadurch werden Aufgaben möglich, bei denen eine Modalität allein nicht ausreicht.  
 
-Während spezialisierte Modelle, etwa Text-zu-Bild-Systeme, bereits einzelne Verbindungen zwischen Modalitäten ermöglichen, gehen multimodale Modelle einen Schritt weiter. Sie analysieren und verstehen die Beziehungen zwischen verschiedenen Informationsarten, was vielfältige Anwendungen ermöglicht. Dazu zählen das Generieren von Bildunterschriften, das Beantworten visueller Fragen oder die Erstellung von Bildern auf Basis von Text und anderen Medieneingaben.  
+Während spezialisierte Modelle nur einzelne Übergänge zwischen Modalitäten abbilden, verknüpfen multimodale Modelle mehrere Informationsarten innerhalb derselben Aufgabe. Das ist etwa bei Bildunterschriften, visuellen Fragen oder der Analyse technischer Screenshots relevant. In Übungen zeigt sich allerdings auch, dass multimodal nicht automatisch verlässlich bedeutet. Sobald feine Details, kleine Schriften oder mehrdeutige Bildausschnitte ins Spiel kommen, nimmt die Fehlerquote spürbar zu.
 
 Ein anschauliches Beispiel für multimodale Fähigkeiten ist die Analyse eines handgezeichneten Tic-Tac-Toe-Bretts. Ein solches Modell kann ein Bild des Spiels interpretieren, die Platzierung von X und O erkennen und basierend auf den Spielregeln den Gewinner bestimmen – ohne zusätzliche textliche Informationen über das Spielfeld zu benötigen.
 
 <img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250311190642.png" alt="Tic-Tac-Toe Multimodales Beispiel" width="500">
 
-Durch die Kombination verschiedener Datentypen ermöglichen multimodale Modelle eine fortschrittlichere und intuitivere Interaktion zwischen Mensch und KI. Dies macht sie zu einem vielseitigen Werkzeug mit breiten Anwendungsmöglichkeiten – von Gesundheitswesen und Bildung bis hin zu Unterhaltung und Design.  
+Die Kombination verschiedener Datentypen erweitert den möglichen Einsatzbereich deutlich. Für den Kurs ist vor allem relevant, an welcher Stelle multimodale Systeme tatsächlich Mehrwert liefern und wo ein einfacherer Text- oder Workflow-Ansatz ausreicht.
 
 
 # 4 Image-Embeddings
