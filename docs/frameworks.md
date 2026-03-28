@@ -60,7 +60,3 @@ Empfohlene Patterns und Anti-Patterns für die im Kurs zentralen Frameworks.
   - `.with_config()`, `.func()`, Projektname-Konventionen
   - Troubleshooting: EU-Endpoint, falsches Projekt, fehlende Traces
 
-- **[Mermaid Best Practices](https://ralf-42.github.io/GenAI/frameworks/Mermaid_Best_Practices.html)** – *Wie vermeide ich typische Diagramm-Fehler?* Fehlerfreie Mermaid-Diagramme in Notebooks und Dokumentation
-  - Reservierte Keywords, Sonderzeichen, sequenceDiagram-Pflichtregeln
-  - Diagramm-Typen und ihre Best Practices
-  - Checkliste für neue Diagramme
