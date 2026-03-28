@@ -45,3 +45,22 @@ Modellauswahl ist selten nur eine Qualitätsfrage. Häufiger geht es um Kosten, 
 Prompt-Dateien werden im Kurs nicht als Textbausteine behandelt, sondern als wartbare Schnittstelle zwischen Idee und Anwendung. Die Seite zeigt, wie daraus mehr wird als eine Sammlung lose kopierter Prompts.
 
 - **[Prompt-Templates Einsteiger](https://ralf-42.github.io/GenAI/frameworks/Einsteiger_Prompts.html)** – *Wie werden Prompts wiederverwendbar und pflegbar?*
+
+## Best Practices & Anti-Patterns
+
+Empfohlene Patterns und Anti-Patterns für die im Kurs zentralen Frameworks.
+
+- **[LangChain Best Practices](https://ralf-42.github.io/GenAI/frameworks/LangChain_Best_Practices.html)** – *Was sind die 7 MUST-HAVE Features?* Pflichtpatterns für alle LangChain 1.0+ Notebooks
+  - `init_chat_model()`, `with_structured_output()`, `@tool`, `create_agent()`
+  - LCEL `|` Chains, Middleware, Standard Content Blocks
+  - Anti-Patterns und Migrationshinweise (v1.2.x Neuerungen)
+
+- **[LangSmith Best Practices](https://ralf-42.github.io/GenAI/frameworks/LangSmith_Best_Practices.html)** – *Wie observiere ich Chains und Agenten richtig?* Tracing, Evaluation und Monitoring in der Praxis
+  - `LANGSMITH_*` Umgebungsvariablen (nicht `LANGCHAIN_*`)
+  - `.with_config()`, `.func()`, Projektname-Konventionen
+  - Troubleshooting: EU-Endpoint, falsches Projekt, fehlende Traces
+
+- **[Mermaid Best Practices](https://ralf-42.github.io/GenAI/frameworks/Mermaid_Best_Practices.html)** – *Wie vermeide ich typische Diagramm-Fehler?* Fehlerfreie Mermaid-Diagramme in Notebooks und Dokumentation
+  - Reservierte Keywords, Sonderzeichen, sequenceDiagram-Pflichtregeln
+  - Diagramm-Typen und ihre Best Practices
+  - Checkliste für neue Diagramme
