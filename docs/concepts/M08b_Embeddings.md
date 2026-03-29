@@ -173,7 +173,7 @@ Hier ist eine tabellarische Übersicht, die ausgehend vom **Embedding-Modell** z
 
 
 
-> [!NOTE] Fazit
+> [!NOTE] Fazit<br>
 > Embeddings sind ein zentrales Konzept in der modernen KI. Sie ermöglichen Maschinen, Bedeutungen zu erfassen, Muster zu erkennen und personalisierte Inhalte zu liefern. Ohne Embeddings wären viele heutige KI-Technologien nicht denkbar – von Chatbots über Bilderkennung bis hin zu Streaming-Diensten. Sie sind das **unsichtbare Gerüst**, das intelligente Systeme erst möglich macht.
 ---
 
@@ -187,6 +187,6 @@ Hier ist eine tabellarische Übersicht, die ausgehend vom **Embedding-Modell** z
 
 ---
 
-**Version:**    1.0
-**Stand:**    November 2025
+**Version:**    1.0<br>
+**Stand:**    November 2025<br>
 **Kurs:**    Generative KI. Verstehen. Anwenden. Gestalten.

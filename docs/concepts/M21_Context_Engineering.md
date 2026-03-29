@@ -28,7 +28,7 @@ has_toc: true
 
 In der Praxis zeigt sich schnell: Viele vermeintliche Modellfehler sind in Wirklichkeit Kontextfehler. Es fehlen Daten, irrelevante Informationen verdrängen die wichtigen, oder ältere Angaben werden zusammen mit neuen Informationen verarbeitet. Context Engineering behandelt genau diese Ebene systematisch.
 
-> [!NOTE] Kernidee       
+> [!NOTE] Kernidee<br>
 > Nicht der "perfekte Prompt" allein entscheidet, sondern die Qualität und Struktur des gesamten Kontexts.
 
 ## Der Unterschied zu Prompt Engineering
@@ -62,7 +62,7 @@ In der Praxis zeigt sich schnell: Viele vermeintliche Modellfehler sind in Wirkl
 
 Nicht jeder Qualitätsgewinn entsteht durch bessere Formulierungen im Prompt. Sobald Dokumente, Memory, Tools oder externe Datenquellen beteiligt sind, verschiebt sich die eigentliche Arbeit in die Kontextarchitektur. Dort wird entschieden, welche Informationen überhaupt in das Modell gelangen und in welcher Form sie dort ankommen.
 
-> [!TIP] Startpunkt      
+> [!TIP] Startpunkt<br>
 > Sinnvoll ist eine kleine, messbare Kontext-Checkliste. Erst wenn Auswahl, Struktur und Aktualität stabil funktionieren, lohnt sich zusätzliche Komplexität.
 
 
@@ -146,7 +146,7 @@ Agent B: Kundenberatung (hat Zugang zu Produktdaten)
 
 
 # Die drei häufigsten Fehler
-> [!WARNING] Typische Ursache für Instabilität       
+> [!WARNING] Typische Ursache für Instabilität<br>
 > Instabile KI-Antworten sind oft kein Modellproblem, sondern ein Kontextproblem (zu viel, widersprüchlich oder veraltet).
 
 
@@ -323,7 +323,7 @@ PRÄFERENZEN: [Besondere Wünsche]
 
 ## Erfolgs-Metriken
 
-> [!TIP] Wirkung sichtbar machen       
+> [!TIP] Wirkung sichtbar machen<br>
 > Sinnvoll sind pro Use Case zwei bis drei Metriken, etwa Fehlerrate, Nachfragen oder Bearbeitungszeit. Erst der Vorher-Nachher-Vergleich zeigt, ob eine Kontextänderung tatsächlich wirkt.
 ```
 Genauigkeit: +65%
@@ -350,7 +350,7 @@ Kundenzufriedenheit: +30%
 - Nicht vergessen, das Team zu schulen
 - Nicht auf Feedback verzichten
 
-> [!WARNING] Häufiger Rollout-Fehler       
+> [!WARNING] Häufiger Rollout-Fehler<br>
 > Unmessbare Änderungen am Kontext erschweren Ursachenanalyse und führen zu schwer reproduzierbaren Ergebnissen.
 
 ---
@@ -373,7 +373,7 @@ Kundenzufriedenheit: +30%
 
 
 
-> [!NOTE] Skalierungshinweis
+> [!NOTE] Skalierungshinweis<br>
 > Context Engineering ist keine Spezialdisziplin nur für große Systeme. Schon einfache Techniken verbessern viele Anwendungen spürbar, sofern sie konsequent und messbar eingesetzt werden.
 
 
@@ -435,6 +435,6 @@ QUALITÄTSKRITERIEN:
 
 ---
 
-**Version:**    1.1
-**Stand:**    Januar 2026
+**Version:**    1.1<br>
+**Stand:**    Januar 2026<br>
 **Kurs:**    Generative KI. Verstehen. Anwenden. Gestalten.

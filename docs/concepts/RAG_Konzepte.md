@@ -230,7 +230,7 @@ docs = retriever.invoke("Wie funktioniert RAG?")
 | **Threshold** | Nur Ergebnisse über Schwellenwert | Qualitätskontrolle | Kann leer zurückkommen |
 | **Hybrid** | Keyword + Semantisch kombiniert | Beste Abdeckung | Komplexer aufzusetzen |
 
-> [!DANGER] Threshold-Retrieval: leerer Kontext     
+> [!DANGER] Threshold-Retrieval: leerer Kontext<br>
 > Gibt der Threshold-Retriever keine Treffer zurück, erhält das LLM leeren Kontext — und halluziniert eine Antwort, anstatt "keine Information" zu melden. Immer ein Fallback definieren, wenn `score_threshold` verwendet wird.
 
 ### Maximum Marginal Relevance (MMR)
@@ -616,6 +616,6 @@ RAG ermöglicht es, LLMs mit aktuellem, domänenspezifischem Wissen auszustatten
 
 ---
 
-**Version:**    1.0
-**Stand:**    November 2025
+**Version:**    1.0<br>
+**Stand:**    November 2025<br>
 **Kurs:**    Generative KI. Verstehen. Anwenden. Gestalten.

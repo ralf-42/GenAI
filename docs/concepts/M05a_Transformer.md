@@ -55,7 +55,7 @@ Ein Transformer lernt diese Verbindungen automatisch durch **Aufmerksamkeit**:
 - Computer können nur mit Zahlen arbeiten
 - Jedes Wort wird in eine Liste von Zahlen umgewandelt (wie ein Fingerabdruck des Wortes)
 
-> [!NOTE] Weiterführender Verweis
+> [!NOTE] Weiterführender Verweis<br>
 > Details siehe Skript: M08 - Embeddings
 
 ## Position ist wichtig → Positional Encoding
@@ -262,6 +262,6 @@ Es simuliert damit echtes Sprachverständnis im Schreibprozess.
 
 ---
 
-**Version:**    1.0
-**Stand:**    November 2025
+**Version:**    1.0<br>
+**Stand:**    November 2025<br>
 **Kurs:**    Generative KI. Verstehen. Anwenden. Gestalten.

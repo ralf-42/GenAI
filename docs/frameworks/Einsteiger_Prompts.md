@@ -89,7 +89,7 @@ variables: [context, question]      # Platzhalter im Prompt-Text
 | `description` | ✅ | Kurzbeschreibung (1 Satz) |
 | `variables` | ✅ | Liste der `{variable}`-Platzhalter, oder `[]` wenn keine |
 
-> [!WARNING] Häufiger Fehler     
+> [!WARNING] Häufiger Fehler<br>
 > `variables: []` vergessen, obwohl keine Platzhalter vorhanden.
 > `load_prompt()` erwartet dieses Feld immer — auch wenn die Liste leer ist.
 
@@ -393,6 +393,6 @@ flowchart TD
 
 ---
 
-**Version:**    1.0
-**Stand:**    März 2026
+**Version:**    1.0<br>
+**Stand:**    März 2026<br>
 **Kurs:**    Generative KI. Verstehen. Anwenden. Gestalten.

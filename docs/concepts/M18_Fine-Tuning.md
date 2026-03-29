@@ -390,7 +390,7 @@ Die Embeddings sind die **Brücke zwischen rohem Text und neuronaler Verarbeitun
 - **Federated Learning**: Training über verteilte Datenquellen ohne zentrale Datenspeicherung
 
 # Fazit
-> [!NOTE] Fazit
+> [!NOTE] Fazit<br>
 > Fine-Tuning ist mehr als nur eine technische Maßnahme – es ist ein strategischer Hebel zur Anpassung von KI-Systemen an konkrete Anforderungen, Zielgruppen und Kontexte. Die Kombination aus fundierter Datenbasis, passenden Methoden und iterativer Evaluation bildet das Fundament für erfolgreiche KI-Projekte.
 > Mit Plattformen wie OpenAI lassen sich diese Prozesse effizient gestalten – von der Vorbereitung über das Training bis zur Bewertung. Erweiterte Verfahren wie DPO, RFT und Vision Fine-Tuning ermöglichen zusätzlich eine feinkörnige Kontrolle und Weiterentwicklung leistungsfähiger Modelle.
 > Die siebenstufige Fine-Tuning-Pipeline bietet einen strukturierten Ansatz vom Datenmanagement bis zur kontinuierlichen Überwachung, während parameter-effiziente Methoden die Ressourcennutzung optimieren. Durch den gezielten Einsatz dieser Techniken können Entwickler leistungsfähige KI-Lösungen erstellen, die genau auf ihre spezifischen Anforderungen zugeschnitten sind.
@@ -410,6 +410,6 @@ Die Embeddings sind die **Brücke zwischen rohem Text und neuronaler Verarbeitun
 
 ---
 
-**Version:**    1.1
-**Stand:**    Januar 2026
+**Version:**    1.1<br>
+**Stand:**    Januar 2026<br>
 **Kurs:**    Generative KI. Verstehen. Anwenden. Gestalten.
