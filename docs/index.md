@@ -14,6 +14,10 @@ permalink: /
 
 ---
 
+> [!TIP] 💡 Einstieg in die Dokumentation
+> Für einen schnellen Überblick über sinnvolle Lesepfade, Einstiegsreihenfolgen und typische Startpunkte zuerst [Lesepfade](https://ralf-42.github.io/GenAI/Lesepfade.html) öffnen.
+
+---
 
 Generative KI bezeichnet Anwendungen, die nicht nur klassifizieren oder vorhersagen, sondern selbst Inhalte erzeugen: Texte, Bilder, Code, Audio oder strukturierte Ausgaben. Genau darin liegt der Reiz des Themas, aber auch die typische Fehlannahme. Ein überzeugender Demo-Output ist noch kein belastbares System. Zwischen einem guten ersten Ergebnis und einer brauchbaren Anwendung liegen Modellsteuerung, Kontextaufbereitung, Evaluation und die nüchterne Frage, wann der Einsatz überhaupt sinnvoll ist.
 
