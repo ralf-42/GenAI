@@ -31,7 +31,7 @@ Large Language Models haben trotz ihrer beeindruckenden Fähigkeiten klare Limit
 - **Halluzination:** Bei fehlendem Wissen werden plausibel klingende, aber falsche Antworten generiert
 - **Kontextlimit:** Nicht alle relevanten Dokumente passen in den Prompt
 
-> [!WARNING] Ohne Retrieval riskant     
+> [!WARNING] Ohne Retrieval riskant<br>
 > Bei wissensintensiven Aufgaben ohne RAG steigt das Risiko für Halluzinationen und veraltete Antworten deutlich.
 
 Vektordatenbanken lösen diese Probleme durch **semantische Suche**:
@@ -48,7 +48,7 @@ Vektordatenbanken lösen diese Probleme durch **semantische Suche**:
 
 Gerade bei RAG-Systemen ist das oft der entscheidende Unterschied. Wer nur auf Keywords setzt, findet vor allem exakte Treffer. Semantische Suche wird dann interessant, wenn Formulierungen variieren, Synonyme vorkommen oder Fragen den Wortlaut der Quelle nicht direkt wiederholen.
 
-> [!NOTE] Merksatz     
+> [!NOTE] Merksatz<br>
 > Semantische Suche findet Bedeutung, nicht nur exakte Wörter. Das ermöglicht Treffer für Synonyme, verwandte Konzepte und paraphrasierte Satzstrukturen — selbst wenn kein Wort übereinstimmt.
 
 ---
@@ -170,7 +170,7 @@ sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 Dieser Patch muss **vor** dem Import von ChromaDB ausgeführt werden.
 
-> [!DANGER] Reihenfolge beachten     
+> [!DANGER] Reihenfolge beachten<br>
 > Wird ChromaDB vor dem Patch importiert, schlägt die Initialisierung in Colab mit einem SQLite-Fehler fehl — und ChromaDB-Daten gehen ggf. unbemerkt verloren. Der Patch muss zwingend **vor** jedem `import chromadb` stehen.
 
 ### Client erstellen
@@ -245,7 +245,7 @@ collection.add(
 | `metadatas` | ❌ | Zusätzliche Informationen pro Dokument |
 | `embeddings` | ❌ | Vorgefertigte Vektoren (sonst automatisch) |
 
-> [!TIP] Embedding-Konsistenz     
+> [!TIP] Embedding-Konsistenz<br>
 > Ohne explizite `embeddings` verwendet ChromaDB ein internes Embedding-Modell. Für Konsistenz mit LangChain immer dasselbe Embedding-Modell für Indexierung und Query verwenden — ein Wechsel des Modells führt zu Dimensionsmismatch und fehlerhaften Suchergebnissen.
 
 ---
@@ -311,7 +311,7 @@ Bevor Dokumente durchsucht werden können, müssen sie in Chunks aufgeteilt und 
 
 ### Chunking-Strategien
 
-> [!TIP] Praktischer Startwert      
+> [!TIP] Praktischer Startwert<br>
 > Für viele deutschsprachige Wissensdokumente funktionieren `chunk_size=500` und `chunk_overlap=100` als stabiler Ausgangspunkt.
 > Für FAQ und Kurztexte eher 200–300, für Rechtsdokumente 800–1000 (vollständige Paragraphen). Kurs-Referenz: Tabelle in Kapitel 9.1.
 
@@ -451,7 +451,7 @@ print("✅ Indexierung abgeschlossen!")
 
 ### Batch-Indexierung (große Datenmengen)
 
-> [!WARNING] Hohe API-Kosten bei großen Datenmengen
+> [!WARNING] Hohe API-Kosten bei großen Datenmengen<br>
 > 10.000 Dokumente × API-Calls für Embedding-Erzeugung können in einer Sitzung erhebliche Kosten verursachen. Batch-Größe und Gesamtvolumen vorher abschätzen, Fortschrittsanzeige (`tqdm`) verwenden.
 
 Bei vielen Dokumenten sollte in Batches indexiert werden:
@@ -703,7 +703,7 @@ Für die vollständige RAG-Chain-Implementierung siehe **Einsteiger_LangChain.md
 
 ## Troubleshooting
 
-> [!TIP] Diagnose-Reihenfolge      
+> [!TIP] Diagnose-Reihenfolge<br>
 > Zuerst Embedding-Modell, Chunking und `k`-Wert prüfen. Erst danach lohnt ein Umbau der gesamten Pipeline.
 
 Häufige Probleme und deren Lösungen:
@@ -979,6 +979,6 @@ results = retriever.invoke("Meine Frage")
 
 ---
 
-**Version:**    1.0
-**Stand:**    November 2025
+**Version:**    1.0<br>
+**Stand:**    November 2025<br>
 **Kurs:**    KI-Agenten. Verstehen. Anwenden. Gestalten.

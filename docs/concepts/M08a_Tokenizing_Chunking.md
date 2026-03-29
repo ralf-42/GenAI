@@ -53,7 +53,7 @@ In der Praxis zeigt sich ein typisches Muster: Wenn Antworten unpräzise, unvoll
 | **Code-Kommentierung/Erklärung** | Verständnis und Erklärung von Codeabschnitten | Pro Funktion/Modul, Überlappung nur bei Bedarf | Agentisches Chunking | Agentisches Chunking berücksichtigt syntaktische und semantische Aspekte des Codes. So bleiben logische Zusammenhänge, wie Funktionsdefinitionen, erhalten und können optimal erklärt werden. |
 
 
-> [!NOTE] Pilotphase
+> [!NOTE] Pilotphase<br>
 > Vor einer konkreten Implementierung lohnt sich eine kurze Pilotphase mit echten Dokumenten. Häufig reichen schon zwei oder drei Varianten, um zu sehen, ob ein Setup eher Kontext erhält oder eher Rauschen produziert.
 
 
@@ -94,7 +94,7 @@ In der Praxis zeigt sich ein typisches Muster: Wenn Antworten unpräzise, unvoll
 Aus Kurssicht ist vor allem eine Erfahrung wichtig: Es gibt selten eine universell richtige Chunk-Größe. Gute Werte hängen stark davon ab, ob Absätze, Abschnitte, Funktionsblöcke oder stark strukturierte Datensätze verarbeitet werden. Wer ohne Testdaten sofort auf "Best Practices" vertraut, optimiert oft am eigentlichen Problem vorbei.
 
 
-> [!NOTE] Praxistest
+> [!NOTE] Praxistest<br>
 > Die Eignung von Chunk-Größen und -Strategien zeigt sich am zuverlässigsten mit echten Daten, nicht mit Beispieltexten. Relevant sind dabei vor allem Abrufgenauigkeit, Antwortqualität und die Frage, ob wichtige Informationen an Chunk-Grenzen verloren gehen.
 
 
@@ -322,6 +322,6 @@ Die Wahl der richtigen Kombination aus Tokenizer, Chunk-Größe und Chunking-Str
 
 ---
 
-**Version:**    1.1
-**Stand:**    Januar 2026
+**Version:**    1.1<br>
+**Stand:**    Januar 2026<br>
 **Kurs:**    Generative KI. Verstehen. Anwenden. Gestalten.

@@ -22,7 +22,7 @@ Diese Seite testet die korrekte Darstellung von Callouts im Agenten-Projekt.
 
 ## Test 1: Einfacher Callout ohne Custom Title
 
-> [!NOTE] Standard-Hinweis
+> [!NOTE] Standard-Hinweis<br>
 > Details siehe Skript: M08 - Embeddings
 
 **Erwartetes Ergebnis:**
@@ -33,7 +33,7 @@ Diese Seite testet die korrekte Darstellung von Callouts im Agenten-Projekt.
 
 ## Test 2: Callout mit Custom Title
 
-> [!TIP] Best Practice
+> [!TIP] Best Practice<br>
 > Embeddings für semantische Suche konsequent einsetzen.
 
 **Erwartetes Ergebnis:**
@@ -44,7 +44,7 @@ Diese Seite testet die korrekte Darstellung von Callouts im Agenten-Projekt.
 
 ## Test 3: Warning Callout
 
-> [!WARNING] Standard-Warnung
+> [!WARNING] Standard-Warnung<br>
 > Achtung: Diese Funktion ist experimentell und kann sich ändern.
 
 **Erwartetes Ergebnis:**
@@ -55,13 +55,13 @@ Diese Seite testet die korrekte Darstellung von Callouts im Agenten-Projekt.
 
 ## Test 4: Mehrere Callout-Typen
 
-> [!IMPORTANT] Weitere Information
+> [!IMPORTANT] Weitere Information<br>
 > Weitere Informationen stehen in der offiziellen Dokumentation.
 
-> [!DANGER] Kritischer Fehler
+> [!DANGER] Kritischer Fehler<br>
 > Produktionsdaten niemals ohne Backup löschen!
 
-> [!TIP] Erfolgreicher Test
+> [!TIP] Erfolgreicher Test<br>
 > Die Installation wurde erfolgreich abgeschlossen.
 
 **Erwartetes Ergebnis:**
@@ -72,7 +72,7 @@ Diese Seite testet die korrekte Darstellung von Callouts im Agenten-Projekt.
 
 ## Test 5: Kurzer Text (< 50 Zeichen)
 
-> [!NOTE] Kurzer Hinweis
+> [!NOTE] Kurzer Hinweis<br>
 > Kurzer Hinweis
 
 **Erwartetes Ergebnis:**
@@ -81,6 +81,6 @@ Diese Seite testet die korrekte Darstellung von Callouts im Agenten-Projekt.
 
 ---
 
-**Version:**    1.0
-**Stand:**    März 2026
+**Version:**    1.0<br>
+**Stand:**    März 2026<br>
 **Kurs:**    Generative KI. Verstehen. Anwenden. Gestalten.

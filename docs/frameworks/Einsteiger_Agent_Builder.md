@@ -26,7 +26,7 @@ has_toc: true
 
 Während LangChain ein Code-basiertes Framework für KI-Agenten ist, ermöglicht **OpenAI Agent Builder** die No-Code-Erstellung komplexer Agent-Workflows durch eine visuelle Drag-and-Drop-Oberfläche.
 
-> [!NOTE] Einordnung     
+> [!NOTE] Einordnung<br>
 > Agent Builder ist stark für schnelle Workflow-Entwicklung, ersetzt aber nicht in jedem Fall codebasierte Feinsteuerung.
 > **Grenzen:** Nur OpenAI-Modelle, kein On-Premise-Deployment, eingeschränkte Code-Kontrolle (nur Export).
 
@@ -93,7 +93,7 @@ graph TB
 - Organisation mit Admin Console
 - Zugang über [platform.openai.com/agent-builder](https://platform.openai.com/agent-builder)
 
-> [!WARNING] Zugriffsvoraussetzung     
+> [!WARNING] Zugriffsvoraussetzung<br>
 > Ohne Enterprise/Edu-Zugang ist der Funktionsumfang im Teamkontext eingeschränkt oder nicht verfügbar. **Plus/Team**-Accounts erhalten keinen Zugriff auf den Agent Builder — nur **Enterprise** und **Edu**-Accounts haben vollen Zugang.
 
 ```mermaid
@@ -157,7 +157,7 @@ graph TB
 
 ### Node-Typen im Detail
 
-> [!TIP] Modellierungsregel     
+> [!TIP] Modellierungsregel<br>
 > Sinnvoll sind fachlich eng geschnittene Nodes und klar benannte Subworkflows.
 > **Anti-Pattern:** Ein einzelner LLM-Node, der Kategorisierung, Priorität, Routing und E-Mail-Text gleichzeitig erzeugt. Das ist schwer zu debuggen und kaum wiederverwendbar.
 
@@ -327,7 +327,7 @@ Body:
 
 MCP verbindet Agent Builder mit 100+ externen Systemen durch standardisierte Server-Integrationen.
 
-> [!TIP] Integrationsstrategie     
+> [!TIP] Integrationsstrategie<br>
 > Sinnvoll ist ein Start mit ein bis zwei geschäftskritischen MCP-Integrationen. Erst nach stabilen End-to-End-Tests sollte die Fläche erweitert werden.
 > **Anti-Pattern:** Alle verfügbaren MCP-Server auf einmal einbinden — jeder Server ist eine potenzielle Fehlerquelle und erhöht die Testfläche erheblich.
 
@@ -465,7 +465,7 @@ server.listen(3000);
 
 ## Entscheidungshilfe: Agent Builder vs. Code-basierte Frameworks
 
-> [!NOTE] Entscheidungsheuristik     
+> [!NOTE] Entscheidungsheuristik<br>
 > **Agent Builder** → Governance, schnelles Prototyping, kein Coding erforderlich.
 > **LangChain** → volle Code-Kontrolle, Multi-Provider-Support, On-Premise-Deployment.
 
@@ -600,7 +600,7 @@ graph TB
 
 ## Sicherheit und Governance im Agent Builder
 
-> [!WARNING] Produktionsgrenze      
+> [!WARNING] Produktionsgrenze<br>
 > Vor produktivem Einsatz sind Rechte, Datenzugriffe, Auditierbarkeit und Freigabeprozesse verbindlich zu definieren.
 
 ### Sicherheits-Architektur
@@ -1002,6 +1002,6 @@ graph LR
 
 ---
 
-**Version:**    2.0
-**Stand:**    November 2025
+**Version:**    2.0<br>
+**Stand:**    November 2025<br>
 **Kurs:**    Generative KI. Verstehen. Anwenden. Gestalten.

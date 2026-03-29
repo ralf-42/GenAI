@@ -258,7 +258,7 @@ def take_screenshot() -> str:
 - OpenAI Strict Mode für garantierte Schema-Konformität
 - Anthropic Computer Use für Browser-Automation
 
-> [!WARNING] Cache-Typ beachten    
+> [!WARNING] Cache-Typ beachten<br>
 > `cache_control: {"type": "ephemeral"}` erzeugt einen kurzlebigen Cache (nur innerhalb einer Sitzung). Wird das gleiche Tool ohne passende `extras`-Konfiguration in einem anderen Request aufgerufen, entsteht ein Cache-Miss — und es fallen erneut volle Kosten an. Konsistenz der `extras`-Konfiguration über alle Tool-Aufrufe hinweg sicherstellen.
 
 ---
@@ -683,6 +683,6 @@ Dieses Pattern bildet die Grundlage für Wissens‑Chatbots, Dokumenten‑Assist
 
 ---
 
-**Version:**    1.0
-**Stand:**    November 2025
+**Version:**    1.0<br>
+**Stand:**    November 2025<br>
 **Kurs:**    KI-Agenten. Verstehen. Anwenden. Gestalten.

@@ -360,6 +360,6 @@ So bleibt die Lösung fachlich passend, wirtschaftlich sinnvoll und langfristig 
 
 ---
 
-**Version:**    4.0
-**Stand:**    März 2026
+**Version:**    4.0<br>
+**Stand:**    März 2026<br>
 **Kurs:**    Generative KI. Verstehen. Anwenden. Gestalten.

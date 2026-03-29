@@ -14,7 +14,7 @@ permalink: /
 
 ---
 
-> [!TIP] 💡 Einstieg in die Dokumentation
+> [!TIP] 💡 Einstieg in die Dokumentation<br>
 > Für einen schnellen Überblick über sinnvolle Lesepfade, Einstiegsreihenfolgen und typische Startpunkte zuerst [Lesepfade](https://ralf-42.github.io/GenAI/Lesepfade.html) öffnen.
 
 ---
@@ -42,6 +42,6 @@ Der Kurs richtet sich damit nicht nur an Personen, die "mehr über KI" lesen wol
 
 ---
 
-**Version:**    1.0
-**Stand:**    November 2025
+**Version:**    1.0<br>
+**Stand:**    November 2025<br>
 **Kurs:**    Generative KI. Verstehen. Anwenden. Gestalten.

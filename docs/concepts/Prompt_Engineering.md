@@ -37,7 +37,7 @@ Für KI-Agenten ist Prompt Engineering besonders relevant:
 
 **Kernprinzip:** Ein gut formulierter Prompt reduziert Fehler, verbessert die Konsistenz und macht das Verhalten eines Agenten vorhersagbar.
 
-> [!NOTE] Kernbotschaft    
+> [!NOTE] Kernbotschaft<br>
 > Prompt-Qualität ist in Agentensystemen ein zentraler Steuerhebel für Zuverlässigkeit und Reproduzierbarkeit.
 
 ---
@@ -89,7 +89,7 @@ few_shot_prompt = ChatPromptTemplate.from_messages([
 
 Das Modell wird angewiesen, seinen Denkprozess schrittweise darzulegen.
 
-> [!WARNING] Sorgfältig einsetzen     
+> [!WARNING] Sorgfältig einsetzen<br>
 > Chain-of-Thought verbessert komplexe Aufgaben oft deutlich, erhöht aber Token-Verbrauch und Latenz. Für einfache Aufgaben ist Zero-/Few-Shot meist effizienter.
 
 ```python
@@ -120,7 +120,7 @@ Lösung:"""
 
 Der System-Prompt definiert die Identität und das Verhalten eines Agenten. Er ist der wichtigste Hebel für konsistentes Agentenverhalten.
 
-> [!TIP] Priorisierung im Prompt      
+> [!TIP] Priorisierung im Prompt<br>
 > Kritische Regeln zuerst platzieren (Sicherheit, Grenzen, Eskalation), danach Stil und Tonalität.
 
 ### Struktur eines effektiven System-Prompts
@@ -247,7 +247,7 @@ KONFIDENZ: [hoch/mittel/niedrig]
 
 Für maschinelle Weiterverarbeitung bietet LangChain typsichere Ausgaben:
 
-> [!TIP] Für Produktion bevorzugen      
+> [!TIP] Für Produktion bevorzugen<br>
 > Bei Weiterverarbeitung durch Code sind strukturierte Ausgaben mit Schema-Validierung robuster als freie Textantworten.
 
 ```python
@@ -378,7 +378,7 @@ current_version = "classify_email_v2"
 
 ## Häufige Fehler und Lösungen
 
-> [!WARNING] Häufigster Praxisfehler       
+> [!WARNING] Häufigster Praxisfehler<br>
 > Ambige Anweisungen sind eine Hauptursache für instabile Ergebnisse. Erst Präzision im Prompt, dann Modellwechsel.
 
 ### Fehler: Ambige Anweisungen
@@ -474,6 +474,6 @@ Im weiteren Kursverlauf werden diese Strategien praktisch in LangChain-Agents an
 
 ---
 
-**Version:**    1.0
-**Stand:**    November 2025
+**Version:**    1.0<br>
+**Stand:**    November 2025<br>
 **Kurs:**    Generative KI. Verstehen. Anwenden. Gestalten.

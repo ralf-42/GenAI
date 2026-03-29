@@ -140,6 +140,6 @@ Gerade bei GenAI-Projekten führt Vollständigkeit schnell in Sackgassen. Ein zu
 
 ---
 
-**Version:** 1.0
-**Stand:** März 2026
+**Version:** 1.0<br>
+**Stand:** März 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

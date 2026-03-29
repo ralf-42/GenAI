@@ -529,6 +529,6 @@ Folgende Ressourcen unterstützen die Entwicklung des Abschlussprojekts:
 
 Bei Fragen oder Problemen während der Projektentwicklung steht das `Kurs-Forum` zur Verfügung.
 
-**Version:**    3.0
-**Stand:**    Februar 2026
+**Version:**    3.0<br>
+**Stand:**    Februar 2026<br>
 **Kurs:**    Generative KI. Verstehen. Anwenden. Gestalten.
