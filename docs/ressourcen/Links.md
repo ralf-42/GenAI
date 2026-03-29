@@ -114,6 +114,16 @@ Community-Platform für Machine Learning.
 
 ---
 
+## Fine-Tuning
+
+Ressourcen zur Anpassung von Sprachmodellen auf eigene Daten.
+
+| Ressource | Beschreibung |
+|-----------|--------------|
+| [Unsloth Docs](https://unsloth.ai/docs/de) | Fine-Tuning von LLMs mit minimalem Speicherbedarf – unterstützt LLaMA, Mistral, Gemma u. a. |
+
+---
+
 ## Sonstiges
 
 | Ressource | Beschreibung |
