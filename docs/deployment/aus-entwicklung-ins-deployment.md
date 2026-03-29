@@ -368,4 +368,4 @@ Vor dem Go-Live sollten diese Punkte geprüft werden:
 
 **Version:**    1.0<br>
 **Stand:**    Februar 2026<br>
-**Kurs:**    Generative KI. Verstehen. Anwenden. Gestalten.
+**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

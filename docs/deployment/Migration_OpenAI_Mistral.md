@@ -289,4 +289,4 @@ Genau darin liegt der architektonische Vorteil des bestehenden Ökosystems.
 
 **Version:**    2.0<br>
 **Stand:**    März 2026<br>
-**Kurs:**    Generative KI. Verstehen. Anwenden. Gestalten.
+**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

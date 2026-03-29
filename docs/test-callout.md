@@ -83,4 +83,4 @@ Diese Seite testet die korrekte Darstellung von Callouts im Agenten-Projekt.
 
 **Version:**    1.0<br>
 **Stand:**    März 2026<br>
-**Kurs:**    Generative KI. Verstehen. Anwenden. Gestalten.
+**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

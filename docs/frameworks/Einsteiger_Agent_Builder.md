@@ -1004,4 +1004,4 @@ graph LR
 
 **Version:**    2.0<br>
 **Stand:**    November 2025<br>
-**Kurs:**    Generative KI. Verstehen. Anwenden. Gestalten.
+**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
