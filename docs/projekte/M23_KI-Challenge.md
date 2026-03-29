@@ -531,4 +531,4 @@ Bei Fragen oder Problemen während der Projektentwicklung steht das `Kurs-Forum`
 
 **Version:**    3.0<br>
 **Stand:**    Februar 2026<br>
-**Kurs:**    Generative KI. Verstehen. Anwenden. Gestalten.
+**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

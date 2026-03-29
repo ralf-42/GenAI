@@ -264,4 +264,4 @@ Es simuliert damit echtes Sprachverständnis im Schreibprozess.
 
 **Version:**    1.0<br>
 **Stand:**    November 2025<br>
-**Kurs:**    Generative KI. Verstehen. Anwenden. Gestalten.
+**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

@@ -236,4 +236,4 @@ antwort = multimodal_llm.invoke([message])
 
 **Version:**    1.0<br>
 **Stand:**    März 2026<br>
-**Kurs:**    Generative KI. Verstehen. Anwenden. Gestalten.
+**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

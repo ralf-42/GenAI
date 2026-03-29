@@ -395,4 +395,4 @@ flowchart TD
 
 **Version:**    1.0<br>
 **Stand:**    März 2026<br>
-**Kurs:**    Generative KI. Verstehen. Anwenden. Gestalten.
+**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

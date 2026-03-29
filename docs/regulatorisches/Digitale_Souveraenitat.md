@@ -365,4 +365,4 @@ Die digitale Souveränität Europas wird sich nicht daran entscheiden, ob ein eu
 
 **Version:**    1.0<br>
 **Stand:**    Dezember 2025<br>
-**Kurs:**    Generative KI. Verstehen. Anwenden. Gestalten.
+**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

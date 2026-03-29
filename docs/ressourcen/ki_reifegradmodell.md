@@ -165,4 +165,4 @@ Das Modell eignet sich besonders als Grundlage für Management-Workshops, Stando
 
 **Version:**    1.0<br>
 **Stand:**    Januar 2026<br>
-**Kurs:**    KI-Agenten. Verstehen. Anwenden. Gestalten.
+**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
