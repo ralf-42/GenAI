@@ -5,7 +5,7 @@
 [![Last Audit](https://img.shields.io/badge/Last%20Audit-2025--12--17-blue)](./LangChain_Audit_Report_2025-12-17.md)
 [![Python](https://img.shields.io/badge/Python-3.11%2B-blue)](https://www.python.org/)
 
-Ein deutschsprachiger, praxisorientierter Kurs zu Generative AI Technologien mit Fokus auf OpenAI GPT-Modelle, LangChain und praktischen Anwendungen.
+Ein deutschsprachiger, praxisorientierter Kurs zu Generative-AI-Technologien mit Fokus auf OpenAI GPT-Modelle, LangChain, LangGraph, RAG-Systeme und multimodale Anwendungen.
 
 
 ## 🎯 Zielgruppe
@@ -29,9 +29,9 @@ GenAI/
 ## 🛠️ Technologie-Stack
 
 ### Kernframeworks
-- **OpenAI API** (>=1.0.0) - GPT-4o-mini, Embeddings, DALL-E
-- **LangChain** (>=1.1.0) 🆕 - Orchestrierung, Chains, Agents, RAG
-- **LangGraph** (>=0.2.0) - Zustandsbasierte Multi-Agent-Workflows
+- **OpenAI API** (>=1.0.0) - GPT-Modelle, Embeddings und multimodale APIs
+- **LangChain** (>=1.0.0) - Orchestrierung, Chains, Agents und RAG
+- **LangGraph** (>=1.0.0) - zustandsbasierte Workflows und Multi-Agent-Systeme
 - **Hugging Face** - Transformers und Community-Modelle
 
 ### Spezialisierte Tools
@@ -43,21 +43,38 @@ GenAI/
   - **multimodal_rag.py** - Multimodales RAG-System mit Bild-zu-Bild und Bild-zu-Text Suche
   - **utilities.py** - Hilfsfunktionen für Environment-Checks, Paket-Installation, API-Keys, Prompt-Templates, Model-Profiles (`get_model_profile()`) und LLM-Response-Parsing (`extract_thinking()`)
 
-### 🆕 LangChain v1.2.0 Features (Dezember 2025)
+### LangChain/LangGraph Standards
 
-Dieser Kurs nutzt die neuesten **LangChain v1.2.0** Features:
+Neue und überarbeitete Notebooks folgen den lokalen Standards-Dateien:
 
-**v1.2.0 Updates:**
-- ✨ **Tool Extras** - Provider-native Features (Anthropic programmatic tool calling, OpenAI strict mode)
-- ✨ **Strict Schema Adherence** - `response_format` für garantierte Agent-Output-Konformität
-- ✨ **Built-in Client-Side Tools** - Anthropic, OpenAI und weitere Provider
+- [LangChain_Standards.md](./LangChain_Standards.md) - verbindliche Patterns für Models, Tools, Chains, Agents und strukturierte Ausgaben
+- [LangGraph_Standards.md](./LangGraph_Standards.md) - verbindliche Patterns für StateGraph, Routing, Checkpointing und Human-in-the-Loop
+- [LangSmith_Standards.md](./LangSmith_Standards.md) - verbindliche Patterns für Tracing, Evaluation und Monitoring
 
-**v1.1.0 Features:**
-- ✨ **Model Profiles** - Automatische Capability-Detection via `.profile` Attribut
-- ✨ **Smart Structured Output** - Auto-Inference von `ProviderStrategy`
-- ✨ **SystemMessage in Agents** - Cache-Control für Anthropic Claude
-- ✨ **ModelRetryMiddleware** - Automatische Retries mit exponential backoff
-- ✨ **ContentModerationMiddleware** - OpenAI Moderation für Safety-Layer
+Die übergreifenden Dokumente in `../_docs/` liefern zusätzliche Erläuterungen, Templates und Best Practices. Für konkrete Änderungen in diesem Repository sind die lokalen `*_Standards.md` Dateien maßgeblich.
+
+Pflicht-Patterns für LangChain 1.0+:
+
+- `init_chat_model()` statt direkter Provider-Klassen
+- `with_structured_output()` statt Parser-Workarounds für strukturierte LLM-Ausgaben
+- `@tool` statt manueller Tool-Wrapper
+- `create_agent()` für einfache Agenten
+- `StateGraph` für komplexe, verzweigte oder langlebige Workflows
+- LCEL `|` Chains statt veralteter Chain-Klassen
+- Standard Message Content Blocks für multimodale Inhalte
+
+Für einfache Agenten-Beispiele reicht `create_agent()`. `create_react_agent()` oder ein eigener `StateGraph` werden genutzt, wenn das Notebook explizit LangGraph-Verhalten, Routing, Checkpointing oder Multi-Agent-Workflows zeigt.
+
+### Modell-Auswahl
+
+Die Modellwahl richtet sich nach der Rolle im Workflow:
+
+| Rolle | Standardmodell | Hinweis |
+|-------|----------------|---------|
+| Router, Supervisor, Conditional Edge | `o3` oder `o3-mini` | kein `temperature` |
+| Judge, Evaluator | `o3` | kein `temperature` |
+| Worker, Content, RAG-Synthese, Code | `gpt-5.1` | `temperature` nur mit `reasoning_effort="none"` |
+| Grundlagen-Demo, einfache Chain | `gpt-4o-mini` | `temperature=0.0` möglich |
 
 
 ## 📚 Kursmodule
@@ -135,6 +152,11 @@ Entwickeln Sie eine vollständige GenAI-Anwendung:
 ## 📖 Dokumentation
 
 - **Kurs-Website:** [https://ralf-42.github.io/GenAI/](https://ralf-42.github.io/GenAI/)
+- **Lokale Projektregeln:** [CLAUDE.md](./CLAUDE.md)
+- **Agenten-Governance:** [AGENTS.md](./AGENTS.md)
+- **LangChain Standards:** [LangChain_Standards.md](./LangChain_Standards.md)
+- **LangGraph Standards:** [LangGraph_Standards.md](./LangGraph_Standards.md)
+- **LangSmith Standards:** [LangSmith_Standards.md](./LangSmith_Standards.md)
 
 
 ## ⚖️ Lizenzen
@@ -148,7 +170,6 @@ Bilder und Videos erstellt mit **Hedra AI** – Nutzung gemäß [Hedra Terms](ht
 
 ---
 
-**Letzte Aktualisierung:** Januar 2026         
-**Version:** 2.5          
-
+**Letzte Aktualisierung:** April 2026         
+**Version:** 2.6          
 
