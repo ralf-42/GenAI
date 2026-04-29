@@ -53,14 +53,26 @@ Empfohlener Einstieg:
 
 ### RAG und Retrieval
 
-Dokumente, Wissensquellen oder Grounding spielen die Hauptrolle. Meist steht dann nicht das Sprachmodell selbst im Vordergrund, sondern die Frage, wie Wissen zuverlässig eingebunden wird.
+Dokumente, Wissensquellen oder Grounding spielen die Hauptrolle. Meist steht dann nicht das Sprachmodell selbst im Vordergrund, sondern die Frage, wie Wissen zuverlässig eingebunden und geprüft wird.
 
 Empfohlener Einstieg:
 
 1. [RAG-Konzepte](./concepts/RAG_Konzepte.html)
 2. [Tokenizing und Chunking](./concepts/M08a_Tokenizing_Chunking.html)
 3. [Embeddings](./concepts/M08b_Embeddings.html)
-4. [Einsteiger ChromaDB](./frameworks/Einsteiger_ChromaDB.html)
+4. [Evaluation & Observability](./concepts/Evaluation_Observability.html)
+5. [Einsteiger ChromaDB](./frameworks/Einsteiger_ChromaDB.html)
+
+### Qualität und Fehlersuche
+
+Eine Chain oder ein Agent funktioniert technisch, aber die Antwortqualitaet schwankt. Dann hilft kein weiteres Prompt-Polishing nach Bauchgefuehl, sondern ein kleiner Satz wiederholbarer Testfaelle und ein Blick auf die Zwischenschritte.
+
+Empfohlener Einstieg:
+
+1. [Evaluation & Observability](./concepts/Evaluation_Observability.html)
+2. [RAG-Konzepte](./concepts/RAG_Konzepte.html)
+3. [LangSmith Best Practices](./frameworks/LangSmith_Best_Practices.html)
+4. [Troubleshooting](./ressourcen/troubleshooting.html)
 
 ### Multimodalität
 
@@ -81,8 +93,9 @@ Empfohlener Einstieg:
 
 1. [Vom Modell zum Produkt: LangChain-Ökosystem](./deployment/Vom_Modell_zum_Produkt_LangChain_Oekosystem.html)
 2. [Aus Entwicklung ins Deployment](./deployment/aus-entwicklung-ins-deployment.html)
-3. [LangSmith Best Practices](./frameworks/LangSmith_Best_Practices.html)
-4. [Migration: OpenAI → Mistral](./deployment/Migration_OpenAI_Mistral.html)
+3. [Evaluation & Observability](./concepts/Evaluation_Observability.html)
+4. [LangSmith Best Practices](./frameworks/LangSmith_Best_Practices.html)
+5. [Migration: OpenAI → Mistral](./deployment/Migration_OpenAI_Mistral.html)
 
 ### Governance und Rahmenbedingungen
 
@@ -96,13 +109,14 @@ Empfohlener Einstieg:
 
 ## Drei Dokumente für fast jeden Start
 
-Wer nicht lange wählen will, kommt mit diesen drei Dokumenten meist am schnellsten ins Thema:
+Wer nicht lange wählen will, kommt mit diesen vier Dokumenten meist am schnellsten ins Thema:
 
 1. [Aufgabenklassen und Lösungswege](./concepts/Aufgabenklassen_und_Loesungswege.html)
 2. [Einsteiger LangChain](./frameworks/Einsteiger_LangChain.html)
 3. [RAG-Konzepte](./concepts/RAG_Konzepte.html)
+4. [Evaluation & Observability](./concepts/Evaluation_Observability.html)
 
-Diese Kombination klärt erst die Einsatzfrage, dann die Umsetzung und erst danach das wichtigste Erweiterungsmuster. Genau diese Reihenfolge verhindert viele frühe Fehlstarts.
+Diese Kombination klärt erst die Einsatzfrage, dann die Umsetzung, danach das wichtigste Erweiterungsmuster und zuletzt die Frage, wie Qualität sichtbar wird. Genau diese Reihenfolge verhindert viele frühe Fehlstarts.
 
 ## Wie die Bereiche zusammenhängen
 
@@ -140,6 +154,6 @@ Gerade bei GenAI-Projekten führt Vollständigkeit schnell in Sackgassen. Ein zu
 
 ---
 
-**Version:** 1.0<br>
-**Stand:** März 2026<br>
+**Version:** 1.1<br>
+**Stand:** April 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

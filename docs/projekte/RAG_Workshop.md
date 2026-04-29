@@ -257,7 +257,7 @@ def tech_chat_mit_memory():
 
 ## Kapitel 5: RAG-Integration (Modul M08)
 
-**Lernziel:** Retrieval-Augmented Generation, Vektordatenbank, Embeddings
+**Lernziel:** Retrieval-Augmented Generation, Vektordatenbank, Embeddings, einfache RAG-Evaluation
 
 ### Aufgabe 5.1: Dokumente hochladen (Colab File Upload)
 
@@ -311,11 +311,46 @@ def rag_chat():
     ...
 ```
 
+### Aufgabe 5.5: Mini-Evaluation für RAG
+
+Ein RAG-System gilt nicht schon deshalb als brauchbar, weil eine Beispielantwort gut klingt. Nach der ersten RAG-Chain wird ein kleines Testset angelegt, das dieselben Fragen nach jeder Änderung erneut prüft.
+
+```python
+eval_set = [
+    {
+        "frage": "Wie wird ein API-Key sicher gespeichert?",
+        "erwartete_quelle": "setup.md",
+        "erwartung": "API-Keys werden über Secrets oder Umgebungsvariablen geladen.",
+    },
+    {
+        "frage": "Was tun, wenn die Anwendung keine Quellen findet?",
+        "erwartete_quelle": "troubleshooting.md",
+        "erwartung": "Dokumente, Chunking, Embedding-Modell und k-Wert prüfen.",
+    },
+    {
+        "frage": "Welche Rolle spielt ChromaDB im Projekt?",
+        "erwartete_quelle": "rag.md",
+        "erwartung": "ChromaDB speichert Embeddings und liefert relevante Chunks.",
+    },
+]
+
+for fall in eval_set:
+    docs = retriever.invoke(fall["frage"])
+    antwort = rag_chain.invoke(fall["frage"])
+
+    print("\nFrage:", fall["frage"])
+    print("Erwartete Quelle:", fall["erwartete_quelle"])
+    print("Gefundene Quellen:", [doc.metadata.get("source") for doc in docs])
+    print("Antwort:", antwort)
+    print("Bewertung: korrekt / teilweise / falsch")
+```
+
 **Erfolgskriterium:**
 - ✅ Dokumente werden hochgeladen und indiziert
 - ✅ Retrieval findet relevante Chunks
 - ✅ Antworten basieren auf Dokumenten
 - ✅ Quellenangaben werden angezeigt
+- ✅ Mindestens drei RAG-Testfragen werden dokumentiert und bewertet
 
 ---
 
@@ -627,7 +662,7 @@ with gr.Blocks(title="Tech-Doku Assistent") as demo:
 | 2: Token-Optimierung (M05) | 10 | Korrekte Zählung, Statistiken, Warnungen |
 | 3: Strukturierte Ausgaben (M06) | 10 | Pydantic-Modelle, Validierung |
 | 4: Chat-Memory (M07) | 10 | Context-Awareness, Memory-Management |
-| 5: RAG-Integration (M08) | 15 | Retrieval-Qualität, Quellenangaben |
+| 5: RAG-Integration (M08) | 15 | Retrieval-Qualität, Quellenangaben, Mini-Evaluation |
 | 6: SQL RAG (M09) | 10 | SQL-Generierung, Hybrid-Modus |
 | 7: Agent mit Tools (M10) | 15 | Tool-Implementation, Agent-Logik |
 | 8: Middleware (M11) | 10 | Logging, HITL, Retry-Stack |
@@ -656,6 +691,11 @@ with gr.Blocks(title="Tech-Doku Assistent") as demo:
 - `01_notebook/M11_Middleware.ipynb`
 - `01_notebook/M13_Gradio.ipynb`
 
+**Qualität & Observability:**
+- [Evaluation & Observability](https://ralf-42.github.io/GenAI/concepts/Evaluation_Observability.html)
+- [RAG-Konzepte](https://ralf-42.github.io/GenAI/concepts/RAG_Konzepte.html)
+- [LangSmith Best Practices](https://ralf-42.github.io/GenAI/frameworks/LangSmith_Best_Practices.html)
+
 ---
 
 ## Erwartete Ergebnisse
@@ -676,6 +716,7 @@ with gr.Blocks(title="Tech-Doku Assistent") as demo:
 - [ ] Alle API-Keys sind über Colab Secrets eingebunden (nicht hardcodiert!)
 - [ ] Alle 9 Kapitel sind implementiert
 - [ ] Mindestens 3 Markdown-Dateien für RAG vorhanden
+- [ ] Mindestens 3 RAG-Testfragen mit Bewertung dokumentiert
 - [ ] SQLite-Datenbank für SQL RAG erstellt
 - [ ] Middleware-Stack (Logging + HITL + Retry) funktioniert
 - [ ] Gradio-UI läuft und erstellt share-Link
@@ -719,6 +760,6 @@ A: Ja. Dann lokal mit Jupyter Notebook oder JupyterLab arbeiten und Folgendes er
 
 ---
 
-**Version:**    2.0<br>
-**Stand:**    Februar 2026<br>
+**Version:**    2.1<br>
+**Stand:**    April 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
