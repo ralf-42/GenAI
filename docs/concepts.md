@@ -41,3 +41,4 @@ Diese Dokumente greifen dort ein, wo einzelne Bausteine zusammenspielen müssen.
 - [RAG-Konzepte](https://ralf-42.github.io/GenAI/concepts/RAG_Konzepte.html) – *Wann hilft Retrieval und wann schadet es eher?*
 - [Modellauswahl](https://ralf-42.github.io/GenAI/concepts/M19_Modellauswahl.html) – *Nach welchen Kriterien wird ein Modell ausgewählt?*  
   Praktische Designregeln für den Kurs finden sich ergänzend im [Modell-Auswahl Guide](https://ralf-42.github.io/GenAI/frameworks/Modell_Auswahl_Guide.html).
+- [Evaluation & Observability](https://ralf-42.github.io/GenAI/concepts/Evaluation_Observability.html) – *Wie wird sichtbar, ob eine GenAI-Anwendung gut funktioniert?* Mindeststandard für Testsets, RAG-Qualitätsprüfung, Tracing und Fehleranalyse.

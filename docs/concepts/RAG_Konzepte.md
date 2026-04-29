@@ -457,7 +457,15 @@ def firmenwissen_suchen(frage: str) -> str:
 
 ## Evaluierung von RAG-Systemen
 
-Die Qualität eines RAG-Systems muss systematisch gemessen werden.
+Die Qualität eines RAG-Systems muss systematisch gemessen werden, weil eine einzelne gelungene Antwort wenig beweist. RAG kann auf zwei Ebenen scheitern: Der Retriever findet den falschen Kontext, oder das Modell verarbeitet den richtigen Kontext falsch. Deshalb wird nicht nur die finale Antwort bewertet, sondern auch der Weg dorthin.
+
+Für Einsteiger reicht zuerst ein kleines, wiederholbares Testset. Nach jeder Änderung an Chunking, Embedding-Modell, `k`, Prompt oder Quellenbestand wird dasselbe Set erneut ausgeführt. So wird sichtbar, ob eine Änderung wirklich verbessert oder nur andere Fehler erzeugt.
+
+| Ebene | Leitfrage | Einfache Bewertung |
+|---|---|---|
+| Retrieval | Wurden die passenden Chunks gefunden? | relevant / teilweise / falsch |
+| Grounding | Ist die Antwort durch Quellen gedeckt? | belegt / teilweise / nicht belegt |
+| Antwort | Wird die Frage fachlich beantwortet? | korrekt / teilweise / falsch |
 
 ### Metriken
 
@@ -485,27 +493,44 @@ results = evaluate(
 
 ### Manuelles Testen
 
-Für erste Iterationen ist manuelles Testen effektiv:
+Für erste Iterationen ist manuelles Testen effektiver als ein großes Evaluationsframework. Wichtig ist, die Testfragen nicht nachträglich an die Stärken des Systems anzupassen, sondern typische Nutzerfragen, Randfälle und erwartete Quellen festzuhalten.
 
 ```python
-test_questions = [
-    "Was ist die Passwort-Policy?",
-    "Wie beantrage ich Urlaub?",
-    "Wer ist Ansprechpartner für IT-Probleme?"
+test_cases = [
+    {
+        "question": "Was ist die Passwort-Policy?",
+        "expected_source": "security.md",
+        "expected_answer": "Passwortlänge, Komplexität und Wechselregel",
+    },
+    {
+        "question": "Wie beantrage ich Urlaub?",
+        "expected_source": "hr.md",
+        "expected_answer": "Antrag über das HR-System",
+    },
+    {
+        "question": "Wer ist Ansprechpartner für IT-Probleme?",
+        "expected_source": "support.md",
+        "expected_answer": "IT-Support oder Helpdesk",
+    },
 ]
 
-for question in test_questions:
+for case in test_cases:
     # Retrieval prüfen
-    docs = retriever.invoke(question)
-    print(f"\nFrage: {question}")
+    docs = retriever.invoke(case["question"])
+    print(f"\nFrage: {case['question']}")
+    print(f"Erwartete Quelle: {case['expected_source']}")
     print(f"Gefundene Dokumente: {len(docs)}")
     for i, doc in enumerate(docs):
         print(f"  {i+1}. {doc.page_content[:100]}...")
     
     # Antwort prüfen
-    answer = rag_chain.invoke(question)
+    answer = rag_chain.invoke(case["question"])
     print(f"Antwort: {answer}")
+    print("Bewertung: korrekt / teilweise / falsch")
 ```
+
+> [!TIP] Vertiefung<br>
+> Die einsteigerfreundliche Einordnung steht in [Evaluation & Observability](./Evaluation_Observability.html). Die technische Umsetzung mit Tracing, Datasets und Monitoring ist in [LangSmith Best Practices](../frameworks/LangSmith_Best_Practices.html) beschrieben.
 
 ---
 
@@ -568,6 +593,7 @@ Häufige Probleme und deren Lösungen.
 - **Test-Dataset erstellen:** Repräsentative Fragen mit erwarteten Antworten
 - **Regelmäßig evaluieren:** Nach jedem Update der Wissensbasis
 - **Feedback sammeln:** Nutzer-Bewertungen für kontinuierliche Verbesserung
+- **Trace prüfen:** Bei falschen Antworten zuerst Retrieval und Prompt-Kontext inspizieren
 
 ---
 
@@ -613,9 +639,10 @@ RAG ermöglicht es, LLMs mit aktuellem, domänenspezifischem Wissen auszustatten
 | [Tokenizing & Chunking](./M08a_Tokenizing_Chunking.html) | Wie beeinflusst die Aufbereitung der Dokumente die Retrieval-Qualität? |
 | [Embeddings](./M08b_Embeddings.html) | Wie werden Dokumente und Fragen semantisch vergleichbar gemacht? |
 | [Context Engineering](./M21_Context_Engineering.html) | Wie fügt sich Retrieval in die größere Kontextlogik eines Systems ein? |
+| [Evaluation & Observability](./Evaluation_Observability.html) | Wie wird geprüft, ob Retrieval und Antwortqualität belastbar sind? |
 
 ---
 
-**Version:**    1.0<br>
-**Stand:**    November 2025<br>
+**Version:**    1.1<br>
+**Stand:**    April 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

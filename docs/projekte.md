@@ -15,10 +15,10 @@ Praxisorientierte Lernformate zum Aufbau von Agent-Systemen.
 ### Workshop-Format
 - **[RAG Workshop](https://ralf-42.github.io/GenAI/projekte/RAG_Workshop.html)** – *Wie entsteht aus einzelnen Bausteinen ein zusammenhängender RAG-Workshop?*
   - Begleitete Schritt-für-Schritt-Übung
-  - 7 Kapitel: von `StateGraph` zu komplexeren Supervisor-Hierarchien
-  - LangGraph 0.3+: State Machines, Checkpointing, Human-in-the-Loop
+  - 9 Kapitel: vom einfachen Chatbot zur RAG-Anwendung mit Agent, Middleware und UI
+  - RAG, SQL-RAG, Tool-Integration, Mini-Evaluation und Gradio-Oberfläche
   - Zeitaufwand: 6-8 Stunden
-  - Module M12-M20
+  - Module M04-M13
 
 ### End-to-End Projekt
 - **[KI-Challenge](https://ralf-42.github.io/GenAI/projekte/M23_KI-Challenge.html)** – *Wie wird aus einem Kursprojekt ein belastbares End-to-End-System?*

@@ -46,6 +46,13 @@ Prompt-Dateien werden im Kurs nicht als Textbausteine behandelt, sondern als war
 
 - **[Prompt-Templates Einsteiger](https://ralf-42.github.io/GenAI/frameworks/Einsteiger_Prompts.html)** – *Wie werden Prompts wiederverwendbar und pflegbar?*
 
+## Evaluation & Observability
+
+KI-Anwendungen brauchen neben funktionierendem Code auch sichtbare Qualität. Für den Einstieg reicht ein kleines Testset; bei Chains, RAG und Agenten wird zusätzlich relevant, welcher Schritt die Antwort erzeugt oder verschlechtert hat.
+
+- **[Evaluation & Observability](https://ralf-42.github.io/GenAI/concepts/Evaluation_Observability.html)** – *Wie wird sichtbar, ob eine GenAI-Anwendung gut funktioniert?* Mindeststandard für Testsets, RAG-Qualitätsprüfung, Tracing und Fehleranalyse.
+- **[LangSmith Best Practices](https://ralf-42.github.io/GenAI/frameworks/LangSmith_Best_Practices.html)** – *Wie observiere ich Chains und Agenten technisch?* Tracing, Evaluation und Monitoring mit LangSmith.
+
 ## Best Practices & Anti-Patterns
 
 Empfohlene Patterns und Anti-Patterns für die im Kurs zentralen Frameworks.
