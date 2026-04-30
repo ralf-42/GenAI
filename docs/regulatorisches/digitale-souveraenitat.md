@@ -114,9 +114,9 @@ Für GenAI bedeutet das: Modellqualität allein reicht nicht. Entscheidend ist, 
 
 | Dokument | Frage |
 |---|---|
-| [EU AI Act](./EU_AI_Act.html) | Welche rechtlichen Pflichten entstehen bei Entwicklung und Betrieb von KI-Systemen? |
-| [Ethik und GenAI](./Ethik_und_GenAI.html) | Welche Wertkonflikte entstehen jenseits technischer und rechtlicher Kontrolle? |
-| [Modell-Auswahl](../concepts/M19_Modellauswahl.html) | Wie werden Modellqualität, Betrieb, Kosten und Abhängigkeiten gegeneinander abgewogen? |
+| [EU AI Act](./eu-ai-act.html) | Welche rechtlichen Pflichten entstehen bei Entwicklung und Betrieb von KI-Systemen? |
+| [Ethik und GenAI](./ethik-und-genai.html) | Welche Wertkonflikte entstehen jenseits technischer und rechtlicher Kontrolle? |
+| [Modell-Auswahl](../concepts/m19-modellauswahl.html) | Wie werden Modellqualität, Betrieb, Kosten und Abhängigkeiten gegeneinander abgewogen? |
 
 ---
 

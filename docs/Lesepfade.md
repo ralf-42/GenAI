@@ -36,9 +36,9 @@ Ein Gesamtbild fehlt noch, die Grundbegriffe sind unscharf oder der Unterschied 
 
 Empfohlener Einstieg:
 
-1. [Aufgabenklassen und Lösungswege](./concepts/Aufgabenklassen_und_Loesungswege.html)
-2. [Prompt Engineering](./concepts/Prompt_Engineering.html)
-3. [Modellauswahl](./concepts/M19_Modellauswahl.html)
+1. [Aufgabenklassen und Lösungswege](./concepts/aufgabenklassen-und-loesungswege.html)
+2. [Prompt Engineering](./concepts/prompt-engineering.html)
+3. [Modellauswahl](./concepts/m19-modellauswahl.html)
 
 ### Erste eigene Chain
 
@@ -46,10 +46,10 @@ Ein erster lauffähiger LangChain-Workflow soll entstehen. Der Fokus liegt auf d
 
 Empfohlener Einstieg:
 
-1. [Einsteiger LangChain](./frameworks/Einsteiger_LangChain.html)
-2. [Einsteiger Prompts](./frameworks/Einsteiger_Prompts.html)
-3. [LangChain Best Practices](./frameworks/LangChain_Best_Practices.html)
-4. [Modell-Auswahl Guide](./frameworks/Modell_Auswahl_Guide.html)
+1. [Einsteiger LangChain](./frameworks/einsteiger-langchain.html)
+2. [Einsteiger Prompts](./frameworks/einsteiger-prompts.html)
+3. [LangChain Best Practices](./frameworks/langchain-best-practices.html)
+4. [Modell-Auswahl Guide](./frameworks/modell-auswahl-guide.html)
 
 ### Kursnotebooks vorbereiten
 
@@ -57,9 +57,9 @@ Die Notebooks sollen ohne Reibung laufen: API-Keys müssen verfügbar sein, Cola
 
 Empfohlener Einstieg:
 
-1. [API-Keys & Provider](./ressourcen/API_Keys_und_Provider.html)
-2. [Von Colab zu Local](./ressourcen/Colab_zu_Lokal.html)
-3. [GenAI_Lib Einsteiger](./frameworks/Einsteiger_GenAI_Lib.html)
+1. [API-Keys & Provider](./ressourcen/api-keys-und-provider.html)
+2. [Von Colab zu Local](./ressourcen/colab-zu-lokal.html)
+3. [GenAI_Lib Einsteiger](./frameworks/einsteiger-genai-lib.html)
 4. [Code Standards](./ressourcen/standards.html)
 
 ### RAG und Retrieval
@@ -68,11 +68,11 @@ Dokumente, Wissensquellen oder Grounding spielen die Hauptrolle. Meist steht dan
 
 Empfohlener Einstieg:
 
-1. [RAG-Konzepte](./concepts/RAG_Konzepte.html)
-2. [Tokenizing und Chunking](./concepts/M08a_Tokenizing_Chunking.html)
-3. [Embeddings](./concepts/M08b_Embeddings.html)
-4. [Evaluation & Observability](./concepts/Evaluation_Observability.html)
-5. [Einsteiger ChromaDB](./frameworks/Einsteiger_ChromaDB.html)
+1. [RAG-Konzepte](./concepts/rag-konzepte.html)
+2. [Tokenizing und Chunking](./concepts/m08a-tokenizing-chunking.html)
+3. [Embeddings](./concepts/m08b-embeddings.html)
+4. [Evaluation & Observability](./concepts/evaluation-observability.html)
+5. [Einsteiger ChromaDB](./frameworks/einsteiger-chromadb.html)
 
 ### Qualität und Fehlersuche
 
@@ -80,9 +80,9 @@ Eine Chain oder ein Agent funktioniert technisch, aber die Antwortqualität schw
 
 Empfohlener Einstieg:
 
-1. [Evaluation & Observability](./concepts/Evaluation_Observability.html)
-2. [RAG-Konzepte](./concepts/RAG_Konzepte.html)
-3. [LangSmith Best Practices](./frameworks/LangSmith_Best_Practices.html)
+1. [Evaluation & Observability](./concepts/evaluation-observability.html)
+2. [RAG-Konzepte](./concepts/rag-konzepte.html)
+3. [LangSmith Best Practices](./frameworks/langsmith-best-practices.html)
 4. [Troubleshooting](./ressourcen/troubleshooting.html)
 
 ### Multimodalität
@@ -91,10 +91,10 @@ Text reicht nicht mehr aus. Bilder, Audio oder gemischte Inhalte sollen eingebun
 
 Empfohlener Einstieg:
 
-1. [Transformer-Grundlagen](./concepts/M05a_Transformer.html)
-2. [Multimodal: Bild](./concepts/M09_Multimodal_Bild.html)
-3. [Multimodal: Audio](./concepts/M16_Multimodal_Audio.html)
-4. [Context Engineering](./concepts/M21_Context_Engineering.html)
+1. [Transformer-Grundlagen](./concepts/m05a-transformer.html)
+2. [Multimodal: Bild](./concepts/m09-multimodal-bild.html)
+3. [Multimodal: Audio](./concepts/m16-multimodal-audio.html)
+4. [Context Engineering](./concepts/m21-context-engineering.html)
 
 ### Deployment und Betrieb
 
@@ -102,11 +102,11 @@ Ein System soll nicht nur im Notebook funktionieren, sondern auch unter realen B
 
 Empfohlener Einstieg:
 
-1. [Vom Modell zum Produkt: LangChain-Ökosystem](./deployment/Vom_Modell_zum_Produkt_LangChain_Oekosystem.html)
+1. [Vom Modell zum Produkt: LangChain-Ökosystem](./deployment/vom-modell-zum-produkt-langchain-oekosystem.html)
 2. [Aus Entwicklung ins Deployment](./deployment/aus-entwicklung-ins-deployment.html)
-3. [Evaluation & Observability](./concepts/Evaluation_Observability.html)
-4. [LangSmith Best Practices](./frameworks/LangSmith_Best_Practices.html)
-5. [Migration: OpenAI → Mistral](./deployment/Migration_OpenAI_Mistral.html)
+3. [Evaluation & Observability](./concepts/evaluation-observability.html)
+4. [LangSmith Best Practices](./frameworks/langsmith-best-practices.html)
+5. [Migration: OpenAI → Mistral](./deployment/migration-openai-mistral.html)
 
 ### Governance und Rahmenbedingungen
 
@@ -114,10 +114,10 @@ Sobald GenAI-Systeme in Bildung, Verwaltung oder Unternehmen eingesetzt werden, 
 
 Empfohlener Einstieg:
 
-1. [Digitale Souveränität](./regulatorisches/Digitale_Souveraenitat.html)
-2. [Ethik und GenAI](./regulatorisches/Ethik_und_GenAI.html)
-3. [EU AI Act](./regulatorisches/EU_AI_Act.html)
-4. [KI-Reifegradmodell](./ressourcen/ki_reifegradmodell.html)
+1. [Digitale Souveränität](./regulatorisches/digitale-souveraenitat.html)
+2. [Ethik und GenAI](./regulatorisches/ethik-und-genai.html)
+3. [EU AI Act](./regulatorisches/eu-ai-act.html)
+4. [KI-Reifegradmodell](./ressourcen/ki-reifegradmodell.html)
 
 ### No-Code, Low-Code und visuelle Orientierung
 
@@ -125,19 +125,19 @@ Nicht jeder Einstieg beginnt im Code. Für erste Prototypen, Modellverständnis 
 
 Empfohlener Einstieg:
 
-1. [Interaktive Visualisierungen](./ressourcen/interaktive_visualisierungen.html)
-2. [Agent Builder Einsteiger](./frameworks/Einsteiger_Agent_Builder.html)
-3. [Aufgabenklassen und Lösungswege](./concepts/Aufgabenklassen_und_Loesungswege.html)
+1. [Interaktive Visualisierungen](./ressourcen/interaktive-visualisierungen.html)
+2. [Agent Builder Einsteiger](./frameworks/einsteiger-agent-builder.html)
+3. [Aufgabenklassen und Lösungswege](./concepts/aufgabenklassen-und-loesungswege.html)
 4. [Links](./ressourcen/links.html)
 
 ## Vier Dokumente für fast jeden Start
 
 Wer nicht lange wählen will, kommt mit diesen vier Dokumenten meist am schnellsten ins Thema:
 
-1. [Aufgabenklassen und Lösungswege](./concepts/Aufgabenklassen_und_Loesungswege.html)
-2. [Einsteiger LangChain](./frameworks/Einsteiger_LangChain.html)
-3. [RAG-Konzepte](./concepts/RAG_Konzepte.html)
-4. [Evaluation & Observability](./concepts/Evaluation_Observability.html)
+1. [Aufgabenklassen und Lösungswege](./concepts/aufgabenklassen-und-loesungswege.html)
+2. [Einsteiger LangChain](./frameworks/einsteiger-langchain.html)
+3. [RAG-Konzepte](./concepts/rag-konzepte.html)
+4. [Evaluation & Observability](./concepts/evaluation-observability.html)
 
 Diese Kombination klärt erst die Einsatzfrage, dann die Umsetzung, danach das wichtigste Erweiterungsmuster und zuletzt die Frage, wie Qualität sichtbar wird. Genau diese Reihenfolge verhindert viele frühe Fehlstarts.
 

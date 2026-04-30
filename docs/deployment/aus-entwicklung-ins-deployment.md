@@ -370,8 +370,8 @@ Vor dem Go-Live sollten diese Punkte geprüft werden:
 
 | Dokument | Frage |
 |---|---|
-| [Vom Modell zur Anwendung](./Vom_Modell_zum_Produkt_LangChain_Oekosystem.html) | Wie wird aus einem Modell ein technisches Anwendungssystem? |
-| [Migration OpenAI → Mistral](./Migration_OpenAI_Mistral.html) | Wie wird ein bestehendes Projekt auf einen anderen Provider vorbereitet? |
+| [Vom Modell zur Anwendung](./vom-modell-zum-produkt-langchain-oekosystem.html) | Wie wird aus einem Modell ein technisches Anwendungssystem? |
+| [Migration OpenAI → Mistral](./migration-openai-mistral.html) | Wie wird ein bestehendes Projekt auf einen anderen Provider vorbereitet? |
 
 ---
 

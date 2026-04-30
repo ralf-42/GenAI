@@ -316,9 +316,9 @@ Die Wahl der richtigen Kombination aus Tokenizer, Chunk-Größe und Chunking-Str
 
 | Dokument | Frage |
 |---|---|
-| [Embeddings](./M08b_Embeddings.html) | Wie werden die vorbereiteten Textstücke später semantisch repräsentiert? |
-| [RAG-Konzepte](./RAG_Konzepte.html) | Wie wirken Chunking-Entscheidungen auf Retrieval und Antwortqualität? |
-| [Transformer-Architektur](./M05a_Transformer.html) | Warum spielen Token überhaupt eine so zentrale Rolle für Sprachmodelle? |
+| [Embeddings](./m08b-embeddings.html) | Wie werden die vorbereiteten Textstücke später semantisch repräsentiert? |
+| [RAG-Konzepte](./rag-konzepte.html) | Wie wirken Chunking-Entscheidungen auf Retrieval und Antwortqualität? |
+| [Transformer-Architektur](./m05a-transformer.html) | Warum spielen Token überhaupt eine so zentrale Rolle für Sprachmodelle? |
 
 ---
 

@@ -697,7 +697,7 @@ def firmenwissen_suchen(frage: str) -> str:
         return f"Fehler bei der Suche: {str(e)}"
 ```
 
-Für die vollständige RAG-Chain-Implementierung siehe **Einsteiger_LangChain.md, Kapitel 11**.
+Für die vollständige RAG-Chain-Implementierung siehe **einsteiger-langchain.md, Kapitel 11**.
 
 ---
 
@@ -971,7 +971,7 @@ results = retriever.invoke("Meine Frage")
 
 ---
 
-> 💡 **Tipp:** Für die vollständige RAG-Chain-Implementierung siehe **Einsteiger_LangChain.md, Kapitel 11**!
+> 💡 **Tipp:** Für die vollständige RAG-Chain-Implementierung siehe **einsteiger-langchain.md, Kapitel 11**!
 
 > 🔗 **Weiterführend:** 
 > + [ChromaDB Dokumentation](https://docs.trychroma.com/) 

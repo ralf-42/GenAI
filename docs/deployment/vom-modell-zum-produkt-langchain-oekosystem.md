@@ -265,7 +265,7 @@ Das Zusammenspiel aus LangChain, LangGraph und LangSmith bietet einen Ansatz, um
 | Dokument | Frage |
 |---|---|
 | [Produktionsreife Anwendung](./aus-entwicklung-ins-deployment.html) | Welche Schritte führen von Notebook-Code zu einer deploybaren Anwendung? |
-| [Migration OpenAI → Mistral](./Migration_OpenAI_Mistral.html) | Wie wirkt sich ein Providerwechsel auf Architektur und Modellzugriff aus? |
+| [Migration OpenAI → Mistral](./migration-openai-mistral.html) | Wie wirkt sich ein Providerwechsel auf Architektur und Modellzugriff aus? |
 
 ---
 

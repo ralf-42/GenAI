@@ -84,7 +84,7 @@ Hier folgt der eigentliche Inhalt.
 
 | Dokument | Frage |
 |---|---|
-| [Verwandtes Dokument](./Verwandtes_Dokument.html) | Worum geht es dort? |
+| Verwandtes Dokument (`./verwandtes-dokument.html`) | Worum geht es dort? |
 
 ---
 

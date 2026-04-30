@@ -23,7 +23,7 @@ has_toc: true
 - **LangGraph** - Kontrolle (Workflows, State Machines, Multi-Agent)
 - **LangSmith** - Observability (Monitoring, Debugging, Evaluation)
 
-> **📘 Referenz:** Siehe `docs/deployment/Vom_Modell_zum_Produkt_LangChain_Oekosystem.md` für das Zusammenspiel aller drei Komponenten.
+> **📘 Referenz:** Siehe `docs/deployment/vom-modell-zum-produkt-langchain-oekosystem.md` für das Zusammenspiel aller drei Komponenten.
 
 ---
 
@@ -677,9 +677,8 @@ callback = LangSmithCallback(
 - [Release Notes](https://docs.smith.langchain.com/release-notes)
 
 ### Interne Dokumentation
-- [Vom Modell zum Produkt: LangChain-Ökosystem](./docs/deployment/Vom_Modell_zum_Produkt_LangChain_Oekosystem.md)
-- [LangChain 1.0 Must-Haves](./LangChain_Best_Practices.md)
-- [LangGraph 1.0 Must-Haves](./LangGraph_Best_Practices.md)
+- [Vom Modell zum Produkt: LangChain-Ökosystem](../deployment/vom-modell-zum-produkt-langchain-oekosystem.html)
+- [LangChain 1.0 Must-Haves](./langchain-best-practices.md)
 
 ### Related Commands
 - `/check-langsmith-changelog` - Prüft neue LangSmith-Features

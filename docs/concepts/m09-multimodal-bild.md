@@ -132,9 +132,9 @@ Mithilfe neuronaler Netze – typischerweise Convolutional Neural Networks (CNNs
 
 | Dokument | Frage |
 |---|---|
-| [Multimodal Audio](./M16_Multimodal_Audio.html) | Wie unterscheiden sich multimodale Muster, wenn statt Bildern Audio verarbeitet wird? |
-| [Embeddings](./M08b_Embeddings.html) | Wie werden Inhalte mathematisch vergleichbar gemacht? |
-| [Modellauswahl](./M19_Modellauswahl.html) | Welche Modellklasse passt zu welchem multimodalen Vorhaben? |
+| [Multimodal Audio](./m16-multimodal-audio.html) | Wie unterscheiden sich multimodale Muster, wenn statt Bildern Audio verarbeitet wird? |
+| [Embeddings](./m08b-embeddings.html) | Wie werden Inhalte mathematisch vergleichbar gemacht? |
+| [Modellauswahl](./m19-modellauswahl.html) | Welche Modellklasse passt zu welchem multimodalen Vorhaben? |
 
 ---
 

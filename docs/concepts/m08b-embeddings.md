@@ -181,9 +181,9 @@ Hier ist eine tabellarische Übersicht, die ausgehend vom **Embedding-Modell** z
 
 | Dokument | Frage |
 |---|---|
-| [Tokenizing & Chunking](./M08a_Tokenizing_Chunking.html) | Wie wird Rohtext so vorbereitet, dass Embeddings später sinnvoll berechnet werden können? |
-| [RAG-Konzepte](./RAG_Konzepte.html) | Wie werden Embeddings praktisch in Retrieval-Systemen genutzt? |
-| [Multimodal Bild](./M09_Multimodal_Bild.html) | Wie werden Vektorähnlichkeiten jenseits von reinem Text relevant? |
+| [Tokenizing & Chunking](./m08a-tokenizing-chunking.html) | Wie wird Rohtext so vorbereitet, dass Embeddings später sinnvoll berechnet werden können? |
+| [RAG-Konzepte](./rag-konzepte.html) | Wie werden Embeddings praktisch in Retrieval-Systemen genutzt? |
+| [Multimodal Bild](./m09-multimodal-bild.html) | Wie werden Vektorähnlichkeiten jenseits von reinem Text relevant? |
 
 ---
 

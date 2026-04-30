@@ -518,9 +518,9 @@ Bei Fragen oder Problemen während der Projektentwicklung steht das `Kurs-Forum`
 
 | Dokument | Frage |
 |---|---|
-| [RAG Workshop](./RAG_Workshop.html) | Wie entsteht schrittweise eine RAG-Anwendung mit Agent, Middleware und UI? |
+| [RAG Workshop](./rag-workshop.html) | Wie entsteht schrittweise eine RAG-Anwendung mit Agent, Middleware und UI? |
 | [Produktionsreife Anwendung](../deployment/aus-entwicklung-ins-deployment.html) | Welche Schritte sind nötig, damit ein Kursprojekt deploybar wird? |
-| [Evaluation & Observability](../concepts/Evaluation_Observability.html) | Wie werden Qualität und Fehlerverhalten einer GenAI-Anwendung sichtbar? |
+| [Evaluation & Observability](../concepts/evaluation-observability.html) | Wie werden Qualität und Fehlerverhalten einer GenAI-Anwendung sichtbar? |
 
 ---
 

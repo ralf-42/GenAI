@@ -121,7 +121,7 @@ os.environ["LANGSMITH_PROJECT"] = "GenAI-dev"
 
 Danach sollte im Kurs nicht die Plattform im Vordergrund stehen, sondern die Frage: Welche Hypothese wird geprüft? Ein Trace ist nur dann nützlich, wenn klar ist, worauf geachtet wird: falscher Kontext, falsches Tool, zu viele Tokens, unerwartete Modellantwort oder fehlende Quellen.
 
-Für die detaillierten Patterns gilt die projektweite Referenz [LangSmith Best Practices](../frameworks/LangSmith_Best_Practices.html). Die Standards für konkrete Notebook-Änderungen stehen zusätzlich in `LangSmith_Standards.md` im Repository.
+Für die detaillierten Patterns gilt die projektweite Referenz [LangSmith Best Practices](../frameworks/langsmith-best-practices.html). Die Standards für konkrete Notebook-Änderungen stehen zusätzlich in `LangSmith_Standards.md` im Repository.
 
 ---
 
@@ -129,10 +129,10 @@ Für die detaillierten Patterns gilt die projektweite Referenz [LangSmith Best P
 
 | Dokument | Frage |
 |---|---|
-| [RAG-Konzepte](./RAG_Konzepte.html) | Wie wird Retrieval aufgebaut und warum bestimmt es die Antwortqualität? |
-| [Context Engineering](./M21_Context_Engineering.html) | Welche Informationen gehören in den Kontext einer Modellanfrage? |
-| [Modell-Auswahl Guide](../frameworks/Modell_Auswahl_Guide.html) | Welches Modell passt zu Aufgabe, Kostenrahmen und Latenzanforderung? |
-| [LangSmith Best Practices](../frameworks/LangSmith_Best_Practices.html) | Wie werden Tracing, Evaluation und Monitoring technisch umgesetzt? |
+| [RAG-Konzepte](./rag-konzepte.html) | Wie wird Retrieval aufgebaut und warum bestimmt es die Antwortqualität? |
+| [Context Engineering](./m21-context-engineering.html) | Welche Informationen gehören in den Kontext einer Modellanfrage? |
+| [Modell-Auswahl Guide](../frameworks/modell-auswahl-guide.html) | Welches Modell passt zu Aufgabe, Kostenrahmen und Latenzanforderung? |
+| [LangSmith Best Practices](../frameworks/langsmith-best-practices.html) | Wie werden Tracing, Evaluation und Monitoring technisch umgesetzt? |
 
 ---
 

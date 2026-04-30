@@ -233,7 +233,7 @@ Die eigentliche Botschaft dieser Migration ist: Der Wechsel von OpenAI zu Mistra
 
 | Dokument | Frage |
 |---|---|
-| [Vom Modell zur Anwendung](./Vom_Modell_zum_Produkt_LangChain_Oekosystem.html) | Welche Rolle spielt LangChain im Weg vom Modell zur Anwendung? |
+| [Vom Modell zur Anwendung](./vom-modell-zum-produkt-langchain-oekosystem.html) | Welche Rolle spielt LangChain im Weg vom Modell zur Anwendung? |
 | [Produktionsreife Anwendung](./aus-entwicklung-ins-deployment.html) | Welche technischen Schritte machen ein Notebook deploymentfähig? |
 
 ---
