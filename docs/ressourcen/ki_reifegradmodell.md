@@ -10,7 +10,8 @@ has_toc: true
 # KI-Reifegradmodell für Unternehmen
 {: .no_toc }
 
-> **Nüchterne, managementtaugliche Einordnung des organisatorischen, kulturellen und technischen Reifegrads bei der KI-Einführung**
+> [!NOTE] Reifegradanalyse<br>
+> Das Modell ordnet organisatorische, kulturelle und technische Voraussetzungen für KI-Einsatz ein, ohne daraus ein Marketing-Ranking zu machen.
 
 ---
 
@@ -24,121 +25,31 @@ has_toc: true
 
 ## Zielsetzung
 
-Ziel dieses Modells ist eine **nüchterne, managementtaugliche Einordnung** des organisatorischen, kulturellen und technischen Reifegrads bei der Einführung von Künstlicher Intelligenz. Es dient explizit **nicht** als Marketing- oder Benchmarking-Instrument, sondern als analytische Grundlage für strategische Entscheidungen. Der Fokus liegt bewusst nicht auf einzelnen Tools oder Herstellern, sondern auf **Strukturen, Fähigkeiten, Entscheidungslogiken und Verantwortlichkeiten**, die nachhaltigen KI-Einsatz erst ermöglichen.
+Das Modell dient als analytische Grundlage für Management-Workshops, Standortbestimmungen und Roadmaps. Es bewertet nicht einzelne Tools oder Hersteller, sondern Strukturen, Fähigkeiten, Entscheidungslogiken und Verantwortlichkeiten, die belastbaren KI-Einsatz ermöglichen.
 
-Das Modell ist bewusst linear aufgebaut, obwohl reale Organisationen häufig **hybride Reifegrade** aufweisen. Ziel ist daher nicht eine exakte Klassifikation, sondern das Erkennen dominanter Muster, Blockaden und Entwicklungspfade.
+Reale Organisationen zeigen häufig hybride Reifegrade. Eine Fachabteilung kann bereits experimentieren, während zentrale Governance noch fehlt; eine IT-Plattform kann vorbereitet sein, obwohl Fachbereiche keine tragfähigen Use Cases priorisieren. Entscheidend ist deshalb nicht die exakte Stufenzuordnung, sondern das Erkennen dominanter Muster und Blockaden.
 
----
+## Reifegradstufen
 
-## Stufe 1: Der Passive – IT als reines Costcenter
+| Stufe | Leitbild | Technologie | Mensch & Organisation | Prozesse & Governance |
+|---|---|---|---|---|
+| **1: Passiv** | Stabilität sichern, Risiken vermeiden, Kosten minimieren | Legacy-Systeme, Datensilos, wenig Cloud-Nutzung | Geringe KI- und Datenkompetenz, Skepsis oder Ablehnung | Manuelle Abläufe, keine KI-Strategie, unklare Verantwortung |
+| **2: Explorativ** | Experimente zulassen, ohne Strukturen zu verändern | Einzelne Tools außerhalb offizieller IT-Landschaft | Informelle Vorreiter, stark personenabhängiges Wissen | Punktuelle Produktivität, reaktive Regeln, Schatten-IT-Risiko |
+| **3: Befähigt** | Grundlagen für kontrollierten KI-Einsatz schaffen | Cloud-fähige Architektur, APIs, geschützte KI-Umgebungen | Rollen wie Data Owner, Product Owner oder AI Champion entstehen | Use Cases werden bewertet, priorisiert und governance-seitig begleitet |
+| **4: Operativ** | KI als messbaren Prozessbestandteil skalieren | Integrierte Plattformen, Monitoring, Modellversionierung | Fachbereiche, IT, Data, Recht und Compliance arbeiten routiniert zusammen | End-to-End-Prozesse werden KI-unterstützt, Qualität und Nutzen werden gemessen |
+| **5: Transformativ** | KI als strategischen Kern nutzen | KI-native Architektur, domänenspezifische Modelle, Event-Verarbeitung | KI-Kompetenz prägt Führung, Einstellung und Innovationskultur | Adaptive Prozesse, neue Leistungen und Governance als Vertrauensmerkmal |
 
-**Leitbild:** Stabilität sichern, Risiken vermeiden, Kosten minimieren. KI gilt primär als Unsicherheitsfaktor oder regulatorisches Risiko.
+## Interpretation
 
-### Technologie
+Stufe 1 beschreibt Organisationen, in denen KI vor allem als Risiko erscheint. Daten sind verteilt, Schnittstellen fehlen, und Verantwortlichkeiten sind kaum geklärt. Der nächste sinnvolle Schritt besteht nicht in einem großen KI-Projekt, sondern in Datenordnung, Verantwortungszuweisung und einer realistischen Risikoposition.
 
-Heterogene, häufig historisch gewachsene Legacy-Systeme dominieren die IT-Landschaft. Daten liegen verteilt, unstrukturiert und oft ohne klare Verantwortlichkeiten oder Datenqualitätsstandards vor. Schnittstellen fehlen oder sind proprietär. Cloud-Technologien werden aus Sicherheits-, Compliance- oder Kostengründen abgelehnt oder nur minimal genutzt.
+Stufe 2 ist durch individuelle Experimente geprägt. Einzelne Teams nutzen frei verfügbare Tools, ohne dass Nutzung, Datenweitergabe oder Qualität systematisch gesteuert werden. Der Übergang zu Stufe 3 gelingt erst, wenn Experimente dokumentiert, priorisiert und in offizielle Strukturen überführt werden.
 
-### Mensch
+Stufe 3 schafft die Grundlagen für wiederholbare KI-Projekte. Technische Plattformen, Rollenmodelle, Datenschutz, Security und Use-Case-Bewertung werden miteinander verbunden. Typischer Fehler: zu viele Piloten parallel starten, ohne Kriterien für Skalierung, Abbruch oder Betrieb zu definieren.
 
-Fach- und Führungskräfte verfügen über kaum belastbare KI- oder Datenkompetenzen. Die vorherrschende Haltung reicht von Desinteresse bis zu offener Ablehnung. KI wird primär als Bedrohung für Arbeitsplätze, Kontrolle oder regulatorische Sicherheit wahrgenommen.
+Stufe 4 beschreibt produktiven KI-Einsatz in Kernprozessen. Modelle, Datenpipelines, Monitoring, Incident-Prozesse und Business-KPIs sind etabliert. Grenze: Operativer Einsatz bleibt fragil, wenn Modellqualität zwar gemessen wird, aber keine organisatorische Entscheidung folgt, sobald Qualität, Fairness oder Kosten kippen.
 
-### Prozesse
-
-Abläufe sind stark manuell, dokumenten- und personenabhängig. Wissen ist implizit und schlecht skalierbar. Prozessverbesserungen erfolgen reaktiv, meist erst bei akuten Problemen. Automatisierung wird als IT-Thema, nicht als Organisationsfrage verstanden.
-
-### Governance
-
-Es existieren weder formale Richtlinien noch eine strategische Positionierung zu KI. Verantwortung ist nicht zugewiesen, Entscheidungswege sind unklar. KI-Nutzung findet faktisch nicht statt oder ist pauschal untersagt.
-
----
-
-## Stufe 2: Der Explorative – Tool-getriebene Experimente
-
-**Leitbild:** Neugier zulassen, ohne bestehende Strukturen oder Verantwortlichkeiten zu verändern. KI wird als individuelles Hilfsmittel verstanden.
-
-### Technologie
-
-Einzelne Mitarbeitende oder Teams nutzen frei verfügbare KI-Tools (z. B. Text-, Code- oder Bildgeneratoren) außerhalb der offiziellen IT-Landschaft. Es gibt keine Integration in Unternehmensdaten, Fachsysteme oder Workflows. Schatten-IT entsteht.
-
-### Mensch
-
-Es bilden sich informelle „KI-Vorreiter" oder Enthusiasten, die sich eigenständig weiterbilden. Das Wissen ist stark personenabhängig, kaum dokumentiert und nicht institutionell abgesichert. Führungskräfte tolerieren diese Nutzung, ohne sie aktiv zu steuern.
-
-### Prozesse
-
-KI verbessert punktuell individuelle Produktivität (z. B. Textentwürfe, Analysen, Ideengenerierung), verändert jedoch keine End-to-End-Prozesse. Effekte sind lokal, nicht messbar und nicht reproduzierbar.
-
-### Governance
-
-Erste Regeln oder Hinweise entstehen reaktiv, meist ausgelöst durch Datenschutz-, IT-Sicherheits- oder Rechtsabteilungen. Ziel ist primär Risikobegrenzung, nicht systematische Befähigung oder Skalierung.
-
----
-
-## Stufe 3: Der Befähigte – IT als gezielter Investmentfaktor
-
-**Leitbild:** Strukturelle Grundlagen schaffen, um KI kontrolliert, sicher und wiederholbar einzusetzen.
-
-### Technologie
-
-Das Unternehmen investiert gezielt in Cloud-fähige Architekturen, zentrale Datenhaltung, Identitäts- und Zugriffsmodelle sowie definierte Schnittstellen (APIs). Geschützte KI-Umgebungen oder unternehmenskonforme SaaS-Lösungen werden bereitgestellt.
-
-### Mensch
-
-Strukturierte Upskilling-Programme entstehen für unterschiedliche Rollen (Management, Fachbereiche, IT). Rollen wie Data Owner, Product Owner oder AI Champion werden formal definiert. Wissensaustausch wird organisatorisch gefördert.
-
-### Prozesse
-
-Use-Cases werden systematisch identifiziert, bewertet und priorisiert. Pilotprojekte folgen klaren Kriterien (Nutzen, Datenverfügbarkeit, Skalierbarkeit). Der Fokus liegt auf Lernen und Standardisierung, nicht auf maximaler Automatisierung.
-
-### Governance
-
-Eine explizite KI-Strategie wird formuliert und mit der Unternehmensstrategie verknüpft. Datenschutz, Ethik und Compliance werden in operative Leitplanken übersetzt. Zuständigkeiten und Entscheidungsprozesse sind klar definiert.
-
----
-
-## Stufe 4: Der Operative – KI als Prozessbestandteil
-
-**Leitbild:** Skalierung, Effizienzsteigerung und messbarer Business-Nutzen durch KI.
-
-### Technologie
-
-KI-Lösungen sind stabil in Kernsysteme wie ERP, CRM oder Fachanwendungen integriert. Datenpipelines, Monitoring, Modellversionierung und Incident-Prozesse sind etabliert. Betrieb und Weiterentwicklung sind organisatorisch abgesichert.
-
-### Mensch
-
-KI-Nutzung gehört für viele Rollen zum Arbeitsalltag. Fachbereiche, IT, Data, Recht und Compliance arbeiten routiniert zusammen. Akzeptanz entsteht durch nachvollziehbaren Nutzen und verlässliche Systeme.
-
-### Prozesse
-
-End-to-End-Prozesse sind teilautomatisiert oder KI-unterstützt. KI priorisiert, empfiehlt oder entscheidet innerhalb definierter Grenzen. Wirtschaftliche Effekte werden über KPIs und Business-Cases gesteuert.
-
-### Governance
-
-Regelmäßige Reviews zu Modellqualität, Fairness, Sicherheit und Wirtschaftlichkeit finden statt. Governance wirkt aktiv steuernd und ermöglicht Weiterentwicklung, statt Innovation zu blockieren.
-
----
-
-## Stufe 5: Der Transformative – KI als strategischer Kern
-
-**Leitbild:** Nachhaltige Wettbewerbsvorteile durch daten- und KI-getriebene Geschäftsmodelle.
-
-### Technologie
-
-Fortgeschrittene, modulare Architekturen (z. B. domänenspezifische Modelle, Echtzeit- und Event-Verarbeitung) sind Standard. KI-Plattformen sind eng mit Produkt-, Markt- und Innovationsstrategie verzahnt.
-
-### Mensch
-
-KI-Kompetenz ist zentrales Führungs- und Einstellungskriterium. Die Organisation fördert systematisch Experimentieren, Lernen und interdisziplinäre Zusammenarbeit. Veränderung ist Teil der Identität.
-
-### Prozesse
-
-Wertschöpfungsketten sind hochgradig adaptiv oder teilautonom. Prozesse optimieren sich datenbasiert selbst und reagieren dynamisch auf Kunden- und Marktveränderungen. KI ermöglicht neue Leistungen, nicht nur effizientere bestehende.
-
-### Governance
-
-Governance ist adaptiv, strategisch und reputationsrelevant. Transparenz, Erklärbarkeit und ethische Standards werden aktiv kommuniziert und als Vertrauens- sowie Differenzierungsmerkmal genutzt.
-
----
+Stufe 5 ist erreicht, wenn KI nicht nur Prozesse effizienter macht, sondern Geschäftsmodelle, Produkte oder Marktposition verändert. Governance wird dann nicht als Bremse verstanden, sondern als Bestandteil von Vertrauen, Reputation und Differenzierung.
 
 ## Dimensionen im Überblick
 
@@ -149,20 +60,15 @@ Governance ist adaptiv, strategisch und reputationsrelevant. Transparenz, Erklä
 | **Prozesse** | Manuell | Punktuell | Pilotiert | Skaliert | Adaptiv / autonom |
 | **Governance** | Keine | Reaktiv | Strategisch | Operativ | Wettbewerbsvorteil |
 
----
-
 ## Hinweise zur Nutzung
 
-Das Modell eignet sich besonders als Grundlage für Management-Workshops, Standortbestimmungen und Roadmaps. Sinnvoll ist weniger die Frage „Welche Stufe sind wir?", sondern „Was verhindert aktuell den nächsten konsistenten Entwicklungsschritt?"
+Sinnvoll ist weniger die Frage "Welche Stufe ist die Organisation?", sondern "Was verhindert aktuell den nächsten konsistenten Entwicklungsschritt?" Aus der Antwort lassen sich eine Selbstbewertungs-Checkliste, abteilungsspezifische Reifegradprofile oder eine realistische Ein-Stufen-Roadmap ableiten.
 
-**Nächster sinnvoller Schritt:** Ableitung einer strukturierten **Selbstbewertungs-Checkliste**, abteilungsspezifischer Reifegradprofile (z. B. HR, Marketing, Produktion) oder einer realistischen **1-Stufen-Roadmap**.
-
----
-
-> 💡 **Tipp:** Das Modell ist kein Benchmarking-Tool, sondern ein Analyseinstrument zur Identifikation von Entwicklungspfaden und Blockaden.
+> [!TIP] Einsatz im Workshop<br>
+> Das Modell eignet sich als Gesprächsgrundlage für Standortbestimmungen. Es ersetzt keine technische Architekturprüfung und keine Wirtschaftlichkeitsrechnung.
 
 ---
 
-**Version:**    1.0<br>
-**Stand:**    Januar 2026<br>
+**Version:** 1.0<br>
+**Stand:** Januar 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

@@ -10,7 +10,8 @@ has_toc: true
 # Von Colab zur lokalen Umgebung
 {: .no_toc }
 
-> **Welche Anpassungen sind nötig, um die Kurs-Notebooks lokal auszuführen?** 
+> [!NOTE] Lokale Ausführung<br>
+> Colab-spezifische Setup-Zeilen werden lokal durch eine virtuelle Umgebung, installierte Pakete und gesetzte Umgebungsvariablen ersetzt.
 
 ---
 
@@ -38,7 +39,7 @@ pip install git+https://github.com/ralf-42/GenAI.git#subdirectory=04_modul
 
 ### API-Keys einrichten
 
-In Colab übernimmt `setup_api_keys()` die Keys aus dem Colab-Secret-Manager. Lokal müssen die Keys vorab gesetzt werden — am einfachsten über eine `.env`-Datei im Projektverzeichnis:
+In Colab übernimmt `setup_api_keys()` die Keys aus dem Colab-Secret-Manager. Lokal müssen die Keys vorab gesetzt werden. Für lokale Kursläufe eignet sich eine `.env`-Datei im Projektverzeichnis, sofern sie nicht versioniert wird:
 
 ```bash
 # Datei: GenAI/.env
@@ -53,8 +54,8 @@ import os
 os.environ["OPENAI_API_KEY"] = "sk-..."
 ```
 
-{: .warning }
-> `.env`-Datei niemals in Git einchecken — Eintrag in `.gitignore` prüfen.
+> [!WARNING] Schlüsseldateien<br>
+> `.env`-Datei niemals in Git einchecken. Der Eintrag in `.gitignore` muss vor dem ersten Commit geprüft werden.
 
 ---
 
@@ -102,14 +103,14 @@ check_environment()
 
 ## Was sich nicht ändert
 
-{: .note }
-> Die Notebooks haben **minimale Colab-Abhängigkeiten** — der Großteil läuft lokal ohne jede Änderung.
+> [!NOTE] Colab-Abhängigkeiten<br>
+> Die Notebooks haben minimale Colab-Abhängigkeiten. Der Großteil läuft lokal ohne Änderung.
 
-- ✅ Alle LangChain / LangGraph Patterns
-- ✅ Alle relativen Dateipfade (keine `/content/`-Pfade in den Notebooks)
-- ✅ Kein Google Drive Mounting erforderlich (Notebooks sind selbst-contained)
-- ✅ `mprint()`, `mermaid()`, `load_prompt()` aus genai_lib
-- ✅ LangSmith-Umgebungsvariablen (`os.environ["LANGSMITH_TRACING"]` etc.)
+- Alle LangChain / LangGraph Patterns
+- Alle relativen Dateipfade (keine `/content/`-Pfade in den Notebooks)
+- Kein Google Drive Mounting erforderlich (Notebooks sind selbst-contained)
+- `mprint()`, `mermaid()`, `load_prompt()` aus genai_lib
+- LangSmith-Umgebungsvariablen (`os.environ["LANGSMITH_TRACING"]` etc.)
 
 ---
 
@@ -118,12 +119,12 @@ check_environment()
 - [ ] Virtuelle Umgebung aktiv? (`.venv\Scripts\activate`)
 - [ ] `genai_lib` installiert? (`pip show genai-lib`)
 - [ ] `OPENAI_API_KEY` gesetzt? (`echo %OPENAI_API_KEY%`)
-- [ ] `#@title`- und `get_ipinfo()`-Zeilen entfernt?
+- [ ] Colab-Metadatenzeilen wie `#@title` und optionale `get_ipinfo()`-Aufrufe entfernt?
 - [ ] Notebook-spezifische Zusatzpakete installiert (M08, M12, M14, M17)?
 - [ ] Für M14: Ollama installiert und gestartet?
 
 ---
 
-**Version:**    1.0<br>
-**Stand:**    März 2026<br>
+**Version:** 1.0<br>
+**Stand:** März 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

@@ -10,7 +10,8 @@ has_toc: true
 # Interaktive Visualisierungen
 {: .no_toc }
 
-> **Interaktive Web-Demos für Generative KI Konzepte - organisiert nach Themengebieten**
+> [!NOTE] Web-Demos<br>
+> Die Sammlung bündelt interaktive Visualisierungen zu Transformer-Architektur, Embeddings, Multimodalität, RAG und Modellauswahl.
 
 ---
 
@@ -22,7 +23,7 @@ has_toc: true
 
 ---
 
-## 🧠 LLM-Grundlagen
+## LLM-Grundlagen
 
 Transformer-Architektur und Embedding-Konzepte
 
@@ -46,7 +47,7 @@ Transformer-Architektur und Embedding-Konzepte
 
 ---
 
-## 🤖 KI-Agenten
+## KI-Agenten
 
 Agentenbasierte KI-Systeme und deren Funktionsweise
 
@@ -56,7 +57,7 @@ Agentenbasierte KI-Systeme und deren Funktionsweise
 
 ---
 
-## 🖼️ Multimodal - Bild
+## Multimodal - Bild
 
 Bildverarbeitung und Computer Vision
 
@@ -68,7 +69,7 @@ Bildverarbeitung und Computer Vision
 
 ---
 
-## 🎵 Multimodal - Audio
+## Multimodal - Audio
 
 Audioverarbeitung und Visualisierung
 
@@ -78,7 +79,7 @@ Audioverarbeitung und Visualisierung
 
 ---
 
-## 🤖 Modellauswahl
+## Modellauswahl
 
 Entscheidungshilfen für die richtige Modellwahl
 
@@ -88,7 +89,7 @@ Entscheidungshilfen für die richtige Modellwahl
 
 ---
 
-## 📚 RAG (Retrieval Augmented Generation)
+## RAG (Retrieval Augmented Generation)
 
 Retrieval Augmented Generation - Wissensabruf und Anreicherung
 
@@ -104,7 +105,7 @@ Retrieval Augmented Generation - Wissensabruf und Anreicherung
 
 ---
 
-## ⚙️ Prozesse & Automatisierung
+## Prozesse & Automatisierung
 
 Tools für KI-gestützte Prozessoptimierung und Entscheidungshilfen
 
@@ -115,7 +116,7 @@ Tools für KI-gestützte Prozessoptimierung und Entscheidungshilfen
 
 ---
 
-## 🌐 Externe Bildungsressourcen
+## Externe Bildungsressourcen
 
 Weitere interaktive Visualisierungen von externen Anbietern
 
@@ -126,6 +127,6 @@ Weitere interaktive Visualisierungen von externen Anbietern
 
 ---
 
-**Version:**    1.0<br>
-**Stand:**    Januar 2026<br>
+**Version:** 1.0<br>
+**Stand:** Januar 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

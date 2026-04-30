@@ -10,7 +10,8 @@ has_toc: true
 # Links
 {: .no_toc }
 
-> **Kuratierte Sammlung externer Ressourcen zu KI, LLMs und Frameworks**
+> [!NOTE] Kuratierte Links<br>
+> Die Sammlung verweist auf externe Dokumentationen, Benchmarks, Lernressourcen und Tools für die Kursarbeit.
 
 ---
 
@@ -133,6 +134,6 @@ Ressourcen zur Anpassung von Sprachmodellen auf eigene Daten.
 
 ---
 
-**Version:**    1.0<br>
-**Stand:**    Januar 2026<br>
+**Version:** 1.0<br>
+**Stand:** Januar 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
