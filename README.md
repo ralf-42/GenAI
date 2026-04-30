@@ -131,7 +131,7 @@ Alle Notebooks sind eigenständig lauffähig und für Google Colab optimiert. Da
 
 Der Kurs bietet zwei praxisorientierte Lernformate:
 
-### [RAG Workshop](https://ralf-42.github.io/GenAI/projekte/RAG_Workshop.html)
+### [RAG Workshop](https://ralf-42.github.io/GenAI/projekte/rag-workshop.html)
 **Workshop-Format** | Begleitete Schritt-für-Schritt-Übung
 
 Bauen Sie einen intelligenten Tech-Doku-Assistenten von Grund auf:
@@ -140,7 +140,7 @@ Bauen Sie einen intelligenten Tech-Doku-Assistenten von Grund auf:
 - 🛠️ Hands-On mit LangChain, ChromaDB, Gradio
 - ⏱️ Zeitaufwand: 4-6 Stunden
 
-### [KI-Challenge](https://ralf-42.github.io/GenAI/projekte/M23_KI-Challenge.html)
+### [KI-Challenge](https://ralf-42.github.io/GenAI/projekte/m23-ki-challenge.html)
 **End-to-End Projekt** | Eigenständige Implementierung
 
 Entwickeln Sie eine vollständige GenAI-Anwendung:
@@ -172,4 +172,3 @@ Bilder und Videos erstellt mit **Hedra AI** – Nutzung gemäß [Hedra Terms](ht
 
 **Letzte Aktualisierung:** April 2026         
 **Version:** 2.6          
-

@@ -403,9 +403,9 @@ Die Embeddings sind die **Brücke zwischen rohem Text und neuronaler Verarbeitun
 
 | Dokument | Frage |
 |---|---|
-| [Prompt Engineering](./Prompt_Engineering.html) | Was lässt sich noch über bessere Anweisungen statt über Training lösen? |
-| [RAG-Konzepte](./RAG_Konzepte.html) | Wann hilft externer Wissenszugriff mehr als Modellanpassung? |
-| [Modellauswahl](./M19_Modellauswahl.html) | Wie wird entschieden, ob ein anderes Basismodell genügt? |
+| [Prompt Engineering](./prompt-engineering.html) | Was lässt sich noch über bessere Anweisungen statt über Training lösen? |
+| [RAG-Konzepte](./rag-konzepte.html) | Wann hilft externer Wissenszugriff mehr als Modellanpassung? |
+| [Modellauswahl](./m19-modellauswahl.html) | Wie wird entschieden, ob ein anderes Basismodell genügt? |
 
 ---
 

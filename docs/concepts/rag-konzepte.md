@@ -530,7 +530,7 @@ for case in test_cases:
 ```
 
 > [!TIP] Vertiefung<br>
-> Die einsteigerfreundliche Einordnung steht in [Evaluation & Observability](./Evaluation_Observability.html). Die technische Umsetzung mit Tracing, Datasets und Monitoring ist in [LangSmith Best Practices](../frameworks/LangSmith_Best_Practices.html) beschrieben.
+> Die einsteigerfreundliche Einordnung steht in [Evaluation & Observability](./evaluation-observability.html). Die technische Umsetzung mit Tracing, Datasets und Monitoring ist in [LangSmith Best Practices](../frameworks/langsmith-best-practices.html) beschrieben.
 
 ---
 
@@ -636,10 +636,10 @@ RAG ermöglicht es, LLMs mit aktuellem, domänenspezifischem Wissen auszustatten
 
 | Dokument | Frage |
 |---|---|
-| [Tokenizing & Chunking](./M08a_Tokenizing_Chunking.html) | Wie beeinflusst die Aufbereitung der Dokumente die Retrieval-Qualität? |
-| [Embeddings](./M08b_Embeddings.html) | Wie werden Dokumente und Fragen semantisch vergleichbar gemacht? |
-| [Context Engineering](./M21_Context_Engineering.html) | Wie fügt sich Retrieval in die größere Kontextlogik eines Systems ein? |
-| [Evaluation & Observability](./Evaluation_Observability.html) | Wie wird geprüft, ob Retrieval und Antwortqualität belastbar sind? |
+| [Tokenizing & Chunking](./m08a-tokenizing-chunking.html) | Wie beeinflusst die Aufbereitung der Dokumente die Retrieval-Qualität? |
+| [Embeddings](./m08b-embeddings.html) | Wie werden Dokumente und Fragen semantisch vergleichbar gemacht? |
+| [Context Engineering](./m21-context-engineering.html) | Wie fügt sich Retrieval in die größere Kontextlogik eines Systems ein? |
+| [Evaluation & Observability](./evaluation-observability.html) | Wie wird geprüft, ob Retrieval und Antwortqualität belastbar sind? |
 
 ---
 

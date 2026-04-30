@@ -428,9 +428,9 @@ QUALITÄTSKRITERIEN:
 
 | Dokument | Frage |
 |---|---|
-| [Prompt Engineering](./Prompt_Engineering.html) | Wie wird eine einzelne Anfrage formuliert, statt den Gesamtkontext eines Systems zu gestalten? |
-| [RAG-Konzepte](./RAG_Konzepte.html) | Wann ist Retrieval nur ein Teil der Kontextstrategie? |
-| [Fine-Tuning](./M18_Fine-Tuning.html) | Wann wird Verhalten ins Modell verlagert statt zur Laufzeit organisiert? |
+| [Prompt Engineering](./prompt-engineering.html) | Wie wird eine einzelne Anfrage formuliert, statt den Gesamtkontext eines Systems zu gestalten? |
+| [RAG-Konzepte](./rag-konzepte.html) | Wann ist Retrieval nur ein Teil der Kontextstrategie? |
+| [Fine-Tuning](./m18-fine-tuning.html) | Wann wird Verhalten ins Modell verlagert statt zur Laufzeit organisiert? |
 
 
 ---

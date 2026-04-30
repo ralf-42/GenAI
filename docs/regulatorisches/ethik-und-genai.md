@@ -71,9 +71,9 @@ In der Praxis relevant, wenn: ein GenAI-System Inhalte erzeugt, die Menschen dir
 
 | Dokument | Frage |
 |---|---|
-| [EU AI Act](./EU_AI_Act.html) | Welche rechtlichen Pflichten entstehen aus europäischer KI-Regulierung? |
-| [Digitale Souveränität](./Digitale_Souveraenitat.html) | Welche strategischen Abhängigkeiten entstehen durch Infrastruktur, Modelle und Datenräume? |
-| [Evaluation & Observability](../concepts/Evaluation_Observability.html) | Wie werden Qualität, Bias, Fehlerverhalten und Betrieb messbar gemacht? |
+| [EU AI Act](./eu-ai-act.html) | Welche rechtlichen Pflichten entstehen aus europäischer KI-Regulierung? |
+| [Digitale Souveränität](./digitale-souveraenitat.html) | Welche strategischen Abhängigkeiten entstehen durch Infrastruktur, Modelle und Datenräume? |
+| [Evaluation & Observability](../concepts/evaluation-observability.html) | Wie werden Qualität, Bias, Fehlerverhalten und Betrieb messbar gemacht? |
 
 ---
 

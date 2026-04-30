@@ -16,7 +16,7 @@ Deployment beginnt im Kurs nicht erst bei Docker oder Hosting. Relevant wird es 
 
 Diese Seite ordnet die Werkzeuge ein, bevor Architekturentscheidungen zu früh verfestigt werden.
 
-- **[Vom Modell zum Produkt](https://ralf-42.github.io/GenAI/deployment/Vom_Modell_zum_Produkt_LangChain_Oekosystem.html)** – *Wie wird aus einem Modell ein System?*
+- **[Vom Modell zum Produkt](https://ralf-42.github.io/GenAI/deployment/vom-modell-zum-produkt-langchain-oekosystem.html)** – *Wie wird aus einem Modell ein System?*
 
 ### Deployment-Prozess
 
@@ -28,4 +28,4 @@ Der praktische Übergang von Notebook zu Anwendung scheitert selten an einer ein
 
 Providerwechsel wirken auf den ersten Blick technisch, sind in der Praxis aber meist Architekturfragen. Die Migrationsseite zeigt, warum ein gut strukturiertes LangChain-Projekt nicht bei null anfängt.
 
-- **[Migration OpenAI → Mistral](https://ralf-42.github.io/GenAI/deployment/Migration_OpenAI_Mistral.html)** – *Wie wird ein Providerwechsel ohne Neubau angegangen?*
+- **[Migration OpenAI → Mistral](https://ralf-42.github.io/GenAI/deployment/migration-openai-mistral.html)** – *Wie wird ein Providerwechsel ohne Neubau angegangen?*

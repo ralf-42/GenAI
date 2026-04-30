@@ -256,9 +256,9 @@ Es simuliert damit echtes Sprachverständnis im Schreibprozess.
 
 | Dokument | Frage |
 |---|---|
-| [Tokenizing & Chunking](./M08a_Tokenizing_Chunking.html) | Wie wird Text für Modelle in verarbeitbare Einheiten zerlegt? |
-| [Embeddings](./M08b_Embeddings.html) | Wie wird Bedeutung als Vektor darstellbar gemacht? |
-| [Fine-Tuning](./M18_Fine-Tuning.html) | Wann reicht die Grundarchitektur nicht mehr und Anpassung per Training wird relevant? |
+| [Tokenizing & Chunking](./m08a-tokenizing-chunking.html) | Wie wird Text für Modelle in verarbeitbare Einheiten zerlegt? |
+| [Embeddings](./m08b-embeddings.html) | Wie wird Bedeutung als Vektor darstellbar gemacht? |
+| [Fine-Tuning](./m18-fine-tuning.html) | Wann reicht die Grundarchitektur nicht mehr und Anpassung per Training wird relevant? |
 
 ---
 

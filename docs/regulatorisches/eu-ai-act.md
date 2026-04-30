@@ -75,9 +75,9 @@ Der langfristige Erfolg des AI Acts hängt davon ab, ob Regulierung und technisc
 
 | Dokument | Frage |
 |---|---|
-| [Ethik und GenAI](./Ethik_und_GenAI.html) | Welche normativen Zielkonflikte entstehen jenseits formaler Regulierung? |
-| [Digitale Souveränität](./Digitale_Souveraenitat.html) | Wie hängen KI-Regulierung, Infrastrukturabhängigkeiten und europäische Handlungsfähigkeit zusammen? |
-| [Evaluation & Observability](../concepts/Evaluation_Observability.html) | Wie werden Qualität, Fehlerverhalten und Betrieb von KI-Systemen überprüfbar? |
+| [Ethik und GenAI](./ethik-und-genai.html) | Welche normativen Zielkonflikte entstehen jenseits formaler Regulierung? |
+| [Digitale Souveränität](./digitale-souveraenitat.html) | Wie hängen KI-Regulierung, Infrastrukturabhängigkeiten und europäische Handlungsfähigkeit zusammen? |
+| [Evaluation & Observability](../concepts/evaluation-observability.html) | Wie werden Qualität, Fehlerverhalten und Betrieb von KI-Systemen überprüfbar? |
 
 ---
 
