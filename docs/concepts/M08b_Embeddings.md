@@ -173,8 +173,8 @@ Hier ist eine tabellarische Übersicht, die ausgehend vom **Embedding-Modell** z
 
 
 
-> [!NOTE] Fazit<br>
-> Embeddings sind ein zentrales Konzept in der modernen KI. Sie ermöglichen Maschinen, Bedeutungen zu erfassen, Muster zu erkennen und personalisierte Inhalte zu liefern. Ohne Embeddings wären viele heutige KI-Technologien nicht denkbar – von Chatbots über Bilderkennung bis hin zu Streaming-Diensten. Sie sind das **unsichtbare Gerüst**, das intelligente Systeme erst möglich macht.
+> [!NOTE] Grenze<br>
+> Embeddings machen Ähnlichkeit berechenbar, ersetzen aber keine gute Datenstruktur. Wenn Texte schlecht geschnitten, uneinheitlich benannt oder ohne relevante Metadaten gespeichert werden, findet auch ein gutes Embedding-Modell nur scheinbar passende Treffer.
 ---
 
 ## Abgrenzung zu verwandten Dokumenten

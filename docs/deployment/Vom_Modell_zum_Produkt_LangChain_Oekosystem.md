@@ -192,12 +192,7 @@ workflow.add_conditional_edges("classify", route_to_action)
 agent = workflow.compile()
 ```
 
-**Vorteile:**
-- ✅ Tool-Integration (DB-Zugriff)
-- ✅ Kontrollierter Workflow
-- ✅ Automatisches Logging
-- ✅ Debugging-Möglichkeit
-- ✅ Performance-Tracking
+Der Workflow koppelt Tool-Integration, kontrollierte Zustandsübergänge und automatisches Logging. Dadurch werden Debugging und Performance-Tracking nicht nachträglich angehängt, sondern Teil der Laufzeitstruktur.
 
 ---
 
@@ -213,27 +208,24 @@ Das LangChain-Ökosystem ist nicht die einzige Lösung. Alternativen mit ähnlic
 | **CrewAI** | Spezialisierte Agents | Rollenbasierte Multi-Agent-Systeme |
 | **Semantic Kernel** | Microsoft-Integration | .NET und Azure-optimiert |
 
-{: .important }
-> **Tipp:** Die Wahl des Frameworks hängt von Ihren spezifischen Anforderungen ab. LangChain bietet ein gutes Gleichgewicht zwischen Flexibilität und Struktur, während spezialisierte Frameworks für bestimmte Use Cases optimiert sind.
+> [!TIP] Framework-Auswahl<br>
+> Die Wahl des Frameworks hängt von Anforderungen wie RAG-Anteil, Tool-Nutzung, Cloud-Umgebung und Team-Stack ab. LangChain bietet ein Gleichgewicht zwischen Flexibilität und Struktur, während spezialisierte Frameworks für einzelne Use Cases optimiert sind.
 
 ---
 
 ## 10. Best Practices für den Produktiv-Einsatz
 
 ### 1. Start Simple
-- Mit LangChain Chains beginnen
-- Erst bei Bedarf zu Agents erweitern
-- Für komplexe Workflows LangGraph einsetzen
+
+Der Einstieg erfolgt am stabilsten über einfache LangChain Chains. Agents kommen erst hinzu, wenn Tool-Auswahl oder mehrstufige Entscheidungen nötig werden; für komplexe Workflows ist LangGraph die passendere Struktur.
 
 ### 2. Monitor from Day One
-- LangSmith von Anfang an aktivieren
-- Traces regelmäßig reviewen
-- Kosten-Tracking implementieren
+
+LangSmith sollte von Beginn an aktiv sein, damit Fehler nicht nur als falsche Antworten sichtbar werden. Regelmäßige Trace-Reviews und Kosten-Tracking verhindern, dass Prompts oder Tools im Blindflug optimiert werden.
 
 ### 3. Iterative Verbesserung
-- Dataset-basierte Evaluierung
-- A/B-Testing für Prompts
-- Feedback-Loops einbauen
+
+Verbesserungen brauchen ein kleines Evaluationsset, A/B-Tests für Prompts und einen Feedback-Loop aus realen Fehlfällen. Ohne diese Basis bleibt Optimierung meist subjektiv.
 
 ### 4. Production-Readiness Checklist
 - [ ] Error-Handling implementiert
@@ -265,6 +257,15 @@ Das Zusammenspiel aus LangChain, LangGraph und LangSmith bietet einen Ansatz, um
 - [LangGraph Docs](https://langchain-ai.github.io/langgraph/)
 - [LangSmith Docs](https://docs.smith.langchain.com/)
 
+
+---
+
+## Abgrenzung zu verwandten Dokumenten
+
+| Dokument | Frage |
+|---|---|
+| [Produktionsreife Anwendung](./aus-entwicklung-ins-deployment.html) | Welche Schritte führen von Notebook-Code zu einer deploybaren Anwendung? |
+| [Migration OpenAI → Mistral](./Migration_OpenAI_Mistral.html) | Wie wirkt sich ein Providerwechsel auf Architektur und Modellzugriff aus? |
 
 ---
 

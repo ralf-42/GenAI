@@ -692,9 +692,9 @@ with gr.Blocks(title="Tech-Doku Assistent") as demo:
 - `01_notebook/M13_Gradio.ipynb`
 
 **Qualität & Observability:**
-- [Evaluation & Observability](https://ralf-42.github.io/GenAI/concepts/Evaluation_Observability.html)
-- [RAG-Konzepte](https://ralf-42.github.io/GenAI/concepts/RAG_Konzepte.html)
-- [LangSmith Best Practices](https://ralf-42.github.io/GenAI/frameworks/LangSmith_Best_Practices.html)
+- [Evaluation & Observability](../concepts/Evaluation_Observability.html)
+- [RAG-Konzepte](../concepts/RAG_Konzepte.html)
+- [LangSmith Best Practices](../frameworks/LangSmith_Best_Practices.html)
 
 ---
 
@@ -757,6 +757,16 @@ A: Ja. Dann lokal mit Jupyter Notebook oder JupyterLab arbeiten und Folgendes er
   - `from google.colab import userdata` → `from dotenv import load_dotenv`
   - `files.upload()` → Lokale File-Pfade
   - `share=True` → Optional für Gradio
+
+---
+
+## Abgrenzung zu verwandten Dokumenten
+
+| Dokument | Frage |
+|---|---|
+| [KI-Challenge](./M23_KI-Challenge.html) | Wie wird aus einem offenen Kursprojekt ein bewertbares End-to-End-System? |
+| [RAG-Konzepte](../concepts/RAG_Konzepte.html) | Welche Retrieval-Entscheidungen liegen unter dem Workshop? |
+| [Evaluation & Observability](../concepts/Evaluation_Observability.html) | Wie wird die Qualität einer RAG-Anwendung überprüfbar? |
 
 ---
 

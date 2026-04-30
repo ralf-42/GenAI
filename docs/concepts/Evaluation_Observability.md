@@ -24,7 +24,7 @@ has_toc: true
 
 ## Warum dieses Thema früh kommt
 
-GenAI-Anwendungen wirken in Demos oft stabiler, als sie sind. Eine einzelne gelungene Antwort beweist nur, dass ein Fall funktioniert hat. Sie sagt wenig darüber aus, ob dieselbe Chain bei anderen Fragen, anderem Kontext oder leicht veränderten Dokumenten noch belastbar arbeitet.
+GenAI-Anwendungen wirken in Demos oft stabiler, als sie sind. Eine einzelne gelungene Antwort beweist nur, dass ein Fall funktioniert hat. Dieser Einzelfall sagt wenig darüber aus, ob dieselbe Chain bei anderen Fragen, anderem Kontext oder leicht veränderten Dokumenten noch belastbar arbeitet.
 
 Evaluation und Observability schaffen dafür zwei verschiedene Blickwinkel. Evaluation prüft, ob ein System gute Ergebnisse liefert. Observability zeigt, wie diese Ergebnisse entstanden sind. Erst zusammen wird sichtbar, ob ein Fehler im Prompt, im Retriever, im Tool-Aufruf, im Modell oder in den Eingabedaten liegt.
 

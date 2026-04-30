@@ -2,7 +2,7 @@
 layout: default
 title: Fine-Tuning
 parent: Konzepte
-nav_order: 7
+nav_order: 6
 description: "Model Adaptation: Fine-Tuning-Strategien, LoRA und PEFT-Methoden"
 has_toc: true
 ---
@@ -242,7 +242,7 @@ Embeddings spielen beim **Fine-Tuning eines Large Language Models (LLMs)** eine 
 # Embeddings und Fine-Tuning
 ## Recap: Was sind Embeddings?
 
-**Embeddings** sind **dichte, numerische Vektoren**, die Wörter, Tokens oder ganze Sätze in einem kontinuierlichen Vektorraum repräsentieren. Sie sind so trainiert, dass **semantisch ähnliche Begriffe nahe beieinander** im Vektorraum liegen.
+**Embeddings** sind **dichte, numerische Vektoren**, die Wörter, Tokens oder ganze Sätze in einem kontinuierlichen Vektorraum repräsentieren. Das Training ordnet **semantisch ähnliche Begriffe nahe beieinander** im Vektorraum an.
 
 
 
@@ -277,7 +277,7 @@ Embeddings spielen beim **Fine-Tuning eines Large Language Models (LLMs)** eine 
 
 ## Warum sind sie so wichtig?
 
-- Sie beeinflussen maßgeblich, **wie der Text semantisch verstanden wird**.
+- Embeddings beeinflussen maßgeblich, **wie der Text semantisch verstanden wird**.
     
 - Eine gute Embedding-Anpassung beim Fine-Tuning verbessert die Fähigkeit des Modells, **Aufgabenkontext korrekt zu erfassen** (z. B. bei Named Entity Recognition, Sentiment Analysis, RAG-Systemen usw.).
     
@@ -332,7 +332,6 @@ Die Embeddings sind die **Brücke zwischen rohem Text und neuronaler Verarbeitun
     
 8. **Hyperparameter systematisch optimieren**
     - Automatisierte Hyperparameter-Optimierung nutzen (Random Search, Grid Search, Bayesian)
-    - Fokussieren Sie auf Lernrate, Batch-Größe und Epochenanzahl
     - Fokus auf Lernrate, Batch-Größe und Epochenanzahl legen
     - Die Ergebnisse verschiedener Konfigurationen dokumentieren
     

@@ -62,37 +62,20 @@ Die KI-Challenge greift **typische Herausforderungen** auf, die zwischen Noteboo
 
 ### Learnings aus der Praxis
 
-**1. Engineering > Hype**
-- Training Runs kosten Millionen und erfordern präzise Planung
-- **Für das Projekt:** Klare Benchmarks vor dem Start definieren
-- **Takeaway:** Messbarkeit ist der Schlüssel zum Erfolg
+Engineering ist wichtiger als Hype: Große Trainingsläufe kosten viel Geld und erfordern präzise Planung. Für die Challenge bedeutet das, Benchmarks vor dem Start festzulegen, damit Fortschritt nicht nur subjektiv bewertet wird.
 
-**2. Iteration & Feedback**
-- Frontier Labs (OpenAI, Anthropic) iterieren regelmäßig basierend auf User-Feedback
-- **Für das Projekt:** Früh mit echten Nutzern testen
-- **Takeaway:** MVP first, dann verfeinern
+Iteration und Feedback gehören ebenfalls früh in das Projekt. Frontier Labs wie OpenAI oder Anthropic verbessern Systeme nicht durch einen einzigen großen Wurf, sondern durch wiederholte Tests mit realen Nutzungsdaten. Ein kleines MVP mit frühem Feedback ist belastbarer als eine große Demo ohne Rückkopplung.
 
-**3. Produkt-Mindset**
-- Guardrails, System Prompts, Prompt Injection Prevention
-- **Für das Projekt:** Mindestens einen Safety-Layer vorsehen, etwa Middleware
-- **Takeaway:** Robustheit > Features
+Produktdenken zeigt sich an Guardrails, System Prompts und Schutz gegen Prompt Injection. Für das Projekt reicht oft ein klarer Safety-Layer, etwa Middleware mit Logging und Retry. Robustheit zählt stärker als eine lange Feature-Liste.
 
 {: .info }
 > **Empfehlung:** Die [Links-Sammlung](../ressourcen/links.html) ergänzt den Projektteil um weiterführende Ressourcen zu GenAI-Entwicklung und Best Practices.
 
 ### Konkrete Hinweise für die Challenge
 
-✅ **Do's:**
-- Start small: Bestehende Modelle verwenden (OpenAI, Groq, Anthropic)
-- Fokus auf Deployment: Gradio oder Streamlit früh in einen nutzbaren Stand bringen
-- Messbare Ziele: Drei bis fünf Erfolgsmetriken festlegen
-- Frühes Feedback: Ein MVP früh sichtbar machen
+Ein tragfähiger Start nutzt bestehende Modelle wie OpenAI, Groq oder Anthropic und bringt Gradio oder Streamlit früh in einen nutzbaren Stand. Drei bis fünf Erfolgsmetriken reichen, wenn sie konkret sind und mit einem sichtbaren MVP getestet werden.
 
-❌ **Don'ts:**
-- Nicht von Grund auf trainieren (kein 10-50 Mio. Dollar Budget 😉)
-- Kein "Open Source = fertig": Ein Modell allein ist kein Produkt
-- Keine Blackbox: Das Verhalten des Modells muss nachvollziehbar bleiben
-- Kein Overengineering: Lieber 3 Features perfekt als 10 halbfertig
+Nicht geeignet ist ein Projektplan, der mit Training von Grund auf beginnt oder Open Source mit Produktreife verwechselt. Ein Modell allein ist kein Produkt. Ebenso problematisch sind Blackbox-Verhalten und Overengineering: Drei stabile Funktionen sind wertvoller als zehn halbfertige.
 
 ---
 
@@ -440,7 +423,7 @@ def create_interface():
     # Frage-Antwort-Funktion mit LCEL
     def ask_question(question):
         if state["qa_chain"] is None:
-            return "⚠️ Bitte laden Sie zuerst ein Dokument hoch."
+            return "⚠️ Zuerst muss ein Dokument hochgeladen werden."
 
         try:
             # ✅ LCEL Chain mit Chat-History aufrufen
@@ -475,7 +458,7 @@ def create_interface():
     # Gradio-Interface erstellen
     with gr.Blocks(title="Dokumentenanalyse-Assistent") as interface:
         gr.Markdown("# 📚 Dokumentenanalyse-Assistent")
-        gr.Markdown("Laden Sie ein PDF-Dokument hoch und stellen Sie Fragen dazu.")
+        gr.Markdown("PDF-Dokument hochladen und Fragen zum Inhalt stellen.")
 
         with gr.Row():
             with gr.Column():
@@ -484,7 +467,7 @@ def create_interface():
                 status_text = gr.Textbox(label="Status", interactive=False)
 
             with gr.Column():
-                question_input = gr.Textbox(label="Ihre Frage zum Dokument", placeholder="Stellen Sie eine Frage zum Inhalt des Dokuments...")
+                question_input = gr.Textbox(label="Frage zum Dokument", placeholder="Frage zum Inhalt des Dokuments eingeben...")
                 answer_output = gr.Textbox(label="Antwort", interactive=False, lines=15)
                 ask_button = gr.Button("Frage stellen")
 
@@ -528,6 +511,18 @@ Folgende Ressourcen unterstützen die Entwicklung des Abschlussprojekts:
   - LLM-Chatbots wie ChatGPT oder Gemini als Sparringspartner
 
 Bei Fragen oder Problemen während der Projektentwicklung steht das `Kurs-Forum` zur Verfügung.
+
+---
+
+## Abgrenzung zu verwandten Dokumenten
+
+| Dokument | Frage |
+|---|---|
+| [RAG Workshop](./RAG_Workshop.html) | Wie entsteht schrittweise eine RAG-Anwendung mit Agent, Middleware und UI? |
+| [Produktionsreife Anwendung](../deployment/aus-entwicklung-ins-deployment.html) | Welche Schritte sind nötig, damit ein Kursprojekt deploybar wird? |
+| [Evaluation & Observability](../concepts/Evaluation_Observability.html) | Wie werden Qualität und Fehlerverhalten einer GenAI-Anwendung sichtbar? |
+
+---
 
 **Version:**    3.0<br>
 **Stand:**    Februar 2026<br>

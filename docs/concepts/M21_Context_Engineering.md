@@ -2,7 +2,7 @@
 layout: default
 title: Context Engineering
 parent: Konzepte
-nav_order: 10
+nav_order: 8
 description: "Context Management: Optimierung von Context-Fenstern und Memory-Strategien"
 has_toc: true
 ---
@@ -263,7 +263,7 @@ AUFGABE: Identifiziere Versicherungslücken und empfehle passende Produkte mit B
 
 ## Konsistenz-Checkliste:
 
-> [!SUCCESS] Qualitätsgate       
+> [!SUCCESS] Qualitätsgate<br>
 > Diese Checkliste eignet sich als "Definition of Done" vor jedem produktiven Prompt-Update.
 
 ```
