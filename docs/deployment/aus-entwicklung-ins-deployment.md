@@ -152,7 +152,7 @@ Eine `.env.example` als Vorlage:
 
 ```bash
 # .env.example - Zu .env kopieren und Werte eintragen
-OPENAI_API_KEY=dein-api-key-hier
+OPENAI_API_KEY=OPENAI_API_KEY_HIER_EINTRAGEN
 MODEL_NAME=gpt-4
 LOG_LEVEL=INFO
 ```
@@ -201,7 +201,7 @@ uvicorn>=0.23.0
 
 Auch ohne tiefe Testing-Erfahrung lassen sich grundlegende Tests schreiben:
 
-> [!SUCCESS] Mindeststandard     
+> [!SUCCESS] Mindeststandard<br>
 > Schon wenige Smoke-Tests verhindern viele regressionsbedingte Ausfälle im Deployment.
 
 ```python
@@ -305,7 +305,7 @@ docker build -t meine-genai-app .
 
 # Container starten (mit Umgebungsvariablen)
 docker run -p 8000:8000 \
-  -e OPENAI_API_KEY="dein-key" \
+  -e OPENAI_API_KEY="OPENAI_API_KEY_HIER_EINTRAGEN" \
   -e MODEL_NAME="gpt-4" \
   meine-genai-app
 ```
@@ -363,6 +363,15 @@ Vor dem Go-Live sollten diese Punkte geprüft werden:
 
 **❌ Kein Health-Check**
 → Deployment-Plattformen brauchen diesen Endpunkt
+
+---
+
+## Abgrenzung zu verwandten Dokumenten
+
+| Dokument | Frage |
+|---|---|
+| [Vom Modell zur Anwendung](./Vom_Modell_zum_Produkt_LangChain_Oekosystem.html) | Wie wird aus einem Modell ein technisches Anwendungssystem? |
+| [Migration OpenAI → Mistral](./Migration_OpenAI_Mistral.html) | Wie wird ein bestehendes Projekt auf einen anderen Provider vorbereitet? |
 
 ---
 

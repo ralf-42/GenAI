@@ -2,7 +2,7 @@
 layout: default
 title: Prompt Engineering
 parent: Konzepte
-nav_order: 9
+nav_order: 7
 description: "Strategien für effektive Prompts in KI-Agenten-Systemen"
 has_toc: true
 ---
@@ -208,7 +208,7 @@ def search_knowledge(query: str, max_results: int = 5) -> str:
 
 ### Checkliste für Tool-Beschreibungen
 
-> [!SUCCESS] Qualitätskriterium     
+> [!SUCCESS] Qualitätskriterium<br>
 > Wenn ein Tool klar beschreibt, wann es verwendet werden soll und wann nicht, sinken Fehlaufrufe und Halluzinationen deutlich.
 
 - [ ] **Zweck klar benannt** – Was macht das Tool?

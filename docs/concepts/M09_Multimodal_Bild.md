@@ -2,7 +2,7 @@
 layout: default
 title: Multimodal - Bild
 parent: Konzepte
-nav_order: 5
+nav_order: 4
 description: "Vision Language Models: Bildanalyse und Generierung mit LLMs"
 has_toc: true
 ---

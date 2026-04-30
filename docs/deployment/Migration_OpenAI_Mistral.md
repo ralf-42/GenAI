@@ -31,18 +31,7 @@ has_toc: true
 
 Eine Migration von OpenAI zu Mistral ist im Projekt `GenAI` **nicht trivial**, aber sie ist deutlich einfacher, weil große Teile der LLM-Nutzung bereits über **LangChain-Abstraktionen** laufen.
 
-Die Vereinfachung entsteht vor allem durch:
-
-- `init_chat_model(...)` statt provider-spezifischer Roh-Clients an vielen Stellen
-- konsistente Nutzung von LangChain-Patterns für Prompts, Chains und Tools
-- wiederkehrende Struktur für RAG, Structured Output und Agentenlogik
-- Trennung zwischen Modellzugriff und Anwendungslogik in vielen Notebook-Abschnitten
-
-Die Migration ist deshalb vor allem:
-
-- **kein vollständiger Neuaufbau**
-- **kein Austausch des gesamten Kursmaterials**
-- sondern primär eine **kontrollierte Anpassung der Modell- und Provider-Schicht**
+Die Vereinfachung entsteht vor allem durch `init_chat_model(...)` statt provider-spezifischer Roh-Clients, konsistente LangChain-Patterns für Prompts, Chains und Tools sowie wiederkehrende Strukturen für RAG, Structured Output und Agentenlogik. In vielen Notebook-Abschnitten ist der Modellzugriff bereits von der Anwendungslogik getrennt. Die Migration ist deshalb kein vollständiger Neuaufbau und kein Austausch des gesamten Kursmaterials, sondern primär eine kontrollierte Anpassung der Modell- und Provider-Schicht.
 
 ---
 
@@ -50,31 +39,13 @@ Die Migration ist deshalb vor allem:
 
 ### Vereinheitlichte Modellinitialisierung
 
-Wo Modelle über `init_chat_model(...)` genutzt werden, wird die Migration deutlich leichter:
+Wo Modelle über `init_chat_model(...)` genutzt werden, wird die Migration deutlich leichter: Der Providerwechsel erfolgt über Modell-String und Konfiguration, während die umgebende Prompt-, Chain- oder Agent-Logik häufig gleich bleibt. Dadurch kann derselbe Notebook-Ablauf mit einem anderen Provider getestet werden.
 
-- Providerwechsel erfolgt über Modell-String und Konfiguration
-- die umgebende Prompt-, Chain- oder Agent-Logik bleibt oft gleich
-- derselbe Notebook-Ablauf kann mit anderem Provider getestet werden
-
-**Typische Beispiele im Projekt:**
-
-- einfache Chat-Aufrufe
-- LCEL-Chains
-- Structured Output
-- Agenten mit `@tool`
-- MCP-/Agenten-Setups
+Typische Beispiele im Projekt sind einfache Chat-Aufrufe, LCEL-Chains, Structured Output, Agenten mit `@tool` und MCP-/Agenten-Setups.
 
 ### Wiederverwendbare LangChain-Bausteine
 
-Im Projekt werden wiederkehrende Muster verwendet:
-
-- `ChatPromptTemplate`
-- `StrOutputParser`
-- `with_structured_output()`
-- `@tool`
-- `create_agent()`
-
-Das ist migrationsfreundlich, weil diese Muster providerübergreifend ähnlich bleiben. Geändert wird primär, **welches Modell** dahinter hängt.
+Im Projekt wiederholen sich Muster wie `ChatPromptTemplate`, `StrOutputParser`, `with_structured_output()`, `@tool` und `create_agent()`. Das ist migrationsfreundlich, weil diese Muster providerübergreifend ähnlich bleiben. Geändert wird primär, **welches Modell** dahinter hängt.
 
 ### Strukturierte Ausgaben bleiben strukturiert
 
@@ -190,13 +161,7 @@ Die Migration wird transparent dokumentiert, ohne dass einzelne Notebooks als st
 
 ## Wie die Notebooks als Beispiele dienen
 
-Die Notebooks dienen nur dazu, die Typen von Migrationsarbeit anschaulich zu machen:
-
-- **einfache Prompt- und Chain-Notebooks** zeigen, wie gut `init_chat_model(...)` den Providerwechsel abfedert
-- **Structured-Output-Notebooks** zeigen, dass die Schemalogik bestehen bleiben kann
-- **Agenten- und Tool-Notebooks** zeigen, dass vor allem das Modellverhalten geprüft werden muss, nicht die Tool-Definition selbst
-- **RAG-Notebooks** zeigen, dass Embeddings separat betrachtet werden müssen
-- **multimodale Notebooks** zeigen, wo eine Einzelfallprüfung nötig bleibt
+Die Notebooks dienen nur dazu, die Typen von Migrationsarbeit anschaulich zu machen. Einfache Prompt- und Chain-Notebooks zeigen, wie gut `init_chat_model(...)` den Providerwechsel abfedert. Structured-Output-Notebooks zeigen, dass die Schemalogik bestehen bleiben kann. Agenten- und Tool-Notebooks machen sichtbar, dass vor allem das Modellverhalten geprüft werden muss, nicht die Tool-Definition selbst. RAG-Notebooks trennen die Embedding-Frage ab, während multimodale Notebooks zeigen, wo eine Einzelfallprüfung nötig bleibt.
 
 Die eigentliche Aussage ist:
 
@@ -206,14 +171,7 @@ Die eigentliche Aussage ist:
 
 ## Prüf- und Testpunkte
 
-Für jede Migration auf Mistral bleiben dieselben Kernfragen relevant:
-
-- läuft die bestehende LangChain-Struktur weiter stabil
-- bleiben Outputs fachlich brauchbar
-- bleibt Structured Output valide
-- bleiben Tool-Aufrufe korrekt
-- bleiben RAG-Pfade konsistent
-- passen Latenz und Kosten zum Kursbetrieb
+Für jede Migration auf Mistral bleiben dieselben Kernfragen relevant: Läuft die bestehende LangChain-Struktur weiter stabil, bleiben Outputs fachlich brauchbar, Structured Output valide und Tool-Aufrufe korrekt? Zusätzlich müssen RAG-Pfade konsistent bleiben, und Latenz sowie Kosten müssen zum Kursbetrieb passen.
 
 **Minimalmatrix:**
 
@@ -267,23 +225,16 @@ Für jede Migration auf Mistral bleiben dieselben Kernfragen relevant:
 
 ## Fazit
 
-Die eigentliche Botschaft dieser Migration ist:
+Die eigentliche Botschaft dieser Migration ist: Der Wechsel von OpenAI zu Mistral wird im Projekt `GenAI` nicht deshalb handhabbar, weil Provider austauschbar wären, sondern weil **LangChain die LLM-Schicht bereits stark standardisiert**. Dadurch verschiebt sich die Arbeit weg von einer kompletten Neuerstellung der Notebook-Logik hin zu Provider-Mapping, Modellwahl, Embedding-Entscheidungen, gezielten Qualitätsvergleichen und Einzelfallprüfung bei Multimodalität. Genau darin liegt der architektonische Vorteil des bestehenden Ökosystems.
 
-> Der Wechsel von OpenAI zu Mistral wird im Projekt `GenAI` nicht deshalb handhabbar, weil Provider austauschbar wären, sondern weil **LangChain die LLM-Schicht bereits stark standardisiert**.
+---
 
-Damit verschiebt sich die Arbeit weg von:
+## Abgrenzung zu verwandten Dokumenten
 
-- kompletter Neuerstellung der Notebook-Logik
-
-hin zu:
-
-- Provider-Mapping
-- Modellwahl
-- Embedding-Entscheidungen
-- gezielten Qualitätsvergleichen
-- Einzelfallprüfung bei Multimodalität
-
-Genau darin liegt der architektonische Vorteil des bestehenden Ökosystems.
+| Dokument | Frage |
+|---|---|
+| [Vom Modell zur Anwendung](./Vom_Modell_zum_Produkt_LangChain_Oekosystem.html) | Welche Rolle spielt LangChain im Weg vom Modell zur Anwendung? |
+| [Produktionsreife Anwendung](./aus-entwicklung-ins-deployment.html) | Welche technischen Schritte machen ein Notebook deploymentfähig? |
 
 ---
 

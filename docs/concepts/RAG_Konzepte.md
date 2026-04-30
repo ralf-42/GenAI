@@ -2,7 +2,7 @@
 layout: default
 title: RAG-Konzepte
 parent: Konzepte
-nav_order: 4
+nav_order: 9
 description: "Retrieval Augmented Generation im Detail – Architektur, Strategien und Best Practices"
 has_toc: true
 ---
@@ -148,15 +148,15 @@ Mit Overlap (25%):
 | Rechtsdokumente | 800–1000 | 200 | Vollständige Paragraphen wichtig |
 | Code-Dokumentation | 300–500 | 100 | Funktionen zusammenhalten |
 
-Diese Werte sind keine feste Regel. Sie bilden einen sinnvollen Startpunkt. Entscheidend ist, ob die Treffer später tatsächlich die Antwort tragen. Wenn ein System zwar semantisch ähnliche Chunks findet, aber wiederholt am Absatzrand wichtige Informationen verliert, liegt das Problem oft nicht im Modell, sondern im Zuschnitt der Dokumente.
+Diese Werte sind keine feste Regel. Die Tabelle bildet einen sinnvollen Startpunkt. Entscheidend ist, ob die Treffer später tatsächlich die Antwort tragen. Wenn ein System zwar semantisch ähnliche Chunks findet, aber wiederholt am Absatzrand wichtige Informationen verliert, liegt das Problem oft nicht im Modell, sondern im Zuschnitt der Dokumente.
 
 ---
 
 ## Embeddings: Text als Vektor
 
-Embeddings machen semantische Suche überhaupt erst möglich. Sie übersetzen Text in Vektoren, sodass Ähnlichkeit nicht mehr über exakte Worttreffer, sondern über Bedeutungsnähe berechnet werden kann. Das klingt abstrakt, wird aber praktisch sehr schnell greifbar: Ein System kann "Fahrzeug" finden, obwohl in der Frage "Auto" steht.
+Embeddings machen semantische Suche überhaupt erst möglich. Das Verfahren übersetzt Text in Vektoren, sodass Ähnlichkeit nicht mehr über exakte Worttreffer, sondern über Bedeutungsnähe berechnet werden kann. Das klingt abstrakt, wird aber praktisch sehr schnell greifbar: Ein System kann "Fahrzeug" finden, obwohl in der Frage "Auto" steht.
 
-Gleichzeitig werden Embeddings oft überschätzt. Sie lösen nicht automatisch schlechte Dokumentstruktur, unpräzise Queries oder schwache Metadaten. In vielen RAG-Projekten sind sie notwendig, aber nicht hinreichend.
+Gleichzeitig werden Embeddings oft überschätzt. Vektorrepräsentationen lösen nicht automatisch schlechte Dokumentstruktur, unpräzise Queries oder schwache Metadaten. In vielen RAG-Projekten sind sie notwendig, aber nicht hinreichend.
 
 ### Konzept
 

@@ -2,7 +2,7 @@
 layout: default
 title: Modellauswahl
 parent: Konzepte
-nav_order: 8
+nav_order: 10
 description: "LLM-Auswahl: Kriterien, Benchmarks und Entscheidungshilfen"
 has_toc: true
 ---
@@ -251,7 +251,7 @@ Durchzuführen ist eine vergleichende Analyse von mindestens drei verschiedenen 
    - Gemini 2.0 Ultra
    - Llama 3.1
    - Mistral 7B
-   - Ein anderes aktuelles KI-Modell Ihrer Wahl
+   - Ein anderes aktuelles KI-Modell nach eigener Auswahl
 
 2. Die Leistungsmerkmale dieser Modelle anhand der folgenden Kriterien recherchieren:
    - MMLU-Score oder vergleichbare Benchmark-Ergebnisse
@@ -270,7 +270,7 @@ Durchzuführen ist eine vergleichende Analyse von mindestens drei verschiedenen 
    - Unterstützung bei der Software-Entwicklung
 
 **Abgabeformat:**
-Vergleichstabelle mit Bewertungen und einer Seite mit Ihren Empfehlungen.
+Vergleichstabelle mit Bewertungen und einer Seite mit Empfehlungen.
 
 
 
@@ -299,7 +299,7 @@ Zu entwickeln ist ein strukturiertes Testverfahren zur qualitativen Bewertung ei
 4. Erläutern, wie sich die Ergebnisse dieser qualitativen Bewertung mit quantitativen Metriken wie MMLU zu einem Gesamtbild der Modellleistung verbinden lassen.
 
 **Abgabeformat:**
-Ein 2-3 seitiges Konzeptpapier mit Ihrem Evaluationsschema, den Testfragen und dem geplanten Prozess.
+Ein 2-3 seitiges Konzeptpapier mit Evaluationsschema, Testfragen und geplantem Prozess.
 
 
 ---

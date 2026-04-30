@@ -70,13 +70,13 @@ check_environment()
 - Alle installierten LangChain-Bibliotheken
 - Unterdrückt automatisch Deprecation-Warnungen
 
-#### . `install_packages(packages)`
+#### . `install_packages(packages, upgrade=False)`
 Installiert Python-Pakete automatisch, wenn sie noch nicht verfügbar sind.
 
 ```python
 from genai_lib.utilities import install_packages
 
-# Einfache Installation
+# Einfache Installation (überspringt bereits importierbare Pakete)
 install_packages(['numpy', 'pandas'])
 
 # Mit separaten Install- und Import-Namen
@@ -84,7 +84,14 @@ install_packages([
     ('markitdown[all]', 'markitdown'),
     'langchain_chroma'
 ])
+
+# Versionspins erzwingen: immer installieren/aktualisieren
+install_packages(['langchain-core>=1.3.0'], upgrade=True)
 ```
+
+**Parameter:**
+- `packages` (list): Paketnamen oder Tupel `(install_name, import_name)`
+- `upgrade` (bool): `False` (Standard) — Skip wenn bereits importierbar. `True` — immer `uv pip install --upgrade` ausführen, nützlich für Versionspins.
 
 **Features:**
 - Prüft, ob Pakete bereits installiert sind

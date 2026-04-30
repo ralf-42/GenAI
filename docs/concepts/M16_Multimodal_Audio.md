@@ -2,7 +2,7 @@
 layout: default
 title: Multimodal - Audio
 parent: Konzepte
-nav_order: 6
+nav_order: 5
 description: "Audio-Processing mit LLMs: Speech-to-Text, Text-to-Speech und Audio-Analyse"
 has_toc: true
 ---
