@@ -10,7 +10,8 @@ has_toc: true
 # Troubleshooting
 {: .no_toc }
 
-> **Lösungen für häufige Probleme**
+> [!NOTE] Fehleranalyse<br>
+> Die Übersicht sammelt typische Fehlerbilder aus LangChain, Structured Output und ChromaDB mit konkreten Diagnosehinweisen.
 
 ---
 
@@ -57,6 +58,6 @@ has_toc: true
 
 ---
 
-**Version:**    1.0<br>
-**Stand:**    November 2025<br>
+**Version:** 1.0<br>
+**Stand:** November 2025<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

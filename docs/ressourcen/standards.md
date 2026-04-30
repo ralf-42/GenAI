@@ -10,7 +10,8 @@ has_toc: true
 # Code Standards
 {: .no_toc }
 
-> **Coding-Konventionen und Best Practices**
+> [!NOTE] Coding-Konventionen<br>
+> Die Standards bündeln Importstruktur, Stilregeln, Sicherheitsmuster und Testkonventionen für Kursnotebooks und Beispielcode.
 
 ---
 
@@ -22,11 +23,11 @@ has_toc: true
 
 ---
 
-## 🎯 LangChain 1.0+ Features
+## LangChain 1.0+ Features
 
 Die 7 MUST-HAVE Features für LangChain 1.0+ sind vollständig dokumentiert in:
 
-👉 **[Einsteiger LangChain](../frameworks/Einsteiger_LangChain.html)** - Tutorial mit ausführlichen Erklärungen und Mermaid-Diagrammen
+[Einsteiger LangChain](../frameworks/Einsteiger_LangChain.html) enthält das Tutorial mit ausführlichen Erklärungen und Mermaid-Diagrammen.
 
 **Kurzübersicht der 7 Patterns:**
 
@@ -44,7 +45,7 @@ Die 7 MUST-HAVE Features für LangChain 1.0+ sind vollständig dokumentiert in:
 
 ---
 
-## 📋 Namenskonventionen
+## Namenskonventionen
 
 ### Python Style Guide (PEP 8)
 
@@ -76,7 +77,7 @@ mr = 3
 
 ---
 
-## 🔧 Import-Struktur
+## Import-Struktur
 
 **Standard-Reihenfolge für Imports:**
 
@@ -121,7 +122,7 @@ from IPython.display import Image  # Überschreibt PIL.Image!
 
 ---
 
-## 📝 Code-Stil
+## Code-Stil
 
 ### Maximale Zeilenlänge
 
@@ -179,7 +180,7 @@ middleware = [HumanInTheLoopMiddleware(tool_names=["delete_file"])]
 
 ---
 
-## ⚠️ Breaking Changes: 0.x → 1.0+
+## Breaking Changes: 0.x → 1.0+
 
 ### Migration-Tabelle
 
@@ -213,9 +214,9 @@ agent = create_agent(model=llm, tools=tools, debug=True)
 
 ---
 
-## 🔒 Security Best Practices
+## Security Best Practices
 
-### . API-Keys sicher verwalten
+### API-Keys sicher verwalten
 ```python
 # ✅ GUT: Umgebungsvariablen
 from dotenv import load_dotenv
@@ -228,7 +229,7 @@ api_key = os.getenv("OPENAI_API_KEY")
 api_key = "sk-..."  # NIEMALS!
 ```
 
-### . Input-Validierung
+### Input-Validierung
 ```python
 from pydantic import BaseModel, Field, field_validator
 
@@ -242,7 +243,7 @@ class UserInput(BaseModel):
         return v.strip()
 ```
 
-### . PII-Handling
+### PII-Handling
 ```python
 from langchain.agents.middleware import PIIMiddleware
 
@@ -257,7 +258,7 @@ middleware = [
 
 ---
 
-## 🧪 Testing Best Practices
+## Testing Best Practices
 
 ### Unit Tests
 
@@ -296,7 +297,7 @@ def test_agent_with_tools():
 
 ---
 
-## 📚 Weitere Ressourcen
+## Weitere Ressourcen
 
 - **LangChain Tutorial:** [Einsteiger LangChain](../frameworks/Einsteiger_LangChain.html)
 - **LangGraph Tutorial:** [LangGraph Docs](https://langchain-ai.github.io/langgraph/)
@@ -305,10 +306,11 @@ def test_agent_with_tools():
 
 ---
 
-> 💡 **Tipp:** Für ausführliche LangChain-Beispiele mit Mermaid-Diagrammen siehe [Einsteiger LangChain](../frameworks/Einsteiger_LangChain.html)!
+> [!TIP] Vertiefung<br>
+> Ausführliche LangChain-Beispiele mit Mermaid-Diagrammen stehen im Dokument [Einsteiger LangChain](../frameworks/Einsteiger_LangChain.html).
 
 ---
 
-**Version:**    2.0 (konsolidiert)<br>
-**Stand:**    Januar 2026<br>
+**Version:** 2.0 (konsolidiert)<br>
+**Stand:** Januar 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

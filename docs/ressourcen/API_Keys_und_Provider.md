@@ -10,8 +10,8 @@ has_toc: true
 # API-Keys & Provider
 {: .no_toc }
 
-> **LLM-Provider im Überblick**
-> Kostenlose API-Keys, Zahlungsweisen und Google Colab Integration
+> [!NOTE] Provider-Übersicht<br>
+> Die Tabelle ordnet LLM-Provider, Integrationspakete und typische Zugangswege für Kursnotebooks ein.
 
 ---
 
@@ -25,7 +25,7 @@ has_toc: true
 
 ## Übersicht der LLM-Provider
 
-Diese Tabelle bietet eine Übersicht (Stand: 12.2025) über LLM-Provider mit ihren Zahlungsweisen, kostenlosen Optionen und der Integration in Google Colab.
+Diese Tabelle bietet eine Übersicht über LLM-Provider mit ihren Zahlungsweisen, kostenlosen Optionen und der Integration in Google Colab. Die Angaben zu Zahlungsweisen, Freikontingenten und PayPal-Verfügbarkeit sind zeitabhängig und beziehen sich auf den dokumentierten Stand Dezember 2025. Vor produktiver Nutzung müssen die aktuellen Provider-Seiten geprüft werden.
 
 | Model Provider          | Integration Package           | Zahlungsweisen                    | PayPal verfügbar? | Kostenloser API-Key?       | Hinweise / Besonderheiten                                                  |
 | ----------------------- | ----------------------------- | --------------------------------- | ----------------- | -------------------------- | -------------------------------------------------------------------------- |
@@ -94,36 +94,26 @@ llm = init_chat_model("groq:mixtral-8x7b-32768", temperature=0.0)
 
 ---
 
-## Kostenlose Provider-Empfehlungen
+## Provider-Empfehlungen für Tests
 
-### Für Anfänger & Studenten
+### Für Einstieg und Kursübungen
 
 **1. Google AI Studio (Gemini)**
-- ✅ **Komplett kostenlos** mit hohen Limits
-- ✅ **PayPal-Zahlung** möglich
-- ✅ **Native Colab-Integration**
-- ✅ **Multimodal** (Text, Bild, Audio)
+Google AI Studio eignet sich für Kursübungen, wenn ein schneller Einstieg mit Gemini-Modellen und Colab-Integration im Vordergrund steht. Kostenlose Kontingente und Zahlungsoptionen müssen vor der Nutzung im jeweiligen Konto geprüft werden.
 
 **2. Groq**
-- ✅ **Sehr schnell** (Hardware-beschleunigt)
-- ✅ **Großzügige kostenlose Limits**
-- ✅ **Open-Source-Modelle** (Llama, Mixtral)
+Groq ist für Experimente mit schnellen Inferenzzeiten interessant. Der praktische Nutzen hängt von den aktuell verfügbaren Modellen, Limits und Nutzungsbedingungen ab.
 
 **3. Cloudflare Workers AI**
-- ✅ **Vollständig kostenlos** (mit Limits)
-- ✅ **Keine Kreditkarte nötig**
-- ✅ **Mehrere Modelle verfügbar**
+Cloudflare Workers AI kann für kleinere Experimente geeignet sein, wenn serverlose Bereitstellung und einfache Modelltests im Vordergrund stehen. Limits und Account-Anforderungen sind providerabhängig.
 
 ### Für Produktivnutzung
 
-**OpenAI (GPT-4)**
-- 💰 **Pay-as-you-go** (ab 5$)
-- ✅ **Beste Qualität** für komplexe Aufgaben
-- ✅ **PayPal ab 2026**
+**OpenAI**
+OpenAI eignet sich für produktionsnahe Tests, wenn stabile APIs, gute Dokumentation und breite Tool-Unterstützung wichtig sind. Kosten, Modelle und Zahlungsoptionen ändern sich regelmäßig.
 
 **Together AI**
-- 💰 **Freemium** mit kostenlosen Credits
-- ✅ **Open-Source-Modelle** zu günstigen Preisen
+Together AI ist interessant, wenn Open-Weight-Modelle über eine gehostete API getestet werden sollen. Auch hier müssen verfügbare Modelle, Preise und Limits vorab geprüft werden.
 
 ---
 
@@ -145,25 +135,25 @@ llm = Ollama(model="llama3")
 ```
 
 **Vorteile:**
-- ✅ Keine API-Kosten
-- ✅ Vollständige Datenkontrolle
-- ✅ Offline-fähig
-- ✅ GPU-beschleunigt in Colab
+- Keine API-Kosten
+- Vollständige Datenkontrolle
+- Offline-fähig
+- GPU-beschleunigt in Colab
 
 **Nachteile:**
-- ⚠️ Langsamere Performance als Cloud-APIs
-- ⚠️ Begrenzte Modellgröße (RAM-Limits)
+- Langsamere Performance als Cloud-APIs
+- Begrenzte Modellgröße durch RAM-Limits
 
 ---
 
 ## Sicherheitshinweise
 
-### ❌ NIEMALS:
+### Nicht zulässig
 - API-Keys in Code oder Notebooks committen
 - Keys in öffentlichen Repositories veröffentlichen
 - Keys unverschlüsselt in Dateien speichern
 
-### ✅ IMMER:
+### Mindeststandard
 - `.env`-Dateien für lokale Entwicklung verwenden
 - Colab Secrets für Notebooks nutzen
 - API-Keys regelmäßig rotieren
@@ -182,6 +172,6 @@ llm = Ollama(model="llama3")
 
 ---
 
-**Version:**    1.0<br>
-**Stand:**    Dezember 2025<br>
+**Version:** 1.0<br>
+**Stand:** Dezember 2025<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
