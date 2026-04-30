@@ -10,7 +10,7 @@ has_toc: true
 
 Diese Dokumentation ist nicht als lineares Handbuch aufgebaut. Der schnellste Einstieg entsteht meist nicht durch vollständiges Lesen, sondern durch einen passenden Pfad: erst das Ziel klären, dann gezielt vertiefen.
 
-## Inhaltsverzeichnis
+# Inhaltsverzeichnis
 {: .no_toc .text-delta }
 
 1. TOC
@@ -51,6 +51,17 @@ Empfohlener Einstieg:
 3. [LangChain Best Practices](./frameworks/LangChain_Best_Practices.html)
 4. [Modell-Auswahl Guide](./frameworks/Modell_Auswahl_Guide.html)
 
+### Kursnotebooks vorbereiten
+
+Die Notebooks sollen ohne Reibung laufen: API-Keys müssen verfügbar sein, Colab-spezifische Zellen müssen verstanden werden und die lokalen Hilfsfunktionen sollen nachvollziehbar bleiben.
+
+Empfohlener Einstieg:
+
+1. [API-Keys & Provider](./ressourcen/API_Keys_und_Provider.html)
+2. [Von Colab zu Local](./ressourcen/Colab_zu_Lokal.html)
+3. [GenAI_Lib Einsteiger](./frameworks/Einsteiger_GenAI_Lib.html)
+4. [Code Standards](./ressourcen/standards.html)
+
 ### RAG und Retrieval
 
 Dokumente, Wissensquellen oder Grounding spielen die Hauptrolle. Meist steht dann nicht das Sprachmodell selbst im Vordergrund, sondern die Frage, wie Wissen zuverlässig eingebunden und geprüft wird.
@@ -65,7 +76,7 @@ Empfohlener Einstieg:
 
 ### Qualität und Fehlersuche
 
-Eine Chain oder ein Agent funktioniert technisch, aber die Antwortqualitaet schwankt. Dann hilft kein weiteres Prompt-Polishing nach Bauchgefuehl, sondern ein kleiner Satz wiederholbarer Testfaelle und ein Blick auf die Zwischenschritte.
+Eine Chain oder ein Agent funktioniert technisch, aber die Antwortqualität schwankt. Dann hilft kein weiteres Prompt-Polishing nach Bauchgefühl, sondern ein kleiner Satz wiederholbarer Testfälle und ein Blick auf die Zwischenschritte.
 
 Empfohlener Einstieg:
 
@@ -106,8 +117,20 @@ Empfohlener Einstieg:
 1. [Digitale Souveränität](./regulatorisches/Digitale_Souveraenitat.html)
 2. [Ethik und GenAI](./regulatorisches/Ethik_und_GenAI.html)
 3. [EU AI Act](./regulatorisches/EU_AI_Act.html)
+4. [KI-Reifegradmodell](./ressourcen/ki_reifegradmodell.html)
 
-## Drei Dokumente für fast jeden Start
+### No-Code, Low-Code und visuelle Orientierung
+
+Nicht jeder Einstieg beginnt im Code. Für erste Prototypen, Modellverständnis oder Workshop-Situationen können Visualisierungen und Builder helfen, bevor eine Python-Architektur entsteht.
+
+Empfohlener Einstieg:
+
+1. [Interaktive Visualisierungen](./ressourcen/interaktive_visualisierungen.html)
+2. [Agent Builder Einsteiger](./frameworks/Einsteiger_Agent_Builder.html)
+3. [Aufgabenklassen und Lösungswege](./concepts/Aufgabenklassen_und_Loesungswege.html)
+4. [Links](./ressourcen/links.html)
+
+## Vier Dokumente für fast jeden Start
 
 Wer nicht lange wählen will, kommt mit diesen vier Dokumenten meist am schnellsten ins Thema:
 
