@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Frameworks
-nav_order: 4
+nav_order: 5
 has_children: true
 description: "Einsteiger-Guides für LangChain, ChromaDB und Agent Builder"
 ---

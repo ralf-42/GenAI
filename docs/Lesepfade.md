@@ -1,14 +1,14 @@
 ---
 layout: default
 title: Lesepfade
-nav_order: 2
+nav_order: 3
 description: Orientierung, Lesepfade und empfohlene Einstiege durch die GenAI-Dokumentation
 has_toc: true
 ---
 
 # Lesepfade
 
-Diese Dokumentation ist nicht als lineares Handbuch aufgebaut. Der schnellste Einstieg entsteht meist nicht durch vollständiges Lesen, sondern durch einen passenden Pfad: erst das Ziel klären, dann gezielt vertiefen.
+Diese Dokumentation ist nicht als lineares Handbuch aufgebaut. Für den kürzesten Einstieg eignet sich zuerst [Zuerst lesen](./zuerst-lesen.html). Danach helfen die Lesepfade dabei, je nach Ziel gezielt zu vertiefen.
 
 # Inhaltsverzeichnis
 {: .no_toc .text-delta }
