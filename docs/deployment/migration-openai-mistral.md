@@ -2,7 +2,7 @@
 layout: default
 title: Migration-Analyse Provider
 parent: Deployment
-nav_order: 3
+nav_order: 4
 description: Migrationsleitfaden für den Wechsel von OpenAI-basierten Kursmodulen in die Mistral-Modellwelt mit LangChain als Abstraktionsschicht
 has_toc: true
 ---
@@ -241,3 +241,4 @@ Die eigentliche Botschaft dieser Migration ist: Der Wechsel von OpenAI zu Mistra
 **Version:**    2.0<br>
 **Stand:**    März 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
+

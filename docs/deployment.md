@@ -17,6 +17,7 @@ Deployment beginnt im Kurs nicht erst bei Docker oder Hosting. Relevant wird es 
 Diese Seite ordnet die Werkzeuge ein, bevor Architekturentscheidungen zu früh verfestigt werden.
 
 - **[Vom Modell zum Produkt](https://ralf-42.github.io/GenAI/deployment/vom-modell-zum-produkt-langchain-oekosystem.html)** – *Wie wird aus einem Modell ein System?*
+- **[Minimum Viable GenAI Stack](https://ralf-42.github.io/GenAI/deployment/minimum-viable-genai-stack.html)** – *Welche Schichten braucht eine produktive GenAI-Anwendung mindestens?*
 
 ### Deployment-Prozess
 

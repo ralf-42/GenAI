@@ -15,6 +15,7 @@ Die Framework-Seiten dienen nicht als vollständige Produktkataloge. Sie erklär
 LangChain ist im Projekt die zentrale Schicht zwischen Modell und Anwendung. Wer verstehen will, warum Providerwechsel, Chains oder Tool-Integration im Kurs vergleichsweise kontrollierbar bleiben, beginnt hier.
 
 - **[LangChain Einsteiger](https://ralf-42.github.io/GenAI/frameworks/einsteiger-langchain.html)** – *Wie werden Modelle, Prompts und Chains zusammengeführt?*
+- **[LangGraph Einsteiger](https://ralf-42.github.io/GenAI/frameworks/einsteiger-langgraph.html)** – *Wie werden mehrstufige Workflows mit State und Routing umgesetzt?*
 
 ## Vektordatenbanken
 
@@ -39,6 +40,7 @@ Die `genai_lib` bündelt genau die Hilfsfunktionen, die im Kurs immer wieder geb
 Modellauswahl ist selten nur eine Qualitätsfrage. Häufiger geht es um Kosten, Latenz, Modalitäten und die Frage, ob ein stärkeres Modell den Mehraufwand überhaupt rechtfertigt.
 
 - **[Modell-Auswahl Guide](https://ralf-42.github.io/GenAI/frameworks/modell-auswahl-guide.html)** – *Welches Modell passt zu welcher Aufgabe?*
+- **[Provider-Modell-Mapping](https://ralf-42.github.io/GenAI/frameworks/provider-modell-mapping.html)** – *Welche Provider und Modellfamilien passen zu welchen Anwendungstypen?*
 
 ## Prompt-Templates
 
@@ -66,4 +68,6 @@ Empfohlene Patterns und Anti-Patterns für die im Kurs zentralen Frameworks.
   - `LANGSMITH_*` Umgebungsvariablen (nicht `LANGCHAIN_*`)
   - `.with_config()`, `.func()`, Projektname-Konventionen
   - Troubleshooting: EU-Endpoint, falsches Projekt, fehlende Traces
+
+- **[LangGraph Best Practices](https://ralf-42.github.io/GenAI/frameworks/langgraph-best-practices.html)** – *Wie bleiben zustandsbehaftete Workflows wartbar?* Patterns für State, Routing, Checkpointing und Human-in-the-Loop.
 
