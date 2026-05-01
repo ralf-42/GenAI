@@ -74,6 +74,20 @@ Empfohlener Einstieg:
 4. [Evaluation & Observability](./concepts/evaluation-observability.html)
 5. [Einsteiger ChromaDB](./frameworks/einsteiger-chromadb.html)
 
+### Toolgestützte und agentische Anwendungen
+
+Eine GenAI-Anwendung soll nicht nur antworten, sondern Werkzeuge aufrufen, Zwischenergebnisse halten, bei riskanten Schritten pausieren oder über mehrere Schritte hinweg stabil bleiben. Dann verschiebt sich der Fokus von Prompt und Modell zu Workflow, State und Sicherheitsgrenzen.
+
+Empfohlener Einstieg:
+
+1. [Tool Use & Function Calling](./concepts/tool-use-function-calling.html)
+2. [State Management](./concepts/state-management.html)
+3. [Memory-Systeme](./concepts/memory-systeme.html)
+4. [Human-in-the-Loop](./concepts/human-in-the-loop.html)
+5. [GenAI-Sicherheit](./concepts/agent-security.html)
+6. [LangGraph Einsteiger](./frameworks/einsteiger-langgraph.html)
+7. [LangGraph Best Practices](./frameworks/langgraph-best-practices.html)
+
 ### Qualität und Fehlersuche
 
 Eine Chain oder ein Agent funktioniert technisch, aber die Antwortqualität schwankt. Dann hilft kein weiteres Prompt-Polishing nach Bauchgefühl, sondern ein kleiner Satz wiederholbarer Testfälle und ein Blick auf die Zwischenschritte.
@@ -83,7 +97,8 @@ Empfohlener Einstieg:
 1. [Evaluation & Observability](./concepts/evaluation-observability.html)
 2. [RAG-Konzepte](./concepts/rag-konzepte.html)
 3. [LangSmith Best Practices](./frameworks/langsmith-best-practices.html)
-4. [Troubleshooting](./ressourcen/troubleshooting.html)
+4. [LangGraph Best Practices](./frameworks/langgraph-best-practices.html)
+5. [Troubleshooting](./ressourcen/troubleshooting.html)
 
 ### Multimodalität
 
@@ -103,10 +118,12 @@ Ein System soll nicht nur im Notebook funktionieren, sondern auch unter realen B
 Empfohlener Einstieg:
 
 1. [Vom Modell zum Produkt: LangChain-Ökosystem](./deployment/vom-modell-zum-produkt-langchain-oekosystem.html)
-2. [Aus Entwicklung ins Deployment](./deployment/aus-entwicklung-ins-deployment.html)
-3. [Evaluation & Observability](./concepts/evaluation-observability.html)
-4. [LangSmith Best Practices](./frameworks/langsmith-best-practices.html)
-5. [Migration: OpenAI → Mistral](./deployment/migration-openai-mistral.html)
+2. [Minimum Viable GenAI Stack](./deployment/minimum-viable-genai-stack.html)
+3. [Aus Entwicklung ins Deployment](./deployment/aus-entwicklung-ins-deployment.html)
+4. [Evaluation & Observability](./concepts/evaluation-observability.html)
+5. [LangSmith Best Practices](./frameworks/langsmith-best-practices.html)
+6. [Provider-Modell-Mapping](./frameworks/provider-modell-mapping.html)
+7. [Migration: OpenAI → Mistral](./deployment/migration-openai-mistral.html)
 
 ### Governance und Rahmenbedingungen
 
