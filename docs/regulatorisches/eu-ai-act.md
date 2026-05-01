@@ -2,16 +2,15 @@
 layout: default
 title: EU AI Act
 parent: Regulatorisches
-nav_order: 2
-description: "Rechtliche Rahmenbedingungen: EU AI Act und regulatorische Anforderungen"
+nav_order: 3
+description: "EU AI Act: Risikoklassen, Pflichten und Bedeutung fuer GenAI-Anwendungen"
 has_toc: true
 ---
 
 # EU AI Act
 {: .no_toc }
 
-> [!NOTE] Rechtlicher Rahmen<br>
-> Der EU AI Act ordnet KI-Systeme nach Risiko und verbindet technische Entwicklung mit Dokumentation, Governance und Aufsicht.
+> **Risikoklassen, Fristen und Pflichten der EU-KI-Verordnung**
 
 ---
 
@@ -23,64 +22,112 @@ has_toc: true
 
 ---
 
-## Einleitung & Zielsetzung
+# 1 Einordnung
 
-Der EU AI Act (Verordnung (EU) 2024/1689) ist das zentrale europäische Gesetz zur Regulierung von Künstlicher Intelligenz. Er soll Sicherheit, Grundrechte und europäische Werte schützen, ohne Innovation grundsätzlich zu blockieren. Das geschieht über einen risikobasierten Ansatz: Je stärker ein KI-System in sensible Lebensbereiche eingreift, desto höher sind die Anforderungen an Dokumentation, Qualitätssicherung, Transparenz und menschliche Aufsicht.
+Der EU AI Act ist die Verordnung (EU) 2024/1689 zur Regulierung von KI-Systemen in der Europäischen Union. Er verbietet bestimmte KI-Praktiken, stellt Anforderungen an Hochrisiko-Systeme und verpflichtet Anbieter ausgewählter KI-Systeme zu Transparenz, Dokumentation und menschlicher Aufsicht. Für den GenAI-Kurs ist daran weniger die juristische Systematik entscheidend als die technische Konsequenz: Eine Anwendung, die Tools nutzt, Dokumente durchsucht oder Entscheidungen vorbereitet, braucht klare Einsatzgrenzen, nachvollziehbare Zwischenschritte und kontrollierbare Freigaben.
 
-Für GenAI-Projekte ist der AI Act vor allem deshalb relevant, weil technische Prototypen schnell zu regulierten Systemen werden können. Ein Chatbot für interne Wissenssuche ist anders zu bewerten als ein System, das Bewerbungen vorsortiert, medizinische Empfehlungen gibt oder Entscheidungen in Bildung, Verwaltung oder Strafverfolgung beeinflusst. Die regulatorische Einordnung gehört deshalb nicht ans Projektende, sondern in die frühe Architektur- und Produktentscheidung.
+Der AI Act ersetzt weder DSGVO noch branchenspezifische Regulierung. In Medizin, Finanzwesen, Beschäftigung, Bildung oder öffentlicher Verwaltung kommen weitere Regeln hinzu. Der AI Act liefert dafür den horizontalen Rahmen: Welche KI-Praktiken sind unzulässig, welche Anwendungen gelten als hochriskant, und welche Mindestanforderungen gelten für Systeme, die Sicherheit oder Grundrechte berühren.
 
-## Umsetzung & Anwendbarkeit
+> [!IMPORTANT] Keine Rechtsberatung<br>
+> Diese Seite ordnet den EU AI Act für technische Kursentscheidungen ein. Für konkrete Produkte, Verträge oder behördliche Pflichten ist juristische Prüfung erforderlich.
 
-Das Gesetz trat am 1. August 2024 in Kraft. Die Pflichten werden gestaffelt wirksam; erste Verbote, etwa für bestimmte manipulative KI-Systeme und Social Scoring, gelten seit Februar 2025. Weitere Pflichten folgen abhängig von Systemtyp und Risikoklasse. Auf EU-Ebene übernimmt das European AI Office zentrale Aufgaben, insbesondere bei General Purpose AI (GPAI). Mitgliedstaaten müssen zuständige Behörden benennen, regulatorische Sandkästen einrichten und Durchsetzungsstrukturen aufbauen.
+# 2 Zeitplan und Anwendbarkeit
 
-<img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250416154726.png" alt="EU AI Act Zeitplan" width="600">
+Der AI Act trat am **1. August 2024** in Kraft. Die Pflichten gelten nicht alle gleichzeitig, sondern werden schrittweise anwendbar. Für Kursmaterialien ist wichtig, die Daten nicht als bloße Zukunftsplanung zu behandeln: Einige Pflichten gelten bereits.
 
-Grenze: Die formale Anwendung des AI Acts löst noch keine operative Compliance. In der Praxis entstehen die größten Lücken bei Inventarisierung, Rollenklärung, Datenqualität, Dokumentationspflege und der Frage, wer Änderungen am Modell oder Prompt freigibt.
+| Datum | Was gilt |
+|---|---|
+| **2. Februar 2025** | Verbote nach Art. 5, Definitionen und AI-Literacy-Pflichten gelten |
+| **2. August 2025** | GPAI-Regeln und Governance-Strukturen gelten; nationale Behörden und Sanktionen müssen vorbereitet sein |
+| **2. August 2026** | Der Großteil der Verordnung wird anwendbar, darunter Transparenzpflichten nach Art. 50 und Hochrisiko-Systeme aus Annex III |
+| **2. August 2027** | Hochrisiko-KI als Sicherheitskomponente in regulierten Produkten wird anwendbar |
+| **31. Dezember 2030** | Sonderfristen für bestimmte bereits bestehende große IT-Systeme und einzelne Bestandssysteme |
 
-## Risikoklassen im Detail
+Im November 2025 hat die Europäische Kommission im Rahmen des **Digital Omnibus** vorgeschlagen, die Anwendung bestimmter Hochrisiko-Pflichten stärker an verfügbare Unterstützungsinstrumente wie harmonisierte Standards, gemeinsame Spezifikationen oder Leitlinien zu koppeln. Das ist für Planungen relevant, aber kein Ersatz für den geltenden Rechtsstand. Bis eine Änderung beschlossen ist, bleibt der ursprüngliche Zeitplan der Verordnung maßgeblich.
 
-Der AI Act unterscheidet vier Risikoklassen. Systeme mit inakzeptablem Risiko sind verboten, etwa bestimmte Formen von Social Scoring oder manipulativer KI. Hochrisiko-Systeme sind erlaubt, unterliegen aber strengen Anforderungen an Risikomanagement, Datenqualität, technische Dokumentation, Protokollierung, menschliche Aufsicht und Konformitätsbewertung. Dazu zählen Systeme in Bereichen wie Bildung, Beschäftigung, Justiz, Strafverfolgung, Gesundheit oder kritischer Infrastruktur.
+Typischer Fehler: Der Zeitplan wird nur mit "2026" beschrieben. Das verwischt, dass Verbote und AI-Literacy bereits seit Februar 2025 gelten und GPAI-Pflichten seit August 2025 relevant sind.
 
-Systeme mit begrenztem Risiko unterliegen vor allem Transparenzpflichten. Dazu gehören Chatbots oder Deepfake-Generatoren, bei denen offengelegt werden muss, dass eine Interaktion oder ein Inhalt KI-gestützt erzeugt wurde. Systeme mit minimalem Risiko, etwa Spamfilter oder viele Empfehlungssysteme, bleiben weitgehend frei von verbindlichen Zusatzpflichten; freiwillige Verhaltenskodizes bleiben möglich.
+# 3 Risikoklassen
 
-<img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250416154437.png" alt="EU AI Act Risikoklassen" width="600">
+Der AI Act arbeitet risikobasiert. Entscheidend ist nicht, ob ein System modern, agentisch oder generativ ist, sondern wofür es eingesetzt wird und welche Auswirkungen es auf Menschen haben kann.
 
-Typischer Fehler: Ein System wird nur nach der verwendeten Modelltechnologie bewertet. Entscheidend ist aber der konkrete Einsatzkontext. Dass ein LLM technisch identisch bleibt, bedeutet nicht, dass es regulatorisch gleich einzuordnen ist.
+| Risikoklasse | Bedeutung | Beispiele |
+|---|---|---|
+| **Unzulässige KI-Praktiken** | Verbotene Anwendungen, weil sie Grundrechte oder Sicherheit in besonders schwerer Weise gefährden | bestimmte manipulative Systeme, Social Scoring, bestimmte biometrische Kategorisierung, Emotionserkennung in Bildung und Beschäftigung, bestimmte Predictive-Policing-Konstellationen |
+| **Hochrisiko-KI** | Zulässig, aber nur mit strengen Anforderungen an Risiko­management, Datenqualität, Dokumentation, Logging, menschliche Aufsicht, Robustheit und Cybersicherheit | ausgewählte Systeme in Bildung, Beschäftigung, kritischer Infrastruktur, zentralen privaten/öffentlichen Diensten, Strafverfolgung, Migration/Grenzkontrolle und Rechtsauslegung |
+| **Transparenzpflichtige KI** | Nutzer müssen erkennen können, dass sie mit KI interagieren oder KI-generierte Inhalte sehen | Chatbots, Deepfakes, bestimmte synthetische Inhalte und interaktive KI-Systeme |
+| **Minimales oder geringes Risiko** | Keine besonderen AI-Act-Pflichten; freiwillige Verhaltenskodizes bleiben möglich | viele interne Hilfswerkzeuge, Spamfilter, einfache Empfehlungssysteme |
 
-## Herausforderungen & Kritikpunkte
+Hochrisiko bedeutet nicht: "Alles in einem sensiblen Bereich ist automatisch Hochrisiko." Maßgeblich sind die konkreten Regeln in Art. 6, Annex I und Annex III. Ein KI-System für Terminplanung in einer Klinik ist anders einzuordnen als ein System, das diagnostische Hinweise gibt oder eine sicherheitsrelevante Entscheidung vorbereitet.
 
-Die praktische Umsetzung bleibt anspruchsvoll. Begriffe wie "KI-System", "systemisches Risiko" oder "enge verfahrenstechnische Aufgabe" müssen in konkreten Projekten ausgelegt werden. Auch die Einstufung als Hochrisiko-System ist nicht immer eindeutig, insbesondere wenn GenAI nur ein Baustein in einem größeren Workflow ist.
+# 4 Hochrisiko-Systeme
 
-Weitere Herausforderungen liegen in der GPAI-Regulierung, in Grundrechtsfragen und in der Durchsetzbarkeit. Behörden benötigen technische Expertise, Unternehmen benötigen belastbare Prozesse, und Entwicklerteams benötigen klare Kriterien, wann Modellwechsel, Prompt-Änderungen oder neue Datenquellen eine erneute Bewertung auslösen.
+Hochrisiko-Systeme entstehen im AI Act vor allem auf zwei Wegen. Erstens können KI-Systeme Teil regulierter Produkte oder Sicherheitskomponenten sein, etwa bei Maschinen, Medizinprodukten, Fahrzeugen oder Aufzügen. Zweitens nennt Annex III konkrete Anwendungsfelder, in denen KI besonders stark in Grundrechte oder Lebensentscheidungen eingreifen kann.
 
-## Potenziale & Chancen
+Für den Kurs sind Annex-III-Fälle besonders anschaulich: Bewerberauswahl, Leistungsbewertung am Arbeitsplatz, Zugang zu Bildung, Bewertung in Prüfungen, Kreditwürdigkeitsprüfung, Zugang zu öffentlichen Leistungen, bestimmte Formen der Strafverfolgung, Migration und Unterstützung bei der Rechtsauslegung. In solchen Fällen reicht ein funktionierender Prompt nicht aus. Erforderlich werden nachvollziehbare Datenflüsse, dokumentierte Modell- und Prompt-Versionen, Logs, menschliche Aufsicht und ein belastbares Fehlerkonzept.
 
-Der AI Act schafft nicht nur Pflichten, sondern auch Orientierung. Einheitliche Regeln können Investitionsentscheidungen erleichtern, weil Risiken nicht in jedem Mitgliedstaat neu bewertet werden müssen. Zugleich entsteht ein Markt für vertrauenswürdige KI-Produkte, Auditierung, Governance-Tools, Modellkarten, Datenqualitätsprüfungen und Compliance-Beratung.
+Grenze: Ein Agent, der eine Entscheidung vorbereitet, ist nicht automatisch verboten. Problematisch wird es, wenn das System faktisch entscheidet, Betroffene keine echte menschliche Prüfung erhalten oder die Entscheidungsgrundlage nicht nachvollziehbar bleibt.
 
-Für europäische Anbieter kann Regulierung ein Qualitätsmerkmal werden, wenn Nachvollziehbarkeit, Datenschutz und robuste Betriebsprozesse nicht nur behauptet, sondern messbar umgesetzt werden. Der sogenannte Brussels Effect kann dazu führen, dass internationale Anbieter europäische Anforderungen auch außerhalb Europas übernehmen.
+# 5 General Purpose AI
 
-## Best Practices & Empfehlungen
+General Purpose AI (GPAI) betrifft Modelle, die für viele unterschiedliche Zwecke eingesetzt werden können. Anbieter solcher Modelle unterliegen seit **2. August 2025** eigenen Pflichten. Bei Modellen mit systemischem Risiko kommen weitergehende Anforderungen hinzu, etwa Risikobewertung, Sicherheitsmaßnahmen und Dokumentation.
 
-Eine belastbare AI-Act-Umsetzung beginnt mit einer Systeminventur. KI-Systeme, Datenquellen, Modellanbieter, Einsatzkontexte und Verantwortlichkeiten werden dokumentiert, bevor eine Risikoklasse festgelegt wird. Darauf aufbauend lassen sich Governance-Strukturen, Freigabeprozesse und Monitoring definieren.
+Für Anwender im Kurs ist der Unterschied wichtig: Wer ein externes Modell über eine API nutzt, ist nicht automatisch Anbieter dieses GPAI-Modells. Trotzdem entstehen eigene Pflichten, sobald daraus ein konkretes KI-System gebaut und in einem sensiblen Kontext eingesetzt wird. Der Betreiber eines Research- oder Entscheidungsassistenten kann also Pflichten haben, auch wenn das zugrunde liegende Basismodell von einem anderen Anbieter stammt.
 
-Für GenAI-Projekte sind drei Punkte besonders wichtig: Erstens muss die Zweckbindung klar beschrieben sein. Zweitens müssen Prompts, Retrieval-Quellen, Modellversionen und relevante Konfigurationen nachvollziehbar bleiben. Drittens braucht es einen Prozess für Fehlermeldungen, menschliche Kontrolle und regelmäßige Neubewertung, sobald sich Modell, Datenbasis oder Nutzungskontext ändern.
+# 6 Bedeutung für toolgestützte GenAI-Anwendungen
 
-In der Praxis relevant, wenn: ein Prototyp aus Notebook, Demo oder Workshop in eine produktive Umgebung wandert. Genau an dieser Stelle wechseln die Anforderungen von technischer Machbarkeit zu Verantwortlichkeit, Dokumentation und Betrieb.
+Toolgestützte GenAI-Anwendungen verschärfen einige Fragen des AI Act, weil sie nicht nur Text generieren, sondern Zwischenschritte ausführen können: Tools aufrufen, externe Daten abfragen, Dateien erzeugen, Workflows starten oder Vorschläge an andere Systeme übergeben. Je mehr Autonomie ein System erhält, desto wichtiger werden Begrenzung und Nachvollziehbarkeit.
 
-## Ausblick
+In Trainings zeigt sich häufig, dass Teilnehmende GenAI-Systeme zuerst nach Funktionsumfang beurteilen: Kann das System suchen, zusammenfassen, entscheiden und handeln? Aus regulatorischer Sicht ist die bessere Frage: Welche Handlung darf der Agent ohne Freigabe ausführen, welche Daten darf er sehen, welche Zwischenergebnisse werden gespeichert, und wo ist eine menschliche Entscheidung zwingend?
 
-Der langfristige Erfolg des AI Acts hängt davon ab, ob Regulierung und technische Entwicklung anschlussfähig bleiben. Zu starre Auslegung kann Innovation bremsen; zu lockere Umsetzung lässt Grundrechts- und Sicherheitsrisiken bestehen. Entscheidend wird die Fähigkeit, KI-Systeme nicht nur einmalig zu klassifizieren, sondern über ihren gesamten Lebenszyklus zu steuern.
+Für technische Kursbeispiele ergeben sich daraus fünf Mindestmuster:
 
-## Abgrenzung zu verwandten Dokumenten
+| Muster | Bedeutung im GenAI-System |
+|---|---|
+| **Human-in-the-Loop** | Kritische Entscheidungen bleiben freigabepflichtig |
+| **Logging und Traceability** | Tool-Aufrufe, Quellen, Prompts und Modellversionen bleiben nachvollziehbar |
+| **Quellenbindung bei RAG** | Antworten zu Dokumenten müssen auf zitierbare Quellen zurückführbar sein |
+| **Tool-Grenzen** | Systeme erhalten nur die Werkzeuge, die für die Aufgabe erforderlich sind |
+| **Evaluation vor Einsatz** | Fehlerfälle, Out-of-Corpus-Fragen und Regressionen werden vor Nutzung geprüft |
+
+Nicht geeignet ist ein freier Automatisierungs-Loop für Entscheidungen mit Außenwirkung, wenn keine menschliche Freigabe, keine Dokumentation und keine überprüfbaren Kriterien vorgesehen sind. Gerade in Legal, Medizin, HR und Finanzwesen sollte eine GenAI-Anwendung zunächst als Assistenzsystem entworfen werden, nicht als autonomer Entscheider.
+
+# 7 Umsetzung im Kurskontext
+
+Für den GenAI-Kurs ist der AI Act kein isoliertes Rechtskapitel. Er berührt mehrere technische Module: Tool Use, RAG, Human-in-the-Loop, Evaluation, Security, Observability und Deployment. Die regulatorische Perspektive erklärt, warum diese Module nicht nur Architekturthemen sind, sondern Kontrollmechanismen.
+
+Ein Research Assistant für Fachartikel ist in vielen Kurskontexten zunächst ein niedriges oder begrenztes Risiko: Er durchsucht bereitgestellte Dokumente, fasst Quellen zusammen und verweist auf Citations. Das ändert sich, wenn er in regulierten Branchen eingesetzt wird, etwa zur medizinischen Einschätzung, rechtlichen Bewertung, Kreditentscheidung oder Bewerberauswahl. Dann reicht der gleiche technische Bauplan nicht mehr aus. Es braucht zusätzliche Validierung, Rollenklärung, Freigaben und Dokumentation.
+
+Typischer Fehler: Ein Kursbeispiel wird später in einen produktiven Kontext übertragen, ohne die Risikoklasse neu zu prüfen. Die gleiche Architektur kann harmlos, transparenzpflichtig oder hochriskant sein, abhängig vom Einsatzkontext.
+
+# 8 Herausforderungen
+
+Die praktische Umsetzung bleibt anspruchsvoll. Begriffe wie "KI-System", "systemisches Risiko" oder "wesentliche Änderung" müssen im Einzelfall ausgelegt werden. Dazu kommt, dass technische Standards, Leitlinien und nationale Zuständigkeiten weiterhin konkretisiert werden. Für Unternehmen entsteht dadurch kein Freibrief zum Warten, sondern die Notwendigkeit, Inventar, Risikoklassifizierung und Dokumentation früh aufzubauen.
+
+Besonders schwierig ist die Grenze zwischen Unterstützung und Entscheidung. Ein Agent, der eine Zusammenfassung erstellt, ist anders zu bewerten als ein Agent, dessen Ergebnis faktisch über Zugang zu Arbeit, Kredit, Bildung oder medizinischer Behandlung entscheidet. In der Praxis liegt die Gefahr oft nicht im Modell selbst, sondern in der organisatorischen Einbettung: Wer prüft das Ergebnis, wer trägt Verantwortung, und wie kann eine betroffene Person eine Entscheidung nachvollziehen oder anfechten?
+
+# 9 Empfehlungen
+
+Vor dem Einsatz einer GenAI-Anwendung sollte zuerst der konkrete Anwendungsfall beschrieben werden: Nutzergruppe, Datenarten, Entscheidungskontext, mögliche Betroffene und erwartete Handlung des Systems. Danach folgt die Risikoklassifizierung. Erst dann ist sinnvoll zu entscheiden, ob einfache Transparenzhinweise reichen oder ob Hochrisiko-Anforderungen wie Risikomanagement, technische Dokumentation, Logging, menschliche Aufsicht und Qualitätsmanagement benötigt werden.
+
+Für Kurs- und Prototypensysteme empfiehlt sich ein Mindeststandard, auch wenn der AI Act im konkreten Beispiel noch keine Hochrisiko-Pflichten auslöst: keine sensiblen Echtdaten, klare Kennzeichnung als Lernsystem, nachvollziehbare Quellen, reproduzierbare Tests und Freigaben vor kritischen Ausgaben. Diese Muster sind didaktisch wertvoll, weil sie später in regulierten Kontexten nicht neu erfunden werden müssen.
+
+# Abgrenzung zu verwandten Dokumenten
 
 | Dokument | Frage |
 |---|---|
-| [Ethik und GenAI](./ethik-und-genai.html) | Welche normativen Zielkonflikte entstehen jenseits formaler Regulierung? |
-| [Digitale Souveränität](./digitale-souveraenitat.html) | Wie hängen KI-Regulierung, Infrastrukturabhängigkeiten und europäische Handlungsfähigkeit zusammen? |
-| [Evaluation & Observability](../concepts/evaluation-observability.html) | Wie werden Qualität, Fehlerverhalten und Betrieb von KI-Systemen überprüfbar? |
+| [Ethik und GenAI](./ethik-und-genai.html) | Welche Verantwortung entsteht jenseits rechtlicher Mindestpflichten? |
+| [Digitale Souveränität](./digitale-souveraenitaet.html) | Wie abhängig ist ein KI-System von Cloud, Plattformen und außereuropäischer Infrastruktur? |
+| [Agent Security](../concepts/agent-security.html) | Welche technischen Risiken entstehen durch Tools, Prompts, Daten und Systemverhalten? |
+| [Human-in-the-Loop](../concepts/human-in-the-loop.html) | Wie werden menschliche Freigaben technisch in GenAI-Workflows eingebaut? |
+| [Evaluation & Observability](../concepts/evaluation-observability.html) | Wie werden Qualität, Fehler und Drift in KI-Systemen messbar? |
 
 ---
 
-**Version:** 1.0<br>
-**Stand:** November 2025<br>
+**Version:** 1.1<br>
+**Stand:** April 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
+
+
+
+

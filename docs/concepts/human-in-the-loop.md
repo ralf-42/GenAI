@@ -2,7 +2,7 @@
 layout: default
 title: Human-in-the-Loop
 parent: Konzepte
-nav_order: 15
+nav_order: 16
 description: "Human-in-the-Loop als Designprinzip fuer Kontrolle, Freigabe und Eskalation in GenAI-Anwendungen"
 has_toc: true
 ---
@@ -155,5 +155,6 @@ Teilnehmende unterschätzen oft, dass HITL nicht gegen Automatisierung arbeitet.
 **Version:** 1.1<br>
 **Stand:** April 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
+
 
 

@@ -13,7 +13,7 @@ Rechtliche, ethische und strategische Aspekte beim Einsatz von KI-Agenten.
 ## Übersicht
 
 ### Digitale Souveränität
-- **[Digitale Souveränität](https://ralf-42.github.io/GenAI/regulatorisches/digitale-souveraenitat.html)** – *Was bedeutet digitale Souveränität im KI-Kontext konkret?*
+- **[Digitale Souveränität](https://ralf-42.github.io/GenAI/regulatorisches/digitale-souveraenitaet.html)** – *Was bedeutet digitale Souveränität im KI-Kontext konkret?*
   - Konzeptionelle Grundlagen und Begriffsbestimmung
   - Reifegradmodelle (EU Cloud Sovereignty Framework, SEAL-Stufen)
   - Europäische Initiativen (Gaia-X, Catena-X, European Chips Act)

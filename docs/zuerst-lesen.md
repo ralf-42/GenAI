@@ -18,19 +18,21 @@ Diese Seite ist der kürzeste Einstieg in die Dokumentation. Sie ersetzt nicht d
 
 ## Der schnelle Einstieg
 
-Wer neu in das Kursmaterial einsteigt, beginnt mit diesen vier Dokumenten:
+Wer neu in das Kursmaterial einsteigt, beginnt mit diesen fünf Dokumenten:
 
-1. [Aufgabenklassen und Lösungswege](./concepts/aufgabenklassen-und-loesungswege.html)
-2. [Einsteiger LangChain](./frameworks/einsteiger-langchain.html)
-3. [RAG-Konzepte](./concepts/rag-konzepte.html)
-4. [Evaluation & Observability](./concepts/evaluation-observability.html)
+1. [Lohnt sich GenAI?](./concepts/lohnt-es-sich.html)
+2. [Aufgabenklassen und Lösungswege](./concepts/aufgabenklassen-und-loesungswege.html)
+3. [Einsteiger LangChain](./frameworks/einsteiger-langchain.html)
+4. [RAG-Konzepte](./concepts/rag-konzepte.html)
+5. [Evaluation & Observability](./concepts/evaluation-observability.html)
 
-Diese Reihenfolge klärt zuerst, welcher Lösungsweg zur Aufgabe passt. Danach folgt die technische Umsetzung mit LangChain, anschließend das wichtigste Erweiterungsmuster für eigene Daten und zuletzt die Frage, wie Qualität überprüfbar wird.
+Diese Reihenfolge klärt zuerst, ob GenAI überhaupt sinnvoll ist und welcher Lösungsweg zur Aufgabe passt. Danach folgt die technische Umsetzung mit LangChain, anschließend das wichtigste Erweiterungsmuster für eigene Daten und zuletzt die Frage, wie Qualität überprüfbar wird.
 
 ## Wenn ein konkretes Ziel im Vordergrund steht
 
 | Ziel | Zuerst anschauen |
 |---|---|
+| GenAI-Vorhaben einschätzen | [Lohnt sich GenAI?](./concepts/lohnt-es-sich.html) |
 | Erstes Verständnis für GenAI-Anwendungen | [Aufgabenklassen und Lösungswege](./concepts/aufgabenklassen-und-loesungswege.html) |
 | Erste eigene Chain bauen | [Einsteiger LangChain](./frameworks/einsteiger-langchain.html) |
 | Dokumente und Wissen einbinden | [RAG-Konzepte](./concepts/rag-konzepte.html) |
@@ -58,4 +60,3 @@ Nach dem Einstieg führt die Seite [Lesepfade](./lesepfade.html) durch die grö�
 **Version:** 1.0<br>
 **Stand:** April 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
-

@@ -2,7 +2,7 @@
 layout: default
 title: Fine-Tuning
 parent: Konzepte
-nav_order: 6
+nav_order: 7
 description: "Model Adaptation: Fine-Tuning-Strategien, LoRA und PEFT-Methoden"
 has_toc: true
 ---
@@ -412,3 +412,4 @@ Die Embeddings sind die **Brücke zwischen rohem Text und neuronaler Verarbeitun
 **Version:**    1.1<br>
 **Stand:**    Januar 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
+

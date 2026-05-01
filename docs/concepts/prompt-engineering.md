@@ -2,7 +2,7 @@
 layout: default
 title: Prompt Engineering
 parent: Konzepte
-nav_order: 7
+nav_order: 8
 description: "Strategien für effektive Prompts in KI-Agenten-Systemen"
 has_toc: true
 ---
@@ -477,3 +477,4 @@ Im weiteren Kursverlauf werden diese Strategien praktisch in LangChain-Agents an
 **Version:**    1.0<br>
 **Stand:**    November 2025<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
+

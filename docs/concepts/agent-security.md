@@ -2,7 +2,7 @@
 layout: default
 title: GenAI-Sicherheit
 parent: Konzepte
-nav_order: 16
+nav_order: 17
 description: "Sicherheitsrisiken und Schutzprinzipien fuer GenAI-Anwendungen mit Tools, Datenzugriff und externen Schnittstellen"
 has_toc: true
 ---
@@ -206,5 +206,6 @@ Teilnehmende unterschätzen oft, dass Sicherheit nicht erst bei hochkritischen S
 **Version:** 1.2<br>
 **Stand:** April 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
+
 
 

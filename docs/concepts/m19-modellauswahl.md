@@ -2,7 +2,7 @@
 layout: default
 title: Modellauswahl
 parent: Konzepte
-nav_order: 10
+nav_order: 11
 description: "LLM-Auswahl: Kriterien, Benchmarks und Entscheidungshilfen"
 has_toc: true
 ---
@@ -317,3 +317,4 @@ Ein 2-3 seitiges Konzeptpapier mit Evaluationsschema, Testfragen und geplantem P
 **Version:**    1.1<br>
 **Stand:**    Januar 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
+

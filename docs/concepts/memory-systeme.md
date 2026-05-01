@@ -2,7 +2,7 @@
 layout: default
 title: Memory-Systeme
 parent: Konzepte
-nav_order: 13
+nav_order: 14
 description: "Kurz- und Langzeitgedaechtnis fuer GenAI-Anwendungen mit LangGraph, Vektordatenbanken und nutzerspezifischer Persistenz"
 has_toc: true
 ---
@@ -488,5 +488,6 @@ Developer unterschätzen oft, dass Memory nicht nur eine Komfortfunktion ist. Oh
 **Version:** 1.4<br>
 **Stand:** April 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
+
 
 

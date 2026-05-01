@@ -2,7 +2,7 @@
 layout: default
 title: RAG-Konzepte
 parent: Konzepte
-nav_order: 9
+nav_order: 10
 description: "Retrieval Augmented Generation im Detail – Architektur, Strategien und Best Practices"
 has_toc: true
 ---
@@ -646,3 +646,4 @@ RAG ermöglicht es, LLMs mit aktuellem, domänenspezifischem Wissen auszustatten
 **Version:**    1.1<br>
 **Stand:**    April 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
+

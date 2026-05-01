@@ -2,7 +2,7 @@
 layout: default
 title: Multimodal - Audio
 parent: Konzepte
-nav_order: 5
+nav_order: 6
 description: "Audio-Processing mit LLMs: Speech-to-Text, Text-to-Speech und Audio-Analyse"
 has_toc: true
 ---
@@ -306,3 +306,4 @@ def transcribe_with_retry(file_path):
 **Version:**    1.1<br>
 **Stand:**    Januar 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
+
