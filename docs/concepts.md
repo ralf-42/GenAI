@@ -42,3 +42,13 @@ Diese Dokumente greifen dort ein, wo einzelne Bausteine zusammenspielen müssen.
 - [Modellauswahl](https://ralf-42.github.io/GenAI/concepts/m19-modellauswahl.html) – *Nach welchen Kriterien wird ein Modell ausgewählt?*  
   Praktische Designregeln für den Kurs finden sich ergänzend im [Modell-Auswahl Guide](https://ralf-42.github.io/GenAI/frameworks/modell-auswahl-guide.html).
 - [Evaluation & Observability](https://ralf-42.github.io/GenAI/concepts/evaluation-observability.html) – *Wie wird sichtbar, ob eine GenAI-Anwendung gut funktioniert?* Mindeststandard für Testsets, RAG-Qualitätsprüfung, Tracing und Fehleranalyse.
+
+## Produktive und agentische Anwendungen
+
+Sobald GenAI-Anwendungen Werkzeuge aufrufen, Zustand halten oder menschliche Freigaben einbinden, reicht ein einzelner Prompt nicht mehr aus. Diese Seiten behandeln die Konzepte, die aus Modellaufrufen belastbare Anwendungssysteme machen.
+
+- [Tool Use & Function Calling](https://ralf-42.github.io/GenAI/concepts/tool-use-function-calling.html) – *Wie bekommt ein Modell kontrollierten Zugriff auf Werkzeuge?*
+- [Memory-Systeme](https://ralf-42.github.io/GenAI/concepts/memory-systeme.html) – *Wie bleibt relevanter Kontext über Nachrichten und Sitzungen hinweg erhalten?*
+- [State Management](https://ralf-42.github.io/GenAI/concepts/state-management.html) – *Wie werden Zwischenergebnisse und Prozesszustände explizit verwaltet?*
+- [Human-in-the-Loop](https://ralf-42.github.io/GenAI/concepts/human-in-the-loop.html) – *Wann braucht eine GenAI-Anwendung menschliche Freigabe oder Eskalation?*
+- [GenAI-Sicherheit](https://ralf-42.github.io/GenAI/concepts/agent-security.html) – *Wie werden Tool-Zugriffe, externe Inhalte und sensible Daten abgesichert?*

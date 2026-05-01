@@ -2,7 +2,7 @@
 layout: default
 title: Modell-Auswahl Guide
 parent: Frameworks
-nav_order: 5
+nav_order: 6
 description: "Welches Modell für welche Aufgabe? Praktische Designregeln für gpt-4o-mini, gpt-5.1 und gpt-4o im GenAI-Kurs."
 has_toc: true
 ---

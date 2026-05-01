@@ -2,7 +2,7 @@
 layout: default
 title: LangChain Best Practices
 parent: Frameworks
-nav_order: 7
+nav_order: 9
 description: "7 MUST-HAVE Features für LangChain 1.0+: init_chat_model, with_structured_output, @tool, create_agent, LCEL"
 has_toc: true
 ---
@@ -1132,3 +1132,4 @@ Beim Refactoring von altem Code:
 ---
 
 > 💡 **Tipp:** Bookmark diese Datei und konsultiere sie bei jedem neuen Notebook oder Code-Modul!
+

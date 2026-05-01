@@ -2,7 +2,7 @@
 layout: default
 title: LangSmith Best Practices
 parent: Frameworks
-nav_order: 8
+nav_order: 10
 description: "Tracing, Evaluation und Monitoring mit LangSmith: LANGSMITH_* Variablen, with_config, Troubleshooting"
 has_toc: true
 ---
@@ -740,3 +740,4 @@ callback = LangSmithCallback(
 **Version:** 1.9<br>
 **Maintainer:** Ralf
 **Lizenz:** MIT License
+
