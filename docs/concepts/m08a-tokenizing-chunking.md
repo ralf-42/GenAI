@@ -2,7 +2,7 @@
 layout: default
 title: Tokenizing & Chunking
 parent: Konzepte
-nav_order: 2
+nav_order: 3
 description: "Text-Preprocessing für LLMs: Tokenization-Strategien und Chunking-Methoden für RAG"
 has_toc: true
 ---

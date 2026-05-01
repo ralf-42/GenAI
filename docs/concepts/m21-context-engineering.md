@@ -2,7 +2,7 @@
 layout: default
 title: Context Engineering
 parent: Konzepte
-nav_order: 8
+nav_order: 9
 description: "Context Management: Optimierung von Context-Fenstern und Memory-Strategien"
 has_toc: true
 ---
@@ -438,3 +438,4 @@ QUALITÄTSKRITERIEN:
 **Version:**    1.1<br>
 **Stand:**    Januar 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
+

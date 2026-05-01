@@ -2,7 +2,7 @@
 layout: default
 title: Embeddings
 parent: Konzepte
-nav_order: 3
+nav_order: 4
 description: "Vektorrepräsentationen von Text: Embedding-Modelle und Ähnlichkeitssuche"
 has_toc: true
 ---
@@ -190,3 +190,4 @@ Hier ist eine tabellarische Übersicht, die ausgehend vom **Embedding-Modell** z
 **Version:**    1.0<br>
 **Stand:**    November 2025<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
+

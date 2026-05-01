@@ -2,7 +2,7 @@
 layout: default
 title: Tool Use & Function Calling
 parent: Konzepte
-nav_order: 12
+nav_order: 13
 description: "Tool Use und Function Calling fuer GenAI-Anwendungen: warum Werkzeuge noetig sind und wie sie sicher eingebunden werden"
 has_toc: true
 ---
@@ -424,5 +424,6 @@ In der Praxis relevant wenn: Ein Agent auf viele Werkzeuge zugreifen soll, diese
 **Version:** 1.4<br>
 **Stand:** April 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
+
 
 

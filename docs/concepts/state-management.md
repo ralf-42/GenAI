@@ -2,7 +2,7 @@
 layout: default
 title: State Management
 parent: Konzepte
-nav_order: 14
+nav_order: 15
 description: "Zustandsverwaltung in GenAI-Workflows: State, Reducer, TypedDict und Persistenz"
 has_toc: true
 ---
@@ -294,5 +294,6 @@ Teilnehmende unterschätzen oft, wie stark diese drei Regeln spätere Erweiterun
 **Version:** 1.1<br>
 **Stand:** April 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
+
 
 

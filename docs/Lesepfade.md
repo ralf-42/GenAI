@@ -36,9 +36,10 @@ Ein Gesamtbild fehlt noch, die Grundbegriffe sind unscharf oder der Unterschied 
 
 Empfohlener Einstieg:
 
-1. [Aufgabenklassen und Lösungswege](./concepts/aufgabenklassen-und-loesungswege.html)
-2. [Prompt Engineering](./concepts/prompt-engineering.html)
-3. [Modellauswahl](./concepts/m19-modellauswahl.html)
+1. [Lohnt sich GenAI?](./concepts/lohnt-es-sich.html)
+2. [Aufgabenklassen und Lösungswege](./concepts/aufgabenklassen-und-loesungswege.html)
+3. [Prompt Engineering](./concepts/prompt-engineering.html)
+4. [Modellauswahl](./concepts/m19-modellauswahl.html)
 
 ### Erste eigene Chain
 
@@ -131,7 +132,7 @@ Sobald GenAI-Systeme in Bildung, Verwaltung oder Unternehmen eingesetzt werden, 
 
 Empfohlener Einstieg:
 
-1. [Digitale Souveränität](./regulatorisches/digitale-souveraenitat.html)
+1. [Digitale Souveränität](./regulatorisches/digitale-souveraenitaet.html)
 2. [Ethik und GenAI](./regulatorisches/ethik-und-genai.html)
 3. [EU AI Act](./regulatorisches/eu-ai-act.html)
 4. [KI-Reifegradmodell](./ressourcen/ki-reifegradmodell.html)
@@ -144,19 +145,21 @@ Empfohlener Einstieg:
 
 1. [Interaktive Visualisierungen](./ressourcen/interaktive-visualisierungen.html)
 2. [Agent Builder Einsteiger](./frameworks/einsteiger-agent-builder.html)
-3. [Aufgabenklassen und Lösungswege](./concepts/aufgabenklassen-und-loesungswege.html)
-4. [Links](./ressourcen/links.html)
+3. [Lohnt sich GenAI?](./concepts/lohnt-es-sich.html)
+4. [Aufgabenklassen und Lösungswege](./concepts/aufgabenklassen-und-loesungswege.html)
+5. [Links](./ressourcen/links.html)
 
-## Vier Dokumente für fast jeden Start
+## Fünf Dokumente für fast jeden Start
 
-Wer nicht lange wählen will, kommt mit diesen vier Dokumenten meist am schnellsten ins Thema:
+Wer nicht lange wählen will, kommt mit diesen fünf Dokumenten meist am schnellsten ins Thema:
 
-1. [Aufgabenklassen und Lösungswege](./concepts/aufgabenklassen-und-loesungswege.html)
-2. [Einsteiger LangChain](./frameworks/einsteiger-langchain.html)
-3. [RAG-Konzepte](./concepts/rag-konzepte.html)
-4. [Evaluation & Observability](./concepts/evaluation-observability.html)
+1. [Lohnt sich GenAI?](./concepts/lohnt-es-sich.html)
+2. [Aufgabenklassen und Lösungswege](./concepts/aufgabenklassen-und-loesungswege.html)
+3. [Einsteiger LangChain](./frameworks/einsteiger-langchain.html)
+4. [RAG-Konzepte](./concepts/rag-konzepte.html)
+5. [Evaluation & Observability](./concepts/evaluation-observability.html)
 
-Diese Kombination klärt erst die Einsatzfrage, dann die Umsetzung, danach das wichtigste Erweiterungsmuster und zuletzt die Frage, wie Qualität sichtbar wird. Genau diese Reihenfolge verhindert viele frühe Fehlstarts.
+Diese Kombination klärt erst die Einsatzfrage, dann die Lösungsklasse und Umsetzung, danach das wichtigste Erweiterungsmuster und zuletzt die Frage, wie Qualität sichtbar wird. Genau diese Reihenfolge verhindert viele frühe Fehlstarts.
 
 ## Wie die Bereiche zusammenhängen
 

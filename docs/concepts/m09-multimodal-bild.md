@@ -2,7 +2,7 @@
 layout: default
 title: Multimodal - Bild
 parent: Konzepte
-nav_order: 4
+nav_order: 5
 description: "Vision Language Models: Bildanalyse und Generierung mit LLMs"
 has_toc: true
 ---
@@ -141,3 +141,4 @@ Mithilfe neuronaler Netze – typischerweise Convolutional Neural Networks (CNNs
 **Version:**    1.1<br>
 **Stand:**    Januar 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
+

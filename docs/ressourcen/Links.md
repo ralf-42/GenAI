@@ -89,6 +89,21 @@ Standard-Protokoll für die Kommunikation zwischen LLMs und externen Tools/Daten
 | [MCP Docs - Getting Started](https://modelcontextprotocol.io/docs/getting-started/intro) | Offizielle MCP-Dokumentation und Einführung |
 | [FastMCP](https://gofastmcp.com/getting-started/welcome) | Schneller Einstieg in MCP mit Python |
 | [LangChain MCP Adapters](https://github.com/langchain-ai/langchain-mcp-adapters) | MCP-Integration für LangChain |
+| [MCP Inspector](https://modelcontextprotocol.io/docs/tools/inspector) | Tool zum Testen und Debuggen von MCP-Servern |
+
+---
+
+## Agentische Anwendungen
+
+Ressourcen für Tool Use, Agenten-Patterns und agentische GenAI-Systeme.
+
+| Ressource | Beschreibung |
+|-----------|--------------|
+| [Google Cloud - Was sind KI-Agenten?](https://cloud.google.com/discover/what-are-ai-agents?hl=de) | Einführung in KI-Agenten und agentische Anwendungsmuster |
+| [ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629) | Grundlagenpaper zum Zusammenspiel von Denken und Handeln in LLM-Systemen |
+| [Toolformer: Language Models Can Teach Themselves to Use Tools](https://arxiv.org/abs/2302.04761) | Grundlagenpaper zu Tool Use |
+| [Self-RAG](https://arxiv.org/abs/2310.11511) | Retrieval, Generierung und Selbstkritik in einem RAG-nahen Verfahren |
+| [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/) | OpenAI-Framework für agentische Anwendungen |
 
 ---
 

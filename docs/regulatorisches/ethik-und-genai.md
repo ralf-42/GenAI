@@ -2,7 +2,7 @@
 layout: default
 title: Ethik und GenAI
 parent: Regulatorisches
-nav_order: 3
+nav_order: 2
 description: "Ethische Aspekte: Bias, Fairness und verantwortungsvoller KI-Einsatz"
 has_toc: true
 ---
@@ -72,7 +72,7 @@ In der Praxis relevant, wenn: ein GenAI-System Inhalte erzeugt, die Menschen dir
 | Dokument | Frage |
 |---|---|
 | [EU AI Act](./eu-ai-act.html) | Welche rechtlichen Pflichten entstehen aus europäischer KI-Regulierung? |
-| [Digitale Souveränität](./digitale-souveraenitat.html) | Welche strategischen Abhängigkeiten entstehen durch Infrastruktur, Modelle und Datenräume? |
+| [Digitale Souveränität](./digitale-souveraenitaet.html) | Welche strategischen Abhängigkeiten entstehen durch Infrastruktur, Modelle und Datenräume? |
 | [Evaluation & Observability](../concepts/evaluation-observability.html) | Wie werden Qualität, Bias, Fehlerverhalten und Betrieb messbar gemacht? |
 
 ---
@@ -80,3 +80,4 @@ In der Praxis relevant, wenn: ein GenAI-System Inhalte erzeugt, die Menschen dir
 **Version:** 1.0<br>
 **Stand:** November 2025<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
+
