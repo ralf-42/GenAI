@@ -1,4 +1,4 @@
----
+﻿---
 layout: default
 title: Konzepte
 nav_order: 4
@@ -14,42 +14,42 @@ Die Konzeptseiten erklären nicht alles, was im Feld Generative KI denkbar ist. 
 
 Nicht jede Aufgabe braucht ein Agentensystem, eine Vektordatenbank oder Fine-Tuning. Der Einstieg beginnt deshalb mit der Frage, ob GenAI überhaupt sinnvoll ist und welcher Lösungsweg danach passt.
 
-- [Lohnt sich GenAI?](https://ralf-42.github.io/GenAI/concepts/lohnt-es-sich.html) – *Ist GenAI für diesen Anwendungsfall sinnvoll, machbar und verantwortbar?* Vorprüfung von Problem, Datenlage, Nutzen, Risiken und Betrieb.
-- [Aufgabenklassen & Lösungswege](https://ralf-42.github.io/GenAI/concepts/aufgabenklassen-und-loesungswege.html) – *Welcher Weg passt zur Aufgabe?* Entscheidungshilfe zwischen Chat, Workflow, Python, RAG, lokalen Modellen und anderen Lösungswegen.
+- [Lohnt sich GenAI?](https://ralf-42.github.io/GenAI/concepts/orientierung/lohnt-es-sich.html) – *Ist GenAI für diesen Anwendungsfall sinnvoll, machbar und verantwortbar?* Vorprüfung von Problem, Datenlage, Nutzen, Risiken und Betrieb.
+- [Aufgabenklassen & Lösungswege](https://ralf-42.github.io/GenAI/concepts/orientierung/aufgabenklassen-und-loesungswege.html) – *Welcher Weg passt zur Aufgabe?* Entscheidungshilfe zwischen Chat, Workflow, Python, RAG, lokalen Modellen und anderen Lösungswegen.
 
 ## Technische Grundlagen
 
 Diese Seiten klären die Mechanik hinter den Modellen. Sie sind dort besonders nützlich, wo ein System zwar "irgendwie funktioniert", aber unklar bleibt, warum es instabil, teuer oder unpräzise wird.
 
-- [Transformer-Architektur](https://ralf-42.github.io/GenAI/concepts/m05a-transformer.html) – *Wie arbeiten moderne Sprachmodelle intern?*
-- [Tokenizing & Chunking](https://ralf-42.github.io/GenAI/concepts/m08a-tokenizing-chunking.html) – *Wie wird Text so zerlegt, dass Retrieval noch sinnvoll bleibt?*
-- [Embeddings](https://ralf-42.github.io/GenAI/concepts/m08b-embeddings.html) – *Wie wird Bedeutung als Vektor darstellbar?*
+- [Transformer-Architektur](https://ralf-42.github.io/GenAI/concepts/grundlagen/m05a-transformer.html) – *Wie arbeiten moderne Sprachmodelle intern?*
+- [Tokenizing & Chunking](https://ralf-42.github.io/GenAI/concepts/grundlagen/m08a-tokenizing-chunking.html) – *Wie wird Text so zerlegt, dass Retrieval noch sinnvoll bleibt?*
+- [Embeddings](https://ralf-42.github.io/GenAI/concepts/grundlagen/m08b-embeddings.html) – *Wie wird Bedeutung als Vektor darstellbar?*
 
 ## Multimodale Konzepte
 
 Sobald neben Text auch Bilder, Audio oder spezialisierte Modelle ins Spiel kommen, steigen Möglichkeiten und Fehlannahmen zugleich. Diese Seiten trennen technische Möglichkeiten von dem, was im Projektalltag tatsächlich tragfähig ist.
 
-- [Multimodal Bild](https://ralf-42.github.io/GenAI/concepts/m09-multimodal-bild.html) – *Was leisten multimodale Bildmodelle wirklich?*
-- [Multimodal Audio](https://ralf-42.github.io/GenAI/concepts/m16-multimodal-audio.html) – *Wann lohnt sich Audio im Workflow?*
-- [Fine-Tuning](https://ralf-42.github.io/GenAI/concepts/m18-fine-tuning.html) – *Wann reicht Prompting nicht mehr aus?*
+- [Multimodal Bild](https://ralf-42.github.io/GenAI/concepts/multimodal/m09-multimodal-bild.html) – *Was leisten multimodale Bildmodelle wirklich?*
+- [Multimodal Audio](https://ralf-42.github.io/GenAI/concepts/multimodal/m16-multimodal-audio.html) – *Wann lohnt sich Audio im Workflow?*
+- [Fine-Tuning](https://ralf-42.github.io/GenAI/concepts/multimodal/m18-fine-tuning.html) – *Wann reicht Prompting nicht mehr aus?*
 
 ## Erweiterte Techniken
 
 Diese Dokumente greifen dort ein, wo einzelne Bausteine zusammenspielen müssen. Gerade in diesen Themen zeigt sich oft, ob eine Anwendung nur beeindruckend aussieht oder im Alltag belastbar arbeitet.
 
-- [Prompt Engineering](https://ralf-42.github.io/GenAI/concepts/prompt-engineering.html) – *Wie werden Modelle gezielt gesteuert?*
-- [Context Engineering](https://ralf-42.github.io/GenAI/concepts/m21-context-engineering.html) – *Welche Informationen braucht ein System wirklich?*
-- [RAG-Konzepte](https://ralf-42.github.io/GenAI/concepts/rag-konzepte.html) – *Wann hilft Retrieval und wann schadet es eher?*
-- [Modellauswahl](https://ralf-42.github.io/GenAI/concepts/m19-modellauswahl.html) – *Nach welchen Kriterien wird ein Modell ausgewählt?*  
-  Praktische Designregeln für den Kurs finden sich ergänzend im [Modell-Auswahl Guide](https://ralf-42.github.io/GenAI/frameworks/modell-auswahl-guide.html).
-- [Evaluation & Observability](https://ralf-42.github.io/GenAI/concepts/evaluation-observability.html) – *Wie wird sichtbar, ob eine GenAI-Anwendung gut funktioniert?* Mindeststandard für Testsets, RAG-Qualitätsprüfung, Tracing und Fehleranalyse.
+- [Prompt Engineering](https://ralf-42.github.io/GenAI/concepts/erweitert/prompt-engineering.html) – *Wie werden Modelle gezielt gesteuert?*
+- [Context Engineering](https://ralf-42.github.io/GenAI/concepts/erweitert/m21-context-engineering.html) – *Welche Informationen braucht ein System wirklich?*
+- [RAG-Konzepte](https://ralf-42.github.io/GenAI/concepts/erweitert/rag-konzepte.html) – *Wann hilft Retrieval und wann schadet es eher?*
+- [Modellauswahl](https://ralf-42.github.io/GenAI/concepts/erweitert/m19-modellauswahl.html) – *Nach welchen Kriterien wird ein Modell ausgewählt?*  
+  Praktische Designregeln für den Kurs finden sich ergänzend im [Modell-Auswahl Guide](https://ralf-42.github.io/GenAI/frameworks/modellauswahl/modell-auswahl-guide.html).
+- [Evaluation & Observability](https://ralf-42.github.io/GenAI/concepts/erweitert/evaluation-observability.html) – *Wie wird sichtbar, ob eine GenAI-Anwendung gut funktioniert?* Mindeststandard für Testsets, RAG-Qualitätsprüfung, Tracing und Fehleranalyse.
 
 ## Produktive und agentische Anwendungen
 
 Sobald GenAI-Anwendungen Werkzeuge aufrufen, Zustand halten oder menschliche Freigaben einbinden, reicht ein einzelner Prompt nicht mehr aus. Diese Seiten behandeln die Konzepte, die aus Modellaufrufen belastbare Anwendungssysteme machen.
 
-- [Tool Use & Function Calling](https://ralf-42.github.io/GenAI/concepts/tool-use-function-calling.html) – *Wie bekommt ein Modell kontrollierten Zugriff auf Werkzeuge?*
-- [Memory-Systeme](https://ralf-42.github.io/GenAI/concepts/memory-systeme.html) – *Wie bleibt relevanter Kontext über Nachrichten und Sitzungen hinweg erhalten?*
-- [State Management](https://ralf-42.github.io/GenAI/concepts/state-management.html) – *Wie werden Zwischenergebnisse und Prozesszustände explizit verwaltet?*
-- [Human-in-the-Loop](https://ralf-42.github.io/GenAI/concepts/human-in-the-loop.html) – *Wann braucht eine GenAI-Anwendung menschliche Freigabe oder Eskalation?*
-- [GenAI-Sicherheit](https://ralf-42.github.io/GenAI/concepts/agent-security.html) – *Wie werden Tool-Zugriffe, externe Inhalte und sensible Daten abgesichert?*
+- [Tool Use & Function Calling](https://ralf-42.github.io/GenAI/concepts/agentisch/tool-use-function-calling.html) – *Wie bekommt ein Modell kontrollierten Zugriff auf Werkzeuge?*
+- [Memory-Systeme](https://ralf-42.github.io/GenAI/concepts/agentisch/memory-systeme.html) – *Wie bleibt relevanter Kontext über Nachrichten und Sitzungen hinweg erhalten?*
+- [State Management](https://ralf-42.github.io/GenAI/concepts/agentisch/state-management.html) – *Wie werden Zwischenergebnisse und Prozesszustände explizit verwaltet?*
+- [Human-in-the-Loop](https://ralf-42.github.io/GenAI/concepts/agentisch/human-in-the-loop.html) – *Wann braucht eine GenAI-Anwendung menschliche Freigabe oder Eskalation?*
+- [GenAI-Sicherheit](https://ralf-42.github.io/GenAI/concepts/agentisch/agent-security.html) – *Wie werden Tool-Zugriffe, externe Inhalte und sensible Daten abgesichert?*

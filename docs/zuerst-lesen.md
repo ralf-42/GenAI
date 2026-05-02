@@ -1,4 +1,4 @@
----
+﻿---
 layout: default
 title: Zuerst lesen
 nav_order: 2
@@ -20,11 +20,11 @@ Diese Seite ist der kürzeste Einstieg in die Dokumentation. Sie ersetzt nicht d
 
 Wer neu in das Kursmaterial einsteigt, beginnt mit diesen fünf Dokumenten:
 
-1. [Lohnt sich GenAI?](./concepts/lohnt-es-sich.html)
-2. [Aufgabenklassen und Lösungswege](./concepts/aufgabenklassen-und-loesungswege.html)
-3. [Einsteiger LangChain](./frameworks/einsteiger-langchain.html)
-4. [RAG-Konzepte](./concepts/rag-konzepte.html)
-5. [Evaluation & Observability](./concepts/evaluation-observability.html)
+1. [Lohnt sich GenAI?](./concepts/orientierung/lohnt-es-sich.html)
+2. [Aufgabenklassen und Lösungswege](./concepts/orientierung/aufgabenklassen-und-loesungswege.html)
+3. [Einsteiger LangChain](./frameworks/einsteiger/einsteiger-langchain.html)
+4. [RAG-Konzepte](./concepts/erweitert/rag-konzepte.html)
+5. [Evaluation & Observability](./concepts/erweitert/evaluation-observability.html)
 
 Diese Reihenfolge klärt zuerst, ob GenAI überhaupt sinnvoll ist und welcher Lösungsweg zur Aufgabe passt. Danach folgt die technische Umsetzung mit LangChain, anschließend das wichtigste Erweiterungsmuster für eigene Daten und zuletzt die Frage, wie Qualität überprüfbar wird.
 
@@ -32,13 +32,13 @@ Diese Reihenfolge klärt zuerst, ob GenAI überhaupt sinnvoll ist und welcher L�
 
 | Ziel | Zuerst anschauen |
 |---|---|
-| GenAI-Vorhaben einschätzen | [Lohnt sich GenAI?](./concepts/lohnt-es-sich.html) |
-| Erstes Verständnis für GenAI-Anwendungen | [Aufgabenklassen und Lösungswege](./concepts/aufgabenklassen-und-loesungswege.html) |
-| Erste eigene Chain bauen | [Einsteiger LangChain](./frameworks/einsteiger-langchain.html) |
-| Dokumente und Wissen einbinden | [RAG-Konzepte](./concepts/rag-konzepte.html) |
-| Antworten messbar verbessern | [Evaluation & Observability](./concepts/evaluation-observability.html) |
-| Tools, State oder Agentenlogik nutzen | [Tool Use & Function Calling](./concepts/tool-use-function-calling.html) |
-| Mehrstufige Workflows bauen | [LangGraph Einsteiger](./frameworks/einsteiger-langgraph.html) |
+| GenAI-Vorhaben einschätzen | [Lohnt sich GenAI?](./concepts/orientierung/lohnt-es-sich.html) |
+| Erstes Verständnis für GenAI-Anwendungen | [Aufgabenklassen und Lösungswege](./concepts/orientierung/aufgabenklassen-und-loesungswege.html) |
+| Erste eigene Chain bauen | [Einsteiger LangChain](./frameworks/einsteiger/einsteiger-langchain.html) |
+| Dokumente und Wissen einbinden | [RAG-Konzepte](./concepts/erweitert/rag-konzepte.html) |
+| Antworten messbar verbessern | [Evaluation & Observability](./concepts/erweitert/evaluation-observability.html) |
+| Tools, State oder Agentenlogik nutzen | [Tool Use & Function Calling](./concepts/agentisch/tool-use-function-calling.html) |
+| Mehrstufige Workflows bauen | [LangGraph Einsteiger](./frameworks/einsteiger/einsteiger-langgraph.html) |
 | Aus dem Notebook Richtung Betrieb gehen | [Minimum Viable GenAI Stack](./deployment/minimum-viable-genai-stack.html) |
 | Rechtliche und organisatorische Einordnung | [EU AI Act](./regulatorisches/eu-ai-act.html) |
 

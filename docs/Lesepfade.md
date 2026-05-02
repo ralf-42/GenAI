@@ -1,4 +1,4 @@
----
+﻿---
 layout: default
 title: Lesepfade
 nav_order: 3
@@ -36,10 +36,10 @@ Ein Gesamtbild fehlt noch, die Grundbegriffe sind unscharf oder der Unterschied 
 
 Empfohlener Einstieg:
 
-1. [Lohnt sich GenAI?](./concepts/lohnt-es-sich.html)
-2. [Aufgabenklassen und Lösungswege](./concepts/aufgabenklassen-und-loesungswege.html)
-3. [Prompt Engineering](./concepts/prompt-engineering.html)
-4. [Modellauswahl](./concepts/m19-modellauswahl.html)
+1. [Lohnt sich GenAI?](./concepts/orientierung/lohnt-es-sich.html)
+2. [Aufgabenklassen und Lösungswege](./concepts/orientierung/aufgabenklassen-und-loesungswege.html)
+3. [Prompt Engineering](./concepts/erweitert/prompt-engineering.html)
+4. [Modellauswahl](./concepts/erweitert/m19-modellauswahl.html)
 
 ### Erste eigene Chain
 
@@ -47,10 +47,10 @@ Ein erster lauffähiger LangChain-Workflow soll entstehen. Der Fokus liegt auf d
 
 Empfohlener Einstieg:
 
-1. [Einsteiger LangChain](./frameworks/einsteiger-langchain.html)
-2. [Einsteiger Prompts](./frameworks/einsteiger-prompts.html)
-3. [LangChain Best Practices](./frameworks/langchain-best-practices.html)
-4. [Modell-Auswahl Guide](./frameworks/modell-auswahl-guide.html)
+1. [Einsteiger LangChain](./frameworks/einsteiger/einsteiger-langchain.html)
+2. [Einsteiger Prompts](./frameworks/einsteiger/einsteiger-prompts.html)
+3. [LangChain Best Practices](./frameworks/bestpractices/langchain-best-practices.html)
+4. [Modell-Auswahl Guide](./frameworks/modellauswahl/modell-auswahl-guide.html)
 
 ### Kursnotebooks vorbereiten
 
@@ -60,7 +60,7 @@ Empfohlener Einstieg:
 
 1. [API-Keys & Provider](./ressourcen/api-keys-und-provider.html)
 2. [Von Colab zu Local](./ressourcen/colab-zu-lokal.html)
-3. [GenAI_Lib Einsteiger](./frameworks/einsteiger-genai-lib.html)
+3. [GenAI_Lib Einsteiger](./frameworks/einsteiger/einsteiger-genai-lib.html)
 4. [Code Standards](./ressourcen/standards.html)
 
 ### RAG und Retrieval
@@ -69,11 +69,11 @@ Dokumente, Wissensquellen oder Grounding spielen die Hauptrolle. Meist steht dan
 
 Empfohlener Einstieg:
 
-1. [RAG-Konzepte](./concepts/rag-konzepte.html)
-2. [Tokenizing und Chunking](./concepts/m08a-tokenizing-chunking.html)
-3. [Embeddings](./concepts/m08b-embeddings.html)
-4. [Evaluation & Observability](./concepts/evaluation-observability.html)
-5. [Einsteiger ChromaDB](./frameworks/einsteiger-chromadb.html)
+1. [RAG-Konzepte](./concepts/erweitert/rag-konzepte.html)
+2. [Tokenizing und Chunking](./concepts/grundlagen/m08a-tokenizing-chunking.html)
+3. [Embeddings](./concepts/grundlagen/m08b-embeddings.html)
+4. [Evaluation & Observability](./concepts/erweitert/evaluation-observability.html)
+5. [Einsteiger ChromaDB](./frameworks/einsteiger/einsteiger-chromadb.html)
 
 ### Toolgestützte und agentische Anwendungen
 
@@ -81,13 +81,13 @@ Eine GenAI-Anwendung soll nicht nur antworten, sondern Werkzeuge aufrufen, Zwisc
 
 Empfohlener Einstieg:
 
-1. [Tool Use & Function Calling](./concepts/tool-use-function-calling.html)
-2. [State Management](./concepts/state-management.html)
-3. [Memory-Systeme](./concepts/memory-systeme.html)
-4. [Human-in-the-Loop](./concepts/human-in-the-loop.html)
-5. [GenAI-Sicherheit](./concepts/agent-security.html)
-6. [LangGraph Einsteiger](./frameworks/einsteiger-langgraph.html)
-7. [LangGraph Best Practices](./frameworks/langgraph-best-practices.html)
+1. [Tool Use & Function Calling](./concepts/agentisch/tool-use-function-calling.html)
+2. [State Management](./concepts/agentisch/state-management.html)
+3. [Memory-Systeme](./concepts/agentisch/memory-systeme.html)
+4. [Human-in-the-Loop](./concepts/agentisch/human-in-the-loop.html)
+5. [GenAI-Sicherheit](./concepts/agentisch/agent-security.html)
+6. [LangGraph Einsteiger](./frameworks/einsteiger/einsteiger-langgraph.html)
+7. [LangGraph Best Practices](./frameworks/bestpractices/langgraph-best-practices.html)
 
 ### Qualität und Fehlersuche
 
@@ -95,10 +95,10 @@ Eine Chain oder ein Agent funktioniert technisch, aber die Antwortqualität schw
 
 Empfohlener Einstieg:
 
-1. [Evaluation & Observability](./concepts/evaluation-observability.html)
-2. [RAG-Konzepte](./concepts/rag-konzepte.html)
-3. [LangSmith Best Practices](./frameworks/langsmith-best-practices.html)
-4. [LangGraph Best Practices](./frameworks/langgraph-best-practices.html)
+1. [Evaluation & Observability](./concepts/erweitert/evaluation-observability.html)
+2. [RAG-Konzepte](./concepts/erweitert/rag-konzepte.html)
+3. [LangSmith Best Practices](./frameworks/bestpractices/langsmith-best-practices.html)
+4. [LangGraph Best Practices](./frameworks/bestpractices/langgraph-best-practices.html)
 5. [Troubleshooting](./ressourcen/troubleshooting.html)
 
 ### Multimodalität
@@ -107,10 +107,10 @@ Text reicht nicht mehr aus. Bilder, Audio oder gemischte Inhalte sollen eingebun
 
 Empfohlener Einstieg:
 
-1. [Transformer-Grundlagen](./concepts/m05a-transformer.html)
-2. [Multimodal: Bild](./concepts/m09-multimodal-bild.html)
-3. [Multimodal: Audio](./concepts/m16-multimodal-audio.html)
-4. [Context Engineering](./concepts/m21-context-engineering.html)
+1. [Transformer-Grundlagen](./concepts/grundlagen/m05a-transformer.html)
+2. [Multimodal: Bild](./concepts/multimodal/m09-multimodal-bild.html)
+3. [Multimodal: Audio](./concepts/multimodal/m16-multimodal-audio.html)
+4. [Context Engineering](./concepts/erweitert/m21-context-engineering.html)
 
 ### Deployment und Betrieb
 
@@ -121,9 +121,9 @@ Empfohlener Einstieg:
 1. [Vom Modell zum Produkt: LangChain-Ökosystem](./deployment/vom-modell-zum-produkt-langchain-oekosystem.html)
 2. [Minimum Viable GenAI Stack](./deployment/minimum-viable-genai-stack.html)
 3. [Aus Entwicklung ins Deployment](./deployment/aus-entwicklung-ins-deployment.html)
-4. [Evaluation & Observability](./concepts/evaluation-observability.html)
-5. [LangSmith Best Practices](./frameworks/langsmith-best-practices.html)
-6. [Provider-Modell-Mapping](./frameworks/provider-modell-mapping.html)
+4. [Evaluation & Observability](./concepts/erweitert/evaluation-observability.html)
+5. [LangSmith Best Practices](./frameworks/bestpractices/langsmith-best-practices.html)
+6. [Provider-Modell-Mapping](./frameworks/modellauswahl/provider-modell-mapping.html)
 7. [Migration: OpenAI → Mistral](./deployment/migration-openai-mistral.html)
 
 ### Governance und Rahmenbedingungen
@@ -144,20 +144,20 @@ Nicht jeder Einstieg beginnt im Code. Für erste Prototypen, Modellverständnis 
 Empfohlener Einstieg:
 
 1. [Interaktive Visualisierungen](./ressourcen/interaktive-visualisierungen.html)
-2. [Agent Builder Einsteiger](./frameworks/einsteiger-agent-builder.html)
-3. [Lohnt sich GenAI?](./concepts/lohnt-es-sich.html)
-4. [Aufgabenklassen und Lösungswege](./concepts/aufgabenklassen-und-loesungswege.html)
+2. [Agent Builder Einsteiger](./frameworks/einsteiger/einsteiger-agent-builder.html)
+3. [Lohnt sich GenAI?](./concepts/orientierung/lohnt-es-sich.html)
+4. [Aufgabenklassen und Lösungswege](./concepts/orientierung/aufgabenklassen-und-loesungswege.html)
 5. [Links](./ressourcen/links.html)
 
 ## Fünf Dokumente für fast jeden Start
 
 Wer nicht lange wählen will, kommt mit diesen fünf Dokumenten meist am schnellsten ins Thema:
 
-1. [Lohnt sich GenAI?](./concepts/lohnt-es-sich.html)
-2. [Aufgabenklassen und Lösungswege](./concepts/aufgabenklassen-und-loesungswege.html)
-3. [Einsteiger LangChain](./frameworks/einsteiger-langchain.html)
-4. [RAG-Konzepte](./concepts/rag-konzepte.html)
-5. [Evaluation & Observability](./concepts/evaluation-observability.html)
+1. [Lohnt sich GenAI?](./concepts/orientierung/lohnt-es-sich.html)
+2. [Aufgabenklassen und Lösungswege](./concepts/orientierung/aufgabenklassen-und-loesungswege.html)
+3. [Einsteiger LangChain](./frameworks/einsteiger/einsteiger-langchain.html)
+4. [RAG-Konzepte](./concepts/erweitert/rag-konzepte.html)
+5. [Evaluation & Observability](./concepts/erweitert/evaluation-observability.html)
 
 Diese Kombination klärt erst die Einsatzfrage, dann die Lösungsklasse und Umsetzung, danach das wichtigste Erweiterungsmuster und zuletzt die Frage, wie Qualität sichtbar wird. Genau diese Reihenfolge verhindert viele frühe Fehlstarts.
 

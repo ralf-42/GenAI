@@ -1,4 +1,4 @@
----
+﻿---
 layout: default
 title: KI-Challenge
 parent: Projekte
@@ -520,7 +520,7 @@ Bei Fragen oder Problemen während der Projektentwicklung steht das `Kurs-Forum`
 |---|---|
 | [RAG Workshop](./rag-workshop.html) | Wie entsteht schrittweise eine RAG-Anwendung mit Agent, Middleware und UI? |
 | [Produktionsreife Anwendung](../deployment/aus-entwicklung-ins-deployment.html) | Welche Schritte sind nötig, damit ein Kursprojekt deploybar wird? |
-| [Evaluation & Observability](../concepts/evaluation-observability.html) | Wie werden Qualität und Fehlerverhalten einer GenAI-Anwendung sichtbar? |
+| [Evaluation & Observability](../concepts/erweitert/evaluation-observability.html) | Wie werden Qualität und Fehlerverhalten einer GenAI-Anwendung sichtbar? |
 
 ---
 
