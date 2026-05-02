@@ -8,7 +8,7 @@ description: "Rechtliche Rahmenbedingungen, Ethik und Souveränität"
 
 # Regulatorisches
 
-Rechtliche, ethische und strategische Aspekte beim Einsatz von KI-Agenten.
+Rechtliche, ethische und strategische Aspekte beim Einsatz generativer KI.
 
 ## Übersicht
 
@@ -27,9 +27,14 @@ Rechtliche, ethische und strategische Aspekte beim Einsatz von KI-Agenten.
   - Compliance-Aspekte
   - Praktische Auswirkungen
 
+- **[Datenschutz & DSGVO](https://ralf-42.github.io/GenAI/regulatorisches/datenschutz-dsgvo.html)** – *Was darf in Prompts, Logs, RAG-Indizes und LLM-APIs verarbeitet werden?*
+  - Personenbezogene Daten in Prompts und Testdaten
+  - Cloud-API, lokale Modelle und Auftragsverarbeitung
+  - Logging, Tracing, Evaluation und Datenschutz by Design
+
 ### Ethik & Verantwortung
 - **[Ethik und GenAI](https://ralf-42.github.io/GenAI/regulatorisches/ethik-und-genai.html)** – *Welche ethischen Grenzen und Zielkonflikte prägen den KI-Einsatz?*
   - Ethische Aspekte und Herausforderungen
   - Bias und Fairness
-  - Verantwortungsvoller Umgang mit KI-Agenten
+  - Verantwortungsvoller Umgang mit generativer KI
   - Best Practices
