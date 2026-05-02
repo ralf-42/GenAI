@@ -49,8 +49,8 @@ Empfohlener Einstieg:
 
 1. [Einsteiger LangChain](./frameworks/einsteiger/einsteiger-langchain.html)
 2. [Einsteiger Prompts](./frameworks/einsteiger/einsteiger-prompts.html)
-3. [LangChain Best Practices](./frameworks/bestpractices/langchain-best-practices.html)
-4. [Modell-Auswahl Guide](./frameworks/modellauswahl/modell-auswahl-guide.html)
+3. [LangChain Best Practices](./frameworks/best-practices/langchain-best-practices.html)
+4. [Modell-Auswahl Guide](./frameworks/modell-auswahl/modell-auswahl-guide.html)
 
 ### Kursnotebooks vorbereiten
 
@@ -87,7 +87,7 @@ Empfohlener Einstieg:
 4. [Human-in-the-Loop](./concepts/agentisch/human-in-the-loop.html)
 5. [GenAI-Sicherheit](./concepts/agentisch/agent-security.html)
 6. [LangGraph Einsteiger](./frameworks/einsteiger/einsteiger-langgraph.html)
-7. [LangGraph Best Practices](./frameworks/bestpractices/langgraph-best-practices.html)
+7. [LangGraph Best Practices](./frameworks/best-practices/langgraph-best-practices.html)
 
 ### Qualität und Fehlersuche
 
@@ -97,8 +97,8 @@ Empfohlener Einstieg:
 
 1. [Evaluation & Observability](./concepts/erweitert/evaluation-observability.html)
 2. [RAG-Konzepte](./concepts/erweitert/rag-konzepte.html)
-3. [LangSmith Best Practices](./frameworks/bestpractices/langsmith-best-practices.html)
-4. [LangGraph Best Practices](./frameworks/bestpractices/langgraph-best-practices.html)
+3. [LangSmith Best Practices](./frameworks/best-practices/langsmith-best-practices.html)
+4. [LangGraph Best Practices](./frameworks/best-practices/langgraph-best-practices.html)
 5. [Troubleshooting](./ressourcen/troubleshooting.html)
 
 ### Multimodalität
@@ -122,8 +122,8 @@ Empfohlener Einstieg:
 2. [Minimum Viable GenAI Stack](./deployment/minimum-viable-genai-stack.html)
 3. [Aus Entwicklung ins Deployment](./deployment/aus-entwicklung-ins-deployment.html)
 4. [Evaluation & Observability](./concepts/erweitert/evaluation-observability.html)
-5. [LangSmith Best Practices](./frameworks/bestpractices/langsmith-best-practices.html)
-6. [Provider-Modell-Mapping](./frameworks/modellauswahl/provider-modell-mapping.html)
+5. [LangSmith Best Practices](./frameworks/best-practices/langsmith-best-practices.html)
+6. [Provider-Modell-Mapping](./frameworks/modell-auswahl/provider-modell-mapping.html)
 7. [Migration: OpenAI → Mistral](./deployment/migration-openai-mistral.html)
 
 ### Governance und Rahmenbedingungen

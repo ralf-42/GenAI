@@ -694,7 +694,7 @@ with gr.Blocks(title="Tech-Doku Assistent") as demo:
 **Qualität & Observability:**
 - [Evaluation & Observability](../concepts/erweitert/evaluation-observability.html)
 - [RAG-Konzepte](../concepts/erweitert/rag-konzepte.html)
-- [LangSmith Best Practices](../frameworks/bestpractices/langsmith-best-practices.html)
+- [LangSmith Best Practices](../frameworks/best-practices/langsmith-best-practices.html)
 
 ---
 
