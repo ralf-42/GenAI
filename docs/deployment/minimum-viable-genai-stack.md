@@ -1,4 +1,4 @@
----
+﻿---
 layout: default
 title: Minimum Viable GenAI Stack
 parent: Deployment
@@ -228,7 +228,7 @@ Der Stack wird sich konsolidieren. Provider-SDKs integrieren bereits Speicher, T
 |---|---|
 | [Aus der Entwicklung ins Deployment](./aus-entwicklung-ins-deployment.html) | Wie wird der Übergang vom Jupyter Notebook zur produktionsreifen Anwendung technisch umgesetzt? |
 | [Vom Modell zum Produkt](./vom-modell-zum-produkt-langchain-oekosystem.html) | Welche LangChain-Komponenten sind für den Produktionseinsatz relevant? |
-| [LangGraph Einsteiger](../frameworks/einsteiger-langgraph.html) | Wie werden mehrstufige Workflows mit State und Routing umgesetzt? |
+| [LangGraph Einsteiger](../frameworks/einsteiger/einsteiger-langgraph.html) | Wie werden mehrstufige Workflows mit State und Routing umgesetzt? |
 
 ---
 

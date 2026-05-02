@@ -1,4 +1,4 @@
----
+﻿---
 layout: default
 title: Frameworks
 nav_order: 5
@@ -14,60 +14,60 @@ Die Framework-Seiten dienen nicht als vollständige Produktkataloge. Sie erklär
 
 LangChain ist im Projekt die zentrale Schicht zwischen Modell und Anwendung. Wer verstehen will, warum Providerwechsel, Chains oder Tool-Integration im Kurs vergleichsweise kontrollierbar bleiben, beginnt hier.
 
-- **[LangChain Einsteiger](https://ralf-42.github.io/GenAI/frameworks/einsteiger-langchain.html)** – *Wie werden Modelle, Prompts und Chains zusammengeführt?*
-- **[LangGraph Einsteiger](https://ralf-42.github.io/GenAI/frameworks/einsteiger-langgraph.html)** – *Wie werden mehrstufige Workflows mit State und Routing umgesetzt?*
+- **[LangChain Einsteiger](https://ralf-42.github.io/GenAI/frameworks/einsteiger/einsteiger-langchain.html)** – *Wie werden Modelle, Prompts und Chains zusammengeführt?*
+- **[LangGraph Einsteiger](https://ralf-42.github.io/GenAI/frameworks/einsteiger/einsteiger-langgraph.html)** – *Wie werden mehrstufige Workflows mit State und Routing umgesetzt?*
 
 ## Vektordatenbanken
 
 ChromaDB wird dort relevant, wo semantische Suche nicht nur eine Idee bleiben soll. Die Seite zeigt weniger "was ChromaDB alles bietet", sondern wie daraus ein brauchbarer Retrieval-Pfad wird.
 
-- **[ChromaDB Einsteiger](https://ralf-42.github.io/GenAI/frameworks/einsteiger-chromadb.html)** – *Wie wird aus Embeddings ein nutzbarer Suchindex?*
+- **[ChromaDB Einsteiger](https://ralf-42.github.io/GenAI/frameworks/einsteiger/einsteiger-chromadb.html)** – *Wie wird aus Embeddings ein nutzbarer Suchindex?*
 
 ## No-Code / Low-Code
 
 Nicht jede Anwendung beginnt mit Python-Code. Agent Builder ist im Kurs vor allem als Vergleich interessant: Wo reicht ein visueller Workflow, und ab wann wird Code unverzichtbar?
 
-- **[Agent Builder Einsteiger](https://ralf-42.github.io/GenAI/frameworks/einsteiger-agent-builder.html)** – *Wann genügt ein visueller Workflow-Builder?*
+- **[Agent Builder Einsteiger](https://ralf-42.github.io/GenAI/frameworks/einsteiger/einsteiger-agent-builder.html)** – *Wann genügt ein visueller Workflow-Builder?*
 
 ## Projektspezifische Bibliotheken
 
 Die `genai_lib` bündelt genau die Hilfsfunktionen, die im Kurs immer wieder gebraucht werden. Wer nachvollziehen möchte, warum Setups, API-Keys und Visualisierungen in den Notebooks vergleichsweise konsistent aussehen, findet hier die technische Basis.
 
-- **[GenAI_Lib Einsteiger](https://ralf-42.github.io/GenAI/frameworks/einsteiger-genai-lib.html)** – *Welche Hilfsfunktionen trägt das Kursprojekt selbst bei?*
+- **[GenAI_Lib Einsteiger](https://ralf-42.github.io/GenAI/frameworks/einsteiger/einsteiger-genai-lib.html)** – *Welche Hilfsfunktionen trägt das Kursprojekt selbst bei?*
 
 ## Modell-Auswahl
 
 Modellauswahl ist selten nur eine Qualitätsfrage. Häufiger geht es um Kosten, Latenz, Modalitäten und die Frage, ob ein stärkeres Modell den Mehraufwand überhaupt rechtfertigt.
 
-- **[Modell-Auswahl Guide](https://ralf-42.github.io/GenAI/frameworks/modell-auswahl-guide.html)** – *Welches Modell passt zu welcher Aufgabe?*
-- **[Provider-Modell-Mapping](https://ralf-42.github.io/GenAI/frameworks/provider-modell-mapping.html)** – *Welche Provider und Modellfamilien passen zu welchen Anwendungstypen?*
+- **[Modell-Auswahl Guide](https://ralf-42.github.io/GenAI/frameworks/modellauswahl/modell-auswahl-guide.html)** – *Welches Modell passt zu welcher Aufgabe?*
+- **[Provider-Modell-Mapping](https://ralf-42.github.io/GenAI/frameworks/modellauswahl/provider-modell-mapping.html)** – *Welche Provider und Modellfamilien passen zu welchen Anwendungstypen?*
 
 ## Prompt-Templates
 
 Prompt-Dateien werden im Kurs nicht als Textbausteine behandelt, sondern als wartbare Schnittstelle zwischen Idee und Anwendung. Die Seite zeigt, wie daraus mehr wird als eine Sammlung lose kopierter Prompts.
 
-- **[Prompt-Templates Einsteiger](https://ralf-42.github.io/GenAI/frameworks/einsteiger-prompts.html)** – *Wie werden Prompts wiederverwendbar und pflegbar?*
+- **[Prompt-Templates Einsteiger](https://ralf-42.github.io/GenAI/frameworks/einsteiger/einsteiger-prompts.html)** – *Wie werden Prompts wiederverwendbar und pflegbar?*
 
 ## Evaluation & Observability
 
 KI-Anwendungen brauchen neben funktionierendem Code auch sichtbare Qualität. Für den Einstieg reicht ein kleines Testset; bei Chains, RAG und Agenten wird zusätzlich relevant, welcher Schritt die Antwort erzeugt oder verschlechtert hat.
 
-- **[Evaluation & Observability](https://ralf-42.github.io/GenAI/concepts/evaluation-observability.html)** – *Wie wird sichtbar, ob eine GenAI-Anwendung gut funktioniert?* Mindeststandard für Testsets, RAG-Qualitätsprüfung, Tracing und Fehleranalyse.
-- **[LangSmith Best Practices](https://ralf-42.github.io/GenAI/frameworks/langsmith-best-practices.html)** – *Wie observiere ich Chains und Agenten technisch?* Tracing, Evaluation und Monitoring mit LangSmith.
+- **[Evaluation & Observability](https://ralf-42.github.io/GenAI/concepts/erweitert/evaluation-observability.html)** – *Wie wird sichtbar, ob eine GenAI-Anwendung gut funktioniert?* Mindeststandard für Testsets, RAG-Qualitätsprüfung, Tracing und Fehleranalyse.
+- **[LangSmith Best Practices](https://ralf-42.github.io/GenAI/frameworks/bestpractices/langsmith-best-practices.html)** – *Wie observiere ich Chains und Agenten technisch?* Tracing, Evaluation und Monitoring mit LangSmith.
 
 ## Best Practices & Anti-Patterns
 
 Empfohlene Patterns und Anti-Patterns für die im Kurs zentralen Frameworks.
 
-- **[LangChain Best Practices](https://ralf-42.github.io/GenAI/frameworks/langchain-best-practices.html)** – *Was sind die 7 MUST-HAVE Features?* Pflichtpatterns für alle LangChain 1.0+ Notebooks
+- **[LangChain Best Practices](https://ralf-42.github.io/GenAI/frameworks/bestpractices/langchain-best-practices.html)** – *Was sind die 7 MUST-HAVE Features?* Pflichtpatterns für alle LangChain 1.0+ Notebooks
   - `init_chat_model()`, `with_structured_output()`, `@tool`, `create_agent()`
   - LCEL `|` Chains, Middleware, Standard Content Blocks
   - Anti-Patterns und Migrationshinweise (v1.2.x Neuerungen)
 
-- **[LangSmith Best Practices](https://ralf-42.github.io/GenAI/frameworks/langsmith-best-practices.html)** – *Wie observiere ich Chains und Agenten richtig?* Tracing, Evaluation und Monitoring in der Praxis
+- **[LangSmith Best Practices](https://ralf-42.github.io/GenAI/frameworks/bestpractices/langsmith-best-practices.html)** – *Wie observiere ich Chains und Agenten richtig?* Tracing, Evaluation und Monitoring in der Praxis
   - `LANGSMITH_*` Umgebungsvariablen (nicht `LANGCHAIN_*`)
   - `.with_config()`, `.func()`, Projektname-Konventionen
   - Troubleshooting: EU-Endpoint, falsches Projekt, fehlende Traces
 
-- **[LangGraph Best Practices](https://ralf-42.github.io/GenAI/frameworks/langgraph-best-practices.html)** – *Wie bleiben zustandsbehaftete Workflows wartbar?* Patterns für State, Routing, Checkpointing und Human-in-the-Loop.
+- **[LangGraph Best Practices](https://ralf-42.github.io/GenAI/frameworks/bestpractices/langgraph-best-practices.html)** – *Wie bleiben zustandsbehaftete Workflows wartbar?* Patterns für State, Routing, Checkpointing und Human-in-the-Loop.
 

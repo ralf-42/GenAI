@@ -1,4 +1,4 @@
----
+﻿---
 layout: default
 title: Ethik und GenAI
 parent: Regulatorisches
@@ -73,7 +73,7 @@ In der Praxis relevant, wenn: ein GenAI-System Inhalte erzeugt, die Menschen dir
 |---|---|
 | [EU AI Act](./eu-ai-act.html) | Welche rechtlichen Pflichten entstehen aus europäischer KI-Regulierung? |
 | [Digitale Souveränität](./digitale-souveraenitaet.html) | Welche strategischen Abhängigkeiten entstehen durch Infrastruktur, Modelle und Datenräume? |
-| [Evaluation & Observability](../concepts/evaluation-observability.html) | Wie werden Qualität, Bias, Fehlerverhalten und Betrieb messbar gemacht? |
+| [Evaluation & Observability](../concepts/erweitert/evaluation-observability.html) | Wie werden Qualität, Bias, Fehlerverhalten und Betrieb messbar gemacht? |
 
 ---
 
