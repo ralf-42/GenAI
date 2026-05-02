@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Ethik und GenAI
 parent: Regulatorisches
