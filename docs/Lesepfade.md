@@ -135,7 +135,8 @@ Empfohlener Einstieg:
 1. [Digitale Souveränität](./regulatorisches/digitale-souveraenitaet.html)
 2. [Ethik und GenAI](./regulatorisches/ethik-und-genai.html)
 3. [EU AI Act](./regulatorisches/eu-ai-act.html)
-4. [KI-Reifegradmodell](./ressourcen/ki-reifegradmodell.html)
+4. [Datenschutz & DSGVO](./regulatorisches/datenschutz-dsgvo.html)
+5. [KI-Reifegradmodell](./ressourcen/ki-reifegradmodell.html)
 
 ### No-Code, Low-Code und visuelle Orientierung
 

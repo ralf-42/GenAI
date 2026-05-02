@@ -3,7 +3,7 @@ layout: default
 title: Ethik und GenAI
 parent: Regulatorisches
 nav_order: 2
-description: "Ethische Aspekte: Bias, Fairness und verantwortungsvoller KI-Einsatz"
+description: "Ethische Aspekte von GenAI: Verantwortung, Bias, Fairness, Autonomie, Transparenz und Kontrolle"
 has_toc: true
 ---
 
@@ -35,6 +35,8 @@ Zentrale ethische Prinzipien sind Verantwortung, Fairness, Transparenz, Datensch
 
 Typischer Fehler: Ethik wird als Zusatzkapitel nach der technischen Umsetzung behandelt. In GenAI-Projekten entstehen ethische Risiken bereits bei Datenauswahl, Prompt-Design, Rollenverteilung, Modellwahl und Evaluation.
 
+Bei toolgestützten oder agentischen GenAI-Anwendungen verschärft sich diese Frage. Das System erzeugt dann nicht nur Inhalte, sondern kann Quellen auswählen, Tools aufrufen, Workflows starten, Zwischenergebnisse speichern oder Entscheidungen vorbereiten. Ethisch relevant wird dadurch nicht nur, ob eine Antwort plausibel klingt, sondern welche Handlung sie auslöst, welche Daten sie nutzt und wer die Ausgabe prüft.
+
 ## Rahmenwerke & Praxis
 
 Der EU AI Act bildet den verbindlichen regulatorischen Rahmen in Europa. OECD- und UNESCO-Leitlinien ergänzen ihn durch normative Prinzipien wie Menschenzentrierung, Fairness, Rechenschaftspflicht und Transparenz. Diese Rahmenwerke ersetzen keine technische Prüfung, geben aber Orientierung für Entscheidungen, die nicht allein mit Genauigkeitsmetriken beantwortet werden können.
@@ -53,6 +55,8 @@ Ethische Spannungsfelder lassen sich selten vollständig auflösen. Mehr Transpa
 
 Fehlerquellen verteilen sich über den gesamten Lebenszyklus. Verzerrte Daten erzeugen verzerrte Ausgaben, schlecht getestete Modelle verhalten sich außerhalb typischer Prompts instabil, unklare Verantwortlichkeiten verhindern Korrektur, und unreflektierte Nutzung führt dazu, dass KI-Ausgaben als Fakten übernommen werden. Grenze: Auch gute technische Schutzmaßnahmen ersetzen keine organisatorische Verantwortung.
 
+Bei RAG, Tools und Agentenlogik kommen weitere Fehlerquellen hinzu: ungeprüfte Quellen, zu weitreichende Tool-Rechte, personenbezogene Daten in Logs oder Traces, persistenter Kontext ohne Löschstrategie und Freigaben, die nur als Demo-Funktion existieren. Verantwortlicher Einsatz braucht deshalb technische Begrenzung und organisatorische Kontrolle zusammen.
+
 ## Chancen & Potenziale
 
 Generative KI kann Bildung, Barrierefreiheit, Wissenschaft, Kreativität, Wirtschaft und Nachhaltigkeit unterstützen. Adaptive Lernumgebungen, Text-zu-Sprache, Literaturauswertung, Ideengenerierung oder ESG-Analyse zeigen, dass ethische Bewertung nicht mit Risikovermeidung gleichzusetzen ist. Verantwortlicher Einsatz bedeutet, Nutzen erreichbar zu machen und Schaden systematisch zu begrenzen.
@@ -65,6 +69,8 @@ Technisch helfen Explainable-AI-Methoden, Bias-Analysen, Red Teaming, Input-Vali
 
 Für Kurs- und Projektkontexte empfiehlt sich eine einfache Mindestprüfung: Zweck, Zielgruppe, Datenquellen, mögliche Schäden, menschliche Kontrolle und Evaluationskriterien werden vor der Umsetzung festgehalten. Nach der Umsetzung wird geprüft, ob das System in Grenzfällen, bei mehrdeutigen Prompts und bei sensiblen Inhalten stabil bleibt.
 
+Für toolgestützte GenAI gilt zusätzlich: Starte mit Assistenz statt autonomer Entscheidung, dokumentiere Tool-Rechte und Datenflüsse, nutze Human-in-the-Loop bei Ausgaben mit Wirkung auf Menschen, und halte Tracing datensparsam. Je mehr ein System handeln darf, desto expliziter müssen Grenzen, Freigaben und Verantwortliche definiert sein.
+
 In der Praxis relevant, wenn: ein GenAI-System Inhalte erzeugt, die Menschen direkt übernehmen könnten. Dann reichen Demo-Qualität und subjektiv gute Antworten nicht aus; erforderlich sind Kennzeichnung, Tests, Grenzen und Verantwortlichkeit.
 
 ## Abgrenzung zu verwandten Dokumenten
@@ -72,12 +78,15 @@ In der Praxis relevant, wenn: ein GenAI-System Inhalte erzeugt, die Menschen dir
 | Dokument | Frage |
 |---|---|
 | [EU AI Act](./eu-ai-act.html) | Welche rechtlichen Pflichten entstehen aus europäischer KI-Regulierung? |
+| [Datenschutz & DSGVO](./datenschutz-dsgvo.html) | Wie werden personenbezogene Daten in Prompts, Logs, RAG-Indizes und LLM-APIs geschützt? |
 | [Digitale Souveränität](./digitale-souveraenitaet.html) | Welche strategischen Abhängigkeiten entstehen durch Infrastruktur, Modelle und Datenräume? |
+| [GenAI-Sicherheit](../concepts/agentisch/agent-security.html) | Wie werden Tool-Zugriffe, externe Inhalte und sensible Daten technisch abgesichert? |
+| [Human-in-the-Loop](../concepts/agentisch/human-in-the-loop.html) | Wann braucht eine GenAI-Anwendung menschliche Freigabe oder Eskalation? |
 | [Evaluation & Observability](../concepts/erweitert/evaluation-observability.html) | Wie werden Qualität, Bias, Fehlerverhalten und Betrieb messbar gemacht? |
 
 ---
 
-**Version:** 1.0<br>
-**Stand:** November 2025<br>
+**Version:** 1.1<br>
+**Stand:** April 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
 

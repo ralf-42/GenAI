@@ -28,6 +28,8 @@ Wer neu in das Kursmaterial einsteigt, beginnt mit diesen fünf Dokumenten:
 
 Diese Reihenfolge klärt zuerst, ob GenAI überhaupt sinnvoll ist und welcher Lösungsweg zur Aufgabe passt. Danach folgt die technische Umsetzung mit LangChain, anschließend das wichtigste Erweiterungsmuster für eigene Daten und zuletzt die Frage, wie Qualität überprüfbar wird.
 
+Wenn echte Nutzer-, Kunden-, Mitarbeiter- oder interne Dokumentdaten verarbeitet werden, sollte zusätzlich früh [Datenschutz & DSGVO](./regulatorisches/datenschutz-dsgvo.html) gelesen werden. Datenschutz entscheidet oft mit, ob Cloud-API, lokales Modell, RAG-Index oder Logging überhaupt passend sind.
+
 ## Wenn ein konkretes Ziel im Vordergrund steht
 
 | Ziel | Zuerst anschauen |
@@ -40,7 +42,8 @@ Diese Reihenfolge klärt zuerst, ob GenAI überhaupt sinnvoll ist und welcher L�
 | Tools, State oder Agentenlogik nutzen | [Tool Use & Function Calling](./concepts/agentisch/tool-use-function-calling.html) |
 | Mehrstufige Workflows bauen | [LangGraph Einsteiger](./frameworks/einsteiger/einsteiger-langgraph.html) |
 | Aus dem Notebook Richtung Betrieb gehen | [Minimum Viable GenAI Stack](./deployment/minimum-viable-genai-stack.html) |
-| Rechtliche und organisatorische Einordnung | [EU AI Act](./regulatorisches/eu-ai-act.html) |
+| Personenbezogene oder sensible Daten verarbeiten | [Datenschutz & DSGVO](./regulatorisches/datenschutz-dsgvo.html) |
+| KI-rechtliche und organisatorische Einordnung | [EU AI Act](./regulatorisches/eu-ai-act.html) |
 
 ## Danach gezielt vertiefen
 
