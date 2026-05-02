@@ -1,13 +1,13 @@
 ---
 layout: default
-title: Produktive & agentische Anwendungen
+title: Produktive Anwendungen
 parent: Konzepte
 nav_order: 5
 has_children: true
 description: "Tools, State, Memory und Sicherheit: Konzepte für belastbare GenAI-Anwendungssysteme"
 ---
 
-# Produktive & agentische Anwendungen
+# Produktive Anwendungen
 
 Sobald GenAI-Anwendungen Werkzeuge aufrufen, Zustand halten oder menschliche Freigaben einbinden, reicht ein einzelner Prompt nicht mehr aus. Diese Seiten behandeln die Konzepte, die aus Modellaufrufen belastbare Anwendungssysteme machen.
 
