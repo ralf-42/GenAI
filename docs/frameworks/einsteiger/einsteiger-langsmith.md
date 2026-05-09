@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: LangSmith
 parent: Einsteiger-Guides
@@ -955,3 +955,10 @@ setup_api_keys(['OPENAI_API_KEY', 'LANGSMITH_API_KEY'], create_globals=False)
 **Version:** 1.0<br>
 **Stand:** Mai 2026<br>
 **Kurs:** Generative KI mit LangChain 1.1+
+
+## Abgrenzung zu verwandten Dokumenten
+
+| Dokument | Frage |
+|---|---|
+| [Einsteiger-Guides](../einsteiger-guides.html) | Wo starte ich als Einsteiger mit LangSmith? |
+| [Best Practices](../best-practices.html) | Welche Produktionsstandards gelten für LangSmith? |

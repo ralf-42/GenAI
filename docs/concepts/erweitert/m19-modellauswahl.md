@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Modellauswahl
 parent: Erweiterte Techniken

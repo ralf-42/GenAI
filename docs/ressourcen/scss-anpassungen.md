@@ -1,4 +1,22 @@
+---
+title: SCSS-Anpassungen
+parent: Alle Ressourcen
+grand_parent: Ressourcen
+nav_order: 99
+description: Technische Hinweise zur Anpassung von Schriftgrößen und CSS im Jekyll-Docs-Site.
+---
+
 # Schriftgröße anpassen - Anleitung
+
+**Version:** 1.0<br>
+**Stand:** Mai 2026<br>
+**Kurs:** Generative KI
+
+## Inhaltsverzeichnis
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
 
 ## Wo anpassen?
 Datei: `docs/_sass/custom/custom.scss`
@@ -58,3 +76,10 @@ body {
 1. Datei speichern
 2. Git commit + push
 3. GitHub Pages aktualisiert automatisch (2-3 Minuten)
+
+## Abgrenzung zu verwandten Dokumenten
+
+| Dokument | Frage |
+|---|---|
+| [Einsteiger-Guides](../einsteiger-guides.html) | Wo starte ich als Einsteiger mit SCSS-Anpassungen? |
+| [Best Practices](../best-practices.html) | Welche Produktionsstandards gelten für SCSS-Anpassungen? |

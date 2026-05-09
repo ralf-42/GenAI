@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: GenAI_Lib
 parent: Einsteiger-Guides
@@ -53,7 +53,7 @@ Die Bibliothek besteht aus drei Hauptmodulen:
 
 ### Überblick
 
-> [!INFO] utilities.py auf einen Blick     
+> [!INFO] utilities.py auf einen Blick<br>
 > Das `utilities`-Modul stellt grundlegende Hilfsfunktionen bereit, die in vielen Notebooks und Projekten wiederkehrend benötigt werden. Alle Funktionen sind über `from genai_lib.utilities import ...` importierbar.
 
 ### Hauptfunktionen
@@ -480,7 +480,7 @@ multimodal_rag
 └── Hybride Suche: Text ↔ Bild ↔ Bild
 ```
 
-> [!INFO] LangChain 1.0+ Integration (v3.1)     
+> [!INFO] LangChain 1.0+ Integration (v3.1)<br>
 > Das `multimodal_rag`-Modul verwendet moderne LangChain 1.0+ Patterns:
 > - Nutzt `init_chat_model("openai:gpt-4o-mini")` für LLM-Initialisierung
 > - Vision-Analysen mit `HumanMessage` und Standard Content Blocks
@@ -814,3 +814,10 @@ Die Module stehen unter der MIT-Lizenz und können frei für eigene Projekte ver
 **Version:**    3.2<br>
 **Stand:**    März 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
+
+## Abgrenzung zu verwandten Dokumenten
+
+| Dokument | Frage |
+|---|---|
+| [Einsteiger-Guides](../einsteiger-guides.html) | Wo starte ich als Einsteiger mit GenAI_Lib? |
+| [Best Practices](../best-practices.html) | Welche Produktionsstandards gelten für GenAI_Lib? |

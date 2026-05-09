@@ -16,6 +16,12 @@ has_toc: true
 
 ---
 
+## Inhaltsverzeichnis
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
 ## Übersicht
 
 **LangSmith** ist die **Observability-Plattform** für LangChain/LangGraph-Anwendungen und bildet die **dritte Säule** des LangChain-Ökosystems:
@@ -701,7 +707,7 @@ callback = LangSmithCallback(
 
 ### Interne Dokumentation
 - [Vom Modell zum Produkt: LangChain-Ökosystem](../deployment/vom-modell-zum-produkt-langchain-oekosystem.html)
-- [LangChain 1.0 Must-Haves](./langchain-best-practices.md)
+- [LangChain 1.0 Must-Haves](./langchain-best-practices.html)
 
 ### Related Commands
 - `/check-langsmith-changelog` - Prüft neue LangSmith-Features
@@ -768,3 +774,9 @@ callback = LangSmithCallback(
 **Maintainer:** Ralf
 **Lizenz:** MIT License
 
+## Abgrenzung zu verwandten Dokumenten
+
+| Dokument | Frage |
+|---|---|
+| [LangChain Best Practices](langchain-best-practices.html) | Welche LangChain-Patterns erzeugen sinnvolle LangSmith-Traces? |
+| [LangGraph Best Practices](langgraph-best-practices.html) | Wie instrumentiere ich LangGraph-Graphen für LangSmith-Monitoring? |

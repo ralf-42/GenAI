@@ -1,10 +1,11 @@
 ---
 layout: default
 title: KI-Reifegradmodell
-parent: Ressourcen
+parent: Alle Ressourcen
 nav_order: 5
 description: Managementtaugliche Einordnung des KI-Reifegrads
 has_toc: true
+grand_parent: Ressourcen
 ---
 
 # KI-Reifegradmodell für Unternehmen
@@ -72,3 +73,10 @@ Sinnvoll ist weniger die Frage "Welche Stufe ist die Organisation?", sondern "Wa
 **Version:** 1.0<br>
 **Stand:** Januar 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
+
+## Abgrenzung zu verwandten Dokumenten
+
+| Dokument | Frage |
+|---|---|
+| [Einsteiger-Guides](../einsteiger-guides.html) | Wo starte ich als Einsteiger mit KI-Reifegradmodell? |
+| [Best Practices](../best-practices.html) | Welche Produktionsstandards gelten für KI-Reifegradmodell? |

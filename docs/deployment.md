@@ -8,6 +8,10 @@ description: "Von der Entwicklung zur produktionsreifen Anwendung"
 
 # Deployment
 
+**Version:** 1.0<br>
+**Stand:** Mai 2026<br>
+**Kurs:** Generative KI
+
 Deployment beginnt im Kurs nicht erst bei Docker oder Hosting. Relevant wird es in dem Moment, in dem aus einem Notebook ein System werden soll, das wiederholbar läuft, konfigurierbar bleibt und nicht nur in genau einer Colab-Session funktioniert.
 
 ## Übersicht
@@ -30,3 +34,10 @@ Der praktische Übergang von Notebook zu Anwendung scheitert selten an einer ein
 Providerwechsel wirken auf den ersten Blick technisch, sind in der Praxis aber meist Architekturfragen. Die Migrationsseite zeigt, warum ein gut strukturiertes LangChain-Projekt nicht bei null anfängt.
 
 - **[Migration OpenAI → Mistral](https://ralf-42.github.io/GenAI/deployment/migration-openai-mistral.html)** – *Wie wird ein Providerwechsel ohne Neubau angegangen?*
+
+## Abgrenzung zu verwandten Dokumenten
+
+| Dokument | Frage |
+|---|---|
+| [Einsteiger-Guides](../einsteiger-guides.html) | Wo starte ich als Einsteiger mit Deployment? |
+| [Best Practices](../best-practices.html) | Welche Produktionsstandards gelten für Deployment? |

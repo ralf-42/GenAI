@@ -8,7 +8,17 @@ description: "Praktische Anleitungen, Werkzeuge und Hilfestellungen"
 
 # Ressourcen
 
+**Version:** 1.0<br>
+**Stand:** Mai 2026<br>
+**Kurs:** Generative KI
+
 Praktische Anleitungen, Werkzeuge und Hilfestellungen für die Arbeit mit generativer KI.
+
+## Inhaltsverzeichnis
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
 
 ## Visualisierungen
 - **[Interaktive Visualisierungen](https://ralf-42.github.io/GenAI/ressourcen/interaktive-visualisierungen.html)** – *Welche Konzepte lassen sich visuell schneller verstehen als nur im Text?*
@@ -22,3 +32,10 @@ Praktische Anleitungen, Werkzeuge und Hilfestellungen für die Arbeit mit genera
 ## Orientierung
 - **[KI-Reifegradmodell](https://ralf-42.github.io/GenAI/ressourcen/ki-reifegradmodell.html)** – *Wie lässt sich der KI-Reifegrad einer Organisation realistisch einordnen?*
 - **[Links](https://ralf-42.github.io/GenAI/ressourcen/links.html)** – *Welche externen Quellen sind für das Projekt wirklich nützlich?*
+
+## Abgrenzung zu verwandten Dokumenten
+
+| Dokument | Frage |
+|---|---|
+| [Einsteiger-Guides](../einsteiger-guides.html) | Wo starte ich als Einsteiger mit Ressourcen? |
+| [Best Practices](../best-practices.html) | Welche Produktionsstandards gelten für Ressourcen? |

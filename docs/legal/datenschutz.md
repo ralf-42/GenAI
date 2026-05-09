@@ -1,12 +1,19 @@
 ---
 layout: default
 title: Datenschutzerklärung
-parent: Rechtliches
+parent: Rechtliche Hinweise
 nav_exclude: true
-description: "Datenschutzerklärung gemäß DSGVO"
+description: Datenschutzerklärung gemäß DSGVO
+grand_parent: Rechtliches
 ---
 
 # Datenschutzerklärung
+
+## Inhaltsverzeichnis
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
 
 ## 1. Datenschutz auf einen Blick
 

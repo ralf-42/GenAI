@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Agent Builder
 parent: Einsteiger-Guides
@@ -11,8 +11,7 @@ has_toc: true
 # Agent Builder
 {: .no_toc }
 
-> **Agenten ohne Code: Visuelle Workflow-Erstellung mit OpenAI Agent Builder**     
-
+> **Agenten ohne Code: Visuelle Workflow-Erstellung mit OpenAI Agent Builder**<br>
 ---
 
 # Inhaltsverzeichnis
@@ -1006,3 +1005,10 @@ graph LR
 **Version:**    2.0<br>
 **Stand:**    November 2025<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
+
+## Abgrenzung zu verwandten Dokumenten
+
+| Dokument | Frage |
+|---|---|
+| [Einsteiger-Guides](../einsteiger-guides.html) | Wo starte ich als Einsteiger mit Agent Builder? |
+| [Best Practices](../best-practices.html) | Welche Produktionsstandards gelten für Agent Builder? |

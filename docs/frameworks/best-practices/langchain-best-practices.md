@@ -16,6 +16,12 @@ Dieses Dokument fasst die 7 verpflichtenden Features für LangChain 1.0+ zusamme
 
 ---
 
+## Inhaltsverzeichnis
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
 ## 📋 Übersicht der 7 MUST-HAVE Features
 
 | # | Feature | Priorität | Ersetzt | Hauptvorteil |
@@ -1148,3 +1154,9 @@ Beim Refactoring von altem Code:
 
 > 💡 **Tipp:** Bookmark diese Datei und konsultiere sie bei jedem neuen Notebook oder Code-Modul!
 
+## Abgrenzung zu verwandten Dokumenten
+
+| Dokument | Frage |
+|---|---|
+| [LangGraph Best Practices](langgraph-best-practices.html) | Wann und wie entwerfe ich zustandsbehaftete Workflows mit LangGraph? |
+| [LangSmith Best Practices](langsmith-best-practices.html) | Wie aktiviere und nutze ich LangSmith für Tracing und Evaluation? |

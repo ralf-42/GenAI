@@ -1,12 +1,19 @@
 ---
 layout: default
 title: Haftungsausschluss
-parent: Rechtliches
+parent: Rechtliche Hinweise
 nav_exclude: true
-description: "Haftungsausschluss (Disclaimer)"
+description: Haftungsausschluss (Disclaimer)
+grand_parent: Rechtliches
 ---
 
 # Haftungsausschluss (Disclaimer)
+
+## Inhaltsverzeichnis
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
 
 ## 1. Haftung für Inhalte
 
