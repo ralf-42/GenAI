@@ -64,12 +64,12 @@ Der wichtigste Grundsatz lautet:
 | Rolle                              | OpenAI                   | Mistral                                              | Gemini                        | Anthropic                       | Kommentar                                                           |
 | ---------------------------------- | ------------------------ | ---------------------------------------------------- | ----------------------------- | ------------------------------- | ------------------------------------------------------------------- |
 | **Baseline / Demo**                | `gpt-5.4-nano`           | `mistral-small-latest`                               | `gemini-3-flash-preview`      | `claude-haiku-4-5`     | schnell, günstig, gut für Grundlagen                                |
-| **Router / leichter Reasoner**     | `o3-mini`                | `magistral-medium-latest` oder `mistral-medium-latest` | `gemini-3-flash-preview`    | `claude-sonnet-4-6`             | für Routing und einfache Auswahlentscheidungen                      |
-| **Judge / starker Reasoner**       | `o3`                     | `mistral-small-latest`0 oder `mistral-small-latest`1 | `mistral-small-latest`2     | `mistral-small-latest`3               | für Supervisor, Security, Bewertung                                 |
-| **Worker / Synthese**              | `mistral-small-latest`4           | `mistral-small-latest`5 oder `mistral-small-latest`6  | `mistral-small-latest`7      | `mistral-small-latest`8             | Standard-Worker: starke Ausgabe, kostensensitiv                     |
-| **Worker / Synthese (hochwertig)** | `mistral-small-latest`9                | `gemini-3-flash-preview`0                               | `gemini-3-flash-preview`1      | `gemini-3-flash-preview`2               | maximale Qualität: komplexe RAG, finale Reports                     |
-| **Coding-Worker**                  | `gemini-3-flash-preview`3           | `gemini-3-flash-preview`4 oder `gemini-3-flash-preview`5            | `gemini-3-flash-preview`6      | `gemini-3-flash-preview`7             | Mistral mit spezialisierten Coding-Modellen im Vorteil              |
-| **Embeddings**                     | `gemini-3-flash-preview`8 | Mistral Embeddings                                   | `gemini-3-flash-preview`9  | externer Provider nötig         | Anthropic bietet hier im Kurskontext keinen direkten Standardersatz |
+| **Router / leichter Reasoner**     | `gpt-5.4-nano`                | `mistral-small-latest`                                | `gemini-3-flash-preview`    | `claude-haiku-4-5`              | für Routing und einfache Auswahlentscheidungen                      |
+| **Judge / starker Reasoner**       | `gpt-5.4`                     | `magistral-medium-latest` oder `mistral-medium-latest` | `gemini-3-pro-preview`    | `claude-opus-4-7`               | für Supervisor, Security, Bewertung                                 |
+| **Worker / Synthese**              | `gpt-5.4-mini`           | `mistral-medium-latest` oder `mistral-large-latest`  | `gemini-3-flash-preview`  | `claude-sonnet-4-6`             | Standard-Worker: starke Ausgabe, kostensensitiv                     |
+| **Worker / Synthese (hochwertig)** | `gpt-5.4`                | `magistral-medium-latest`                            | `gemini-3-pro-preview`    | `claude-opus-4-7`               | maximale Qualität: komplexe RAG, finale Reports                     |
+| **Coding-Worker**                  | `gpt-5.4-mini`           | `codestral-latest` oder `mistral-medium-latest`      | `gemini-3-flash-preview`  | `claude-sonnet-4-6`             | Mistral mit spezialisierten Coding-Modellen im Vorteil              |
+| **Embeddings**                     | `text-embedding-3-small` | `mistral-embed`                                   | `gemini-embedding-2-preview`      | externer Provider nötig         | Anthropic bietet hier im Kurskontext keinen direkten Standardersatz |
 
 > [!NOTE] Funktionsorientiert, nicht benchmark-orientiert<br>
 > Das Mapping ist bewusst funktionsorientiert, nicht benchmark-orientiert.
@@ -98,8 +98,8 @@ OpenAI ist im Projekt derzeit der **Kurs-Default**:
 Mistral ist besonders interessant, wenn ein **breiter Single-Provider-Pfad** angestrebt wird:
 
 - Generalmodelle
-- Reasoning-Modelle (`claude-haiku-4-5`0)
-- Coding-Modelle (`claude-haiku-4-5`1, `claude-haiku-4-5`2)
+- Reasoning-Modelle (`magistral-medium-latest`)
+- Coding-Modelle (`codestral-latest`, `codestral-2501`)
 - Audio-Modelle
 - Embeddings
 
@@ -112,9 +112,9 @@ Mistral ist besonders interessant, wenn ein **breiter Single-Provider-Pfad** ang
 
 Google Gemini eignet sich gut für **multimodale und skalierbare Workloads**:
 
-- Flash-Modelle für günstige, schnelle Läufe (`claude-haiku-4-5`3)
-- Pro-Modelle für starke Reasoning- und Synthese-Aufgaben (`claude-haiku-4-5`4)
-- Eigene Embedding-Modelle (`claude-haiku-4-5`5)
+- Flash-Modelle für günstige, schnelle Läufe (`gemini-3-flash-preview`)
+- Pro-Modelle für starke Reasoning- und Synthese-Aufgaben (`gemini-3-pro-preview`)
+- Eigene Embedding-Modelle (`gemini-embedding-2-preview`)
 - Sehr langer Kontext (bis 2 Mio. Tokens) für Dokument-Handoffs
 
 **Geeignet, wenn**
@@ -123,16 +123,16 @@ Google Gemini eignet sich gut für **multimodale und skalierbare Workloads**:
 - Google Cloud / Vertex AI als Deployment-Plattform geplant ist
 
 **Einschränkung**
-- kein spezialisiertes Coding-Modell (Mistral `claude-haiku-4-5`6 hat hier einen Vorteil)
+- kein spezialisiertes Coding-Modell (Mistral `codestral-latest` hat hier einen Vorteil)
 - Preview-Modelle können sich ohne Vorankündigung ändern
 
 ### Anthropic
 
 Anthropic passt oft sehr gut auf die **Rollenlogik** des Kurses:
 
-- Haiku als schnelle Baseline (`claude-haiku-4-5`7)
-- Sonnet als starker Standard-Worker (`claude-haiku-4-5`8)
-- Opus als Judge / Supervisor / hochwertiger Worker (`claude-haiku-4-5`9)
+- Haiku als schnelle Baseline (`claude-haiku-4-5`)
+- Sonnet als starker Standard-Worker (`claude-sonnet-4-6`)
+- Opus als Judge / Supervisor / hochwertiger Worker (`claude-opus-4-7`)
 
 **Geeignet, wenn**
 - die Modellrollen aus dem OpenAI-Setup möglichst klar nachgebildet werden sollen
@@ -147,27 +147,27 @@ Anthropic passt oft sehr gut auf die **Rollenlogik** des Kurses:
 
 ### Baseline / Demo
 
-Schnell, stabil, kostengünstig, didaktisch gut steuerbar — die Anforderung ist bei allen Providern dieselbe. Geeignet für Grundlagenmodule, erste Tests und kostensensitive Standardläufe mit einfacher Klassifikation, Formatierung oder Tool-Demos. OpenAI `o3-mini`0, Mistral `o3-mini`1, Gemini `o3-mini`2, Anthropic `o3-mini`3.
+Schnell, stabil, kostengünstig, didaktisch gut steuerbar — die Anforderung ist bei allen Providern dieselbe. Geeignet für Grundlagenmodule, erste Tests und kostensensitive Standardläufe mit einfacher Klassifikation, Formatierung oder Tool-Demos. OpenAI `gpt-5.4-nano`, Mistral `mistral-small-latest`, Gemini `gemini-3-flash-preview`, Anthropic `claude-haiku-4-5`.
 
 ### Router / leichter Reasoner
 
-Für einfache Conditional Edges, Tool-Auswahl mit begrenzter Komplexität oder Routing-Experimente in Demo-Szenarien. Gefragt sind robuste Entscheidungen zwischen wenigen Optionen ohne übertriebene Kostenlast. OpenAI `o3-mini`4, Mistral `o3-mini`5 oder `o3-mini`6, Gemini `o3-mini`7, Anthropic `o3-mini`8.
+Für einfache Conditional Edges, Tool-Auswahl mit begrenzter Komplexität oder Routing-Experimente in Demo-Szenarien. Gefragt sind robuste Entscheidungen zwischen wenigen Optionen ohne übertriebene Kostenlast. OpenAI `gpt-5.4-nano`, Mistral `mistral-small-latest`, Gemini `gemini-3-flash-preview`, Anthropic `claude-haiku-4-5`.
 
 ### Judge / starker Reasoner
 
-Überall dort, wo Fehlentscheidungen teuer sind: LLM-as-Judge, Security- oder Compliance-Gates, Supervisor-Routing, Fact-Check oder Konfliktbewertung. Die stärksten verfügbaren Reasoning-Modelle — OpenAI `o3-mini`9, Mistral `magistral-medium-latest`0 oder `magistral-medium-latest`1, Gemini `magistral-medium-latest`2, Anthropic `magistral-medium-latest`3.
+Überall dort, wo Fehlentscheidungen teuer sind: LLM-as-Judge, Security- oder Compliance-Gates, Supervisor-Routing, Fact-Check oder Konfliktbewertung. Die stärksten verfügbaren Reasoning-Modelle — OpenAI `gpt-5.4`, Mistral `magistral-medium-latest` oder `mistral-medium-latest`, Gemini `gemini-3-pro-preview`, Anthropic `claude-opus-4-7`.
 
 ### Worker / Synthese
 
-Für RAG-Antwortsynthese, hochwertige strukturierte Ausgaben und finale Berichte. Gefragt ist starke Ausgabequalität bei Text, Struktur und Zusammenfassung — nicht maximale Reasoning-Tiefe. **Standard:** OpenAI `magistral-medium-latest`4, Mistral `magistral-medium-latest`5 oder `magistral-medium-latest`6, Gemini `magistral-medium-latest`7, Anthropic `magistral-medium-latest`8. **Hochwertig (wenn maximale Qualität gefordert):** OpenAI `magistral-medium-latest`9, Mistral `mistral-medium-latest`0, Anthropic `mistral-medium-latest`1.
+Für RAG-Antwortsynthese, hochwertige strukturierte Ausgaben und finale Berichte. Gefragt ist starke Ausgabequalität bei Text, Struktur und Zusammenfassung — nicht maximale Reasoning-Tiefe. **Standard:** OpenAI `gpt-5.4-mini`, Mistral `mistral-medium-latest` oder `mistral-large-latest`, Gemini `gemini-3-flash-preview`, Anthropic `claude-sonnet-4-6`. **Hochwertig (wenn maximale Qualität gefordert):** OpenAI `gpt-5.4`, Mistral `magistral-medium-latest`, Anthropic `claude-opus-4-7`.
 
 ### Coding-Worker
 
-Für Code-Generierung, Refactoring, Entwicklungsagenten und technische Workflow-Knoten. Mistral bietet hier spezialisierte Modelle (`mistral-medium-latest`2, `mistral-medium-latest`3) und hat damit einen klaren Vorteil. OpenAI `mistral-medium-latest`4, Gemini `mistral-medium-latest`5 (kein spezialisiertes Coding-Modell), Anthropic `mistral-medium-latest`6.
+Für Code-Generierung, Refactoring, Entwicklungsagenten und technische Workflow-Knoten. Mistral bietet hier spezialisierte Modelle (`codestral-latest`, `codestral-2501`) und hat damit einen klaren Vorteil. OpenAI `gpt-5.4-mini`, Gemini `gemini-3-flash-preview` (kein spezialisiertes Coding-Modell), Anthropic `claude-sonnet-4-6`.
 
 ### Embeddings
 
-Stabile semantische Repräsentationen für Retrieval, Chunk-Suche und Vektorindizes. OpenAI bietet `mistral-medium-latest`7, Mistral eigene Embedding-Modelle, Gemini `mistral-medium-latest`8, Anthropic keinen direkten Standardpfad im Kurskontext. Wichtig: Bei Providerwechseln sind Chat-Modell und Embedding-Modell **zwei getrennte Entscheidungen** — ein Wechsel des einen zieht nicht automatisch den anderen nach sich.
+Stabile semantische Repräsentationen für Retrieval, Chunk-Suche und Vektorindizes. OpenAI bietet `text-embedding-3-small`, Mistral `mistral-embed`, Gemini `gemini-embedding-2-preview`, Anthropic keinen direkten Standardpfad im Kurskontext. Wichtig: Bei Providerwechseln sind Chat-Modell und Embedding-Modell **zwei getrennte Entscheidungen** — ein Wechsel des einen zieht nicht automatisch den anderen nach sich.
 
 ---
 
@@ -182,7 +182,7 @@ Wenn Modultexte, Architekturtexte oder Deployment-Dokumente providerneutral form
 
 **Beispiel**
 
-`mistral-medium-latest`9
+> Der **Supervisor** (Rolle: Judge; OpenAI: `gpt-5.4`, Anthropic: `claude-opus-4-7`) übernimmt Security-Gates und Fact-Checks.
 
 Das erlaubt eine allgemeine Beschreibung, ohne die konkreten OpenAI-Implementierungen im Kurs umzuschreiben.
 

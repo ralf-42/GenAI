@@ -1,8 +1,7 @@
 ---
 layout: default
 title: Code Standards
-parent: Alle Ressourcen
-grand_parent: Ressourcen
+parent: Ressourcen
 nav_order: 3
 description: Coding-Konventionen und Best Practices
 has_toc: true

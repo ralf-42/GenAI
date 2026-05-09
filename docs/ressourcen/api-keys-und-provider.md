@@ -1,8 +1,7 @@
 ---
 layout: default
-title: API-Keys & Provider
-parent: Alle Ressourcen
-grand_parent: Ressourcen
+title: "API-Keys & Provider"
+parent: Ressourcen
 nav_order: 2
 description: Übersicht über LLM-Provider, API-Keys und Colab-Integration
 has_toc: true

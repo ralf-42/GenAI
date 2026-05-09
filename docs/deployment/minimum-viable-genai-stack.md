@@ -1,8 +1,7 @@
 ---
 layout: default
 title: Minimum Viable GenAI Stack
-parent: Deployment-Themen
-grand_parent: Deployment
+parent: Deployment
 nav_order: 2
 description: Die wichtigsten Schichten zwischen Modellaufruf und produktiver GenAI-Anwendung
 has_toc: true

@@ -1,8 +1,7 @@
 ---
 layout: default
 title: Ethik und GenAI
-parent: Regulatorische Themen
-grand_parent: Regulatorisches
+parent: Regulatorisches
 nav_order: 2
 description: "Ethische Aspekte von GenAI: Verantwortung, Bias, Fairness, Autonomie, Transparenz und Kontrolle"
 has_toc: true
