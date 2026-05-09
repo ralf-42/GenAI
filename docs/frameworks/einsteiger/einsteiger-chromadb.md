@@ -983,10 +983,3 @@ results = retriever.invoke("Meine Frage")
 **Version:**    1.0<br>
 **Stand:**    November 2025<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
-
-## Abgrenzung zu verwandten Dokumenten
-
-| Dokument | Frage |
-|---|---|
-| [Einsteiger-Guides](../einsteiger-guides.html) | Wo starte ich als Einsteiger mit ChromaDB? |
-| [Best Practices](../best-practices.html) | Welche Produktionsstandards gelten für ChromaDB? |

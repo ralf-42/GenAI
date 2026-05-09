@@ -1,9 +1,9 @@
 ---
 layout: default
 title: Markdown Template Guide
-nav_exclude: true
 description: "Vorlage und Regeln für Markdown-Dateien in docs/ nach dem verbindlichen Doku-Standard"
 has_toc: true
+nav_exclude: true
 ---
 
 # Markdown Template Guide

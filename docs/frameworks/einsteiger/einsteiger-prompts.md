@@ -397,10 +397,3 @@ flowchart TD
 **Version:**    1.0<br>
 **Stand:**    März 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
-
-## Abgrenzung zu verwandten Dokumenten
-
-| Dokument | Frage |
-|---|---|
-| [Einsteiger-Guides](../einsteiger-guides.html) | Wo starte ich als Einsteiger mit Prompt-Templates? |
-| [Best Practices](../best-practices.html) | Welche Produktionsstandards gelten für Prompt-Templates? |

@@ -2,10 +2,10 @@
 layout: default
 title: EU AI Act
 parent: Regulatorische Themen
+grand_parent: Regulatorisches
 nav_order: 3
 description: "EU AI Act: Risikoklassen, Pflichten und Bedeutung für GenAI-Anwendungen"
 has_toc: true
-grand_parent: Regulatorisches
 ---
 
 # EU AI Act
@@ -128,10 +128,3 @@ Für Kurs- und Prototypensysteme empfiehlt sich ein Mindeststandard, auch wenn d
 **Version:** 1.1<br>
 **Stand:** April 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
-
-## Abgrenzung zu verwandten Dokumenten
-
-| Dokument | Frage |
-|---|---|
-| [Einsteiger-Guides](../frameworks/einsteiger-guides.html) | Wo starte ich als Einsteiger mit EU AI Act? |
-| [Best Practices](../frameworks/best-practices.html) | Welche Produktionsstandards gelten für EU AI Act? |

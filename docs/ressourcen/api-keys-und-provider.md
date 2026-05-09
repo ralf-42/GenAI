@@ -2,10 +2,10 @@
 layout: default
 title: API-Keys & Provider
 parent: Alle Ressourcen
+grand_parent: Ressourcen
 nav_order: 2
 description: Übersicht über LLM-Provider, API-Keys und Colab-Integration
 has_toc: true
-grand_parent: Ressourcen
 ---
 
 # API-Keys & Provider
@@ -176,10 +176,3 @@ llm = Ollama(model="llama3")
 **Version:** 1.1<br>
 **Stand:** 1. Mai 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
-
-## Abgrenzung zu verwandten Dokumenten
-
-| Dokument | Frage |
-|---|---|
-| [Einsteiger-Guides](../frameworks/einsteiger-guides.html) | Wo starte ich als Einsteiger mit API-Keys & Provider? |
-| [Best Practices](../frameworks/best-practices.html) | Welche Produktionsstandards gelten für API-Keys & Provider? |

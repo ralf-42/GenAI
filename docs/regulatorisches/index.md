@@ -1,8 +1,9 @@
 ---
+layout: default
 title: Regulatorische Themen
 parent: Regulatorisches
 nav_order: 1
-layout: default
+has_children: true
 description: Regulatorische Rahmenbedingungen für KI-Systeme.
 ---
 

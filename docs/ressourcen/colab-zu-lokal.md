@@ -2,10 +2,10 @@
 layout: default
 title: Von Colab zu Local
 parent: Alle Ressourcen
+grand_parent: Ressourcen
 nav_order: 6
 description: Anleitung zur Ausführung der Kurs-Notebooks in einer lokalen Jupyter-Umgebung
 has_toc: true
-grand_parent: Ressourcen
 ---
 
 # Von Colab zur lokalen Umgebung
@@ -129,10 +129,3 @@ check_environment()
 **Version:** 1.0<br>
 **Stand:** März 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
-
-## Abgrenzung zu verwandten Dokumenten
-
-| Dokument | Frage |
-|---|---|
-| [Einsteiger-Guides](../frameworks/einsteiger-guides.html) | Wo starte ich als Einsteiger mit Von Colab zu Local? |
-| [Best Practices](../frameworks/best-practices.html) | Welche Produktionsstandards gelten für Von Colab zu Local? |

@@ -335,8 +335,6 @@ state = {"messages": [], "count": 0}  # Keine Type-Checks!
 
 **Fix ab v1.1.7:**  spult automatisch zum letzten Interrupt-Checkpoint zurück.
 
-
-
 **Typischer Fehler:**  weglassen. Ohne Checkpointer kein Replay-Punkt.
 
 ---
@@ -663,8 +661,6 @@ class UserInput(BaseModel):
 ### 🆕 NEU in v1.1.0: v2-Streaming-Format (StreamPart-Dicts)
 
 Ab v1.1.0 liefert  strukturierte -Dicts.  gibt  mit  und  zurück.
-
-
 
 **Grenze:** Altes -Format erzeugt ab v1.1 Deprecation-Warnings.
 
@@ -1062,22 +1058,6 @@ graph.add_edge("agent", END)  # agent → END
 
 ---
 
-**Version:** 1.4<br>
-**Letzte Aktualisierung:** März 2026 (LangGraph v1.0.10 / langgraph-prebuilt v1.0.8)
-**Autor:** GenAI Projekt Team
-
-**Changelog v1.4 (März 2026):**
-- 🆕 **ToolRuntime** dokumentiert (Must-Have #6) — Dependency Injection des vollständigen Laufzeit-Kontexts in Tools via `graph_builder.compile()`7 (langgraph-prebuilt 1.0.8)
-- ✅ Vergleichstabelle: ToolRuntime-Felder und Wann-verwenden-Empfehlung
-
-**Changelog v1.3 (März 2026):**
-- ✅ **Graph-Visualisierung** in Section 2 dokumentiert: `graph_builder.compile()`8 direkt nach `graph_builder.compile()`9 (PFLICHT)
-- ✅ Migration-Checkliste und Best Practices Zusammenfassung ergänzt
-
-**Changelog v1.2 (Februar 2026):**
-- ✅ **Deprecated APIs** Sektion hinzugefügt (```python
-from IPython.display import Image, display
-
 # Direkt nach graph.compile():
 graph = graph_builder.compile()
 
@@ -1146,13 +1126,6 @@ except Exception as e:
 
 ---
 
-**Version:** 1.0<br>
+**Version:** 1.4<br>
 **Stand:** März 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
-
-## Abgrenzung zu verwandten Dokumenten
-
-| Dokument | Frage |
-|---|---|
-| [LangChain Best Practices](langchain-best-practices.html) | Welche LangChain 1.0-Patterns sind in neuen Implementierungen Pflicht? |
-| [LangSmith Best Practices](langsmith-best-practices.html) | Wie überwache und evaluiere ich LangGraph-Graphen mit LangSmith? |

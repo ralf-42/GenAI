@@ -318,4 +318,3 @@ Ein 2-3 seitiges Konzeptpapier mit Evaluationsschema, Testfragen und geplantem P
 **Version:**    1.1<br>
 **Stand:**    Januar 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
-

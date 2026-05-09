@@ -131,5 +131,3 @@ Ein gutes No-Go ist kein Scheitern. Es spart Zeit, schützt vor falschen Erwartu
 **Version:** 1.0<br>
 **Stand:** Mai 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
-
-

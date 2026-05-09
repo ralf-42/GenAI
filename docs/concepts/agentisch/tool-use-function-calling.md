@@ -257,6 +257,3 @@ In der Praxis relevant wenn: Ein Agent auf viele Werkzeuge zugreifen soll, diese
 **Version:** 1.4<br>
 **Stand:** April 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
-
-
-

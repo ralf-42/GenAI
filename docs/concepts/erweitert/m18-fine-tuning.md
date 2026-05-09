@@ -413,4 +413,3 @@ Die Embeddings sind die **Brücke zwischen rohem Text und neuronaler Verarbeitun
 **Version:**    1.1<br>
 **Stand:**    Januar 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
-

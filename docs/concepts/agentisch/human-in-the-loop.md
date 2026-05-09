@@ -156,6 +156,3 @@ Teilnehmende unterschätzen oft, dass HITL nicht gegen Automatisierung arbeitet.
 **Version:** 1.1<br>
 **Stand:** April 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
-
-
-

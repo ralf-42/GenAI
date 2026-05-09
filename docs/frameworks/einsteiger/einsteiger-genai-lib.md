@@ -814,10 +814,3 @@ Die Module stehen unter der MIT-Lizenz und können frei für eigene Projekte ver
 **Version:**    3.2<br>
 **Stand:**    März 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
-
-## Abgrenzung zu verwandten Dokumenten
-
-| Dokument | Frage |
-|---|---|
-| [Einsteiger-Guides](../einsteiger-guides.html) | Wo starte ich als Einsteiger mit GenAI_Lib? |
-| [Best Practices](../best-practices.html) | Welche Produktionsstandards gelten für GenAI_Lib? |

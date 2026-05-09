@@ -2,10 +2,10 @@
 layout: default
 title: Ethik und GenAI
 parent: Regulatorische Themen
+grand_parent: Regulatorisches
 nav_order: 2
 description: "Ethische Aspekte von GenAI: Verantwortung, Bias, Fairness, Autonomie, Transparenz und Kontrolle"
 has_toc: true
-grand_parent: Regulatorisches
 ---
 
 # Ethik und GenAI
@@ -90,4 +90,3 @@ In der Praxis relevant, wenn: ein GenAI-System Inhalte erzeugt, die Menschen dir
 **Version:** 1.1<br>
 **Stand:** April 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
-

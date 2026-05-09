@@ -2,11 +2,11 @@
 layout: default
 title: Datenschutz & DSGVO
 parent: Regulatorische Themen
+grand_parent: Regulatorisches
 nav_order: 4
-permalink: /regulatorisches/datenschutz-dsgvo.html
 description: "DSGVO-konforme Nutzung von GenAI: Prompts, LLM-APIs, Logging, RAG und lokale Modelle"
 has_toc: true
-grand_parent: Regulatorisches
+permalink: /regulatorisches/datenschutz-dsgvo.html
 ---
 
 # Datenschutz & DSGVO

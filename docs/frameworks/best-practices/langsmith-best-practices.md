@@ -11,8 +11,6 @@ has_toc: true
 # LangSmith Best Practices
 
 **Projekt:** Generative KI mit LangChain 1.1+
-**Version:** 2.0<br>
-**Datum:** 2026-03-04
 
 ---
 
@@ -83,8 +81,6 @@ Alle bisherigen Funktionen sind erhalten — nur der Name hat sich geändert.
 ---
 
 ###  — Terminal-basiertes Trace-Debugging
-
-
 
 **In der Praxis relevant wenn:** Debugging in Google Colab oder SSH-Umgebungen ohne Browser.
 
@@ -768,15 +764,15 @@ callback = LangSmithCallback(
 - ✅ Best Practices für RAG, Agents, Chatbots
 - ✅ Troubleshooting-Sektion
 
----
-
-**Version:** 2.0<br>
-**Maintainer:** Ralf
-**Lizenz:** MIT License
-
 ## Abgrenzung zu verwandten Dokumenten
 
 | Dokument | Frage |
 |---|---|
 | [LangChain Best Practices](langchain-best-practices.html) | Welche LangChain-Patterns erzeugen sinnvolle LangSmith-Traces? |
 | [LangGraph Best Practices](langgraph-best-practices.html) | Wie instrumentiere ich LangGraph-Graphen für LangSmith-Monitoring? |
+
+---
+
+**Version:** 2.0<br>
+**Stand:** März 2026<br>
+**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

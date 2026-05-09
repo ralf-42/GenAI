@@ -2,10 +2,10 @@
 layout: default
 title: Links
 parent: Alle Ressourcen
+grand_parent: Ressourcen
 nav_order: 7
 description: Kuratierte Sammlung externer Ressourcen zu KI, LLMs und Frameworks
 has_toc: true
-grand_parent: Ressourcen
 ---
 
 # Links
@@ -153,10 +153,3 @@ Ressourcen zur Anpassung von Sprachmodellen auf eigene Daten.
 **Version:** 1.0<br>
 **Stand:** Januar 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
-
-## Abgrenzung zu verwandten Dokumenten
-
-| Dokument | Frage |
-|---|---|
-| [Einsteiger-Guides](../frameworks/einsteiger-guides.html) | Wo starte ich als Einsteiger mit Links? |
-| [Best Practices](../frameworks/best-practices.html) | Welche Produktionsstandards gelten für Links? |

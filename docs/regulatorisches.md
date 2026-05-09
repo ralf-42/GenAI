@@ -8,10 +8,6 @@ description: "Rechtliche Rahmenbedingungen, Ethik und Souveränität"
 
 # Regulatorisches
 
-**Version:** 1.0<br>
-**Stand:** Mai 2026<br>
-**Kurs:** Generative KI
-
 Rechtliche, ethische und strategische Aspekte beim Einsatz generativer KI.
 
 ## Übersicht
@@ -42,10 +38,3 @@ Rechtliche, ethische und strategische Aspekte beim Einsatz generativer KI.
   - Bias und Fairness
   - Verantwortungsvoller Umgang mit generativer KI
   - Best Practices
-
-## Abgrenzung zu verwandten Dokumenten
-
-| Dokument | Frage |
-|---|---|
-| [Einsteiger-Guides](frameworks/einsteiger-guides.html) | Wo starte ich als Einsteiger mit Regulatorisches? |
-| [Best Practices](frameworks/best-practices.html) | Welche Produktionsstandards gelten für Regulatorisches? |

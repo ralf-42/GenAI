@@ -525,6 +525,3 @@ Developer unterschätzen oft, dass Memory nicht nur eine Komfortfunktion ist. Oh
 **Version:** 1.4<br>
 **Stand:** April 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
-
-
-
