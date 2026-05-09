@@ -4,7 +4,7 @@ title: Memory-Systeme
 parent: Produktive & agentische Anwendungen
 grand_parent: Konzepte
 nav_order: 2
-description: "Kurz- und Langzeitgedaechtnis für GenAI-Anwendungen mit LangGraph, Vektordatenbanken und nutzerspezifischer Persistenz"
+description: "Kurz- und Langzeitgedächtnis für GenAI-Anwendungen mit LangGraph, Vektordatenbanken und nutzerspezifischer Persistenz"
 has_toc: true
 ---
 

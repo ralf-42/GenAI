@@ -53,7 +53,7 @@ Die Bibliothek besteht aus drei Hauptmodulen:
 
 ### Überblick
 
-> [!INFO] utilities.py auf einen Blick<br>
+> [!NOTE] utilities.py auf einen Blick<br>
 > Das `utilities`-Modul stellt grundlegende Hilfsfunktionen bereit, die in vielen Notebooks und Projekten wiederkehrend benötigt werden. Alle Funktionen sind über `from genai_lib.utilities import ...` importierbar.
 
 ### Hauptfunktionen
@@ -480,7 +480,7 @@ multimodal_rag
 └── Hybride Suche: Text ↔ Bild ↔ Bild
 ```
 
-> [!INFO] LangChain 1.0+ Integration (v3.1)<br>
+> [!NOTE] LangChain 1.0+ Integration (v3.1)<br>
 > Das `multimodal_rag`-Modul verwendet moderne LangChain 1.0+ Patterns:
 > - Nutzt `init_chat_model("openai:gpt-4o-mini")` für LLM-Initialisierung
 > - Vision-Analysen mit `HumanMessage` und Standard Content Blocks
@@ -756,7 +756,7 @@ langsmith>=0.1.0
 
 ### Überblick
 
-> [!INFO] model_config.py auf einen Blick
+> [!NOTE] model_config.py auf einen Blick<br>
 > Das `model_config`-Modul definiert Modell-IDs als benannte Konstanten nach Rolle. Die Instanziierung erfolgt im Notebook mit `init_chat_model()`, sodass API-Keys bereits gesetzt sind.
 
 ```python
@@ -767,19 +767,22 @@ from genai_lib.model_config import BASELINE, WORKER, JUDGE, TRANSLATOR
 
 | Konstante | Modell | Typischer Einsatz |
 |-----------|--------|------------------|
-| `BASELINE` | `gpt-4o-mini` | Grundlagen, Demos, Lernbeispiele mit `temperature` |
-| `ROUTER` | `o3-mini` | Einfache Routing- und Auswahlentscheidungen |
-| `JUDGE` | `o3` | Evaluation, Bewertung, LLM-as-Judge |
-| `PLANNER` | `o3` | Aufgabenzerlegung, Agentic RAG |
-| `WORKER` | `gpt-5.4-mini` | RAG-Synthese, strukturierte Ausgaben, Code |
+| `BASELINE` | `gpt-5.4-nano` | Grundlagen, günstige Demos, kurze Modellaufrufe |
+| `ROUTER` | `gpt-5.4-nano` | Einfache Routing- und Auswahlentscheidungen |
+| `WORKER` | `gpt-5.4-mini` | RAG-Synthese, strukturierte Ausgaben, Tool-Agenten |
+| `CODING` | `gpt-5.4-mini` | Code-Generierung, Refactoring, technische Agenten |
+| `TRANSLATOR` | `gpt-5.4-mini` | Kursmaterial, Markdown, Dokumentation |
+| `TRANSLATOR_FAST` | `gpt-5.4-nano` | Rohübersetzung und kurze nicht-kritische Texte |
+| `JUDGE` | `gpt-5.4` | Evaluation, Bewertung, LLM-as-Judge |
+| `PLANNER` | `gpt-5.4` | Aufgabenzerlegung, Supervisor-Logik, Agentic RAG |
 | `WORKER_PREMIUM` | `gpt-5.4` | Komplexe RAG, finale Reports |
-| `CODING` | `gpt-5.4-mini` | Code-Generierung, technische Agenten |
-| `TRANSLATOR` | `gpt-5.4-nano` | Rohübersetzung, UI-Texte, Kursmaterial |
-| `TRANSLATOR_PREMIUM` | `gpt-5.4-mini` | Stilistisch hochwertige Übersetzungen |
+| `JUDGE_PREMIUM` | `gpt-5.5` | Kritische Evaluation und maximale Qualität |
+| `PLANNER_PREMIUM` | `gpt-5.5` | Hochkomplexe Planung |
+| `TRANSLATOR_PREMIUM` | `gpt-5.5` | Stilistisch hochwertige Übersetzungen |
 | `EMBEDDINGS` | `text-embedding-3-small` | Retrieval, Chunk-Suche, Vektorindizes |
 
-> [!NOTE] BASELINE und temperature
-> `BASELINE` verwendet bewusst `gpt-4o-mini` — das letzte Chat-Modell mit vollem `temperature`-Support. `temperature=0.0` ist im GenAI-Kurs Lernziel, nicht Behelf. Die gesamte GPT-5.x-Serie unterstützt `temperature` nicht.
+> [!WARNING] Keine temperature bei GPT-5.x-Modellen<br>
+> `BASELINE` zeigt auf `gpt-5.4-nano`. Für GPT-5.x-Modelle wird `temperature` im Kurs nicht gesetzt; Steuerung erfolgt über Rollenwahl, Prompt, Reasoning-Konfiguration und Ausgabeformat.
 
 ### Verwendung
 
@@ -788,7 +791,7 @@ from langchain.chat_models import init_chat_model
 from genai_lib.model_config import BASELINE, WORKER, JUDGE
 
 # Demo / Grundlagen
-llm = init_chat_model(BASELINE, temperature=0.0)
+llm = init_chat_model(BASELINE)
 
 # RAG-Synthese
 worker_llm = init_chat_model(WORKER)
@@ -798,7 +801,7 @@ judge_llm = init_chat_model(JUDGE)
 ```
 
 > [!DANGER] Kein temperature bei GPT-5.x<br>
-> `WORKER`, `JUDGE`, `PLANNER`, `ROUTER`, `CODING`, `WORKER_PREMIUM`, `TRANSLATOR`, `TRANSLATOR_PREMIUM` — alle basieren auf GPT-5.x oder o3-Modellen. `temperature`-Parameter führt zu einem API-Fehler.
+> `BASELINE`, `WORKER`, `JUDGE`, `PLANNER`, `ROUTER`, `CODING`, `WORKER_PREMIUM`, `TRANSLATOR` und die Premium-Rollen basieren auf GPT-5.x-Modellen. `temperature` wird für diese Rollen nicht gesetzt.
 
 ---
 
@@ -808,6 +811,14 @@ MIT License - Copyright (c) 2025 Ralf
 
 Die Module stehen unter der MIT-Lizenz und können frei für eigene Projekte verwendet werden.
 
+
+
+## Abgrenzung zu verwandten Dokumenten
+
+| Dokument | Frage |
+|---|---|
+| [Standards](../../ressourcen/standards.html) | Welche projektweiten Code- und Notebook-Regeln gelten? |
+| [Modell-Auswahl Guide](../modell-auswahl/modell-auswahl-guide.html) | Welche Modellrolle passt zu welchem Kursbeispiel? |
 
 ---
 

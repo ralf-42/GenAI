@@ -200,6 +200,14 @@ Beide Dokumente zusammen ergeben:
 1. **konkrete Kursrealität**
 2. **providerübergreifende Architekturperspektive**
 
+
+## Abgrenzung zu verwandten Dokumenten
+
+| Dokument | Frage |
+|---|---|
+| [Modell-Auswahl Guide](modell-auswahl-guide.html) | Welche Modellrolle passt zu Aufgabe, Kostenrahmen und Qualitätsanspruch? |
+| [Modellauswahl](../../concepts/erweitert/m19-modellauswahl.html) | Welche konzeptionellen Kriterien bestimmen die Modellentscheidung? |
+
 ---
 
 **Version:** 2.0<br>

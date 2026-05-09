@@ -171,6 +171,14 @@ llm = Ollama(model="llama3")
 - [Ollama](https://ollama.com/)
 - [LangChain Provider Documentation](https://python.langchain.com/docs/integrations/chat/)
 
+
+## Abgrenzung zu verwandten Dokumenten
+
+| Dokument | Frage |
+|---|---|
+| [Zuerst lesen](../zuerst-lesen.html) | Welche Dokumente sind vor dem ersten Kursprojekt am wichtigsten? |
+| [Lesepfade](../lesepfade.html) | Welche Reihenfolge passt zu Rolle, Ziel und Vorkenntnissen? |
+
 ---
 
 **Version:** 1.1<br>

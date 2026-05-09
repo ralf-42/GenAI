@@ -124,6 +124,14 @@ check_environment()
 - [ ] Notebook-spezifische Zusatzpakete installiert (M08, M12, M14, M17)?
 - [ ] Für M14: Ollama installiert und gestartet?
 
+
+## Abgrenzung zu verwandten Dokumenten
+
+| Dokument | Frage |
+|---|---|
+| [Zuerst lesen](../zuerst-lesen.html) | Welche Dokumente sind vor dem ersten Kursprojekt am wichtigsten? |
+| [Lesepfade](../lesepfade.html) | Welche Reihenfolge passt zu Rolle, Ziel und Vorkenntnissen? |
+
 ---
 
 **Version:** 1.0<br>

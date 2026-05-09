@@ -309,7 +309,7 @@ Body:
 
 ### Vorteile dieser Architektur
 
-> [!SUCCESS] Betriebsvorteil       
+> [!SUCCESS] Betriebsvorteil<br>
 > Klare Node/Edge-Strukturen verbessern Nachvollziehbarkeit, Übergaben im Team und Debugging in Produktion.
 
 | Vorteil | Beschreibung |
@@ -999,6 +999,14 @@ graph LR
 - [Model Context Protocol](https://modelcontextprotocol.io/)
 - [LangChain Documentation](https://python.langchain.com/)
 - [What Is OpenAI ChatGPT Agent Builder? A Complete 2025 Guide](https://sider.ai/blog/ai-tools/what-is-openai-chatgpt-agent-builder-a-complete-2025-guide)
+
+
+## Abgrenzung zu verwandten Dokumenten
+
+| Dokument | Frage |
+|---|---|
+| [LangChain](einsteiger-langchain.html) | Wie werden Agenten und Tools in Python aufgebaut? |
+| [LangGraph](einsteiger-langgraph.html) | Wann braucht ein Agent explizite Zustände und Kontrollflüsse? |
 
 ---
 

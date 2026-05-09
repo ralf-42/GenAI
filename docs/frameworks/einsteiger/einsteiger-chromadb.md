@@ -219,7 +219,7 @@ print(client.list_collections())
 
 Gerade in Notebooks zahlt sich das sofort aus. Viele Probleme entstehen nicht durch ChromaDB selbst, sondern durch wiederholt ausgeführte Setup-Zellen, inkonsistente Collection-Namen oder wechselnde Embedding-Konfigurationen.
 
-> [!SUCCESS] Idempotenz im Alltag       
+> [!SUCCESS] Idempotenz im Alltag<br>
 > `get_or_create_collection()` macht Notebooks robuster bei mehrfacher Ausführung und reduziert Setup-Fehler.     
 > *Idempotenz* = Operation kann mehrfach hintereinander ausgeführt werden kann, ohne dass sich das Ergebnis verändert
 
@@ -977,6 +977,14 @@ results = retriever.invoke("Meine Frage")
 > 🔗 **Weiterführend:** 
 > + [ChromaDB Dokumentation](https://docs.trychroma.com/) 
 > + [LangChain VectorStores](https://python.langchain.com/docs/modules/data_connection/vectorstores/)
+
+
+## Abgrenzung zu verwandten Dokumenten
+
+| Dokument | Frage |
+|---|---|
+| [Embeddings](../../concepts/grundlagen/m08b-embeddings.html) | Warum funktionieren semantische Suchvektoren? |
+| [RAG-Konzepte](../../concepts/erweitert/rag-konzepte.html) | Wann wird ChromaDB Teil einer Retrieval-Architektur? |
 
 ---
 

@@ -252,7 +252,7 @@ def pure_node(state: MyState) -> MyState:
 ```
 
 ```python
-# Falsch: kein Reducer fuer messages
+# Falsch: kein Reducer für messages
 class BadState(TypedDict):
     messages: list
 

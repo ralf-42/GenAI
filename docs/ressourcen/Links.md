@@ -148,6 +148,14 @@ Ressourcen zur Anpassung von Sprachmodellen auf eigene Daten.
 |-----------|--------------|
 | [Loriot - Pneumatische Plastologie](https://www.youtube.com/watch?v=7WhL5Kw2MKE) | Klassiker: "Körperteile vergrößern durch Atmung" |
 
+
+## Abgrenzung zu verwandten Dokumenten
+
+| Dokument | Frage |
+|---|---|
+| [Zuerst lesen](../zuerst-lesen.html) | Welche Dokumente sind vor dem ersten Kursprojekt am wichtigsten? |
+| [Lesepfade](../lesepfade.html) | Welche Reihenfolge passt zu Rolle, Ziel und Vorkenntnissen? |
+
 ---
 
 **Version:** 1.0<br>

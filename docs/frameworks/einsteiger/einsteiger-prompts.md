@@ -392,6 +392,14 @@ flowchart TD
 
 > Alle Prompt-Dateien liegen in `GenAI/05_prompt/`.
 
+
+## Abgrenzung zu verwandten Dokumenten
+
+| Dokument | Frage |
+|---|---|
+| [Prompt Engineering](../../concepts/erweitert/prompt-engineering.html) | Welche konzeptionellen Regeln stehen hinter guten Prompts? |
+| [Context Engineering](../../concepts/erweitert/m21-context-engineering.html) | Wie wird der gesamte Kontext einer GenAI-Anwendung gesteuert? |
+
 ---
 
 **Version:**    1.0<br>
