@@ -2,10 +2,10 @@
 layout: default
 title: Produktionsreife Anwendung
 parent: Deployment-Themen
+grand_parent: Deployment
 nav_order: 3
 description: Praktische Anleitung für den Weg vom Jupyter Notebook zur produktionsreifen GenAI-Anwendung
 has_toc: true
-grand_parent: Deployment
 ---
 
 # Aus der Entwicklung ins Deployment
@@ -379,4 +379,3 @@ Vor dem Go-Live sollten diese Punkte geprüft werden:
 **Version:**    1.0<br>
 **Stand:**    Februar 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
-

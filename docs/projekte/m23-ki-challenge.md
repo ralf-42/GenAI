@@ -2,10 +2,10 @@
 layout: default
 title: KI-Challenge
 parent: Alle Projekte
+grand_parent: Projekte
 nav_order: 2
 description: "Praxisprojekt: End-to-End GenAI-Anwendung entwickeln"
 has_toc: true
-grand_parent: Projekte
 ---
 
 # KI-Challenge

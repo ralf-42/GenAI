@@ -2,10 +2,10 @@
 layout: default
 title: Interaktive Visualisierungen
 parent: Alle Ressourcen
+grand_parent: Ressourcen
 nav_order: 1
 description: "Interaktive Web-Demos für GenAI-Konzepte: Transformer, Embeddings, Multimodal und Modellauswahl"
 has_toc: true
-grand_parent: Ressourcen
 ---
 
 # Interaktive Visualisierungen
@@ -131,10 +131,3 @@ Weitere interaktive Visualisierungen von externen Anbietern
 **Version:** 1.0<br>
 **Stand:** Januar 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
-
-## Abgrenzung zu verwandten Dokumenten
-
-| Dokument | Frage |
-|---|---|
-| [Einsteiger-Guides](../frameworks/einsteiger-guides.html) | Wo starte ich als Einsteiger mit Interaktive Visualisierungen? |
-| [Best Practices](../frameworks/best-practices.html) | Welche Produktionsstandards gelten für Interaktive Visualisierungen? |

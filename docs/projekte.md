@@ -8,10 +8,6 @@ description: "Praktische Übungen und End-to-End Projekte"
 
 # Projekte
 
-**Version:** 1.0<br>
-**Stand:** Mai 2026<br>
-**Kurs:** Generative KI
-
 Praxisorientierte Lernformate zum Aufbau von Agent-Systemen.
 
 ## Übersicht
@@ -32,10 +28,3 @@ Praxisorientierte Lernformate zum Aufbau von Agent-Systemen.
   - Abgabe: Jupyter Notebook, SQLite-Datenbank und README
   - Zeitaufwand: 20-30 Stunden
   - Module M00-M20
-
-## Abgrenzung zu verwandten Dokumenten
-
-| Dokument | Frage |
-|---|---|
-| [Einsteiger-Guides](frameworks/einsteiger-guides.html) | Wo starte ich als Einsteiger mit Projekte? |
-| [Best Practices](frameworks/best-practices.html) | Welche Produktionsstandards gelten für Projekte? |

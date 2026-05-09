@@ -333,8 +333,3 @@ Teilnehmende unterschätzen oft, wie schnell ein scheinbar guter Agent bei klein
 **Version:** 1.3<br>
 **Stand:** April 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
-
-
-
-
-

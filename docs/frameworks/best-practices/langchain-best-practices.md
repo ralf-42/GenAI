@@ -615,8 +615,6 @@ agent = create_agent(
 
 **Was neu ist:**  beendet den Agent-Loop sofort mit einer direkten Antwort.
 
-
-
 **In der Praxis relevant wenn:** Guardrails sollen dem Nutzer eine klare Fehlermeldung liefern, die das LLM nicht nochmals umformulieren muss.
 
 ---
@@ -1098,12 +1096,6 @@ Beim Refactoring von altem Code:
 
 ---
 
-**Version:** 1.6<br>
-**Letzte Aktualisierung:** März 2026 (LangChain v1.2.10 / langchain-openai v1.1.10)
-**Autor:** GenAI Projekt Team
-
----
-
 ## 📝 Changelog
 
 ### Version 1.6 (März 2026)
@@ -1160,3 +1152,9 @@ Beim Refactoring von altem Code:
 |---|---|
 | [LangGraph Best Practices](langgraph-best-practices.html) | Wann und wie entwerfe ich zustandsbehaftete Workflows mit LangGraph? |
 | [LangSmith Best Practices](langsmith-best-practices.html) | Wie aktiviere und nutze ich LangSmith für Tracing und Evaluation? |
+
+---
+
+**Version:** 1.6<br>
+**Stand:** März 2026<br>
+**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

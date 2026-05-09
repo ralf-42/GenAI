@@ -2,10 +2,10 @@
 layout: default
 title: RAG Workshop
 parent: Alle Projekte
+grand_parent: Projekte
 nav_order: 1
 description: "Schrittweise Workshop: Tech-Doku Assistent - vom einfachen Chatbot zur RAG-basierten Anwendung mit UI"
 has_toc: true
-grand_parent: Projekte
 ---
 
 # RAG Workshop

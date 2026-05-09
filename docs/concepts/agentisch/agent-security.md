@@ -186,6 +186,3 @@ Teilnehmende unterschätzen oft, dass Sicherheit nicht erst bei hochkritischen S
 **Version:** 1.2<br>
 **Stand:** April 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
-
-
-

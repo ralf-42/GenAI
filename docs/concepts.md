@@ -8,10 +8,6 @@ description: "Theoretische Grundlagen und technische Konzepte"
 
 # Konzepte
 
-**Version:** 1.0<br>
-**Stand:** Mai 2026<br>
-**Kurs:** Generative KI
-
 Die Konzeptseiten erklären nicht alles, was im Feld Generative KI denkbar ist. Sie konzentrieren sich auf die Punkte, an denen in Übungen und Projekten die entscheidenden Unterschiede entstehen: Wann reicht ein Prompt, wann braucht es Retrieval, was leisten Embeddings tatsächlich und wo beginnt der Aufwand stärker zu wachsen als der Nutzen.
 
 ## Inhaltsverzeichnis
@@ -63,10 +59,3 @@ Sobald GenAI-Anwendungen Werkzeuge aufrufen, Zustand halten oder menschliche Fre
 - [State Management](concepts/agentisch/state-management.html) – *Wie werden Zwischenergebnisse und Prozesszustände explizit verwaltet?*
 - [Human-in-the-Loop](concepts/agentisch/human-in-the-loop.html) – *Wann braucht eine GenAI-Anwendung menschliche Freigabe oder Eskalation?*
 - [GenAI-Sicherheit](concepts/agentisch/agent-security.html) – *Wie werden Tool-Zugriffe, externe Inhalte und sensible Daten abgesichert?*
-
-## Abgrenzung zu verwandten Dokumenten
-
-| Dokument | Frage |
-|---|---|
-| [Einsteiger-Guides](frameworks/einsteiger-guides.html) | Wo starte ich als Einsteiger mit Konzepte? |
-| [Best Practices](frameworks/best-practices.html) | Welche Produktionsstandards gelten für Konzepte? |

@@ -2,10 +2,10 @@
 layout: default
 title: Minimum Viable GenAI Stack
 parent: Deployment-Themen
+grand_parent: Deployment
 nav_order: 2
 description: Die wichtigsten Schichten zwischen Modellaufruf und produktiver GenAI-Anwendung
 has_toc: true
-grand_parent: Deployment
 ---
 
 # Minimum Viable GenAI Stack (2026)
@@ -236,5 +236,3 @@ Der Stack wird sich konsolidieren. Provider-SDKs integrieren bereits Speicher, T
 **Version:** 1.0<br>
 **Stand:** März 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
-
-

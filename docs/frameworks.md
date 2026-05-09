@@ -8,10 +8,6 @@ description: "Einsteiger-Guides, Modell-Auswahl und Best Practices für LangChai
 
 # Frameworks
 
-**Version:** 1.0<br>
-**Stand:** Mai 2026<br>
-**Kurs:** Generative KI
-
 Die Framework-Seiten dienen nicht als vollständige Produktkataloge. Sie erklären die Werkzeuge, die im Kurs tatsächlich gebraucht werden, und vor allem, an welcher Stelle welches Framework den Unterschied macht. Entscheidend ist weniger, was ein Tool alles kann, sondern wofür es im Projektaufbau taugt.
 
 Der Bereich gliedert sich in drei Gruppen, die auch der Seitennavigation entsprechen:
@@ -70,10 +66,3 @@ Empfohlene Patterns und Anti-Patterns aus der Unterseite [Best Practices](framew
 - **[LangChain Best Practices](frameworks/best-practices/langchain-best-practices.html)** – *Was sind die 7 MUST-HAVE Features?* `init_chat_model()`, `with_structured_output()`, `@tool`, `create_agent()`, LCEL `|` Chains, Middleware, Standard Content Blocks.
 - **[LangGraph Best Practices](frameworks/best-practices/langgraph-best-practices.html)** – *Wie bleiben zustandsbehaftete Workflows wartbar?* State, Routing, Checkpointing und Human-in-the-Loop.
 - **[LangSmith Best Practices](frameworks/best-practices/langsmith-best-practices.html)** – *Wie observiere ich Chains und Agenten technisch?* `LANGSMITH_*` Umgebungsvariablen, Tracing, Evaluation und Monitoring.
-
-## Abgrenzung zu verwandten Dokumenten
-
-| Dokument | Frage |
-|---|---|
-| [Einsteiger-Guides](frameworks/einsteiger-guides.html) | Wo starte ich als Einsteiger mit Frameworks? |
-| [Best Practices](frameworks/best-practices.html) | Welche Produktionsstandards gelten für Frameworks? |

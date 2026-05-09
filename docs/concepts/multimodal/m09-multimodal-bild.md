@@ -142,4 +142,3 @@ Mithilfe neuronaler Netze – typischerweise Convolutional Neural Networks (CNNs
 **Version:**    1.1<br>
 **Stand:**    Januar 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
-

@@ -8,10 +8,6 @@ description: "Praktische Anleitungen, Werkzeuge und Hilfestellungen"
 
 # Ressourcen
 
-**Version:** 1.0<br>
-**Stand:** Mai 2026<br>
-**Kurs:** Generative KI
-
 Praktische Anleitungen, Werkzeuge und Hilfestellungen für die Arbeit mit generativer KI.
 
 ## Inhaltsverzeichnis
@@ -32,10 +28,3 @@ Praktische Anleitungen, Werkzeuge und Hilfestellungen für die Arbeit mit genera
 ## Orientierung
 - **[KI-Reifegradmodell](ressourcen/ki-reifegradmodell.html)** – *Wie lässt sich der KI-Reifegrad einer Organisation realistisch einordnen?*
 - **[Links](ressourcen/links.html)** – *Welche externen Quellen sind für das Projekt wirklich nützlich?*
-
-## Abgrenzung zu verwandten Dokumenten
-
-| Dokument | Frage |
-|---|---|
-| [Einsteiger-Guides](frameworks/einsteiger-guides.html) | Wo starte ich als Einsteiger mit Ressourcen? |
-| [Best Practices](frameworks/best-practices.html) | Welche Produktionsstandards gelten für Ressourcen? |

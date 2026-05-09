@@ -1,8 +1,9 @@
 ---
+layout: default
 title: Rechtliche Hinweise
 parent: Rechtliches
 nav_order: 1
-layout: default
+has_children: true
 description: Rechtliche Hinweise und Impressum.
 ---
 

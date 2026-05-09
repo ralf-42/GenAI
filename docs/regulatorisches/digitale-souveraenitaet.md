@@ -2,10 +2,10 @@
 layout: default
 title: Digitale Souveränität
 parent: Regulatorische Themen
+grand_parent: Regulatorisches
 nav_order: 1
 description: "Digitale Souveraenitaet im KI-Kontext: Infrastruktur, Daten, Anbieter und Abhaengigkeiten"
 has_toc: true
-grand_parent: Regulatorisches
 ---
 
 # Digitale Souveränität
@@ -369,5 +369,3 @@ Die digitale Souveränität Europas wird sich nicht daran entscheiden, ob ein eu
 **Version:** 1.1<br>
 **Stand:** April 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
-
-

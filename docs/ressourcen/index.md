@@ -1,8 +1,9 @@
 ---
+layout: default
 title: Alle Ressourcen
 parent: Ressourcen
 nav_order: 1
-layout: default
+has_children: true
 description: Ressourcen, Tools und weiterführende Materialien.
 ---
 

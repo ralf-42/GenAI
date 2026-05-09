@@ -1,8 +1,9 @@
 ---
+layout: default
 title: Deployment-Themen
 parent: Deployment
 nav_order: 1
-layout: default
+has_children: true
 description: Überblick aller Deployment-Themen in diesem Kurs.
 ---
 
