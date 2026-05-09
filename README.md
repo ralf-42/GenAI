@@ -78,7 +78,7 @@ Die Modellwahl richtet sich nach der Rolle im Workflow:
 |-------|----------------|---------|
 | Router, Supervisor, Conditional Edge | `o3` oder `o3-mini` | kein `temperature` |
 | Judge, Evaluator | `o3` | kein `temperature` |
-| Worker, Content, RAG-Synthese, Code | `gpt-5.1` | `temperature` nur mit `reasoning_effort="none"` |
+| Worker, Content, RAG-Synthese, Code | `gpt-5.4-mini` | kein `temperature` |
 | Grundlagen-Demo, einfache Chain | `gpt-4o-mini` | `temperature=0.0` möglich |
 
 

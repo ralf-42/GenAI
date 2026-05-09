@@ -39,12 +39,13 @@ uv pip install --system git+https://github.com/ralf-42/GenAI.git#subdirectory=04
 
 ## Module im Überblick
 
-Die Bibliothek besteht aus zwei Hauptmodulen:
+Die Bibliothek besteht aus drei Hauptmodulen:
 
 | Modul | Beschreibung | Hauptfunktionen |
 |-------|-------------|----------------|
 | **utilities.py** | Hilfsfunktionen für Environment-Setup | Environment-Checks, Paket-Installation, API-Keys, Prompt-Templates, LLM-Response-Parsing, Model-Profile, GitHub-Datei-Download |
 | **multimodal_rag.py** | Multimodales RAG-System (v3.1) | Text- und Bildsuche, Bild-zu-Bild-Suche, Cross-Modal-Retrieval, System-Status |
+| **model_config.py** | Rollenbasierte Modell-Konfiguration | BASELINE, WORKER, JUDGE, PLANNER, ROUTER, CODING, WORKER_PREMIUM, TRANSLATOR, TRANSLATOR_PREMIUM, EMBEDDINGS |
 
 ---
 
@@ -748,6 +749,56 @@ python-dotenv>=1.0.0
 requests>=2.31.0
 langsmith>=0.1.0
 ```
+
+---
+
+## model_config.py - Rollenbasierte Modell-Konfiguration
+
+### Überblick
+
+> [!INFO] model_config.py auf einen Blick
+> Das `model_config`-Modul definiert Modell-IDs als benannte Konstanten nach Rolle. Die Instanziierung erfolgt im Notebook mit `init_chat_model()`, sodass API-Keys bereits gesetzt sind.
+
+```python
+from genai_lib.model_config import BASELINE, WORKER, JUDGE, TRANSLATOR
+```
+
+### Konstanten
+
+| Konstante | Modell | Typischer Einsatz |
+|-----------|--------|------------------|
+| `BASELINE` | `gpt-4o-mini` | Grundlagen, Demos, Lernbeispiele mit `temperature` |
+| `ROUTER` | `o3-mini` | Einfache Routing- und Auswahlentscheidungen |
+| `JUDGE` | `o3` | Evaluation, Bewertung, LLM-as-Judge |
+| `PLANNER` | `o3` | Aufgabenzerlegung, Agentic RAG |
+| `WORKER` | `gpt-5.4-mini` | RAG-Synthese, strukturierte Ausgaben, Code |
+| `WORKER_PREMIUM` | `gpt-5.4` | Komplexe RAG, finale Reports |
+| `CODING` | `gpt-5.4-mini` | Code-Generierung, technische Agenten |
+| `TRANSLATOR` | `gpt-5.4-nano` | Rohübersetzung, UI-Texte, Kursmaterial |
+| `TRANSLATOR_PREMIUM` | `gpt-5.4-mini` | Stilistisch hochwertige Übersetzungen |
+| `EMBEDDINGS` | `text-embedding-3-small` | Retrieval, Chunk-Suche, Vektorindizes |
+
+> [!NOTE] BASELINE und temperature
+> `BASELINE` verwendet bewusst `gpt-4o-mini` — das letzte Chat-Modell mit vollem `temperature`-Support. `temperature=0.0` ist im GenAI-Kurs Lernziel, nicht Behelf. Die gesamte GPT-5.x-Serie unterstützt `temperature` nicht.
+
+### Verwendung
+
+```python
+from langchain.chat_models import init_chat_model
+from genai_lib.model_config import BASELINE, WORKER, JUDGE
+
+# Demo / Grundlagen
+llm = init_chat_model(BASELINE, temperature=0.0)
+
+# RAG-Synthese
+worker_llm = init_chat_model(WORKER)
+
+# Evaluation
+judge_llm = init_chat_model(JUDGE)
+```
+
+> [!DANGER] Kein temperature bei GPT-5.x<br>
+> `WORKER`, `JUDGE`, `PLANNER`, `ROUTER`, `CODING`, `WORKER_PREMIUM`, `TRANSLATOR`, `TRANSLATOR_PREMIUM` — alle basieren auf GPT-5.x oder o3-Modellen. `temperature`-Parameter führt zu einem API-Fehler.
 
 ---
 
