@@ -20,24 +20,24 @@ Deployment beginnt im Kurs nicht erst bei Docker oder Hosting. Relevant wird es 
 
 Diese Seite ordnet die Werkzeuge ein, bevor Architekturentscheidungen zu früh verfestigt werden.
 
-- **[Vom Modell zum Produkt](https://ralf-42.github.io/GenAI/deployment/vom-modell-zum-produkt-langchain-oekosystem.html)** – *Wie wird aus einem Modell ein System?*
-- **[Minimum Viable GenAI Stack](https://ralf-42.github.io/GenAI/deployment/minimum-viable-genai-stack.html)** – *Welche Schichten braucht eine produktive GenAI-Anwendung mindestens?*
+- **[Vom Modell zum Produkt](deployment/vom-modell-zum-produkt-langchain-oekosystem.html)** – *Wie wird aus einem Modell ein System?*
+- **[Minimum Viable GenAI Stack](deployment/minimum-viable-genai-stack.html)** – *Welche Schichten braucht eine produktive GenAI-Anwendung mindestens?*
 
 ### Deployment-Prozess
 
 Der praktische Übergang von Notebook zu Anwendung scheitert selten an einer einzelnen Technologie. Häufiger fehlen saubere Projektstruktur, Konfiguration und Testbarkeit. Genau dort setzt diese Seite an.
 
-- **[Aus Entwicklung ins Deployment](https://ralf-42.github.io/GenAI/deployment/aus-entwicklung-ins-deployment.html)** – *Was muss zwischen Notebook und Anwendung passieren?*
+- **[Aus Entwicklung ins Deployment](deployment/aus-entwicklung-ins-deployment.html)** – *Was muss zwischen Notebook und Anwendung passieren?*
 
 ### Migration & Provider-Wechsel
 
 Providerwechsel wirken auf den ersten Blick technisch, sind in der Praxis aber meist Architekturfragen. Die Migrationsseite zeigt, warum ein gut strukturiertes LangChain-Projekt nicht bei null anfängt.
 
-- **[Migration OpenAI → Mistral](https://ralf-42.github.io/GenAI/deployment/migration-openai-mistral.html)** – *Wie wird ein Providerwechsel ohne Neubau angegangen?*
+- **[Migration OpenAI → Mistral](deployment/migration-openai-mistral.html)** – *Wie wird ein Providerwechsel ohne Neubau angegangen?*
 
 ## Abgrenzung zu verwandten Dokumenten
 
 | Dokument | Frage |
 |---|---|
-| [Einsteiger-Guides](../einsteiger-guides.html) | Wo starte ich als Einsteiger mit Deployment? |
-| [Best Practices](../best-practices.html) | Welche Produktionsstandards gelten für Deployment? |
+| [Einsteiger-Guides](frameworks/einsteiger-guides.html) | Wo starte ich als Einsteiger mit Deployment? |
+| [Best Practices](frameworks/best-practices.html) | Welche Produktionsstandards gelten für Deployment? |

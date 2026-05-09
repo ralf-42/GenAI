@@ -288,7 +288,7 @@ Teilnehmende unterschätzen oft, wie stark diese drei Regeln spätere Erweiterun
 | Dokument | Frage |
 |---|---|
 | [Wie erinnern sich Agenten über mehrere Schritte und Sitzungen hinweg?](./memory-systeme.html) | Wie wird aus dem laufenden State ein längerfristiges Gedächtnis? |
-| [LangGraph Einsteiger](../frameworks/einsteiger/einsteiger-langgraph.html) | Wie wird State in konkreten LangGraph-Workflows verwendet? |
+| [LangGraph Einsteiger](../../frameworks/einsteiger/einsteiger-langgraph.html) | Wie wird State in konkreten LangGraph-Workflows verwendet? |
 
 ---
 

@@ -4,7 +4,7 @@ title: GenAI-Sicherheit
 parent: Produktive & agentische Anwendungen
 grand_parent: Konzepte
 nav_order: 5
-description: "Sicherheitsrisiken und Schutzprinzipien fuer GenAI-Anwendungen mit Tools, Datenzugriff und externen Schnittstellen"
+description: "Sicherheitsrisiken und Schutzprinzipien für GenAI-Anwendungen mit Tools, Datenzugriff und externen Schnittstellen"
 has_toc: true
 ---
 
@@ -145,28 +145,7 @@ for entry in audit_log.get_entries():
 
 Nicht alle Quellen sind gleich vertrauenswürdig. Interner Code und Konfiguration sind anders zu behandeln als authentifizierte Nutzereingaben. Noch kritischer sind anonyme Eingaben, externe Webseiten, Datei-Uploads oder Drittanbieter-APIs.
 
-```mermaid
-flowchart TB
-    subgraph HIGH["Vertrauenswürdig"]
-        SP[System-Prompt]
-        CODE[Interner Code]
-        CFG[Konfiguration]
-    end
-    subgraph MED["Eingeschraenkt vertrauenswuerdig"]
-        AUTH[Authentifizierte Nutzereingaben]
-        IAPI[Interne API-Antworten]
-    end
-    subgraph LOW["Nicht vertrauenswuerdig"]
-        ANON[Anonyme Eingaben]
-        WEB[Externe Webseiten]
-        EMAIL[E-Mails und Uploads]
-        EAPI[Drittanbieter-APIs]
-    end
-
-    HIGH --> AGENT[Agent]
-    MED -->|pruefen| AGENT
-    LOW -->|validieren und markieren| AGENT
-```
+`Darf der Agent das?`0
 
 Diese Einteilung hilft nicht nur technisch. Sie schafft auch Klarheit darüber, wo zusätzliche Prüfungen, Maskierungen oder Freigaben nötig sind.
 
@@ -197,10 +176,10 @@ Teilnehmende unterschätzen oft, dass Sicherheit nicht erst bei hochkritischen S
 
 | Dokument | Frage |
 |---|---|
-| [Datenschutzerklärung](../legal/datenschutz.html) | Welche rechtlichen Anforderungen gelten für die Verarbeitung personenbezogener Daten durch LLM-APIs? |
+| [Datenschutzerklärung](../../legal/datenschutz.html) | Welche rechtlichen Anforderungen gelten für die Verarbeitung personenbezogener Daten durch LLM-APIs? |
 | [Human-in-the-Loop](./human-in-the-loop.html) | Wann und wie werden Menschen als zusätzliche Kontrollinstanz eingebunden? |
-| [Evaluation & Observability](./evaluation-observability.html) | Wie werden Qualitätsprobleme, Drift und Fehlverhalten sichtbar gemacht? |
-| [Aufgabenklassen & Lösungswege](./aufgabenklassen-und-loesungswege.html) | Welche Risiken und Rahmenbedingungen sollten schon vor Projektstart geprüft werden? |
+| [Evaluation & Observability](../erweitert/evaluation-observability.html) | Wie werden Qualitätsprobleme, Drift und Fehlverhalten sichtbar gemacht? |
+| [Aufgabenklassen & Lösungswege](../orientierung/aufgabenklassen-und-loesungswege.html) | Welche Risiken und Rahmenbedingungen sollten schon vor Projektstart geprüft werden? |
 
 ---
 

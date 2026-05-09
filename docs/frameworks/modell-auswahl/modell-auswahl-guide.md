@@ -231,9 +231,9 @@ antwort = multimodal_llm.invoke([message])
 
 | Dokument | Inhalt |
 |---|---|
-| [Modellauswahl (Konzept)](../concepts/erweitert/m19-modellauswahl.html) | Theoretische Grundlagen: Modell-Landschaft, Benchmarks, Evaluierungskriterien |
-| [LangChain Einsteiger](./einsteiger-langchain.html) | LangChain-Grundlagen: Chains, Tools, Agents |
-| [ChromaDB Einsteiger](./einsteiger-chromadb.html) | Vektordatenbanken für RAG-Systeme |
+| [Modellauswahl (Konzept)](../../concepts/erweitert/m19-modellauswahl.html) | Theoretische Grundlagen: Modell-Landschaft, Benchmarks, Evaluierungskriterien |
+| [LangChain Einsteiger](../einsteiger/einsteiger-langchain.html) | LangChain-Grundlagen: Chains, Tools, Agents |
+| [ChromaDB Einsteiger](../einsteiger/einsteiger-chromadb.html) | Vektordatenbanken für RAG-Systeme |
 
 ---
 

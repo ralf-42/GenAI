@@ -259,7 +259,7 @@ Es simuliert damit echtes Sprachverständnis im Schreibprozess.
 |---|---|
 | [Tokenizing & Chunking](./m08a-tokenizing-chunking.html) | Wie wird Text für Modelle in verarbeitbare Einheiten zerlegt? |
 | [Embeddings](./m08b-embeddings.html) | Wie wird Bedeutung als Vektor darstellbar gemacht? |
-| [Fine-Tuning](./m18-fine-tuning.html) | Wann reicht die Grundarchitektur nicht mehr und Anpassung per Training wird relevant? |
+| [Fine-Tuning](../erweitert/m18-fine-tuning.html) | Wann reicht die Grundarchitektur nicht mehr und Anpassung per Training wird relevant? |
 
 ---
 
