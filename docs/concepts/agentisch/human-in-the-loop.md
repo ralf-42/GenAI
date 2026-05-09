@@ -1,10 +1,9 @@
 ---
 layout: default
 title: Human-in-the-Loop
-parent: Produktive & agentische Anwendungen
-grand_parent: Konzepte
+parent: Konzepte
 nav_order: 4
-description: "Human-in-the-Loop als Designprinzip für Kontrolle, Freigabe und Eskalation in GenAI-Anwendungen"
+description: Human-in-the-Loop als Designprinzip für Kontrolle, Freigabe und Eskalation in GenAI-Anwendungen
 has_toc: true
 ---
 

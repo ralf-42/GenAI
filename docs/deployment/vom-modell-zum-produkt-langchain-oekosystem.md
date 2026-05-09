@@ -1,8 +1,7 @@
 ---
 layout: default
 title: Vom Modell zur Anwendung
-parent: Deployment-Themen
-grand_parent: Deployment
+parent: Deployment
 nav_order: 1
 description: Das LangChain-Ökosystem verstehen und nutzen
 has_toc: true

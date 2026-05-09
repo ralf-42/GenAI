@@ -1,8 +1,7 @@
 ---
 layout: default
 title: State Management
-parent: Produktive & agentische Anwendungen
-grand_parent: Konzepte
+parent: Konzepte
 nav_order: 3
 description: "Zustandsverwaltung in GenAI-Workflows: State, Reducer, TypedDict und Persistenz"
 has_toc: true

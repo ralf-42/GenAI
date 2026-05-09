@@ -1,8 +1,7 @@
 ---
 layout: default
 title: Impressum
-parent: Rechtliche Hinweise
-grand_parent: Rechtliches
+parent: Rechtliches
 description: Impressum und rechtliche Angaben gemäß § 5 TMG
 nav_exclude: true
 ---

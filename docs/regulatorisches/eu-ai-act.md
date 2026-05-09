@@ -1,8 +1,7 @@
 ---
 layout: default
 title: EU AI Act
-parent: Regulatorische Themen
-grand_parent: Regulatorisches
+parent: Regulatorisches
 nav_order: 3
 description: "EU AI Act: Risikoklassen, Pflichten und Bedeutung für GenAI-Anwendungen"
 has_toc: true

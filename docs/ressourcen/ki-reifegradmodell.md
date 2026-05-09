@@ -1,8 +1,7 @@
 ---
 layout: default
 title: KI-Reifegradmodell
-parent: Alle Ressourcen
-grand_parent: Ressourcen
+parent: Ressourcen
 nav_order: 5
 description: Managementtaugliche Einordnung des KI-Reifegrads
 has_toc: true

@@ -1,8 +1,7 @@
 ---
 layout: default
 title: Interaktive Visualisierungen
-parent: Alle Ressourcen
-grand_parent: Ressourcen
+parent: Ressourcen
 nav_order: 1
 description: "Interaktive Web-Demos für GenAI-Konzepte: Transformer, Embeddings, Multimodal und Modellauswahl"
 has_toc: true

@@ -1,8 +1,7 @@
 ---
 layout: default
 title: Datenschutzerklärung
-parent: Rechtliche Hinweise
-grand_parent: Rechtliches
+parent: Rechtliches
 description: Datenschutzerklärung gemäß DSGVO
 nav_exclude: true
 ---

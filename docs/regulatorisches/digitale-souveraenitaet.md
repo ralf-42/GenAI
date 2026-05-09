@@ -1,8 +1,7 @@
 ---
 layout: default
 title: Digitale Souveränität
-parent: Regulatorische Themen
-grand_parent: Regulatorisches
+parent: Regulatorisches
 nav_order: 1
 description: "Digitale Souveraenitaet im KI-Kontext: Infrastruktur, Daten, Anbieter und Abhaengigkeiten"
 has_toc: true
