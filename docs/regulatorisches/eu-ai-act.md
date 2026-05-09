@@ -133,5 +133,5 @@ Für Kurs- und Prototypensysteme empfiehlt sich ein Mindeststandard, auch wenn d
 
 | Dokument | Frage |
 |---|---|
-| [Einsteiger-Guides](../einsteiger-guides.html) | Wo starte ich als Einsteiger mit EU AI Act? |
-| [Best Practices](../best-practices.html) | Welche Produktionsstandards gelten für EU AI Act? |
+| [Einsteiger-Guides](../frameworks/einsteiger-guides.html) | Wo starte ich als Einsteiger mit EU AI Act? |
+| [Best Practices](../frameworks/best-practices.html) | Welche Produktionsstandards gelten für EU AI Act? |

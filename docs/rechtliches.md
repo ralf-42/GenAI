@@ -26,5 +26,5 @@ Die rechtlichen Seiten finden Sie im Footer dieser Website.
 
 | Dokument | Frage |
 |---|---|
-| [Einsteiger-Guides](../einsteiger-guides.html) | Wo starte ich als Einsteiger mit Rechtliches? |
-| [Best Practices](../best-practices.html) | Welche Produktionsstandards gelten für Rechtliches? |
+| [Einsteiger-Guides](frameworks/einsteiger-guides.html) | Wo starte ich als Einsteiger mit Rechtliches? |
+| [Best Practices](frameworks/best-practices.html) | Welche Produktionsstandards gelten für Rechtliches? |

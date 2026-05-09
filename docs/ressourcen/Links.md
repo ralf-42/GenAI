@@ -158,5 +158,5 @@ Ressourcen zur Anpassung von Sprachmodellen auf eigene Daten.
 
 | Dokument | Frage |
 |---|---|
-| [Einsteiger-Guides](../einsteiger-guides.html) | Wo starte ich als Einsteiger mit Links? |
-| [Best Practices](../best-practices.html) | Welche Produktionsstandards gelten für Links? |
+| [Einsteiger-Guides](../frameworks/einsteiger-guides.html) | Wo starte ich als Einsteiger mit Links? |
+| [Best Practices](../frameworks/best-practices.html) | Welche Produktionsstandards gelten für Links? |

@@ -299,8 +299,8 @@ def transcribe_with_retry(file_path):
 | Dokument | Frage |
 |---|---|
 | [Multimodal Bild](./m09-multimodal-bild.html) | Welche Parallelen und Unterschiede gibt es zwischen Bild- und Audioverarbeitung? |
-| [Modellauswahl](./m19-modellauswahl.html) | Welche Modelle eignen sich für Audio-Aufgaben überhaupt? |
-| [Context Engineering](./m21-context-engineering.html) | Wie wird Audio sinnvoll in den Gesamtkontext einer Anwendung eingebettet? |
+| [Modellauswahl](../erweitert/m19-modellauswahl.html) | Welche Modelle eignen sich für Audio-Aufgaben überhaupt? |
+| [Context Engineering](../erweitert/m21-context-engineering.html) | Wie wird Audio sinnvoll in den Gesamtkontext einer Anwendung eingebettet? |
 
 ---
 

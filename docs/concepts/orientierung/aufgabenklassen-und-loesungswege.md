@@ -355,9 +355,9 @@ So bleibt die Lösung fachlich passend, wirtschaftlich sinnvoll und langfristig 
 
 | Dokument | Frage |
 |---|---|
-| [Prompt Engineering](./prompt-engineering.html) | Wie werden Modelle sprachlich und strukturell gesteuert? |
-| [RAG-Konzepte](./rag-konzepte.html) | Wann hilft Retrieval als Lösungsweg und wie ist eine RAG-Pipeline aufgebaut? |
-| [Modell-Auswahl Guide](../frameworks/modell-auswahl/modell-auswahl-guide.html) | Welches Modell passt zur gewählten Lösung und zum Betriebsziel? |
+| [Prompt Engineering](../erweitert/prompt-engineering.html) | Wie werden Modelle sprachlich und strukturell gesteuert? |
+| [RAG-Konzepte](../erweitert/rag-konzepte.html) | Wann hilft Retrieval als Lösungsweg und wie ist eine RAG-Pipeline aufgebaut? |
+| [Modell-Auswahl Guide](../../frameworks/modell-auswahl/modell-auswahl-guide.html) | Welches Modell passt zur gewählten Lösung und zum Betriebsziel? |
 
 ---
 

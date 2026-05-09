@@ -320,5 +320,5 @@ def test_agent_with_tools():
 
 | Dokument | Frage |
 |---|---|
-| [Einsteiger-Guides](../einsteiger-guides.html) | Wo starte ich als Einsteiger mit Code Standards? |
-| [Best Practices](../best-practices.html) | Welche Produktionsstandards gelten für Code Standards? |
+| [Einsteiger-Guides](../frameworks/einsteiger-guides.html) | Wo starte ich als Einsteiger mit Code Standards? |
+| [Best Practices](../frameworks/best-practices.html) | Welche Produktionsstandards gelten für Code Standards? |

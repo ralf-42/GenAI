@@ -136,5 +136,5 @@ Weitere interaktive Visualisierungen von externen Anbietern
 
 | Dokument | Frage |
 |---|---|
-| [Einsteiger-Guides](../einsteiger-guides.html) | Wo starte ich als Einsteiger mit Interaktive Visualisierungen? |
-| [Best Practices](../best-practices.html) | Welche Produktionsstandards gelten für Interaktive Visualisierungen? |
+| [Einsteiger-Guides](../frameworks/einsteiger-guides.html) | Wo starte ich als Einsteiger mit Interaktive Visualisierungen? |
+| [Best Practices](../frameworks/best-practices.html) | Welche Produktionsstandards gelten für Interaktive Visualisierungen? |

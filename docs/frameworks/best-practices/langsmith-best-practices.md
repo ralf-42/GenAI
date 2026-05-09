@@ -706,7 +706,7 @@ callback = LangSmithCallback(
 - [Release Notes](https://docs.smith.langchain.com/release-notes)
 
 ### Interne Dokumentation
-- [Vom Modell zum Produkt: LangChain-Ökosystem](../deployment/vom-modell-zum-produkt-langchain-oekosystem.html)
+- [Vom Modell zum Produkt: LangChain-Ökosystem](../../deployment/vom-modell-zum-produkt-langchain-oekosystem.html)
 - [LangChain 1.0 Must-Haves](./langchain-best-practices.html)
 
 ### Related Commands

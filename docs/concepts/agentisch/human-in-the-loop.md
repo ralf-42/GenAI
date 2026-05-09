@@ -4,7 +4,7 @@ title: Human-in-the-Loop
 parent: Produktive & agentische Anwendungen
 grand_parent: Konzepte
 nav_order: 4
-description: "Human-in-the-Loop als Designprinzip fuer Kontrolle, Freigabe und Eskalation in GenAI-Anwendungen"
+description: "Human-in-the-Loop als Designprinzip für Kontrolle, Freigabe und Eskalation in GenAI-Anwendungen"
 has_toc: true
 ---
 
@@ -149,7 +149,7 @@ Teilnehmende unterschätzen oft, dass HITL nicht gegen Automatisierung arbeitet.
 |---|---|
 | [State Management](./state-management.html) | Wie werden Unterbrechung und Wiederaufnahme über gespeicherten State vorbereitet? |
 | [Wie werden Agenten gegen Missbrauch und Fehlverhalten abgesichert?](./agent-security.html) | Welche Sicherheitsgrenzen ergänzen oder ersetzen menschliche Kontrolle? |
-| [Evaluation & Observability](./evaluation-observability.html) | Wie werden Agentenqualität und Fehlverhalten systematisch sichtbar gemacht? |
+| [Evaluation & Observability](../erweitert/evaluation-observability.html) | Wie werden Agentenqualität und Fehlverhalten systematisch sichtbar gemacht? |
 
 ---
 

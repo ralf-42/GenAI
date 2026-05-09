@@ -181,5 +181,5 @@ llm = Ollama(model="llama3")
 
 | Dokument | Frage |
 |---|---|
-| [Einsteiger-Guides](../einsteiger-guides.html) | Wo starte ich als Einsteiger mit API-Keys & Provider? |
-| [Best Practices](../best-practices.html) | Welche Produktionsstandards gelten für API-Keys & Provider? |
+| [Einsteiger-Guides](../frameworks/einsteiger-guides.html) | Wo starte ich als Einsteiger mit API-Keys & Provider? |
+| [Best Practices](../frameworks/best-practices.html) | Welche Produktionsstandards gelten für API-Keys & Provider? |

@@ -15,7 +15,7 @@ permalink: /
 ---
 
 > [!TIP]  Einstieg in die Dokumentation<br>
-> Für den kürzesten Start zuerst [Zuerst lesen](https://ralf-42.github.io/GenAI/zuerst-lesen.html) öffnen. Die ausführlichen [Lesepfade](https://ralf-42.github.io/GenAI/lesepfade.html) helfen danach bei der gezielten Vertiefung.
+> Für den kürzesten Start zuerst [Zuerst lesen](zuerst-lesen.html) öffnen. Die ausführlichen [Lesepfade](lesepfade.html) helfen danach bei der gezielten Vertiefung.
 
 ---
 

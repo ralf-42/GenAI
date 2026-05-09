@@ -134,5 +134,5 @@ check_environment()
 
 | Dokument | Frage |
 |---|---|
-| [Einsteiger-Guides](../einsteiger-guides.html) | Wo starte ich als Einsteiger mit Von Colab zu Local? |
-| [Best Practices](../best-practices.html) | Welche Produktionsstandards gelten für Von Colab zu Local? |
+| [Einsteiger-Guides](../frameworks/einsteiger-guides.html) | Wo starte ich als Einsteiger mit Von Colab zu Local? |
+| [Best Practices](../frameworks/best-practices.html) | Welche Produktionsstandards gelten für Von Colab zu Local? |

@@ -120,11 +120,11 @@ Ein gutes No-Go ist kein Scheitern. Es spart Zeit, schützt vor falschen Erwartu
 | Dokument | Frage |
 |---|---|
 | [Aufgabenklassen & Lösungswege](./aufgabenklassen-und-loesungswege.html) | Welcher Lösungsweg passt, wenn GenAI grundsätzlich sinnvoll erscheint? |
-| [Modellauswahl](./m19-modellauswahl.html) | Welches Modell passt zu Qualität, Kosten, Latenz und Modalität? |
-| [RAG-Konzepte](./rag-konzepte.html) | Wann hilft externer Wissenszugriff über eigene Dokumente? |
-| [Evaluation & Observability](./evaluation-observability.html) | Wie wird Qualität eines späteren Systems belastbar gemessen? |
-| [EU AI Act](../regulatorisches/eu-ai-act.html) | Welche regulatorischen Anforderungen können ein Vorhaben prägen? |
-| [Digitale Souveränität](../regulatorisches/digitale-souveraenitaet.html) | Welche Abhängigkeiten entstehen durch Modell- und Infrastrukturwahl? |
+| [Modellauswahl](../erweitert/m19-modellauswahl.html) | Welches Modell passt zu Qualität, Kosten, Latenz und Modalität? |
+| [RAG-Konzepte](../erweitert/rag-konzepte.html) | Wann hilft externer Wissenszugriff über eigene Dokumente? |
+| [Evaluation & Observability](../erweitert/evaluation-observability.html) | Wie wird Qualität eines späteren Systems belastbar gemessen? |
+| [EU AI Act](../../regulatorisches/eu-ai-act.html) | Welche regulatorischen Anforderungen können ein Vorhaben prägen? |
+| [Digitale Souveränität](../../regulatorisches/digitale-souveraenitaet.html) | Welche Abhängigkeiten entstehen durch Modell- und Infrastrukturwahl? |
 
 ---
 
