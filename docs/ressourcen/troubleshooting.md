@@ -1,10 +1,11 @@
 ---
 layout: default
 title: Troubleshooting
-parent: Ressourcen
+parent: Alle Ressourcen
 nav_order: 4
 description: Lösungen für häufige Probleme
 has_toc: true
+grand_parent: Ressourcen
 ---
 
 # Troubleshooting
@@ -61,3 +62,10 @@ has_toc: true
 **Version:** 1.0<br>
 **Stand:** November 2025<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
+
+## Abgrenzung zu verwandten Dokumenten
+
+| Dokument | Frage |
+|---|---|
+| [Einsteiger-Guides](../einsteiger-guides.html) | Wo starte ich als Einsteiger mit Troubleshooting? |
+| [Best Practices](../best-practices.html) | Welche Produktionsstandards gelten für Troubleshooting? |

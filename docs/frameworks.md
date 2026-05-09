@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Frameworks
 nav_order: 5
@@ -8,6 +8,10 @@ description: "Einsteiger-Guides, Modell-Auswahl und Best Practices für LangChai
 
 # Frameworks
 
+**Version:** 1.0<br>
+**Stand:** Mai 2026<br>
+**Kurs:** Generative KI
+
 Die Framework-Seiten dienen nicht als vollständige Produktkataloge. Sie erklären die Werkzeuge, die im Kurs tatsächlich gebraucht werden, und vor allem, an welcher Stelle welches Framework den Unterschied macht. Entscheidend ist weniger, was ein Tool alles kann, sondern wofür es im Projektaufbau taugt.
 
 Der Bereich gliedert sich in drei Gruppen, die auch der Seitennavigation entsprechen:
@@ -15,6 +19,12 @@ Der Bereich gliedert sich in drei Gruppen, die auch der Seitennavigation entspre
 - **[Einsteiger-Guides](https://ralf-42.github.io/GenAI/frameworks/einsteiger-guides.html)** - erste praktische Zugänge zu den Werkzeugen
 - **[Modell-Auswahl](https://ralf-42.github.io/GenAI/frameworks/modell-auswahl.html)** - konkrete Modell- und Provider-Entscheidungen
 - **[Best Practices](https://ralf-42.github.io/GenAI/frameworks/best-practices.html)** - verbindliche Patterns und Anti-Patterns für den Kurseinsatz
+
+## Inhaltsverzeichnis
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
 
 ## Einsteiger-Guides
 
@@ -61,3 +71,9 @@ Empfohlene Patterns und Anti-Patterns aus der Unterseite [Best Practices](https:
 - **[LangGraph Best Practices](https://ralf-42.github.io/GenAI/frameworks/best-practices/langgraph-best-practices.html)** – *Wie bleiben zustandsbehaftete Workflows wartbar?* State, Routing, Checkpointing und Human-in-the-Loop.
 - **[LangSmith Best Practices](https://ralf-42.github.io/GenAI/frameworks/best-practices/langsmith-best-practices.html)** – *Wie observiere ich Chains und Agenten technisch?* `LANGSMITH_*` Umgebungsvariablen, Tracing, Evaluation und Monitoring.
 
+## Abgrenzung zu verwandten Dokumenten
+
+| Dokument | Frage |
+|---|---|
+| [Einsteiger-Guides](../einsteiger-guides.html) | Wo starte ich als Einsteiger mit Frameworks? |
+| [Best Practices](../best-practices.html) | Welche Produktionsstandards gelten für Frameworks? |

@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: RAG-Konzepte
 parent: Erweiterte Techniken

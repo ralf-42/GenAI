@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Modell-Auswahl
 parent: Frameworks
@@ -9,7 +9,18 @@ description: "Modell- und Provider-Auswahl: Kosten, Latenz, Modalitäten und Ent
 
 # Modell-Auswahl
 
+**Version:** 1.0<br>
+**Stand:** Mai 2026<br>
+**Kurs:** Generative KI
+
 Modellauswahl ist selten nur eine Qualitätsfrage. Häufiger geht es um Kosten, Latenz, Modalitäten und die Frage, ob ein stärkeres Modell den Mehraufwand überhaupt rechtfertigt.
 
 - **[Modell-Auswahl Guide](https://ralf-42.github.io/GenAI/frameworks/modell-auswahl/modell-auswahl-guide.html)** – *Welches Modell passt zu welcher Aufgabe?*
 - **[Provider-Modell-Mapping](https://ralf-42.github.io/GenAI/frameworks/modell-auswahl/provider-modell-mapping.html)** – *Welche Provider und Modellfamilien passen zu welchen Anwendungstypen?*
+
+## Abgrenzung zu verwandten Dokumenten
+
+| Dokument | Frage |
+|---|---|
+| [Einsteiger-Guides](../einsteiger-guides.html) | Wo starte ich als Einsteiger mit Modell-Auswahl? |
+| [Best Practices](../best-practices.html) | Welche Produktionsstandards gelten für Modell-Auswahl? |

@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: State Management
 parent: Produktive & agentische Anwendungen

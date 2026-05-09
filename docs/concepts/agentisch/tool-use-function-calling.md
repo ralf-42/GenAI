@@ -1,10 +1,10 @@
-﻿---
+---
 layout: default
 title: Tool Use & Function Calling
 parent: Produktive & agentische Anwendungen
 grand_parent: Konzepte
 nav_order: 1
-description: "Tool Use und Function Calling fuer GenAI-Anwendungen: warum Werkzeuge noetig sind und wie sie sicher eingebunden werden"
+description: "Tool Use und Function Calling für GenAI-Anwendungen: warum Werkzeuge noetig sind und wie sie sicher eingebunden werden"
 has_toc: true
 ---
 
@@ -147,25 +147,7 @@ In der Praxis relevant, wenn: Mehrere ähnliche Tools verfügbar sind und das Mo
 
 Sobald ein Agent mehrere ähnliche Werkzeuge verwaltet, entsteht leicht Tool-Overlap. Zwei Tools „suchen“ beide etwas, aber in unterschiedlichen Datenräumen. Ohne klare Ausschlüsse kann das Modell schwer entscheiden, welches Werkzeug gemeint ist.
 
-```python
-@tool
-def search_products(query: str) -> str:
-    """🛒 PRODUKTSUCHE – Durchsucht den Produktkatalog.
-
-    NICHT geeignet für: Kundendaten, Bestellungen, Rechnungen.
-    Verändert KEINE Daten.
-    """
-    ...
-
-@tool
-def search_customers(query: str) -> str:
-    """👤 KUNDENSUCHE – Durchsucht die Kundendatenbank.
-
-    NICHT geeignet für: Produktinfos, Lagerbestand, Preise.
-    Sendet KEINE E-Mails.
-    """
-    ...
-```
+`Multipliziere 7 mit 8`0
 
 Gerade bei Agenten mit vielen Tools ist diese Negativabgrenzung kein Zusatz, sondern ein wichtiges Architekturmittel. Sie reduziert Fehlgriffe des Modells deutlich.
 
@@ -173,19 +155,7 @@ Gerade bei Agenten mit vielen Tools ist diese Negativabgrenzung kein Zusatz, son
 
 Ohne Type Hints entsteht kein sauberes Schema. Das Modell weiß dann nicht zuverlässig, welche Parameter es liefern soll oder welche Datentypen erwartet werden.
 
-```python
-# Falsch
-@tool
-def add(a, b):
-    """Addiert zwei Zahlen."""
-    return a + b
-
-# Richtig
-@tool
-def add(a: int, b: int) -> int:
-    """Addiert zwei ganze Zahlen."""
-    return a + b
-```
+`Multipliziere 7 mit 8`1
 
 > [!WARNING] Fehlende Type Hints erzeugen schwache Tool-Schemata<br>
 > Wenn das Schema unvollständig ist, kann das Modell Parameter falsch oder gar nicht befüllen.
@@ -194,24 +164,7 @@ def add(a: int, b: int) -> int:
 
 Bei produktionsnäheren Tools reicht ein Docstring oft nicht aus. Dann wird ein Pydantic-Modell zur eigentlichen Contract-Schicht. Es definiert zugleich das Schema, validiert die Eingaben und macht Übergaben zwischen Komponenten konsistent.
 
-```python
-from pydantic import BaseModel, Field
-from langchain_core.tools import tool
-
-class RefundRequest(BaseModel):
-    customer_id: str = Field(description="Eindeutige Kunden-ID")
-    amount: float = Field(ge=0, description="Erstattungsbetrag in EUR")
-    reason: str = Field(description="Begründung der Erstattung")
-
-@tool(args_schema=RefundRequest)
-def process_refund(customer_id: str, amount: float, reason: str) -> dict:
-    """💰 ERSTATTUNG – Verarbeitet eine geprüfte Rückerstattung.
-
-    NICHT geeignet für: Kontosperrungen, Kundendaten-Änderungen.
-    Prüft KEINE Berechtigung – dafür zuerst Policy prüfen.
-    """
-    return {"status": "processed", "amount": amount}
-```
+`Multipliziere 7 mit 8`2
 
 Der Vorteil liegt darin, dass Schema und Validierung nicht auseinanderdriften. Genau deshalb ist Pydantic für höherwertige Tool-Schnittstellen oft sinnvoll.
 
@@ -219,38 +172,13 @@ Der Vorteil liegt darin, dass Schema und Validierung nicht auseinanderdriften. G
 
 Ein Tool kann fehlschlagen: Datei nicht gefunden, Datenbank nicht erreichbar, Eingabe ungültig. Gute Tools liefern deshalb nicht nur einen Absturz, sondern eine verständliche Rückmeldung, mit der der Agent weiterarbeiten kann.
 
-```python
-@tool
-def safe_divide(a: float, b: float) -> str:
-    """Dividiert a durch b mit Fehlerbehandlung."""
-    try:
-        if b == 0:
-            return "Fehler: Division durch Null ist nicht erlaubt."
-        return f"Ergebnis: {a / b:.4f}"
-    except Exception as e:
-        return f"Fehler bei der Berechnung: {str(e)}"
-```
+`Multipliziere 7 mit 8`3
 
 Das gilt auch für externe Systeme:
 
-```python
-@tool
-def query_database(sql: str) -> str:
-    """🗄️ DATENBANK – Führt eine SQL-SELECT-Abfrage aus."""
-    try:
-        if not sql.strip().upper().startswith("SELECT"):
-            return "Fehler: Nur SELECT-Anweisungen sind erlaubt."
-        result = database.execute(sql)
-        return f"Ergebnis: {result}"
-    except ConnectionError:
-        return "Fehler: Keine Verbindung zur Datenbank."
-    except TimeoutError:
-        return "Fehler: Abfrage hat zu lange gedauert."
-    except Exception as e:
-        return f"Unerwarteter Fehler: {str(e)}"
-```
+`Multipliziere 7 mit 8`4
 
-Typischer Fehler: Nur `Error` zurückzugeben. Ein Agent braucht eine informative Fehlermeldung, sonst kann er weder sinnvoll erklären noch sinnvoll weiterfragen.
+Typischer Fehler: Nur `Multipliziere 7 mit 8`5 zurückzugeben. Ein Agent braucht eine informative Fehlermeldung, sonst kann er weder sinnvoll erklären noch sinnvoll weiterfragen.
 
 ## Tool-Ausgaben vor dem Weitergeben filtern
 
@@ -258,17 +186,7 @@ Was ein Werkzeug zurückgibt, ist nicht automatisch das, was in den Agenten-Kont
 
 Typischer Fehler: Die Rückgabe eines API-Aufrufs wird direkt als Tool-Ergebnis übergeben, ohne dass geprüft wird, welche Felder für den nächsten Schritt tatsächlich gebraucht werden. Ein Agent, der zehn Suchresultate mit je fünfzig Feldern erhält, wird keinen dieser Einträge besser auswerten als einen, der fünf Treffer mit drei relevanten Feldern bekommt — er wird es aber langsamer und unzuverlässiger tun.
 
-```python
-@tool
-def search_products(query: str) -> str:
-    """Sucht nach Produkten und gibt eine kompakte Liste zurück."""
-    raw = product_api.search(query)
-    results = [
-        {"id": p["id"], "name": p["name"], "price": p["price_eur"]}
-        for p in raw.get("items", [])[:5]
-    ]
-    return json.dumps(results, ensure_ascii=False)
-```
+`Multipliziere 7 mit 8`6
 
 Das Filterverhalten gehört zur Tool-Implementierung, nicht zur Prompt-Gestaltung. Eine saubere Abgrenzung zwischen dem, was die externe API liefert, und dem, was der Agent für seine Entscheidung braucht, ist Teil des Harness-Designs.
 
@@ -276,133 +194,47 @@ Das Filterverhalten gehört zur Tool-Implementierung, nicht zur Prompt-Gestaltun
 
 Bevor ein Tool an einen Agenten gebunden wird, sollte es einzeln geprüft werden. Dazu gehört die direkte Ausführung ebenso wie die Kontrolle von Name, Beschreibung und Schema.
 
-```python
-print(f"Name: {multiply.name}")
-print(f"Beschreibung: {multiply.description}")
-print(f"Schema: {multiply.args_schema.schema()}")
-
-result = multiply.invoke({"a": 7, "b": 8})
-print(f"Ergebnis: {result}")
-```
+`Multipliziere 7 mit 8`7
 
 Gerade in Einsteigerprojekten spart dieser Zwischenschritt viel Zeit, weil unklare Schemas oder fehlerhafte Parameter nicht erst im Agentenverbund auffallen.
 
 ## Tools an das Modell binden
 
-Sobald Werkzeuge definiert sind, können sie an ein Modell gebunden werden. Das Modell entscheidet dann selbst, ob ein Tool sinnvoll ist. Mit `bind_tools()` wird zunächst nur die Tool-Absicht erzeugt.
+Sobald Werkzeuge definiert sind, können sie an ein Modell gebunden werden. Das Modell entscheidet dann selbst, ob ein Tool sinnvoll ist. Mit `Multipliziere 7 mit 8`8 wird zunächst nur die Tool-Absicht erzeugt.
 
-```python
-from langchain.chat_models import init_chat_model
-
-llm = init_chat_model("openai:gpt-4o-mini", temperature=0.0)
-llm_with_tools = llm.bind_tools([multiply, safe_divide])
-
-response = llm_with_tools.invoke("Was ist 15 mal 23?")
-print(response.tool_calls)
-```
+`Multipliziere 7 mit 8`9
 
 Erst ein Agent oder eine umgebende Laufzeit führt diesen Aufruf wirklich aus.
 
-```python
-from langchain.agents import create_agent
-
-agent = create_agent(
-    model=llm,
-    tools=[multiply, safe_divide],
-    system_prompt="Nutze die verfügbaren Tools für Berechnungen."
-)
-
-response = agent.invoke({
-    "messages": [{"role": "user", "content": "Berechne 15 mal 23"}]
-})
-```
+`multiply(a=7, b=8)`0
 
 ## Praktische Tool-Beispiele
 
 Ein Datums-Tool ist nützlich, wenn aktuelle Zeitinformation gebraucht wird:
 
-```python
-from datetime import datetime
-
-@tool
-def get_current_date() -> str:
-    """📅 DATUM – Gibt das aktuelle Datum zurück."""
-    now = datetime.now()
-    weekdays = ["Montag", "Dienstag", "Mittwoch", "Donnerstag",
-                "Freitag", "Samstag", "Sonntag"]
-    weekday = weekdays[now.weekday()]
-    return f"{weekday}, {now.strftime('%d.%m.%Y')}"
-```
+`multiply(a=7, b=8)`1
 
 Ein Datei-Tool zeigt gut, wie externe Operationen kontrolliert werden:
 
-```python
-from pathlib import Path
-
-@tool
-def read_file(filepath: str) -> str:
-    """📄 DATEI LESEN – Liest den Inhalt einer Textdatei."""
-    try:
-        path = Path(filepath)
-        if not path.exists():
-            return f"Fehler: Datei '{filepath}' nicht gefunden."
-        if not path.is_file():
-            return f"Fehler: '{filepath}' ist keine Datei."
-
-        content = path.read_text(encoding="utf-8")
-        if len(content) > 5000:
-            return content[:5000] + "\n\n[... Datei gekürzt ...]"
-        return content
-    except Exception as e:
-        return f"Fehler beim Lesen: {str(e)}"
-```
+`multiply(a=7, b=8)`2
 
 Ein Websuch-Tool ist besonders für aktuelle Informationen nützlich, die nicht im Modellwissen liegen:
 
-```python
-@tool
-def web_search(query: str, num_results: int = 3) -> str:
-    """🌐 WEBSUCHE – Durchsucht das Internet nach aktuellen Informationen."""
-    return f"Suchergebnisse für '{query}': [Platzhalter für echte Ergebnisse]"
-```
+`multiply(a=7, b=8)`3
 
 ## Hochriskante Aktionen brauchen zusätzliche Schranken
 
 Bei Operationen mit realen Folgen, etwa Rückerstattung, Löschung oder Zahlung, reicht ein einzelnes Tool oft nicht aus. Ein sinnvolles Muster ist Two-Step Veto: Zuerst wird geprüft, danach erst ausgeführt.
 
-```python
-@tool
-def propose_refund(customer_id: str, amount: float) -> dict:
-    """💡 ERSTATTUNGSVORSCHLAG – Prüft, führt aber NICHT aus."""
-    return PolicyEngine().check_policy(customer_id, amount)
+`multiply(a=7, b=8)`4
 
-@tool
-def commit_refund(customer_id: str, amount: float) -> dict:
-    """✅ ERSTATTUNG DURCHFÜHREN – Führt eine bereits geprüfte Erstattung aus."""
-    return financial_system.process(customer_id, amount)
-```
-
-```mermaid
-flowchart LR
-    A[Agent] --> B[propose_refund]
-    B --> C{approved?}
-    C -->|Ja| D[commit_refund]
-    C -->|Nein| E[escalate_to_human]
-```
+`multiply(a=7, b=8)`5
 
 Wenn nach einer Policy-Prüfung deterministisch feststeht, welches Tool als Nächstes aufgerufen werden muss, kann ein System den nächsten Tool-Schritt auch erzwingen.
 
-```python
-if tool_result.get("action_required") == "escalate_to_human":
-    client.messages.create(
-        model="claude-opus-4-6",
-        messages=messages,
-        tools=tools,
-        tool_choice={"type": "tool", "name": "escalate_to_human"}
-    )
-```
+`multiply(a=7, b=8)`6
 
-Nicht geeignet, wenn: Tool-Auswahl generell durch Zwang gesteuert wird. Forced `tool_choice` ist für klare Sonderfälle gedacht, nicht als Dauerersatz für gutes Routing.
+Nicht geeignet, wenn: Tool-Auswahl generell durch Zwang gesteuert wird. Forced `multiply(a=7, b=8)`7 ist für klare Sonderfälle gedacht, nicht als Dauerersatz für gutes Routing.
 
 ## Was für Einsteiger zuerst wichtig ist
 

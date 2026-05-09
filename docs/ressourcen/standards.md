@@ -1,10 +1,11 @@
-﻿---
+---
 layout: default
 title: Code Standards
-parent: Ressourcen
+parent: Alle Ressourcen
 nav_order: 3
-description: "Coding-Konventionen und Best Practices"
+description: Coding-Konventionen und Best Practices
 has_toc: true
+grand_parent: Ressourcen
 ---
 
 # Code Standards
@@ -314,3 +315,10 @@ def test_agent_with_tools():
 **Version:** 2.0 (konsolidiert)<br>
 **Stand:** Januar 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
+
+## Abgrenzung zu verwandten Dokumenten
+
+| Dokument | Frage |
+|---|---|
+| [Einsteiger-Guides](../einsteiger-guides.html) | Wo starte ich als Einsteiger mit Code Standards? |
+| [Best Practices](../best-practices.html) | Welche Produktionsstandards gelten für Code Standards? |

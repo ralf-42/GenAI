@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: LangChain
 parent: Einsteiger-Guides
@@ -687,3 +687,10 @@ Dieses Pattern bildet die Grundlage für Wissens‑Chatbots, Dokumenten‑Assist
 **Version:**    1.0<br>
 **Stand:**    November 2025<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
+
+## Abgrenzung zu verwandten Dokumenten
+
+| Dokument | Frage |
+|---|---|
+| [Einsteiger-Guides](../einsteiger-guides.html) | Wo starte ich als Einsteiger mit LangChain? |
+| [Best Practices](../best-practices.html) | Welche Produktionsstandards gelten für LangChain? |

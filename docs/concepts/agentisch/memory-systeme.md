@@ -1,10 +1,10 @@
-﻿---
+---
 layout: default
 title: Memory-Systeme
 parent: Produktive & agentische Anwendungen
 grand_parent: Konzepte
 nav_order: 2
-description: "Kurz- und Langzeitgedaechtnis fuer GenAI-Anwendungen mit LangGraph, Vektordatenbanken und nutzerspezifischer Persistenz"
+description: "Kurz- und Langzeitgedaechtnis für GenAI-Anwendungen mit LangGraph, Vektordatenbanken und nutzerspezifischer Persistenz"
 has_toc: true
 ---
 
@@ -302,83 +302,80 @@ In der Praxis relevant, wenn: Aufgaben aus mehreren Tool-Aufrufen bestehen, ähn
 Sobald ein Agent von mehreren Nutzern verwendet wird, reicht ein globales Gedächtnis nicht mehr aus. Sitzungen und langfristige Fakten müssen nutzerspezifisch getrennt bleiben. In LangGraph bildet Checkpointing mit Thread-IDs dafür die natürliche Grundlage.
 
 ```python
-from langgraph.checkpoint.sqlite import SqliteSaver
-import sqlite3
+from typing import TypedDict, Annotated
+from langgraph.graph.message import add_messages
 
-conn = sqlite3.connect("user_memory.db", check_same_thread=False)
-checkpointer = SqliteSaver(conn)
-app = graph.compile(checkpointer=checkpointer)
+class ChatState(TypedDict):
+    messages: Annotated[list, add_messages]
 
-def get_user_config(user_id: str, session_id: str) -> dict:
-    return {
-        "configurable": {
-            "thread_id": f"{user_id}:{session_id}"
-        }
-    }
-```
+def chat_node(state: ChatState) -> ChatState:
+    response = llm.invoke(state["messages"])
+    return {"messages": [response]}
+```0
 
 Wenn ein Nutzer über mehrere Sitzungen hinweg erinnert werden soll, reicht eine Thread-ID allein nicht aus. Dann braucht es zusätzlich einen Store für nutzerspezifische Fakten, der unabhängig von einzelnen Sessions existiert.
 
 ```python
-from langgraph.store.memory import InMemoryStore
+from typing import TypedDict, Annotated
+from langgraph.graph.message import add_messages
 
-user_store = InMemoryStore()
+class ChatState(TypedDict):
+    messages: Annotated[list, add_messages]
 
-def save_user_fact(user_id: str, fact: str):
-    namespace = ("user_profiles", user_id)
-    existing = user_store.get(namespace, "facts") or {"facts": []}
-    existing["facts"].append(fact)
-    user_store.put(namespace, "facts", existing)
-
-def get_user_facts(user_id: str) -> list[str]:
-    namespace = ("user_profiles", user_id)
-    data = user_store.get(namespace, "facts")
-    return data["facts"] if data else []
-```
+def chat_node(state: ChatState) -> ChatState:
+    response = llm.invoke(state["messages"])
+    return {"messages": [response]}
+```1
 
 ## Warum gute Systeme mehrere Memory-Formen kombinieren
 
 In realen Agenten wird Memory selten nur in einer Form eingesetzt. Ein System kann die letzten Nachrichten im State halten, ältere Teile zusammenfassen, Nutzerfakten in einer Vektordatenbank speichern und zusätzlich strukturierte Entitäten pflegen.
 
-```mermaid
-flowchart TD
-    INPUT[Nutzereingabe] --> AGENT[Agent]
+```python
+from typing import TypedDict, Annotated
+from langgraph.graph.message import add_messages
 
-    AGENT -->|liest| ST[Kurzzeit-Memory]
-    AGENT -->|liest| LT[Langzeit-Memory]
-    AGENT -->|liest| EM[Entity Memory]
+class ChatState(TypedDict):
+    messages: Annotated[list, add_messages]
 
-    AGENT --> RESPONSE[Antwort]
-    RESPONSE -->|schreibt| ST
-    RESPONSE -->|optional| LT
-    RESPONSE -->|optional| EM
-```
+def chat_node(state: ChatState) -> ChatState:
+    response = llm.invoke(state["messages"])
+    return {"messages": [response]}
+```2
 
 ```python
-class HybridMemoryState(TypedDict):
+from typing import TypedDict, Annotated
+from langgraph.graph.message import add_messages
+
+class ChatState(TypedDict):
     messages: Annotated[list, add_messages]
-    summary: str
-    entity_memory: dict
 
-def chat_with_memory(state: HybridMemoryState) -> HybridMemoryState:
-    long_term = memory_store.similarity_search(
-        state["messages"][-1].content, k=2
-    )
-    memory_context = "\n".join(d.page_content for d in long_term)
-
-    system_msg = (
-        "Du bist ein hilfreicher Assistent.\n\n"
-        f"Gespeicherte Fakten:\n{memory_context}\n\n"
-        f"Bekannte Entitäten: {state.get('entity_memory', {})}\n\n"
-        f"Bisheriger Verlauf (komprimiert): {state.get('summary', 'Kein Verlauf')}"
-    )
-
-    messages = [{"role": "system", "content": system_msg}] + state["messages"]
-    response = llm.invoke(messages)
+def chat_node(state: ChatState) -> ChatState:
+    response = llm.invoke(state["messages"])
     return {"messages": [response]}
-```
+```3
 
-Genau darin liegt die eigentliche Architekturentscheidung: Nicht `ob` Memory eingesetzt wird, sondern `welche Art` von Memory für welche Information passend ist.
+Genau darin liegt die eigentliche Architekturentscheidung: Nicht ```python
+from typing import TypedDict, Annotated
+from langgraph.graph.message import add_messages
+
+class ChatState(TypedDict):
+    messages: Annotated[list, add_messages]
+
+def chat_node(state: ChatState) -> ChatState:
+    response = llm.invoke(state["messages"])
+    return {"messages": [response]}
+```4 Memory eingesetzt wird, sondern ```python
+from typing import TypedDict, Annotated
+from langgraph.graph.message import add_messages
+
+class ChatState(TypedDict):
+    messages: Annotated[list, add_messages]
+
+def chat_node(state: ChatState) -> ChatState:
+    response = llm.invoke(state["messages"])
+    return {"messages": [response]}
+```5 von Memory für welche Information passend ist.
 
 ## Agent Memory Core und Memory Manager
 
@@ -386,25 +383,29 @@ Genau darin liegt die eigentliche Architekturentscheidung: Nicht `ob` Memory ein
 
 **Memory Manager** ist die Abstraktionsschicht über der Datenbank. Statt direkt auf Tabellen zuzugreifen, nutzt der Agent standardisierte Lese- und Schreiboperationen:
 
-```mermaid
-flowchart TB
-    AGENT[Agent] --> MM["Memory Manager"]
-    MM --> C[("Konversation")]
-    MM --> KB[("Wissensbasis")]
-    MM --> WF[("Workflow")]
-    MM --> EN[("Entity")]
-    MM --> SU[("Summary")]
-```
+```python
+from typing import TypedDict, Annotated
+from langgraph.graph.message import add_messages
+
+class ChatState(TypedDict):
+    messages: Annotated[list, add_messages]
+
+def chat_node(state: ChatState) -> ChatState:
+    response = llm.invoke(state["messages"])
+    return {"messages": [response]}
+```6
 
 ```python
-class MemoryManager:
-    def read_conversational(self, thread_id: str, limit: int = 10) -> list: ...
-    def write_conversational(self, thread_id: str, role: str, content: str): ...
-    def read_knowledge_base(self, query: str, k: int = 3) -> list: ...
-    def write_workflow(self, name: str, steps: list): ...
-    def read_entity(self, entity_name: str) -> dict: ...
-    def write_summary(self, content: str, thread_id: str) -> str: ...
-```
+from typing import TypedDict, Annotated
+from langgraph.graph.message import add_messages
+
+class ChatState(TypedDict):
+    messages: Annotated[list, add_messages]
+
+def chat_node(state: ChatState) -> ChatState:
+    response = llm.invoke(state["messages"])
+    return {"messages": [response]}
+```7
 
 Die Vorteile dieser Abstraktion: Der Agent kennt keine Datenbanktabellen, nur Operationstypen. Das Speicher-Backend kann ausgetauscht werden, ohne den Agenten zu ändern. Alle Zugriffe sind an einer Stelle testbar und überwachbar.
 
@@ -414,13 +415,17 @@ Typischer Fehler: Den Memory Manager als Abstraktionsschicht einzuführen, bevor
 
 In einfachen Agenten wird alles im aktiven Kontext gehalten. In langen Sitzungen oder komplexen Systemen führt das zwangsläufig zu Kontextüberlastung. Produktionssysteme verwenden deshalb einen gestuften Speicher mit drei Schichten:
 
-```mermaid
-flowchart TB
-    S1["<b>Schicht 1 — Kompakter Index</b><br/>Schnelle Zusammenfassungen, immer geladen"]
-    S2["<b>Schicht 2 — On-Demand-Dateien</b><br/>Themenspezifisches Wissen, bei Bedarf"]
-    S3["<b>Schicht 3 — Archiv</b><br/>Vollständige Geschichte, selten abgerufen"]
-    S1 --> S2 --> S3
-```
+```python
+from typing import TypedDict, Annotated
+from langgraph.graph.message import add_messages
+
+class ChatState(TypedDict):
+    messages: Annotated[list, add_messages]
+
+def chat_node(state: ChatState) -> ChatState:
+    response = llm.invoke(state["messages"])
+    return {"messages": [response]}
+```8
 
 **Schicht 1 — Kompakter Index:** Ein komprimierter Überblick, der bei jedem Schritt automatisch im Kontext liegt. Enthält Zusammenfassungen, aktive Projektziele und häufig benötigte Fakten.
 
@@ -429,21 +434,16 @@ flowchart TB
 **Schicht 3 — Archiv:** Vollständige Transkripte und historische Informationen. Selten abgerufen, aber vorhanden für Audit, Fehlersuche oder tiefe Recherche.
 
 ```python
-class LayeredMemory:
-    def __init__(self):
-        self.index: str = ""           # Schicht 1: immer im Kontext
-        self.topic_files: dict = {}    # Schicht 2: bei Bedarf laden
-        self.archive: list = []        # Schicht 3: selten abgerufen
+from typing import TypedDict, Annotated
+from langgraph.graph.message import add_messages
 
-    def get_context(self, topic: str | None = None) -> str:
-        ctx = self.index
-        if topic and topic in self.topic_files:
-            ctx += "\n\n" + self.topic_files[topic]
-        return ctx
+class ChatState(TypedDict):
+    messages: Annotated[list, add_messages]
 
-    def archive_session(self, transcript: str):
-        self.archive.append(transcript)
-```
+def chat_node(state: ChatState) -> ChatState:
+    response = llm.invoke(state["messages"])
+    return {"messages": [response]}
+```9
 
 Der entscheidende Vorteil: Statt 50.000 Token auf einmal zu laden, ruft der Agent gezielt das ab, was gerade relevant ist. Das verhindert Kontextüberlastung und hält die Kosten stabil.
 
@@ -451,17 +451,53 @@ In der Praxis relevant, wenn: Sitzungen viele Iterationen umfassen, das System m
 
 ## Was in der Praxis schnell schiefgeht
 
-Viele Systeme speichern zu viel, zu wahllos oder zu unsauber getrennt. Kurze Floskeln wie `ok` oder `danke` gehören selten in ein dauerhaftes Gedächtnis. Sensible personenbezogene Daten sollten nicht unreflektiert in Vektordatenbanken landen. Ebenso problematisch ist es, Memory ohne Löschstrategie aufzubauen.
+Viele Systeme speichern zu viel, zu wahllos oder zu unsauber getrennt. Kurze Floskeln wie ```python
+from langchain_core.messages import trim_messages
+
+def chat_node(state: ChatState) -> ChatState:
+    trimmed = trim_messages(
+        state["messages"],
+        max_tokens=4000,
+        strategy="last",
+        token_counter=llm,
+        include_system=True,
+        allow_partial=False,
+    )
+    response = llm.invoke(trimmed)
+    return {"messages": [response]}
+```0 oder ```python
+from langchain_core.messages import trim_messages
+
+def chat_node(state: ChatState) -> ChatState:
+    trimmed = trim_messages(
+        state["messages"],
+        max_tokens=4000,
+        strategy="last",
+        token_counter=llm,
+        include_system=True,
+        allow_partial=False,
+    )
+    response = llm.invoke(trimmed)
+    return {"messages": [response]}
+```1 gehören selten in ein dauerhaftes Gedächtnis. Sensible personenbezogene Daten sollten nicht unreflektiert in Vektordatenbanken landen. Ebenso problematisch ist es, Memory ohne Löschstrategie aufzubauen.
 
 Typischer Fehler: Aktiver Aufgabenstatus und Gesprächsverlauf werden im selben Kontext gemischt. Wenn der laufende Arbeitsstand eines mehrstufigen Prozesses und die bisherigen Nutzer-Nachrichten im selben Speicher landen, beginnt das Modell beides gleichwertig zu behandeln. Ältere Gesprächsinhalte können dann die aktuelle Aufgabenlogik überlagern. Die Gegenmaßnahme ist eine strikte Trennung: Aufgabenstatus gehört in einen eigenen State-Container, der unabhängig vom Nachrichtenverlauf gelesen und überschrieben werden kann.
 
 ```python
-def sollte_gespeichert_werden(nachricht: str) -> bool:
-    if len(nachricht) < 30:
-        return False
-    floskel_woerter = ["ok", "danke", "hallo", "tschuess", "ja", "nein"]
-    return not all(w in nachricht.lower() for w in floskel_woerter)
-```
+from langchain_core.messages import trim_messages
+
+def chat_node(state: ChatState) -> ChatState:
+    trimmed = trim_messages(
+        state["messages"],
+        max_tokens=4000,
+        strategy="last",
+        token_counter=llm,
+        include_system=True,
+        allow_partial=False,
+    )
+    response = llm.invoke(trimmed)
+    return {"messages": [response]}
+```2
 
 | Empfehlung | Warum sie wichtig ist |
 |---|---|

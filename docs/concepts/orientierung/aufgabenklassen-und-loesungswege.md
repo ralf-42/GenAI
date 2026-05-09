@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Aufgaben & Lösungswege
 parent: Orientierung & Strategie

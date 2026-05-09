@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Konzepte
 nav_order: 4
@@ -8,7 +8,17 @@ description: "Theoretische Grundlagen und technische Konzepte"
 
 # Konzepte
 
+**Version:** 1.0<br>
+**Stand:** Mai 2026<br>
+**Kurs:** Generative KI
+
 Die Konzeptseiten erklären nicht alles, was im Feld Generative KI denkbar ist. Sie konzentrieren sich auf die Punkte, an denen in Übungen und Projekten die entscheidenden Unterschiede entstehen: Wann reicht ein Prompt, wann braucht es Retrieval, was leisten Embeddings tatsächlich und wo beginnt der Aufwand stärker zu wachsen als der Nutzen.
+
+## Inhaltsverzeichnis
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
 
 ## Orientierung & Strategie
 
@@ -53,3 +63,10 @@ Sobald GenAI-Anwendungen Werkzeuge aufrufen, Zustand halten oder menschliche Fre
 - [State Management](https://ralf-42.github.io/GenAI/concepts/agentisch/state-management.html) – *Wie werden Zwischenergebnisse und Prozesszustände explizit verwaltet?*
 - [Human-in-the-Loop](https://ralf-42.github.io/GenAI/concepts/agentisch/human-in-the-loop.html) – *Wann braucht eine GenAI-Anwendung menschliche Freigabe oder Eskalation?*
 - [GenAI-Sicherheit](https://ralf-42.github.io/GenAI/concepts/agentisch/agent-security.html) – *Wie werden Tool-Zugriffe, externe Inhalte und sensible Daten abgesichert?*
+
+## Abgrenzung zu verwandten Dokumenten
+
+| Dokument | Frage |
+|---|---|
+| [Einsteiger-Guides](../einsteiger-guides.html) | Wo starte ich als Einsteiger mit Konzepte? |
+| [Best Practices](../best-practices.html) | Welche Produktionsstandards gelten für Konzepte? |
