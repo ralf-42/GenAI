@@ -51,7 +51,7 @@ from langchain.chat_models import init_chat_model
 llm = init_chat_model("openai:gpt-5.4-nano")
 ```
 
-> [!NOTE] temperature bei BASELINE<br>
+> [!NOTE] Keine temperature bei BASELINE<br>
 > `temperature` ist bei der gesamten GPT-5.x-Serie outdated. Deterministische Ausgaben über präzise Prompts steuern.
 
 ### Regel 2 — RAG-Synthese und komplexe Inhalts-Generierung: `gpt-5.4-mini`

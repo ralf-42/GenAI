@@ -310,6 +310,14 @@ def test_agent_with_tools():
 > [!TIP] Vertiefung<br>
 > Ausführliche LangChain-Beispiele mit Mermaid-Diagrammen stehen im Dokument [Einsteiger LangChain](../frameworks/einsteiger/einsteiger-langchain.html).
 
+
+## Abgrenzung zu verwandten Dokumenten
+
+| Dokument | Frage |
+|---|---|
+| [Zuerst lesen](../zuerst-lesen.html) | Welche Dokumente sind vor dem ersten Kursprojekt am wichtigsten? |
+| [Lesepfade](../lesepfade.html) | Welche Reihenfolge passt zu Rolle, Ziel und Vorkenntnissen? |
+
 ---
 
 **Version:** 2.0 (konsolidiert)<br>

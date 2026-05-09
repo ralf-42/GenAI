@@ -126,6 +126,14 @@ Weitere interaktive Visualisierungen von externen Anbietern
 | **Imaginary**       | Interaktive Mathematik-Programme und Visualisierungen | [Imaginary](https://www.imaginary.org/de/programs)    |
 
 
+
+## Abgrenzung zu verwandten Dokumenten
+
+| Dokument | Frage |
+|---|---|
+| [Zuerst lesen](../zuerst-lesen.html) | Welche Dokumente sind vor dem ersten Kursprojekt am wichtigsten? |
+| [Lesepfade](../lesepfade.html) | Welche Reihenfolge passt zu Rolle, Ziel und Vorkenntnissen? |
+
 ---
 
 **Version:** 1.0<br>

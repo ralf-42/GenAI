@@ -682,6 +682,14 @@ print(antwort)
 
 Dieses Pattern bildet die Grundlage für Wissens‑Chatbots, Dokumenten‑Assistenten oder interne Suchsysteme im Kurs und kann schrittweise um Evaluierung, Feedback‑Schleifen oder LangGraph‑Workflows erweitert werden.
 
+
+## Abgrenzung zu verwandten Dokumenten
+
+| Dokument | Frage |
+|---|---|
+| [LangGraph](einsteiger-langgraph.html) | Wann reicht eine Chain nicht mehr aus und ein Graph wird sinnvoll? |
+| [LangChain Best Practices](../best-practices/langchain-best-practices.html) | Welche Muster gelten für produktionsnähere LangChain-Anwendungen? |
+
 ---
 
 **Version:**    1.0<br>

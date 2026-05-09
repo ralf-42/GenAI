@@ -1124,6 +1124,14 @@ except Exception as e:
     print(f"⚠️ Graph-Visualisierung nicht verfügbar: {e}")
 ```4 Workflows starten und zu LangGraph migrieren, wenn die Komplexität steigt.
 
+
+## Abgrenzung zu verwandten Dokumenten
+
+| Dokument | Frage |
+|---|---|
+| [LangChain Best Practices](langchain-best-practices.html) | Welche LangChain-Patterns bilden die Grundlage für Graph-Workflows? |
+| [LangSmith Best Practices](langsmith-best-practices.html) | Wie werden LangGraph-Runs beobachtet, verglichen und ausgewertet? |
+
 ---
 
 **Version:** 1.4<br>

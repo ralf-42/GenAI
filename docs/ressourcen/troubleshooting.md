@@ -57,6 +57,14 @@ has_toc: true
 | Keine Ergebnisse           | Falsche Embedding-Dimension | Embedding-Modell prüfen                             |
 | Langsame Queries           | Zu viele Dokumente          | Batch-Size anpassen                                 |
 
+
+## Abgrenzung zu verwandten Dokumenten
+
+| Dokument | Frage |
+|---|---|
+| [Zuerst lesen](../zuerst-lesen.html) | Welche Dokumente sind vor dem ersten Kursprojekt am wichtigsten? |
+| [Lesepfade](../lesepfade.html) | Welche Reihenfolge passt zu Rolle, Ziel und Vorkenntnissen? |
+
 ---
 
 **Version:** 1.0<br>

@@ -4,7 +4,7 @@ title: Tool Use & Function Calling
 parent: Produktive & agentische Anwendungen
 grand_parent: Konzepte
 nav_order: 1
-description: "Tool Use und Function Calling für GenAI-Anwendungen: warum Werkzeuge noetig sind und wie sie sicher eingebunden werden"
+description: "Tool Use und Function Calling für GenAI-Anwendungen: warum Werkzeuge nötig sind und wie sie sicher eingebunden werden"
 has_toc: true
 ---
 

@@ -68,6 +68,14 @@ Sinnvoll ist weniger die Frage "Welche Stufe ist die Organisation?", sondern "Wa
 > [!TIP] Einsatz im Workshop<br>
 > Das Modell eignet sich als Gesprächsgrundlage für Standortbestimmungen. Es ersetzt keine technische Architekturprüfung und keine Wirtschaftlichkeitsrechnung.
 
+
+## Abgrenzung zu verwandten Dokumenten
+
+| Dokument | Frage |
+|---|---|
+| [Zuerst lesen](../zuerst-lesen.html) | Welche Dokumente sind vor dem ersten Kursprojekt am wichtigsten? |
+| [Lesepfade](../lesepfade.html) | Welche Reihenfolge passt zu Rolle, Ziel und Vorkenntnissen? |
+
 ---
 
 **Version:** 1.0<br>

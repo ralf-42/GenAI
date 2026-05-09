@@ -79,7 +79,7 @@ flowchart LR
     B --> C{Kritische Aktion?}
     C -->|Nein| D[Direkt ausführen]
     C -->|Ja| E[Interrupt]
-    E --> F[Mensch prueft]
+    E --> F[Mensch prüft]
     F -->|Genehmigt| G[Ausführen]
     F -->|Abgelehnt| H[Alternative oder Abbruch]
     D --> I([Fertig])

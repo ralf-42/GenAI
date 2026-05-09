@@ -950,6 +950,14 @@ setup_api_keys(['OPENAI_API_KEY', 'LANGSMITH_API_KEY'], create_globals=False)
 
 > 🔑 **Wichtig:** Alle API-Keys werden sicher in Google Colab Secrets hinterlegt und niemals im Code sichtbar!
 
+
+## Abgrenzung zu verwandten Dokumenten
+
+| Dokument | Frage |
+|---|---|
+| [LangSmith Best Practices](../best-practices/langsmith-best-practices.html) | Welche Tracing- und Evaluationsmuster gelten in produktionsnahen Projekten? |
+| [Evaluation & Observability](../../concepts/erweitert/evaluation-observability.html) | Welche Qualitätsfragen werden mit Traces und Testsets beantwortet? |
+
 ---
 
 **Version:** 1.0<br>
