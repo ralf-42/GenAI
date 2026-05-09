@@ -4,7 +4,7 @@ title: Modell-Auswahl Guide
 parent: Modell-Auswahl
 grand_parent: Frameworks
 nav_order: 1
-description: "Welches Modell für welche Aufgabe? Praktische Designregeln für gpt-4o-mini, gpt-5.1 und gpt-4o im GenAI-Kurs."
+description: "Welches Modell für welche Aufgabe? Praktische Designregeln für gpt-4o-mini, gpt-5.4-mini und gpt-4o im GenAI-Kurs."
 has_toc: true
 ---
 
@@ -28,40 +28,43 @@ has_toc: true
 
 | Modell | Stärke | Typischer Einsatz im Kurs |
 |---|---|---|
-| `gpt-4o-mini` | Schnell, günstig, zuverlässig | Grundlagen, Demos, einfache Chains, Standard-RAG |
-| `gpt-5.1` | Coding, Inhalts-Generierung, konfigurierbare Reasoning-Tiefe | RAG-Synthese, komplexe Outputs, strukturierte Generierung |
+| `gpt-5.4-nano` | Günstig, schnell, GPT-5.x-Basis | Grundlagen, Demos, einfache Chains |
+| `gpt-5.4-mini` | Coding, Inhalts-Generierung, konfigurierbare Reasoning-Tiefe | RAG-Synthese, komplexe Outputs, strukturierte Generierung |
 | `gpt-4o` | Multimodal (Text + Bild + Audio) | Bildanalyse, multimodales RAG, Audio-Verarbeitung |
 
 > [!TIP] Faustregel Modellwahl<br>
 > Nicht das stärkste Modell wählen — das *passende* für die Aufgabe.
-> Mit `gpt-4o-mini` starten, nur bei echtem Bedarf upgraden.
+> Mit `gpt-5.4-nano` starten, nur bei echtem Bedarf upgraden.
 
 ---
 
 ## Designregeln
 
-### Regel 1 — Grundlagen und Demos: `gpt-4o-mini`
+### Regel 1 — Grundlagen und Demos: `gpt-5.4-nano`
 
-Alle Module, in denen das Konzept im Vordergrund steht (nicht die Ausgabequalität), verwenden `gpt-4o-mini`.
-Begründung: Didaktik, Kosteneffizienz, schnelle Iteration im Kurs.
+Alle Module, in denen das Konzept im Vordergrund steht (nicht die Ausgabequalität), verwenden `gpt-5.4-nano`.
+Begründung: Günstigstes GPT-5.x-Modell — konsistent mit der gesamten Modell-Konfiguration, kein `temperature`.
 
 ```python
 from langchain.chat_models import init_chat_model
 
-llm = init_chat_model("openai:gpt-4o-mini", temperature=0.0)
+llm = init_chat_model("openai:gpt-5.4-nano")
 ```
 
-### Regel 2 — RAG-Synthese und komplexe Inhalts-Generierung: `gpt-5.1`
+> [!NOTE] temperature bei BASELINE<br>
+> `temperature` ist bei der gesamten GPT-5.x-Serie outdated. Deterministische Ausgaben über präzise Prompts steuern.
 
-Wenn die Ausgabequalität entscheidend ist — z. B. bei der Synthese von Dokumenten-Chunks oder der Generierung strukturierter Berichte — kommt `gpt-5.1` zum Einsatz.
+### Regel 2 — RAG-Synthese und komplexe Inhalts-Generierung: `gpt-5.4-mini`
+
+Wenn die Ausgabequalität entscheidend ist — z. B. bei der Synthese von Dokumenten-Chunks oder der Generierung strukturierter Berichte — kommt `gpt-5.4-mini` zum Einsatz.
 
 ```python
 # Korrekt: ohne temperature (API-Kompatibilität)
-rag_llm = init_chat_model("openai:gpt-5.1")
+rag_llm = init_chat_model("openai:gpt-5.4-mini")
 ```
 
 > [!DANGER] temperature-Parameter führt zu API-Fehler<br>
-> `temperature` führt bei `gpt-5.1` zu einem API-Fehler, außer wenn `reasoning_effort="none"` gesetzt ist.
+> `temperature` führt bei `gpt-5.4-mini` zu einem API-Fehler, außer wenn `reasoning_effort="none"` gesetzt ist.
 > **Empfehlung:** `temperature` weglassen und `reasoning_effort` zur Qualitätssteuerung nutzen.
 
 ### Regel 3 — Multimodale Aufgaben: `gpt-4o`
@@ -72,15 +75,15 @@ Aufgaben mit Bildanalyse, Audio oder kombiniertem Text-Bild-Input erfordern ein 
 multimodal_llm = init_chat_model("openai:gpt-4o")
 ```
 
-### Regel 4 — Einfache Extraktion und Klassifikation: immer `gpt-4o-mini`
+### Regel 4 — Einfache Extraktion und Klassifikation: immer `gpt-5.4-nano`
 
 Strukturierte Datenextraktion aus klar definierten Texten, einfache Klassifikation, Formatierung:
 Premium-Modelle bringen hier keinen Mehrwert, kosten aber deutlich mehr.
 
 ### Regel 5 — Baseline immer zuerst
 
-Jedes neue Notebook startet mit `gpt-4o-mini` als Baseline.
-Upgrade auf `gpt-5.1` oder `gpt-4o` nur, wenn die Baseline-Qualität nachweislich unzureichend ist.
+Jedes neue Notebook startet mit `gpt-5.4-nano` als Baseline.
+Upgrade auf `gpt-5.4-mini` oder `gpt-4o` nur, wenn die Baseline-Qualität nachweislich unzureichend ist.
 
 ---
 
@@ -100,13 +103,12 @@ Bild, Audio, Video?"}
     START --> U{"Unklar /
 neues Notebook?"}
 
-    D -->|Ja| MINI["⚪ gpt-4o-mini
-temperature=0.0"]
-    R -->|Ja| GP["🟢 gpt-5.1
+    D -->|Ja| MINI["⚪ gpt-5.4-nano"]
+    R -->|Ja| GP["🟢 gpt-5.4-mini
 ohne temperature"]
     M -->|Ja| GO["🔵 gpt-4o
 Multimodal"]
-    U -->|Ja| BASE["⚪ gpt-4o-mini
+    U -->|Ja| BASE["⚪ gpt-5.4-nano
 als Baseline starten"]
 
     style MINI fill:#546E7A,color:#fff
@@ -120,7 +122,7 @@ als Baseline starten"]
 
 ## Modul-Mapping
 
-### Standard: `gpt-4o-mini` (Fokus Konzept, nicht Modellqualität)
+### Standard: `gpt-5.4-nano` (Fokus Konzept, nicht Modellqualität)
 
 | Module | Thema | Begründung |
 |---|---|---|
@@ -133,7 +135,7 @@ als Baseline starten"]
 | M13 | Gradio Web-UI | Interface-Design > Modellqualität |
 | M20 | OpenAI Agent Builder | No-Code-Plattform — Plattform gibt Modell vor |
 
-### Upgrade auf `gpt-5.1`: Qualität der Ausgabe entscheidend
+### Upgrade auf `gpt-5.4-mini`: Qualität der Ausgabe entscheidend
 
 | Module | Thema | Begründung |
 |---|---|---|
@@ -179,12 +181,12 @@ chain = ChatPromptTemplate.from_template("{frage}") | llm | StrOutputParser()
 antwort = chain.invoke({"frage": "Was ist RAG?"})
 ```
 
-### RAG-Synthese (`gpt-5.1`)
+### RAG-Synthese (`gpt-5.4-mini`)
 
 ```python
 # Retriever: Dokument-Chunks holen
 # Generator: Chunks zu qualitativ hochwertiger Antwort synthetisieren
-rag_llm = init_chat_model("openai:gpt-5.1")
+rag_llm = init_chat_model("openai:gpt-5.4-mini")
 
 rag_chain = retriever | rag_llm | StrOutputParser()
 ```
@@ -214,7 +216,7 @@ antwort = multimodal_llm.invoke([message])
 | Setup | Relatives Kostenniveau | Empfehlung |
 |---|---|---|
 | Alles `gpt-4o-mini` | ⭐ (Baseline) | Standard für alle Konzept-Module |
-| `gpt-5.1` für RAG-Synthese | ⭐⭐⭐ | Nur für RAG-Module (M08, M09, M17) |
+| `gpt-5.4-mini` für RAG-Synthese | ⭐⭐⭐ | Nur für RAG-Module (M08, M09, M17) |
 | `gpt-4o` für Multimodal | ⭐⭐ | Nur für Multimodal-Module (M16–M19) |
 
 **Empfohlenes Vorgehen:**
