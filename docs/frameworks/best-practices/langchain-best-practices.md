@@ -84,7 +84,7 @@ llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
 
 # Auch veraltet: Langnotation mit separaten Variablen
 model_provider = "openai"
-model_name = "gpt-4o-mini"
+model_name = "gpt-5.4-nano"
 llm = init_chat_model(model_name, model_provider=model_provider, temperature=0)
 ```
 
@@ -93,7 +93,7 @@ llm = init_chat_model(model_name, model_provider=model_provider, temperature=0)
 from langchain.chat_models import init_chat_model
 
 # ✨ Kurznotation: "provider:model" (STANDARD seit Dezember 2025)
-llm = init_chat_model("openai:gpt-4o-mini", temperature=0.0)
+llm = init_chat_model("openai:gpt-5.4-nano")
 
 # Weitere Beispiele:
 llm = init_chat_model("anthropic:claude-3-sonnet", temperature=0.3)
@@ -101,7 +101,7 @@ llm = init_chat_model("groq:llama-3.1-70b", temperature=0.7)
 llm = init_chat_model("google:gemini-pro", temperature=0.5)
 
 # Mit zusätzlichen Parametern:
-llm = init_chat_model("openai:gpt-4o-mini", temperature=0.0, max_tokens=1000)
+llm = init_chat_model("openai:gpt-5.4-nano", max_tokens=1000)
 ```
 
 ### 🎯 Vorteile
@@ -118,7 +118,7 @@ Chat-Modelle exposieren jetzt ihre Capabilities über das `.profile` Attribut:
 from langchain.chat_models import init_chat_model
 
 # Kurznotation verwenden
-llm = init_chat_model("openai:gpt-4o-mini", temperature=0.0)
+llm = init_chat_model("openai:gpt-5.4-nano")
 
 # ✨ NEU: Model Profiles (sourced from models.dev)
 print(llm.profile.supports_structured_output)  # True (deprecated: use 'structured_output')
@@ -149,10 +149,10 @@ Für einfachere Nutzung gibt es in `genai_lib.utilities` eine Hilfsfunktion:
 from genai_lib.utilities import get_model_profile
 
 # Formatierte Ausgabe aller wichtigen Capabilities
-profile = get_model_profile("openai:gpt-4o-mini")
+profile = get_model_profile("openai:gpt-5.4-nano")
 
 # Output:
-# 🔍 Model Profile: openai:gpt-4o-mini
+# 🔍 Model Profile: openai:gpt-5.4-nano
 # ============================================================
 #
 # 📋 Core Capabilities:
@@ -182,7 +182,7 @@ profile = get_model_profile("openai:gpt-4o-mini")
 profile = get_model_profile("anthropic:claude-3-sonnet", print_profile=False)
 
 # Verschiedene Models vergleichen (mit Fehlerbehandlung)
-for model in ["openai:gpt-4o-mini", "anthropic:claude-3-sonnet", "google:gemini-pro"]:
+for model in ["openai:gpt-5.4-nano", "anthropic:claude-3-sonnet", "google:gemini-pro"]:
     print(f"\n{model}:")
     profile = get_model_profile(model, print_profile=False)
 
@@ -702,7 +702,7 @@ from langchain.chat_models import init_chat_model
 
 # OpenAI komprimiert automatisch bei langen Konversationen
 llm = init_chat_model(
-    "openai:gpt-4o",
+    "openai:gpt-5.4-nano",
     context_management=[{"type": "compaction", "compact_threshold": 10_000}]
     # compact_threshold: Token-Schwellenwert, ab dem komprimiert wird
 )
@@ -897,10 +897,10 @@ Schaltet automatisch auf ein Fallback-LLM oder eine alternative Chain um, wenn d
 ```python
 from langchain.chat_models import init_chat_model
 
-primary_llm   = init_chat_model("openai:gpt-4o",      temperature=0.0)
-fallback_llm  = init_chat_model("openai:gpt-4o-mini",  temperature=0.0)
+primary_llm   = init_chat_model("openai:gpt-5.4")
+fallback_llm  = init_chat_model("openai:gpt-5.4-nano")
 
-# Bei Fehler des primären LLMs → automatisch gpt-4o-mini
+# Bei Fehler des primären LLMs → automatisch gpt-5.4-nano
 safe_llm = primary_llm.with_fallbacks([fallback_llm])
 
 result = safe_llm.invoke("Erkläre Transformer-Modelle.")
@@ -908,11 +908,11 @@ result = safe_llm.invoke("Erkläre Transformer-Modelle.")
 
 #### Mehrere Fallbacks (Kaskade)
 ```python
-llm_gpt4        = init_chat_model("openai:gpt-4o",       temperature=0.0)
-llm_gpt4_mini   = init_chat_model("openai:gpt-4o-mini",  temperature=0.0)
-llm_anthropic   = init_chat_model("anthropic:claude-3-haiku", temperature=0.0)
+llm_gpt4        = init_chat_model("openai:gpt-5.4")
+llm_gpt4_mini   = init_chat_model("openai:gpt-5.4-nano")
+llm_anthropic   = init_chat_model("anthropic:claude-3-haiku")
 
-# Kaskade: gpt-4o → gpt-4o-mini → claude-3-haiku
+# Kaskade: gpt-5.4 → gpt-5.4-nano → claude-3-haiku
 resilient_llm = llm_gpt4.with_fallbacks([llm_gpt4_mini, llm_anthropic])
 ```
 
@@ -956,7 +956,7 @@ result = safe_structured.invoke("Anna Müller ist 32 Jahre alt.")
 from langchain.chat_models import init_chat_model
 
 llm = init_chat_model(
-    "gpt-4o-mini",
+    "gpt-5.4-nano",
     model_provider="openai",
     temperature=0.0
 )

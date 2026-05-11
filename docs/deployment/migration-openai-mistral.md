@@ -113,8 +113,8 @@ from langchain.chat_models import init_chat_model
 
 MODEL_CONFIG = {
     "openai": {
-        "baseline": "openai:gpt-4o-mini",
-        "standard": "openai:gpt-4o",
+        "baseline": "openai:gpt-5.4-nano",
+        "standard": "openai:gpt-5.4-mini",
     },
     "mistral": {
         "baseline": "mistral:mistral-small-latest",

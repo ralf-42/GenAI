@@ -75,7 +75,7 @@ Diese Tabelle bietet eine Übersicht (Stand: 1. Mai 2026) über LLM-Provider, La
 ```python
 !pip install langchain-openai
 from langchain.chat_models import init_chat_model
-llm = init_chat_model("openai:gpt-4o-mini", temperature=0.0)
+llm = init_chat_model("openai:gpt-5.4-nano")
 ```
 
 **Google Gemini:**

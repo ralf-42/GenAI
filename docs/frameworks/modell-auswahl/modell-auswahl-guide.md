@@ -31,7 +31,6 @@ has_toc: true
 | `gpt-5.4-nano` | Günstig, schnell, GPT-5.x-Basis | Grundlagen, Demos, einfache Chains |
 | `gpt-5.4-mini` | Coding, Inhalts-Generierung, konfigurierbare Reasoning-Tiefe, multimodale Analyse | RAG-Synthese, komplexe Outputs, strukturierte Generierung, M16-Bildanalyse |
 | `gpt-5.4` | Starke Reasoning-Qualität | Judge, Evaluation, Supervisor-Entscheidungen |
-| `gpt-4o` | Multimodal (Text + Bild + Audio) | anspruchsvollere Bild-/Frame-Analyse, multimodales RAG |
 | `gpt-image-1` / `gpt-image-2` | Bildgenerierung und Bildbearbeitung | M16 Bildgenerierung und Image Editing |
 | `whisper-1` | Audio-Transkription | M19 Video-to-Text über extrahiertes Audio |
 | `sora-2` | Videoerzeugung | M19 Image-to-Video / Text-to-Video |
@@ -75,7 +74,7 @@ rag_llm = init_chat_model("openai:gpt-5.4-mini")
 
 Aufgaben mit Bildinput, Frame-Analyse oder kombiniertem Text-Bild-Input erfordern ein Modell mit Vision-Unterstützung.
 `gpt-5.4-nano` ist die Text-/Demo-Baseline und wird **nicht** pauschal für Bildanalyse eingesetzt.
-Für Bildanalyse nutzt M16 `gpt-5.4-mini`; für anspruchsvollere multimodale Analyse nutzt M19 `gpt-4o`.
+Für Bildanalyse nutzt M16 `gpt-5.4-mini`; M19 Frame-Analyse ebenfalls mit `gpt-5.4-mini`.
 
 ```python
 multimodal_llm = init_chat_model("openai:gpt-5.4-mini")
@@ -91,7 +90,7 @@ Premium-Modelle bringen hier keinen Mehrwert, kosten aber deutlich mehr.
 ### Regel 5 — Baseline immer zuerst
 
 Jedes neue Notebook startet mit `gpt-5.4-nano` als Baseline.
-Upgrade auf `gpt-5.4-mini` oder `gpt-4o` nur, wenn die Baseline-Qualität nachweislich unzureichend ist.
+Upgrade auf `gpt-5.4-mini` nur, wenn die Baseline-Qualität nachweislich unzureichend ist.
 
 ---
 
@@ -114,7 +113,7 @@ neues Notebook?"}
     D -->|Ja| MINI["⚪ gpt-5.4-nano"]
     R -->|Ja| GP["🟢 gpt-5.4-mini
 ohne temperature"]
-    M -->|Ja| GO["🔵 gpt-5.4-mini / gpt-4o
+    M -->|Ja| GO["🔵 gpt-5.4-mini
 Vision"]
     U -->|Ja| BASE["⚪ gpt-5.4-nano
 als Baseline starten"]
@@ -156,9 +155,9 @@ als Baseline starten"]
 | Module | Thema | Begründung |
 |---|---|---|
 | M16 | Multimodal Bild | `gpt-5.4-mini` für Bildanalyse; `gpt-image-1`/`gpt-image-2` für Bildgenerierung und Bearbeitung |
-| M17 | Multimodales RAG | Bild- und Text-Retrieval kombiniert; Synthese nach Bedarf mit `gpt-5.4-mini`, Vision mit `gpt-4o` |
+| M17 | Multimodales RAG | Bild- und Text-Retrieval kombiniert; Synthese und Vision mit `gpt-5.4-mini` |
 | M18 | Multimodal Audio | Audio-Verarbeitung und nachgelagerte LLM-Analyse |
-| M19 | Multimodal Video | `whisper-1` für Transkription, `gpt-5.4-nano` für einfache Frame-/Textanalyse, `gpt-4o` für anspruchsvollere Frame-Analyse, `sora-2` für Videoerzeugung |
+| M19 | Multimodal Video | `whisper-1` für Transkription, `gpt-5.4-nano` für einfache Frame-/Textanalyse, `gpt-5.4-mini` für Frame-Analyse, `sora-2` für Videoerzeugung |
 
 ### Sonderfall: Lokale Modelle (M14)
 
@@ -199,13 +198,13 @@ rag_llm = init_chat_model("openai:gpt-5.4-mini")
 rag_chain = retriever | rag_llm | StrOutputParser()
 ```
 
-### Multimodal — Bildanalyse (`gpt-5.4-mini` oder `gpt-4o`)
+### Multimodal — Bildanalyse (`gpt-5.4-mini`)
 
 ```python
 from langchain.chat_models import init_chat_model
 from langchain_core.messages import HumanMessage
 
-multimodal_llm = init_chat_model("openai:gpt-4o")
+multimodal_llm = init_chat_model("openai:gpt-5.4-mini")
 
 message = HumanMessage(content=[
     {"type": "text",  "text": "Was zeigt dieses Bild?"},
@@ -226,7 +225,6 @@ antwort = multimodal_llm.invoke([message])
 |---|---|---|
 | Alles Textbasierte mit `gpt-5.4-nano` | ⭐ (Baseline) | Standard für Konzept-Module |
 | `gpt-5.4-mini` für RAG-Synthese und M16-Bildanalyse | ⭐⭐⭐ | Für RAG-Module (M08, M09, M17) und M16 |
-| `gpt-4o` für anspruchsvolle Vision | ⭐⭐ | Für anspruchsvollere Bild-/Frame-Analyse (M17, M19) |
 | `gpt-image-*`, `sora-2`, `whisper-1` | variabel | Nur für dedizierte Medien-Endpunkte |
 
 **Empfohlenes Vorgehen:**

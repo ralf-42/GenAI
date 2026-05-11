@@ -113,7 +113,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 
 # LLM initialisieren
-llm = init_chat_model("openai:gpt-4o-mini", temperature=0.3)
+llm = init_chat_model("openai:gpt-5.4-mini")
 ...
 ```
 
@@ -148,7 +148,7 @@ def tech_chat():
 import tiktoken
 
 # Token-Counter Funktion
-def count_tokens(text: str, model: str = "gpt-4o-mini") -> int:
+def count_tokens(text: str, model: str = "gpt-5.4-nano") -> int:
     """Zählt Tokens für ein gegebenes Modell"""
     encoding = tiktoken.encoding_for_model(model)
     ...
@@ -444,7 +444,7 @@ def query_database(question: str) -> str:
     ...
 
 @tool
-def calculate_token_cost(text: str, model: str = "gpt-4o-mini") -> str:
+def calculate_token_cost(text: str, model: str = "gpt-5.4-nano") -> str:
     """Berechnet Token-Anzahl und geschätzte Kosten für einen Text."""
     tokens = count_tokens(text, model)
     ...
@@ -464,7 +464,7 @@ from langchain.agents import create_agent
 
 # Agent erstellen
 agent = create_agent(
-    model="openai:gpt-4o-mini",
+    model="openai:gpt-5.4-nano",
     tools=tools,
     ...
 )
@@ -540,7 +540,7 @@ hitl = HumanInTheLoopMiddleware(
 )
 
 agent_safe = create_agent(
-    model="openai:gpt-4o-mini",
+    model="openai:gpt-5.4-nano",
     tools=tools,
     middleware=[log_before, log_after, log_tool, hitl],
     checkpointer=MemorySaver()
@@ -554,7 +554,7 @@ agent_safe = create_agent(
 from langchain.agents.middleware import ModelRetryMiddleware, ToolRetryMiddleware
 
 agent_robust = create_agent(
-    model="openai:gpt-4o-mini",
+    model="openai:gpt-5.4-nano",
     tools=tools,
     middleware=[
         log_before, log_after, log_tool,
@@ -734,7 +734,7 @@ A: Kapitel 1–5 sind Pflicht. Kapitel 6–9 sind optional für zusätzliche Pun
 A: Ja. Möglich sind neun separate Notebooks, etwa `Kapitel_1_Chat.ipynb` bis `Kapitel_9_Gradio.ipynb`. Wichtig ist dann, dass spätere Kapitel auf frühere Ergebnisse zugreifen können.
 
 **Q: Welches LLM-Modell soll ich verwenden?**
-A: `gpt-4o-mini` ist ausreichend und kosteneffizient. Für Kapitel 7 (Agent) funktioniert `gpt-4o-mini` ebenfalls, da es Function Calling unterstützt.
+A: `gpt-5.4-nano` ist ausreichend und kosteneffizient. Für Kapitel 7 (Agent) funktioniert `gpt-5.4-nano` ebenfalls, da es Function Calling unterstützt.
 
 **Q: Kann ich andere Vektordatenbanken nutzen?**
 A: Ja, FAISS ist in Colab sogar etwas schneller als ChromaDB. Qdrant ist ebenfalls möglich.
