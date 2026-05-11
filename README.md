@@ -50,14 +50,6 @@ GenAI/
 
 ### LangChain/LangGraph Standards
 
-Neue und überarbeitete Notebooks folgen den lokalen Standards-Dateien:
-
-- [LangChain_Standards.md](./docs/frameworks/best-practices/langchain-best-practices.md) - verbindliche Patterns für Models, Tools, Chains, Agents und strukturierte Ausgaben
-- [LangGraph_Standards.md](./docs/frameworks/best-practices/langgraph-best-practices.md) - verbindliche Patterns für StateGraph, Routing, Checkpointing und Human-in-the-Loop
-- [LangSmith_Standards.md](./docs/frameworks/best-practices/langsmith-best-practices.md) - verbindliche Patterns für Tracing, Evaluation und Monitoring
-
-Die übergreifenden Dokumente in `../_docs/` liefern zusätzliche Erläuterungen, Templates und Best Practices. Für konkrete Änderungen in diesem Repository sind die lokalen `*_Standards.md` Dateien maßgeblich.
-
 Pflicht-Patterns für LangChain 1.0+:
 
 - `init_chat_model()` statt direkter Provider-Klassen
@@ -68,7 +60,7 @@ Pflicht-Patterns für LangChain 1.0+:
 - LCEL `|` Chains statt veralteter Chain-Klassen
 - Standard Message Content Blocks für multimodale Inhalte
 
-Für einfache Agenten-Beispiele reicht `create_agent()`. `create_react_agent()` oder ein eigener `StateGraph` werden genutzt, wenn das Notebook explizit LangGraph-Verhalten, Routing, Checkpointing oder Multi-Agent-Workflows zeigt.
+Für einfache Agenten reicht `create_agent()`. Ein eigener `StateGraph` wird genutzt, wenn das Notebook explizit LangGraph-Verhalten, Routing, Checkpointing oder Multi-Agent-Workflows zeigt.
 
 ### Modell-Auswahl
 
