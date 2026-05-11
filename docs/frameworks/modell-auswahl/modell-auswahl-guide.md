@@ -4,7 +4,7 @@ title: Modell-Auswahl Guide
 parent: Modell-Auswahl
 grand_parent: Frameworks
 nav_order: 1
-description: "Welches Modell für welche Aufgabe? Praktische Designregeln für gpt-4o-mini, gpt-5.4-mini und gpt-4o im GenAI-Kurs."
+description: "Welches Modell für welche Aufgabe? Praktische Designregeln für gpt-5.4-nano, gpt-5.4-mini, Vision- und Medienmodelle im GenAI-Kurs."
 has_toc: true
 ---
 
@@ -30,7 +30,12 @@ has_toc: true
 |---|---|---|
 | `gpt-5.4-nano` | Günstig, schnell, GPT-5.x-Basis | Grundlagen, Demos, einfache Chains |
 | `gpt-5.4-mini` | Coding, Inhalts-Generierung, konfigurierbare Reasoning-Tiefe | RAG-Synthese, komplexe Outputs, strukturierte Generierung |
-| `gpt-4o` | Multimodal (Text + Bild + Audio) | Bildanalyse, multimodales RAG, Audio-Verarbeitung |
+| `gpt-5.4` | Starke Reasoning-Qualität | Judge, Evaluation, Supervisor-Entscheidungen |
+| `gpt-4o-mini` | Kostensensitive Vision-Aufgaben | einfache Bildanalyse in M16 |
+| `gpt-4o` | Multimodal (Text + Bild + Audio) | anspruchsvollere Bild-/Frame-Analyse, multimodales RAG |
+| `gpt-image-1` / `gpt-image-2` | Bildgenerierung und Bildbearbeitung | M16 Bildgenerierung und Image Editing |
+| `whisper-1` | Audio-Transkription | M19 Video-to-Text über extrahiertes Audio |
+| `sora-2` | Videoerzeugung | M19 Image-to-Video / Text-to-Video |
 
 > [!TIP] Faustregel Modellwahl<br>
 > Nicht das stärkste Modell wählen — das *passende* für die Aufgabe.
@@ -67,13 +72,17 @@ rag_llm = init_chat_model("openai:gpt-5.4-mini")
 > `temperature` führt bei `gpt-5.4-mini` zu einem API-Fehler, außer wenn `reasoning_effort="none"` gesetzt ist.
 > **Empfehlung:** `temperature` weglassen und `reasoning_effort` zur Qualitätssteuerung nutzen.
 
-### Regel 3 — Multimodale Aufgaben: `gpt-4o`
+### Regel 3 — Multimodale Analyse: Vision-Modell statt Text-Baseline
 
-Aufgaben mit Bildanalyse, Audio oder kombiniertem Text-Bild-Input erfordern ein multimodales Modell.
+Aufgaben mit Bildinput, Frame-Analyse oder kombiniertem Text-Bild-Input erfordern ein Modell mit Vision-Unterstützung.
+`gpt-5.4-nano` ist die Text-/Demo-Baseline und wird **nicht** pauschal für Bildanalyse eingesetzt.
+Für einfache, kostensensitive Bildanalyse nutzt M16 `gpt-4o-mini`; für anspruchsvollere multimodale Analyse nutzt M19 `gpt-4o`.
 
 ```python
 multimodal_llm = init_chat_model("openai:gpt-4o")
 ```
+
+Medien-Endpunkte wie Bildgenerierung, Transkription oder Videoerzeugung laufen im Kurs teilweise direkt über die OpenAI-API, weil LangChain diese Pipeline-Komponenten nicht vollständig abbildet.
 
 ### Regel 4 — Einfache Extraktion und Klassifikation: immer `gpt-5.4-nano`
 
@@ -106,8 +115,8 @@ neues Notebook?"}
     D -->|Ja| MINI["⚪ gpt-5.4-nano"]
     R -->|Ja| GP["🟢 gpt-5.4-mini
 ohne temperature"]
-    M -->|Ja| GO["🔵 gpt-4o
-Multimodal"]
+    M -->|Ja| GO["🔵 gpt-4o-mini / gpt-4o
+Vision"]
     U -->|Ja| BASE["⚪ gpt-5.4-nano
 als Baseline starten"]
 
@@ -143,14 +152,14 @@ als Baseline starten"]
 | M09 | SQL-RAG | Komplexe natürlichsprachliche SQL-Generierung |
 | M17 | Multimodales RAG | Bild- + Textantworten: Synthese-Qualität wichtig |
 
-### Upgrade auf `gpt-4o`: Multimodaler Input erforderlich
+### Vision- und Medienmodelle: Multimodaler Input oder Generierung erforderlich
 
 | Module | Thema | Begründung |
 |---|---|---|
-| M16 | Multimodal Bild | Bildanalyse und -beschreibung |
-| M17 | Multimodales RAG | Bild- und Text-Retrieval kombiniert |
-| M18 | Multimodal Audio | Audio-Transkription + LLM-Analyse |
-| M19 | Multimodal Video | Frame-Analyse mit multimodalem Modell |
+| M16 | Multimodal Bild | `gpt-4o-mini` für einfache Bildanalyse; `gpt-image-1`/`gpt-image-2` für Bildgenerierung und Bearbeitung |
+| M17 | Multimodales RAG | Bild- und Text-Retrieval kombiniert; Synthese nach Bedarf mit `gpt-5.4-mini`, Vision mit `gpt-4o` |
+| M18 | Multimodal Audio | Audio-Verarbeitung und nachgelagerte LLM-Analyse |
+| M19 | Multimodal Video | `whisper-1` für Transkription, `gpt-5.4-nano` für einfache Frame-/Textanalyse, `gpt-4o` für anspruchsvollere Frame-Analyse, `sora-2` für Videoerzeugung |
 
 ### Sonderfall: Lokale Modelle (M14)
 
@@ -168,14 +177,14 @@ local_llm = init_chat_model("ollama:llama3")
 
 ## Code-Muster
 
-### Standard-Chain (`gpt-4o-mini`)
+### Standard-Chain (`gpt-5.4-nano`)
 
 ```python
 from langchain.chat_models import init_chat_model
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 
-llm = init_chat_model("openai:gpt-4o-mini", temperature=0.0)
+llm = init_chat_model("openai:gpt-5.4-nano")
 
 chain = ChatPromptTemplate.from_template("{frage}") | llm | StrOutputParser()
 antwort = chain.invoke({"frage": "Was ist RAG?"})
@@ -191,7 +200,7 @@ rag_llm = init_chat_model("openai:gpt-5.4-mini")
 rag_chain = retriever | rag_llm | StrOutputParser()
 ```
 
-### Multimodal — Bildanalyse (`gpt-4o`)
+### Multimodal — Bildanalyse (`gpt-4o-mini` oder `gpt-4o`)
 
 ```python
 from langchain.chat_models import init_chat_model
@@ -211,19 +220,22 @@ antwort = multimodal_llm.invoke([message])
 ## Kosten-Orientierung
 
 > Kursteilnehmer arbeiten mit einem begrenzten API-Budget.
-> `gpt-4o-mini` ist die kosteneffiziente Standardwahl für alle Lernschritte.
+> `gpt-5.4-nano` ist die kosteneffiziente Standardwahl für textbasierte Lernschritte.
+> Für Bildinput ist ein Vision-Modell erforderlich; dort ist `gpt-4o-mini` die kostensensitive Wahl.
 
 | Setup | Relatives Kostenniveau | Empfehlung |
 |---|---|---|
-| Alles `gpt-4o-mini` | ⭐ (Baseline) | Standard für alle Konzept-Module |
+| Alles Textbasierte mit `gpt-5.4-nano` | ⭐ (Baseline) | Standard für Konzept-Module |
 | `gpt-5.4-mini` für RAG-Synthese | ⭐⭐⭐ | Nur für RAG-Module (M08, M09, M17) |
-| `gpt-4o` für Multimodal | ⭐⭐ | Nur für Multimodal-Module (M16–M19) |
+| `gpt-4o-mini` / `gpt-4o` für Vision | ⭐⭐ | Nur für Bild-/Frame-Analyse (M16, M17, M19) |
+| `gpt-image-*`, `sora-2`, `whisper-1` | variabel | Nur für dedizierte Medien-Endpunkte |
 
 **Empfohlenes Vorgehen:**
 
-1. Konzept mit `gpt-4o-mini` verstehen und ausprobieren
+1. Textkonzept mit `gpt-5.4-nano` verstehen und ausprobieren
 2. Upgrade nur bei nachgewiesenem Qualitätsbedarf
-3. Optionale Vergleichszellen mit `# Optional: Upgrade-Modell` markieren
+3. Für Bild, Audio oder Video bewusst das passende Medienmodell wählen
+4. Optionale Vergleichszellen mit `# Optional: Upgrade-Modell` markieren
 
 ---
 

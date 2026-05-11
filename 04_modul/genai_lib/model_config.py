@@ -13,6 +13,9 @@ Import im Notebook:
         WORKER, CODING, TRANSLATOR_PREMIUM,
         JUDGE, PLANNER, WORKER_PREMIUM,
         JUDGE_PREMIUM, PLANNER_PREMIUM,
+        VISION_FAST, VISION_PREMIUM,
+        IMAGE_GENERATION, IMAGE_GENERATION_PREMIUM,
+        VIDEO_GENERATION, TRANSCRIPTION,
         EMBEDDINGS,
     )
 
@@ -38,11 +41,22 @@ Rollen (Nano → Mini → Standard → Premium):
     WORKER_PREMIUM     — Worker / Synthese hochwertig  (gpt-5.4)
     JUDGE_PREMIUM      — Judge / maximale Qualität     (gpt-5.5)
     PLANNER_PREMIUM    — Planner / maximale Qualität   (gpt-5.5)
+    VISION_FAST        — Bildanalyse, kostensensitiv   (gpt-4o-mini)
+    VISION_PREMIUM     — Multimodale Analyse           (gpt-4o)
+    IMAGE_GENERATION   — Bildgenerierung               (gpt-image-1)
+    IMAGE_GENERATION_PREMIUM — Bildgenerierung high     (gpt-image-2)
+    VIDEO_GENERATION   — Videoerzeugung                (sora-2)
+    TRANSCRIPTION      — Audio-Transkription           (whisper-1)
     EMBEDDINGS         — Embeddings                    (text-embedding-3-small)
 
 Hinweis: GPT-5.x-Reasoning-Modelle nicht pauschal mit temperature konfigurieren.
 Stattdessen reasoning.effort und text.verbosity verwenden.
 temperature ist nur in bestimmten Konfigurationen mit reasoning.effort="none" erlaubt.
+
+Multimodale Notebooks sind eine bewusste Ausnahme von der Textrollen-Logik:
+M16 nutzt Vision- und Bildgenerierungsmodelle, M19 nutzt Transkription,
+Vision-Analyse und Video-Generierung. Diese Modelle werden teils direkt über
+die OpenAI-API verwendet, weil LangChain nicht alle Medien-Endpunkte abbildet.
 """
 
 # --- Nano-Tier: günstig, schnell, einfache Aufgaben ---
@@ -100,6 +114,27 @@ JUDGE_PREMIUM = "openai:gpt-5.5"
 # Planner (Premium) — hochkomplexe Aufgabenzerlegung, multi-step Planung.
 # reasoning.effort="high".
 PLANNER_PREMIUM = "openai:gpt-5.5"
+
+# --- Multimodal / Medien-Endpunkte ---
+
+# Vision (schnell/günstig) — Bildanalyse in M16 über Chat/Vision.
+# Nicht pauschal durch BASELINE ersetzen: Bildinput muss unterstützt werden.
+VISION_FAST = "openai:gpt-4o-mini"
+
+# Vision (hochwertig) — anspruchsvollere Bild-/Frame-Analyse, z. B. M19.
+VISION_PREMIUM = "openai:gpt-4o"
+
+# Bildgenerierung — direkte OpenAI Images API, daher ohne Provider-Präfix.
+IMAGE_GENERATION = "gpt-image-1"
+
+# Bildgenerierung hochwertig — direkte OpenAI Images API.
+IMAGE_GENERATION_PREMIUM = "gpt-image-2"
+
+# Videoerzeugung — direkte OpenAI Videos API.
+VIDEO_GENERATION = "sora-2"
+
+# Audio-Transkription — direkte OpenAI Audio API.
+TRANSCRIPTION = "whisper-1"
 
 # --- Embeddings ---
 
