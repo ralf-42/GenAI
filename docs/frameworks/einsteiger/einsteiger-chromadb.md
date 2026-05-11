@@ -635,7 +635,7 @@ from langchain_core.runnables import RunnablePassthrough
 from langchain.chat_models import init_chat_model
 
 # Komponenten vorbereiten
-llm = init_chat_model("openai:gpt-4o-mini", temperature=0.0)
+llm = init_chat_model("openai:gpt-5.4-mini")
 retriever = vectorstore.as_retriever(search_kwargs={"k": 3})
 
 # Hilfsfunktion: Dokumente formatieren

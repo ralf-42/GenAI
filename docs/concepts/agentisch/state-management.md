@@ -192,7 +192,7 @@ class AnalysisState(TypedDict):
     keywords: list[str]
     analysis_complete: bool
 
-llm = init_chat_model("openai:gpt-4o-mini", temperature=0.0)
+llm = init_chat_model("openai:gpt-5.4-nano")
 
 def summarize_node(state: AnalysisState) -> AnalysisState:
     response = llm.invoke(f"Fasse zusammen: {state['document']}")

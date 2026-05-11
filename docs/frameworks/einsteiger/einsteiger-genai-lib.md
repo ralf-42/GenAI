@@ -277,10 +277,10 @@ Ruft Model-Profile von models.dev ab und zeigt die wichtigsten Capabilities eine
 from genai_lib.utilities import get_model_profile
 
 # Formatierte Ausgabe aller wichtigen Capabilities
-profile = get_model_profile("openai:gpt-4o-mini")
+profile = get_model_profile("openai:gpt-5.4-nano")
 
 # Output:
-# 🔍 Model Profile: openai:gpt-4o-mini
+# 🔍 Model Profile: openai:gpt-5.4-nano
 # ============================================================
 #
 # 📋 Core Capabilities:
@@ -310,7 +310,7 @@ profile = get_model_profile("openai:gpt-4o-mini")
 profile = get_model_profile("anthropic:claude-3-sonnet", print_profile=False)
 
 # Verschiedene Models vergleichen (mit Fehlerbehandlung)
-for model in ["openai:gpt-4o-mini", "anthropic:claude-3-sonnet", "google:gemini-pro"]:
+for model in ["openai:gpt-5.4-nano", "anthropic:claude-3-sonnet", "google:gemini-pro"]:
     print(f"\n{model}:")
     profile = get_model_profile(model, print_profile=False)
 
@@ -482,7 +482,7 @@ multimodal_rag
 
 > [!NOTE] LangChain 1.0+ Integration (v3.1)<br>
 > Das `multimodal_rag`-Modul verwendet moderne LangChain 1.0+ Patterns:
-> - Nutzt `init_chat_model("openai:gpt-4o-mini")` für LLM-Initialisierung
+> - Nutzt `init_chat_model("openai:gpt-5.4-mini")` für LLM-Initialisierung
 > - Vision-Analysen mit `HumanMessage` und Standard Content Blocks
 > - Provider-agnostische Multimodal-Verarbeitung
 
@@ -502,7 +502,7 @@ config = RAGConfig(
     chunk_size=300,
     chunk_overlap=50,
     clip_model='clip-ViT-B-32',
-    llm_model='gpt-4o-mini',
+    llm_model='gpt-5.4-mini',
     db_path='./my_rag_db'
 )
 rag = init_rag_system(config)
@@ -518,7 +518,7 @@ rag = init_rag_system(config)
 **Interne LangChain 1.0+ Patterns:**
 ```python
 # System nutzt intern moderne LangChain APIs
-llm = init_chat_model("openai:gpt-4o-mini", temperature=0.0)
+llm = init_chat_model("openai:gpt-5.4-mini")
 
 # Vision-Analyse mit Standard Content Blocks
 message = HumanMessage(content=[

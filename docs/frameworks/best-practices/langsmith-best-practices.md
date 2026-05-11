@@ -439,7 +439,7 @@ result = chain.invoke("...")
 from langchain.chat_models import init_chat_model
 from langchain.agents import create_agent
 
-llm = init_chat_model("openai:gpt-4o-mini")
+llm = init_chat_model("openai:gpt-5.4-nano")
 agent = create_agent(model=llm, tools=[...])
 
 # Automatisch geloggt in LangSmith!

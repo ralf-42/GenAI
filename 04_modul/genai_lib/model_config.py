@@ -122,7 +122,7 @@ PLANNER_PREMIUM = "openai:gpt-5.5"
 VISION_FAST = "openai:gpt-5.4-mini"
 
 # Vision (hochwertig) — anspruchsvollere Bild-/Frame-Analyse, z. B. M19.
-VISION_PREMIUM = "openai:gpt-4o"
+VISION_PREMIUM = "openai:gpt-5.4-mini"
 
 # Bildgenerierung — direkte OpenAI Images API, daher ohne Provider-Präfix.
 IMAGE_GENERATION = "gpt-image-1"

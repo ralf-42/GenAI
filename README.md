@@ -73,7 +73,7 @@ Die Modellwahl richtet sich nach der Rolle im Workflow:
 | Worker, Content, RAG-Synthese, Code | `gpt-5.4-mini` | kein `temperature`; Qualität/Synthese |
 | Judge, Evaluator, Supervisor | `gpt-5.4` | kein `temperature`; `reasoning.effort` nutzen |
 | Judge / Planner (Premium) | `gpt-5.5` | maximale Reasoning-Qualität; nur wenn Standard nicht reicht |
-| Multimodale Analyse | `gpt-5.4-mini` / `gpt-4o` | Vision-/Audio-/Frame-Input, z. B. M16/M19 |
+| Multimodale Analyse | `gpt-5.4-mini` | Vision-/Audio-/Frame-Input, M16 und M19 |
 | Mediengenerierung und Transkription | `gpt-image-1`, `gpt-image-2`, `sora-2`, `whisper-1` | direkte OpenAI-API, nicht LangChain-Rollenmodell |
 | Embeddings | `text-embedding-3-small` | RAG, ChromaDB, Vektorindizes |
 

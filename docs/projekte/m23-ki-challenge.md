@@ -359,7 +359,7 @@ def setup_qa_chain(vectorstore):
         LCEL Chain für RAG mit Chat-History
     """
     # ✅ LLM mit init_chat_model (LangChain 1.0+ Standard)
-    llm = init_chat_model("openai:gpt-4o-mini", temperature=0.0)
+    llm = init_chat_model("openai:gpt-5.4-nano")
 
     # Retriever konfigurieren
     retriever = vectorstore.as_retriever(

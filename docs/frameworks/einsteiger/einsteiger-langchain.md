@@ -131,7 +131,7 @@ Eine stabile und provider-unabhängige Initialisierung des zugrunde liegenden Sp
 from langchain.chat_models import init_chat_model
 
 # ✨ Kurznotation "provider:model" (STANDARD seit Dezember 2025)
-llm = init_chat_model("openai:gpt-4o-mini", temperature=0.0)
+llm = init_chat_model("openai:gpt-5.4-nano")
 
 # Weitere Beispiele:
 # llm = init_chat_model("anthropic:claude-3-sonnet", temperature=0.3)
@@ -490,7 +490,7 @@ agent_summarize = create_agent(
 
 # Ansatz 2: OpenAI Server-Side Compaction (nur OpenAI, langchain-openai 1.1.10)
 llm_compact = init_chat_model(
-    "openai:gpt-4o-mini",
+    "openai:gpt-5.4-nano",
     context_management=[{"type": "compaction", "compact_threshold": 10_000}]
 )
 agent_compact = create_agent(model=llm_compact, tools=tools)
