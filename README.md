@@ -52,9 +52,9 @@ GenAI/
 
 Neue und überarbeitete Notebooks folgen den lokalen Standards-Dateien:
 
-- [LangChain_Standards.md](./LangChain_Standards.md) - verbindliche Patterns für Models, Tools, Chains, Agents und strukturierte Ausgaben
-- [LangGraph_Standards.md](./LangGraph_Standards.md) - verbindliche Patterns für StateGraph, Routing, Checkpointing und Human-in-the-Loop
-- [LangSmith_Standards.md](./LangSmith_Standards.md) - verbindliche Patterns für Tracing, Evaluation und Monitoring
+- [LangChain_Standards.md](./docs/frameworks/best-practices/langchain-best-practices.md) - verbindliche Patterns für Models, Tools, Chains, Agents und strukturierte Ausgaben
+- [LangGraph_Standards.md](./docs/frameworks/best-practices/langgraph-best-practices.md) - verbindliche Patterns für StateGraph, Routing, Checkpointing und Human-in-the-Loop
+- [LangSmith_Standards.md](./docs/frameworks/best-practices/langsmith-best-practices.md) - verbindliche Patterns für Tracing, Evaluation und Monitoring
 
 Die übergreifenden Dokumente in `../_docs/` liefern zusätzliche Erläuterungen, Templates und Best Practices. Für konkrete Änderungen in diesem Repository sind die lokalen `*_Standards.md` Dateien maßgeblich.
 
