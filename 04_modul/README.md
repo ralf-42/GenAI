@@ -70,12 +70,14 @@ setup_api_keys(["OPENAI_API_KEY"])               # API-Keys aus Colab userdata l
 ### Model-Profile
 
 ```python
+from genai_lib.model_config import BASELINE
 from genai_lib.utilities import get_model_profile
 
-profile = get_model_profile("openai:gpt-4o-mini")
+profile = get_model_profile(BASELINE)
 ```
 
 - `get_model_profile(model, print_profile=True, **kwargs)` - Ruft Model-Capabilities von models.dev ab (Structured Output, Vision, Token-Limits, etc.)
+- `genai_lib.model_config` - Zentrale Modellrollen wie `BASELINE`, `WORKER`, `JUDGE`, `VISION_FAST`, `VIDEO_GENERATION` und `TRANSCRIPTION`
 
 ### Thinking-Parser
 
@@ -131,7 +133,9 @@ check_environment()
 
 # 2. LLM initialisieren (LangChain 1.0+)
 from langchain.chat_models import init_chat_model
-llm = init_chat_model("openai:gpt-4o-mini", temperature=0.0)
+from genai_lib.model_config import BASELINE
+
+llm = init_chat_model(BASELINE)
 
 # 3. Prompt laden und Chain ausführen
 from genai_lib.utilities import load_prompt
