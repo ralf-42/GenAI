@@ -41,7 +41,7 @@ Rollen (Nano → Mini → Standard → Premium):
     WORKER_PREMIUM     — Worker / Synthese hochwertig  (gpt-5.4)
     JUDGE_PREMIUM      — Judge / maximale Qualität     (gpt-5.5)
     PLANNER_PREMIUM    — Planner / maximale Qualität   (gpt-5.5)
-    VISION_FAST        — Bildanalyse, kostensensitiv   (gpt-4o-mini)
+    VISION_FAST        — Bildanalyse M16               (gpt-5.4-mini)
     VISION_PREMIUM     — Multimodale Analyse           (gpt-4o)
     IMAGE_GENERATION   — Bildgenerierung               (gpt-image-1)
     IMAGE_GENERATION_PREMIUM — Bildgenerierung high     (gpt-image-2)
@@ -117,9 +117,9 @@ PLANNER_PREMIUM = "openai:gpt-5.5"
 
 # --- Multimodal / Medien-Endpunkte ---
 
-# Vision (schnell/günstig) — Bildanalyse in M16 über Chat/Vision.
+# Vision — Bildanalyse in M16 über Chat/Vision.
 # Nicht pauschal durch BASELINE ersetzen: Bildinput muss unterstützt werden.
-VISION_FAST = "openai:gpt-4o-mini"
+VISION_FAST = "openai:gpt-5.4-mini"
 
 # Vision (hochwertig) — anspruchsvollere Bild-/Frame-Analyse, z. B. M19.
 VISION_PREMIUM = "openai:gpt-4o"
