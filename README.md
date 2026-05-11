@@ -80,7 +80,7 @@ Die Modellwahl richtet sich nach der Rolle im Workflow:
 | Router, leichte Auswahlentscheidungen | `gpt-5.4-nano` | `reasoning.effort="low"` bei Bedarf |
 | Worker, Content, RAG-Synthese, Code | `gpt-5.4-mini` | kein `temperature`; Qualität/Synthese |
 | Judge, Evaluator, Supervisor | `gpt-5.4` | kein `temperature`; `reasoning.effort` nutzen |
-| Multimodale Analyse | `gpt-4o-mini` / `gpt-4o` | Vision-/Audio-/Frame-Input, z. B. M16/M19 |
+| Multimodale Analyse | `gpt-5.4-mini` / `gpt-4o` | Vision-/Audio-/Frame-Input, z. B. M16/M19 |
 | Mediengenerierung und Transkription | `gpt-image-1`, `gpt-image-2`, `sora-2`, `whisper-1` | direkte OpenAI-API, nicht LangChain-Rollenmodell |
 
 
