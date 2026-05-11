@@ -2,12 +2,11 @@
 
 [![LangChain 1.2+ Compliant](https://img.shields.io/badge/LangChain-1.2%2B%20Compliant-brightgreen)](./LangChain_Audit_Report_2025-12-17.md)
 [![Code Quality](https://img.shields.io/badge/Compliance-100%25-success)](./LangChain_Audit_Report_2025-12-17.md)
-[![Last Audit](https://img.shields.io/badge/Last%20Audit-2025--12--17-blue)](./LangChain_Audit_Report_2025-12-17.md)
 [![Python](https://img.shields.io/badge/Python-3.11%2B-blue)](https://www.python.org/)
 
 Ein deutschsprachiger, praxisorientierter Einsteigerkurs zu Generative-AI-Technologien mit Fokus auf OpenAI GPT-Modelle, LangChain, RAG-Systeme, Agenten und multimodale Anwendungen.
 
-Der Kurs findet moderiert mit einem Dozenten statt. Die primäre Entwicklungsumgebung ist **Google Colab**; dort steht **Gemini** als integrierte Unterstützung für Verständnisfragen, Code-Erklärungen, Debugging und Variantenbildung zur Verfügung. Gemini ist als Lern- und Arbeitsassistenz vorgesehen, ersetzt aber nicht die gemeinsame Einordnung, Diskussion und Reflexion im Kurs.
+Die primäre Entwicklungsumgebung ist **Google Colab**; dort steht **Gemini** als integrierte Unterstützung für Verständnisfragen, Code-Erklärungen, Debugging und Variantenbildung zur Verfügung. Gemini ist als Lern- und Arbeitsassistenz vorgesehen, ersetzt aber nicht die gemeinsame Einordnung, Diskussion und Reflexion im Kurs.  
 
 
 ## 🎯 Zielgruppe
@@ -45,6 +44,7 @@ GenAI/
 - **Gradio** (>=3.x) - UI-Entwicklung für KI-Apps
 - **Ollama** - Lokale Open-Source-Modelle
 - **genai_lib** (eigene Module in `04_modul/genai_lib/`) - Projektspezifische Bibliothek für Kursanwendungen
+  - **model_config.py** - Rollenbasierte Modell-Konstanten (`BASELINE`, `WORKER`, `JUDGE` u. a.) für `init_chat_model()`; deckt alle Tier-Stufen von Nano bis Premium ab
   - **multimodal_rag.py** - Multimodales RAG-System mit Bild-zu-Bild und Bild-zu-Text Suche
   - **utilities.py** - Hilfsfunktionen für Environment-Checks, Paket-Installation, API-Keys, Prompt-Templates, Model-Profiles (`get_model_profile()`) und LLM-Response-Parsing (`extract_thinking()`)
 
@@ -80,8 +80,10 @@ Die Modellwahl richtet sich nach der Rolle im Workflow:
 | Router, leichte Auswahlentscheidungen | `gpt-5.4-nano` | `reasoning.effort="low"` bei Bedarf |
 | Worker, Content, RAG-Synthese, Code | `gpt-5.4-mini` | kein `temperature`; Qualität/Synthese |
 | Judge, Evaluator, Supervisor | `gpt-5.4` | kein `temperature`; `reasoning.effort` nutzen |
+| Judge / Planner (Premium) | `gpt-5.5` | maximale Reasoning-Qualität; nur wenn Standard nicht reicht |
 | Multimodale Analyse | `gpt-5.4-mini` / `gpt-4o` | Vision-/Audio-/Frame-Input, z. B. M16/M19 |
 | Mediengenerierung und Transkription | `gpt-image-1`, `gpt-image-2`, `sora-2`, `whisper-1` | direkte OpenAI-API, nicht LangChain-Rollenmodell |
+| Embeddings | `text-embedding-3-small` | RAG, ChromaDB, Vektorindizes |
 
 
 ## 📚 Kursmodule
@@ -139,50 +141,11 @@ pip install git+https://github.com/ralf-42/GenAI.git#subdirectory=04_modul
 uv pip install --system git+https://github.com/ralf-42/GenAI.git#subdirectory=04_modul
 ```
 
-## 💡 Nutzung
 
-Alle kursrelevanten Notebooks sind eigenständig lauffähig und für Google Colab optimiert. Das `genai_lib` Utility-Paket übernimmt das automatische Setup der Umgebung.
-
-Empfohlener Ablauf:
-
-1. `M00_Kurs_Intro.ipynb` öffnen und Kursprogression, Pflicht-/Optional-Markierung und Setup prüfen.
-2. Pflichtnotebooks in der vorgesehenen Reihenfolge bearbeiten.
-3. Innerhalb jedes Notebooks zuerst die Grundlagenaufgaben lösen.
-4. Aufbau-, Fortgeschrittenen- und Vertiefungsaufgaben je nach Vorwissen, Zeit und Kursziel auswählen.
-5. Gemini in Colab gezielt als Unterstützung nutzen, Ergebnisse aber im Kurskontext prüfen und diskutieren.
-
-Lokale Ausführung ist möglich, aber nicht der primäre Kursweg.
-
-## 🎓 Projekte & Übungen
-
-Der Kurs bietet zwei praxisorientierte Lernformate:
-
-### [RAG Workshop](https://ralf-42.github.io/GenAI/projekte/rag-workshop.html)
-**Workshop-Format** | Begleitete Schritt-für-Schritt-Übung
-
-Bauen Sie einen intelligenten Tech-Doku-Assistenten von Grund auf:
-- 📝 Kapitel 1-7: Vom einfachen Chatbot zur RAG-Anwendung
-- 🎯 Stufenweise Komplexität (M04-M11)
-- 🛠️ Hands-On mit LangChain, ChromaDB, Gradio
-- ⏱️ Zeitaufwand: 4-6 Stunden
-
-### [KI-Challenge](https://ralf-42.github.io/GenAI/projekte/m23-ki-challenge.html)
-**End-to-End Projekt** | Eigenständige Implementierung
-
-Entwickeln Sie eine vollständige GenAI-Anwendung:
-- 🎯 4 Projektoptionen: Dokumentenanalyse, Multimodal, Multi-Agent, Domänen-Experte
-- 🚀 LangChain 1.0+ Best Practices
-- 📦 Abgabe: Jupyter Notebook + README.md
-- ⏱️ Zeitaufwand: 15-25 Stunden
 
 ## 📖 Dokumentation
 
 - **Kurs-Website:** [https://ralf-42.github.io/GenAI/](https://ralf-42.github.io/GenAI/)
-- **Lokale Projektregeln:** [CLAUDE.md](./CLAUDE.md)
-- **Agenten-Governance:** [AGENTS.md](./AGENTS.md)
-- **LangChain Standards:** [LangChain_Standards.md](./LangChain_Standards.md)
-- **LangGraph Standards:** [LangGraph_Standards.md](./LangGraph_Standards.md)
-- **LangSmith Standards:** [LangSmith_Standards.md](./LangSmith_Standards.md)
 
 
 ## ⚖️ Lizenzen
@@ -197,4 +160,4 @@ Bilder und Videos erstellt mit **Hedra AI** – Nutzung gemäß [Hedra Terms](ht
 ---
 
 **Letzte Aktualisierung:** Mai 2026         
-**Version:** 2.7          
+**Version:** 2.8          
