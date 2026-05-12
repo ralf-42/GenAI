@@ -66,20 +66,37 @@ Der zweite Fall ist besonders heikel, weil der Agent externe Inhalte oft gerade 
 
 Ein Agent sollte nur die Rechte besitzen, die für die aktuelle Aufgabe wirklich nötig sind. Nicht mehr. Dieses Prinzip reduziert die Folgen von Fehlverhalten, weil selbst ein fehlgeleiteter Agent nur in einem engen Bereich handeln kann.
 
-```python
-# Falsch: beliebige SQL-Queries
-@tool
-def database_query(sql: str) -> str:
-    return db.execute(sql)
+```text
+Ungünstiges Tool:
+
+Name:
+- database_query
+
+Eingabe:
+- beliebiger SQL-Text
+
+Verhalten:
+- führt die übergebene Query direkt aus
+
+Risiko:
+- der Agent kann zu breite oder gefährliche Datenbankabfragen auslösen
 ```
 
-```python
-# Besser: klar begrenzter Lesezugriff
-@tool
-def get_order_status(order_id: str) -> str:
-    return db.execute(
-        "SELECT status FROM orders WHERE id = ?", [order_id]
-    )
+```text
+Besser begrenztes Tool:
+
+Name:
+- get_order_status
+
+Eingabe:
+- order_id
+
+Verhalten:
+- liest nur den Status genau dieser Bestellung
+- erlaubt keine frei formulierten Datenbankabfragen
+
+Sicherheitsgewinn:
+- der Agent kann nur die freigegebene Operation ausführen
 ```
 
 In der Praxis relevant, wenn: Mehrere Rollen, verschiedene Datenquellen oder sensible Operationen getrennt behandelt werden müssen.
@@ -88,18 +105,26 @@ In der Praxis relevant, wenn: Mehrere Rollen, verschiedene Datenquellen oder sen
 
 Nicht jedes Tool gehört in jeden Agenten. Ein Analyse-Agent braucht andere Rechte als ein Versand-Agent. Die sichere Variante ist deshalb nicht, gefährliche Tools in Beschreibungen zu verbieten, sondern zulässige Tools pro Agent explizit zu whitelisten.
 
-```python
-analysis_agent = create_agent(
-    model=llm,
-    tools=[read_file, search_database, web_search],
-    system_prompt="Du analysierst Daten. Du kannst nichts verändern."
-)
+```text
+Agent: analysis_agent
 
-processing_agent = create_agent(
-    model=llm,
-    tools=[read_file, write_report],
-    system_prompt="Du erstellst Reports basierend auf Analysen."
-)
+Aufgabe:
+- Daten analysieren
+- nichts verändern
+
+Erlaubte Tools:
+- read_file
+- search_database
+- web_search
+
+Agent: processing_agent
+
+Aufgabe:
+- Reports auf Basis vorhandener Analysen erstellen
+
+Erlaubte Tools:
+- read_file
+- write_report
 ```
 
 Typischer Fehler: Einen einzigen Generalisten mit zu vielen mächtigen Werkzeugen auszustatten, statt Rollen sauber zu trennen.
@@ -118,24 +143,29 @@ Sobald personenbezogene oder vertrauliche Daten verarbeitet werden, reicht eine 
 
 Ein besonders wichtiger Grundsatz lautet: sensible Daten müssen vor Persistierung bereinigt werden, nicht erst danach.
 
-```python
-import re
+```text
+PII-Redaktion vor Persistierung:
 
-CARD_PATTERN = re.compile(r"\b(\d{4}[-\s]\d{4}[-\s]\d{4}[-\s])(\d{4})\b")
+Eingabe:
+- Tool-Aufruf mit Freitextfeld details
 
-def redact_pii(text: str) -> str:
-    return CARD_PATTERN.sub(r"****-****-****-\2", text)
-
-def handle_tool_call(input_dict: dict) -> dict:
-    input_dict["details"] = redact_pii(input_dict.get("details", ""))
-    audit_log.write(input_dict)
-    return process(input_dict)
+Ablauf:
+1. Prüfe details auf sensible Muster, zum Beispiel Kreditkartennummern.
+2. Ersetze erkannte sensible Daten durch maskierte Werte.
+3. Schreibe nur die bereinigte Version ins Audit-Log.
+4. Verarbeite anschließend die bereinigten Eingaben weiter.
 ```
 
-```python
-for entry in audit_log.get_entries():
-    assert "4111-1111-1111-1111" not in entry.details
-    assert "****-****-****-1111" in entry.details
+```text
+Kontrolle des Audit-Logs:
+
+Prüfung:
+1. Vollständige Kreditkartennummer darf nicht im Log stehen.
+2. Maskierte Variante darf im Log stehen.
+
+Beispiel:
+- Nicht erlaubt: 4111-1111-1111-1111
+- Erlaubt: ****-****-****-1111
 ```
 
 > [!WARNING] Redaktion gehört vor die Persistierung<br>
@@ -145,7 +175,7 @@ for entry in audit_log.get_entries():
 
 Nicht alle Quellen sind gleich vertrauenswürdig. Interner Code und Konfiguration sind anders zu behandeln als authentifizierte Nutzereingaben. Noch kritischer sind anonyme Eingaben, externe Webseiten, Datei-Uploads oder Drittanbieter-APIs.
 
-`Darf der Agent das?`0
+`Darf der Agent das?`
 
 Diese Einteilung hilft nicht nur technisch. Sie schafft auch Klarheit darüber, wo zusätzliche Prüfungen, Maskierungen oder Freigaben nötig sind.
 
@@ -166,11 +196,11 @@ Modell-Sicherheit betrifft das Verhalten des zugrunde liegenden LLMs, etwa Inhal
 
 Typischer Fehler: Sicherheitsprobleme als Modellproblem zu behandeln, obwohl sie durch zu breite Rechte oder zu schwache Tool-Grenzen entstehen.
 
-## Was für Einsteiger zuerst wichtig ist
+## Was für Entwickler zuerst wichtig ist
 
-Für einen ersten sicheren Agenten reichen einige wenige Grundregeln bereits weit: nur nötige Tools freigeben, externe Inhalte nie als Instruktionen behandeln, sensible Daten vor Persistierung bereinigen und bei riskanten Aktionen eine menschliche Freigabe vorsehen.
+Für einen sicheren Agenten reichen einige wenige Grundregeln bereits weit: nur nötige Tools freigeben, externe Inhalte nie als Instruktionen behandeln, sensible Daten vor Persistierung bereinigen und bei riskanten Aktionen eine menschliche Freigabe vorsehen.
 
-Teilnehmende unterschätzen oft, dass Sicherheit nicht erst bei hochkritischen Systemen anfängt. Schon ein kleiner Agent mit Dateizugriff oder Mail-Versand braucht klare Grenzen, sonst wird aus einer guten Demo schnell ein riskanter Prozess.
+Entwickler unterschätzen oft, dass Sicherheit nicht erst bei hochkritischen Systemen anfängt. Schon ein kleiner Agent mit Dateizugriff oder Mail-Versand braucht klare Grenzen, sonst wird aus einer guten Demo schnell ein riskanter Prozess.
 
 ## Abgrenzung zu verwandten Dokumenten
 
