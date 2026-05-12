@@ -153,6 +153,8 @@ Die Anpassung großer Sprachmodelle an spezifische Aufgaben gehört zu den zentr
 - **Anwendungsbereich**: Besonders nützlich, wenn ein spezifischer, begrenzter Aufgabenbereich abgedeckt werden soll.
 
 # Fine-Tuning-Pipeline für LLMs
+
+
 ```mermaid
 flowchart TB
     subgraph Pipeline["Fine-Tuning Pipeline"]
@@ -251,11 +253,10 @@ Embeddings spielen beim **Fine-Tuning eines Large Language Models (LLMs)** eine 
 
 
 # Embeddings und Fine-Tuning
+
 ## Recap: Was sind Embeddings?
 
 **Embeddings** sind **dichte, numerische Vektoren**, die Wörter, Tokens oder ganze Sätze in einem kontinuierlichen Vektorraum repräsentieren. Das Training ordnet **semantisch ähnliche Begriffe nahe beieinander** im Vektorraum an.
-
-
 
 ## Rolle beim Fine-Tuning eines LLMs
 
