@@ -49,18 +49,14 @@ Ein Transformer lernt diese Verbindungen automatisch durch **Aufmerksamkeit**:
 
 <div style="page-break-after: always;"></div>
 
-# Wie funktioniert das technisch?
-<img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250309190825.png" alt="Transformer Architektur" width="500">
 
 ## Wörter werden zu Zahlen → Embedding
 - Computer können nur mit Zahlen arbeiten
 - Jedes Wort wird in eine Liste von Zahlen umgewandelt (wie ein Fingerabdruck des Wortes)
-
-> [!NOTE] Weiterführender Verweis<br>
-> Details siehe Skript: M08 - Embeddings
+- Dabei wird nicht das Wort stand-alone betrachtet, sondern auch der Zusammenhang, in dem das Wort verwendet wird
 
 ## Position ist wichtig → Positional Encoding
-- "Der Lehrer fragt den Schüler." bedeutet etwas anderes als "Den Lehrer fragt der Schüler."
+- *Der Lehrer fragt den Schüler*. bedeutet etwas anderes als *Den Lehrer fragt der Schüler*.
 - Der Transformer fügt jedem Wort eine "Positionsnummer" hinzu
 
 ## Aufmerksamkeit berechnen → Self-Attention
@@ -107,7 +103,7 @@ Dazu stellt sich der Transformer bei jedem Wort drei zentrale Fragen:
 
 Das passiert gleichzeitig für alle Wörter, sodass der Transformer alle wichtigen Beziehungen im Satz erkennt.
 
-## Mehrere "Köpfe" gleichzeitig → Multi-Head-Attention
+## Mehrere *Köpfe* gleichzeitig → Multi-Head-Attention
 
 **Multi-Head-Attention** bedeutet, dass der Transformer **mehrere Self-Attention-Mechanismen gleichzeitig ausführt – mit unterschiedlichen Perspektiven (Köpfen)**.
 
@@ -134,6 +130,12 @@ Ein einzelner Attention-Mechanismus (ein „Kopf“) kann nur eine begrenzte Art
 - **verschiedene semantische Beziehungen gleichzeitig zu erkennen**
 - **kontextuelle Nuancen** besser zu verarbeiten
 - **feinere Unterscheidungen** im Satzbau zu erfassen
+
+**Wie funktioniert das technisch?**
+<br>
+
+<img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250309190825.png" alt="Transformer Architektur" width="500">
+
 
 
 ## In die Zukunft schauen verboten → Masked-Self-Attention
@@ -164,8 +166,10 @@ Es simuliert damit echtes Sprachverständnis im Schreibprozess.
 
 
 # Drei Haupttypen von Transformern
-[Transformer](https://editor.p5js.org/ralf.bendig.rb/full/I1TTpJk-D)          
-[Autoregressives Modell](https://poloclub.github.io/transformer-explainer/)           
+
+<br>
+
+[Transformer](https://editor.p5js.org/ralf.bendig.rb/full/I1TTpJk-D)        
 
 ## Verstehen - Encoder-Only (wie BERT)
 
@@ -185,6 +189,8 @@ Es simuliert damit echtes Sprachverständnis im Schreibprozess.
 
 **Beispiel**: "Es war einmal..." → "Es war einmal ein kleiner Drache, der fliegen lernen wollte..."
 
+[TransformerExplainer](https://poloclub.github.io/transformer-explainer/)
+
 ## Übersetzen - Encoder-Decoder (wie T5)
 
 **Fachbegriff**: Sequence-to-Sequence Models
@@ -195,6 +201,8 @@ Es simuliert damit echtes Sprachverständnis im Schreibprozess.
 **Beispiel**: "Hello world" → "Hallo Welt"
 
 # Warum sind Transformer so revolutionär?
+
+
 ## Vorher (alte Methoden):
 - Computer lasen Texte Wort für Wort von links nach rechts
 - Langsam und vergaßen oft den Anfang des Textes
@@ -208,6 +216,8 @@ Es simuliert damit echtes Sprachverständnis im Schreibprozess.
 
 
 # Top 10 Post-Transformer
+
+
 **Was kommt als Nächstes?** Die KI-Forschung entwickelt sich schnell weiter. Hier sind einige neue Ansätze, die möglicherweise die Zukunft prägen, aber noch nicht weit verbreitet sind:
 
 
@@ -240,7 +250,7 @@ Es simuliert damit echtes Sprachverständnis im Schreibprozess.
 - **Experimentell**: Funktionsfähige Prototypen, noch nicht produktionsreif
 - **Forschung**: Frühe Forschungsphase, Konzeptnachweis
 
-## Trends für 2025:
+## Trends für 2026ff:
 
 - **Memory-Revolution**: Architekturen mit neuralen Gedächtnis-Modulen
 - **SSM-Adoption**: Lineare Skalierung wird Standard für lange Sequenzen
@@ -255,11 +265,11 @@ Es simuliert damit echtes Sprachverständnis im Schreibprozess.
 
 ## Abgrenzung zu verwandten Dokumenten
 
-| Dokument | Frage |
-|---|---|
-| [Tokenizing & Chunking](./m08a-tokenizing-chunking.html) | Wie wird Text für Modelle in verarbeitbare Einheiten zerlegt? |
-| [Embeddings](./m08b-embeddings.html) | Wie wird Bedeutung als Vektor darstellbar gemacht? |
-| [Fine-Tuning](../erweitert/m18-fine-tuning.html) | Wann reicht die Grundarchitektur nicht mehr und Anpassung per Training wird relevant? |
+| Dokument                                                 | Frage                                                                                 |
+| -------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| [Tokenizing & Chunking](./m08a-tokenizing-chunking.html) | Wie wird Text für Modelle in verarbeitbare Einheiten zerlegt?                         |
+| [Embeddings](./m08b-embeddings.html)                     | Wie wird Bedeutung als Vektor darstellbar gemacht?                                    |
+| [Fine-Tuning](../erweitert/m18-fine-tuning.html)         | Wann reicht die Grundarchitektur nicht mehr und Anpassung per Training wird relevant? |
 
 ---
 
