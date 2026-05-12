@@ -120,7 +120,7 @@ Für Kurs- und Prototypensysteme empfiehlt sich ein Mindeststandard, auch wenn d
 | [Digitale Souveränität](./digitale-souveraenitaet.html) | Wie abhängig ist ein KI-System von Cloud, Plattformen und außereuropäischer Infrastruktur? |
 | [Agent Security](../concepts/agentisch/agent-security.html) | Welche technischen Risiken entstehen durch Tools, Prompts, Daten und Systemverhalten? |
 | [Human-in-the-Loop](../concepts/agentisch/human-in-the-loop.html) | Wie werden menschliche Freigaben technisch in GenAI-Workflows eingebaut? |
-| [Evaluation & Observability](../concepts/erweitert/evaluation-observability.html) | Wie werden Qualität, Fehler und Drift in KI-Systemen messbar? |
+| [Evaluation & Observability](../concepts/entscheidungen-qualitaet/evaluation-observability.html) | Wie werden Qualität, Fehler und Drift in KI-Systemen messbar? |
 
 ---
 

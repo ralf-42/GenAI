@@ -984,7 +984,7 @@ results = retriever.invoke("Meine Frage")
 | Dokument | Frage |
 |---|---|
 | [Embeddings](../../concepts/grundlagen/m08b-embeddings.html) | Warum funktionieren semantische Suchvektoren? |
-| [RAG-Konzepte](../../concepts/erweitert/rag-konzepte.html) | Wann wird ChromaDB Teil einer Retrieval-Architektur? |
+| [RAG-Konzepte](../../concepts/anwendungsmethoden/rag-konzepte.html) | Wann wird ChromaDB Teil einer Retrieval-Architektur? |
 
 ---
 

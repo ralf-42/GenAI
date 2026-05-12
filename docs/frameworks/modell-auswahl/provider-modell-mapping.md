@@ -206,7 +206,7 @@ Beide Dokumente zusammen ergeben:
 | Dokument | Frage |
 |---|---|
 | [Modell-Auswahl Guide](modell-auswahl-guide.html) | Welche Modellrolle passt zu Aufgabe, Kostenrahmen und Qualitätsanspruch? |
-| [Modellauswahl](../../concepts/erweitert/m19-modellauswahl.html) | Welche konzeptionellen Kriterien bestimmen die Modellentscheidung? |
+| [Modellauswahl](../../concepts/entscheidungen-qualitaet/m19-modellauswahl.html) | Welche konzeptionellen Kriterien bestimmen die Modellentscheidung? |
 
 ---
 

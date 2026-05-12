@@ -82,7 +82,7 @@ In der Praxis relevant, wenn: ein GenAI-System Inhalte erzeugt, die Menschen dir
 | [Digitale Souveränität](./digitale-souveraenitaet.html) | Welche strategischen Abhängigkeiten entstehen durch Infrastruktur, Modelle und Datenräume? |
 | [GenAI-Sicherheit](../concepts/agentisch/agent-security.html) | Wie werden Tool-Zugriffe, externe Inhalte und sensible Daten technisch abgesichert? |
 | [Human-in-the-Loop](../concepts/agentisch/human-in-the-loop.html) | Wann braucht eine GenAI-Anwendung menschliche Freigabe oder Eskalation? |
-| [Evaluation & Observability](../concepts/erweitert/evaluation-observability.html) | Wie werden Qualität, Bias, Fehlerverhalten und Betrieb messbar gemacht? |
+| [Evaluation & Observability](../concepts/entscheidungen-qualitaet/evaluation-observability.html) | Wie werden Qualität, Bias, Fehlerverhalten und Betrieb messbar gemacht? |
 
 ---
 

@@ -54,7 +54,7 @@ ChromaDB wird dort relevant, wo semantische Suche nicht nur eine Idee bleiben so
 
 ## Modell-Auswahl
 
-Konkrete Provider, Modelle und Kurs-Defaults aus der Unterseite [Modell-Auswahl](frameworks/modell-auswahl.html). Die konzeptionellen Kriterien und Trade-offs stehen ergänzend unter [Konzepte → Modellauswahl](concepts/erweitert/m19-modellauswahl.html).
+Konkrete Provider, Modelle und Kurs-Defaults aus der Unterseite [Modell-Auswahl](frameworks/modell-auswahl.html). Die konzeptionellen Kriterien und Trade-offs stehen ergänzend unter [Konzepte → Modellauswahl](concepts/entscheidungen-qualitaet/m19-modellauswahl.html).
 
 - **[Modell-Auswahl Guide](frameworks/modell-auswahl/modell-auswahl-guide.html)** – *Welches Modell passt zu welcher Aufgabe?* Designregeln für den Kurseinsatz.
 - **[Provider-Modell-Mapping](frameworks/modell-auswahl/provider-modell-mapping.html)** – *Welche Provider und Modellfamilien passen zu welchen Anwendungstypen?*

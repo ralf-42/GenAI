@@ -508,7 +508,7 @@ Im weiteren Kursverlauf werden diese Strategien praktisch in LangChain-Agents an
 |---|---|
 | [Context Engineering](./m21-context-engineering.html) | Wie wird aus einzelnen Prompts ein belastbarer Gesamtkontext? |
 | [RAG-Konzepte](./rag-konzepte.html) | Wann reicht bessere Promptformulierung nicht mehr ohne Retrieval? |
-| [Fine-Tuning](./m18-fine-tuning.html) | Wann stößt Prompting an Grenzen, die Training besser löst? |
+| [Fine-Tuning](../entscheidungen-qualitaet/m18-fine-tuning.html) | Wann stößt Prompting an Grenzen, die Training besser löst? |
 
 ---
 

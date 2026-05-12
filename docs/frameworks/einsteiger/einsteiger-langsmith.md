@@ -956,7 +956,7 @@ setup_api_keys(['OPENAI_API_KEY', 'LANGSMITH_API_KEY'], create_globals=False)
 | Dokument | Frage |
 |---|---|
 | [LangSmith Best Practices](../best-practices/langsmith-best-practices.html) | Welche Tracing- und Evaluationsmuster gelten in produktionsnahen Projekten? |
-| [Evaluation & Observability](../../concepts/erweitert/evaluation-observability.html) | Welche Qualitätsfragen werden mit Traces und Testsets beantwortet? |
+| [Evaluation & Observability](../../concepts/entscheidungen-qualitaet/evaluation-observability.html) | Welche Qualitätsfragen werden mit Traces und Testsets beantwortet? |
 
 ---
 

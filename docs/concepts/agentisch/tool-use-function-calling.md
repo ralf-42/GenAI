@@ -344,7 +344,7 @@ Entwickler unterschätzen oft, dass Tool Use nicht nur neue Fähigkeiten bringt,
 |---|---|
 | [LangGraph Einsteiger](../../frameworks/einsteiger/einsteiger-langgraph.html) | Wie werden Werkzeuge in zustandsbehaftete Workflows eingebettet? |
 | [Agent Security](./agent-security.html) | Wie werden Tool-Aufrufe abgesichert und Missbrauch begrenzt? |
-| [RAG Konzepte](../erweitert/rag-konzepte.html) | Wann ist Retrieval die bessere Alternative zu direkten Tool-Aufrufen? |
+| [RAG Konzepte](../anwendungsmethoden/rag-konzepte.html) | Wann ist Retrieval die bessere Alternative zu direkten Tool-Aufrufen? |
 
 ---
 
