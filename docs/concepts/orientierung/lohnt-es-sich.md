@@ -41,16 +41,17 @@ Warnsignale sind ein unklar formuliertes Ziel, fehlende Erfolgskriterien oder S�
 
 ## Wann GenAI naheliegt
 
-GenAI wird plausibel, wenn Sprache, Bilder, Code, Dokumente oder andere unstrukturierte Inhalte eine zentrale Rolle spielen. Typische Aufgaben sind Zusammenfassen, Umformulieren, Extrahieren, Klassifizieren mit unscharfen Kriterien, Dialogführung, Wissensarbeit oder das Erzeugen strukturierter Vorschläge aus uneinheitlichem Input.
+GenAI wird **plausibel**, wenn Sprache, Bilder, Code, Dokumente oder andere unstrukturierte Inhalte eine zentrale Rolle spielen. Typische Aufgaben sind Zusammenfassen, Umformulieren, Extrahieren, Klassifizieren mit unscharfen Kriterien, Dialogführung, Wissensarbeit oder das Erzeugen strukturierter Vorschläge aus uneinheitlichem Input.
 
 Der Nutzen entsteht besonders dort, wo starre Regeln zu spröde wären und klassische Suche zu wenig Kontext versteht. Wenn viele Varianten einer Aufgabe auftreten, aber ein menschlicher Bearbeiter trotzdem anhand von Mustern entscheiden kann, ist GenAI oft ein realistischer Kandidat.
 
-| Aufgabe | Warum GenAI passen kann |
-|---|---|
-| Dokumente zusammenfassen | Sprache und Kontext stehen im Mittelpunkt |
-| Supportanfragen vorstrukturieren | Eingaben sind variabel, Zielstruktur ist bekannt |
+| Aufgabe                            | Warum GenAI passen kann                                 |
+| ---------------------------------- | ------------------------------------------------------- |
+| Dokumente zusammenfassen           | Sprache und Kontext stehen im Mittelpunkt               |
+| Supportanfragen vorstrukturieren   | Eingaben sind variabel, Zielstruktur ist bekannt        |
 | Wissenssuche über eigene Dokumente | Retrieval kann relevante Quellen in Antworten einbetten |
-| Texte oder Codeentwürfe erzeugen | Kreative oder halbstrukturierte Ausgabe ist erwünscht |
+| Texte oder Codeentwürfe erzeugen   | Kreative oder halbstrukturierte Ausgabe ist erwünscht   |
+|                                    |                                                         |
 
 ## Wann GenAI nicht die erste Wahl ist
 
@@ -75,7 +76,7 @@ Grenze: Ein stärkeres Modell kompensiert keine unklare Datengrundlage. Es versc
 
 ## Nutzen, Kosten und Betrieb
 
-Ein Vorhaben lohnt sich nicht, weil GenAI modern wirkt, sondern weil ein messbarer Mehrwert entsteht. Typische Nutzenformen sind Zeitersparnis, bessere Skalierung, Qualitätsverbesserung, konsistentere Vorarbeit oder Fähigkeiten, die ohne Sprachmodell vorher kaum erreichbar waren.
+Ein Vorhaben lohnt sich nicht, weil GenAI modern wirkt, sondern weil ein **messbarer Mehrwert** entsteht. Typische Nutzenformen sind Zeitersparnis, bessere Skalierung, Qualitätsverbesserung, konsistentere Vorarbeit oder Fähigkeiten, die ohne Sprachmodell vorher kaum erreichbar waren.
 
 Dem stehen Kosten gegenüber: Modellnutzung, Entwicklung, Integration, Datenaufbereitung, Evaluation, Monitoring und späterer Betrieb. Die API-Kosten sind dabei nur ein Teil. Häufiger werden Pflege, Fehleranalyse und Qualitätssicherung unterschätzt.
 
@@ -94,7 +95,7 @@ Hinzu kommen regulatorische Fragen. In sensiblen Bereichen wie HR, Gesundheit, B
 | rechtlich | personenbezogene Daten im Prompt oder in Logs |
 | betrieblich | keine Zuständigkeit für Monitoring und Updates |
 
-## Eine einfache Go- oder No-Go-Logik
+## Eine *einfache* Go- oder No-Go-Logik
 
 Wenn Problem, Daten, Nutzen, Risiken und Betrieb halbwegs klar sind, lässt sich eine erste Einschätzung treffen. Ein Projekt wirkt tragfähig, wenn das Ziel konkret ist, Daten verfügbar sind, der Mehrwert gegenüber einfacheren Lösungen erkennbar bleibt und zentrale Risiken planbar sind.
 
@@ -113,7 +114,7 @@ Kurzcheck:
 
 Für Einsteiger reicht oft schon eine nüchterne Vorprüfung. Wenn ein Projekt nur auf Begeisterung für GenAI basiert, aber weder Problem noch Daten noch Erfolgskriterien sauber benannt werden können, ist der richtige nächste Schritt nicht Prompt Engineering, sondern Problemklärung.
 
-Ein gutes No-Go ist kein Scheitern. Es spart Zeit, schützt vor falschen Erwartungen und verhindert, dass ein schneller Prototyp mit einem belastbaren System verwechselt wird.
+**Ein gutes No-Go ist kein Scheitern**. Es spart Zeit, schützt vor falschen Erwartungen und verhindert, dass ein schneller Prototyp mit einem belastbaren System verwechselt wird.
 
 ## Abgrenzung zu verwandten Dokumenten
 

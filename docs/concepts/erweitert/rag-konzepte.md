@@ -51,7 +51,7 @@ Frage → Suche relevante Dokumente → Füge Kontext zum Prompt → LLM generie
 
 Ein RAG-System besteht aus zwei Hauptphasen: **Indexierung** und **Retrieval + Generation**. Diese Trennung ist wichtig, weil Fehler in der ersten Phase später oft wie Modellfehler aussehen. Wenn Chunks unsauber gebildet oder Metadaten schlecht gepflegt sind, hilft auch ein starkes Modell kaum noch.
 
-### Indexierungsphase
+### Indexierungsphase/Datensammlung
 
 ```mermaid
 flowchart LR
@@ -68,7 +68,7 @@ flowchart LR
 | **Embedding** | Textchunks in Vektoren umwandeln | OpenAIEmbeddings, HuggingFaceEmbeddings |
 | **Speichern** | Vektoren in Datenbank ablegen | ChromaDB, FAISS, Pinecone |
 
-### Abfragephase
+### Abfragephase/Abruf & Erweiterung
 
 ```mermaid
 flowchart LR

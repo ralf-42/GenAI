@@ -24,19 +24,10 @@ has_toc: true
 
 ---
 
-## Ziel dieses Dokuments
-
-Generative KI bietet viele Wege: Chat, Workflows, App-Builder, Python, Agenten, lokale Modelle. Die falsche Wahl führt oft zu unnötiger Komplexität oder Datenschutzrisiken.
-
-Dieses Dokument liefert eine klare Entscheidungslogik:
-
-1. Aufgabentyp bestimmen
-2. Datenschutzanforderungen klären
-3. Umsetzung nach Aufwand, Budget und Skalierung wählen
 
 ## Kernprinzip
 
-Viele Teams starten tool-getrieben: "Wir nutzen Tool X für alles." Das ist ineffizient.
+Generative KI bietet viele Wege: Chat, Workflows, App-Builder, Python, Agenten, lokale Modelle. Die falsche Wahl führt oft zu unnötiger Komplexität oder Datenschutzrisiken. Viele Teams starten tool-getrieben: "Wir nutzen Tool X für alles." Das ist ineffizient.
 
 **Besser:** aufgabengetrieben entscheiden.
 
@@ -46,15 +37,15 @@ Viele Teams starten tool-getrieben: "Wir nutzen Tool X für alles." Das ist inef
 
 ## Schnellentscheidung (60 Sekunden)
 
-| Wenn die Aufgabe so aussieht | Dann starte hier |
-|---|---|
-| Einmalig, ad hoc, persönlich | **Chat-Anwendung** |
-| Wiederkehrender Prozess mit Triggern | **Workflow-Automation** |
-| Sehr viele Daten oder komplexe Logik | **Python & APIs** |
-| Fragen über eigene Dokumente / Wissensbasis | **RAG-System** |
-| Tool für andere Nutzer mit UI | **KI-App-Builder** |
-| Vorgehen unklar, explorativ, mehrstufig | **Agenten-System** |
-| Wiederkehrende persönliche Chat-Hilfe | **Custom GPT/Skill** |
+| Wenn die Aufgabe so aussieht                | Dann starte hier                      |
+| ------------------------------------------- | ------------------------------------- |
+| Einmalig, ad hoc, persönlich                | **Chat-Anwendung**                    |
+| Wiederkehrender Prozess mit Triggern        | **Workflow-Automation**               |
+| Sehr viele Daten oder komplexe Logik        | **Python & APIs**                     |
+| Fragen über eigene Dokumente / Wissensbasis | **RAG-System**, **Python & APIs**     |
+| Tool für andere Nutzer mit UI               | **KI-App-Builder**, **Python & APIs** |
+| Vorgehen unklar, explorativ, mehrstufig     | **Agenten-System**, **Python & APIs** |
+| Wiederkehrende persönliche Chat-Hilfe       | **Custom GPT/Skill**                  |
 
 Danach immer prüfen: **Cloud vs. lokal**.
 
@@ -65,9 +56,9 @@ Danach immer prüfen: **Cloud vs. lokal**.
 - **Einmalige Wissens- oder Schreibaufgabe:** Chat
 - **Prozessautomatisierung mit klaren Regeln:** Workflow
 - **Datenintensive oder algorithmische Aufgabe:** Python
-- **Semantische Suche in eigenen Dokumenten/Daten:** RAG-System
-- **Nutzerprodukt mit Frontend:** App-Builder
-- **Offene Problemstellung mit Tool-Nutzung:** Agenten
+- **Semantische Suche in eigenen Dokumenten/Daten:** RAG-System, Python & APIs
+- **Nutzerprodukt mit Frontend:** App-Builder, Python & APIs
+- **Offene Problemstellung mit Tool-Nutzung:** Agenten, Python & APIs
 - **Persönliche Standardaufgabe im Chat:** Custom GPT/Skill
 
 ### 2) Datenschutz (Sekundärkriterium)

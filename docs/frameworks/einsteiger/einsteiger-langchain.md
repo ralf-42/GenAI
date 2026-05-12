@@ -25,7 +25,7 @@ has_toc: true
 
 ## Kurzüberblick: Warum LangChain?
 
-Große Sprachmodelle (LLMs) wie GPT-4 sind beeindruckend – doch für den Einsatz in der Praxis stoßen sie schnell an Grenzen:
+Große Sprachmodelle (LLMs) wie GPT-5 sind beeindruckend – doch für den Einsatz in der Praxis stoßen sie schnell an Grenzen:
 
 - **Wie verbindet man ein LLM mit eigenen Datenquellen?** (Dokumente, Datenbanken, APIs)
 - **Wie wechselt man zwischen verschiedenen Anbietern?** (OpenAI, Anthropic, Google – ohne Code-Änderungen)
