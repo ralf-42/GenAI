@@ -25,7 +25,7 @@ has_toc: true
 
 ## Warum Human-in-the-Loop kein Notbehelf ist
 
-Ein Agent kann viele Aufgaben eigenständig vorbereiten oder ausführen. Das bedeutet aber nicht, dass vollständige Autonomie immer wünschenswert ist. Human-in-the-Loop, kurz HITL, bezeichnet das bewusste Einbinden von Menschen in den laufenden Prozess eines Agenten. An klar definierten Stellen pausiert das System, zeigt den aktuellen Stand und wartet auf Freigabe, Rückfrage oder Übernahme.
+Ein Agent kann viele Aufgaben eigenständig vorbereiten oder ausführen. Das bedeutet aber nicht, dass vollständige Autonomie immer wünschenswert ist. **Human-in-the-Loop**, kurz **HITL**, bezeichnet das bewusste Einbinden von Menschen in den laufenden Prozess eines Agenten. An klar definierten Stellen pausiert das System, zeigt den aktuellen Stand und wartet auf Freigabe, Rückfrage oder Übernahme.
 
 HITL ist kein Zeichen dafür, dass ein System „noch nicht gut genug“ ist. In vielen produktiven Umgebungen ist die menschliche Kontrolle gerade Teil der gewünschten Architektur. Sobald Entscheidungen teuer, rechtlich heikel, schwer reversibel oder erklärungsbedürftig werden, ist HITL oft die vernünftigere Lösung.
 
@@ -56,7 +56,7 @@ In der Praxis bewegen sich viele brauchbare Systeme in der Mitte dieses Spektrum
 
 ## Wann HITL besonders sinnvoll wird
 
-Je höher die Entscheidungskritikalität, desto eher rechtfertigt sich HITL. Eine Textantwort ist meist leicht korrigierbar. Eine gesendete E-Mail, eine ausgelöste Zahlung oder ein gelöschter Datensatz ist schwerer oder gar nicht rückgängig zu machen. Genau dort verschiebt sich die Architektur zugunsten menschlicher Freigabe.
+Je höher die **Entscheidungskritikalität**, desto eher rechtfertigt sich HITL. Eine Textantwort ist meist leicht korrigierbar. Eine gesendete E-Mail, eine ausgelöste Zahlung oder ein gelöschter Datensatz ist schwerer oder gar nicht rückgängig zu machen. Genau dort verschiebt sich die Architektur zugunsten menschlicher Freigabe.
 
 Auch Unsicherheit des Agenten spricht für HITL. Wenn die Datenlage unklar ist, mehrere Optionen plausibel erscheinen oder Regeln an ihre Grenzen stoßen, ist eine Rückfrage oft besser als eine scheinbar souveräne Zufallsentscheidung. Hinzu kommen Compliance, Haftung und Vertrauensaufbau. Besonders neue Systeme sollten enger beaufsichtigt werden als bewährte.
 
@@ -71,7 +71,7 @@ Auch Unsicherheit des Agenten spricht für HITL. Wenn die Datenlage unklar ist, 
 
 ## Zwei Grundmuster: Freigabe und Eskalation
 
-Das erste Muster ist das Approval-Pattern. Der Agent arbeitet bis zu einer kritischen Stelle, stoppt und fragt um Freigabe. Der Mensch entscheidet dann bewusst über den nächsten Schritt.
+Das erste Muster ist das **Approval-Pattern**. Der Agent arbeitet bis zu einer kritischen Stelle, stoppt und fragt um Freigabe. Der Mensch entscheidet dann bewusst über den nächsten Schritt.
 
 ```mermaid
 flowchart LR
@@ -87,7 +87,7 @@ flowchart LR
     H --> I
 ```
 
-Das zweite Muster ist das Eskalations-Pattern. Hier versucht der Agent nicht, eine kritische Entscheidung selbst zu treffen, sondern erkennt bewusst seine Grenze und übergibt den Fall.
+Das zweite Muster ist das **Eskalations-Pattern**. Hier versucht der Agent nicht, eine kritische Entscheidung selbst zu treffen, sondern erkennt bewusst seine Grenze und übergibt den Fall.
 
 ```mermaid
 flowchart LR
@@ -137,11 +137,11 @@ Technisch wird HITL meist über Unterbrechung und Wiederaufnahme umgesetzt. Daf�
 
 Ein Agent pausiert also nicht einfach „in der Luft“, sondern auf Basis eines gespeicherten States. Erst dadurch werden Freigabe, Rückkehr und Nachvollziehbarkeit praktisch möglich.
 
-## Was für Einsteiger zuerst wichtig ist
+## Was für Entwickler zuerst wichtig ist
 
-Für Einsteiger reicht meist eine einfache Regel: Alles, was schwer reversibel ist oder Dritte direkt betrifft, sollte nicht ohne menschliche Freigabe laufen. Dazu gehören Versand, Löschung, Zahlungen, sensible Kommunikation und Regel- oder Compliance-Ausnahmen.
+Für Entwickler reicht meist eine einfache Regel: Alles, was schwer reversibel ist oder Dritte direkt betrifft, sollte nicht ohne menschliche Freigabe laufen. Dazu gehören Versand, Löschung, Zahlungen, sensible Kommunikation und Regel- oder Compliance-Ausnahmen.
 
-Teilnehmende unterschätzen oft, dass HITL nicht gegen Automatisierung arbeitet. Es macht Automatisierung in vielen realen Projekten überhaupt erst akzeptabel.
+Entwickler unterschätzen oft, dass HITL nicht gegen Automatisierung arbeitet. Es macht Automatisierung in vielen realen Projekten überhaupt erst akzeptabel.
 
 ## Abgrenzung zu verwandten Dokumenten
 
