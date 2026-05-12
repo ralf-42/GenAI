@@ -195,8 +195,8 @@ Die Bewertung von KI-Modellen umfasst verschiedene Aspekte:
 ## Konkrete Bewertungsmethoden
 
 ## Automatisierte Metriken
-- **BLEU**: Misst die Übereinstimmung zwischen generiertem und Referenztext durch Vergleich von Wortgruppen.
-- **ROUGE**: Bewertet die Qualität von Zusammenfassungen durch Analyse übereinstimmender Wortsequenzen.
+- **BLEU** (_Bilingual Evaluation Understudy_): Bewertet die Ähnlichkeit zwischen generiertem Text und Referenztext anhand übereinstimmender Wortfolgen (_n-Gramme_).
+- **ROUGE** (_Recall-Oriented Understudy for Gisting Evaluation_): Bewertet automatisch erzeugte Texte – insbesondere Zusammenfassungen – anhand übereinstimmender Wörter und Wortsequenzen mit einem Referenztext.
 
 ## Menschliche Bewertung
 - Bewertung nach Kriterien wie Grammatik, Zusammenhang, Lesbarkeit und Relevanz

@@ -342,11 +342,11 @@ In der Praxis relevant wenn: Der Agent eine Antwort erzeugt, die anschließend v
 
 Grenze: Entkopplung allein löst keine Qualitätsprobleme. Wenn Planer und Evaluator schlechte Kriterien definieren oder das Referenzset nicht repräsentativ ist, bleibt die Bewertung trotz struktureller Trennung unzuverlässig.
 
-## Was in Einsteigerprojekten zuerst wichtig ist
+## Was in Projekten zuerst wichtig ist
 
 Für eine erste GenAI-Anwendung ist keine vollständige Observability-Plattform nötig. Entscheidend ist ein sauberes Minimum: ein kleines Testset, klare Erfolgskriterien, gespeicherte Prompts und Antworten, sichtbare Tool-Aufrufe und ein Vergleich zwischen alter und neuer Version. Damit lässt sich bereits ein Großteil typischer Fehler finden.
 
-Teilnehmende unterschätzen oft, wie schnell ein scheinbar guter Agent bei kleinen Formulierungsänderungen kippt. Genau deshalb sollte der Kurs nicht nur erfolgreiche Demos zeigen, sondern auch bewusst misslingende Fälle. Erst dort wird sichtbar, warum Evaluation und Observability keine Zusatzaufgabe, sondern Teil der Agentenentwicklung sind.
+Entwickler unterschätzen oft, wie schnell ein scheinbar guter Agent bei kleinen Formulierungsänderungen kippt. Genau deshalb sollte der Kurs nicht nur erfolgreiche Demos zeigen, sondern auch bewusst misslingende Fälle. Erst dort wird sichtbar, warum Evaluation und Observability keine Zusatzaufgabe, sondern Teil der Agentenentwicklung sind.
 
 ## Abgrenzung zu verwandten Dokumenten
 

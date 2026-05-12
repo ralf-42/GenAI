@@ -32,6 +32,9 @@ In der Praxis lohnt sich Fine-Tuning nur in einem Teil der Fälle. Häufig reich
 Fine-Tuning ist deshalb am sinnvollsten als Teil eines größeren Optimierungsprozesses zu verstehen. **Evals**, **Prompt Engineering** und **Fine-Tuning** greifen ineinander. Ohne belastbare Evaluation ist kaum erkennbar, ob ein Training wirklich geholfen hat oder nur die Fehler an andere Stellen verschoben wurden.
 
 # Fine-Tuning-Ansätze
+
+Die Anpassung großer Sprachmodelle an spezifische Aufgaben gehört zu den zentralen Verfahren moderner KI-Anwendungen. Dabei existieren unterschiedliche Ansätze, die sich hinsichtlich Ressourcenbedarf, Flexibilität und Zielsetzung unterscheiden. Während klassische Verfahren wie Transfer Learning und Supervised Fine-Tuning auf eine gezielte Nachtrainierung setzen, ermöglichen parameter-effiziente Methoden wie PEFT eine deutlich ressourcenschonendere Anpassung großer Modelle. Instruction Fine-Tuning ergänzt diese Ansätze, indem Modelle lernen, natürlichsprachliche Anweisungen präzise zu verstehen und umzusetzen. Die folgenden Abschnitte geben einen Überblick über wichtige Konzepte und Verfahren des Fine-Tunings von Sprachmodellen.
+
 ## Transfer Learning
 
 - **Grundprinzip**: Ein vortrainiertes Modell wird als Ausgangspunkt verwendet. Die allgemeinen Merkmale der frühen Schichten bleiben erhalten.
@@ -75,7 +78,13 @@ Fine-Tuning ist deshalb am sinnvollsten als Teil eines größeren Optimierungspr
 - **Formatbeispiel**: Oft in diesem Format:
   
   ```
-  "###Human: $<Input Query>$ ###Assistant: $<Generated Output>$"
+  ###Human: 
+  
+  $<Input Query>$ 
+  
+  ###Assistant: 
+  
+  $<Generated Output>$
   ```
 
 ## Supervised Fine-Tuning (SFT)
@@ -91,6 +100,7 @@ Fine-Tuning ist deshalb am sinnvollsten als Teil eines größeren Optimierungspr
 - **Prozess**: Besteht aus Datenvorbereitung, Upload der Trainingsdaten, Erstellung eines Fine-Tuning-Jobs und anschließender Evaluierung des Modells.
 
 # Weitere Ansätze OpenAI
+
 ## Direct Preference Optimization (DPO)
 
 - **Vorgehen**: Training mit präferierten und abgelehnten Antwortpaaren.
@@ -111,7 +121,7 @@ Fine-Tuning ist deshalb am sinnvollsten als Teil eines größeren Optimierungspr
 
 - **Anwendungsbereich**: Besonders effektiv bei Aufgaben, bei denen Experten in der Domäne sich über die richtigen Antworten einig sind und die Aufgabe eindeutig bewertbar ist.
 
-- **Unterstützung**: Aktuell nur für reasoning-Modelle wie o4-mini verfügbar.
+- **Unterstützung**: Aktuell nur für reasoning-Modelle verfügbar.
 
 ## Vision Fine-Tuning
 
@@ -391,9 +401,7 @@ Die Embeddings sind die **Brücke zwischen rohem Text und neuronaler Verarbeitun
 
 # Fazit
 > [!NOTE] Fazit<br>
-> Fine-Tuning ist mehr als nur eine technische Maßnahme – es ist ein strategischer Hebel zur Anpassung von KI-Systemen an konkrete Anforderungen, Zielgruppen und Kontexte. Die Kombination aus fundierter Datenbasis, passenden Methoden und iterativer Evaluation bildet das Fundament für erfolgreiche KI-Projekte.
-> Mit Plattformen wie OpenAI lassen sich diese Prozesse effizient gestalten – von der Vorbereitung über das Training bis zur Bewertung. Erweiterte Verfahren wie DPO, RFT und Vision Fine-Tuning ermöglichen zusätzlich eine feinkörnige Kontrolle und Weiterentwicklung leistungsfähiger Modelle.
-> Die siebenstufige Fine-Tuning-Pipeline bietet einen strukturierten Ansatz vom Datenmanagement bis zur kontinuierlichen Überwachung, während parameter-effiziente Methoden die Ressourcennutzung optimieren. Durch den gezielten Einsatz dieser Techniken können Entwickler leistungsfähige KI-Lösungen erstellen, die genau auf ihre spezifischen Anforderungen zugeschnitten sind.
+> Fine-Tuning ermöglicht die gezielte Anpassung von KI-Modellen an spezifische Aufgaben und Anforderungen. Entscheidend sind dabei geeignete Trainingsdaten, passende Methoden und eine kontinuierliche Evaluation. Moderne Verfahren wie PEFT, DPO oder Vision Fine-Tuning erweitern die Möglichkeiten zusätzlich und helfen, leistungsfähige sowie ressourceneffiziente KI-Lösungen zu entwickeln.
 ---
 
 
