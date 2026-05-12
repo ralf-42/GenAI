@@ -25,7 +25,7 @@ has_toc: true
 
 ## Warum GenAI-Sicherheit ein eigenes Thema ist
 
-Ein Chatmodell, das nur Text beantwortet, kann falsche oder problematische Aussagen erzeugen. Ein Agent mit Tool-Zugriff kann deutlich mehr Schaden anrichten: Dateien lesen, E-Mails senden, Datenbanken anfragen oder APIs aufrufen. Genau dadurch verschiebt sich Sicherheit von einem reinen Modellthema zu einem Systemthema.
+Ein Chatmodell, das nur Text beantwortet, kann falsche oder problematische Aussagen erzeugen. Ein Agent mit Tool-Zugriff kann deutlich mehr Schaden anrichten: Dateien lesen, E-Mails senden, Datenbanken anfragen oder APIs aufrufen. Genau dadurch verschiebt sich Sicherheit von einem reinen Modellthema zu einem **Systemthema**.
 
 Agent Security meint deshalb nicht nur Inhaltsfilter, sondern die Absicherung des gesamten Agentensystems. Welche Eingaben gelten als vertrauenswürdig? Welche Tools darf ein Agent überhaupt nutzen? Welche Daten dürfen in Prompts, Logs oder externe Dienste gelangen? Diese Fragen gehören nicht ans Ende eines Projekts, sondern an den Anfang.
 
