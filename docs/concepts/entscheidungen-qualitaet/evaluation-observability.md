@@ -60,21 +60,22 @@ Ein Support-Agent soll drei häufige Aufgaben lösen: Lieferstatus nennen, Rechn
 
 Die Evaluation kann mit wenigen Testfällen beginnen. Für jede Anfrage wird festgelegt, was als gute Antwort gilt. Das kann eine exakte Lösung sein, eine erlaubte Liste von Schlüsselinformationen oder ein korrekt ausgelöstes Tool.
 
-```python
-examples = [
-    {
-        "inputs": {"question": "Wo ist meine Bestellung 4711?"},
-        "outputs": {"tool_used": "track_order", "must_include": ["unterwegs"]},
-    },
-    {
-        "inputs": {"question": "Bitte schick mir die Rechnung noch einmal."},
-        "outputs": {"tool_used": "send_invoice", "must_include": ["E-Mail"]},
-    },
-    {
-        "inputs": {"question": "Habt ihr am Samstag geöffnet?"},
-        "outputs": {"must_include": ["Samstag", "9 bis 14 Uhr"]},
-    },
-]
+```text
+Evaluationsset: Support-Agent
+
+Testfall 1:
+- Eingabe: "Wo ist meine Bestellung 4711?"
+- Erwartetes Tool: track_order
+- Antwort muss enthalten: "unterwegs"
+
+Testfall 2:
+- Eingabe: "Bitte schick mir die Rechnung noch einmal."
+- Erwartetes Tool: send_invoice
+- Antwort muss enthalten: "E-Mail"
+
+Testfall 3:
+- Eingabe: "Habt ihr am Samstag geöffnet?"
+- Antwort muss enthalten: "Samstag" und "9 bis 14 Uhr"
 ```
 
 Observability ergänzt dieses kleine Evaluationsset um die Spuren pro Anfrage: Welcher Prompt wurde gebaut, welches Tool wurde gewählt, welche Parameter wurden übergeben, wie viele Schritte waren nötig und an welcher Stelle stieg der Token-Verbrauch. Erst diese Sicht macht verständlich, warum zwei Antworten ähnlich klingen, aber nur eine davon belastbar ist.
@@ -96,7 +97,7 @@ flowchart TB
 Wer nur die fertige Antwort speichert, sieht häufig nur das Symptom. Wer auch Trajectory und Tool-Verhalten speichert, erkennt meist die eigentliche Ursache: falsches Tool, leerer Retrieval-Kontext, unnötige Schleife oder ein Prompt, der dem Modell zu viel Spielraum lässt.
 
 > [!NOTE] Vier Signale mit hohem Nutzen<br>
-> Für einen Kurseinstieg genügen meist diese vier Beobachtungsebenen. Mehr Telemetrie hilft nur dann, wenn daraus auch Entscheidungen für Prompt, Tooling oder Datenbasis abgeleitet werden.
+> Für eine erfolgreiche Entwicklung genügen meist diese vier Beobachtungsebenen. Mehr Telemetrie hilft nur dann, wenn daraus auch Entscheidungen für Prompt, Tooling oder Datenbasis abgeleitet werden.
 
 ## Was Evaluation konkret misst
 
@@ -112,11 +113,16 @@ Für den Einstieg ist keine Metrik-Bibliothek nötig. Meist reichen vier Fragen:
 
 Eine einfache Tool-Accuracy lässt sich fast ohne Infrastruktur berechnen:
 
-```python
-expected_tool = "track_order"
-actual_tool = agent_response.tool_calls[0].name
+```text
+Metrik: Tool-Accuracy
 
-tool_accuracy = 1.0 if expected_tool == actual_tool else 0.0
+Eingaben:
+- expected_tool: erwartetes Tool
+- actual_tool: tatsächlich verwendetes Tool
+
+Berechnung:
+- Wenn expected_tool und actual_tool gleich sind: Score = 1.0
+- Sonst: Score = 0.0
 ```
 
 Für textuelle Antworten helfen häufig drei Bewertungsachsen: Relevanz, Vollständigkeit und Sicherheit. Diese Kriterien sind weniger präzise als exakte Übereinstimmung, dafür aber realistischer für natürliche Sprache.
@@ -130,11 +136,18 @@ Für textuelle Antworten helfen häufig drei Bewertungsachsen: Relevanz, Vollst�
 
 Ein besonders nützlicher Wert ist nicht die Kostenhöhe pro Session, sondern die Kosten pro erfolgreicher Lösung. Zwei Varianten können ähnlich teuer erscheinen, obwohl eine davon deutlich öfter scheitert.
 
-```python
-def cost_per_successful_completion(sessions: list[dict]) -> float:
-    total_cost = sum(s["cost"] for s in sessions)
-    successful = sum(1 for s in sessions if s["task_completed"])
-    return total_cost / successful if successful else float("inf")
+```text
+Metrik: Kosten pro erfolgreicher Lösung
+
+Eingaben:
+- Liste aller Sessions
+- pro Session: Kosten und Erfolgsstatus
+
+Berechnung:
+1. Addiere die Kosten aller Sessions.
+2. Zähle alle erfolgreich abgeschlossenen Sessions.
+3. Teile Gesamtkosten durch erfolgreiche Sessions.
+4. Wenn keine Session erfolgreich war: Wert als unendlich oder nicht auswertbar markieren.
 ```
 
 ## Wie ein kleines Evaluationsset aufgebaut wird
@@ -156,18 +169,33 @@ Wenn im Betrieb ein neuer Fehler auftaucht, gehört genau dieser Fall in das Eva
 
 Die einfachste Methode ist exakte Übereinstimmung. Sie eignet sich für klar definierte Antworten wie IDs, Zahlenwerte oder Tool-Namen. Für offene Antworten ist sie oft zu streng, weil mehrere Formulierungen fachlich korrekt sein können.
 
-```python
-def exact_match(predicted: str, expected: str) -> float:
-    return 1.0 if predicted.strip().lower() == expected.strip().lower() else 0.0
+```text
+Metrik: Exact Match
+
+Eingaben:
+- predicted: erzeugte Antwort
+- expected: erwartete Antwort
+
+Berechnung:
+1. Entferne überflüssige Leerzeichen.
+2. Vergleiche beide Texte ohne Groß-/Kleinschreibung.
+3. Bei identischer Antwort: Score = 1.0
+4. Sonst: Score = 0.0
 ```
 
 Daneben gibt es weichere Verfahren. Teilübereinstimmung prüft, ob zentrale Informationen enthalten sind. Semantische Ähnlichkeit vergleicht Bedeutungen statt Oberflächenform. LLM-as-Judge nutzt ein Modell als Bewerter. Dieses Verfahren ist flexibel, kostet aber zusätzlich und sollte nicht als unfehlbare Instanz verstanden werden.
 
-```python
-def contains_answer(predicted: str, expected_keywords: list[str]) -> float:
-    predicted_lower = predicted.lower()
-    matches = sum(1 for keyword in expected_keywords if keyword.lower() in predicted_lower)
-    return matches / len(expected_keywords)
+```text
+Metrik: Enthält erwartete Informationen
+
+Eingaben:
+- predicted: erzeugte Antwort
+- expected_keywords: Liste zentraler Begriffe oder Aussagen
+
+Berechnung:
+1. Prüfe für jedes erwartete Stichwort, ob es in der Antwort vorkommt.
+2. Zähle die gefundenen Stichwörter.
+3. Teile gefundene Stichwörter durch alle erwarteten Stichwörter.
 ```
 
 Nicht geeignet, wenn: Das Bewertungsverfahren selbst intransparent bleibt und dadurch nur eine weitere Blackbox erzeugt. Gerade in Einsteigerkursen sollte immer klar sein, warum eine Antwort als gut oder schlecht zählt.
@@ -178,17 +206,20 @@ Wenn Evaluation zeigt, dass eine Aufgabe scheitert, beginnt die eigentliche Diag
 
 Für die Praxis reicht oft schon ein strukturierter Trace pro Anfrage:
 
-```python
-trace = {
-    "question": "Bitte sende mir die Rechnung erneut.",
-    "tool_calls": [
-        {"name": "search_orders", "args": {"customer_id": "123"}},
-        {"name": "send_invoice", "args": {"order_id": "4711"}},
-    ],
-    "latency_ms": 1640,
-    "input_tokens": 820,
-    "output_tokens": 146,
-}
+```text
+Trace pro Anfrage:
+
+Frage:
+- "Bitte sende mir die Rechnung erneut."
+
+Tool-Aufrufe:
+1. search_orders mit customer_id
+2. send_invoice mit order_id
+
+Technische Werte:
+- Latenz in Millisekunden
+- Input-Token
+- Output-Token
 ```
 
 Ein solcher Trace ersetzt keine Bewertung, aber er macht Fehler reproduzierbar. Genau deshalb gehören Evaluation und Observability zusammen: Die eine Seite zeigt Abweichungen, die andere macht sie erklärbar.
@@ -197,20 +228,20 @@ Ein solcher Trace ersetzt keine Bewertung, aber er macht Fehler reproduzierbar. 
 
 Sobald ein Agent produktiv weiterentwickelt wird, reicht eine Einmalbewertung nicht mehr aus. Jede Änderung an Prompt, Modell, Tooling oder Wissensbasis kann frühere Verbesserungen wieder zerstören. Regression Testing vergleicht daher neue Varianten immer mit einer bekannten Baseline auf demselben Datensatz.
 
-```python
-baseline_results = evaluate(
-    my_agent_v1,
-    data="Agent-Evaluation-v1",
-    evaluators=[accuracy_evaluator],
-    experiment_prefix="baseline-v1"
-)
+```text
+Regressionstest:
 
-candidate_results = evaluate(
-    my_agent_v2,
-    data="Agent-Evaluation-v1",
-    evaluators=[accuracy_evaluator],
-    experiment_prefix="candidate-v2"
-)
+Baseline:
+1. Führe Agent-Version v1 auf demselben Evaluationsset aus.
+2. Speichere Ergebnisse als baseline-v1.
+
+Kandidat:
+1. Führe Agent-Version v2 auf demselben Evaluationsset aus.
+2. Speichere Ergebnisse als candidate-v2.
+
+Vergleich:
+- Prüfe, ob v2 besser, gleich gut oder schlechter als v1 abschneidet.
+- Untersuche verschlechterte Testfälle einzeln.
 ```
 
 Der didaktische Kern ist einfach: Erst messen, dann ändern, dann erneut messen. Ohne diesen Vergleich bleiben Verbesserungen oft Behauptungen.
@@ -243,41 +274,34 @@ Werkzeuge wie LangSmith sind für das Grundprinzip nicht notwendig, aber sie mac
 
 Ein einfaches Dataset kann direkt per SDK angelegt werden:
 
-```python
-from langsmith import Client
+```text
+LangSmith-Dataset anlegen:
 
-client = Client()
+Dataset:
+- Name: Agent-Evaluation-v1
+- Beschreibung: Testfälle für die Support-Anwendung
 
-dataset = client.create_dataset(
-    dataset_name="Agent-Evaluation-v1",
-    description="Testfälle für die Support-Anwendung"
-)
-
-for example in examples:
-    client.create_example(
-        dataset_id=dataset.id,
-        inputs=example["inputs"],
-        outputs=example["outputs"],
-    )
+Ablauf:
+1. Dataset erstellen.
+2. Jeden Testfall aus dem Evaluationsset hinzufügen.
+3. Pro Testfall Eingabe und erwartete Ausgabe speichern.
 ```
 
 Darauf kann eine einfache Evaluation aufsetzen:
 
-```python
-from langsmith.evaluation import evaluate
+```text
+LangSmith-Evaluation ausführen:
 
-def accuracy_evaluator(inputs: dict, outputs: dict, reference_outputs: dict) -> dict:
-    predicted = outputs["answer"].lower()
-    expected = reference_outputs["answer"].lower()
-    score = 1.0 if expected in predicted else 0.0
-    return {"key": "contains_answer", "score": score}
+Evaluator:
+1. Liest die erzeugte Antwort.
+2. Liest die erwartete Referenzantwort.
+3. Prüft, ob die erwartete Kernaussage enthalten ist.
+4. Gibt einen Score für contains_answer zurück.
 
-results = evaluate(
-    my_agent,
-    data="Agent-Evaluation-v1",
-    evaluators=[accuracy_evaluator],
-    experiment_prefix="v1-course-demo"
-)
+Experiment:
+1. Agent auf dem Dataset Agent-Evaluation-v1 ausführen.
+2. Evaluator auf jede Antwort anwenden.
+3. Ergebnisse unter einem Experimentnamen speichern.
 ```
 
 In der Praxis relevant, wenn: Varianten systematisch verglichen, Regressionen dokumentiert oder Nutzerfeedback später mit denselben Fällen verbunden werden soll.
@@ -288,16 +312,20 @@ Bei RAG-Systemen reicht es nicht, nur die Endantwort zu betrachten. Es muss zus�
 
 Eine einfache Retrieval-Evaluation prüft, ob relevante Dokumente in den Top-k Treffern liegen:
 
-```python
-def evaluate_retrieval(query: str, relevant_doc_ids: list[str], k: int = 5):
-    results = retriever.invoke(query)
-    retrieved_ids = [doc.metadata.get("id") for doc in results[:k]]
+```text
+Retrieval-Evaluation:
 
-    relevant_retrieved = len(set(retrieved_ids) & set(relevant_doc_ids))
-    precision = relevant_retrieved / k
-    recall = relevant_retrieved / len(relevant_doc_ids)
+Eingaben:
+- query: Testfrage
+- relevant_doc_ids: bekannte relevante Dokumente
+- k: Anzahl der betrachteten Top-Treffer
 
-    return {"precision": precision, "recall": recall}
+Ablauf:
+1. Retriever sucht die Top-k Treffer zur Frage.
+2. Extrahiere die Dokument-IDs der Treffer.
+3. Vergleiche gefundene IDs mit den bekannten relevanten IDs.
+4. Berechne Precision: relevante Treffer geteilt durch k.
+5. Berechne Recall: gefundene relevante Treffer geteilt durch alle relevanten Dokumente.
 ```
 
 Grenze: Gute Retrieval-Werte garantieren noch keine gute Antwort. Auch mit passenden Dokumenten kann die Generierung halluzinieren, auslassen oder falsch zitieren.
