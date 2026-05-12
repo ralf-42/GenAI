@@ -1,7 +1,8 @@
 ---
 layout: default
 title: Memory-Systeme
-parent: Konzepte
+parent: Produktive Anwendungen
+grand_parent: Konzepte
 nav_order: 2
 description: Kurz- und Langzeitgedaechtnis fuer GenAI-Anwendungen mit LangGraph, Vektordatenbanken und nutzerspezifischer Persistenz
 has_toc: true
@@ -94,6 +95,16 @@ Für **Langzeit-Memory** haben sich drei Hauptkategorien etabliert: **Prozedural
 
 Der einfachste Ansatz besteht darin, alle Nachrichten im State zu behalten. In LangGraph ist das besonders naheliegend, weil der Verlauf direkt Teil des States sein kann. Für kurze Konversationen ist dieser Ansatz didaktisch ideal, weil er kaum zusätzliche Infrastruktur braucht.
 
+```text
+Pseudo-Code, nicht als Python ausführen:
+
+bei neuer Nutzernachricht:
+    Nachricht an Sitzungsverlauf anhängen
+    bisherigen Verlauf an das Modell geben
+    Modellantwort an Sitzungsverlauf anhängen
+    aktualisierten Verlauf speichern
+```
+
 | Aspekt | Einordnung |
 |---|---|
 | Zweck | vollständiger Gesprächsverlauf in der aktuellen Sitzung |
@@ -107,6 +118,16 @@ Grenze: Der Verlauf wächst mit jeder Nachricht. Dadurch steigen Tokenverbrauch,
 
 Beim Sliding Window werden nur die letzten Nachrichten im aktiven Kontext behalten. Ältere Inhalte fallen aus dem direkten Arbeitsgedächtnis heraus. Diese Strategie ist einfach, günstig und für viele Chats ausreichend, solange frühe Informationen nicht dauerhaft relevant bleiben.
 
+```text
+Pseudo-Code, nicht als Python ausführen:
+
+bei neuer Anfrage:
+    vollständigen Verlauf im Speicher behalten
+    für den Modellaufruf nur die letzten relevanten Nachrichten auswählen
+    Antwort erzeugen
+    neue Nachricht und Antwort wieder im Verlauf speichern
+```
+
 | Aspekt | Einordnung |
 |---|---|
 | Zweck | Tokenverbrauch begrenzen |
@@ -119,6 +140,17 @@ Nicht geeignet, wenn frühe Informationen später wieder wichtig werden, etwa Nu
 ## Summarization: wenn Kontext erhalten bleiben soll
 
 Statt alte Nachrichten vollständig zu verwerfen, kann ein Agent sie zusammenfassen. Dadurch bleibt die inhaltliche Linie erhalten, ohne dass jede einzelne Nachricht im Modellkontext liegen muss. Genau hier beginnt Summarization Memory.
+
+```text
+Pseudo-Code, nicht als Python ausführen:
+
+wenn Verlauf zu lang wird:
+    ältere Nachrichten auswählen
+    bestehende Zusammenfassung laden
+    ältere Nachrichten in die Zusammenfassung einarbeiten
+    alte Detailnachrichten aus dem aktiven Kontext entfernen
+    Zusammenfassung plus letzte Nachrichten weiterverwenden
+```
 
 ```mermaid
 flowchart LR
@@ -142,6 +174,19 @@ In der Praxis relevant, wenn Sitzungen lang werden, aber der frühere Verlauf ni
 
 Summarization ist eine **lossy**-Technik: Beim Verdichten geht immer ein Teil der Information verloren. **Context Compaction** ist die verlustärmere Alternative: Der Kontext wird vollständig in eine Datenbank oder Datei ausgelagert. Im aktiven Kontext bleibt nur eine ID mit kurzer Beschreibung. Der Agent kann den vollständigen Inhalt bei Bedarf wieder abrufen.
 
+```text
+Pseudo-Code, nicht als Python ausführen:
+
+wenn Kontext zu groß, aber wichtig ist:
+    vollständigen Kontext in dauerhaftem Speicher ablegen
+    eindeutige ID erzeugen
+    kurze Beschreibung im aktiven Kontext behalten
+
+wenn Details später gebraucht werden:
+    ID verwenden
+    vollständigen Kontext aus dem Speicher laden
+```
+
 | | Context Summarization | Context Compaction |
 |---|---|---|
 | Verfahren | Kontext durch LLM verdichten | Kontext vollständig auslagern |
@@ -157,6 +202,20 @@ Langzeit-Memory wird nötig, sobald relevante Informationen nach Ende einer Sitz
 
 Ein typischer technischer Weg ist semantisches Memory über einen Store oder eine Vektordatenbank. Gespeicherte Fakten werden eingebettet und bei Bedarf per Ähnlichkeitssuche wieder abgerufen.
 
+```text
+Pseudo-Code, nicht als Python ausführen:
+
+bei neuer Information:
+    prüfen, ob sie langfristig relevant ist
+    prüfen, ob sie gespeichert werden darf
+    Information mit Nutzer-, Projekt- oder Organisationsbezug speichern
+
+bei neuer Anfrage:
+    passende Memory-Einträge suchen
+    relevante Treffer in den Kontext einfügen
+    irrelevante Treffer verwerfen
+```
+
 | Aspekt | Einordnung |
 |---|---|
 | Zweck | sitzungsübergreifendes Wissen verfügbar machen |
@@ -169,6 +228,16 @@ Der Vorteil liegt darin, dass nicht nur exakte Schlüssel gesucht werden, sonder
 ## Entity Memory: wenn Informationen strukturiert bleiben sollen
 
 Manche Informationen sollen nicht nur auffindbar, sondern geordnet gespeichert werden. Genau dafür eignet sich Entity Memory. Personen, Projekte oder Orte werden als benannte Entitäten im State oder in einem Store abgelegt. Das ist besonders nützlich, wenn ein Agent mit Kundendaten, Projektnamen oder festen Objekten arbeitet.
+
+```text
+Pseudo-Code, nicht als Python ausführen:
+
+bei neuer Aussage:
+    wichtige Entitäten erkennen
+    bestehende Einträge zu diesen Entitäten laden
+    neue Eigenschaften ergänzen oder veraltete ersetzen
+    Quelle und Zeitpunkt speichern
+```
 
 | Aspekt | Einordnung |
 |---|---|
@@ -205,6 +274,16 @@ Typischer Fehler: Nur Konversationen zu speichern, aber ausgeführte Prozessschr
 ## Per-User Memory: wenn mehrere Nutzer getrennt bleiben müssen
 
 Sobald ein Agent von mehreren Nutzern verwendet wird, reicht ein globales Gedächtnis nicht mehr aus. Sitzungen und langfristige Fakten müssen nutzerspezifisch getrennt bleiben. Checkpointing mit Thread-IDs ist dafür nur ein Teil der Lösung: Es trennt Sitzungen, ersetzt aber keinen dauerhaften Store für nutzerspezifische Fakten.
+
+```text
+Pseudo-Code, nicht als Python ausführen:
+
+bei jeder Anfrage:
+    thread_id für die aktuelle Sitzung bestimmen
+    user_id für nutzerspezifische Fakten bestimmen
+    project_id für projektbezogenes Wissen bestimmen
+    nur Memory laden, das zu diesen IDs passt
+```
 
 | Ebene | Zweck | Typischer Schlüssel |
 |---|---|---|

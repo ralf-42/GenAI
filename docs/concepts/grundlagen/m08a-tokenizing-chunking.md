@@ -24,41 +24,52 @@ has_toc: true
 ---
 
 
-Die Textverarbeitung in LLM-Systemen steht und fällt oft mit drei Entscheidungen: Welcher Tokenizer wird verwendet, wie groß sind die Chunks und nach welcher Logik werden sie gebildet. Auf dem Papier wirken diese Parameter technisch und nachgeordnet. In RAG- oder Analyseaufgaben entscheiden sie jedoch oft darüber, ob relevante Informationen überhaupt wiedergefunden werden.
+Die Textverarbeitung in LLM-Systemen steht und fällt häufig mit drei zentralen Entscheidungen: Welcher **Tokenizer** wird verwendet, wie groß sind die **Chunks**, und nach welcher Logik werden sie gebildet? Ein Tokenizer zerlegt Texte in kleine Einheiten, sogenannte **Tokens**. Dabei kann es sich um ganze Wörter, Wortbestandteile oder sogar einzelne Zeichen handeln. Auf den ersten Blick wirken diese Parameter technisch und eher nachrangig. In RAG- oder Analyseaufgaben entscheiden sie jedoch oft darüber, ob relevante Informationen überhaupt gefunden und korrekt verarbeitet werden.
 
-In der Praxis zeigt sich ein typisches Muster: Wenn Antworten unpräzise, unvollständig oder instabil sind, wird zunächst das Modell verdächtigt. Häufig liegt das Problem jedoch früher in der Pipeline. Chunks sind zu klein, Grenzen fallen ungünstig, oder Überlappungen erzeugen unnötiges Rauschen. Genau deshalb lohnt es sich, Tokenizing und Chunking nicht als reine Vorverarbeitung zu behandeln.
+In der Praxis zeigt sich dabei ein typisches Muster: Wenn Antworten unpräzise, unvollständig oder instabil ausfallen, gerät zunächst das Modell selbst in Verdacht. Häufig liegt die eigentliche Ursache jedoch bereits früher in der Verarbeitungskette. Ein **Chunker** unterteilt längere Texte in Chunks, also in verarbeitbare Abschnitte für Suche, Embeddings oder weitere Verarbeitungsschritte. Sind diese Abschnitte zu klein, fallen die Grenzen ungünstig oder erzeugen Überlappungen unnötiges Rauschen, leidet die Qualität der Ergebnisse deutlich. Gerade deshalb sollten **Tokenizing** und **Chunking** nicht lediglich als technische Vorverarbeitung betrachtet werden.
 
 
 # Tokenizer-, Chunking- & Strategieauswahl
+
+
+
 ## Dokumenttypen
 
-| Dokumenttyp | Tokenizer | Chunk-Größe | Überlappung | Chunking-Strategie | Begründung |
-|-------------|-----------|-------------|-------------|-------------------|------------|
-| **Lange Texte** | SentencePiece oder BPE | 512–1024 Tokens | 20–30% | Semantisches & embeddingbasiertes Chunking | Diese Tokenizer zerlegen den Text in kleinere, semantisch sinnvolle Einheiten. Größere Chunks helfen, den Kontext beizubehalten und logische Einheiten in dichten Texten zu bewahren. |
-| **Mittel-lange Texte** | WordPiece | 256–512 Tokens | 10–20% | Semantisches Chunking | WordPiece verarbeitet gemischte Sprache gut. Semantisches Chunking fasst narrative und strukturierte Abschnitte optimal zusammen, ohne den Text zu stark zu fragmentieren. |
-| **Kurze Texte** | Whitespace-/Symbol-basierte Tokenizer | 50–200 Tokens | 0–5% | Rekursives Zeichen-Chucking | Kurze, oft stark strukturierte Texte profitieren von kleinen Chunks. Rekursives Zeichen-Chucking kann helfen, bei fehlenden klaren Grenzen die Struktur zu wahren. |
-| **Code & Technische Dokumente** | Whitespace- oder benutzerdefinierte symbolbasierte Tokenizer | Ca. 256 Tokens (pro Funktion/Absatz) | Variabel (minimale Überlappung) | Agentisches Chunking | Die strukturelle Integrität ist entscheidend, um die Semantik des Codes zu erhalten. Agentisches Chunking berücksichtigt funktionale Zusammenhänge und stellt die Intaktheit der Blöcke sicher. |
+Nicht jeder Dokumenttyp stellt die gleichen Anforderungen an Tokenisierung und Chunking. Länge, Struktur und sprachliche Eigenschaften eines Dokuments beeinflussen maßgeblich, welche Tokenizer, Chunk-Größen und Strategien sinnvoll sind. Während lange Fließtexte vor allem vom Erhalt semantischer Zusammenhänge profitieren, erfordern kurze Texte oder technische Dokumente häufig stärker strukturorientierte Verfahren. Die folgende Tabelle zeigt typische Empfehlungen für unterschiedliche Dokumenttypen.
+
+| Dokumenttyp                     | Tokenizer                                                    | Chunk-Größe                          | Überlappung                     | Chunking-Strategie                         | Begründung                                                                                                                                                                                      |
+| ------------------------------- | ------------------------------------------------------------ | ------------------------------------ | ------------------------------- | ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Lange Texte**                 | SentencePiece oder BPE                                       | 512–1024 Tokens                      | 20–30%                          | Semantisches & embeddingbasiertes Chunking | Diese Tokenizer zerlegen den Text in kleinere, semantisch sinnvolle Einheiten. Größere Chunks helfen, den Kontext beizubehalten und logische Einheiten in dichten Texten zu bewahren.           |
+| **Mittel-lange Texte**          | WordPiece                                                    | 256–512 Tokens                       | 10–20%                          | Semantisches Chunking                      | WordPiece verarbeitet gemischte Sprache gut. Semantisches Chunking fasst narrative und strukturierte Abschnitte optimal zusammen, ohne den Text zu stark zu fragmentieren.                      |
+| **Kurze Texte**                 | Whitespace-/Symbol-basierte Tokenizer                        | 50–200 Tokens                        | 0–5%                            | Rekursives Zeichen-Chucking                | Kurze, oft stark strukturierte Texte profitieren von kleinen Chunks. Rekursives Zeichen-Chucking kann helfen, bei fehlenden klaren Grenzen die Struktur zu wahren.                              |
+| **Code & Technische Dokumente** | Whitespace- oder benutzerdefinierte symbolbasierte Tokenizer | Ca. 256 Tokens (pro Funktion/Absatz) | Variabel (minimale Überlappung) | Agentisches Chunking                       | Die strukturelle Integrität ist entscheidend, um die Semantik des Codes zu erhalten. Agentisches Chunking berücksichtigt funktionale Zusammenhänge und stellt die Intaktheit der Blöcke sicher. |
 
 <div style="page-break-after: always;"></div>
 
 
 ## Anwendungsszenarien
 
-| Szenario | Ziel | Empfohlenes Chunking | Strategie | Begründung |
-|----------|------|---------------------|-----------|------------|
-| **Antworten auf Fragen** | Exakte Extraktion relevanter Passagen | 512 Tokens mit hoher Überlappung (30–50%) | Kombination aus semantischem und embeddingbasiertem Chunking | Hohe Überlappung stellt sicher, dass der Kontext zwischen den Chunks nicht verloren geht. Semantische Grenzen und embeddingbasierte Analysen erfassen relevante Abschnitte präzise. |
-| **Zusammenfassungen** | Verdichtung des Inhalts bei Beibehaltung der Kernaussagen | 256 Tokens mit moderater Überlappung (10–20%) | Semantisches Chunking | Semantisches Chunking bewahrt komplette Sinnabschnitte, sodass die Kernaussagen klar extrahiert werden können, ohne den Kontext zu verlieren. |
-| **Informationsretrieval (RAG)** | Effiziente Auffindbarkeit relevanter Abschnitte | 256–512 Tokens mit moderater Überlappung (10–20%) | Embeddingbasiertes Chunking | Embeddingbasiertes Chunking gruppiert semantisch verwandte Inhalte. So werden relevante Informationen leichter auffindbar und retrieval-technisch optimal aufbereitet. |
-| **Named Entity Recognition (NER)** | Identifikation wichtiger Entitäten | Ca. 256 Tokens an Satzgrenzen, minimale Überlappung (5–15%) | Semantisches Chunking (ggf. kombiniert mit embeddingbasierten Ansätzen) | Durch an Satzgrenzen ausgerichtete Chunks wird vermieden, dass Entitäten aufgespalten werden. Eine embeddingbasierte Analyse kann zusätzlich helfen, zusammengehörige Entitäten zu erfassen. |
-| **Textklassifikation** | Zuweisung von Labels zu Dokumenten oder Abschnitten | Ganze Dokumente oder 512 Tokens, wenig bis keine Überlappung | Semantisches Chunking (optional mit reduzierter Granularität) | Gröbere Unterteilungen verhindern Rauschen, während semantische Einheiten erhalten bleiben, die für die Klassifikation relevant sind. |
-| **Code-Kommentierung/Erklärung** | Verständnis und Erklärung von Codeabschnitten | Pro Funktion/Modul, Überlappung nur bei Bedarf | Agentisches Chunking | Agentisches Chunking berücksichtigt syntaktische und semantische Aspekte des Codes. So bleiben logische Zusammenhänge, wie Funktionsdefinitionen, erhalten und können optimal erklärt werden. |
+
+Die Wahl einer geeigneten Chunking-Strategie hängt stark vom jeweiligen Anwendungsszenario ab. Unterschiedliche Aufgaben stellen unterschiedliche Anforderungen an Größe, Überlappung und semantische Struktur der Chunks. Während bei Frage-Antwort-Systemen möglichst viel Kontext erhalten bleiben muss, steht bei Zusammenfassungen eher die inhaltliche Verdichtung im Vordergrund. Die folgende Tabelle zeigt typische Einsatzszenarien und geeignete Strategien für ein effektives Tokenizing und Chunking.
+
+
+| Szenario                           | Ziel                                                      | Empfohlenes Chunking                                         | Strategie                                                               | Begründung                                                                                                                                                                                    |
+| ---------------------------------- | --------------------------------------------------------- | ------------------------------------------------------------ | ----------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Antworten auf Fragen**           | Exakte Extraktion relevanter Passagen                     | 512 Tokens mit hoher Überlappung (30–50%)                    | Kombination aus semantischem und embeddingbasiertem Chunking            | Hohe Überlappung stellt sicher, dass der Kontext zwischen den Chunks nicht verloren geht. Semantische Grenzen und embeddingbasierte Analysen erfassen relevante Abschnitte präzise.           |
+| **Zusammenfassungen**              | Verdichtung des Inhalts bei Beibehaltung der Kernaussagen | 256 Tokens mit moderater Überlappung (10–20%)                | Semantisches Chunking                                                   | Semantisches Chunking bewahrt komplette Sinnabschnitte, sodass die Kernaussagen klar extrahiert werden können, ohne den Kontext zu verlieren.                                                 |
+| **Informationsretrieval (RAG)**    | Effiziente Auffindbarkeit relevanter Abschnitte           | 256–512 Tokens mit moderater Überlappung (10–20%)            | Embeddingbasiertes Chunking                                             | Embeddingbasiertes Chunking gruppiert semantisch verwandte Inhalte. So werden relevante Informationen leichter auffindbar und retrieval-technisch optimal aufbereitet.                        |
+| **Named Entity Recognition (NER)** | Identifikation wichtiger Entitäten                        | Ca. 256 Tokens an Satzgrenzen, minimale Überlappung (5–15%)  | Semantisches Chunking (ggf. kombiniert mit embeddingbasierten Ansätzen) | Durch an Satzgrenzen ausgerichtete Chunks wird vermieden, dass Entitäten aufgespalten werden. Eine embeddingbasierte Analyse kann zusätzlich helfen, zusammengehörige Entitäten zu erfassen.  |
+| **Textklassifikation**             | Zuweisung von Labels zu Dokumenten oder Abschnitten       | Ganze Dokumente oder 512 Tokens, wenig bis keine Überlappung | Semantisches Chunking (optional mit reduzierter Granularität)           | Gröbere Unterteilungen verhindern Rauschen, während semantische Einheiten erhalten bleiben, die für die Klassifikation relevant sind.                                                         |
+| **Code-Kommentierung/Erklärung**   | Verständnis und Erklärung von Codeabschnitten             | Pro Funktion/Modul, Überlappung nur bei Bedarf               | Agentisches Chunking                                                    | Agentisches Chunking berücksichtigt syntaktische und semantische Aspekte des Codes. So bleiben logische Zusammenhänge, wie Funktionsdefinitionen, erhalten und können optimal erklärt werden. |
 
 
 > [!NOTE] Pilotphase<br>
 > Vor einer konkreten Implementierung lohnt sich eine kurze Pilotphase mit echten Dokumenten. Häufig reichen schon zwei oder drei Varianten, um zu sehen, ob ein Setup eher Kontext erhält oder eher Rauschen produziert.
 
 
-# Beispiel
+# Beispiel Tokenizing & Chunking
+
+
 <img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250310180654.png" alt="Tokenizing & Chunking Prozess" width="700">
 + Tokenizing:
 	+ Zerlegt Text in kleinste Einheiten (Token)
@@ -92,59 +103,12 @@ In der Praxis zeigt sich ein typisches Muster: Wenn Antworten unpräzise, unvoll
     - **Speicherverbrauch und Verarbeitungsgeschwindigkeit** lassen sich durch Anpassung der Chunk-Größe steuern. Kleinere Chunks reduzieren den Speicherbedarf und beschleunigen die Verarbeitung, was vor allem bei großen Datenmengen von Bedeutung ist.
     - **Kosten** können durch die Optimierung der Überlappung minimiert werden. Eine zu hohe Überlappung erhöht Redundanzen und Rechenaufwand, sodass hier ein ausgewogenes Verhältnis gefunden werden muss.
 
-Aus Kurssicht ist vor allem eine Erfahrung wichtig: Es gibt selten eine universell richtige Chunk-Größe. Gute Werte hängen stark davon ab, ob Absätze, Abschnitte, Funktionsblöcke oder stark strukturierte Datensätze verarbeitet werden. Wer ohne Testdaten sofort auf "Best Practices" vertraut, optimiert oft am eigentlichen Problem vorbei.
+Für Entwickler ist vor allem eine Erfahrung wichtig: Es gibt selten eine universell richtige Chunk-Größe. Gute Werte hängen stark davon ab, ob Absätze, Abschnitte, Funktionsblöcke oder stark strukturierte Datensätze verarbeitet werden. Wer ohne Testdaten sofort auf "Best Practices" vertraut, optimiert oft am eigentlichen Problem vorbei.
 
 
 > [!NOTE] Praxistest<br>
 > Die Eignung von Chunk-Größen und -Strategien zeigt sich am zuverlässigsten mit echten Daten, nicht mit Beispieltexten. Relevant sind dabei vor allem Abrufgenauigkeit, Antwortqualität und die Frage, ob wichtige Informationen an Chunk-Grenzen verloren gehen.
 
-
-<div style="page-break-after: always;"></div>
-
-# Chunking-Strategien im Detail
-Verschiedene Chunking-Strategien haben spezifische Vor- und Nachteile, die je nach Anwendung berücksichtigt werden sollten.
-
-## Zeichenbasiertes Chunking
-
-- **Einfach:** Text wird nach fester Zeichenanzahl geteilt
-- **Nachteile:** Kann Wörter oder Sätze mitten durchschneiden
-- **Anwendung:** Selten empfohlen, nur für sehr einfache Fälle
-
-## Rekursives Zeichen-Chunking
-
-- **Vorgehen:** Versucht zunächst an Absatzgrenzen zu trennen, dann an Sätzen, schließlich an Wörtern
-- **Vorteile:** Erhält mehr strukturelle Integrität als einfaches Zeichen-Chunking
-- **Anwendung:** Standard für viele Texttypen
-
-## Dokumentbasiertes Chunking
-
-- **Vorgehen:** Nutzt dokumentspezifische Struktur (z.B. Markdown-Header, HTML-Tags)
-- **Vorteile:** Semantisch sinnvolle Grenzen
-- **Anwendung:** Strukturierte Dokumente, technische Dokumentation
-
-## Semantisches Chunking
-
-- **Vorgehen:** Analysiert semantische Ähnlichkeit zwischen Sätzen
-- **Vorteile:** Hält zusammenhängende Inhalte zusammen
-- **Nachteile:** Rechenintensiver
-- **Anwendung:** Hochwertige RAG-Systeme
-
-## Embeddingbasiertes Chunking
-
-- **Vorgehen:** Nutzt Embeddings um semantisch ähnliche Abschnitte zu identifizieren
-- **Vorteile:** Sehr genaue semantische Gruppierung
-- **Nachteile:** Hoher Rechenaufwand
-- **Anwendung:** Retrieval-optimierte Systeme
-
-## Agentisches Chunking
-
-- **Vorgehen:** KI-Agent analysiert Text und entscheidet über Chunk-Grenzen
-- **Vorteile:** Adaptiv, kontextabhängig
-- **Nachteile:** Komplex, teuer
-- **Anwendung:** Hochspezialisierte Anwendungen, Code-Analyse
-
-
-<div style="page-break-after: always;"></div>
 
 
 # Tokenizer-Typen im Vergleich
@@ -191,8 +155,52 @@ Verschiedene Chunking-Strategien haben spezifische Vor- und Nachteile, die je na
 - **Verwendung:** Einfache Anwendungen, Code-Analyse
 
 
-<div style="page-break-after: always;"></div>
+# Chunking-Strategien im Detail
 
+
+Verschiedene Chunking-Strategien haben spezifische Vor- und Nachteile, die je nach Anwendung berücksichtigt werden sollten.
+
+## Zeichenbasiertes Chunking
+
+- **Einfach:** Text wird nach fester Zeichenanzahl geteilt
+- **Nachteile:** Kann Wörter oder Sätze mitten durchschneiden
+- **Anwendung:** Selten empfohlen, nur für sehr einfache Fälle
+
+## Rekursives Zeichen-Chunking
+
+- **Vorgehen:** Versucht zunächst an Absatzgrenzen zu trennen, dann an Sätzen, schließlich an Wörtern
+- **Vorteile:** Erhält mehr strukturelle Integrität als einfaches Zeichen-Chunking
+- **Anwendung:** Standard für viele Texttypen
+
+## Dokumentbasiertes Chunking
+
+- **Vorgehen:** Nutzt dokumentspezifische Struktur (z.B. Markdown-Header, HTML-Tags)
+- **Vorteile:** Semantisch sinnvolle Grenzen
+- **Anwendung:** Strukturierte Dokumente, technische Dokumentation
+
+## Semantisches Chunking
+
+- **Vorgehen:** Analysiert semantische Ähnlichkeit zwischen Sätzen
+- **Vorteile:** Hält zusammenhängende Inhalte zusammen
+- **Nachteile:** Rechenintensiver
+- **Anwendung:** Hochwertige RAG-Systeme
+
+## Embeddingbasiertes Chunking
+
+- **Vorgehen:** Nutzt Embeddings um semantisch ähnliche Abschnitte zu identifizieren
+- **Vorteile:** Sehr genaue semantische Gruppierung
+- **Nachteile:** Hoher Rechenaufwand
+- **Anwendung:** Retrieval-optimierte Systeme
+
+## Agentisches Chunking
+
+- **Vorgehen:** KI-Agent analysiert Text und entscheidet über Chunk-Grenzen
+- **Vorteile:** Adaptiv, kontextabhängig
+- **Nachteile:** Komplex, teuer
+- **Anwendung:** Hochspezialisierte Anwendungen, Code-Analyse
+
+
+<div style="page-break-after: always;"></div>
 
 # Best Practices
 ## Chunk-Größe wählen
@@ -266,32 +274,53 @@ Geeignete Messgrößen sind:
 - Kosten (API-Calls, Compute)
 
 
-# Implementierungs-Beispiel (LangChain)
-```python
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+# Implementierungs-Beispiel (Pseudo-Code)
 
-# Rekursives Zeichen-Chunking mit LangChain
-text_splitter = RecursiveCharacterTextSplitter(
-    chunk_size=512,           # Chunk-Größe in Zeichen
-    chunk_overlap=50,         # Überlappung in Zeichen
-    length_function=len,
-    separators=["\n\n", "\n", " ", ""]  # Hierarchie der Trennzeichen
-)
+Das konkrete Framework kann sich ändern. Stabil bleibt die Pipeline: Dokument laden, passende Strategie wählen, Grenzen bestimmen, Chunks prüfen und erst danach indexieren.
 
-chunks = text_splitter.split_text(document_text)
+```text
+Pseudo-Code, nicht als Python ausführen:
+
+Eingabe:
+    dokument_text
+    ziel: z. B. Q&A, Zusammenfassung oder Klassifikation
+    dokumenttyp: z. B. Fließtext, Markdown, Code oder Tabelle
+
+Chunking vorbereiten:
+    passende Strategie wählen
+    Zielgröße festlegen
+    Überlappung festlegen
+    Trennzeichen oder Strukturgrenzen festlegen
+
+Chunking ausführen:
+    Text entlang stabiler Grenzen teilen
+    wenn Abschnitt zu groß:
+        nächstfeinere Grenze verwenden
+    wenn Abschnitt zu klein:
+        mit benachbartem Abschnitt zusammenführen
+    Überlappung zwischen benachbarten Chunks ergänzen
+
+Qualität prüfen:
+    keine wichtigen Sätze mitten trennen
+    Chunk-Größen verteilen sich plausibel
+    Metadaten wie Quelle, Abschnitt und Position speichern
 ```
 
-**Wichtig:** `chunk_size` bezieht sich hier auf **Zeichen**, nicht Tokens! Für Token-basiertes Chunking:
+**Wichtig:** Die Einheit der Größe muss explizit sein. Manche Verfahren zählen Zeichen, andere Tokens. Für RAG ist entscheidend, dass die gewählte Einheit zur späteren Modell- und Embedding-Pipeline passt.
 
-```python
-from langchain.text_splitter import TokenTextSplitter
+```text
+Pseudo-Code, nicht als Python ausführen:
 
-text_splitter = TokenTextSplitter(
-    chunk_size=512,           # Chunk-Größe in Tokens
-    chunk_overlap=50          # Überlappung in Tokens
-)
+wenn tokenbasiertes Chunking nötig ist:
+    Tokenizer des Zielmodells verwenden
+    Text in Tokens zählen
+    Chunks nach Tokenlimit bilden
+    Überlappung ebenfalls in Tokens berechnen
 
-chunks = text_splitter.split_text(document_text)
+wenn zeichenbasiertes Chunking reicht:
+    Zeichen oder Absätze zählen
+    Chunks nach Strukturgrenzen bilden
+    Ergebnis mit echten Retrieval-Fragen testen
 ```
 
 

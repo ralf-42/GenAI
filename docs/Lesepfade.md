@@ -160,9 +160,9 @@ Die Dokumentation ist in Bereiche gegliedert, die unterschiedliche Funktionen ha
 | `concepts/` | Begriffe, Modelle, Entscheidungslogik | Wie lässt sich das Thema einordnen? |
 | `frameworks/` | Einstieg und Arbeitsweise mit Tools | Wie wird es konkret umgesetzt? |
 | `deployment/` | Betrieb, Produktisierung, Übergang in reale Systeme | Wie wird aus einer Demo ein System? |
+| `projekte/` | projektnahe Aufgaben und Kursformate | Wie lässt sich das Gelernte anwenden? |
 | `regulatorisches/` | rechtliche und organisatorische Einordnung | Welche Rahmenbedingungen gelten? |
 | `ressourcen/` | Hilfen, Setup, Nachschlagepunkte | Was hilft bei der praktischen Arbeit? |
-| `projekte/` | projektnahe Aufgaben und Kursformate | Wie lässt sich das Gelernte anwenden? |
 
 ## Leselogik statt Vollständigkeit
 
@@ -181,9 +181,9 @@ Gerade bei GenAI-Projekten führt Vollständigkeit schnell in Sackgassen. Ein zu
 | [concepts](./concepts.html) | Welche Konzeptdokumente stehen zur Verfügung? |
 | [frameworks](./frameworks.html) | Welche Frameworks und Best Practices werden behandelt? |
 | [deployment](./deployment.html) | Welche Dokumente begleiten den Weg in den Betrieb? |
+| [projekte](./projekte.html) | Welche projektnahen Aufgaben und Kursformate stehen bereit? |
 | [regulatorisches](./regulatorisches.html) | Welche rechtlichen und organisatorischen Rahmenbedingungen gelten? |
 | [ressourcen](./ressourcen.html) | Welche Hilfen und Nachschlagepunkte unterstützen die Umsetzung? |
-| [projekte](./projekte.html) | Welche projektnahen Aufgaben und Kursformate stehen bereit? |
 
 ---
 

@@ -26,7 +26,8 @@ has_toc: true
 
 
 # Technische Grundlagen
-Bevor wir in die praktische Anwendung von Audio-KI eintauchen, ist es wichtig, die grundlegenden technischen Konzepte zu verstehen, die hinter diesen Modellen stehen.
+
+Es ist es wichtig, die grundlegenden technischen Konzepte zu verstehen, die hinter diesen Modellen stehen.
 
 ## Von der Schallwelle zum digitalen Signal
 
@@ -43,7 +44,7 @@ Audio ist physikalisch betrachtet eine Schallwelle, die durch Druckschwankungen 
 ## Wie funktionieren Audio-KI-Modelle?
 
 
-### Speech-to-Text (Whisper)
+### Speech-to-Text (STT, z.B. Whisper)
 OpenAI's Whisper nutzt eine **Encoder-Decoder-Architektur** mit Transformer-Technologie:
 
 - Der **Encoder** wandelt das Audiosignal in eine kompakte Repräsentation um
@@ -51,7 +52,8 @@ OpenAI's Whisper nutzt eine **Encoder-Decoder-Architektur** mit Transformer-Tech
 
 Whisper wurde mit über 680.000 Stunden mehrsprachiger Audiodaten trainiert, wodurch es verschiedene Sprachen, Akzente und Umgebungsgeräusche verarbeiten kann.
 
-### Text-to-Speech (TTS-1)
+### Text-to-Speech (TTS, z.B. TTS-1)
+
 TTS-1 verwendet ebenfalls eine komplexe neuronale Netzwerkarchitektur:
 
 1. **Text-Encoder**: Wandelt Text in linguistische Merkmale um
@@ -91,6 +93,7 @@ Diese technischen Grundlagen erklären, warum moderne Audio-KI-Modelle so leistu
 
 
 # Herausforderungen und Grenzen
+
 Obwohl moderne Audio-KI-Systeme beeindruckende Ergebnisse erzielen, stoßen sie in bestimmten Situationen an ihre Grenzen. Diese Herausforderungen zu verstehen ist wichtig, um realistische Erwartungen zu setzen und die Qualität der Ergebnisse zu verbessern.
 
 ## Herausforderungen bei Speech-to-Text (STT)
@@ -108,7 +111,7 @@ Obwohl moderne Audio-KI-Systeme beeindruckende Ergebnisse erzielen, stoßen sie 
 ### Inhaltliche Komplexität
 - **Fachbegriffe**: Spezialisierte Terminologie wird oft falsch transkribiert
 - **Eigennamen**: Ungewöhnliche Namen werden häufig falsch erkannt
-- **Homophone**: Wörter, die gleich klingen aber unterschiedlich geschrieben werden, führen zu Fehlern
+- **Homophone**: Wörter, die gleich klingen aber unterschiedlich geschrieben werden, führen zu Fehlern (z.B. mehr/Meer, Saite/Seite, Lehre/Leere)
 
 ### Grenzen bei Text-to-Speech (TTS)
 
@@ -140,8 +143,8 @@ Das Bewusstsein für diese Herausforderungen hilft, Audio-KI-Technologien realis
 
 
 
-
 # Grundbegriffe für Einsteiger
+
 Bevor wir uns mit der KI-basierten Audioverarbeitung beschäftigen, ist es wichtig, einige grundlegende Konzepte der digitalen Audioverarbeitung zu verstehen.
 
 ## Was ist digitales Audio?
@@ -154,7 +157,6 @@ Audio besteht physikalisch aus Schallwellen – Druckschwankungen in der Luft, d
 2. **Analog-Digital-Wandlung**: Diese kontinuierlichen Signale werden in diskrete Zahlenwerte umgewandelt
 3. **Speicherung**: Die Zahlenwerte werden als Datei gespeichert
 4. **Verarbeitung**: Die gespeicherten Werte können nun durch Programme verarbeitet werden
-
 
 ## Wichtige Audio-Parameter
 
@@ -217,38 +219,6 @@ Die Qualität der Audioeingabe beeinflusst direkt die Ergebnisse der KI-Verarbei
 
 
 # Probleme & Hacks Audio-API
-## API-Fehler bei OpenAI
-
-**Symptome:**
-- Fehlermeldung: "Rate limit exceeded"
-- Timeout-Fehler
-
-**Lösungsansätze:**
-```python
-import openai
-import time
-import backoff
-
-# Exponential Backoff-Funktion für Wiederholungsversuche
-@backoff.on_exception(backoff.expo, 
-                     (openai.RateLimitError, openai.APITimeoutError),
-                     max_tries=5)
-def transcribe_with_retry(file_path):
-    with open(file_path, "rb") as audio_file:
-        try:
-            response = openai.audio.transcriptions.create(
-                model="whisper-1",
-                file=audio_file
-            )
-            return response.text
-        except Exception as e:
-            print(f"Fehler bei der Transkription: {e}")
-            # Warten vor dem nächsten Versuch
-            time.sleep(2)
-            raise e
-```
-
-<div style="page-break-after: always;"></div>
 
 ## Unnatürliche Aussprache
 

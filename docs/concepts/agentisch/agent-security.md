@@ -1,7 +1,8 @@
 ---
 layout: default
 title: GenAI-Sicherheit
-parent: Konzepte
+parent: Produktive Anwendungen
+grand_parent: Konzepte
 nav_order: 5
 description: Sicherheitsrisiken und Schutzprinzipien für GenAI-Anwendungen mit Tools, Datenzugriff und externen Schnittstellen
 has_toc: true

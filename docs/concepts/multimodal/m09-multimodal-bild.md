@@ -72,10 +72,6 @@ Bei traditionellen Methoden müssen explizit Merkmale definiert werden, die als 
 
 Diese Verfahren erfordern umfassendes domänenspezifisches Wissen und sind oft anfällig für Variationen in Beleuchtung, Perspektive oder Bildrauschen.
 
-[Merkmals-Filter](https://editor.p5js.org/ralf.bendig.rb/full/zLXqi5u6f)
-
-[Merkmals-Filter-Anwendung](https://editor.p5js.org/ralf.bendig.rb/full/Xi2uabjR9)
-
 
 ## Deep Learning
 
@@ -91,13 +87,18 @@ Deep-Learning-Modelle werden auf große Datensätze trainiert, wodurch sie eine 
 <img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250311193143.png" alt="Convolutional Neural Network" width="600">
 
 
-[Bild](https://towardsdatascience.com/a-comprehensive-guide-to-convolutional-neural-networks-the-eli5-way-3bd2b1164a53)
+[Quelle:](https://towardsdatascience.com/a-comprehensive-guide-to-convolutional-neural-networks-the-eli5-way-3bd2b1164a53)
+
+[Merkmals-Filter](https://editor.p5js.org/ralf.bendig.rb/full/zLXqi5u6f)
+
+[Merkmals-Filter-Anwendung](https://editor.p5js.org/ralf.bendig.rb/full/Xi2uabjR9)
+
 
 # Bild-Modelle
 ## Text-zu-Bild-Modelle
 
 
-In diesem Abschnitt liegt der Fokus auf Text-zu-Bild-Modellen. Gemeint sind Systeme, die aus einer textlichen Beschreibung ein Bild erzeugen. Technisch verbinden sie Sprachverarbeitung mit Bildmodellen und übersetzen sprachliche Hinweise in visuelle Merkmale wie Objekte, Stil, Perspektive oder Farbgebung.  
+Gemeint sind Systeme, die aus einer textlichen Beschreibung ein Bild erzeugen. Technisch verbinden sie Sprachverarbeitung mit Bildmodellen und übersetzen sprachliche Hinweise in visuelle Merkmale wie Objekte, Stil, Perspektive oder Farbgebung.  
 
 Ein zentrales Merkmal dieser Modelle ist die Verknüpfung sprachlicher und visueller Muster. Durch große Datensätze mit Text-Bild-Paaren lernen sie, Beschreibungen wie „eine Katze sitzt auf einem Fensterbrett“ mit Formen, Texturen, Farben und räumlichen Beziehungen zu verbinden. In der Praxis ist dabei wichtig: Solche Modelle erzeugen oft überzeugende Bilder, arbeiten aber nicht im Sinne eines gesicherten Weltmodells. Details, Proportionen oder Schrift im Bild bleiben typische Fehlerquellen.
 
@@ -108,18 +109,20 @@ Hier wird veranschaulicht, wie DALL·E ein Bild mit einem zauberhaften Märchenw
 
 ## Multimodale Modelle
 
-In diesem Abschnitt geht es um multimodale Modelle, die verschiedene Datentypen wie Text, Bilder, Audio oder Video gemeinsam verarbeiten. Der relevante Unterschied liegt nicht im Marketingbegriff, sondern darin, dass solche Systeme Beziehungen zwischen mehreren Eingabeformen auswerten können. Dadurch werden Aufgaben möglich, bei denen eine Modalität allein nicht ausreicht.  
+Von multimodale Modelle spricht man, wenn verschiedene Datentypen wie Text, Bilder, Audio oder Video gemeinsam verarbeitet werden. Der relevante Unterschied liegt nicht im Marketingbegriff, sondern darin, dass solche Systeme Beziehungen zwischen mehreren Eingabeformen auswerten können. Dadurch werden Aufgaben möglich, bei denen eine Modalität allein nicht ausreicht.  
 
 Während spezialisierte Modelle nur einzelne Übergänge zwischen Modalitäten abbilden, verknüpfen multimodale Modelle mehrere Informationsarten innerhalb derselben Aufgabe. Das ist etwa bei Bildunterschriften, visuellen Fragen oder der Analyse technischer Screenshots relevant. In Übungen zeigt sich allerdings auch, dass multimodal nicht automatisch verlässlich bedeutet. Sobald feine Details, kleine Schriften oder mehrdeutige Bildausschnitte ins Spiel kommen, nimmt die Fehlerquote spürbar zu.
 
-Ein anschauliches Beispiel für multimodale Fähigkeiten ist die Analyse eines handgezeichneten Tic-Tac-Toe-Bretts. Ein solches Modell kann ein Bild des Spiels interpretieren, die Platzierung von X und O erkennen und basierend auf den Spielregeln den Gewinner bestimmen – ohne zusätzliche textliche Informationen über das Spielfeld zu benötigen.
+Ein anschauliches Beispiel für multimodale Fähigkeiten ist die Analyse eines Tic-Tac-Toe-Bretts. Ein solches Modell kann ein Bild des Spiels interpretieren, die Platzierung von X und O erkennen und basierend auf den Spielregeln den Gewinner bestimmen – ohne zusätzliche textliche Informationen über das Spielfeld zu benötigen.
 
-<img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250311190642.png" alt="Tic-Tac-Toe Multimodales Beispiel" width="500">
+<img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250311190642.png" alt="Tic-Tac-Toe Multimodales Beispiel" width="600">
 
 Die Kombination verschiedener Datentypen erweitert den möglichen Einsatzbereich deutlich. Für den Kurs ist vor allem relevant, an welcher Stelle multimodale Systeme tatsächlich Mehrwert liefern und wo ein einfacherer Text- oder Workflow-Ansatz ausreicht.
 
 
 # Image-Embeddings
+
+
 Ähnlich wie bei Text-Embeddings, die Wörter oder Sätze in einer Weise kodieren, dass semantische Ähnlichkeiten erhalten bleiben, transformieren Image-Embeddings visuelle Merkmale in eine für Maschinen lernbare Form.  
 
 Mithilfe neuronaler Netze – typischerweise Convolutional Neural Networks (CNNs) oder Transformer-Modelle wie CLIP – werden hochdimensionale Bilddaten in kompakte Vektoren umgewandelt. Diese Embeddings ermöglichen Aufgaben wie Bildähnlichkeitssuche, Clustering oder die Kombination von Bild- und Textdaten für multimodale Modelle.  
