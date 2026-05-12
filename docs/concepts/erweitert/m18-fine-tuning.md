@@ -1,9 +1,9 @@
 ---
 layout: default
 title: Fine-Tuning
-parent: Erweiterte Techniken
+parent: Entscheidungen & Qualität
 grand_parent: Konzepte
-nav_order: 6
+nav_order: 3
 description: "Model Adaptation: Fine-Tuning-Strategien, LoRA und PEFT-Methoden"
 has_toc: true
 ---

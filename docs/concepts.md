@@ -31,24 +31,29 @@ Diese Seiten klären die Mechanik hinter den Modellen. Sie sind dort besonders n
 - [Tokenizing & Chunking](concepts/grundlagen/m08a-tokenizing-chunking.html) – *Wie wird Text so zerlegt, dass Retrieval noch sinnvoll bleibt?*
 - [Embeddings](concepts/grundlagen/m08b-embeddings.html) – *Wie wird Bedeutung als Vektor darstellbar?*
 
+## Anwendungsmethoden
+
+Diese Seiten behandeln die Methoden, mit denen Sprachmodelle gezielt gesteuert, mit Kontext versorgt und an eigene Wissensquellen gebunden werden. Sie bilden das praktische Handwerkszeug für fast jede GenAI-Anwendung.
+
+- [Prompt Engineering](concepts/erweitert/prompt-engineering.html) – *Wie werden Modelle gezielt gesteuert?*
+- [Context Engineering](concepts/erweitert/m21-context-engineering.html) – *Welche Informationen braucht ein System wirklich?*
+- [RAG-Konzepte](concepts/erweitert/rag-konzepte.html) – *Wann hilft Retrieval und wann schadet es eher?*
+
+## Entscheidungen & Qualität
+
+Diese Seiten behandeln die Fragen, die entstehen, wenn eine Anwendung nicht mehr nur funktionieren, sondern zuverlässig und nachvollziehbar arbeiten soll: Welches Modell passt zur Aufgabe, wie wird Qualität messbar, und wann lohnt sich eigenes Training.
+
+- [Modellauswahl](concepts/erweitert/m19-modellauswahl.html) – *Nach welchen Kriterien wird ein Modell ausgewählt?*  
+  Praktische Designregeln für den Kurs finden sich ergänzend im [Modell-Auswahl Guide](frameworks/modell-auswahl/modell-auswahl-guide.html).
+- [Evaluation & Observability](concepts/erweitert/evaluation-observability.html) – *Wie wird sichtbar, ob eine GenAI-Anwendung gut funktioniert?* Mindeststandard für Testsets, RAG-Qualitätsprüfung, Tracing und Fehleranalyse.
+- [Fine-Tuning](concepts/erweitert/m18-fine-tuning.html) – *Wann reicht Prompting nicht mehr aus?* Einordnung von Training als spätere Optimierungsoption.
+
 ## Multimodale Konzepte
 
 Sobald neben Text auch Bilder, Audio oder spezialisierte Modelle ins Spiel kommen, steigen Möglichkeiten und Fehlannahmen zugleich. Diese Seiten trennen technische Möglichkeiten von dem, was im Projektalltag tatsächlich tragfähig ist.
 
 - [Multimodal Bild](concepts/multimodal/m09-multimodal-bild.html) – *Was leisten multimodale Bildmodelle wirklich?*
 - [Multimodal Audio](concepts/multimodal/m16-multimodal-audio.html) – *Wann lohnt sich Audio im Workflow?*
-
-## Erweiterte Techniken
-
-Diese Dokumente greifen dort ein, wo einzelne Bausteine zusammenspielen müssen. Gerade in diesen Themen zeigt sich oft, ob eine Anwendung nur beeindruckend aussieht oder im Alltag belastbar arbeitet.
-
-- [Prompt Engineering](concepts/erweitert/prompt-engineering.html) – *Wie werden Modelle gezielt gesteuert?*
-- [Context Engineering](concepts/erweitert/m21-context-engineering.html) – *Welche Informationen braucht ein System wirklich?*
-- [RAG-Konzepte](concepts/erweitert/rag-konzepte.html) – *Wann hilft Retrieval und wann schadet es eher?*
-- [Modellauswahl](concepts/erweitert/m19-modellauswahl.html) – *Nach welchen Kriterien wird ein Modell ausgewählt?*  
-  Praktische Designregeln für den Kurs finden sich ergänzend im [Modell-Auswahl Guide](frameworks/modell-auswahl/modell-auswahl-guide.html).
-- [Evaluation & Observability](concepts/erweitert/evaluation-observability.html) – *Wie wird sichtbar, ob eine GenAI-Anwendung gut funktioniert?* Mindeststandard für Testsets, RAG-Qualitätsprüfung, Tracing und Fehleranalyse.
-- [Fine-Tuning](concepts/erweitert/m18-fine-tuning.html) – *Wann reicht Prompting nicht mehr aus?* Einordnung von Training als spätere Optimierungsoption.
 
 ## Produktive und agentische Anwendungen
 

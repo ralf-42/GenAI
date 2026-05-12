@@ -1,9 +1,9 @@
 ---
 layout: default
 title: Evaluation & Observability
-parent: Erweiterte Techniken
+parent: Entscheidungen & Qualität
 grand_parent: Konzepte
-nav_order: 5
+nav_order: 2
 description: "Bewertung, Qualitaetssicherung und Observability von GenAI-Anwendungen"
 has_toc: true
 ---

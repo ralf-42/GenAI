@@ -1,9 +1,9 @@
 ---
 layout: default
 title: Modellauswahl
-parent: Erweiterte Techniken
+parent: Entscheidungen & Qualität
 grand_parent: Konzepte
-nav_order: 4
+nav_order: 1
 description: "LLM-Auswahl: Kriterien, Benchmarks und Entscheidungshilfen"
 has_toc: true
 ---

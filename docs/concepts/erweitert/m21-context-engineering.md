@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Context Engineering
-parent: Erweiterte Techniken
+parent: Anwendungsmethoden
 grand_parent: Konzepte
 nav_order: 2
 description: "Context Management: Optimierung von Context-Fenstern und Memory-Strategien"
