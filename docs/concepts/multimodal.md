@@ -2,7 +2,7 @@
 layout: default
 title: Multimodale Konzepte
 parent: Konzepte
-nav_order: 3
+nav_order: 5
 has_children: true
 description: "Bilder und Audio: Möglichkeiten und Grenzen multimodaler GenAI"
 ---

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: RAG-Konzepte
-parent: Erweiterte Techniken
+parent: Anwendungsmethoden
 grand_parent: Konzepte
 nav_order: 3
 description: "Retrieval Augmented Generation im Detail – Architektur, Strategien und Best Practices"

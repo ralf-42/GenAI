@@ -2,7 +2,7 @@
 layout: default
 title: Produktive Anwendungen
 parent: Konzepte
-nav_order: 5
+nav_order: 6
 has_children: true
 description: "Tools, State, Memory und Sicherheit: Konzepte für belastbare GenAI-Anwendungssysteme"
 ---

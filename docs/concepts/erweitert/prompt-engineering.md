@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Prompt Engineering
-parent: Erweiterte Techniken
+parent: Anwendungsmethoden
 grand_parent: Konzepte
 nav_order: 1
 description: "Strategien für effektive Prompts in KI-Agenten-Systemen"
