@@ -35,7 +35,7 @@ Ein **Embedding** ist eine mathematische Darstellung eines Wortes, Satzes oder B
 - Das Wort **„Queen“** könnte **[0.98, 0.07, 0.93, 0.71]** haben.
 - Das Wort **„Girl“** könnte **[0.56, 0.09, 0.91, 0.11]** haben.
 
-→ Die Zahlen von „King“ und „Queen“ sind **ähnlicher** als die von „Man“ und „Girl“. Dies zeigt, dass die KI die inhaltliche Nähe dieser Begriffe versteht.
+→ Die Zahlen von „King“ und „Queen“ sind **ähnlicher** als die von „King“ und „Girl“. Dies zeigt, dass die KI die inhaltliche Nähe dieser Begriffe versteht.
 
 **Beispiel für Bilder:**
 
@@ -59,6 +59,8 @@ Embeddings werden nicht nur für Sprache und Bilder genutzt, sondern auch in Emp
 
 
 # Wie entstehen Embeddings?
+
+
 Embeddings werden mit **künstlichen neuronalen Netzen** oder **statistischen Methoden** erzeugt. Dabei durchläuft der Prozess mehrere Schritte:
 
 1. **Daten sammeln**
@@ -93,7 +95,10 @@ Embeddings werden mit **künstlichen neuronalen Netzen** oder **statistischen Me
 ---
 
 # Positional Encoding
+
+
 Die Positionskodierung fügt jedem Token-Vektor (aus der Einbettungsmatrix) Informationen über seine Position in der Sequenz hinzu.  Dies geschieht durch die Kombination von Positionsinformationen und den ursprünglichen Token-Einbettungen. Ohne zusätzliche Information gäbe es keinen Unterschied zwischen:
+
 + *Die Katze jagt den Hund* und
 + *Den Hund jagt die Katze*
 
@@ -103,7 +108,9 @@ Die Positionskodierung ist wie ein kleiner Hinweiszettel, der sagt, welches Wort
 ---
 
 # Embedding-Modelle
-Es gibt verschiedene Einbettungsmodelle wie Word2Vec, GloVe und FastText für Wortrepräsentationen, BERT für kontextuelle Einbettungen sowie Node2Vec und LSTM-basierte Modelle für Netzwerke und Sequenzen, die jeweils auf spezifische Anwendungsfälle und Datenstrukturen optimiert sind.
+
+
+Es gibt verschiedene Einbettungsmodelle wie Word2Vec, GloVe und FastText für Wortrepräsentationen, BERT für kontextuelle Einbettungen für Netzwerke und Sequenzen, die jeweils auf spezifische Anwendungsfälle und Datenstrukturen optimiert sind.
 
 
 **Übersicht Einbettungsmodelle:**
@@ -124,7 +131,9 @@ Es gibt verschiedene Einbettungsmodelle wie Word2Vec, GloVe und FastText für Wo
 | LSTM-basierte Sequenzeinbettungen | 50-500 Dimensionen                             | Zeitreihen, Sprachmodellierung, NLP      |
 
 # Training von Embedding-Modellen
-Das Training von Embedding-Modellen wie Word2Vec basiert auf der Idee, dass Wörter, die in ähnlichen Kontexten vorkommen, ähnliche Bedeutungen haben. Hier wird detaillierter beschrieben, wie dieses Prinzip im Training umgesetzt wird:
+
+
+Das Training von Embedding-Modellen wie Word2Vec basiert auf der Idee, dass Wörter, die in ähnlichen Kontexten vorkommen, ähnliche Bedeutungen haben. Nachfolgend wird beschrieben, wie dieses Prinzip im Training umgesetzt wird:
 
 **Algorithmus-Auswahl**
 
@@ -140,7 +149,7 @@ Das Training von Word2Vec kann wie folgt zusammengefasst werden:
 - **Initialisierung**: Zuerst werden Vektoren für jedes Wort zufällig initialisiert.
 - **Durchlauf durch den Korpus**: Das Modell geht durch den gesamten Textkorpus, nimmt jedes Wort zusammen mit seinen Nachbarwörtern (innerhalb eines bestimmten Fensters) und führt Trainingsiterationen durch.
 - **Verlustfunktion**: Die Hauptaufgabe beim Training ist die Optimierung der Verlustfunktion. Für CBOW und Skip-Gram wird oft eine Funktion verwendet, die die logarithmische Wahrscheinlichkeit maximiert, korrekte Wörter basierend auf ihren Kontexten vorherzusagen.
-    - Bei **CBOW** wird der Verlust berechnet, indem die Differenz zwischen dem vorhergesagten Zielwort und dem tatsächlichen Zielwort über die Softmax-Funktion gemessen wird.
+    - Bei **CBOW** wird der Verlust berechnet, indem die Differenz zwischen dem *vorhergesagten* Zielwort und dem *tatsächlichen* Zielwort über die Softmax-Funktion gemessen wird.
     - Beim **Skip-Gram** wird der Verlust für jedes vorhergesagte Kontextwort berechnet.
 - **Backpropagation**: Mit Hilfe des Gradientenabstiegs oder ähnlicher Optimierungsalgorithmen werden die Gewichte (Wortvektoren) so angepasst, dass die Verlustfunktion minimiert wird. Dies bedeutet, dass die Wortvektoren nach und nach angepasst werden, um den wahren Kontext besser widerzuspiegeln.
 
@@ -153,7 +162,8 @@ Das Ergebnis des Trainings ist ein Set von Vektoren, eines für jedes Wort im Vo
 Um die Qualität der Embeddings zu überprüfen, werden oft qualitative Tests wie die Suche nach den nächsten Nachbarn (ähnliche Wörter finden) oder quantitative Benchmarks (z.B. auf Datensätzen für analoge Aufgaben) durchgeführt. Diese Evaluierungen helfen dabei festzustellen, ob das Modell die Wortbedeutungen effektiv erfasst hat.
 
 # Kombi: Embedding - Token - Chunk
-Hier ist eine tabellarische Übersicht, die ausgehend vom **Embedding-Modell** zeigt, welche **Tokenizer** und **Chunking-Strategien** zulässig oder üblich sind
+
+Hier ist eine tabellarische Übersicht, die ausgehend vom **Embedding-Modell** zeigt, welche **Tokenizer** und **Chunking-Strategien** zulässig oder üblich sind:
 
 | **Embeddingmodell**         | **Zulässiger Tokenizer**                                                               | **Empfohlene Chunking-Strategie**                                               |
 | --------------------------- | -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
@@ -165,6 +175,8 @@ Hier ist eine tabellarische Übersicht, die ausgehend vom **Embedding-Modell** z
 | `e5-base-v2`                | `transformers.AutoTokenizer.from_pretrained("intfloat/e5-base-v2")`                    | Max. **512 Tokens** ggf. Split mit Overlap, um Kontext zu erhalten              |
 
 # Warum sind Embeddings so wichtig?
+
+
 + **Sprachverarbeitung**: Chatbots, Übersetzungen und Textanalysen basieren auf Embeddings. 
 + **Bilderkennung**: KI kann ähnliche Bilder oder Objekte erkennen.  
 + **Suche & Empfehlungssysteme**: Personalisierte Vorschläge auf Plattformen wie Netflix, Spotify oder YouTube nutzen Embeddings.  

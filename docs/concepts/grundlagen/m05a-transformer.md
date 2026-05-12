@@ -23,7 +23,6 @@ has_toc: true
 
 ---
 
-
 # Was ist ein Transformer?
 Stellen wir uns vor, jemand liest einen Text und versucht ihn zu verstehen. Dabei schaut man nicht nur auf ein Wort nach dem anderen, sondern das Gehirn verbindet alle Wörter miteinander - manche sind wichtiger für das Verständnis als andere.
 

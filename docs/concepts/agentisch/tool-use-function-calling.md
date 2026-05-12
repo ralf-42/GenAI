@@ -1,7 +1,8 @@
 ---
 layout: default
 title: "Tool Use & Function Calling"
-parent: Konzepte
+parent: Produktive Anwendungen
+grand_parent: Konzepte
 nav_order: 1
 description: "Tool Use und Function Calling fuer GenAI-Anwendungen: warum Werkzeuge noetig sind und wie sie sicher eingebunden werden"
 has_toc: true
@@ -48,6 +49,22 @@ Genau dieses Muster skaliert später auf realere Fälle: Datenbankabfragen, Webs
 
 Function Calling ist der Mechanismus, mit dem ein Modell strukturiert angibt, welches Tool mit welchen Parametern ausgeführt werden soll. Das Modell formuliert also nicht nur freien Text, sondern einen maschinenlesbaren Aufruf.
 
+```text
+Pseudo-Code, nicht als Python ausführen:
+
+Nutzer stellt Anfrage
+Modell prüft:
+    kann ich direkt antworten?
+    brauche ich ein Werkzeug?
+
+wenn Werkzeug nötig:
+    Tool auswählen
+    Parameter vorschlagen
+    Anwendung validiert Parameter
+    Anwendung führt Tool aus
+    Modell formuliert Antwort aus Tool-Ergebnis
+```
+
 ```mermaid
 sequenceDiagram
     autonumber
@@ -76,6 +93,16 @@ Typischer Fehler: Zu denken, dass das Modell damit bereits sicher und korrekt ge
 ## Tools definieren
 
 Ein Tool ist mehr als eine technische Funktion. Für das Modell ist vor allem das sichtbare Schema relevant: Name, Beschreibung, Parameter und erwartete Rückgabe. Die konkrete Implementierung kann sich je nach Framework ändern; das architektonische Prinzip bleibt gleich.
+
+```text
+Pseudo-Code, nicht als Python ausführen:
+
+Tool definieren:
+    Name: eindeutig und handlungsnah
+    Beschreibung: Zweck und Grenzen
+    Parameter: Pflichtfelder, Typen, erlaubte Werte
+    Rückgabe: kurz, relevant, weiterverarbeitbar
+```
 
 | Designfrage | Empfehlung |
 |---|---|
@@ -144,6 +171,20 @@ Der Vorteil liegt darin, dass Schema und Validierung nicht auseinanderdriften. G
 
 Ein Tool kann fehlschlagen: Datei nicht gefunden, Datenbank nicht erreichbar, Eingabe ungültig. Gute Tools liefern deshalb nicht nur einen Absturz, sondern eine verständliche Rückmeldung, mit der der Agent weiterarbeiten kann.
 
+```text
+Pseudo-Code, nicht als Python ausführen:
+
+Tool ausführen:
+    wenn Eingabe ungültig:
+        verständlichen Validierungsfehler zurückgeben
+    wenn externe Quelle nicht erreichbar:
+        temporären Fehler melden
+    wenn keine Treffer:
+        leeres Ergebnis sauber erklären
+    sonst:
+        gefiltertes Ergebnis zurückgeben
+```
+
 | Fehlerart | Gute Tool-Reaktion |
 |---|---|
 | Eingabe ungültig | klar sagen, welches Feld fehlt oder falsch ist |
@@ -156,6 +197,17 @@ Typischer Fehler: Nur einen technischen Fehlerstring zurückzugeben. Ein Agent b
 ## Tool-Ausgaben vor dem Weitergeben filtern
 
 Was ein Werkzeug zurückgibt, ist nicht automatisch das, was in den Agenten-Kontext fließen sollte. Rohe API-Antworten enthalten oft Statusfelder, verschachtelte Metadaten oder große Mengen irrelevanter Daten. Fließt all das ungefiltert in das Kontextfenster, verbraucht es Token, kann das Modell ablenken und erhöht das Risiko, dass nachfolgende Entscheidungen auf Nebeninformationen statt auf dem Kern basieren.
+
+```text
+Pseudo-Code, nicht als Python ausführen:
+
+nach Tool-Aufruf:
+    rohe Antwort entgegennehmen
+    irrelevante Felder entfernen
+    sensible Felder entfernen oder maskieren
+    Ergebnis auf notwendige Passagen reduzieren
+    Quelle oder Fundstelle beilegen
+```
 
 | Rohes Ergebnis | Bessere Rückgabe an den Agenten |
 |---|---|
@@ -183,6 +235,18 @@ Gerade in Einsteigerprojekten spart dieser Zwischenschritt viel Zeit, weil unkla
 ## Tools an das Modell binden
 
 Sobald Werkzeuge definiert sind, können sie an ein Modell oder einen Agenten gebunden werden. Das Modell entscheidet dann selbst, ob ein Tool sinnvoll ist. Wichtig ist: Die Tool-Absicht ist noch keine Tool-Ausführung. Erst die Agentenlaufzeit oder Anwendung validiert und führt den Aufruf wirklich aus.
+
+```text
+Pseudo-Code, nicht als Python ausführen:
+
+Agentenlauf:
+    Modell sieht verfügbare Tool-Schemata
+    Modell schlägt Tool-Aufruf vor
+    Runtime prüft Berechtigung und Parameter
+    Runtime führt Tool kontrolliert aus
+    Runtime gibt gefiltertes Ergebnis zurück
+    Modell erzeugt Antwort oder nächsten Schritt
+```
 
 | Schritt | Verantwortung |
 |---|---|
@@ -213,6 +277,17 @@ Ein Datums-Tool ist nützlich, wenn aktuelle Zeitinformation gebraucht wird. Ein
 
 Bei Operationen mit realen Folgen, etwa Rückerstattung, Löschung oder Zahlung, reicht ein einzelnes Tool oft nicht aus. Ein sinnvolles Muster ist Two-Step Veto: Zuerst wird geprüft, danach erst ausgeführt.
 
+```text
+Pseudo-Code, nicht als Python ausführen:
+
+wenn Tool hohe Außenwirkung hat:
+    Policy prüfen
+    geplante Aktion verständlich anzeigen
+    explizite Freigabe einholen
+    Aktion ausführen
+    Ergebnis und Entscheidung auditieren
+```
+
 | Risikostufe | Beispiel | Zusätzliche Schranke |
 |---|---|---|
 | niedrig | Wetter abrufen | keine besondere Freigabe |
@@ -227,6 +302,18 @@ Nicht geeignet, wenn Tool-Auswahl generell durch Zwang gesteuert wird. Erzwungen
 ## Progressive Disclosure: nicht alle Tools auf einmal zeigen
 
 In der Praxis relevant, wenn ein Agent auf viele Werkzeuge zugreifen soll, diese aber nicht alle gleichzeitig braucht. Statt alle Tools auf einmal bereitzustellen, kann man dem Agenten zunächst nur wenige, klar beschriebene Einstiegs-Tools geben. Die vollständigen Parameter-Beschreibungen oder spezialisierte Werkzeuge werden erst dann in den Kontext injiziert, wenn der Agent durch einen ersten Tool-Aufruf signalisiert, in welche Richtung er arbeitet.
+
+```text
+Pseudo-Code, nicht als Python ausführen:
+
+Start:
+    nur grobe Einstiegs-Tools anbieten
+
+wenn Agent eine Richtung wählt:
+    passende spezialisierte Tools nachladen
+    unnötige Tools weiterhin ausblenden
+    Entscheidung mit kleinerem Toolset fortsetzen
+```
 
 | Vorteil | Wirkung |
 |---|---|

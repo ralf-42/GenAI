@@ -51,14 +51,17 @@ Effektive Prompts folgen einer klaren Struktur. Drei Grundmuster haben sich etab
 
 Das Modell erhält eine Aufgabe ohne Beispiele und löst sie basierend auf seinem Vorwissen.
 
-```python
-from langchain_core.prompts import ChatPromptTemplate
+```text
+Prompt-Struktur: Zero-Shot
 
-# Zero-Shot: Keine Beispiele, direkte Aufgabe
-prompt = ChatPromptTemplate.from_messages([
-    ("system", "Du bist ein hilfreicher Assistent."),
-    ("human", "Klassifiziere die folgende E-Mail als 'dringend' oder 'normal': {email}")
-])
+System:
+- Du bist ein hilfreicher Assistent.
+
+Aufgabe:
+- Klassifiziere die folgende E-Mail als "dringend" oder "normal".
+
+Eingabe:
+- E-Mail-Text
 ```
 
 **Geeignet für:**
@@ -70,15 +73,23 @@ prompt = ChatPromptTemplate.from_messages([
 
 Das Modell erhält Beispiele, die das gewünschte Verhalten demonstrieren.
 
-```python
-few_shot_prompt = ChatPromptTemplate.from_messages([
-    ("system", "Klassifiziere E-Mails nach Dringlichkeit."),
-    ("human", "Betreff: Server ausgefallen"),
-    ("assistant", "dringend"),
-    ("human", "Betreff: Quartalsbericht verfügbar"),
-    ("assistant", "normal"),
-    ("human", "Betreff: {email_subject}")
-])
+```text
+Prompt-Struktur: Few-Shot
+
+System:
+- Klassifiziere E-Mails nach Dringlichkeit.
+
+Beispiel 1:
+- Eingabe: Betreff "Server ausgefallen"
+- Ausgabe: dringend
+
+Beispiel 2:
+- Eingabe: Betreff "Quartalsbericht verfügbar"
+- Ausgabe: normal
+
+Neue Aufgabe:
+- Eingabe: aktueller E-Mail-Betreff
+- Ausgabe: dringend oder normal
 ```
 
 **Geeignet für:**
@@ -93,21 +104,21 @@ Das Modell wird angewiesen, seinen Denkprozess schrittweise darzulegen.
 > [!WARNING] Sorgfältig einsetzen<br>
 > Chain-of-Thought verbessert komplexe Aufgaben oft deutlich, erhöht aber Token-Verbrauch und Latenz. Für einfache Aufgaben ist Zero-/Few-Shot meist effizienter.
 
-```python
-cot_prompt = ChatPromptTemplate.from_template(
-    """Löse die folgende Aufgabe Schritt für Schritt.
-    
-Aufgabe: {aufgabe}
+```text
+Prompt-Struktur: Chain-of-Thought
 
-Denke laut nach:
-1. Was ist gegeben?
-2. Was wird gesucht?
-3. Welche Schritte sind nötig?
-4. Führe jeden Schritt aus.
+Aufgabe:
+- Löse die folgende Aufgabe Schritt für Schritt.
+
+Arbeitsplan:
+1. Bestimme, was gegeben ist.
+2. Bestimme, was gesucht wird.
+3. Lege die nötigen Schritte fest.
+4. Führe die Schritte aus.
 5. Formuliere die Antwort.
 
-Lösung:"""
-)
+Eingabe:
+- konkrete Aufgabe
 ```
 
 **Geeignet für:**
@@ -137,8 +148,8 @@ Ein guter System-Prompt beantwortet vier Fragen:
 
 ### Beispiel: Vollständiger Agent-System-Prompt
 
-```python
-system_prompt = """Du bist ein technischer Support-Agent für ein Software-Unternehmen.
+```text
+System-Prompt: technischer Support-Agent
 
 ROLLE:
 - Experte für die Produkte X, Y und Z
@@ -160,7 +171,6 @@ EINSCHRÄNKUNGEN:
 - Keine Preisauskünfte oder Vertragsänderungen
 - Keine Zusagen ohne Rücksprache mit dem Vertrieb
 - Bei Sicherheitsfragen immer an Security-Team eskalieren
-"""
 ```
 
 ### Typische Fehler bei System-Prompts
@@ -180,31 +190,28 @@ Die Beschreibung eines Tools bestimmt, ob und wann ein Agent es korrekt einsetzt
 
 ### Anatomie einer guten Tool-Beschreibung
 
-```python
-from langchain_core.tools import tool
+```text
+Tool: search_knowledge
 
-@tool
-def search_knowledge(query: str, max_results: int = 5) -> str:
-    """Durchsucht die interne Wissensdatenbank nach relevanten Artikeln.
-    
-    WANN VERWENDEN:
-    - Bei Fragen zu Produktfunktionen
-    - Bei Fehlermeldungen und deren Lösungen
-    - Bei How-To-Anfragen
-    
-    WANN NICHT VERWENDEN:
-    - Bei Fragen zu Preisen oder Verträgen
-    - Bei persönlichen Kundendaten
-    - Wenn die Antwort bereits bekannt ist
-    
-    Args:
-        query: Suchbegriff oder Frage in natürlicher Sprache
-        max_results: Maximale Anzahl zurückgegebener Artikel (1-10)
-    
-    Returns:
-        Formatierte Liste relevanter Wissensartikel mit Titel und Zusammenfassung
-    """
-    # Implementation...
+Zweck:
+- Durchsucht die interne Wissensdatenbank nach relevanten Artikeln.
+
+Wann verwenden:
+- bei Fragen zu Produktfunktionen
+- bei Fehlermeldungen und deren Lösungen
+- bei How-To-Anfragen
+
+Wann nicht verwenden:
+- bei Fragen zu Preisen oder Verträgen
+- bei persönlichen Kundendaten
+- wenn die Antwort bereits sicher bekannt ist
+
+Eingaben:
+- query: Suchbegriff oder Frage in natürlicher Sprache
+- max_results: maximale Anzahl zurückgegebener Artikel
+
+Ausgabe:
+- Liste relevanter Wissensartikel mit Titel und Zusammenfassung
 ```
 
 ### Checkliste für Tool-Beschreibungen
@@ -226,13 +233,16 @@ Strukturierte Ausgaben machen Agentenantworten verarbeitbar und konsistent.
 
 ### Explizite Formatvorgaben
 
-```python
-format_prompt = ChatPromptTemplate.from_template(
-    """Analysiere den folgenden Text und extrahiere die Kernaussagen.
+```text
+Prompt-Struktur: explizite Formatvorgabe
 
-Text: {text}
+Aufgabe:
+- Analysiere den folgenden Text und extrahiere die Kernaussagen.
 
-Antworte EXAKT in diesem Format:
+Eingabe:
+- Text
+
+Antwortformat:
 HAUPTTHEMA: [Ein Satz]
 KERNAUSSAGEN:
 - [Punkt 1]
@@ -240,8 +250,6 @@ KERNAUSSAGEN:
 - [Punkt 3]
 STIMMUNG: [positiv/neutral/negativ]
 KONFIDENZ: [hoch/mittel/niedrig]
-"""
-)
 ```
 
 ### Strukturierte Ausgaben mit Pydantic
@@ -251,22 +259,20 @@ Für maschinelle Weiterverarbeitung bietet LangChain typsichere Ausgaben:
 > [!TIP] Für Produktion bevorzugen<br>
 > Bei Weiterverarbeitung durch Code sind strukturierte Ausgaben mit Schema-Validierung robuster als freie Textantworten.
 
-```python
-from pydantic import BaseModel, Field
+```text
+Schema: Analyse (Pydantic)
 
-class Analyse(BaseModel):
-    hauptthema: str = Field(description="Zentrales Thema in einem Satz")
-    kernaussagen: list[str] = Field(description="Liste der wichtigsten Punkte")
-    stimmung: str = Field(description="positiv, neutral oder negativ")
-    konfidenz: float = Field(description="Sicherheit der Analyse (0.0-1.0)")
+Felder:
+- hauptthema: zentrales Thema in einem Satz
+- kernaussagen: Liste der wichtigsten Punkte
+- stimmung: positiv, neutral oder negativ
+- konfidenz: Sicherheit der Analyse zwischen 0.0 und 1.0
 
-# LLM mit strukturierter Ausgabe
-structured_llm = llm.with_structured_output(Analyse)
-result = structured_llm.invoke("Analysiere: " + text)
-
-# result ist ein typisiertes Analyse-Objekt
-print(result.hauptthema)
-print(result.konfidenz)
+Ablauf:
+1. Das Modell erhält das Schema als erwartete Ausgabeform.
+2. Das Modell analysiert den Text.
+3. Die Antwort wird gegen das Schema geprüft.
+4. Die Anwendung kann gezielt auf Felder wie hauptthema oder konfidenz zugreifen.
 ```
 
 ---
@@ -277,51 +283,55 @@ print(result.konfidenz)
 
 Die Zuweisung einer spezifischen Rolle verbessert domänenspezifische Antworten.
 
-```python
-role_prompts = {
-    "jurist": "Du bist ein erfahrener Rechtsanwalt mit Spezialisierung auf IT-Recht.",
-    "mediziner": "Du bist ein Facharzt für Innere Medizin mit 20 Jahren Berufserfahrung.",
-    "entwickler": "Du bist ein Senior Software Engineer mit Expertise in Python und Cloud-Architekturen."
-}
+```text
+Prompt-Struktur: Role-Prompting
 
-prompt = ChatPromptTemplate.from_messages([
-    ("system", role_prompts["entwickler"]),
-    ("human", "{frage}")
-])
+Rollenbibliothek:
+- jurist: erfahrener Rechtsanwalt mit Spezialisierung auf IT-Recht
+- mediziner: Facharzt für Innere Medizin mit langjähriger Erfahrung
+- entwickler: Senior Software Engineer mit Erfahrung in Python und Cloud-Architekturen
+
+Ablauf:
+1. Wähle die passende Rolle zur Aufgabe.
+2. Setze diese Rolle als System-Anweisung.
+3. Stelle die konkrete Frage als Nutzereingabe.
 ```
 
 ### Self-Consistency
 
 Mehrere Antworten generieren und die häufigste oder konsistenteste wählen.
 
-```python
-def self_consistent_answer(question: str, n: int = 3) -> str:
-    """Generiert mehrere Antworten und wählt die konsistenteste."""
-    responses = []
-    for _ in range(n):
-        response = llm.invoke(question)
-        responses.append(response.content)
-    
-    # Häufigste Antwort oder Zusammenfassung
-    return aggregate_responses(responses)
+```text
+Strategie: Self-Consistency
+
+Eingaben:
+- question: zu beantwortende Frage
+- n: Anzahl unabhängiger Antwortversuche
+
+Ablauf:
+1. Generiere n Antworten zur gleichen Frage.
+2. Vergleiche die Antworten.
+3. Bestimme die häufigste, stabilste oder am besten begründete Antwort.
+4. Gib diese aggregierte Antwort zurück.
 ```
 
 ### Retrieval-Augmented Prompting
 
 Kontext aus externen Quellen in den Prompt integrieren:
 
-```python
-rag_prompt = ChatPromptTemplate.from_template(
-    """Beantworte die Frage basierend auf dem bereitgestellten Kontext.
-Wenn die Antwort nicht im Kontext steht, sage das ehrlich.
+```text
+Prompt-Struktur: Retrieval-Augmented Prompting
 
-KONTEXT:
-{context}
+Anweisung:
+- Beantworte die Frage nur auf Basis des bereitgestellten Kontexts.
+- Wenn die Antwort nicht im Kontext steht, sage das ausdrücklich.
 
-FRAGE: {question}
+Eingaben:
+- Kontext aus Retrieval
+- Frage der Nutzerin oder des Nutzers
 
-ANTWORT:"""
-)
+Ausgabe:
+- Antwort mit Bezug auf den Kontext
 ```
 
 ---
@@ -360,19 +370,21 @@ flowchart LR
 
 ### Prompt-Versionierung
 
-```python
-PROMPTS = {
-    "classify_email_v1": "Klassifiziere als dringend/normal: {email}",
-    "classify_email_v2": """Klassifiziere die E-Mail:
-- dringend: Systemausfälle, Sicherheitsprobleme, Deadlines < 24h
-- normal: Alle anderen Anfragen
+```text
+Prompt-Versionierung:
 
-E-Mail: {email}
-Klassifikation:""",
-}
+Version classify_email_v1:
+- Klassifiziere eine E-Mail als dringend oder normal.
 
-# In Produktion: Version tracken
-current_version = "classify_email_v2"
+Version classify_email_v2:
+- Klassifiziere eine E-Mail nach expliziten Kriterien.
+- dringend: Systemausfälle, Sicherheitsprobleme, Deadlines unter 24 Stunden
+- normal: alle anderen Anfragen
+
+Produktion:
+- Aktive Prompt-Version dokumentieren
+- Änderungen nachvollziehbar versionieren
+- Testergebnisse pro Version festhalten
 ```
 
 ---
@@ -385,60 +397,85 @@ current_version = "classify_email_v2"
 ### Fehler: Ambige Anweisungen
 
 **Problem:**
-```python
-# Vage und mehrdeutig
-prompt = "Fasse das zusammen: {text}"
+```text
+Vage und mehrdeutig:
+
+Aufgabe:
+- Fasse das zusammen.
+
+Eingabe:
+- Text
 ```
 
 **Lösung:**
-```python
-# Präzise und eindeutig
-prompt = """Erstelle eine Zusammenfassung in 3 Stichpunkten.
-Jeder Punkt maximal 15 Wörter.
-Fokus auf Handlungsempfehlungen.
+```text
+Präzise und eindeutig:
 
-Text: {text}
+Aufgabe:
+- Erstelle eine Zusammenfassung in 3 Stichpunkten.
 
-Zusammenfassung:"""
+Regeln:
+- Jeder Punkt maximal 15 Wörter.
+- Fokus auf Handlungsempfehlungen.
+
+Eingabe:
+- Text
 ```
 
 ### Fehler: Fehlende Beispiele bei komplexen Formaten
 
 **Problem:**
-```python
-# Erwartet spezifisches Format ohne Beispiel
-prompt = "Extrahiere Entitäten aus: {text}"
+```text
+Erwartet ein spezifisches Format ohne Beispiel:
+
+Aufgabe:
+- Extrahiere Entitäten aus dem Text.
+
+Eingabe:
+- Text
 ```
 
 **Lösung:**
-```python
-# Mit Beispiel (Few-Shot)
-prompt = """Extrahiere Entitäten im Format: ENTITÄT (TYP)
+```text
+Mit Beispiel (Few-Shot):
+
+Aufgabe:
+- Extrahiere Entitäten im Format: ENTITÄT (TYP)
 
 Beispiel:
-Text: "Angela Merkel besuchte gestern Berlin."
-Entitäten: Angela Merkel (PERSON), Berlin (ORT), gestern (ZEIT)
+- Text: "Angela Merkel besuchte gestern Berlin."
+- Entitäten: Angela Merkel (PERSON), Berlin (ORT), gestern (ZEIT)
 
-Text: {text}
-Entitäten:"""
+Neue Eingabe:
+- Text
 ```
 
 ### Fehler: Widersprüchliche Anweisungen
 
 **Problem:**
-```python
-# Widerspruch: kurz UND detailliert
-prompt = "Erkläre kurz und detailliert: {thema}"
+```text
+Widersprüchlich:
+
+Aufgabe:
+- Erkläre das Thema kurz und detailliert.
+
+Problem:
+- "kurz" und "detailliert" sind ohne Priorisierung schwer gleichzeitig erfüllbar.
 ```
 
 **Lösung:**
-```python
-# Klare Priorisierung
-prompt = """Erkläre das Thema in zwei Teilen:
-1. KURZFASSUNG (1-2 Sätze): Kernaussage
-2. DETAILS (3-5 Sätze): Wichtige Aspekte
+```text
+Klare Priorisierung:
 
-Thema: {thema}"""
+Aufgabe:
+- Erkläre das Thema in zwei getrennten Teilen.
+
+Struktur:
+1. Kurzfassung: 1-2 Sätze mit der Kernaussage
+2. Details: 3-5 Sätze mit wichtigen Aspekten
+
+Eingabe:
+- Thema
 ```
 
 ---
