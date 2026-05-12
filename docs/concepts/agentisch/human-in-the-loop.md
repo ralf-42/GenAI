@@ -149,7 +149,7 @@ Teilnehmende unterschätzen oft, dass HITL nicht gegen Automatisierung arbeitet.
 |---|---|
 | [State Management](./state-management.html) | Wie werden Unterbrechung und Wiederaufnahme über gespeicherten State vorbereitet? |
 | [Wie werden Agenten gegen Missbrauch und Fehlverhalten abgesichert?](./agent-security.html) | Welche Sicherheitsgrenzen ergänzen oder ersetzen menschliche Kontrolle? |
-| [Evaluation & Observability](../erweitert/evaluation-observability.html) | Wie werden Agentenqualität und Fehlverhalten systematisch sichtbar gemacht? |
+| [Evaluation & Observability](../entscheidungen-qualitaet/evaluation-observability.html) | Wie werden Agentenqualität und Fehlverhalten systematisch sichtbar gemacht? |
 
 ---
 

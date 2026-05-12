@@ -28,7 +28,7 @@ Diese Seite bündelt deshalb drei Dinge:
 
 ## Typische Einstiege
 
-Nicht jede Person startet mit derselben Frage. In der Praxis tauchen meist fünf Ausgangslagen auf.
+Nicht jede Person startet mit derselben Frage. Die folgenden neun Einstiegssituationen decken die häufigsten Ausgangspunkte ab.
 
 ### Orientierung
 
@@ -38,8 +38,8 @@ Empfohlener Einstieg:
 
 1. [Lohnt sich GenAI?](./concepts/orientierung/lohnt-es-sich.html)
 2. [Aufgabenklassen und Lösungswege](./concepts/orientierung/aufgabenklassen-und-loesungswege.html)
-3. [Prompt Engineering](./concepts/erweitert/prompt-engineering.html)
-4. [Modellauswahl](./concepts/erweitert/m19-modellauswahl.html)
+3. [Prompt Engineering](./concepts/anwendungsmethoden/prompt-engineering.html)
+4. [Modellauswahl](./concepts/entscheidungen-qualitaet/m19-modellauswahl.html)
 
 ### Erste eigene Chain
 
@@ -69,10 +69,10 @@ Dokumente, Wissensquellen oder Grounding spielen die Hauptrolle. Meist steht dan
 
 Empfohlener Einstieg:
 
-1. [RAG-Konzepte](./concepts/erweitert/rag-konzepte.html)
+1. [RAG-Konzepte](./concepts/anwendungsmethoden/rag-konzepte.html)
 2. [Tokenizing und Chunking](./concepts/grundlagen/m08a-tokenizing-chunking.html)
 3. [Embeddings](./concepts/grundlagen/m08b-embeddings.html)
-4. [Evaluation & Observability](./concepts/erweitert/evaluation-observability.html)
+4. [Evaluation & Observability](./concepts/entscheidungen-qualitaet/evaluation-observability.html)
 5. [Einsteiger ChromaDB](./frameworks/einsteiger/einsteiger-chromadb.html)
 
 ### Toolgestützte und agentische Anwendungen
@@ -95,8 +95,8 @@ Eine Chain oder ein Agent funktioniert technisch, aber die Antwortqualität schw
 
 Empfohlener Einstieg:
 
-1. [Evaluation & Observability](./concepts/erweitert/evaluation-observability.html)
-2. [RAG-Konzepte](./concepts/erweitert/rag-konzepte.html)
+1. [Evaluation & Observability](./concepts/entscheidungen-qualitaet/evaluation-observability.html)
+2. [RAG-Konzepte](./concepts/anwendungsmethoden/rag-konzepte.html)
 3. [LangSmith Best Practices](./frameworks/best-practices/langsmith-best-practices.html)
 4. [LangGraph Best Practices](./frameworks/best-practices/langgraph-best-practices.html)
 5. [Troubleshooting](./ressourcen/troubleshooting.html)
@@ -110,7 +110,7 @@ Empfohlener Einstieg:
 1. [Transformer-Grundlagen](./concepts/grundlagen/m05a-transformer.html)
 2. [Multimodal: Bild](./concepts/multimodal/m09-multimodal-bild.html)
 3. [Multimodal: Audio](./concepts/multimodal/m16-multimodal-audio.html)
-4. [Context Engineering](./concepts/erweitert/m21-context-engineering.html)
+4. [Context Engineering](./concepts/anwendungsmethoden/m21-context-engineering.html)
 
 ### Deployment und Betrieb
 
@@ -121,7 +121,7 @@ Empfohlener Einstieg:
 1. [Vom Modell zum Produkt: LangChain-Ökosystem](./deployment/vom-modell-zum-produkt-langchain-oekosystem.html)
 2. [Minimum Viable GenAI Stack](./deployment/minimum-viable-genai-stack.html)
 3. [Aus Entwicklung ins Deployment](./deployment/aus-entwicklung-ins-deployment.html)
-4. [Evaluation & Observability](./concepts/erweitert/evaluation-observability.html)
+4. [Evaluation & Observability](./concepts/entscheidungen-qualitaet/evaluation-observability.html)
 5. [LangSmith Best Practices](./frameworks/best-practices/langsmith-best-practices.html)
 6. [Provider-Modell-Mapping](./frameworks/modell-auswahl/provider-modell-mapping.html)
 7. [Migration: OpenAI → Mistral](./deployment/migration-openai-mistral.html)
@@ -146,8 +146,8 @@ Wer nicht lange wählen will, kommt mit diesen fünf Dokumenten meist am schnell
 1. [Lohnt sich GenAI?](./concepts/orientierung/lohnt-es-sich.html)
 2. [Aufgabenklassen und Lösungswege](./concepts/orientierung/aufgabenklassen-und-loesungswege.html)
 3. [Einsteiger LangChain](./frameworks/einsteiger/einsteiger-langchain.html)
-4. [RAG-Konzepte](./concepts/erweitert/rag-konzepte.html)
-5. [Evaluation & Observability](./concepts/erweitert/evaluation-observability.html)
+4. [RAG-Konzepte](./concepts/anwendungsmethoden/rag-konzepte.html)
+5. [Evaluation & Observability](./concepts/entscheidungen-qualitaet/evaluation-observability.html)
 
 Diese Kombination klärt erst die Einsatzfrage, dann die Lösungsklasse und Umsetzung, danach das wichtigste Erweiterungsmuster und zuletzt die Frage, wie Qualität sichtbar wird. Genau diese Reihenfolge verhindert viele frühe Fehlstarts.
 
@@ -188,5 +188,5 @@ Gerade bei GenAI-Projekten führt Vollständigkeit schnell in Sackgassen. Ein zu
 ---
 
 **Version:** 1.1<br>
-**Stand:** April 2026<br>
+**Stand:** Mai 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

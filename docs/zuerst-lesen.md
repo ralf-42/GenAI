@@ -23,8 +23,8 @@ Wer neu in das Kursmaterial einsteigt, beginnt mit diesen fünf Dokumenten:
 1. [Lohnt sich GenAI?](./concepts/orientierung/lohnt-es-sich.html)
 2. [Aufgabenklassen und Lösungswege](./concepts/orientierung/aufgabenklassen-und-loesungswege.html)
 3. [Einsteiger LangChain](./frameworks/einsteiger/einsteiger-langchain.html)  (Nur erste Abschnitte)
-4. [RAG-Konzepte](./concepts/erweitert/rag-konzepte.html) (Überblick & Architektur)
-5. [Evaluation & Observability](./concepts/erweitert/evaluation-observability.html)  (Nur erste Abschnitte)
+4. [RAG-Konzepte](./concepts/anwendungsmethoden/rag-konzepte.html) (Überblick & Architektur)
+5. [Evaluation & Observability](./concepts/entscheidungen-qualitaet/evaluation-observability.html)  (Nur erste Abschnitte)
 
 Diese Reihenfolge klärt zuerst, ob GenAI überhaupt sinnvoll ist und welcher Lösungsweg zur Aufgabe passt. Danach folgt die technische Umsetzung mit LangChain, anschließend das wichtigste Erweiterungsmuster für eigene Daten und zuletzt die Frage, wie Qualität überprüfbar wird.
 
@@ -37,8 +37,8 @@ Wenn echte Nutzer-, Kunden-, Mitarbeiter- oder interne Dokumentdaten verarbeitet
 | GenAI-Vorhaben einschätzen | [Lohnt sich GenAI?](./concepts/orientierung/lohnt-es-sich.html) |
 | Erstes Verständnis für GenAI-Anwendungen | [Aufgabenklassen und Lösungswege](./concepts/orientierung/aufgabenklassen-und-loesungswege.html) |
 | Erste eigene Chain bauen | [Einsteiger LangChain](./frameworks/einsteiger/einsteiger-langchain.html) |
-| Dokumente und Wissen einbinden | [RAG-Konzepte](./concepts/erweitert/rag-konzepte.html) |
-| Antworten messbar verbessern | [Evaluation & Observability](./concepts/erweitert/evaluation-observability.html) |
+| Dokumente und Wissen einbinden | [RAG-Konzepte](./concepts/anwendungsmethoden/rag-konzepte.html) |
+| Antworten messbar verbessern | [Evaluation & Observability](./concepts/entscheidungen-qualitaet/evaluation-observability.html) |
 | Tools, State oder Agentenlogik nutzen | [Tool Use & Function Calling](./concepts/agentisch/tool-use-function-calling.html) |
 | Mehrstufige Workflows bauen | [LangGraph Einsteiger](./frameworks/einsteiger/einsteiger-langgraph.html) |
 | Aus dem Notebook Richtung Betrieb gehen | [Minimum Viable GenAI Stack](./deployment/minimum-viable-genai-stack.html) |
@@ -47,7 +47,7 @@ Wenn echte Nutzer-, Kunden-, Mitarbeiter- oder interne Dokumentdaten verarbeitet
 
 ## Danach gezielt vertiefen
 
-Nach dem Einstieg führt die Seite [Lesepfade](./lesepfade.html) durch die größeren Themenbereiche: Orientierung, Chains, RAG, toolgestützte Anwendungen, Qualitätssicherung, Multimodalität, Deployment, Governance und No-Code/Low-Code.
+Nach dem Einstieg führt die Seite [Lesepfade](./lesepfade.html) durch neun Themenbereiche: Orientierung, erste eigene Chain, Notebooks vorbereiten, RAG & Retrieval, Agenten & Workflows, Qualität und Fehlersuche, Multimodalität, Deployment und Betrieb sowie Governance und Rahmenbedingungen.
 
 ## Abgrenzung zu verwandten Dokumenten
 
@@ -61,5 +61,5 @@ Nach dem Einstieg führt die Seite [Lesepfade](./lesepfade.html) durch die grö�
 ---
 
 **Version:** 1.0<br>
-**Stand:** April 2026<br>
+**Stand:** Mai 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

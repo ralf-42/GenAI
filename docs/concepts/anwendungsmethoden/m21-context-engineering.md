@@ -362,7 +362,7 @@ Kundenzufriedenheit: +30%
 |---|---|
 | [Prompt Engineering](./prompt-engineering.html) | Wie wird eine einzelne Anfrage formuliert, statt den Gesamtkontext eines Systems zu gestalten? |
 | [RAG-Konzepte](./rag-konzepte.html) | Wann ist Retrieval nur ein Teil der Kontextstrategie? |
-| [Fine-Tuning](./m18-fine-tuning.html) | Wann wird Verhalten ins Modell verlagert statt zur Laufzeit organisiert? |
+| [Fine-Tuning](../entscheidungen-qualitaet/m18-fine-tuning.html) | Wann wird Verhalten ins Modell verlagert statt zur Laufzeit organisiert? |
 
 
 ---

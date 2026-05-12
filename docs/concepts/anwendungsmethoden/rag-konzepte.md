@@ -25,7 +25,7 @@ has_toc: true
 
 ## Überblick: Was ist RAG?
 
-Large Language Models stoßen in der Praxis an drei typische Grenzen: Wissen ist nicht aktuell genug, internes Fachwissen fehlt und längere Dokumentbestände lassen sich nicht vollständig in einen einzelnen Prompt legen. Genau an dieser Stelle beginnt RAG seinen Nutzen zu zeigen. Nicht als magische Lösung, sondern als technische Antwort auf ein klar umrissenes Problem: relevantes Wissen zur Laufzeit in den Antwortprozess einzuspeisen.
+Large Language Models stoßen in der Praxis an drei typische Grenzen: Wissen ist **nicht aktuell** genug, internes **Fachwissen fehlt** und längere Dokumentbestände lassen sich nicht **vollständig in einen einzelnen Prompt** legen. Genau an dieser Stelle beginnt RAG seinen Nutzen zu zeigen. Nicht als magische Lösung, sondern als technische Antwort auf ein klar umrissenes Problem: relevantes Wissen zur Laufzeit in den Antwortprozess einzuspeisen.
 
 Die folgende Tabelle bündelt diese Ausgangslage, ersetzt aber nicht die eigentliche Entscheidung. RAG lohnt sich nur dann, wenn fehlendes oder externes Wissen wirklich das Problem ist. Wenn die Aufgabe bereits mit vorhandenem Modellwissen sauber lösbar ist, macht Retrieval den Ablauf oft nur langsamer und fehleranfälliger.
 
@@ -49,9 +49,16 @@ Frage → Suche relevante Dokumente → Füge Kontext zum Prompt → LLM generie
 
 ## Die RAG-Architektur
 
-Ein RAG-System besteht aus zwei Hauptphasen: **Indexierung** und **Retrieval + Generation**. Diese Trennung ist wichtig, weil Fehler in der ersten Phase später oft wie Modellfehler aussehen. Wenn Chunks unsauber gebildet oder Metadaten schlecht gepflegt sind, hilft auch ein starkes Modell kaum noch.
+Ein RAG-System besteht aus zwei Hauptphasen: **Datensammlung/Indexierung** und **Abruf & Erweiterung/Retrieval + Generation**. Diese Trennung ist wichtig, weil Fehler in der ersten Phase später oft wie Modellfehler aussehen. Wenn Chunks unsauber gebildet oder Metadaten schlecht gepflegt sind, hilft auch ein starkes Modell kaum noch.
 
-### Indexierungsphase/Datensammlung
+<img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/rag_process.png" alt="Raster aus Pixelwerten" width="600">
+
+
+
+### Datensammlung/Indexierungsphase
+
+Die Datensammlung bildet die Grundlage jedes RAG-Systems (Retrieval-Augmented Generation). In dieser Phase werden relevante Informationen aus unterschiedlichen Quellen wie PDFs, Webseiten, Datenbanken oder internen Dokumenten zusammengeführt und für die weitere Verarbeitung bereitgestellt. Die Qualität, Aktualität und Struktur dieser Daten beeinflussen maßgeblich, wie präzise und verlässlich das System später Informationen finden und Antworten generieren kann. Daher entscheidet bereits die Auswahl geeigneter Datenquellen oft über den Erfolg eines RAG-Systems.
+
 
 ```mermaid
 flowchart LR
@@ -61,14 +68,16 @@ flowchart LR
     D --> E[Vektordatenbank]
 ```
 
-| Schritt | Beschreibung | Typische Tools |
-|---------|--------------|----------------|
-| **Laden** | Dokumente aus verschiedenen Quellen einlesen | TextLoader, PyPDFLoader, WebBaseLoader |
-| **Chunking** | Große Dokumente in kleinere Teile zerlegen | RecursiveCharacterTextSplitter |
-| **Embedding** | Textchunks in Vektoren umwandeln | OpenAIEmbeddings, HuggingFaceEmbeddings |
-| **Speichern** | Vektoren in Datenbank ablegen | ChromaDB, FAISS, Pinecone |
+| Schritt       | Beschreibung                                 | Typische Tools                          |     |
+| ------------- | -------------------------------------------- | --------------------------------------- | --- |
+| **Laden**     | Dokumente aus verschiedenen Quellen einlesen | TextLoader, PyPDFLoader, WebBaseLoader  |     |
+| **Chunking**  | Große Dokumente in kleinere Teile zerlegen   | RecursiveCharacterTextSplitter          |     |
+| **Embedding** | Textchunks in Vektoren umwandeln             | OpenAIEmbeddings, HuggingFaceEmbeddings |     |
+| **Speichern** | Vektoren in Datenbank ablegen                | ChromaDB, FAISS, Pinecone               |     |
 
-### Abfragephase/Abruf & Erweiterung
+### Abruf & Erweiterung
+
+In der Phase „Abruf & Erweiterung“ sucht das RAG-System gezielt nach inhaltlich passenden Informationen in der Wissensbasis. Dazu wird die Benutzeranfrage mit den gespeicherten Dokumenten verglichen, meist über semantische Suche und Embeddings. Die gefundenen Inhalte werden anschließend dem Sprachmodell als zusätzlicher Kontext bereitgestellt. Dadurch kann das Modell fundiertere, aktuellere und stärker quellenbasierte Antworten erzeugen.
 
 ```mermaid
 flowchart LR
@@ -86,70 +95,6 @@ flowchart LR
 | **Similarity Search** | Die ähnlichsten Dokumentvektoren werden gefunden |
 | **Kontext-Erstellung** | Gefundene Chunks werden zum Prompt hinzugefügt |
 | **Generation** | Das LLM generiert eine Antwort basierend auf dem Kontext |
-
----
-
-## Chunking: Dokumente sinnvoll zerlegen
-
-Chunking ist eine der Stellen, an denen RAG-Projekte am häufigsten an Präzision verlieren. Zu große Chunks verschwenden Kontextfenster und verwässern Treffer. Zu kleine Chunks verlieren fachlichen Zusammenhang. Beides führt dazu, dass das Retrieval formal funktioniert, inhaltlich aber an der falschen Stelle landet.
-
-In Übungen zeigt sich oft ein typischer erster Fehler: Die Chunk-Größe wird einmal festgelegt und dann als technischer Parameter behandelt. Tatsächlich ist sie eine fachliche Entscheidung. Ein Handbuch, ein juristischer Text und API-Dokumentation brauchen nicht dieselbe Granularität.
-
-### Chunking-Strategien
-
-| Strategie | Beschreibung | Anwendungsfall |
-|-----------|--------------|----------------|
-| **Fixed-Size** | Feste Zeichenanzahl pro Chunk | Einfache Texte ohne Struktur |
-| **Recursive** | Hierarchische Trennung (Absatz → Satz → Wort) | Allgemeine Dokumente |
-| **Semantic** | Trennung nach Bedeutungseinheiten | Komplexe Fachtexte |
-| **Document-based** | Beibehaltung natürlicher Grenzen (Kapitel, Abschnitte) | Strukturierte Dokumente |
-
-### Der RecursiveCharacterTextSplitter
-
-Der am häufigsten verwendete Splitter arbeitet mit einer Hierarchie von Trennzeichen:
-
-```python
-from langchain_text_splitters import RecursiveCharacterTextSplitter
-
-splitter = RecursiveCharacterTextSplitter(
-    chunk_size=500,      # Maximale Chunk-Größe in Zeichen
-    chunk_overlap=100,   # Überlappung zwischen Chunks
-    separators=["\n\n", "\n", ". ", " ", ""]  # Trennzeichen-Hierarchie
-)
-```
-
-**Funktionsweise:**
-1. Versuche zuerst, an Doppel-Zeilenumbrüchen zu trennen (Absätze)
-2. Falls Chunk zu groß: Trenne an einfachen Zeilenumbrüchen
-3. Falls immer noch zu groß: Trenne an Satzenden
-4. Letzte Option: Trenne an Leerzeichen oder einzelnen Zeichen
-
-### Overlap: Kontext bewahren
-
-```
-Dokument: [AAAA|BBBB|CCCC|DDDD]
-
-Ohne Overlap:
-  Chunk 1: [AAAA]
-  Chunk 2: [BBBB]
-  → Information an Grenzen geht verloren
-
-Mit Overlap (25%):
-  Chunk 1: [AAAA|BB]
-  Chunk 2: [BB|CCCC]
-  → Zusammenhänge bleiben erhalten
-```
-
-### Empfehlungen nach Dokumenttyp
-
-| Dokumenttyp | chunk_size | chunk_overlap | Begründung |
-|-------------|------------|---------------|------------|
-| FAQ / Kurztexte | 200–300 | 50 | Präzise, eigenständige Antworten |
-| Handbücher | 500–800 | 100–150 | Kontext zwischen Abschnitten erhalten |
-| Rechtsdokumente | 800–1000 | 200 | Vollständige Paragraphen wichtig |
-| Code-Dokumentation | 300–500 | 100 | Funktionen zusammenhalten |
-
-Diese Werte sind keine feste Regel. Die Tabelle bildet einen sinnvollen Startpunkt. Entscheidend ist, ob die Treffer später tatsächlich die Antwort tragen. Wenn ein System zwar semantisch ähnliche Chunks findet, aber wiederholt am Absatzrand wichtige Informationen verliert, liegt das Problem oft nicht im Modell, sondern im Zuschnitt der Dokumente.
 
 ---
 
@@ -190,19 +135,124 @@ Die Ähnlichkeit zwischen Vektoren wird mathematisch berechnet:
 
 ### Beispiel: Embeddings erzeugen
 
-```python
-from langchain_openai import OpenAIEmbeddings
+```text
+Embedding-Erzeugung:
 
-embedding_model = OpenAIEmbeddings(model="text-embedding-3-small")
+Embedding-Modell wählen:
+- zum Beispiel ein kleines, schnelles Modell für erste Tests
+- oder ein größeres Modell für höhere Suchqualität
 
-# Einzelner Text (für Queries)
-query_vector = embedding_model.embed_query("Was ist ein KI-Agent?")
+Query-Embedding:
+1. Nutzerfrage übernehmen.
+2. Frage in einen Vektor umwandeln.
 
-# Mehrere Texte (für Dokumente)
-doc_vectors = embedding_model.embed_documents([
-    "Text 1", "Text 2", "Text 3"
-])
+Dokument-Embeddings:
+1. Dokumente in Chunks zerlegen.
+2. Jeden Chunk in einen Vektor umwandeln.
+3. Vektoren zusammen mit Text, Quelle und Metadaten speichern.
+4. Kuratierte Stichwörter als Metadaten ergänzen.
 ```
+
+### Metadaten für die Indexierung
+
+Beim Vektorisieren sollte nicht nur der reine Text gespeichert werden. Jeder Chunk braucht Metadaten, damit Treffer später gefiltert, erklärt und mit Stichwortsuche kombiniert werden können. Dazu gehören technische Angaben wie Quelle und Kapitel, aber auch bewusst vergebene Stichwörter.
+
+```text
+Metadaten pro Chunk:
+
+Pflichtfelder:
+- source: Ursprungsdokument oder URL
+- title: Dokumenttitel
+- section: Kapitel oder Abschnitt
+- chunk_id: eindeutige Chunk-Kennung
+
+Hilfreiche Zusatzfelder:
+- date: Veröffentlichungs- oder Aktualisierungsdatum
+- category: Fachbereich oder Dokumenttyp
+- keywords: kuratierte Stichwörter
+- synonyms: wichtige Synonyme oder Schreibvarianten
+
+Beispiel für keywords:
+- Passwort-Policy
+- Zugangsdaten
+- Login
+- MFA
+- ISO 27001
+```
+
+Diese Stichwörter werden nicht zwingend für das Embedding selbst gebraucht. Sie helfen aber beim späteren Retrieval: Ein System kann nach exakten Begriffen suchen, Metadaten filtern oder BM25-Treffer mit Vektortreffern kombinieren. Besonders bei Abkürzungen, Produktnamen, Normen, Fehlermeldungen und internen Begriffen lohnt sich diese zusätzliche Pflege.
+
+
+---
+
+## Chunking: Dokumente sinnvoll zerlegen
+
+Chunking ist eine der Stellen, an denen RAG-Projekte am häufigsten an Präzision verlieren. Zu große Chunks verschwenden Kontextfenster und verwässern Treffer. Zu kleine Chunks verlieren fachlichen Zusammenhang. Beides führt dazu, dass das Retrieval formal funktioniert, inhaltlich aber an der falschen Stelle landet.
+
+In der Entwicklung zeigt sich oft ein typischer erster Fehler: Die Chunk-Größe wird einmal festgelegt und dann als technischer Parameter behandelt. Tatsächlich ist sie eine fachliche Entscheidung. Ein Handbuch, ein juristischer Text und API-Dokumentation brauchen nicht dieselbe Granularität.
+
+### Chunking-Strategien
+
+| Strategie | Beschreibung | Anwendungsfall |
+|-----------|--------------|----------------|
+| **Fixed-Size** | Feste Zeichenanzahl pro Chunk | Einfache Texte ohne Struktur |
+| **Recursive** | Hierarchische Trennung (Absatz → Satz → Wort) | Allgemeine Dokumente |
+| **Semantic** | Trennung nach Bedeutungseinheiten | Komplexe Fachtexte |
+| **Document-based** | Beibehaltung natürlicher Grenzen (Kapitel, Abschnitte) | Strukturierte Dokumente |
+
+### Der RecursiveCharacterTextSplitter
+
+Der am häufigsten verwendete Splitter arbeitet mit einer Hierarchie von Trennzeichen:
+
+```text
+Splitter: Recursive Character Splitting
+
+Einstellungen:
+- chunk_size: maximale Chunk-Größe, zum Beispiel 500 Zeichen
+- chunk_overlap: Überlappung zwischen Chunks, zum Beispiel 100 Zeichen
+- separators: Trennzeichen-Hierarchie von grob nach fein
+
+Trennzeichen-Hierarchie:
+1. Absatzgrenzen
+2. Zeilenumbrüche
+3. Satzenden
+4. Wörter
+5. einzelne Zeichen als letzte Option
+```
+
+**Funktionsweise:**
+1. Versuche zuerst, an Doppel-Zeilenumbrüchen zu trennen (Absätze)
+2. Falls Chunk zu groß: Trenne an einfachen Zeilenumbrüchen
+3. Falls immer noch zu groß: Trenne an Satzenden
+4. Letzte Option: Trenne an Leerzeichen oder einzelnen Zeichen
+
+### Overlap: Kontext bewahren
+
+```
+Dokument: [AAAA|BBBB|CCCC|DDDD]
+
+Ohne Overlap:
+  Chunk 1: [AAAA]
+  Chunk 2: [BBBB]
+  → Information an Grenzen geht verloren
+
+Mit Overlap (25%):
+  Chunk 1: [AAAA|BB]
+  Chunk 2: [BB|CCCC]
+  → Zusammenhänge bleiben erhalten
+```
+
+### Empfehlungen nach Dokumenttyp
+
+| Dokumenttyp | chunk_size | chunk_overlap | Begründung |
+|-------------|------------|---------------|------------|
+| FAQ / Kurztexte | 200–300 | 50 | Präzise, eigenständige Antworten |
+| Handbücher | 500–800 | 100–150 | Kontext zwischen Abschnitten erhalten |
+| Rechtsdokumente | 800–1000 | 200 | Vollständige Paragraphen wichtig |
+| Code-Dokumentation | 300–500 | 100 | Funktionen zusammenhalten |
+
+Diese Werte sind keine feste Regel. Die Tabelle bildet einen sinnvollen Startpunkt. Entscheidend ist, ob die Treffer später tatsächlich die Antwort tragen. Wenn ein System zwar semantisch ähnliche Chunks findet, aber wiederholt am Absatzrand wichtige Informationen verliert, liegt das Problem oft nicht im Modell, sondern im Zuschnitt der Dokumente.
+
 
 ---
 
@@ -212,14 +262,20 @@ Der Retriever ist die eigentliche Arbeitsstelle des Systems. Hier entscheidet si
 
 ### Basis-Retrieval: Similarity Search
 
-```python
-from langchain_community.vectorstores import Chroma
+```text
+Basis-Retrieval:
 
-vectorstore = Chroma.from_documents(chunks, embedding_model)
-retriever = vectorstore.as_retriever(search_kwargs={"k": 3})
+Index vorbereiten:
+1. Chunks mit Embeddings versehen.
+2. Chunks und Vektoren im Vector Store speichern.
 
-# Suche
-docs = retriever.invoke("Wie funktioniert RAG?")
+Retriever konfigurieren:
+- k = 3 bedeutet: Gib die drei ähnlichsten Chunks zurück.
+
+Suche:
+1. Nutzerfrage in einen Query-Vektor umwandeln.
+2. Ähnlichste Dokumentvektoren suchen.
+3. Top-k Chunks zurückgeben.
 ```
 
 ### Retrieval-Strategien im Vergleich
@@ -227,6 +283,7 @@ docs = retriever.invoke("Wie funktioniert RAG?")
 | Strategie | Beschreibung | Vorteil | Nachteil |
 |-----------|--------------|---------|----------|
 | **Similarity** | Ähnlichste Vektoren | Schnell, einfach | Keine Qualitätsgarantie |
+| **Keyword / BM25** | Stichwortsuche mit Relevanzbewertung | Präzise bei Fachbegriffen, IDs und Namen | Findet Synonyme nur mit Zusatzpflege |
 | **MMR** | Maximum Marginal Relevance | Diversität der Ergebnisse | Etwas langsamer |
 | **Threshold** | Nur Ergebnisse über Schwellenwert | Qualitätskontrolle | Kann leer zurückkommen |
 | **Hybrid** | Keyword + Semantisch kombiniert | Beste Abdeckung | Komplexer aufzusetzen |
@@ -234,42 +291,87 @@ docs = retriever.invoke("Wie funktioniert RAG?")
 > [!DANGER] Threshold-Retrieval: leerer Kontext<br>
 > Gibt der Threshold-Retriever keine Treffer zurück, erhält das LLM leeren Kontext — und halluziniert eine Antwort, anstatt "keine Information" zu melden. Immer ein Fallback definieren, wenn `score_threshold` verwendet wird.
 
+### Stichwortsuche
+
+Stichwortsuche ist die einfachste Retrieval-Strategie: Das System sucht nach exakten Begriffen, Phrasen oder Mustern im Dokumentbestand. Sie ist besonders nützlich, wenn die gesuchten Informationen über eindeutige Wörter erreichbar sind, etwa Produktnamen, Abkürzungen, Fehlermeldungen, Gesetzesstellen, Ticketnummern oder interne Prozessbegriffe.
+
+Ein verbreiteter Algorithmus dafür ist **BM25**. BM25 bewertet Treffer nicht nur danach, ob ein Stichwort vorkommt, sondern auch danach, wie aussagekräftig der Begriff im gesamten Dokumentbestand ist und wie stark er in einem konkreten Dokument vertreten ist. Seltene, fachlich wichtige Begriffe zählen dadurch stärker als sehr allgemeine Wörter.
+
+Der Vorteil liegt in der Präzision. Wenn jemand nach `ISO 27001`, `Passwort-Policy` oder `ERR-403` sucht, ist eine exakte Stichwortsuche oft zuverlässiger als reine semantische Ähnlichkeit. Der Nachteil ist die geringe Toleranz: Wer nach "Zugangsdaten ändern" fragt, findet ein Dokument mit "Passwort zurücksetzen" möglicherweise nicht, obwohl es inhaltlich passt.
+
+```text
+Retriever-Strategie: Stichwortsuche
+
+Eingabe:
+- Nutzerfrage oder manuell gewählte Suchbegriffe
+
+Vorbereitung:
+1. Wichtige Begriffe aus der Frage erkennen.
+2. Synonyme, Abkürzungen oder Schreibvarianten ergänzen.
+3. Optional: irrelevante Füllwörter entfernen.
+
+Suche:
+1. Dokumente nach exakten Stichworten oder Phrasen durchsuchen.
+2. Optional BM25 verwenden, um Treffer nach Relevanz zu sortieren.
+3. Kuratierte keywords und synonyms aus den Metadaten berücksichtigen.
+4. Treffer nach Anzahl, Position und Feld gewichten.
+5. Besonders relevante Abschnitte als Kontext zurückgeben.
+
+Gut geeignet für:
+- Produktnamen
+- Fehlermeldungen
+- IDs und Aktenzeichen
+- Normen, Paragraphen und Richtlinien
+- interne Fachbegriffe
+```
+
+In RAG-Systemen ist Stichwortsuche selten ein Ersatz für Embeddings, aber ein sehr guter Ergänzungsmechanismus. Praktisch stark ist ein zweistufiges Vorgehen: Erst werden eindeutige Stichworte gesucht, danach ergänzt semantische Suche verwandte oder anders formulierte Treffer. Genau daraus entsteht Hybrid Retrieval.
+
 ### Maximum Marginal Relevance (MMR)
 
 MMR balanciert Relevanz und Diversität. Statt nur die ähnlichsten Dokumente zurückzugeben, werden auch unterschiedliche Perspektiven berücksichtigt.
 
-```python
-retriever = vectorstore.as_retriever(
-    search_type="mmr",
-    search_kwargs={
-        "k": 5,           # Finale Anzahl
-        "fetch_k": 20,    # Kandidaten für MMR
-        "lambda_mult": 0.7  # Balance (1.0 = nur Relevanz, 0.0 = nur Diversität)
-    }
-)
+```text
+Retriever-Strategie: MMR
+
+Einstellungen:
+- k: finale Anzahl der zurückgegebenen Chunks
+- fetch_k: größere Kandidatenmenge für die Vorauswahl
+- lambda_mult: Balance zwischen Relevanz und Diversität
+
+Ablauf:
+1. Suche zunächst mehrere relevante Kandidaten.
+2. Wähle daraus Chunks, die relevant sind und sich nicht zu stark wiederholen.
+3. Gib die finale Auswahl an den Prompt weiter.
 ```
 
 ### Score-basiertes Filtering
 
-```python
-retriever = vectorstore.as_retriever(
-    search_type="similarity_score_threshold",
-    search_kwargs={
-        "score_threshold": 0.5,  # Mindest-Ähnlichkeit
-        "k": 10
-    }
-)
+```text
+Retriever-Strategie: Score-basiertes Filtering
+
+Einstellungen:
+- score_threshold: Mindestähnlichkeit für Treffer
+- k: maximale Anzahl zurückgegebener Chunks
+
+Ablauf:
+1. Suche semantisch ähnliche Chunks.
+2. Entferne Treffer unterhalb des Schwellenwerts.
+3. Wenn keine Treffer übrig bleiben, aktiviere einen Fallback.
 ```
 
 ### Metadaten-Filter
 
-```python
-retriever = vectorstore.as_retriever(
-    search_kwargs={
-        "k": 5,
-        "filter": {"source": "handbuch.pdf", "kapitel": "Sicherheit"}
-    }
-)
+```text
+Retriever-Strategie: Metadaten-Filter
+
+Einstellungen:
+- k: maximale Anzahl zurückgegebener Chunks
+- filter: Einschränkung nach Quelle, Kapitel, Datum oder Kategorie
+
+Beispiel:
+- Suche nur in der Quelle "handbuch.pdf".
+- Suche dort nur im Kapitel "Sicherheit".
 ```
 
 ---
@@ -298,20 +400,19 @@ Schritt 3: Top 5 werden verwendet
 
 ### Beispiel: Cohere Reranker
 
-```python
-from langchain.retrievers import ContextualCompressionRetriever
-from langchain_cohere import CohereRerank
+```text
+Reranking-Ablauf:
 
-base_retriever = vectorstore.as_retriever(search_kwargs={"k": 20})
+Basis-Retrieval:
+1. Suche zunächst eine größere Kandidatenmenge, zum Beispiel 20 Chunks.
 
-reranker = CohereRerank(model="rerank-english-v3.0", top_n=5)
+Reranker:
+1. Bewertet jeden Kandidaten genauer gegen die Frage.
+2. Sortiert die Kandidaten nach tatsächlicher Relevanz.
+3. Gibt nur die besten Treffer zurück, zum Beispiel Top 5.
 
-compression_retriever = ContextualCompressionRetriever(
-    base_compressor=reranker,
-    base_retriever=base_retriever
-)
-
-docs = compression_retriever.invoke("Meine Frage")
+Ergebnis:
+- weniger, aber passendere Kontext-Chunks für die Antwortgenerierung
 ```
 
 ---
@@ -382,76 +483,55 @@ Die Kombination aller Komponenten zu einer funktionierenden Pipeline.
 
 ### Minimales Beispiel
 
-```python
-from langchain_core.prompts import ChatPromptTemplate
-from langchain_core.output_parsers import StrOutputParser
-from langchain_core.runnables import RunnablePassthrough
-from langchain.chat_models import init_chat_model
-from langchain_community.vectorstores import Chroma
-from langchain_openai import OpenAIEmbeddings
+```text
+RAG-Chain: minimaler Ablauf
 
-# Komponenten
-llm = init_chat_model("openai:gpt-5.4-mini")
-embedding_model = OpenAIEmbeddings(model="text-embedding-3-small")
-vectorstore = Chroma.from_documents(chunks, embedding_model)
-retriever = vectorstore.as_retriever(search_kwargs={"k": 3})
+Komponenten:
+- LLM für die Antwortgenerierung
+- Embedding-Modell für Fragen und Dokumente
+- Vector Store mit gespeicherten Dokument-Chunks
+- Retriever für die Suche nach relevanten Chunks
+- RAG-Prompt mit Kontext und Frage
 
-# Hilfsfunktion
-def format_docs(docs):
-    return "\n\n".join(doc.page_content for doc in docs)
+Ablauf:
+1. Nutzerfrage entgegennehmen.
+2. Retriever sucht die relevantesten Chunks zur Frage.
+3. Gefundene Chunks werden zu einem Kontextblock formatiert.
+4. Prompt kombiniert:
+   - Anweisung: nur auf Basis des Kontexts antworten
+   - Kontext: gefundene Chunks
+   - Frage: ursprüngliche Nutzerfrage
+5. LLM generiert die Antwort.
+6. Ausgabe wird als Text zurückgegeben.
 
-# RAG-Prompt
-rag_prompt = ChatPromptTemplate.from_template(
-    """Beantworte die Frage basierend auf dem folgenden Kontext.
-Wenn die Antwort nicht im Kontext steht, sage ehrlich, dass keine Information vorliegt.
-
-Kontext:
-{context}
-
-Frage: {question}
-
-Antwort:"""
-)
-
-# LCEL Chain
-rag_chain = (
-    {
-        "context": retriever | format_docs,
-        "question": RunnablePassthrough()
-    }
-    | rag_prompt
-    | llm
-    | StrOutputParser()
-)
-
-# Aufruf
-antwort = rag_chain.invoke("Wie funktioniert das System?")
+Fallback:
+- Wenn der Kontext keine Antwort enthält, meldet das System fehlende Information.
 ```
 
 ### RAG als Agent-Tool
 
-```python
-from langchain_core.tools import tool
+```text
+Agent-Tool: firmenwissen_suchen
 
-@tool
-def firmenwissen_suchen(frage: str) -> str:
-    """🔍 FIRMENWISSEN – Durchsucht interne Dokumente.
-    
-    Verwenden für Fragen zu:
-    - Unternehmensrichtlinien
-    - Internen Prozessen
-    - Produktinformationen
-    
-    Args:
-        frage: Die Suchanfrage in natürlicher Sprache
-    
-    Returns:
-        Relevante Informationen aus den Firmendokumenten
-    """
-    try:
-        return rag_chain.invoke(frage)
-    except Exception as e:
-        return f"Fehler bei der Suche: {str(e)}"
+Zweck:
+- Durchsucht interne Dokumente über eine RAG-Chain.
+
+Wann verwenden:
+- bei Fragen zu Unternehmensrichtlinien
+- bei Fragen zu internen Prozessen
+- bei Fragen zu Produktinformationen
+
+Eingabe:
+- frage: Suchanfrage in natürlicher Sprache
+
+Ablauf:
+1. Frage an die RAG-Chain übergeben.
+2. Relevante Chunks suchen.
+3. Antwort aus Kontext erzeugen.
+4. Antwort an den Agenten zurückgeben.
+
+Fehlerfall:
+- Wenn Suche oder Antwortgenerierung fehlschlägt, wird eine klare Fehlermeldung zurückgegeben.
 ```
 
 ---
@@ -482,56 +562,59 @@ Für Einsteiger reicht zuerst ein kleines, wiederholbares Testset. Nach jeder Ä
 
 RAGAS (Retrieval Augmented Generation Assessment) bietet standardisierte Metriken:
 
-```python
-from ragas import evaluate
-from ragas.metrics import faithfulness, answer_relevancy, context_precision
+```text
+RAGAS-Evaluierung:
 
-results = evaluate(
-    dataset,
-    metrics=[faithfulness, answer_relevancy, context_precision]
-)
+Eingabe:
+- Test-Dataset mit Fragen, erwarteten Antworten und erwarteten Kontexten
+
+Metriken:
+- Faithfulness: Ist die Antwort durch den Kontext gedeckt?
+- Answer Relevance: Passt die Antwort zur Frage?
+- Context Precision: Sind die gefundenen Kontexte relevant?
+
+Ablauf:
+1. Test-Dataset laden.
+2. RAG-System für jede Testfrage ausführen.
+3. Antworten und Kontexte mit den Metriken bewerten.
+4. Ergebnisse vergleichen und Schwachstellen identifizieren.
 ```
 
 ### Manuelles Testen
 
 Für erste Iterationen ist manuelles Testen effektiver als ein großes Evaluationsframework. Wichtig ist, die Testfragen nicht nachträglich an die Stärken des Systems anzupassen, sondern typische Nutzerfragen, Randfälle und erwartete Quellen festzuhalten.
 
-```python
-test_cases = [
-    {
-        "question": "Was ist die Passwort-Policy?",
-        "expected_source": "security.md",
-        "expected_answer": "Passwortlänge, Komplexität und Wechselregel",
-    },
-    {
-        "question": "Wie beantrage ich Urlaub?",
-        "expected_source": "hr.md",
-        "expected_answer": "Antrag über das HR-System",
-    },
-    {
-        "question": "Wer ist Ansprechpartner für IT-Probleme?",
-        "expected_source": "support.md",
-        "expected_answer": "IT-Support oder Helpdesk",
-    },
-]
+```text
+Manuelles Testset:
 
-for case in test_cases:
-    # Retrieval prüfen
-    docs = retriever.invoke(case["question"])
-    print(f"\nFrage: {case['question']}")
-    print(f"Erwartete Quelle: {case['expected_source']}")
-    print(f"Gefundene Dokumente: {len(docs)}")
-    for i, doc in enumerate(docs):
-        print(f"  {i+1}. {doc.page_content[:100]}...")
-    
-    # Antwort prüfen
-    answer = rag_chain.invoke(case["question"])
-    print(f"Antwort: {answer}")
-    print("Bewertung: korrekt / teilweise / falsch")
+Testfall enthält:
+- question: typische Nutzerfrage
+- expected_source: erwartete Quelle
+- expected_answer: erwarteter Antwortkern
+
+Beispiele:
+- Frage: "Was ist die Passwort-Policy?"
+  Erwartete Quelle: security.md
+  Erwarteter Antwortkern: Passwortlänge, Komplexität und Wechselregel
+
+- Frage: "Wie beantrage ich Urlaub?"
+  Erwartete Quelle: hr.md
+  Erwarteter Antwortkern: Antrag über das HR-System
+
+- Frage: "Wer ist Ansprechpartner für IT-Probleme?"
+  Erwartete Quelle: support.md
+  Erwarteter Antwortkern: IT-Support oder Helpdesk
+
+Prüfablauf pro Testfall:
+1. Frage an den Retriever senden.
+2. Gefundene Quellen mit der erwarteten Quelle vergleichen.
+3. Antwort mit der RAG-Chain erzeugen.
+4. Antwort als korrekt, teilweise oder falsch bewerten.
+5. Auffälligkeiten dokumentieren.
 ```
 
 > [!TIP] Vertiefung<br>
-> Die einsteigerfreundliche Einordnung steht in [Evaluation & Observability](./evaluation-observability.html). Die technische Umsetzung mit Tracing, Datasets und Monitoring ist in [LangSmith Best Practices](../../frameworks/best-practices/langsmith-best-practices.html) beschrieben.
+> Die einsteigerfreundliche Einordnung steht in [Evaluation & Observability](../entscheidungen-qualitaet/evaluation-observability.html). Die technische Umsetzung mit Tracing, Datasets und Monitoring ist in [LangSmith Best Practices](../../frameworks/best-practices/langsmith-best-practices.html) beschrieben.
 
 ---
 
@@ -575,6 +658,7 @@ Häufige Probleme und deren Lösungen.
 - **Konsistentes Embedding-Modell:** Dasselbe Modell für Indexierung und Queries verwenden
 - **Sinnvolles Chunking:** Dokumenttyp-spezifische Parameter wählen
 - **Metadaten anreichern:** Quelle, Datum, Kategorie für späteres Filtern
+- **Stichwörter pflegen:** Wichtige Fachbegriffe, Synonyme, Abkürzungen und IDs als `keywords` oder `synonyms` speichern
 - **Inkrementelle Updates:** Nur geänderte Dokumente neu indexieren
 
 ### Retrieval
@@ -582,6 +666,7 @@ Häufige Probleme und deren Lösungen.
 - **k sinnvoll wählen:** Zu wenig = fehlender Kontext, zu viel = Rauschen
 - **MMR für Diversität:** Bei breiten Themen verschiedene Perspektiven einbeziehen
 - **Threshold für Qualität:** Lieber keine Antwort als eine falsche
+- **BM25 ergänzen:** Für Fachbegriffe, Fehlermeldungen und IDs Keyword-Suche mit Vektorsuche kombinieren
 
 ### Prompt Design
 
@@ -608,7 +693,7 @@ RAG kombiniert die Stärken von Retrieval-Systemen mit generativen LLMs:
 | **Text Splitter** | Chunking | RecursiveCharacterTextSplitter |
 | **Embedding Model** | Text → Vektor | OpenAIEmbeddings |
 | **Vector Store** | Speicherung & Suche | ChromaDB, FAISS |
-| **Retriever** | Relevante Chunks finden | as_retriever() |
+| **Retriever** | Relevante Chunks finden | Retriever-Schnittstelle |
 | **LLM** | Antwort generieren | GPT-4o-mini |
 
 **Der typische Workflow:**
@@ -640,7 +725,7 @@ RAG ermöglicht es, LLMs mit aktuellem, domänenspezifischem Wissen auszustatten
 | [Tokenizing & Chunking](../grundlagen/m08a-tokenizing-chunking.html) | Wie beeinflusst die Aufbereitung der Dokumente die Retrieval-Qualität? |
 | [Embeddings](../grundlagen/m08b-embeddings.html) | Wie werden Dokumente und Fragen semantisch vergleichbar gemacht? |
 | [Context Engineering](./m21-context-engineering.html) | Wie fügt sich Retrieval in die größere Kontextlogik eines Systems ein? |
-| [Evaluation & Observability](./evaluation-observability.html) | Wie wird geprüft, ob Retrieval und Antwortqualität belastbar sind? |
+| [Evaluation & Observability](../entscheidungen-qualitaet/evaluation-observability.html) | Wie wird geprüft, ob Retrieval und Antwortqualität belastbar sind? |
 
 ---
 

@@ -325,7 +325,7 @@ Teilnehmende unterschätzen oft, wie schnell ein scheinbar guter Agent bei klein
 | Dokument | Frage |
 |---|---|
 | [Aufgabenklassen & Lösungswege](../orientierung/aufgabenklassen-und-loesungswege.html) | Wann lohnt sich ein GenAI-Projekt, bevor gebaut wird? |
-| [RAG-Konzepte](./rag-konzepte.html) | Wie funktioniert Retrieval Augmented Generation grundsätzlich? |
+| [RAG-Konzepte](../anwendungsmethoden/rag-konzepte.html) | Wie funktioniert Retrieval Augmented Generation grundsätzlich? |
 | [GenAI-Sicherheit](../agentisch/agent-security.html) | Welche Sicherheitsrisiken und Schutzmaßnahmen sind bei toolgestützten GenAI-Anwendungen relevant? |
 
 ---

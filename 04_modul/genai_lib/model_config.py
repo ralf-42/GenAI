@@ -42,7 +42,7 @@ Rollen (Nano → Mini → Standard → Premium):
     JUDGE_PREMIUM      — Judge / maximale Qualität     (gpt-5.5)
     PLANNER_PREMIUM    — Planner / maximale Qualität   (gpt-5.5)
     VISION_FAST        — Bildanalyse M16               (gpt-5.4-mini)
-    VISION_PREMIUM     — Multimodale Analyse           (gpt-4o)
+    VISION_PREMIUM     — Multimodale Analyse           (gpt-5.4-mini)
     IMAGE_GENERATION   — Bildgenerierung               (gpt-image-1)
     IMAGE_GENERATION_PREMIUM — Bildgenerierung high     (gpt-image-2)
     VIDEO_GENERATION   — Videoerzeugung                (sora-2)

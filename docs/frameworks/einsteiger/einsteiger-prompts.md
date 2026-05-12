@@ -397,8 +397,8 @@ flowchart TD
 
 | Dokument | Frage |
 |---|---|
-| [Prompt Engineering](../../concepts/erweitert/prompt-engineering.html) | Welche konzeptionellen Regeln stehen hinter guten Prompts? |
-| [Context Engineering](../../concepts/erweitert/m21-context-engineering.html) | Wie wird der gesamte Kontext einer GenAI-Anwendung gesteuert? |
+| [Prompt Engineering](../../concepts/anwendungsmethoden/prompt-engineering.html) | Welche konzeptionellen Regeln stehen hinter guten Prompts? |
+| [Context Engineering](../../concepts/anwendungsmethoden/m21-context-engineering.html) | Wie wird der gesamte Kontext einer GenAI-Anwendung gesteuert? |
 
 ---
 

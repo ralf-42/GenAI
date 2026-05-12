@@ -35,18 +35,18 @@ Diese Seiten klären die Mechanik hinter den Modellen. Sie sind dort besonders n
 
 Diese Seiten behandeln die Methoden, mit denen Sprachmodelle gezielt gesteuert, mit Kontext versorgt und an eigene Wissensquellen gebunden werden. Sie bilden das praktische Handwerkszeug für fast jede GenAI-Anwendung.
 
-- [Prompt Engineering](concepts/erweitert/prompt-engineering.html) – *Wie werden Modelle gezielt gesteuert?*
-- [Context Engineering](concepts/erweitert/m21-context-engineering.html) – *Welche Informationen braucht ein System wirklich?*
-- [RAG-Konzepte](concepts/erweitert/rag-konzepte.html) – *Wann hilft Retrieval und wann schadet es eher?*
+- [Prompt Engineering](concepts/anwendungsmethoden/prompt-engineering.html) – *Wie werden Modelle gezielt gesteuert?*
+- [Context Engineering](concepts/anwendungsmethoden/m21-context-engineering.html) – *Welche Informationen braucht ein System wirklich?*
+- [RAG-Konzepte](concepts/anwendungsmethoden/rag-konzepte.html) – *Wann hilft Retrieval und wann schadet es eher?*
 
 ## Entscheidungen & Qualität
 
 Diese Seiten behandeln die Fragen, die entstehen, wenn eine Anwendung nicht mehr nur funktionieren, sondern zuverlässig und nachvollziehbar arbeiten soll: Welches Modell passt zur Aufgabe, wie wird Qualität messbar, und wann lohnt sich eigenes Training.
 
-- [Modellauswahl](concepts/erweitert/m19-modellauswahl.html) – *Nach welchen Kriterien wird ein Modell ausgewählt?*  
+- [Modellauswahl](concepts/entscheidungen-qualitaet/m19-modellauswahl.html) – *Nach welchen Kriterien wird ein Modell ausgewählt?*  
   Praktische Designregeln für den Kurs finden sich ergänzend im [Modell-Auswahl Guide](frameworks/modell-auswahl/modell-auswahl-guide.html).
-- [Evaluation & Observability](concepts/erweitert/evaluation-observability.html) – *Wie wird sichtbar, ob eine GenAI-Anwendung gut funktioniert?* Mindeststandard für Testsets, RAG-Qualitätsprüfung, Tracing und Fehleranalyse.
-- [Fine-Tuning](concepts/erweitert/m18-fine-tuning.html) – *Wann reicht Prompting nicht mehr aus?* Einordnung von Training als spätere Optimierungsoption.
+- [Evaluation & Observability](concepts/entscheidungen-qualitaet/evaluation-observability.html) – *Wie wird sichtbar, ob eine GenAI-Anwendung gut funktioniert?* Mindeststandard für Testsets, RAG-Qualitätsprüfung, Tracing und Fehleranalyse.
+- [Fine-Tuning](concepts/entscheidungen-qualitaet/m18-fine-tuning.html) – *Wann reicht Prompting nicht mehr aus?* Einordnung von Training als spätere Optimierungsoption.
 
 ## Agenten & Workflows
 

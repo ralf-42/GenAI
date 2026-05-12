@@ -692,8 +692,8 @@ with gr.Blocks(title="Tech-Doku Assistent") as demo:
 - `01_notebook/M13_Gradio.ipynb`
 
 **Qualität & Observability:**
-- [Evaluation & Observability](../concepts/erweitert/evaluation-observability.html)
-- [RAG-Konzepte](../concepts/erweitert/rag-konzepte.html)
+- [Evaluation & Observability](../concepts/entscheidungen-qualitaet/evaluation-observability.html)
+- [RAG-Konzepte](../concepts/anwendungsmethoden/rag-konzepte.html)
 - [LangSmith Best Practices](../frameworks/best-practices/langsmith-best-practices.html)
 
 ---
@@ -765,8 +765,8 @@ A: Ja. Dann lokal mit Jupyter Notebook oder JupyterLab arbeiten und Folgendes er
 | Dokument | Frage |
 |---|---|
 | [KI-Challenge](./m23-ki-challenge.html) | Wie wird aus einem offenen Kursprojekt ein bewertbares End-to-End-System? |
-| [RAG-Konzepte](../concepts/erweitert/rag-konzepte.html) | Welche Retrieval-Entscheidungen liegen unter dem Workshop? |
-| [Evaluation & Observability](../concepts/erweitert/evaluation-observability.html) | Wie wird die Qualität einer RAG-Anwendung überprüfbar? |
+| [RAG-Konzepte](../concepts/anwendungsmethoden/rag-konzepte.html) | Welche Retrieval-Entscheidungen liegen unter dem Workshop? |
+| [Evaluation & Observability](../concepts/entscheidungen-qualitaet/evaluation-observability.html) | Wie wird die Qualität einer RAG-Anwendung überprüfbar? |
 
 ---
 
