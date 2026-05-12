@@ -102,7 +102,7 @@ def multiply(a: int, b: int) -> int:
     return a * b
 ```
 
-Dieses Minimalbeispiel zeigt bereits zwei Grundregeln: Type Hints sind notwendig und der Docstring ist nicht bloß Dokumentation für Menschen, sondern Steuerungsinformation für das Modell.
+Dieses Minimalbeispiel zeigt bereits zwei Grundregeln: Type Hints sind notwendig und der **Docstring** ist nicht bloß Dokumentation für Menschen, sondern **Steuerungsinformation** für das Modell.
 
 ## Warum gute Docstrings über die Tool-Auswahl entscheiden
 
@@ -146,15 +146,12 @@ In der Praxis relevant, wenn: Mehrere ähnliche Tools verfügbar sind und das Mo
 
 Sobald ein Agent mehrere ähnliche Werkzeuge verwaltet, entsteht leicht Tool-Overlap. Zwei Tools „suchen“ beide etwas, aber in unterschiedlichen Datenräumen. Ohne klare Ausschlüsse kann das Modell schwer entscheiden, welches Werkzeug gemeint ist.
 
-`Multipliziere 7 mit 8`0
-
 Gerade bei Agenten mit vielen Tools ist diese Negativabgrenzung kein Zusatz, sondern ein wichtiges Architekturmittel. Sie reduziert Fehlgriffe des Modells deutlich.
 
 ## Type Hints sind Pflicht
 
 Ohne Type Hints entsteht kein sauberes Schema. Das Modell weiß dann nicht zuverlässig, welche Parameter es liefern soll oder welche Datentypen erwartet werden.
 
-`Multipliziere 7 mit 8`1
 
 > [!WARNING] Fehlende Type Hints erzeugen schwache Tool-Schemata<br>
 > Wenn das Schema unvollständig ist, kann das Modell Parameter falsch oder gar nicht befüllen.
@@ -163,7 +160,6 @@ Ohne Type Hints entsteht kein sauberes Schema. Das Modell weiß dann nicht zuver
 
 Bei produktionsnäheren Tools reicht ein Docstring oft nicht aus. Dann wird ein Pydantic-Modell zur eigentlichen Contract-Schicht. Es definiert zugleich das Schema, validiert die Eingaben und macht Übergaben zwischen Komponenten konsistent.
 
-`Multipliziere 7 mit 8`2
 
 Der Vorteil liegt darin, dass Schema und Validierung nicht auseinanderdriften. Genau deshalb ist Pydantic für höherwertige Tool-Schnittstellen oft sinnvoll.
 
@@ -171,13 +167,10 @@ Der Vorteil liegt darin, dass Schema und Validierung nicht auseinanderdriften. G
 
 Ein Tool kann fehlschlagen: Datei nicht gefunden, Datenbank nicht erreichbar, Eingabe ungültig. Gute Tools liefern deshalb nicht nur einen Absturz, sondern eine verständliche Rückmeldung, mit der der Agent weiterarbeiten kann.
 
-`Multipliziere 7 mit 8`3
 
 Das gilt auch für externe Systeme:
 
-`Multipliziere 7 mit 8`4
-
-Typischer Fehler: Nur `Multipliziere 7 mit 8`5 zurückzugeben. Ein Agent braucht eine informative Fehlermeldung, sonst kann er weder sinnvoll erklären noch sinnvoll weiterfragen.
+Typischer Fehler: Nur `Multipliziere 7 mit 8` zurückzugeben. Ein Agent braucht eine informative Fehlermeldung, sonst kann er weder sinnvoll erklären noch sinnvoll weiterfragen.
 
 ## Tool-Ausgaben vor dem Weitergeben filtern
 
@@ -185,63 +178,46 @@ Was ein Werkzeug zurückgibt, ist nicht automatisch das, was in den Agenten-Kont
 
 Typischer Fehler: Die Rückgabe eines API-Aufrufs wird direkt als Tool-Ergebnis übergeben, ohne dass geprüft wird, welche Felder für den nächsten Schritt tatsächlich gebraucht werden. Ein Agent, der zehn Suchresultate mit je fünfzig Feldern erhält, wird keinen dieser Einträge besser auswerten als einen, der fünf Treffer mit drei relevanten Feldern bekommt — er wird es aber langsamer und unzuverlässiger tun.
 
-`Multipliziere 7 mit 8`6
-
 Das Filterverhalten gehört zur Tool-Implementierung, nicht zur Prompt-Gestaltung. Eine saubere Abgrenzung zwischen dem, was die externe API liefert, und dem, was der Agent für seine Entscheidung braucht, ist Teil des Harness-Designs.
 
 ## Werkzeuge zunächst isoliert testen
 
 Bevor ein Tool an einen Agenten gebunden wird, sollte es einzeln geprüft werden. Dazu gehört die direkte Ausführung ebenso wie die Kontrolle von Name, Beschreibung und Schema.
 
-`Multipliziere 7 mit 8`7
-
 Gerade in Einsteigerprojekten spart dieser Zwischenschritt viel Zeit, weil unklare Schemas oder fehlerhafte Parameter nicht erst im Agentenverbund auffallen.
 
 ## Tools an das Modell binden
 
-Sobald Werkzeuge definiert sind, können sie an ein Modell gebunden werden. Das Modell entscheidet dann selbst, ob ein Tool sinnvoll ist. Mit `Multipliziere 7 mit 8`8 wird zunächst nur die Tool-Absicht erzeugt.
-
-`Multipliziere 7 mit 8`9
+Sobald Werkzeuge definiert sind, können sie an ein Modell gebunden werden. Das Modell entscheidet dann selbst, ob ein Tool sinnvoll ist. Mit `Multipliziere 7 mit 8` wird zunächst nur die Tool-Absicht erzeugt.
 
 Erst ein Agent oder eine umgebende Laufzeit führt diesen Aufruf wirklich aus.
 
-`multiply(a=7, b=8)`0
+`multiply(a=7, b=8)`
 
 ## Praktische Tool-Beispiele
 
 Ein Datums-Tool ist nützlich, wenn aktuelle Zeitinformation gebraucht wird:
 
-`multiply(a=7, b=8)`1
-
 Ein Datei-Tool zeigt gut, wie externe Operationen kontrolliert werden:
-
-`multiply(a=7, b=8)`2
 
 Ein Websuch-Tool ist besonders für aktuelle Informationen nützlich, die nicht im Modellwissen liegen:
 
-`multiply(a=7, b=8)`3
 
 ## Hochriskante Aktionen brauchen zusätzliche Schranken
 
 Bei Operationen mit realen Folgen, etwa Rückerstattung, Löschung oder Zahlung, reicht ein einzelnes Tool oft nicht aus. Ein sinnvolles Muster ist Two-Step Veto: Zuerst wird geprüft, danach erst ausgeführt.
 
-`multiply(a=7, b=8)`4
-
-`multiply(a=7, b=8)`5
-
 Wenn nach einer Policy-Prüfung deterministisch feststeht, welches Tool als Nächstes aufgerufen werden muss, kann ein System den nächsten Tool-Schritt auch erzwingen.
 
-`multiply(a=7, b=8)`6
+Nicht geeignet, wenn: Tool-Auswahl generell durch Zwang gesteuert wird. Forced `multiply(a=7, b=8)` ist für klare Sonderfälle gedacht, nicht als Dauerersatz für gutes Routing.
 
-Nicht geeignet, wenn: Tool-Auswahl generell durch Zwang gesteuert wird. Forced `multiply(a=7, b=8)`7 ist für klare Sonderfälle gedacht, nicht als Dauerersatz für gutes Routing.
+## Was am Anfang wichtig ist
 
-## Was für Einsteiger zuerst wichtig ist
+Für einen ersten Agenten reichen meist **wenige, klar benannte Werkzeuge** mit guten Docstrings und sauberer Fehlerbehandlung. Zu viele Tools auf einmal überfordern nicht nur das Modell, sondern auch das eigene Debugging. Ein kleines, klar abgegrenztes Toolset ist fast immer der bessere Start.
 
-Für einen ersten Agenten reichen meist wenige, klar benannte Werkzeuge mit guten Docstrings und sauberer Fehlerbehandlung. Zu viele Tools auf einmal überfordern nicht nur das Modell, sondern auch das eigene Debugging. Ein kleines, klar abgegrenztes Toolset ist fast immer der bessere Start.
+Entwickler unterschätzen oft, dass Tool Use nicht nur neue Fähigkeiten bringt, sondern auch neue Verantwortung. Sobald ein Agent lesen, suchen, schreiben oder externe Systeme verändern kann, wird Tool-Design zur Sicherheitsfrage.
 
-Teilnehmende unterschätzen oft, dass Tool Use nicht nur neue Fähigkeiten bringt, sondern auch neue Verantwortung. Sobald ein Agent lesen, suchen, schreiben oder externe Systeme verändern kann, wird Tool-Design zur Sicherheitsfrage.
-
-In der Praxis relevant wenn: Ein Agent auf viele Werkzeuge zugreifen soll, diese aber nicht alle gleichzeitig braucht. Statt alle Tools auf einmal bereitzustellen, kann man dem Agenten zunächst nur wenige, klar beschriebene Einstiegs-Tools geben. Die vollständigen Parameter-Beschreibungen oder spezialisierte Werkzeuge werden erst dann in den Kontext injiziert, wenn der Agent durch einen ersten Tool-Aufruf signalisiert, in welche Richtung er arbeitet. Dieses Prinzip — als **Progressive Disclosure** bezeichnet — reduziert den Token-Verbrauch, verringert mehrdeutige Tool-Auswahlen und macht das Debugging einfacher, weil in jedem Schritt weniger gleichzeitig entschieden wird.
+In der Praxis relevant wenn: Ein Agent auf viele Werkzeuge zugreifen soll, diese aber nicht alle gleichzeitig braucht. Statt alle Tools auf einmal bereitzustellen, kann man dem Agenten zunächst nur wenige, klar beschriebene Einstiegs-Tools geben. Die vollständigen Parameter-Beschreibungen oder spezialisierte Werkzeuge werden erst dann in den Kontext injiziert, wenn der Agent durch einen ersten Tool-Aufruf signalisiert, in welche Richtung er arbeitet. Dieses Prinzip — als **Progressive Disclosure** (schrittweise Offenlegung) bezeichnet — reduziert den Token-Verbrauch, verringert mehrdeutige Tool-Auswahlen und macht das Debugging einfacher, weil in jedem Schritt weniger gleichzeitig entschieden wird.
 
 ## Abgrenzung zu verwandten Dokumenten
 

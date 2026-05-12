@@ -22,9 +22,9 @@ Wer neu in das Kursmaterial einsteigt, beginnt mit diesen fünf Dokumenten:
 
 1. [Lohnt sich GenAI?](./concepts/orientierung/lohnt-es-sich.html)
 2. [Aufgabenklassen und Lösungswege](./concepts/orientierung/aufgabenklassen-und-loesungswege.html)
-3. [Einsteiger LangChain](./frameworks/einsteiger/einsteiger-langchain.html)
-4. [RAG-Konzepte](./concepts/erweitert/rag-konzepte.html)
-5. [Evaluation & Observability](./concepts/erweitert/evaluation-observability.html)
+3. [Einsteiger LangChain](./frameworks/einsteiger/einsteiger-langchain.html)  (Nur erste Abschnitte)
+4. [RAG-Konzepte](./concepts/erweitert/rag-konzepte.html) (Überblick & Architektur)
+5. [Evaluation & Observability](./concepts/erweitert/evaluation-observability.html)  (Nur erste Abschnitte)
 
 Diese Reihenfolge klärt zuerst, ob GenAI überhaupt sinnvoll ist und welcher Lösungsweg zur Aufgabe passt. Danach folgt die technische Umsetzung mit LangChain, anschließend das wichtigste Erweiterungsmuster für eigene Daten und zuletzt die Frage, wie Qualität überprüfbar wird.
 

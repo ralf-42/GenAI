@@ -8,7 +8,7 @@ has_toc: true
 
 # Lesepfade
 
-Diese Dokumentation ist nicht als lineares Handbuch aufgebaut. Für den kürzesten Einstieg eignet sich zuerst [Zuerst lesen](./zuerst-lesen.html). Danach helfen die Lesepfade dabei, je nach Ziel gezielt zu vertiefen.
+Diese Dokumentation ist **nicht** als lineares Handbuch aufgebaut. Für den kürzesten Einstieg eignet sich zuerst [Zuerst lesen](./zuerst-lesen.html). Danach helfen die Lesepfade dabei, je nach Ziel gezielt zu vertiefen.
 
 # Inhaltsverzeichnis
 {: .no_toc .text-delta }
@@ -18,7 +18,7 @@ Diese Dokumentation ist nicht als lineares Handbuch aufgebaut. Für den kürzest
 
 ## Wofür diese Seite da ist
 
-Die Dokumentation deckt mehrere Ebenen gleichzeitig ab: Grundbegriffe, Modellverständnis, Framework-Einstieg, RAG, Multimodalität, Deployment und Governance. Ohne Einstiegspunkt wird daraus schnell eine Sammlung guter Einzeltexte ohne klare Leserführung.
+Die Dokumentation deckt mehrere Ebenen gleichzeitig ab: Grundbegriffe, Modellverständnis, Framework-Einstieg, RAG, Multimodalität, Deployment und Governance. Ohne einen passenden Einstiegspunkt wird daraus schnell eine Sammlung guter Einzeltexte ohne klare Leseführung.
 
 Diese Seite bündelt deshalb drei Dinge:
 
@@ -52,7 +52,7 @@ Empfohlener Einstieg:
 3. [LangChain Best Practices](./frameworks/best-practices/langchain-best-practices.html)
 4. [Modell-Auswahl Guide](./frameworks/modell-auswahl/modell-auswahl-guide.html)
 
-### Kursnotebooks vorbereiten
+### Notebooks vorbereiten
 
 Die Notebooks sollen ohne Reibung laufen: API-Keys müssen verfügbar sein, Colab-spezifische Zellen müssen verstanden werden und die lokalen Hilfsfunktionen sollen nachvollziehbar bleiben.
 
@@ -63,7 +63,7 @@ Empfohlener Einstieg:
 3. [GenAI_Lib Einsteiger](./frameworks/einsteiger/einsteiger-genai-lib.html)
 4. [Code Standards](./ressourcen/standards.html)
 
-### RAG und Retrieval
+### RAG & Retrieval
 
 Dokumente, Wissensquellen oder Grounding spielen die Hauptrolle. Meist steht dann nicht das Sprachmodell selbst im Vordergrund, sondern die Frage, wie Wissen zuverlässig eingebunden und geprüft wird.
 
@@ -138,19 +138,8 @@ Empfohlener Einstieg:
 4. [Datenschutz & DSGVO](./regulatorisches/datenschutz-dsgvo.html)
 5. [KI-Reifegradmodell](./ressourcen/ki-reifegradmodell.html)
 
-### No-Code, Low-Code und visuelle Orientierung
 
-Nicht jeder Einstieg beginnt im Code. Für erste Prototypen, Modellverständnis oder Workshop-Situationen können Visualisierungen und Builder helfen, bevor eine Python-Architektur entsteht.
-
-Empfohlener Einstieg:
-
-1. [Interaktive Visualisierungen](./ressourcen/interaktive-visualisierungen.html)
-2. [Agent Builder Einsteiger](./frameworks/einsteiger/einsteiger-agent-builder.html)
-3. [Lohnt sich GenAI?](./concepts/orientierung/lohnt-es-sich.html)
-4. [Aufgabenklassen und Lösungswege](./concepts/orientierung/aufgabenklassen-und-loesungswege.html)
-5. [Links](./ressourcen/links.html)
-
-## Fünf Dokumente für fast jeden Start
+## Fünf Dokumente für *fast* jeden Start
 
 Wer nicht lange wählen will, kommt mit diesen fünf Dokumenten meist am schnellsten ins Thema:
 
