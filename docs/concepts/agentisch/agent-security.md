@@ -1,7 +1,7 @@
 ---
 layout: default
 title: GenAI-Sicherheit
-parent: Produktive Anwendungen
+parent: Agenten & Workflows
 grand_parent: Konzepte
 nav_order: 5
 description: Sicherheitsrisiken und Schutzprinzipien für GenAI-Anwendungen mit Tools, Datenzugriff und externen Schnittstellen

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Memory-Systeme
-parent: Produktive Anwendungen
+parent: Agenten & Workflows
 grand_parent: Konzepte
 nav_order: 2
 description: Kurz- und Langzeitgedaechtnis fuer GenAI-Anwendungen mit LangGraph, Vektordatenbanken und nutzerspezifischer Persistenz

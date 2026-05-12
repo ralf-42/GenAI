@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Tool Use & Function Calling"
-parent: Produktive Anwendungen
+parent: Agenten & Workflows
 grand_parent: Konzepte
 nav_order: 1
 description: "Tool Use und Function Calling fuer GenAI-Anwendungen: warum Werkzeuge noetig sind und wie sie sicher eingebunden werden"

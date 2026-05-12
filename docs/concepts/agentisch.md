@@ -1,13 +1,13 @@
 ---
 layout: default
-title: Produktive Anwendungen
+title: Agenten & Workflows
 parent: Konzepte
 nav_order: 6
 has_children: true
 description: "Tools, State, Memory und Sicherheit: Konzepte für belastbare GenAI-Anwendungssysteme"
 ---
 
-# Produktive Anwendungen
+# Agenten & Workflows
 
 Sobald GenAI-Anwendungen Werkzeuge aufrufen, Zustand halten oder menschliche Freigaben einbinden, reicht ein einzelner Prompt nicht mehr aus. Diese Seiten behandeln die Konzepte, die aus Modellaufrufen belastbare Anwendungssysteme machen.
 

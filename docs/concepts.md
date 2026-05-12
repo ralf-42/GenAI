@@ -55,7 +55,7 @@ Sobald neben Text auch Bilder, Audio oder spezialisierte Modelle ins Spiel komme
 - [Multimodal Bild](concepts/multimodal/m09-multimodal-bild.html) – *Was leisten multimodale Bildmodelle wirklich?*
 - [Multimodal Audio](concepts/multimodal/m16-multimodal-audio.html) – *Wann lohnt sich Audio im Workflow?*
 
-## Produktive und agentische Anwendungen
+## Agenten & Workflows
 
 Sobald GenAI-Anwendungen Werkzeuge aufrufen, Zustand halten oder menschliche Freigaben einbinden, reicht ein einzelner Prompt nicht mehr aus. Diese Seiten behandeln die Konzepte, die aus Modellaufrufen belastbare Anwendungssysteme machen.
 
