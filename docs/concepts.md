@@ -48,13 +48,6 @@ Diese Seiten behandeln die Fragen, die entstehen, wenn eine Anwendung nicht mehr
 - [Evaluation & Observability](concepts/erweitert/evaluation-observability.html) – *Wie wird sichtbar, ob eine GenAI-Anwendung gut funktioniert?* Mindeststandard für Testsets, RAG-Qualitätsprüfung, Tracing und Fehleranalyse.
 - [Fine-Tuning](concepts/erweitert/m18-fine-tuning.html) – *Wann reicht Prompting nicht mehr aus?* Einordnung von Training als spätere Optimierungsoption.
 
-## Multimodale Konzepte
-
-Sobald neben Text auch Bilder, Audio oder spezialisierte Modelle ins Spiel kommen, steigen Möglichkeiten und Fehlannahmen zugleich. Diese Seiten trennen technische Möglichkeiten von dem, was im Projektalltag tatsächlich tragfähig ist.
-
-- [Multimodal Bild](concepts/multimodal/m09-multimodal-bild.html) – *Was leisten multimodale Bildmodelle wirklich?*
-- [Multimodal Audio](concepts/multimodal/m16-multimodal-audio.html) – *Wann lohnt sich Audio im Workflow?*
-
 ## Agenten & Workflows
 
 Sobald GenAI-Anwendungen Werkzeuge aufrufen, Zustand halten oder menschliche Freigaben einbinden, reicht ein einzelner Prompt nicht mehr aus. Diese Seiten behandeln die Konzepte, die aus Modellaufrufen belastbare Anwendungssysteme machen.
@@ -64,3 +57,10 @@ Sobald GenAI-Anwendungen Werkzeuge aufrufen, Zustand halten oder menschliche Fre
 - [State Management](concepts/agentisch/state-management.html) – *Wie werden Zwischenergebnisse und Prozesszustände explizit verwaltet?*
 - [Human-in-the-Loop](concepts/agentisch/human-in-the-loop.html) – *Wann braucht eine GenAI-Anwendung menschliche Freigabe oder Eskalation?*
 - [GenAI-Sicherheit](concepts/agentisch/agent-security.html) – *Wie werden Tool-Zugriffe, externe Inhalte und sensible Daten abgesichert?*
+
+## Multimodale Konzepte
+
+Sobald neben Text auch Bilder, Audio oder spezialisierte Modelle ins Spiel kommen, steigen Möglichkeiten und Fehlannahmen zugleich. Diese Seiten trennen technische Möglichkeiten von dem, was im Projektalltag tatsächlich tragfähig ist.
+
+- [Multimodal Bild](concepts/multimodal/m09-multimodal-bild.html) – *Was leisten multimodale Bildmodelle wirklich?*
+- [Multimodal Audio](concepts/multimodal/m16-multimodal-audio.html) – *Wann lohnt sich Audio im Workflow?*
