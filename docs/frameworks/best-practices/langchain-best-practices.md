@@ -1098,6 +1098,11 @@ Beim Refactoring von altem Code:
 
 ## 📝 Changelog
 
+### Version 1.7 (Mai 2026)
+- 🆕 **`astream_events()` v3 Protokoll** — `version="v3"` in LangChain v1.3.0 verfügbar (bisher max. v2)
+- 🆕 **langchain-core v1.4.0** — Content-Block-Streaming v2 jetzt stabil (war Beta in 1.3.2)
+- 🆕 **`HumanInTheLoopMiddleware.respond()`** — direkte Antwort aus Middleware ohne weiteren LLM-Call (v1.2.17)
+
 ### Version 1.6 (März 2026)
 - 🆕 Automatic Server-Side Compaction dokumentiert (langchain-openai 1.1.10) — Must-Have #6 Ergänzung
 - ✅ "What's New" Sektion um langchain-openai v1.1.10 erweitert
@@ -1155,6 +1160,6 @@ Beim Refactoring von altem Code:
 
 ---
 
-**Version:** 1.6<br>
-**Stand:** März 2026<br>
+**Version:** 1.7<br>
+**Stand:** Mai 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

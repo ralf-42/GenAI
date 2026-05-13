@@ -211,7 +211,7 @@ print(safe_divide.invoke({"a": 10, "b": 0}))
 
 ### Tool Extras für Provider-spezifische Features (NEU v1.2.0)
 
-Tools unterstützen jetzt `extras` für provider-native Konfigurationen – eine der wichtigsten Neuerungen in LangChain v1.2.0:
+Der extras-Parameter beim @tool-Dekorator erlaubt es, provider‑spezifische Features und Flags (z. B. Anthropic‑Caching, OpenAI‑strict‑Mode oder spezielle „computer“/Display‑Flags) an ein LangChain‑Tool zu hängen, die die Standard‑Tool‑API nicht abbildet. Diese Extras werden nur wirksam, wenn der jeweilige Provider‑Adapter/Integration die entsprechenden Keys interpretiert; andernfalls haben sie keine Wirkung.
 
 ```python
 from langchain_core.tools import tool
@@ -260,7 +260,7 @@ def take_screenshot() -> str:
 - Anthropic Computer Use für Browser-Automation
 
 > [!WARNING] Cache-Typ beachten<br>
-> `cache_control: {"type": "ephemeral"}` erzeugt einen kurzlebigen Cache (nur innerhalb einer Sitzung). Wird das gleiche Tool ohne passende `extras`-Konfiguration in einem anderen Request aufgerufen, entsteht ein Cache-Miss — und es fallen erneut volle Kosten an. Konsistenz der `extras`-Konfiguration über alle Tool-Aufrufe hinweg sicherstellen.
+> `cache_control: {"type": "ephemeral"}` erzeugt einen kurzlebigen Cache innerhalb derselben Sitzung. Damit der Cache wiederverwendet werden kann, sollte die `extras`-Konfiguration eines Tools konsistent bleiben. Wird dasselbe Tool später mit einer anderen `extras`-Konfiguration registriert oder verwendet, entsteht ein Cache-Miss — die Anfrage wird erneut vollständig verarbeitet und verursacht erneut volle Kosten.
 
 ---
 
@@ -417,27 +417,33 @@ print(output)
 
 ### Beispiel: LCEL-Chain mit zusätzlicher Eingabe (Pass-Through)
 
+`RunnablePassthrough` ergänzt Daten innerhalb einer Chain, ohne den ursprünglichen Input zu verändern. Dadurch können zusätzliche Informationen wie Kontext, Metadaten oder Zwischenergebnisse einfach ergänzt werden.
+
 ```python
 from langchain_core.runnables import RunnablePassthrough
+from langchain_core.prompts import ChatPromptTemplate
 
 qa_prompt = ChatPromptTemplate.from_template(
     "Kontext:\n{context}\n\nFrage: {question}"
 )
 
+# Die Chain erhält ein Dictionary, z. B. {"question": "..."}.
+# RunnablePassthrough.assign ergänzt daraus ein weiteres Feld: "context".
+
 qa_chain = (
-    {
-        "context": RunnablePassthrough(),  # hier könnte auch ein Retriever stehen
-        "question": RunnablePassthrough(),
-    }
+    RunnablePassthrough.assign(
+        context=lambda x: "Hier stehen z.B. Infos aus einer Datenbank."
+    )
     | qa_prompt
     | llm
     | StrOutputParser()
 )
 
-answer = qa_chain.invoke({
-    "context": "LangChain bietet Tools, Agents und RAG-Bausteine.",
-    "question": "Wofür nutzt man LangChain?",
-})
+# Aufruf:
+# "question" wird unverändert weitergegeben.
+# "context" wird von der Chain automatisch ergänzt.
+
+answer = qa_chain.invoke({"question": "Was ist RAG?"})
 print(answer)
 ```
 
@@ -447,7 +453,7 @@ print(answer)
 
 Middleware ergänzt Agenten um wichtige Kontrollmechanismen, etwa Sicherheitsprüfungen oder automatische Kontextverdichtung.
 
-**Beispiel: Ein Agent mit Human-in-the-Loop für sensible Tools**
+**Ein Agent mit Human-in-the-Loop für sensible Tools**
 
 ```python
 from langchain.agents.middleware import HumanInTheLoopMiddleware
@@ -471,7 +477,6 @@ secure_agent = create_agent(
 )
 ```
 
-In Notebooks kann hier didaktisch gezeigt werden, wie der Agent vor einer heiklen Tool‑Ausführung explizit um Bestätigung fragt.
 
 **Kontext-Management bei langen Konversationen**
 
@@ -604,42 +609,55 @@ Retrieval‑Augmented Generation (RAG) ist eines der wichtigsten Einsatzszenarie
 
 ```mermaid
 flowchart TB
-    START([User Query])
-    EMBED[Embedding Model<br/>Convert query to vector]
-    RETRIEVE[Vector Store Retrieval<br/>Similarity search]
-    FORMAT[Format Documents<br/>Combine retrieved chunks]
-    PROMPT[RAG Prompt Template<br/>Context + Question]
-    LLM[Language Model<br/>Generate answer]
-    FINISH([Answer to User])
 
-    START --> EMBED
-    EMBED --> RETRIEVE
-    RETRIEVE -->|Top-k documents| FORMAT
-    FORMAT -->|context| PROMPT
-    START -->|question| PROMPT
-    PROMPT --> LLM
-    LLM --> FINISH
+START([Benutzeranfrage])
 
-    subgraph "Vector Database"
-        RETRIEVE
-    end
+EMBED[Embedding-Modell
+Anfrage in Vektor umwandeln]
 
-    subgraph "LCEL Chain"
-        FORMAT
-        PROMPT
-        LLM
-    end
+RETRIEVE[Vektordatenbank-Abfrage
+Ähnlichkeitssuche]
 
-    style EMBED fill:#ffe6cc
-    style RETRIEVE fill:#f8cecc
-    style FORMAT fill:#d5e8d4
-    style PROMPT fill:#dae8fc
-    style LLM fill:#d5e8d4
+FORMAT[Dokumente formatieren
+Gefundene Chunks kombinieren]
+
+PROMPT[RAG Prompt-Vorlage
+Kontext + Frage]
+
+LLM[Sprachmodell
+Antwort generieren]
+
+FINISH([Antwort an Benutzer])
+
+START --> EMBED
+EMBED --> RETRIEVE
+RETRIEVE -->|Top-k Dokumente| FORMAT
+FORMAT -->|Kontext| PROMPT
+START -->|Frage| PROMPT
+PROMPT --> LLM
+LLM --> FINISH
+
+subgraph "<b>Vektordatenbank</b>"
+    RETRIEVE
+end
+
+subgraph "<b>LCEL Chain (Kette)</b>"
+    FORMAT
+    PROMPT
+    LLM
+end
+
+style EMBED fill:#ffe6cc
+style RETRIEVE fill:#f8cecc
+style FORMAT fill:#d5e8d4
+style PROMPT fill:#dae8fc
+style LLM fill:#d5e8d4
 ```
 
 **Beispiel: Minimaler RAG-Workflow mit LCEL**
 
 ```python
+from langchain_core.runnables import RunnablePassthrough
 from langchain_core.output_parsers import StrOutputParser
 
 ## 1. Retriever aus bestehendem Chroma-Store
@@ -663,11 +681,13 @@ Frage: {question}
 """
 )
 
-## 4. LCEL-Chain
+# 4. LCEL-Chain
 rag_chain = (
     {
+        # Hier wird die Frage an den Retriever gegeben und das Ergebnis formatiert
         "context": doc_retriever | format_docs,
-        "question": RunnablePassthrough(),
+        # Hier wird die ursprüngliche Frage ("Wozu wird Chroma verwendet?") einfach durchgereicht
+        "question": RunnablePassthrough(), 
     }
     | rag_prompt
     | llm

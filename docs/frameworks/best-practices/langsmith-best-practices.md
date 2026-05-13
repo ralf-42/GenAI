@@ -388,6 +388,8 @@ os.environ["LANGSMITH_PROJECT"] = "my-project"   # Optional: Projekt-Name
 
 # EU-Account: Endpoint explizit setzen (ebenfalls vor Imports!)
 os.environ["LANGSMITH_ENDPOINT"] = "https://eu.api.smith.langchain.com"
+# APAC-Account (Asia-Pacific):
+# os.environ["LANGSMITH_ENDPOINT"] = "https://ap.api.smith.langchain.com"
 ```
 
 > ⚠️ **Reihenfolge-Regel:** `LANGSMITH_ENDPOINT` und `LANGSMITH_TRACING` müssen gesetzt sein, **bevor** `langchain`, `langsmith` oder `genai_lib` importiert werden. Der LangChain-Tracer liest die Env-Vars beim ersten Import – späteres Setzen wird ignoriert.
@@ -615,6 +617,8 @@ with ls.tracing_context(project_name="M06-Structured-Output"):
     result = chain.invoke("...")
 ```
 
+> ⚠️ **SDK 0.8.3 Breaking Change:** `ttl_seconds` wurde entfernt. Neu: `idle_ttl_seconds` (Inaktivitäts-TTL) und `delete_after_stop_seconds` (TTL nach Stop).
+
 ---
 
 ### Problem: Traces erscheinen nicht
@@ -713,6 +717,12 @@ callback = LangSmithCallback(
 
 ## 📝 Changelog
 
+### Version 2.1 (2026-05-13)
+- 🆕 **APAC Region** — Endpoint `https://ap.api.smith.langchain.com` für Asia-Pacific-Accounts dokumentiert
+- 🆕 **SDK 0.8.3 Breaking Change**: `ttl_seconds` → `idle_ttl_seconds` + `delete_after_stop_seconds`
+- 🆕 **Strands OTel Exporter** (SDK 0.7.38) — OpenTelemetry-Integration im Python SDK
+- 🆕 **Profile-Loading** (SDK 0.8.1) — Profile-basiertes Laden von Credentials
+
 ### Version 1.9 (2026-03-04)
 - ✅ BREAKING: Alle `LANGCHAIN_*` Env-Vars → `LANGSMITH_*` (LANGSMITH_TRACING, LANGSMITH_API_KEY, LANGSMITH_PROJECT, LANGSMITH_ENDPOINT, LANGSMITH_SAMPLING_RATE)
 - ✅ NEU: Baseline-Experiment fixieren (Feb 2026) in Datasets & Evaluation
@@ -773,6 +783,6 @@ callback = LangSmithCallback(
 
 ---
 
-**Version:** 2.0<br>
-**Stand:** März 2026<br>
+**Version:** 2.1<br>
+**Stand:** Mai 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
