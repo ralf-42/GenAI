@@ -197,6 +197,32 @@ In Colab und Jupyter meist verfügbar – `create_agent()`3 verhindert Abbruch f
 - 💰 API-Kosten reduzieren
 - ⚡ Workflow-Iterationen beschleunigen
 
+### 📦 Advanced: Node Defaults — `set_node_defaults()` (neu in v1.2.0)
+
+**Warum:** Setze Default-Konfigurationen für alle Nodes an einer zentralen Stelle.
+
+```python
+graph = StateGraph(AgentState)
+graph.set_node_defaults(retry=RetryPolicy(max_attempts=3), tags=["production"])
+graph.add_node("agent", agent_node)   # erbt retry + tags automatisch
+graph.add_node("tools", tool_node)    # erbt retry + tags automatisch
+```
+
+**Use Cases:** Einheitliche Retry-Policy · Globale Tags für Observability · Weniger Boilerplate
+
+### 📦 Advanced: Durable Error-Handler Resume (neu in v1.2.0)
+
+**Warum:** Fehler-Recovery über Host-Neustarts hinweg — kein Zustandsverlust bei Absturz.
+
+```python
+config = {"configurable": {"thread_id": "session-123"}}
+try:
+    result = graph.invoke(state, config)
+except Exception:
+    pass  # Host neu gestartet
+result = graph.invoke(None, config)  # setzt ab letztem Checkpoint fort
+```
+
 ### 📦 Advanced: Deferred Nodes (verfügbar ab v1.0)
 
 **Warum:** Verzögere Node-Ausführung bis alle Upstream-Pfade abgeschlossen sind (Map-Reduce, Consensus).
@@ -621,6 +647,22 @@ class UserInput(BaseModel):
     temperature: float = 0.7
 ```5)
 - ❌ Einfache Tools ohne Kontext-Bedarf → kein Overhead nötig
+
+### 🆕 NEU in v1.1.10: ToolNode Command Handoff
+
+`ToolNode` kann `Command`-Objekte zurückgeben — direktes Routing aus dem Tool heraus, ohne separate Conditional Edges.
+
+```python
+from langgraph.types import Command
+from langchain_core.tools import tool
+
+@tool
+def eskaliere_zu_mensch(grund: str) -> Command:
+    """Eskaliert direkt zum Human-Approval-Node."""
+    return Command(goto="human_approval", update={"eskalierungsgrund": grund})
+
+tool_node = ToolNode([eskaliere_zu_mensch, normales_tool])
+```
 
 ---
 
@@ -1101,6 +1143,18 @@ except Exception as e:
 - ✅ Veraltete v0.x Referenzen auf v1.0 aktualisiert
 - ✅ Migration-Checkliste erweitert
 
+**Changelog v1.6 (Mai 2026):**
+- 🆕 **`set_node_defaults()`** — Node-Level Default-Konfigurationen (LangGraph v1.2.0)
+- 🆕 **Durable Error-Handler Resume** — Fehler-Recovery über Host-Neustarts hinweg (v1.2.0)
+- 🆕 **ToolNode Command Handoff** — direktes Routing aus Tools via `Command` (v1.1.10)
+
+**Changelog v1.5 (Mai 2026):**
+- 🆕 **HITL Replay-Fix** — `Command(resume=...)` spult zum Interrupt-Checkpoint zurück (v1.1.7)
+- 🆕 **v2-Streaming-Format** — `StreamPart`-Dicts, `GraphOutput.value/.interrupts` (v1.1.0+)
+
+**Changelog v1.4 (März 2026):**
+- 🆕 **ToolRuntime** — Dependency Injection des Laufzeit-Kontexts via `ToolNode` (v1.0.8)
+
 **Changelog v1.1 (Dezember 2025):**
 - ✅ **Node Caching** dokumentiert - Performance-Optimierung
 - ✅ **Deferred Nodes** dokumentiert - Map-Reduce & Consensus
@@ -1134,6 +1188,6 @@ except Exception as e:
 
 ---
 
-**Version:** 1.4<br>
-**Stand:** März 2026<br>
+**Version:** 1.6<br>
+**Stand:** Mai 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
