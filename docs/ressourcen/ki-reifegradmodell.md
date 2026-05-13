@@ -77,6 +77,6 @@ Sinnvoll ist weniger die Frage "Welche Stufe ist die Organisation?", sondern "Wa
 
 ---
 
-**Version:** 1.0<br>
-**Stand:** Januar 2026<br>
+**Version:** 1.1<br>
+**Stand:** Mai 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

@@ -10,12 +10,6 @@ description: "Praktische Anleitungen, Werkzeuge und Hilfestellungen"
 
 Praktische Anleitungen, Werkzeuge und Hilfestellungen für die Arbeit mit generativer KI.
 
-## Inhaltsverzeichnis
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
-
 ## Visualisierungen
 - **[Interaktive Visualisierungen](ressourcen/interaktive-visualisierungen.html)** – *Welche Konzepte lassen sich visuell schneller verstehen als nur im Text?*
 

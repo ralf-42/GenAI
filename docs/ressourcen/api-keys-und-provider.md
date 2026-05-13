@@ -25,7 +25,7 @@ has_toc: true
 
 ## Übersicht der LLM-Provider
 
-Diese Tabelle bietet eine Übersicht (Stand: 1. Mai 2026) über LLM-Provider, LangChain-Integrationen, Kostenmodelle und kostenlose Einstiegsoptionen. Zahlungsarten wie Kreditkarte, Rechnung, Guthaben oder regionale Wallets ändern sich häufig und werden deshalb nicht als verlässliches Kurskriterium geführt. Maßgeblich ist, ob ein API-Key ohne Abrechnung nutzbar ist oder ob vor der ersten produktiven Nutzung Billing aktiviert werden muss.
+Diese Tabelle bietet eine Übersicht (Stand: Mai 2026) über LLM-Provider, LangChain-Integrationen, Kostenmodelle und kostenlose Einstiegsoptionen. Zahlungsarten wie Kreditkarte, Rechnung, Guthaben oder regionale Wallets ändern sich häufig und werden deshalb nicht als verlässliches Kurskriterium geführt. Maßgeblich ist, ob ein API-Key ohne Abrechnung nutzbar ist oder ob vor der ersten produktiven Nutzung Billing aktiviert werden muss.
 
 | Model Provider | Integration Package | Kostenmodell | Kostenlos nutzbar? | Hinweise / Besonderheiten |
 |---|---|---|---|---|
@@ -181,5 +181,5 @@ llm = Ollama(model="llama3")
 ---
 
 **Version:** 1.1<br>
-**Stand:** 1. Mai 2026<br>
+**Stand:** Mai 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

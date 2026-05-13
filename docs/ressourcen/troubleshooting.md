@@ -42,7 +42,7 @@ has_toc: true
 | **Problem**                         | **Ursache**                                                                                                                                                | **Symptom**                                                                                       | **Lösung/Intervention**                                                                                                                                                                                                                                |
 | ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **Schema-Validierung schlägt fehl** | Das LLM ignoriert das Anweisungs-Prompt und liefert ein Format, das nicht zum `PydanticBaseModel` passt, oder das Schema enthält ungültige Typen.          | `ValidationError` wird ausgelöst, da die JSON-Struktur nicht mit dem Python-Objekt übereinstimmt. | **Prompt-Verstärkung:** Den **System-Prompt** so schärfen, dass die Wichtigkeit der JSON-Ausgabe deutlich wird ("Das bereitgestellte Schema muss strikt eingehalten werden."). `Field(description="...")` im Pydantic-Modell ergänzen. |
-| **`with_structured_output` Fehler** | Die verwendete LLM-Instanz unterstützt das native Function Calling nicht (z.B. ein älteres oder lokales Modell), oder das falsche Format wird angefordert. | `ValueError: The model X does not support JSON output...`                                         | **Modell-Check:** Sicherstellen, dass ein Modell mit **nativem Tool/Function Calling** verwendet wird (z.B. `gpt-4o`, `gpt-4-turbo`, `claude-3-sonnet`).                                          |
+| **`with_structured_output` Fehler** | Die verwendete LLM-Instanz unterstützt natives Tool Calling oder JSON-Schema-Ausgaben nicht, oder das falsche Ausgabeformat wird angefordert. | `ValueError: The model X does not support JSON output...`                                         | **Modell-Check:** Kursmodell aus `model_config` verwenden, z. B. `openai:gpt-5.4-mini` oder `openai:gpt-5.4-nano`, und bei anderen Providern die aktuelle Tool-/Structured-Output-Unterstützung prüfen. |
 | **Falsche Typ-Generierung**         | Das LLM generiert inkonsistente Typen (z.B. eine Zahl als String), obwohl der Pydantic-Typ `int` ist.                                                      | Validierung schlägt fehl oder die Logik bricht ab.                                                | **Typ-Definition:** **Python Type Hints** in Pydantic präzise verwenden (`int`, `str`, `List[str]`). Bei komplexen Listen oder verschachtelten Objekten die **Beschreibung** (`description=...`) im `Field` des Pydantic-Modells klar formulieren. |
 
 
@@ -52,6 +52,7 @@ has_toc: true
 | Problem                    | Ursache                     | Lösung                                              |
 | -------------------------- | --------------------------- | --------------------------------------------------- |
 | `sqlite3.OperationalError` | Falsche SQLite-Version      | `!pip install pysqlite3-binary` + sys.modules Patch |
+| Alter Chroma-Import        | `langchain_community.vectorstores.Chroma` wird noch verwendet | `langchain-chroma` installieren und `from langchain_chroma import Chroma` verwenden |
 | Collection existiert schon | Doppelter Name              | `get_or_create_collection()` verwenden              |
 | Keine Ergebnisse           | Falsche Embedding-Dimension | Embedding-Modell prüfen                             |
 | Langsame Queries           | Zu viele Dokumente          | Batch-Size anpassen                                 |
@@ -66,6 +67,6 @@ has_toc: true
 
 ---
 
-**Version:** 1.0<br>
-**Stand:** November 2025<br>
+**Version:** 1.1<br>
+**Stand:** Mai 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

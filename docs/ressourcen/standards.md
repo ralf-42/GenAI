@@ -87,8 +87,8 @@ import os
 from pathlib import Path
 from typing import List, Dict
 
-# . LangChain Community
-from langchain_community.vectorstores import Chroma
+# . LangChain Integrationen
+from langchain_chroma import Chroma
 
 # . LangChain Core (LCEL)
 from langchain_core.prompts import ChatPromptTemplate
@@ -199,7 +199,7 @@ middleware = [HumanInTheLoopMiddleware(tool_names=["delete_file"])]
 from langchain.chat_models import ChatOpenAI
 from langchain.agents import initialize_agent, AgentType
 
-llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
+llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)  # Altbeispiel
 agent = initialize_agent(tools, llm, agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION)
 ```
 
@@ -319,6 +319,6 @@ def test_agent_with_tools():
 
 ---
 
-**Version:** 2.0 (konsolidiert)<br>
-**Stand:** Januar 2026<br>
+**Version:** 2.1<br>
+**Stand:** Mai 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
