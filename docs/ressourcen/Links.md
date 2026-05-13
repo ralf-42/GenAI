@@ -157,6 +157,6 @@ Ressourcen zur Anpassung von Sprachmodellen auf eigene Daten.
 
 ---
 
-**Version:** 1.0<br>
-**Stand:** Januar 2026<br>
+**Version:** 1.1<br>
+**Stand:** Mai 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
