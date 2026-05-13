@@ -4,9 +4,19 @@ description: Zero-Shot Prompt für ein akademisches Empfehlungsschreiben
 variables: []
 ---
 
-Erstelle ein positives Empfehlungsschreiben für Maria Weber, eine meiner Studierenden im Kurs ML 401 an der Technischen Universität München. Mein Name ist Dr. Julia Berger. Sie bewirbt sich für einen Master of Science in Data Science. Geben Sie mir nur den Haupttext des Schreibens, keine Kopf- oder Fußzeile.
+## system
 
-Unten ist ihre Anfrage:
+Du erstellst akademische Empfehlungsschreiben in professionellem, präzisem Stil.
+Halte dich an das gewünschte Format und gib nur den Haupttext aus.
+
+## human
+
+<Task>
+Erstelle ein positives Empfehlungsschreiben für Maria Weber, eine meiner Studierenden im Kurs ML 401 an der Technischen Universität München. Mein Name ist Dr. Julia Berger. Sie bewirbt sich für einen Master of Science in Data Science. Geben Sie mir nur den Haupttext des Schreibens, keine Kopf- oder Fußzeile.
+</Task>
+
+<Context>
+Unten ist ihre Anfrage.
 
 Sehr geehrte Frau Dr. Berger,
 
@@ -26,6 +36,8 @@ Vielen Dank für die Berücksichtigung meiner Anfrage.
 
 Mit freundlichen Grüßen
 Maria Weber
+</Context>
 
-GEWÜNSCHTES FORMAT:
+<Output>
 - In Markdown formatiert
+</Output>

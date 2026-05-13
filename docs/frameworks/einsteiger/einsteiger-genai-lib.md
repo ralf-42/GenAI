@@ -45,7 +45,7 @@ Die Bibliothek besteht aus drei Hauptmodulen:
 |-------|-------------|----------------|
 | **utilities.py** | Hilfsfunktionen für Environment-Setup | Environment-Checks, Paket-Installation, API-Keys, Prompt-Templates, LLM-Response-Parsing, Model-Profile, GitHub-Datei-Download |
 | **multimodal_rag.py** | Multimodales RAG-System (v3.1) | Text- und Bildsuche, Bild-zu-Bild-Suche, Cross-Modal-Retrieval, System-Status |
-| **model_config.py** | Rollenbasierte Modell-Konfiguration | BASELINE, WORKER, JUDGE, PLANNER, ROUTER, CODING, WORKER_PREMIUM, TRANSLATOR, TRANSLATOR_PREMIUM, EMBEDDINGS |
+| **model_config.py** | Rollenbasierte Modell-Konfiguration | BASELINE, WORKER, JUDGE, PLANNER, ROUTER, CODING, TRANSLATOR, VISION, Medien- und Premium-Rollen, EMBEDDINGS |
 
 ---
 
@@ -307,10 +307,10 @@ profile = get_model_profile("openai:gpt-5.4-nano")
 # ============================================================
 
 # Ohne Ausgabe (nur Profile-Dict zurückgeben)
-profile = get_model_profile("anthropic:claude-3-sonnet", print_profile=False)
+profile = get_model_profile("openai:gpt-5.4-mini", print_profile=False)
 
 # Verschiedene Models vergleichen (mit Fehlerbehandlung)
-for model in ["openai:gpt-5.4-nano", "anthropic:claude-3-sonnet", "google:gemini-pro"]:
+for model in ["openai:gpt-5.4-nano", "openai:gpt-5.4-mini", "openai:gpt-5.4"]:
     print(f"\n{model}:")
     profile = get_model_profile(model, print_profile=False)
 
@@ -482,7 +482,7 @@ multimodal_rag
 
 > [!NOTE] LangChain 1.0+ Integration (v3.1)<br>
 > Das `multimodal_rag`-Modul verwendet moderne LangChain 1.0+ Patterns:
-> - Nutzt `init_chat_model("openai:gpt-5.4-mini")` für LLM-Initialisierung
+> - Nutzt `init_chat_model(f"openai:{config.llm_model}")` für LLM-Initialisierung
 > - Vision-Analysen mit `HumanMessage` und Standard Content Blocks
 > - Provider-agnostische Multimodal-Verarbeitung
 
@@ -502,7 +502,8 @@ config = RAGConfig(
     chunk_size=300,
     chunk_overlap=50,
     clip_model='clip-ViT-B-32',
-    llm_model='gpt-5.4-mini',
+    llm_model='gpt-4o-mini',
+    vision_model='gpt-4o-mini',
     db_path='./my_rag_db'
 )
 rag = init_rag_system(config)
@@ -518,7 +519,8 @@ rag = init_rag_system(config)
 **Interne LangChain 1.0+ Patterns:**
 ```python
 # System nutzt intern moderne LangChain APIs
-llm = init_chat_model("openai:gpt-5.4-mini")
+llm = init_chat_model(f"openai:{config.llm_model}")
+vision_llm = init_chat_model(f"openai:{config.vision_model}")
 
 # Vision-Analyse mit Standard Content Blocks
 message = HumanMessage(content=[
@@ -551,25 +553,36 @@ process_directory(rag, './files', auto_describe_images=False)
 - CLIP-Embeddings für Bilder
 - Fortschrittsanzeige
 
-#### . `multimodal_search(rag, query, k=5, text_only=False, images_only=False)`
-Durchsucht Text und Bilder gleichzeitig.
+#### . `multimodal_search(rag, query, k_text=3, k_images=3, enable_cross_modal=True)`
+Durchsucht Text und Bilder gleichzeitig und kann Bildtreffer zusätzlich über gefundene Bildbeschreibungen ableiten.
 
 ```python
-from genai_lib.multimodal_rag import multimodal_search
+from genai_lib.multimodal_rag import (
+    multimodal_search,
+    search_texts,
+    search_images,
+)
 
 # Hybride Suche (Text + Bilder)
-results = multimodal_search(rag, "Roboter mit KI", k=5)
+results = multimodal_search(
+    rag,
+    "Roboter mit KI",
+    k_text=5,
+    k_images=5,
+    enable_cross_modal=True,
+)
 
 # Nur Text
-text_results = multimodal_search(rag, "Maschinelles Lernen", text_only=True)
+text_results = search_texts(rag, "Maschinelles Lernen", k=5)
 
 # Nur Bilder
-image_results = multimodal_search(rag, "rote Autos", images_only=True)
+image_results = search_images(rag, "rote Autos", k=5)
 ```
 
 **Rückgabe:**
-- `text_docs`: Liste von LangChain Documents mit Text-Chunks
-- `image_results`: Liste von Dictionaries mit Bildpfaden und Metadaten
+- `multimodal_search`: formatierter Markdown-String mit LLM-Antwort, Quellen und Bildtreffern
+- `search_texts`: formatierter Markdown-String mit LLM-Antwort und Quellen
+- `search_images`: formatierter String mit Bildtreffern
 
 #### . `search_similar_images(rag, image_path, k=5)`
 Findet ähnliche Bilder zu einem Query-Bild (Bild → Bild Suche).
@@ -582,7 +595,7 @@ similar = search_similar_images(rag, "./query_image.jpg", k=5)
 
 for img in similar:
     print(f"Ähnlichkeit: {img['similarity']:.2f}")
-    print(f"Pfad: {img['image_path']}")
+    print(f"Pfad: {img['path']}")
 ```
 
 **Use Cases:**
@@ -590,17 +603,15 @@ for img in similar:
 - Ähnliche Produkte vorschlagen
 - Bildkategorisierung
 
-#### . `search_text_by_image(rag, image_path, k=3)`
+#### . `search_text_by_image(rag, image_path, k=3, k_text=3)`
 Findet Textdokumente, die zum Bildinhalt passen (Bild → Text Suche).
 
 ```python
 from genai_lib.multimodal_rag import search_text_by_image
 
 # Passende Texte zu einem Bild finden
-texts = search_text_by_image(rag, "./product_image.jpg", k=3)
-
-for doc in texts:
-    print(doc.page_content)
+result = search_text_by_image(rag, "./product_image.jpg", k=3, k_text=3)
+print(result)
 ```
 
 **Use Cases:**
@@ -712,7 +723,8 @@ from genai_lib.multimodal_rag import (
 config = RAGConfig(
     chunk_size=500,
     chunk_overlap=100,
-    text_threshold=1.0,
+    text_min_similarity=0.3,
+    image_threshold=0.8,
     db_path='./projekt_rag'
 )
 
@@ -728,10 +740,13 @@ process_directory(rag, './docs', auto_describe_images=True)
 ```python
 # LangChain Stack
 langchain>=1.1.0
-langchain-core>=1.1.0
+langchain-core>=1.3.0
 langchain-openai>=1.0.0
+langgraph>=1.0.0
 langchain-community>=0.3.0
+langchain-text-splitters>=1.1.0
 langchain-chroma>=0.1.0
+langchain-ollama>=0.2.0
 
 # OpenAI
 openai>=1.0.0
@@ -745,7 +760,6 @@ markitdown>=0.0.1
 chromadb>=0.5.0
 
 # Utilities
-python-dotenv>=1.0.0
 requests>=2.31.0
 langsmith>=0.1.0
 ```
@@ -779,10 +793,14 @@ from genai_lib.model_config import BASELINE, WORKER, JUDGE, TRANSLATOR
 | `JUDGE_PREMIUM` | `gpt-5.5` | Kritische Evaluation und maximale Qualität |
 | `PLANNER_PREMIUM` | `gpt-5.5` | Hochkomplexe Planung |
 | `TRANSLATOR_PREMIUM` | `gpt-5.5` | Stilistisch hochwertige Übersetzungen |
+| `VISION_FAST` | `gpt-5.4-mini` | Bildanalyse in Kursbeispielen |
+| `VISION_PREMIUM` | `gpt-5.4-mini` | Multimodale Analyse |
+| `IMAGE_GENERATION` | `gpt-image-1` | Bildgenerierung |
+| `IMAGE_GENERATION_PREMIUM` | `gpt-image-2` | Hochwertige Bildgenerierung |
+| `VIDEO_GENERATION` | `sora-2` | Videoerzeugung |
+| `TRANSCRIPTION` | `whisper-1` | Audio-Transkription |
 | `EMBEDDINGS` | `text-embedding-3-small` | Retrieval, Chunk-Suche, Vektorindizes |
 
-> [!WARNING] Keine temperature bei GPT-5.x-Modellen<br>
-> `BASELINE` zeigt auf `gpt-5.4-nano`. Für GPT-5.x-Modelle wird `temperature` im Kurs nicht gesetzt; Steuerung erfolgt über Rollenwahl, Prompt, Reasoning-Konfiguration und Ausgabeformat.
 
 ### Verwendung
 
@@ -801,7 +819,7 @@ judge_llm = init_chat_model(JUDGE)
 ```
 
 > [!DANGER] Kein temperature bei GPT-5.x<br>
-> `BASELINE`, `WORKER`, `JUDGE`, `PLANNER`, `ROUTER`, `CODING`, `WORKER_PREMIUM`, `TRANSLATOR` und die Premium-Rollen basieren auf GPT-5.x-Modellen. `temperature` wird für diese Rollen nicht gesetzt.
+> `BASELINE`, `WORKER`, `JUDGE`, `PLANNER`, `ROUTER`, `CODING`, `WORKER_PREMIUM`, `TRANSLATOR` und die Premium-Rollen basieren auf GPT-5.x-Modellen. `temperature` wird für diese Rollen nicht gesetzt. Das gilt nicht automatisch für Medienmodelle wie `IMAGE_GENERATION`, `VIDEO_GENERATION` oder `TRANSCRIPTION`.
 
 ---
 
@@ -822,6 +840,6 @@ Die Module stehen unter der MIT-Lizenz und können frei für eigene Projekte ver
 
 ---
 
-**Version:**    3.2<br>
-**Stand:**    März 2026<br>
+**Version:**    3.3<br>
+**Stand:**    Mai 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

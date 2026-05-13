@@ -32,33 +32,18 @@ LangChain bietet Modelle, Tools und einfache Agenten. LangGraph baut darauf auf 
 - **Sitzungen, die wieder aufgenommen werden können**
 - **Human-in-the-Loop**
 
-Ein Workflow besteht aus:
-- **State:** zentrale Daten
-- **Nodes:** Bearbeitungsschritte
-- **Edges:** Ablaufsteuerung
 
-Ein minimales Diagramm:
-
-```mermaid
-graph LR
-    A[LangChain] --> B[LangGraph]
-    B --> C[Multi-Step Workflows]
-    B --> D[Conditional Routing]
-    B --> E[Multi-Agent Systems]
-    B --> F[Checkpointing]
-    B --> G[Human-in-Loop]
-
-    style B fill:#10a37f
-    style A fill:#0066cc
-```
-
-Damit ist sofort klar: LangGraph strukturiert Workflows, anstatt alles in ein einzelnes LLM-Prompt zu packen.
 
 ---
 
 ## Das kleinstmögliche funktionierende Beispiel
 
 Der schnellste Weg zum Verständnis ist ein Mini-Workflow.
+
+Ein Workflow besteht aus:
+- **State:** zentrale Daten
+- **Nodes:** Bearbeitungsschritte
+- **Edges:** Ablaufsteuerung
 
 ### State definieren
 
@@ -131,7 +116,7 @@ result
 
 ## Die Grundidee: Workflows als State Machine
 
-Nachdem Entwickler ein funktionsfähiges Beispiel gesehen haben, kann das Konzept erklärt werden:
+Nach einem ersten funktionsfähiges Beispiel, kann das Konzept erklärt werden:
 
 - Ein Workflow besteht aus klar definierten Schritten (*Nodes*).
 - Der Zustand wird in einem *State* gespeichert.
@@ -139,18 +124,45 @@ Nachdem Entwickler ein funktionsfähiges Beispiel gesehen haben, kann das Konzep
 - *Reducer* wie `add_messages` fügen Informationen intelligent zusammen.
 
 ```mermaid
-stateDiagram-v2
-    [*] --> State: Initialize
-    State --> Node1: Edge
-    Node1 --> State: Update (Reducer)
-    State --> Node2: Edge
-    Node2 --> State: Update (Reducer)
-    State --> [*]: Complete
+flowchart TD
+    %% Einstiegspunkt
+    INVOKE([graph.invoke]) --> START
 
-    note right of State
-        messages: []
-        step: 0
-    end note
+    %% Hauptknoten
+    subgraph START_NODE [ ]
+        direction TB
+        START([START])
+    end
+
+    subgraph AGENT_NODE [agent_node]
+        direction TB
+        StateIn[<b>1. State-Eingang</b><br/>Aktueller Snapshot]
+        LLM[<b>2. Logik</b><br/>LLM / Tool-Aufruf]
+        Update[<b>3. State Update</b><br/>Änderungen ausgeben]
+
+        StateIn --> LLM
+        LLM --> Update
+    end
+
+    subgraph END_NODE [ ]
+        direction TB
+        END([END])
+    end
+
+    %% Verbindungen
+    START -->|erster Node| AGENT_NODE
+    AGENT_NODE -->|Workflow beendet| END
+    END --> RESULT([Finaler State])
+
+    %% Styling
+    style START fill:#90EE90,stroke:#333
+    style END fill:#FFB6C1,stroke:#333
+    style AGENT_NODE fill:#f9f9f9,stroke:#87CEEB,stroke-width:2px
+    style StateIn fill:#E1F5FE,stroke:#01579B
+    style LLM fill:#E1F5FE,stroke:#01579B
+    style Update fill:#E1F5FE,stroke:#01579B
+    style INVOKE fill:#eeeeee,stroke:#999,stroke-dasharray: 5 5
+    style RESULT fill:#eeeeee,stroke:#999,stroke-dasharray: 5 5
 ```
 
 Kurz: **Nodes sind Funktionen – Edges sind der Ablauf.**
@@ -183,7 +195,7 @@ Nodes sollen klein, fokussiert und deterministisch sein.
 |---|---|---|
 | **LLM-Node** | direkter LLM-Aufruf | Antworten, Zusammenfassungen |
 | **Tool-Node** | Tool-Ausführung | Suche, Berechnungen, APIs |
-| **Agent-Node** | vollständiger Agent (`create_react_agent`) | komplexe Teilaufgaben mit eigenem Tool-Loop |
+| **Agent-Node** | vollständiger Agent (`create_agent`) | komplexe Teilaufgaben mit eigenem Tool-Loop |
 
 ### Typ 1: LLM-Node
 
@@ -198,6 +210,7 @@ def summarize_node(state: ChatState) -> ChatState:
 
 ```python
 from langchain_core.tools import tool
+from langchain_core.messages import AIMessage
 
 @tool
 def suche(query: str) -> str:
@@ -206,7 +219,7 @@ def suche(query: str) -> str:
 
 def tool_node(state: ChatState) -> ChatState:
     result = suche.invoke({"query": state["messages"][-1].content})
-    return {"messages": [{"role": "tool", "content": result}]}
+    return {"messages": [AIMessage(content=result)]}
 ```
 
 ### Typ 3: Agent-Node
@@ -214,12 +227,12 @@ def tool_node(state: ChatState) -> ChatState:
 Ein Node kann intern einen vollständigen Agenten ausführen — inklusive eigenem Tool-Loop:
 
 ```python
-from langgraph.prebuilt import create_react_agent
+from langchain.agents import create_agent
 
-research_agent = create_react_agent(
+research_agent = create_agent(
     model=llm,
     tools=[suche],
-    prompt="Du bist ein Research-Spezialist. Recherchiere gründlich.",
+    system_prompt="Du bist ein Research-Spezialist. Recherchiere gründlich.",
 )
 
 def research_node(state: ChatState) -> ChatState:
@@ -296,8 +309,16 @@ flowchart TB
 Streaming ist ein wichtiges Werkzeug für das Verständnis.
 
 ```python
-for event in graph.stream(initial_state, {"configurable": {"thread_id": "demo"}}, stream_mode="updates"):
-    print(event)
+config = {"configurable": {"thread_id": "demo"}}
+
+for chunk in graph.stream(
+    initial_state,
+    config=config,
+    stream_mode="updates",
+    version="v2",
+):
+    if chunk["type"] == "updates":
+        print(chunk["data"])
 ```
 
 **Streaming-Prozess:**
@@ -322,8 +343,9 @@ Streaming-Varianten:
 - `updates`: nur Änderungen
 - `values`: vollständiger State
 - `messages`: nur neue Nachrichten
+- `debug`: detaillierte Ausführungsinformationen
 
-Empfehlung für Einsteiger: **updates**.
+Empfehlung: **updates**.
 
 ---
 
@@ -346,8 +368,14 @@ result1 = graph.invoke(initial_state, config)
 Später:
 
 ```python
-result2 = graph.invoke(None, config)  # setzt fort
+new_input = {
+    "messages": [HumanMessage(content="Fahre mit der nächsten Frage fort.")],
+    "step": 0,
+}
+result2 = graph.invoke(new_input, config)
 ```
+
+Checkpointing lädt dabei den gespeicherten Zustand der `thread_id` und ergänzt ihn um den neuen Input. Für Human-in-the-Loop-Unterbrechungen wird dagegen nicht ein neuer State übergeben, sondern `Command(resume=...)`.
 
 **Session-Management mit Checkpointing:**
 
@@ -488,6 +516,6 @@ Mögliche Erweiterungen:
 
 ---
 
-**Version:** 2.0<br>
-**Stand:** Januar 2026<br>
+**Version:** 2.1<br>
+**Stand:** Mai 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

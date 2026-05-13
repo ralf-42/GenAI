@@ -130,13 +130,13 @@ Eine stabile und provider-unabhängige Initialisierung des zugrunde liegenden Sp
 ```python
 from langchain.chat_models import init_chat_model
 
-# ✨ Kurznotation "provider:model" (STANDARD seit Dezember 2025)
-llm = init_chat_model("openai:gpt-5.4-nano")
+# Kurznotation "provider:model"
+llm = init_chat_model("openai:gpt-5-nano")
 
 # Weitere Beispiele:
-# llm = init_chat_model("anthropic:claude-3-sonnet", temperature=0.3)
-# llm = init_chat_model("groq:llama-3.1-70b", temperature=0.7)
-# llm = init_chat_model("google:gemini-pro", temperature=0.5)
+# llm = init_chat_model("anthropic:claude-sonnet-4-5", temperature=0.3)
+# llm = init_chat_model("groq:llama-3.3-70b-versatile", temperature=0.7)
+# llm = init_chat_model("google_genai:gemini-2.5-flash", temperature=0.5)
 
 # Testaufruf
 response = llm.invoke("Nenne drei typische Einsatzgebiete von KI-Agenten.")
@@ -216,7 +216,6 @@ Der extras-Parameter beim @tool-Dekorator erlaubt es, provider‑spezifische Fea
 ```python
 from langchain_core.tools import tool
 
-# ✨ NEU in v1.2.0: Provider-spezifische Tool-Parameter
 @tool(extras={
     "anthropic": {
         "cache_control": {"type": "ephemeral"},  # Anthropic Prompt Caching
@@ -301,7 +300,7 @@ result
 
 Hier liefert `create_agent()` bereits ein kompiliertes LangGraph‑Objekt (CompiledStateGraph). Dadurch kann derselbe Agent später in komplexere Workflows eingebettet werden.
 
-### Strict Schema für Agent-Responses (NEU v1.2.0)
+### Strict Schema für Agent-Responses
 
 Agents unterstützen jetzt `response_format` für strikte Validierung von Agent-Outputs:
 
@@ -317,23 +316,21 @@ class AgentResponse(BaseModel):
     tool_to_use: str | None = Field(description="Zu verwendendes Tool (optional)")
     confidence: float = Field(description="Konfidenz 0-1", ge=0, le=1)
 
-# ✨ NEU in v1.2.0: response_format für garantierte Schema-Konformität
 agent = create_agent(
     model=llm,
-    tools=[search_tool, calculator_tool],
+    tools=[multiply, safe_divide],
     system_prompt="You are a helpful research assistant",
-    response_format=AgentResponse,  # Strikte Validierung!
-    provider_strategy="strict"  # Nutzt OpenAI Structured Output (wenn verfügbar)
+    response_format=AgentResponse,  # Strikte Validierung
 )
 
-# Agent-Response ist garantiert schema-konform
 response = agent.invoke({
     "messages": [{"role": "user", "content": "Recherchiere die Bevölkerung von Berlin"}]
 })
 
-# Typsicherer Zugriff auf strukturierte Felder
-print(response.reasoning)  # str
-print(response.confidence)  # float (0-1)
+# Strukturierte Antwort liegt im Agent-State.
+structured = response["structured_response"]
+print(structured.reasoning)
+print(structured.confidence)
 ```
 
 **Vorteile:**
@@ -477,6 +474,8 @@ secure_agent = create_agent(
 )
 ```
 
+Für produktionsnähere Human-in-the-Loop-Abläufe mit explizitem Pause/Resume ist LangGraph `interrupt()` meist besser nachvollziehbar. Die Middleware eignet sich für einfache Agenten, bei denen bestimmte Tools vor der Ausführung bestätigt werden sollen.
+
 
 **Kontext-Management bei langen Konversationen**
 
@@ -489,13 +488,18 @@ from langchain.agents.middleware import SummarizationMiddleware
 agent_summarize = create_agent(
     model=llm,
     tools=tools,
-    middleware=[SummarizationMiddleware(model=llm)]
+    middleware=[
+        SummarizationMiddleware(
+            model=llm,
+            max_tokens_before_summary=4000,
+        )
+    ]
     # Fasst Konversation automatisch zusammen, wenn Token-Limit überschritten
 )
 
-# Ansatz 2: OpenAI Server-Side Compaction (nur OpenAI, langchain-openai 1.1.10)
+# Ansatz 2: OpenAI Server-Side Compaction (nur OpenAI, wenn vom Modell unterstützt)
 llm_compact = init_chat_model(
-    "openai:gpt-5.4-nano",
+    "openai:gpt-5-nano",
     context_management=[{"type": "compaction", "compact_threshold": 10_000}]
 )
 agent_compact = create_agent(model=llm_compact, tools=tools)
@@ -572,7 +576,7 @@ Embeddings repräsentieren Texte als Vektoren und bilden die Basis für semantis
 
 ```python
 from langchain_openai import OpenAIEmbeddings
-from langchain_community.vectorstores import Chroma
+from langchain_chroma import Chroma
 
 ## 1. Dokumente (z.B. Ergebnis des Chunkings)
 documents = [
@@ -712,6 +716,6 @@ Dieses Pattern bildet die Grundlage für Wissens‑Chatbots, Dokumenten‑Assist
 
 ---
 
-**Version:**    1.0<br>
-**Stand:**    November 2025<br>
+**Version:** 1.1<br>
+**Stand:** Mai 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

@@ -1,5 +1,10 @@
 # Kursbibliothek GenAI
 
+[![LangChain 1.3+](https://img.shields.io/badge/LangChain-1.3%2B-brightgreen)](https://python.langchain.com)
+[![LangGraph 1.2+](https://img.shields.io/badge/LangGraph-1.2%2B-brightgreen)](https://langchain-ai.github.io/langgraph/)
+[![Python 3.11+](https://img.shields.io/badge/Python-3.11%2B-blue)](https://www.python.org/)
+[![Install via GitHub](https://img.shields.io/badge/Install-via_GitHub-lightgrey)](https://github.com/ralf-42/GenAI)
+
 Diese Bibliothek stellt Hilfsmittel und Funktionen für den Kurs **"Generative AI"** bereit. Sie erleichtert Teilnehmer:innen den Einstieg und die praktische Anwendung generativer KI-Technologien in Jupyter- und Google Colab-Umgebungen.
 
 ## 1. Installation
@@ -31,8 +36,9 @@ Die Bibliothek besteht aus modularen Hilfsdateien im `genai_lib/` Verzeichnis:
 
 Vollständige Liste in `requirements.txt`. Wichtigste Pakete:
 
-- `langchain`, `langchain-openai`, `langchain-community`
-- `langgraph`
+- `langchain` (>=1.3.0), `langchain-openai`, `langchain-community`
+- `langgraph` (>=1.2.0)
+- `langsmith` (>=0.8.0)
 - `chromadb`
 
 ## 4. Funktionen (utilities.py)

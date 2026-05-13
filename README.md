@@ -1,8 +1,11 @@
 # Generative KI Kurs
 
-[![LangChain 1.2+ Compliant](https://img.shields.io/badge/LangChain-1.2%2B%20Compliant-brightgreen)](./LangChain_Audit_Report_2025-12-17.md)
-[![Code Quality](https://img.shields.io/badge/Compliance-100%25-success)](./LangChain_Audit_Report_2025-12-17.md)
-[![Python](https://img.shields.io/badge/Python-3.11%2B-blue)](https://www.python.org/)
+[![LangChain 1.3+](https://img.shields.io/badge/LangChain-1.3%2B-brightgreen)](./LangChain_Audit_Report_2025-12-17.md)
+[![LangGraph 1.2+](https://img.shields.io/badge/LangGraph-1.2%2B-brightgreen)](./LangChain_Audit_Report_2025-12-17.md)
+[![LangSmith SDK 0.8+](https://img.shields.io/badge/LangSmith_SDK-0.8%2B-blue)](https://smith.langchain.com)
+[![Compliance 100%](https://img.shields.io/badge/Compliance-100%25-success)](./LangChain_Compliance_Report.md)
+[![Audit Mai 2026](https://img.shields.io/badge/Audit-Mai_2026-success)](./LangChain_Compliance_Report.md)
+[![Python 3.11+](https://img.shields.io/badge/Python-3.11%2B-blue)](https://www.python.org/)
 
 Ein deutschsprachiger, praxisorientierter Einsteigerkurs zu Generative-AI-Technologien mit Fokus auf OpenAI GPT-Modelle, LangChain, RAG-Systeme, Agenten und multimodale Anwendungen.
 
@@ -34,8 +37,9 @@ GenAI/
 
 ### Kernframeworks
 - **OpenAI API** (>=1.0.0) - GPT-Modelle, Embeddings und multimodale APIs
-- **LangChain** (>=1.0.0) - Orchestrierung, Chains, Agents und RAG
-- **LangGraph** (>=1.0.0) - zustandsbasierte Workflows und Multi-Agent-Systeme
+- **LangChain** (>=1.3.0) - Orchestrierung, Chains, Agents und RAG
+- **LangGraph** (>=1.2.0) - zustandsbasierte Workflows und Multi-Agent-Systeme
+- **LangSmith SDK** (>=0.8.0) - Tracing, Evaluation und Production-Monitoring
 - **Hugging Face** - Transformers und Community-Modelle
 
 ### Spezialisierte Tools
