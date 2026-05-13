@@ -11,7 +11,6 @@ permalink: /
 > **Generative KI. Verstehen. Anwenden. Gestalten.**       
 > Praktische Anwendung von Sprachmodellen, LangChain und modernen Foundation Models
 
-
 ---
 
 > [!TIP]  Einstieg in die Dokumentation<br>
