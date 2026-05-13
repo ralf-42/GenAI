@@ -26,7 +26,7 @@ has_toc: true
 
 ## Was ist eine Prompt-Datei?
 
-Prompts müssen  nicht direkt im Code/Notebook als String hardcodiert werden, sondern können auch als separate Markdown-Dateien im Ordner `05_prompt/` gespeichert.
+Prompts müssen  nicht direkt im Code/Notebook als String hardcodiert werden, sondern können auch als separate Markdown-Dateien in einem Ordner z.B. `05_prompt/` gespeichert.
 
 **Vorteile:**
 - Prompts sind **wiederverwendbar** — einmal schreiben, überall nutzen
@@ -109,9 +109,7 @@ Inhalt des Tags
 
 ### Warum XML-Tags in Prompts?
 
-Sprachmodelle wurden während des Trainings mit enormen Mengen an XML- und HTML-Dokumenten
-trainiert. Dadurch erkennen sie Tags als **semantische Abgrenzungen** — ähnlich wie ein
-Mensch Überschriften und Absätze wahrnimmt.
+Sprachmodelle wurden während des Trainings mit enormen Mengen an XML- und HTML-Dokumenten trainiert. Dadurch erkennen sie Tags als **semantische Abgrenzungen** — ähnlich wie ein Mensch Überschriften und Absätze wahrnimmt.
 
 **Vergleich: ohne vs. mit XML-Tags**
 
@@ -318,7 +316,7 @@ prompt_template = load_prompt("05_prompt/mein_prompt.md", mode="T")
 | `mode` | Rückgabetyp          | Wann verwenden                                 |
 | ------ | -------------------- | ---------------------------------------------- |
 | `"S"`  | `str`                | `create_agent(..., system_prompt=system_text)` |
-| `"T"`  | `ChatPromptTemplate` | `chain = prompt                                |
+| `"T"`  | `ChatPromptTemplate` | `chain = prompt`                               |
 
 ---
 

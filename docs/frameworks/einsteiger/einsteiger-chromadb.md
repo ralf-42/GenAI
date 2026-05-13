@@ -54,107 +54,21 @@ Gerade bei RAG-Systemen ist das oft der entscheidende Unterschied. Wer nur auf K
 
 ---
 
-## Was sind Embeddings?
-
-Embeddings sind numerische Repräsentationen von Text, die semantische Bedeutung erfassen.
-
-### Konzept: Text → Vektor
-
-```
-"Der Hund spielt im Park"  →  [0.12, -0.45, 0.78, ..., 0.33]  (1536 Dimensionen)
-"Die Katze liegt im Garten" →  [0.15, -0.42, 0.71, ..., 0.29]  (ähnlich!)
-"Quantenmechanik ist komplex" → [-0.89, 0.23, -0.11, ..., 0.67]  (anders!)
-```
-
-**Wichtige Eigenschaften:**
-
-- Jeder Text wird zu einem Vektor fester Länge (z.B. 1536 Dimensionen bei OpenAI)
-- Semantisch ähnliche Texte haben ähnliche Vektoren
-- Die "Ähnlichkeit" wird über mathematische Distanzmaße berechnet
-
-### Ähnlichkeit im Vektorraum
-
-Die gebräuchlichsten Distanzmaße:
-
-| Maß | Beschreibung | Wertebereich | ChromaDB Default |
-|-----|--------------|--------------|------------------|
-| **Cosine Similarity** | Winkel zwischen Vektoren | -1 bis 1 | ✅ Ja |
-| **Euclidean Distance** | Geometrischer Abstand | 0 bis ∞ | Nein |
-| **Dot Product** | Skalarprodukt | -∞ bis ∞ | Nein |
-
-**Cosine Similarity** ist der Standard, da sie unabhängig von der Vektorlänge funktioniert und nur die "Richtung" (= Bedeutung) vergleicht.
-
-### Vektorraum-Visualisierung (konzeptionell)
-
-```mermaid
-graph TB
-    subgraph "Semantischer Vektorraum (vereinfacht 2D)"
-        A["'Hund'<br/>[0.8, 0.3]"]
-        B["'Katze'<br/>[0.75, 0.35]"]
-        C["'Tier'<br/>[0.7, 0.4]"]
-
-        D["'Auto'<br/>[0.2, 0.9]"]
-        E["'Fahrzeug'<br/>[0.25, 0.85]"]
-
-        F["'Quantenmechanik'<br/>[-0.5, -0.8]"]
-    end
-
-    A -.ähnlich.- B
-    B -.ähnlich.- C
-    A -.ähnlich.- C
-
-    D -.ähnlich.- E
-
-    style A fill:#e1f5ff
-    style B fill:#e1f5ff
-    style C fill:#e1f5ff
-    style D fill:#ffe6cc
-    style E fill:#ffe6cc
-    style F fill:#f8cecc
-```
-
-> **Hinweis:** Semantisch verwandte Konzepte ("Hund", "Katze", "Tier") bilden Cluster im Vektorraum, während unverwandte Konzepte ("Quantenmechanik") weiter entfernt liegen.
-
-### Visualisierung
-
-Für ein intuitives Verständnis von Embeddings:
-
-**Embedding Projector (Google):**  
-https://projector.tensorflow.org/?hl=de
-
-Damit lassen sich hochdimensionale Vektoren auf 2D oder 3D projizieren und anschaulich erkunden. Sichtbar wird vor allem, dass semantisch verwandte Begriffe häufig Cluster bilden, auch wenn ihre Wortoberfläche voneinander abweicht.
-
-### Beispiel: Embedding erzeugen
-
-```python
-from langchain_openai import OpenAIEmbeddings
-
-# Embedding-Modell initialisieren
-embedding_model = OpenAIEmbeddings(model="text-embedding-3-small")
-
-# Einzelnen Text embedden
-text = "KI-Agenten können autonom Aufgaben erledigen."
-vector = embedding_model.embed_query(text)
-
-print(f"Dimensionen: {len(vector)}")  # 1536
-print(f"Erste 5 Werte: {vector[:5]}")
-```
-
----
-
 ## ChromaDB Basics
 
 ChromaDB ist eine leichtgewichtige, Open-Source-Vektordatenbank, die sich ideal für Entwicklung und Prototyping eignet.
 
-Im Kurs ist ChromaDB vor allem deshalb nützlich, weil sich damit die Mechanik von Retrieval-Systemen gut nachvollziehen lässt. Für kleine bis mittlere Datenbestände funktioniert das meist unkompliziert. Die eigentlichen Qualitätsfragen entstehen nicht bei der Datenbank selbst, sondern bei Embeddings, Chunking und Retrieval-Parametern.
+ChromaDB vor allem deshalb nützlich, weil sich damit die Mechanik von Retrieval-Systemen gut nachvollziehen lässt. Für kleine bis mittlere Datenbestände funktioniert das meist unkompliziert. Die eigentlichen Qualitätsfragen entstehen nicht bei der Datenbank selbst, sondern bei Embeddings, Chunking und Retrieval-Parametern.
 
 ### Installation
 
 **Standard-Installation:**
 
 ```python
-!pip install chromadb
+!pip install chromadb langchain-chroma
 ```
+
+`chromadb` ist der native ChromaDB-Client. `langchain-chroma` stellt die aktuelle LangChain-Integration `from langchain_chroma import Chroma` bereit.
 
 **Google Colab – SQLite-Patch (WICHTIG!):**
 
@@ -221,6 +135,7 @@ Gerade in Notebooks zahlt sich das sofort aus. Viele Probleme entstehen nicht du
 
 > [!SUCCESS] Idempotenz im Alltag<br>
 > `get_or_create_collection()` macht Notebooks robuster bei mehrfacher Ausführung und reduziert Setup-Fehler.     
+> 
 > *Idempotenz* = Operation kann mehrfach hintereinander ausgeführt werden kann, ohne dass sich das Ergebnis verändert
 
 ### Dokumente hinzufügen
@@ -287,6 +202,9 @@ print(f"Dokument-Vektoren: {len(doc_vectors)} Stück")
 Für Szenarien ohne API-Zugriff:
 
 ```python
+# Zusatzpaket installieren, falls nicht vorhanden:
+# !pip install langchain-huggingface
+
 from langchain_huggingface import HuggingFaceEmbeddings
 
 # Lokales Modell (kein API-Key nötig)
@@ -314,6 +232,7 @@ Bevor Dokumente durchsucht werden können, müssen sie in Chunks aufgeteilt und 
 
 > [!TIP] Praktischer Startwert<br>
 > Für viele deutschsprachige Wissensdokumente funktionieren `chunk_size=500` und `chunk_overlap=100` als stabiler Ausgangspunkt.
+> 
 > Für FAQ und Kurztexte eher 200–300, für Rechtsdokumente 800–1000 (vollständige Paragraphen). Kurs-Referenz: Tabelle in Kapitel 9.1.
 
 ```python
@@ -422,7 +341,7 @@ flowchart LR
 from langchain_community.document_loaders import TextLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_openai import OpenAIEmbeddings
-from langchain_community.vectorstores import Chroma
+from langchain_chroma import Chroma
 
 ## 1. Dokument laden
 loader = TextLoader("dokument.txt", encoding="utf-8")
@@ -600,7 +519,7 @@ ChromaDB integriert sich nahtlos in LangChain für RAG-Systeme.
 ### Vectorstore erstellen (Zusammenfassung)
 
 ```python
-from langchain_community.vectorstores import Chroma
+from langchain_chroma import Chroma
 from langchain_openai import OpenAIEmbeddings
 
 # Variante 1: Aus Texten
@@ -956,14 +875,18 @@ flowchart TB
 import sys; __import__('pysqlite3'); sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 # Imports
-from langchain_community.vectorstores import Chroma
+from langchain_chroma import Chroma
 from langchain_openai import OpenAIEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 # Indexieren
 splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=100)
 chunks = splitter.split_documents(documents)
-vectorstore = Chroma.from_documents(chunks, OpenAIEmbeddings())
+vectorstore = Chroma.from_documents(
+    documents=chunks,
+    embedding=OpenAIEmbeddings(model="text-embedding-3-small"),
+    collection_name="quick_reference"
+)
 
 # Suchen
 retriever = vectorstore.as_retriever(search_kwargs={"k": 3})
@@ -972,11 +895,10 @@ results = retriever.invoke("Meine Frage")
 
 ---
 
-> 💡 **Tipp:** Für die vollständige RAG-Chain-Implementierung siehe **einsteiger-langchain.md, Kapitel 11**!
 
 > 🔗 **Weiterführend:** 
 > + [ChromaDB Dokumentation](https://docs.trychroma.com/) 
-> + [LangChain VectorStores](https://python.langchain.com/docs/modules/data_connection/vectorstores/)
+> + [LangChain Chroma Integration](https://api.python.langchain.com/en/latest/chroma/vectorstores/langchain_chroma.vectorstores.Chroma.html)
 
 
 ## Abgrenzung zu verwandten Dokumenten
@@ -988,6 +910,6 @@ results = retriever.invoke("Meine Frage")
 
 ---
 
-**Version:**    1.0<br>
-**Stand:**    November 2025<br>
+**Version:**    1.1<br>
+**Stand:**    Mai 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

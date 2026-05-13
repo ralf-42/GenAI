@@ -156,13 +156,13 @@ LangSmith organisiert alle Daten in einer klaren Hierarchie:
 
 ```mermaid
 flowchart TB
-    PROJECT["Project\nContainer für alle Traces\nz.B. 'M08-RAG-Chain'"]
-    THREAD["Thread\nGesprächs-Sequenz\nsession_id / conversation_id"]
-    TRACE["Trace\nEine vollständige Anfrage\nz.B. RAG-Ausführung"]
-    RUN["Run\nEinzelne Operation\nllm · chain · tool · ..."]
-    TAGS["Tags\nFilterbare Labels"]
-    META["Metadata\nKey-Value-Paare"]
-    FEEDBACK["Feedback\nScore 0.0 – 1.0"]
+    PROJECT["Project<br>Container für alle Traces<br>z.B. 'M08-RAG-Chain'"]
+    THREAD["Thread<br>Gesprächs-Sequenz<br>session_id / conversation_id"]
+    TRACE["Trace<br>Eine vollständige Anfrage<br>z.B. RAG-Ausführung"]
+    RUN["Run<br>Einzelne Operation<br>llm · chain · tool · ..."]
+    TAGS["Tags<br>Filterbare Labels"]
+    META["Metadata<br>Key-Value-Paare"]
+    FEEDBACK["Feedback<br>Score 0.0 – 1.0"]
 
     PROJECT --> THREAD
     THREAD --> TRACE
@@ -275,7 +275,6 @@ response = agent.invoke(
 
 **Im LangSmith-Dashboard:** Threads-Ansicht zeigt den vollständigen Gesprächsverlauf über alle Traces hinweg — ideal für Debugging von Multi-Turn-Gesprächen.
 
-> 💡 **Kurskontext:** Threads werden in den Modulen zu Checkpointing und Memory-Systemen praktisch eingesetzt.
 
 ---
 
@@ -345,15 +344,6 @@ sequenceDiagram
 
     Note over LangSmith: Every step logged:<br/>Inputs, Outputs,<br/>Latency, Tokens
 ```
-
-**Text-Version:**
-1. Agent erhält Frage
-2. Agent entscheidet: "Ich brauche multiply(5, 8)"
-3. Tool wird ausgeführt → Ergebnis: 40
-4. Agent erhält Tool-Output
-5. Agent entscheidet: "Ich brauche add(40, 3)"
-6. Tool wird ausgeführt → Ergebnis: 43
-7. Agent formuliert finale Antwort: "Das Ergebnis ist 43."
 
 **Wichtig:** Jeder Schritt ist einzeln inspizierbar – Input, Output, Latenz, Fehler.
 
@@ -465,8 +455,6 @@ if runs:
     )
 ```
 
-> [!WARNING] Veraltetes Muster — nicht verwenden<br>
-> `response["__run"].id` ist ein veraltetes, undokumentiertes Muster aus LangChain <1.0. Run-IDs immer über `@traceable` + `list_runs()` oder direkt im LangSmith-Dashboard ermitteln.
 
 ### Automatische Evaluierung mit LLM-as-Judge
 
@@ -488,9 +476,9 @@ def llm_judge(run, example) -> dict:
     predicted = run.outputs.get("answer", "")
     expected  = example.outputs.get("answer", "")
     prompt = (
-        f"Bewerte die Antwort auf einer Skala von 0 bis 1.\n"
-        f"Erwartete Antwort: {expected}\n"
-        f"Tatsächliche Antwort: {predicted}\n"
+        f"Bewerte die Antwort auf einer Skala von 0 bis 1.<br>"
+        f"Erwartete Antwort: {expected}<br>"
+        f"Tatsächliche Antwort: {predicted}<br>"
         f"Antworte nur mit einer Zahl zwischen 0 und 1."
     )
     try:
@@ -558,9 +546,8 @@ result = compiled_graph.invoke(
 
 ---
 
-## Best Practices für den Kurs
+## Best Practices
 
-> **Übersicht:** Konfiguration & Organisation (9.1–9.6) · Analyse & Debugging (9.7–9.9)
 
 ### Projekt-Organisation
 
@@ -606,11 +593,11 @@ result = llm.with_structured_output(MyModel).with_config(**run_cfg).invoke("..."
 
 **Konventionen:**
 
-| Kontext | Projektname |
-|---------|-------------|
-| Kurs-Notebook | `"M##-Thema"` z.B. `"M05-Structured-Output"` |
-| Produktion | `"chatbot-production"` |
-| Experiment | `"rag-experiment-2026-03"` |
+| Kontext    | Projektname                                  |
+| ---------- | -------------------------------------------- |
+| Notebook   | `"M##-Thema"` z.B. `"M05-Structured-Output"` |
+| Produktion | `"chatbot-production"`                       |
+| Experiment | `"rag-experiment-2026-03"`                   |
 
 > 💡 **Edge Case:** Falls ein Projekt-Wechsel nach Notebook-Start nötig ist (z.B. kein Kernel-Neustart möglich), kann `ls.tracing_context(project_name=...)` als Workaround verwendet werden.
 
@@ -769,7 +756,6 @@ ergebnis = celsius_nach_fahrenheit.invoke({"temperatur": 37.0})
 
 ---
 
-**Analyse & Debugging**
 
 ### Trace-Patterns erkennen
 
@@ -893,10 +879,9 @@ leistungsstarke Filter — besonders nützlich, wenn das Projekt viele Runs enth
 
 ### "Kostet LangSmith extra?"
 
-**Free Tier:** Kostenloser Einstieg verfügbar (ausreichend für Kurszwecke)
+**Free Tier:** Kostenloser Einstieg verfügbar (ausreichend für erstes Ausprobieren)
 **Paid Tiers:** Verschiedene Pläne für Production-Nutzung
 
-> 💡 Aktuelle Preise: [smith.langchain.com/pricing](https://smith.langchain.com/pricing) — Pläne ändern sich regelmäßig.
 
 ### "Wie lange werden Traces gespeichert?"
 
