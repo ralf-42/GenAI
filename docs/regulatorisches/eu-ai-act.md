@@ -72,13 +72,13 @@ Grenze: Ein Agent, der eine Entscheidung vorbereitet, ist nicht automatisch verb
 
 General Purpose AI (GPAI) betrifft Modelle, die für viele unterschiedliche Zwecke eingesetzt werden können. Anbieter solcher Modelle unterliegen seit **2. August 2025** eigenen Pflichten. Bei Modellen mit systemischem Risiko kommen weitergehende Anforderungen hinzu, etwa Risikobewertung, Sicherheitsmaßnahmen und Dokumentation.
 
-Für Anwender im Kurs ist der Unterschied wichtig: Wer ein externes Modell über eine API nutzt, ist nicht automatisch Anbieter dieses GPAI-Modells. Trotzdem entstehen eigene Pflichten, sobald daraus ein konkretes KI-System gebaut und in einem sensiblen Kontext eingesetzt wird. Der Betreiber eines Research- oder Entscheidungsassistenten kann also Pflichten haben, auch wenn das zugrunde liegende Basismodell von einem anderen Anbieter stammt.
+Für Entwickler im Kurs ist der Unterschied wichtig: Wer ein externes Modell über eine API nutzt, ist nicht automatisch Anbieter dieses GPAI-Modells. Trotzdem entstehen eigene Pflichten, sobald daraus ein konkretes KI-System gebaut und in einem sensiblen Kontext eingesetzt wird. Der Betreiber eines Research- oder Entscheidungsassistenten kann also Pflichten haben, auch wenn das zugrunde liegende Basismodell von einem anderen Anbieter stammt.
 
 # 6 Bedeutung für toolgestützte GenAI-Anwendungen
 
 Toolgestützte GenAI-Anwendungen verschärfen einige Fragen des AI Act, weil sie nicht nur Text generieren, sondern Zwischenschritte ausführen können: Tools aufrufen, externe Daten abfragen, Dateien erzeugen, Workflows starten oder Vorschläge an andere Systeme übergeben. Je mehr Autonomie ein System erhält, desto wichtiger werden Begrenzung und Nachvollziehbarkeit.
 
-In Trainings zeigt sich häufig, dass Teilnehmende GenAI-Systeme zuerst nach Funktionsumfang beurteilen: Kann das System suchen, zusammenfassen, entscheiden und handeln? Aus regulatorischer Sicht ist die bessere Frage: Welche Handlung darf der Agent ohne Freigabe ausführen, welche Daten darf er sehen, welche Zwischenergebnisse werden gespeichert, und wo ist eine menschliche Entscheidung zwingend?
+In Trainings zeigt sich häufig, dass Entwickler GenAI-Systeme zuerst nach Funktionsumfang beurteilen: Kann das System suchen, zusammenfassen, entscheiden und handeln? Aus regulatorischer Sicht ist die bessere Frage: Welche Handlung darf der Agent ohne Freigabe ausführen, welche Daten darf er sehen, welche Zwischenergebnisse werden gespeichert, und wo ist eine menschliche Entscheidung zwingend?
 
 Für technische Kursbeispiele ergeben sich daraus fünf Mindestmuster:
 

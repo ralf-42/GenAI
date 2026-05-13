@@ -110,9 +110,9 @@ Kurzcheck:
 - Sind Risiken, Kosten, Betrieb und Verantwortung realistisch eingeordnet?
 ```
 
-## Was für Einsteiger zuerst wichtig ist
+## Was für Entwickler zuerst wichtig ist
 
-Für Einsteiger reicht oft schon eine nüchterne Vorprüfung. Wenn ein Projekt nur auf Begeisterung für GenAI basiert, aber weder Problem noch Daten noch Erfolgskriterien sauber benannt werden können, ist der richtige nächste Schritt nicht Prompt Engineering, sondern Problemklärung.
+Für Entwickler reicht oft schon eine nüchterne Vorprüfung. Wenn ein Projekt nur auf Begeisterung für GenAI basiert, aber weder Problem noch Daten noch Erfolgskriterien sauber benannt werden können, ist der richtige nächste Schritt nicht Prompt Engineering, sondern Problemklärung.
 
 **Ein gutes No-Go ist kein Scheitern**. Es spart Zeit, schützt vor falschen Erwartungen und verhindert, dass ein schneller Prototyp mit einem belastbaren System verwechselt wird.
 

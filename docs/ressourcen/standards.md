@@ -27,7 +27,7 @@ has_toc: true
 
 Die 7 MUST-HAVE Features für LangChain 1.0+ sind vollständig dokumentiert in:
 
-[Einsteiger LangChain](../frameworks/einsteiger/einsteiger-langchain.html) enthält das Tutorial mit ausführlichen Erklärungen und Mermaid-Diagrammen.
+[LangChain Einsteiger](../frameworks/einsteiger/einsteiger-langchain.html) enthält das Tutorial mit ausführlichen Erklärungen und Mermaid-Diagrammen.
 
 **Kurzübersicht der 7 Patterns:**
 
@@ -41,7 +41,7 @@ Die 7 MUST-HAVE Features für LangChain 1.0+ sind vollständig dokumentiert in:
 | 6 | Middleware | Granulare Kontrolle über Agent-Loop |
 | 7 | Content Blocks | Provider-agnostische multimodale Inhalte |
 
-**Neu in v1.2.0:** Tool Extras und response_format für Agents (siehe Einsteiger LangChain Abschnitte 5.3 und 6.2)
+**Neu in v1.2.0:** Tool Extras und response_format für Agents (siehe LangChain Einsteiger Abschnitte 5.3 und 6.2)
 
 ---
 
@@ -299,7 +299,7 @@ def test_agent_with_tools():
 
 ## Weitere Ressourcen
 
-- **LangChain Tutorial:** [Einsteiger LangChain](../frameworks/einsteiger/einsteiger-langchain.html)
+- **LangChain Tutorial:** [LangChain Einsteiger](../frameworks/einsteiger/einsteiger-langchain.html)
 - **LangGraph Tutorial:** [LangGraph Docs](https://langchain-ai.github.io/langgraph/)
 - **LangChain Docs:** [python.langchain.com](https://python.langchain.com/)
 - **LangGraph Docs:** [langchain-ai.github.io/langgraph](https://langchain-ai.github.io/langgraph/)
@@ -307,7 +307,7 @@ def test_agent_with_tools():
 ---
 
 > [!TIP] Vertiefung<br>
-> Ausführliche LangChain-Beispiele mit Mermaid-Diagrammen stehen im Dokument [Einsteiger LangChain](../frameworks/einsteiger/einsteiger-langchain.html).
+> Ausführliche LangChain-Beispiele mit Mermaid-Diagrammen stehen im Dokument [LangChain Einsteiger](../frameworks/einsteiger/einsteiger-langchain.html).
 
 
 ## Abgrenzung zu verwandten Dokumenten

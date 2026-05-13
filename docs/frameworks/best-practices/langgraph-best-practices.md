@@ -11,9 +11,9 @@ has_toc: true
 # LangGraph Best Practices
 {: .no_toc }
 
-> **Vertiefung für Teilnehmende, die nach dem Einsteiger-Guide robuste LangGraph-Muster für echte Workflows nachschlagen möchten.**
+> **Vertiefung für Entwickler, die nach dem Einsteiger-Guide robuste LangGraph-Muster für echte Workflows nachschlagen möchten.**
 
-Diese Seite ist keine erste Einführung in LangGraph. Sie richtet sich an Teilnehmende, die bereits verstanden haben, warum ein Graph nötig ist und nun stabilere Muster für State, Routing, Checkpointing oder Multi-Agent-Flüsse suchen. Für den ersten Zugang empfiehlt sich zuerst [LangGraph Einsteiger](../einsteiger/einsteiger-langgraph.html).
+Diese Seite ist keine erste Einführung in LangGraph. Sie richtet sich an Entwickler, die bereits verstanden haben, warum ein Graph nötig ist und nun stabilere Muster für State, Routing, Checkpointing oder Multi-Agent-Flüsse suchen. Für den ersten Zugang empfiehlt sich zuerst [LangGraph Einsteiger](../einsteiger/einsteiger-langgraph.html).
 
 Der Ton dieser Seite ist bewusst normativer als in den Konzept- und Einsteigerseiten. Im Kurs bedeutet das nicht, dass jede Funktion sofort verwendet werden muss. Wichtiger ist zu verstehen, wann ein Pattern wirklich nötig ist und wann es für den aktuellen Schritt noch überdimensioniert wäre.
 
@@ -29,7 +29,7 @@ Der Ton dieser Seite ist bewusst normativer als in den Konzept- und Einsteigerse
 
 ## 🎯 Wann LangGraph statt einfachem `create_agent()`?
 
-Für Einsteiger ist diese Tabelle wichtiger als viele Detailabschnitte weiter unten. Erst wenn der Anwendungsfall wirklich mehrstufig, verzweigt oder langlebig wird, lohnt sich die Vertiefung in die restlichen Patterns.
+Für Entwickler ist diese Tabelle wichtiger als viele Detailabschnitte weiter unten. Erst wenn der Anwendungsfall wirklich mehrstufig, verzweigt oder langlebig wird, lohnt sich die Vertiefung in die restlichen Patterns.
 
 | Use Case | LangChain `create_agent()` | LangGraph |
 |----------|---------------------------|-----------|

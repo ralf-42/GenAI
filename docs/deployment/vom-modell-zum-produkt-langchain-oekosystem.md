@@ -25,7 +25,7 @@ has_toc: true
 
 ## 1. Das Problem: Ein Modell allein ist noch keine Anwendung
 
-Viele Einsteiger in die Generative KI beginnen mit einem großen Sprachmodell (LLM) und entwickeln darauf aufbauend einen einfachen Chatbot. Zwischen einem funktionierenden Prototyp und einer produktionsreifen Anwendung liegt jedoch ein weiter Weg. Ein Modell, das nur Texte generiert, löst noch keine konkreten Geschäftsanforderungen wie Zuverlässigkeit, Nachvollziehbarkeit oder Integrationsfähigkeit.
+Viele Entwickler in der Generativen KI beginnen mit einem großen Sprachmodell (LLM) und entwickeln darauf aufbauend einen einfachen Chatbot. Zwischen einem funktionierenden Prototyp und einer produktionsreifen Anwendung liegt jedoch ein weiter Weg. Ein Modell, das nur Texte generiert, löst noch keine konkreten Geschäftsanforderungen wie Zuverlässigkeit, Nachvollziehbarkeit oder Integrationsfähigkeit.
 
 {: .important }
 > **Die zentrale Frage lautet:**

@@ -47,8 +47,8 @@ Ein erster lauffähiger LangChain-Workflow soll entstehen. Der Fokus liegt auf d
 
 Empfohlener Einstieg:
 
-1. [Einsteiger LangChain](./frameworks/einsteiger/einsteiger-langchain.html)
-2. [Einsteiger Prompts](./frameworks/einsteiger/einsteiger-prompts.html)
+1. [LangChain Einsteiger](./frameworks/einsteiger/einsteiger-langchain.html)
+2. [Prompt-Templates Einsteiger](./frameworks/einsteiger/einsteiger-prompts.html)
 3. [LangChain Best Practices](./frameworks/best-practices/langchain-best-practices.html)
 4. [Modell-Auswahl Guide](./frameworks/modell-auswahl/modell-auswahl-guide.html)
 
@@ -73,7 +73,7 @@ Empfohlener Einstieg:
 2. [Tokenizing und Chunking](./concepts/grundlagen/m08a-tokenizing-chunking.html)
 3. [Embeddings](./concepts/grundlagen/m08b-embeddings.html)
 4. [Evaluation & Observability](./concepts/entscheidungen-qualitaet/evaluation-observability.html)
-5. [Einsteiger ChromaDB](./frameworks/einsteiger/einsteiger-chromadb.html)
+5. [ChromaDB Einsteiger](./frameworks/einsteiger/einsteiger-chromadb.html)
 
 ### Toolgestützte und agentische Anwendungen
 
@@ -145,7 +145,7 @@ Wer nicht lange wählen will, kommt mit diesen fünf Dokumenten meist am schnell
 
 1. [Lohnt sich GenAI?](./concepts/orientierung/lohnt-es-sich.html)
 2. [Aufgabenklassen und Lösungswege](./concepts/orientierung/aufgabenklassen-und-loesungswege.html)
-3. [Einsteiger LangChain](./frameworks/einsteiger/einsteiger-langchain.html)
+3. [LangChain Einsteiger](./frameworks/einsteiger/einsteiger-langchain.html)
 4. [RAG-Konzepte](./concepts/anwendungsmethoden/rag-konzepte.html)
 5. [Evaluation & Observability](./concepts/entscheidungen-qualitaet/evaluation-observability.html)
 
