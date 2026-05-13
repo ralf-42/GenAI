@@ -1,19 +1,14 @@
 ---
 layout: default
-title: Produktionsreife Anwendung
+title: Aus Entwicklung ins Deployment
 parent: Deployment
 nav_order: 3
-description: Praktische Anleitung für den Weg vom Jupyter Notebook zur produktionsreifen GenAI-Anwendung
+description: Notebook-Code in eine betreibbare GenAI-Anwendung überführen
 has_toc: true
 ---
 
-# Aus der Entwicklung ins Deployment
+# Aus Entwicklung ins Deployment
 {: .no_toc }
-
-> **Vom Notebook zur Produktion**     
-> Eine praktische Anleitung für den Weg vom Jupyter Notebook zur produktionsreifen GenAI-Anwendung
-
----
 
 # Inhaltsverzeichnis
 {: .no_toc .text-delta }
@@ -23,358 +18,359 @@ has_toc: true
 
 ---
 
-## Überblick
+## Ausgangspunkt
 
-Die GenAI-Anwendung wurde in einem Jupyter Notebook entwickelt und getestet. Jetzt soll sie in den Produktivbetrieb. Diese Anleitung zeigt Schritt für Schritt, wie dieser Übergang gelingt.
+Ein Notebook ist ein guter Ort für Exploration, aber kein stabiles Betriebsartefakt. Für Deployment braucht die Anwendung reproduzierbare Abhängigkeiten, klare Konfiguration, Tests, Logging, Health Checks und eine Schnittstelle, die von einer Plattform gestartet und überwacht werden kann.
 
+```text
+Notebook
+  -> Python-Package
+  -> API oder Worker
+  -> Container oder Managed Runtime
+  -> Monitoring und Betrieb
 ```
-┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
-│   Entwicklung   │ ──► │   Vorbereitung  │ ──► │   Deployment    │
-│    (.ipynb)     │     │    (.py + ...)  │     │   (Container)   │
-└─────────────────┘     └─────────────────┘     └─────────────────┘
-```
 
-### Deployment-Strategie zuerst festlegen
-
-Bevor die Umsetzung startet, sollte das Ziel-Betriebsmodell festgelegt werden. So werden Architektur, Build-Prozess und Betriebsaufwand von Anfang an passend geplant.
+Die wichtigste Entscheidung fällt vor dem ersten Dockerfile: Soll die Anwendung als API, Batch-Job, interner Worker oder interaktiver Demo-Service laufen? Davon hängen Projektstruktur, Startkommando, Secrets-Verwaltung und Skalierung ab.
 
 > [!WARNING] Architektur-Entscheidung<br>
-> Die gewählte Deployment-Variante beeinflusst frühzeitig Projektstruktur, CI/CD und Betriebsverantwortung. Fehlentscheidungen (z. B. Managed-PaaS statt On-Premise) sind schwer zu korrigieren und können erheblichen Migrations-Aufwand erzwingen.
+> Die Deployment-Variante beeinflusst Projektstruktur, CI/CD und Betriebsverantwortung. Managed Plattformen beschleunigen erste Releases, Container erleichtern reproduzierbare Builds und Portabilität.
 
-### Übersicht Deploymentvarianten für Python (2026)
+## Betriebsmodell festlegen
 
-Die folgende Marktübersicht hilft bei der Einordnung, welche Betriebsmodelle in der Praxis dominieren:
+Für GenAI-Projekte sind drei Betriebsmodelle besonders häufig relevant. Ein API-Service passt, wenn andere Systeme Prompts, Dateien oder Suchanfragen senden. Ein Batch- oder Worker-Prozess passt, wenn regelmäßig Dokumente verarbeitet, Embeddings erstellt oder Reports generiert werden. Ein Demo-Service wie Streamlit, Gradio oder Hugging Face Spaces passt, wenn ein Ergebnis gezeigt, aber noch nicht robust betrieben werden muss.
 
-| Variante                         | Beschreibung                          | Geschätzter Nutzungsanteil | Typische Tools                              |
-| -------------------------------- | ------------------------------------- | -------------------------- | ------------------------------------------- |
-| **Containerisiert (Docker/K8s)** | Images mit Python + App, orchestriert | ~65-75% (wachsend)         | Docker, Podman, Kubernetes, Helm            |
-| **PaaS/Cloud (managed)**         | Provider-managed Runtime              | ~15-20%                    | Heroku, Render, Railway, Vercel, AWS Lambda |
-| **Virtuelle Umgebung (venv)**    | Server + venv + Process Manager       | ~10-15%                    | systemd, Supervisor, Gunicorn, NGINX        |
-| **Standalone-Pakete**            | PyInstaller/shiv für EXEs/Archive     | ~3-5%                      | PyInstaller, cx_Freeze, Nuitka              |
-| **Bare-Metal/System**            | System-Python + pip                   | ~2-5% (Legacy)             | apt/yum + cron/systemd                      |
+| Betriebsmodell | Geeignet für | Typische Plattformen | Grenze |
+|---|---|---|---|
+| API-Service | Chat-, RAG- und Klassifikationsfunktionen für andere Systeme | FastAPI, Cloud Run, Azure Container Apps, Railway, Render | Benötigt Authentifizierung, Rate Limits und Monitoring |
+| Worker oder Batch | Indexierung, Evaluation, periodische Verarbeitung | Container Jobs, GitHub Actions, Airflow, Prefect | Nicht für interaktive Nutzung geeignet |
+| Demo-Service | Kursdemos, Prototypen, interne Abstimmung | Hugging Face Spaces, Streamlit Community Cloud, Gradio | Nicht automatisch produktionsreif |
 
-**Praktische Einordnung:**
-- Container sind heute der Standard für Team-Setups, reproduzierbare Builds und CI/CD.
-- Managed Plattformen sind stark für schnelle Time-to-Market bei kleinen bis mittleren Anwendungen.
-- venv-Deployments bleiben relevant für bestehende Serverlandschaften und interne Tools.
-- Standalone- und Bare-Metal-Varianten sind eher Spezial- oder Legacy-Szenarien.
+Container sind kein Muss, aber ein guter Standard für Team-Setups: Sie fixieren Python-Version, Systemabhängigkeiten und Startkommando. Managed Runtimes sind sinnvoll, wenn schneller Betrieb wichtiger ist als maximale Kontrolle.
 
-> [!TIP] Für Entwickler<br>
-> Für den ersten produktiven Rollout ist meist "managed" schneller. Container lohnen sich besonders bei Team-Betrieb und Portabilität.
+## Phase 1: Notebook bereinigen
 
----
+Vor der Extraktion wird das Notebook einmal von oben nach unten ausführbar gemacht. Experimentelle Zellen, doppelte Imports und alte Promptvarianten werden entfernt. Hardcodierte API-Keys, lokale Pfade und Modellnamen werden markiert, weil sie später in Umgebungsvariablen gehören.
 
-## Phase 1: Notebook aufräumen
+**Mindestcheck vor der Extraktion:**
 
-Bevor Code extrahiert wird, sollte das Notebook in Ordnung gebracht werden.
+- Kernel neu starten und alle Zellen in Reihenfolge ausführen
+- Produktiven Pfad von Experimenten trennen
+- Eingaben, Ausgaben und Fehlermeldungen sichtbar machen
+- Secrets, lokale Dateipfade und Modellnamen externalisieren
+- Große Testdaten aus dem Notebook entfernen
 
-**Checkliste:**
-- Alle Zellen in logischer Reihenfolge ausführbar?
-- Experimenteller Code und Sackgassen entfernt?
-- Hardcodierte Werte (API-Keys, Pfade) identifiziert?
-- Funktionen und Klassen sauber definiert?
-
-**Tipp:** Den Kernel neu starten und alle Zellen von oben nach unten ausführen. Funktioniert alles fehlerfrei?
-
----
+Typischer Fehler: Notebook-Zellen werden 1:1 in eine Python-Datei kopiert. Dadurch bleiben globale Zustände, versteckte Seiteneffekte und zufällige Ausführungsreihenfolgen erhalten.
 
 ## Phase 2: Projektstruktur anlegen
 
-Eine saubere Ordnerstruktur für das Projekt:
+Eine kleine GenAI-Anwendung braucht keine komplexe Architektur. Entscheidend ist, dass Anwendungscode, Tests und Konfiguration getrennt sind.
 
-```
+```text
 mein-genai-projekt/
-├── src/
-│   ├── __init__.py
-│   ├── main.py           # Hauptanwendung
-│   ├── llm_client.py     # LLM-Interaktion
-│   └── utils.py          # Hilfsfunktionen
-├── tests/
-│   └── test_llm_client.py
-├── .env.example          # Vorlage für Umgebungsvariablen
-├── .gitignore
-├── requirements.txt
-├── Dockerfile
-└── README.md
+|-- src/
+|   |-- __init__.py
+|   |-- main.py
+|   |-- llm_client.py
+|   `-- settings.py
+|-- tests/
+|   `-- test_llm_client.py
+|-- .env.example
+|-- .gitignore
+|-- requirements.txt
+|-- Dockerfile
+`-- README.md
 ```
 
----
+`src/main.py` enthält den Einstiegspunkt. `src/llm_client.py` kapselt den Provider-Zugriff. `src/settings.py` liest Konfiguration aus Umgebungsvariablen. Diese Trennung verhindert, dass Provider-Code, API-Endpunkte und lokale Testlogik ineinanderlaufen.
 
-## Phase 3: Code aus dem Notebook extrahieren
+## Phase 3: Code extrahieren
 
-Der Code wird aus dem Notebook in Python-Module übertragen.
+Im Notebook ist direkter API-Code akzeptabel. In einer Anwendung sollte der Zugriff auf das Modell gekapselt werden, damit Modellname, Fehlerbehandlung und Tests an einer Stelle bleiben.
 
-**Vorher (im Notebook):**
+**Vorher im Notebook:**
+
 ```python
-# Zelle 1
-import openai
-client = openai.OpenAI(api_key="sk-abc123...")
-
-# Zelle 5
-def frage_llm(prompt):
-    response = client.chat.completions.create(
-        model="gpt-4",
-        messages=[{"role": "user", "content": prompt}]
-    )
-    return response.choices[0].message.content
-```
-
-**Nachher (llm_client.py):**
-```python
-import os
 from openai import OpenAI
 
-class LLMClient:
-    def __init__(self):
-        self.client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-        self.model = os.getenv("MODEL_NAME", "gpt-4")
-    
-    def frage(self, prompt: str) -> str:
-        """Stellt eine Frage an das LLM und gibt die Antwort zurück."""
-        response = self.client.chat.completions.create(
-            model=self.model,
-            messages=[{"role": "user", "content": prompt}]
-        )
-        return response.choices[0].message.content
+client = OpenAI(api_key="sk-abc123...")
+
+def frage_llm(prompt):
+    response = client.responses.create(
+        model="gpt-5.4-mini",
+        input=prompt,
+    )
+    return response.output_text
 ```
 
-**Was hat sich geändert?**
-- API-Key kommt aus Umgebungsvariable statt hardcodiert
-- Code ist in einer Klasse organisiert
-- Konfiguration (Model-Name) ist externalisiert
-- Docstring dokumentiert die Funktion
+**Nachher in `src/settings.py`:**
 
----
+```python
+import os
+
+
+def require_env(name: str) -> str:
+    value = os.getenv(name)
+    if not value:
+        raise RuntimeError(f"Umgebungsvariable fehlt: {name}")
+    return value
+```
+
+**Nachher in `src/llm_client.py`:**
+
+```python
+from openai import OpenAI
+
+from .settings import require_env
+
+
+class LLMClient:
+    def __init__(self) -> None:
+        self.client = OpenAI(api_key=require_env("OPENAI_API_KEY"))
+        self.model = require_env("MODEL_NAME")
+
+    def frage(self, prompt: str) -> str:
+        response = self.client.responses.create(
+            model=self.model,
+            input=prompt,
+        )
+        return response.output_text
+```
+
+Die OpenAI Responses API ist für neue Beispiele die robustere Grundlage als ältere Chat-Completions-Beispiele, weil sie Text, multimodale Eingaben, Tools und Conversation State über eine einheitliche Schnittstelle abbildet.
 
 ## Phase 4: Konfiguration externalisieren
 
-Eine `.env.example` als Vorlage:
+Konfiguration gehört nicht in Code und nicht in Notebooks. Lokal kann eine `.env`-Datei helfen; im Deployment kommen dieselben Werte aus der Plattformkonfiguration oder einem Secret Store.
 
 ```bash
-# .env.example - Zu .env kopieren und Werte eintragen
+# .env.example
 OPENAI_API_KEY=OPENAI_API_KEY_HIER_EINTRAGEN
-MODEL_NAME=gpt-4
+MODEL_NAME=gpt-5.4-mini
 LOG_LEVEL=INFO
 ```
 
-Die Variablen werden in der Anwendung geladen:
+**Lokaler CLI-Einstieg in `src/main.py`:**
 
 ```python
-# main.py
 from dotenv import load_dotenv
-load_dotenv()  # Lädt .env automatisch
 
-from llm_client import LLMClient
+from .llm_client import LLMClient
 
-def main():
+
+def main() -> None:
+    load_dotenv()
     client = LLMClient()
-    antwort = client.frage("Was ist GenAI?")
-    print(antwort)
+    print(client.frage("Was ist GenAI?"))
+
 
 if __name__ == "__main__":
     main()
 ```
 
-**Wichtig:** `.env` muss in `.gitignore` eingetragen werden – API-Keys gehören nicht ins Repository!
-
 > [!DANGER] Security-Baseline<br>
-> Secrets niemals in Code, Notebooks oder Commit-Historie speichern. Einmal eingecheckte Keys bleiben in der Git-Historie — auch nach `git rm`. Im Zweifel Key sofort rotieren und Repository-History bereinigen.
+> Secrets niemals in Code, Notebooks oder Commit-Historie speichern. Ein eingecheckter Key gilt als kompromittiert und wird rotiert.
 
----
+## Phase 5: Abhängigkeiten fixieren
 
-## Phase 5: Abhängigkeiten dokumentieren
-
-Die `requirements.txt` enthält alle benötigten Pakete:
+Für kleine Kursprojekte reicht eine gepflegte `requirements.txt`. Wichtig ist, nur direkt benötigte Pakete aufzunehmen und Versionen nicht durch ein ungeprüftes `pip freeze` aufzublähen.
 
 ```txt
-openai>=1.0.0
-python-dotenv>=1.0.0
-fastapi>=0.100.0
-uvicorn>=0.23.0
+openai>=2.32.0
+python-dotenv>=1.2.2
+fastapi>=0.136.1
+uvicorn[standard]>=0.46.0
+pytest>=9.0.3
 ```
 
-**Tipp:** `pip freeze > requirements.txt` liefert einen Ausgangspunkt, aber die Liste sollte aufgeräumt und auf wirklich benötigte Pakete reduziert werden.
+Für Anwendungen, die länger betrieben werden, ist ein `pyproject.toml` mit Lockfile vorzuziehen. `uv` unterstützt diese Projektstruktur direkt und erzeugt reproduzierbare Installationen über `uv.lock`.
 
----
+## Phase 6: Smoke-Tests ergänzen
 
-## Phase 6: Einfache Tests hinzufügen
-
-Auch ohne tiefe Testing-Erfahrung lassen sich grundlegende Tests schreiben:
+Smoke-Tests prüfen nicht die Modellqualität. Sie stellen sicher, dass Konfiguration, Provider-Kapselung und Rückgabetypen nicht versehentlich brechen.
 
 > [!SUCCESS] Mindeststandard<br>
-> Schon wenige Smoke-Tests verhindern viele regressionsbedingte Ausfälle im Deployment.
+> Schon wenige Tests verhindern viele Ausfälle beim Deployment, weil fehlende Umgebungsvariablen und geänderte Provider-Antworten früh auffallen.
 
 ```python
 # tests/test_llm_client.py
-import pytest
 from unittest.mock import Mock, patch
 
+
 def test_llm_client_initialisiert():
-    """Testet, ob der Client ohne Fehler erstellt wird."""
-    with patch.dict('os.environ', {'OPENAI_API_KEY': 'test-key'}):
+    with patch.dict(
+        "os.environ",
+        {"OPENAI_API_KEY": "test-key", "MODEL_NAME": "test-model"},
+    ):
         from src.llm_client import LLMClient
+
         client = LLMClient()
+
         assert client is not None
 
+
 def test_frage_gibt_string_zurueck():
-    """Testet, ob die Antwort ein String ist."""
-    # Mock das API-Response
-    with patch('src.llm_client.OpenAI') as mock_openai:
-        mock_response = Mock()
-        mock_response.choices[0].message.content = "Test-Antwort"
-        mock_openai.return_value.chat.completions.create.return_value = mock_response
-        
-        from src.llm_client import LLMClient
-        client = LLMClient()
-        antwort = client.frage("Test")
-        
-        assert isinstance(antwort, str)
+    with patch.dict(
+        "os.environ",
+        {"OPENAI_API_KEY": "test-key", "MODEL_NAME": "test-model"},
+    ):
+        with patch("src.llm_client.OpenAI") as mock_openai:
+            mock_response = Mock()
+            mock_response.output_text = "Test-Antwort"
+            mock_openai.return_value.responses.create.return_value = mock_response
+
+            from src.llm_client import LLMClient
+
+            client = LLMClient()
+            antwort = client.frage("Test")
+
+            assert antwort == "Test-Antwort"
+            assert isinstance(antwort, str)
 ```
 
-Tests ausführen mit: `pytest tests/`
+Tests werden mit `pytest tests/` ausgeführt.
 
----
+## Phase 7: API-Endpunkt erstellen
 
-## Phase 7: API-Endpunkt erstellen (optional)
-
-Wenn die App als Webservice laufen soll, bietet sich FastAPI an:
+Wenn die Anwendung von anderen Systemen genutzt werden soll, ist FastAPI ein naheliegender Einstieg. Der Endpunkt bleibt dünn: Validierung und HTTP-Antworten liegen in `main.py`, Provider-Logik bleibt in `llm_client.py`.
 
 ```python
-# main.py
+# src/main.py
+from dotenv import load_dotenv
 from fastapi import FastAPI
 from pydantic import BaseModel
-from dotenv import load_dotenv
+
+from .llm_client import LLMClient
 
 load_dotenv()
-from llm_client import LLMClient
 
 app = FastAPI(title="Meine GenAI App")
 client = LLMClient()
 
+
 class Anfrage(BaseModel):
     prompt: str
+
 
 class Antwort(BaseModel):
     antwort: str
 
+
 @app.post("/frage", response_model=Antwort)
-def stelle_frage(anfrage: Anfrage):
+def stelle_frage(anfrage: Anfrage) -> Antwort:
     ergebnis = client.frage(anfrage.prompt)
     return Antwort(antwort=ergebnis)
 
+
 @app.get("/health")
-def health_check():
+def health_check() -> dict[str, str]:
     return {"status": "ok"}
 ```
 
-Lokal testen mit: `uvicorn main:app --reload`
+Lokal wird die API aus dem Projektverzeichnis gestartet:
 
----
+```bash
+uvicorn src.main:app --reload
+```
 
-## Phase 8: Containerisierung mit Docker (optional)
+Typischer Fehler: Das Startkommando passt nicht zur Paketstruktur. Wenn die Datei unter `src/main.py` liegt, muss auch der Importpfad `src.main:app` lauten.
 
-Wenn die gewählte Deployment-Strategie containerisiert ist, wird ein `Dockerfile` benötigt:
+## Phase 8: Containerisierung
 
-> [!NOTE] Nur bei Container-Strategie<br>
-> Diese Phase ist optional und nur relevant, wenn als Zielplattform Container genutzt werden.
+Ein Container fixiert Python-Version, Abhängigkeiten und Startkommando. Für produktive Systeme sollten Secrets nicht ins Image kopiert werden; sie werden beim Start als Umgebungsvariablen oder über die Plattform bereitgestellt.
 
 ```dockerfile
-FROM python:3.11-slim
+FROM python:3.12-slim
+
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
 
 WORKDIR /app
 
-# Abhängigkeiten installieren
+RUN useradd --create-home appuser
+
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Anwendungscode kopieren
 COPY src/ ./src/
 
-# Port freigeben
+USER appuser
+
 EXPOSE 8000
 
-# Anwendung starten
 CMD ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8000"]
 ```
 
-**Container bauen und starten:**
-
 ```bash
-# Image bauen
 docker build -t meine-genai-app .
 
-# Container starten (mit Umgebungsvariablen)
 docker run -p 8000:8000 \
   -e OPENAI_API_KEY="OPENAI_API_KEY_HIER_EINTRAGEN" \
-  -e MODEL_NAME="gpt-4" \
+  -e MODEL_NAME="gpt-5.4-mini" \
   meine-genai-app
 ```
 
----
+In Cloud-Deployments wird der API-Key nicht in Shell-Historien oder Build-Logs geschrieben, sondern als Secret der Plattform hinterlegt.
 
 ## Phase 9: Deployment auf der Zielplattform
 
-Je nach Anforderung gibt es verschiedene Wege ins Deployment:
+Die Plattform wird nach Betriebsmodell gewählt, nicht nach Popularität. Für Demos reichen häufig Spaces, Streamlit oder Gradio. Für APIs mit planbarem Traffic sind Cloud Run, Azure Container Apps, Render oder Railway oft einfacher als ein eigenes Kubernetes-Cluster. Kubernetes lohnt sich erst, wenn mehrere Services, eigene Netzwerkanforderungen, interne Plattformteams oder strenge Betriebsstandards vorhanden sind.
 
-| Option | Gut für | Komplexität |
-|--------|---------|-------------|
-| **Hugging Face Spaces** | Demos, Prototypen | ⭐ Einfach |
-| **Railway / Render** | Kleine Apps, APIs | ⭐⭐ Mittel |
-| **Google Cloud Run** | Skalierbare APIs | ⭐⭐ Mittel |
-| **AWS Lambda** | Event-basierte Apps | ⭐⭐⭐ Fortgeschritten |
-| **Kubernetes** | Enterprise, Multi-Service | ⭐⭐⭐⭐ Komplex |
+| Ziel | Passende Option | Mindestanforderung |
+|---|---|---|
+| Demo im Kurs | Hugging Face Spaces, Streamlit, Gradio | Keine Secrets im Repository |
+| Kleine API | Render, Railway, Cloud Run, Azure Container Apps | Health Check, Logs, Secrets |
+| Interner Produktivdienst | Container-Plattform oder Kubernetes | Authentifizierung, Monitoring, Rollback |
+| Regelmäßige Verarbeitung | Container Job, GitHub Actions, Airflow, Prefect | Wiederholbarkeit und Fehlerstatus |
 
-**Für Entwickler empfohlen:** Hugging Face Spaces oder Railway bieten einfache Git-basierte Deployments.
+Grenze: Ein erfolgreich gebautes Image ist noch kein produktionsreifes System. Betrieb beginnt erst mit Logs, Metriken, Alarmen, Fehlerbehandlung und dokumentiertem Rollback.
 
----
+## Go-Live-Check
 
-## Zusammenfassung: Die Checkliste
-
-Vor dem Go-Live sollten diese Punkte geprüft werden:
+Vor dem ersten produktiven Start werden wenige Punkte konsequent geprüft. Diese Liste ersetzt keine Sicherheitsprüfung, verhindert aber die häufigsten Deployment-Fehler in kleinen GenAI-Projekten.
 
 > [!WARNING] Go-Live-Regel<br>
-> Kein Produktionsstart, wenn Security-, Health-Check- oder Basis-Testpunkte offen sind.
+> Kein Produktionsstart, wenn Secrets, Health Check oder Basis-Tests offen sind.
 
-- [ ] Code aus Notebook in Module extrahiert
-- [ ] Keine Secrets im Code (API-Keys in Umgebungsvariablen)
-- [ ] `requirements.txt` vollständig und aufgeräumt
-- [ ] `.gitignore` enthält `.env`, `__pycache__`, etc.
-- [ ] Grundlegende Tests vorhanden
-- [ ] README erklärt Setup und Nutzung
-- [ ] Docker-Image baut erfolgreich
-- [ ] Health-Check-Endpunkt vorhanden
-- [ ] Logging konfiguriert
+- [ ] Notebook-Code in Module extrahiert
+- [ ] Keine Secrets im Code, Notebook oder Repository
+- [ ] `MODEL_NAME` und Provider-Keys über Umgebungsvariablen konfiguriert
+- [ ] Abhängigkeiten dokumentiert und installierbar
+- [ ] Smoke-Tests laufen lokal
+- [ ] API hat `/health`
+- [ ] Startkommando passt zur Paketstruktur
+- [ ] Docker-Image baut reproduzierbar
+- [ ] Logs sind auf der Zielplattform sichtbar
+- [ ] Rollback-Pfad ist bekannt
 
----
+## Typische Fehler
 
-## Typische Fehler vermeiden
+API-Keys im Code sind der kritischste Fehler, weil ein Git-Commit nicht einfach verschwindet. Der Key wird rotiert, auch wenn die Datei später gelöscht wurde.
 
-**❌ API-Keys im Code**
-→ Immer Umgebungsvariablen verwenden
+Ein zweiter Fehler ist die direkte Übernahme des Notebooks. Globale Variablen und versteckte Zellreihenfolgen funktionieren lokal, brechen aber im Serverprozess. Der produktive Pfad wird deshalb in Funktionen und Klassen übertragen.
 
-**❌ Alle Notebook-Zellen 1:1 übernommen**
-→ Zu sauberen Funktionen und Klassen refaktorieren
+Häufig wird auch `pip freeze` ungeprüft übernommen. Dadurch landen Entwicklungswerkzeuge, alte Experimente und plattformspezifische Pakete im Deployment. Besser ist eine kleine Liste direkter Abhängigkeiten.
 
-**❌ `pip freeze` ohne Aufräumen**
-→ Nur benötigte Pakete behalten
+Ohne Health Check kann die Plattform nicht zuverlässig erkennen, ob der Dienst läuft. Ohne Fehlerbehandlung wirkt jeder Provider-Ausfall wie ein Anwendungsfehler. Beides gehört vor den ersten Rollout.
 
-**❌ Keine Fehlerbehandlung**
-→ API-Fehler abfangen und sinnvolle Meldungen ausgeben
+## Quellen und weiterführende Dokumentation
 
-**❌ Kein Health-Check**
-→ Deployment-Plattformen brauchen diesen Endpunkt
-
----
+| Thema | Quelle |
+|---|---|
+| OpenAI Responses API | [OpenAI API Reference](https://platform.openai.com/docs/api-reference/responses) |
+| Migration von Chat Completions | [OpenAI Migration Guide](https://developers.openai.com/api/docs/guides/migrate-to-responses) |
+| FastAPI Deployment | [FastAPI Deployment](https://fastapi.tiangolo.com/deployment/) |
+| Reproduzierbare Python-Projekte | [uv Projects](https://docs.astral.sh/uv/concepts/projects/) |
 
 ## Abgrenzung zu verwandten Dokumenten
 
 | Dokument | Frage |
 |---|---|
 | [Vom Modell zur Anwendung](./vom-modell-zum-produkt-langchain-oekosystem.html) | Wie wird aus einem Modell ein technisches Anwendungssystem? |
-| [Migration OpenAI → Mistral](./migration-openai-mistral.html) | Wie wird ein bestehendes Projekt auf einen anderen Provider vorbereitet? |
+| [Migration OpenAI zu Mistral](./migration-openai-mistral.html) | Wie wird ein bestehendes Projekt auf einen anderen Provider vorbereitet? |
+| [Minimum Viable GenAI Stack](./minimum-viable-genai-stack.html) | Welche Komponenten braucht ein tragfähiger GenAI-Stack mindestens? |
 
 ---
 
-**Version:**    1.0<br>
-**Stand:**    Februar 2026<br>
+**Version:** 1.1<br>
+**Stand:** Mai 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

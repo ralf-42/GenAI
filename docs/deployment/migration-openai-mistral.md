@@ -3,19 +3,18 @@ layout: default
 title: Migration-Analyse Provider
 parent: Deployment
 nav_order: 4
-description: Migrationsleitfaden für den Wechsel von OpenAI-basierten Kursmodulen in die Mistral-Modellwelt mit LangChain als Abstraktionsschicht
+description: Migration von OpenAI-basierten Kursmodulen zu Mistral mit LangChain als Abstraktionsschicht
 has_toc: true
 ---
 
 # Migration: OpenAI → Mistral
 {: .no_toc }
 
-> **Migrationsleitfaden für das Projekt `GenAI`**      
-> Zentrale Aussage: Die Migration wird vor allem dadurch vereinfacht, dass das Projekt bereits stark auf **LangChain** und das umgebende Ökosystem setzt.
+> **Migrationsleitfaden für das Projekt `GenAI`**<br>
+> Die Migration wird nicht durch Austauschbarkeit der Provider einfach, sondern durch die vorhandene Trennung von Modellzugriff und Anwendungslogik.
 
-{: .note }
-> Die Notebooks in `01_notebook/` dienen hier nur als **Beispiele für Migrationstypen**.  
-> Relevant ist nicht das einzelne Notebook, sondern **welche Art von Änderung** durch die bestehende LangChain-Struktur einfacher wird.
+> [!NOTE] Einordnung<br>
+> Die Notebooks in `01_notebook/` dienen hier als Beispiele für Migrationstypen. Entscheidend ist nicht das einzelne Notebook, sondern welche technische Kopplung dort vorliegt: Chat-Modell, Embedding-Modell, Tool-Aufruf, strukturierte Ausgabe oder multimodaler Pfad.
 
 ---
 
@@ -29,84 +28,49 @@ has_toc: true
 
 ## Kernaussage
 
-Eine Migration von OpenAI zu Mistral ist im Projekt `GenAI` **nicht trivial**, aber sie ist deutlich einfacher, weil große Teile der LLM-Nutzung bereits über **LangChain-Abstraktionen** laufen.
+Eine Migration von OpenAI zu Mistral ist im Projekt `GenAI` handhabbar, aber nicht mechanisch. LangChain reduziert den Umbau, weil viele Modellaufrufe bereits über `init_chat_model(...)`, `ChatPromptTemplate`, `with_structured_output()`, `@tool` und `create_agent()` laufen. Dadurch ist die fachliche Notebook-Logik oft von der Providerwahl getrennt.
 
-Die Vereinfachung entsteht vor allem durch `init_chat_model(...)` statt provider-spezifischer Roh-Clients, konsistente LangChain-Patterns für Prompts, Chains und Tools sowie wiederkehrende Strukturen für RAG, Structured Output und Agentenlogik. In vielen Notebook-Abschnitten ist der Modellzugriff bereits von der Anwendungslogik getrennt. Die Migration ist deshalb kein vollständiger Neuaufbau und kein Austausch des gesamten Kursmaterials, sondern primär eine kontrollierte Anpassung der Modell- und Provider-Schicht.
+Diese Abstraktion ersetzt keine Qualitätsprüfung. Mistral-Modelle unterscheiden sich bei Modellpalette, Tool-Verhalten, strukturierter Ausgabe, Multimodalität, Latenz, Kosten und Tokenisierung. Die Migration ist deshalb primär eine kontrollierte Anpassung der Provider-Schicht mit anschließender Evaluation, nicht ein globales Suchen-und-Ersetzen von Modellnamen.
 
----
-
-## Was LangChain bei der Migration vereinfacht
-
-### Vereinheitlichte Modellinitialisierung
-
-Wo Modelle über `init_chat_model(...)` genutzt werden, wird die Migration deutlich leichter: Der Providerwechsel erfolgt über Modell-String und Konfiguration, während die umgebende Prompt-, Chain- oder Agent-Logik häufig gleich bleibt. Dadurch kann derselbe Notebook-Ablauf mit einem anderen Provider getestet werden.
-
-Typische Beispiele im Projekt sind einfache Chat-Aufrufe, LCEL-Chains, Structured Output, Agenten mit `@tool` und MCP-/Agenten-Setups.
-
-### Wiederverwendbare LangChain-Bausteine
-
-Im Projekt wiederholen sich Muster wie `ChatPromptTemplate`, `StrOutputParser`, `with_structured_output()`, `@tool` und `create_agent()`. Das ist migrationsfreundlich, weil diese Muster providerübergreifend ähnlich bleiben. Geändert wird primär, **welches Modell** dahinter hängt.
-
-### Strukturierte Ausgaben bleiben strukturiert
-
-Wenn ein Modul Pydantic-Modelle oder `with_structured_output()` nutzt, muss bei einer Migration nicht die gesamte Extraktionslogik neu geschrieben werden. Geprüft werden muss nur:
-
-- unterstützt das Mistral-Modell den gewünschten Modus stabil
-- bleiben Validierung und Feldbelegung robust
-- ändern sich Fehlermuster oder Ausgabedisziplin
-
-### Agenten- und Tool-Pfade bleiben grundsätzlich erhalten
-
-Wenn Tools sauber über LangChain gekapselt sind, bleibt bei einer Migration die Tool-Logik in der Regel gleich. Neu zu prüfen ist vor allem:
-
-- wie zuverlässig das Modell Tools auswählt
-- wie stabil Parameter gesetzt werden
-- ob sich das Verhalten bei mehrstufigen Tool-Aufrufen ändert
+> [!WARNING] Typischer Fehler<br>
+> `"openai:..."` durch `"mistral:..."` zu ersetzen und das Ergebnis als migriert zu betrachten, übersieht die eigentliche Arbeit: Modellrollen müssen neu gemappt, RAG-Embeddings konsistent gehalten und Tool-Aufrufe gegen reale Testfälle geprüft werden.
 
 ---
 
-## Was trotz LangChain nicht automatisch gelöst ist
+## Was LangChain vereinfacht
 
-LangChain vereinfacht den Umbau, aber es hebt Providerunterschiede nicht auf.
+LangChain vereinheitlicht den Zugriff auf Chat-Modelle, Tools und strukturierte Ausgaben. Wo diese Muster sauber verwendet werden, bleibt ein großer Teil des Notebook-Codes unverändert. Der Prompt bleibt ein `ChatPromptTemplate`, das Tool bleibt eine mit `@tool` beschriebene Python-Funktion, und der Agent bleibt ein `create_agent()`-Aufruf.
 
-### Modellrollen müssen sinnvoll gemappt werden
+Die Migrationsarbeit verschiebt sich dadurch auf wenige Stellen: Modellinitialisierung, Umgebungsvariablen, Paketabhängigkeiten, Modellrollen und Tests. Besonders wertvoll ist diese Trennung bei RAG- und Agentenmodulen, weil dort der fachliche Ablauf sonst schnell mit Providerdetails verschmilzt.
 
-Auch in `GenAI` gibt es faktisch unterschiedliche Modellrollen:
+Für Mistral wird in LangChain das Paket `langchain-mistralai` benötigt. Zusätzlich muss `MISTRAL_API_KEY` gesetzt sein. Das ist eine eigene Providerabhängigkeit und gehört explizit in Setup-Zellen oder Kursdokumentation.
 
-- günstige Baselines und Demos
-- stärkere Modelle für komplexere Aufgaben
-- multimodale oder spezialisierte Pfade
-
-Die Migration besteht deshalb nicht nur darin, `"openai:..."` durch `"mistral:..."` zu ersetzen, sondern passende Mistral-Modelle je Einsatzzweck zu wählen.
-
-### Embeddings bleiben ein eigenes Thema
-
-RAG-Module und semantische Suche hängen nicht nur am Chat-Modell. Zu entscheiden ist:
-
-- OpenAI-Embeddings vorerst beibehalten
-- oder Mistral-Embeddings ergänzen
-
-Das ist ein separates Migrationsthema.
-
-### Multimodale Pfade müssen einzeln geprüft werden
-
-In `GenAI` gibt es Bild-, Audio- und Video-Beispiele. Diese Pfade dürfen nicht pauschal als gleichwertig migrierbar angenommen werden. Besonders relevant ist:
-
-- welche Modalitäten das jeweilige Mistral-Modell tatsächlich abdeckt
-- ob der bisherige Kursablauf fachlich gleich bleibt
-- ob ein Hybridpfad sinnvoller ist
-
-### Provider-spezifische Inhalte bleiben provider-spezifisch
-
-Wo Inhalte stark an OpenAI oder einen konkreten API-Pfad gebunden sind, hilft die LangChain-Abstraktion nur begrenzt. Solche Inhalte sollten nicht künstlich in eine generische Migration gezwungen werden.
+```bash
+pip install -U langchain-mistralai
+export MISTRAL_API_KEY="..."
+```
 
 ---
 
-## Welche Migrationsarbeiten konkret anfallen
+## Modellrollen
 
-### Provider-Schicht abstrahieren
+Im Kurs sollte nicht direkt ein alter OpenAI-Modellname durch einen einzelnen Mistral-Modellnamen ersetzt werden. Besser ist ein Rollenmodell. Eine Rolle beschreibt, wofür das Modell eingesetzt wird; der konkrete Provider und Modellname bleiben konfigurierbar.
 
-Die wichtigste technische Maßnahme ist eine zentrale Modellinitialisierung.
+| Rolle | OpenAI-Beispiel | Mistral-Beispiel | Prüfung |
+|---|---|---|---|
+| Baseline | `openai:gpt-5.4-nano` | `mistral-small-2603` | kurze Antworten, Kosten, Latenz |
+| Standard | `openai:gpt-5.4-mini` | `mistral-medium-3.5` | RAG-Synthese, Tool-Nutzung, strukturierte Ausgabe |
+| Starkes Modell | `openai:gpt-5.4` | `mistral-large-2512` | komplexe Aufgaben, längere Kontexte |
+| Code | `openai:gpt-5.4-mini` | Devstral- oder Codestral-Modell nach aktueller Modellliste | Codeaufgaben und Repository-Kontext |
+| Embeddings | `text-embedding-3-small` | `mistral-embed` oder `codestral-embed` | Vektordimension, Retrievalqualität, Index-Neuaufbau |
+
+Die Mistral-Modellpalette ändert sich aktiv. Daher sollten konkrete Modellnamen als Stand der Dokumentation gelesen und vor produktiver Nutzung gegen die Mistral-Modellseite geprüft werden.
+
+---
+
+## Provider-Schicht
+
+Für providerneutrale Kursbeispiele kann `init_chat_model(...)` weiter die zentrale Einstiegsschicht bleiben, sofern die passende LangChain-Integration installiert ist. Für Mistral-spezifische Fehlersuche ist die direkte Klasse `ChatMistralAI` nützlich, weil sie klar zeigt, welche Providerparameter tatsächlich gesetzt werden.
 
 ```python
 from langchain.chat_models import init_chat_model
@@ -117,115 +81,136 @@ MODEL_CONFIG = {
         "standard": "openai:gpt-5.4-mini",
     },
     "mistral": {
-        "baseline": "mistral:mistral-small-latest",
-        "standard": "mistral:mistral-medium-latest",
+        "baseline": "mistral:mistral-small-2603",
+        "standard": "mistral:mistral-medium-3.5",
     },
 }
+
 
 def get_llm(role: str = "baseline", provider: str = "openai", **kwargs):
     model = MODEL_CONFIG[provider][role]
     return init_chat_model(model, **kwargs)
 ```
 
-**Effekt:**  
-Die eigentliche LangChain-Logik bleibt weitgehend gleich, während die Providerwahl zentralisiert wird.
-
-### Embeddings separat kapseln
+Für direkte Mistral-Tests:
 
 ```python
-from langchain_openai import OpenAIEmbeddings
+from langchain_mistralai import ChatMistralAI
 
-def get_embeddings(provider: str = "openai"):
-    if provider == "openai":
-        return OpenAIEmbeddings(model="text-embedding-3-small")
-    raise ValueError("Für diesen Provider ist noch kein Embedding-Backend konfiguriert.")
+llm = ChatMistralAI(
+    model="mistral-medium-3.5",
+    temperature=0,
+    max_retries=2,
+)
 ```
 
-**Effekt:**  
-Chat-Provider und Embedding-Provider werden sauber getrennt.
-
-### Modul- und Doku-Markierungen ergänzen
-
-Sinnvolle Markierungen:
-
-- `Provider-neutral`
-- `OpenAI-spezifisch`
-- `Mistral-kompatibel`
-- `RAG + Embeddings`
-- `Multimodal`
-
-**Effekt:**  
-Die Migration wird transparent dokumentiert, ohne dass einzelne Notebooks als starre Migrationsliste gelesen werden.
+> [!NOTE] Grenze<br>
+> Eine zentrale Provider-Funktion reduziert Wiederholung, löst aber keine Modellentscheidung. Für jedes Kursmodul muss klar sein, ob es Baseline, Standard, starkes Modell, Code-Modell, Vision-Modell oder Embedding-Modell benötigt.
 
 ---
 
-## Wie die Notebooks als Beispiele dienen
+## Embeddings und RAG
 
-Die Notebooks dienen nur dazu, die Typen von Migrationsarbeit anschaulich zu machen. Einfache Prompt- und Chain-Notebooks zeigen, wie gut `init_chat_model(...)` den Providerwechsel abfedert. Structured-Output-Notebooks zeigen, dass die Schemalogik bestehen bleiben kann. Agenten- und Tool-Notebooks machen sichtbar, dass vor allem das Modellverhalten geprüft werden muss, nicht die Tool-Definition selbst. RAG-Notebooks trennen die Embedding-Frage ab, während multimodale Notebooks zeigen, wo eine Einzelfallprüfung nötig bleibt.
+RAG-Module hängen nicht nur am Chat-Modell. Das Embedding-Modell bestimmt Vektordimension, Indexkompatibilität und Suchqualität. Wird von OpenAI-Embeddings auf Mistral-Embeddings gewechselt, muss der Vektorindex in der Regel neu aufgebaut werden. Ein bestehender Chroma- oder pgvector-Index mit OpenAI-Vektoren kann nicht einfach mit Mistral-Query-Vektoren weiterverwendet werden.
 
-Die eigentliche Aussage ist:
+Mistral bietet mit `mistral-embed` Text-Embeddings und mit `codestral-embed` Code-Embeddings. LangChain stellt dafür `MistralAIEmbeddings` bereit.
 
-> Die Notebooks sind keine Migrationsliste, sondern **Beleg dafür, dass die bestehende LangChain-Struktur die Migration systematisch vereinfacht**.
+```python
+from langchain_mistralai import MistralAIEmbeddings
+from langchain_openai import OpenAIEmbeddings
+
+
+def get_embeddings(provider: str = "openai", domain: str = "text"):
+    if provider == "openai":
+        return OpenAIEmbeddings(model="text-embedding-3-small")
+
+    if provider == "mistral" and domain == "text":
+        return MistralAIEmbeddings(model="mistral-embed")
+
+    if provider == "mistral" and domain == "code":
+        return MistralAIEmbeddings(model="codestral-embed")
+
+    raise ValueError(f"Kein Embedding-Backend für {provider=} und {domain=}.")
+```
+
+Für den Kurs ist ein hybrider Übergang sinnvoll: Chat-Modelle können zuerst auf Mistral getestet werden, während OpenAI-Embeddings vorerst erhalten bleiben. Erst wenn die Antwortqualität stabil ist, wird die Embedding-Schicht separat migriert und der Index neu aufgebaut.
 
 ---
 
-## Prüf- und Testpunkte
+## Strukturierte Ausgaben und Tools
 
-Für jede Migration auf Mistral bleiben dieselben Kernfragen relevant: Läuft die bestehende LangChain-Struktur weiter stabil, bleiben Outputs fachlich brauchbar, Structured Output valide und Tool-Aufrufe korrekt? Zusätzlich müssen RAG-Pfade konsistent bleiben, und Latenz sowie Kosten müssen zum Kursbetrieb passen.
+`with_structured_output()` und Tool Calling sind mit `ChatMistralAI` grundsätzlich verfügbar, aber modellabhängig. Deshalb muss jede strukturierte Ausgabe mit realen Beispielen getestet werden. Entscheidend ist nicht nur, ob ein JSON-Objekt zurückkommt, sondern ob Pflichtfelder stabil belegt werden, Enums eingehalten werden und Fehlerfälle kontrolliert scheitern.
 
-**Minimalmatrix:**
+Bei Tools bleibt die Python-Funktion meist gleich. Das Modellverhalten kann sich trotzdem ändern: Ein Mistral-Modell kann ein Tool früher, später oder mit anderen Argumenten aufrufen als ein OpenAI-Modell. Tool-Migration bedeutet deshalb vor allem Laufvergleiche mit denselben Eingaben.
 
-| Kriterium | Prüffrage |
-|----------|-----------|
-| **Qualität** | Ist die Ausgabe im Kurskontext brauchbar? |
-| **Structured Output** | Bleibt das Schema stabil gültig? |
-| **Tool Use** | Werden Tools sinnvoll und korrekt genutzt? |
-| **RAG** | Bleiben Retrieval und Antwortsynthese konsistent? |
-| **Latenz** | Ist der Flow noch flüssig? |
-| **Kosten** | Ist der Lauf wirtschaftlich vertretbar? |
+> [!WARNING] Typischer Fehler<br>
+> Tool-Definitionen werden oft als providerneutral betrachtet. Die Definition ist providerneutral, die Tool-Auswahl des Modells ist es nicht. Genau diese Auswahl muss evaluiert werden.
 
 ---
 
-## Empfohlene Reihenfolge
+## Multimodale Pfade
 
-### Phase 1: Provider-Schicht zentralisieren
+Mistral bietet inzwischen multimodale Modelle und eigene Dokument-, Vision-, Audio- und Agentenfunktionen. Trotzdem sollten Bild-, Audio- und Video-Beispiele nicht pauschal migriert werden. Die LangChain-Python-Integration, das konkrete Modell und der jeweilige API-Pfad müssen zusammenpassen.
 
-- `get_llm()`-Pattern einführen
-- OpenAI als Default beibehalten
-- Mistral als alternative Konfiguration ergänzen
+Für das Projekt `GenAI` bedeutet das: Text- und Tool-Pfade können zuerst migriert werden. RAG wird wegen der Embedding-Frage getrennt behandelt. Multimodale Module werden einzeln markiert und nur dann als kompatibel ausgewiesen, wenn der konkrete Kursablauf mit Mistral getestet wurde.
 
-### Phase 2: Einfache LangChain-Pfade testen
+---
 
-- einfache Prompt-, Chain- und Structured-Output-Beispiele mit Mistral durchlaufen
-- Unterschiede dokumentieren
+## Markierung der Kursmodule
 
-### Phase 3: Tool- und Agentenpfade testen
+Die Migration wird leichter, wenn jedes Modul nicht nach Dateinamen, sondern nach Providerbindung markiert wird.
 
-- Tool-Auswahl
-- Parameterstabilität
-- ReAct-/Agenten-Verhalten
+| Markierung | Bedeutung |
+|---|---|
+| Providerneutral | LangChain-Abstraktion reicht vermutlich aus |
+| OpenAI-spezifisch | OpenAI-API, OpenAI-Modellfeature oder OpenAI-Medienpfad wird direkt genutzt |
+| Mistral-kompatibel | Mit Mistral getestet und dokumentiert |
+| RAG + Embeddings | Chat- und Embedding-Provider getrennt prüfen |
+| Multimodal | Vision, Audio, OCR oder Video einzeln testen |
 
-### Phase 4: RAG- und Embedding-Entscheidung treffen
+Diese Markierungen sind keine Verwaltungsschicht um ihrer selbst willen. Sie verhindern, dass eine erfolgreiche Textmigration fälschlich als vollständige Provider-Migration gelesen wird.
 
-- OpenAI-Embeddings behalten oder Mistral-Embeddings ergänzen
-- RAG-Module getrennt bewerten
+---
 
-### Phase 5: Multimodale Pfade einzeln prüfen
+## Prüfplan
 
-- Bild
-- Audio
-- Video
+Die Migration sollte mit kleinen, reproduzierbaren Testfällen beginnen. Zuerst wird die Provider-Schicht zentralisiert und OpenAI bleibt der Default. Danach wird Mistral als alternative Konfiguration ergänzt. Einfache Prompt- und Structured-Output-Beispiele zeigen, ob die Basisschicht funktioniert. Erst danach folgen Tool-Agenten, RAG und multimodale Pfade.
 
-### Phase 6: Doku nachziehen
+| Bereich | Prüffrage |
+|---|---|
+| Setup | Sind `langchain-mistralai` und `MISTRAL_API_KEY` vorhanden? |
+| Modellrolle | Passt das Mistral-Modell zur bisherigen OpenAI-Rolle? |
+| Message-Format | Akzeptiert das Modell die Rollen- und Nachrichtenfolge? |
+| Strukturierte Ausgabe | Bleiben Pydantic-Schema und Validierung stabil? |
+| Tool Use | Werden Tools mit korrekten Argumenten aufgerufen? |
+| RAG | Wurde der Embedding-Provider bewusst gewählt und der Index passend aufgebaut? |
+| Multimodal | Unterstützt genau dieses Modell den benötigten Eingabetyp? |
+| Tracing | Sind LangSmith-Traces für OpenAI- und Mistral-Läufe vergleichbar? |
+| Kosten und Latenz | Passt der Lauf zum Kursbetrieb? |
 
-- Provider-Markierungen ergänzen
-- Mistral-Kompatibilität nur dort behaupten, wo sie geprüft wurde
+---
+
+## Reihenfolge
+
+Eine belastbare Migration entsteht in sechs Schritten. Zuerst wird eine zentrale Provider-Konfiguration eingeführt. Danach laufen einfache Chat- und Prompt-Beispiele mit Mistral. Im dritten Schritt werden strukturierte Ausgaben und Tool-Agents geprüft. RAG folgt erst danach, weil Embeddings und Indexkompatibilität ein eigenes Thema sind. Multimodale Pfade werden zuletzt einzeln getestet. Am Ende werden die Modulmarkierungen und die Dokumentation aktualisiert.
+
+Diese Reihenfolge verhindert, dass viele Fehlerquellen gleichzeitig auftreten. Wenn bereits ein einfacher Prompt mit Mistral instabil ist, muss kein RAG-Index neu gebaut werden. Wenn Structured Output stabil läuft, aber Tool-Aufrufe scheitern, liegt das Problem wahrscheinlich im Modellverhalten und nicht im LangChain-Adapter.
 
 ---
 
 ## Fazit
 
-Die eigentliche Botschaft dieser Migration ist: Der Wechsel von OpenAI zu Mistral wird im Projekt `GenAI` nicht deshalb handhabbar, weil Provider austauschbar wären, sondern weil **LangChain die LLM-Schicht bereits stark standardisiert**. Dadurch verschiebt sich die Arbeit weg von einer kompletten Neuerstellung der Notebook-Logik hin zu Provider-Mapping, Modellwahl, Embedding-Entscheidungen, gezielten Qualitätsvergleichen und Einzelfallprüfung bei Multimodalität. Genau darin liegt der architektonische Vorteil des bestehenden Ökosystems.
+Der Wechsel von OpenAI zu Mistral wird im Projekt `GenAI` durch LangChain deutlich einfacher, bleibt aber eine echte Migration. Die Modellschicht lässt sich zentralisieren, Tools und Prompts können oft erhalten bleiben, und viele Kursmodule brauchen keinen vollständigen Neuaufbau. Entscheidend sind Rollenmapping, Provider-Setup, Embedding-Strategie, strukturierte Tests und eine klare Kennzeichnung, welche Module wirklich mit Mistral geprüft wurden.
+
+---
+
+## Quellen
+
+- [LangChain MistralAI Integration](https://docs.langchain.com/oss/python/integrations/providers/mistralai)
+- [ChatMistralAI](https://docs.langchain.com/oss/python/integrations/chat/mistralai/)
+- [Mistral Models](https://docs.mistral.ai/models)
+- [Mistral Text Embeddings](https://docs.mistral.ai/capabilities/embeddings/text_embeddings)
+- [Mistral Code Embeddings](https://docs.mistral.ai/capabilities/embeddings/code_embeddings)
 
 ---
 
@@ -235,9 +220,10 @@ Die eigentliche Botschaft dieser Migration ist: Der Wechsel von OpenAI zu Mistra
 |---|---|
 | [Vom Modell zur Anwendung](./vom-modell-zum-produkt-langchain-oekosystem.html) | Welche Rolle spielt LangChain im Weg vom Modell zur Anwendung? |
 | [Produktionsreife Anwendung](./aus-entwicklung-ins-deployment.html) | Welche technischen Schritte machen ein Notebook deploymentfähig? |
+| [Minimum Viable GenAI Stack](./minimum-viable-genai-stack.html) | Welche Schichten müssen bei einer Provider-Migration getrennt betrachtet werden? |
 
 ---
 
-**Version:**    2.0<br>
-**Stand:**    März 2026<br>
+**Version:**    2.1<br>
+**Stand:**    Mai 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
