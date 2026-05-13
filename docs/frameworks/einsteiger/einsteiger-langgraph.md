@@ -125,13 +125,13 @@ result = graph.invoke(initial_state)
 result
 ```
 
-**Ergebnis:** Ein vollständiger Einsteiger-Workflow, bevor irgendein abstraktes Konzept erklärt wurde.
+**Ergebnis:** Ein vollständiger erster Workflow, bevor irgendein abstraktes Konzept erklärt wurde.
 
 ---
 
 ## Die Grundidee: Workflows als State Machine
 
-Nachdem Einsteiger ein funktionsfähiges Beispiel gesehen haben, kann das Konzept erklärt werden:
+Nachdem Entwickler ein funktionsfähiges Beispiel gesehen haben, kann das Konzept erklärt werden:
 
 - Ein Workflow besteht aus klar definierten Schritten (*Nodes*).
 - Der Zustand wird in einem *State* gespeichert.
@@ -233,7 +233,7 @@ def research_node(state: ChatState) -> ChatState:
 
 ## Edges & Conditional Routing
 
-Nun erst wird Routing eingeführt – **nachdem Einsteiger Nodes und State kennen**.
+Nun erst wird Routing eingeführt – **nachdem Entwickler Nodes und State kennen**.
 
 ### Lineare Edges
 
@@ -480,8 +480,8 @@ Mögliche Erweiterungen:
 
 | Dokument | Inhalt |
 |---|---|
-| [Einsteiger LangChain](einsteiger-langchain.html) | Voraussetzung: Modell-Init, Tools und Agenten mit LangChain |
-| [Einsteiger ChromaDB](einsteiger-chromadb.html) | Vektordatenbank als RAG-Tool in LangGraph-Workflows |
+| [LangChain Einsteiger](einsteiger-langchain.html) | Voraussetzung: Modell-Init, Tools und Agenten mit LangChain |
+| [ChromaDB Einsteiger](einsteiger-chromadb.html) | Vektordatenbank als RAG-Tool in LangGraph-Workflows |
 | [State Management](../../concepts/agentisch/state-management.html) | Konzeptionelle Tiefe hinter TypedDict und Reducer-Funktionen |
 | [Human-in-the-Loop](../../concepts/agentisch/human-in-the-loop.html) | Konzept hinter Interrupt & Resume aus Abschnitt 9 |
 

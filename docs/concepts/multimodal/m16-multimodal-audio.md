@@ -143,7 +143,7 @@ Das Bewusstsein für diese Herausforderungen hilft, Audio-KI-Technologien realis
 
 
 
-# Grundbegriffe für Einsteiger
+# Grundbegriffe für Entwickler
 
 Bevor wir uns mit der KI-basierten Audioverarbeitung beschäftigen, ist es wichtig, einige grundlegende Konzepte der digitalen Audioverarbeitung zu verstehen.
 

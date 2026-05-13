@@ -22,7 +22,7 @@ Wer neu in das Kursmaterial einsteigt, beginnt mit diesen fünf Dokumenten:
 
 1. [Lohnt sich GenAI?](./concepts/orientierung/lohnt-es-sich.html)
 2. [Aufgabenklassen und Lösungswege](./concepts/orientierung/aufgabenklassen-und-loesungswege.html)
-3. [Einsteiger LangChain](./frameworks/einsteiger/einsteiger-langchain.html)  (Nur erste Abschnitte)
+3. [LangChain Einsteiger](./frameworks/einsteiger/einsteiger-langchain.html)  (Nur erste Abschnitte)
 4. [RAG-Konzepte](./concepts/anwendungsmethoden/rag-konzepte.html) (Überblick & Architektur)
 5. [Evaluation & Observability](./concepts/entscheidungen-qualitaet/evaluation-observability.html)  (Nur erste Abschnitte)
 
@@ -36,7 +36,7 @@ Wenn echte Nutzer-, Kunden-, Mitarbeiter- oder interne Dokumentdaten verarbeitet
 |---|---|
 | GenAI-Vorhaben einschätzen | [Lohnt sich GenAI?](./concepts/orientierung/lohnt-es-sich.html) |
 | Erstes Verständnis für GenAI-Anwendungen | [Aufgabenklassen und Lösungswege](./concepts/orientierung/aufgabenklassen-und-loesungswege.html) |
-| Erste eigene Chain bauen | [Einsteiger LangChain](./frameworks/einsteiger/einsteiger-langchain.html) |
+| Erste eigene Chain bauen | [LangChain Einsteiger](./frameworks/einsteiger/einsteiger-langchain.html) |
 | Dokumente und Wissen einbinden | [RAG-Konzepte](./concepts/anwendungsmethoden/rag-konzepte.html) |
 | Antworten messbar verbessern | [Evaluation & Observability](./concepts/entscheidungen-qualitaet/evaluation-observability.html) |
 | Tools, State oder Agentenlogik nutzen | [Tool Use & Function Calling](./concepts/agentisch/tool-use-function-calling.html) |

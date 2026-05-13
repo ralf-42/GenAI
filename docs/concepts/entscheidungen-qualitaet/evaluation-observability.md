@@ -56,7 +56,7 @@ In Trainings zeigt sich oft derselbe erste Irrtum: Wenn keine Exception auftritt
 
 ## Ein einfaches Kursbeispiel
 
-Ein Support-Agent soll drei häufige Aufgaben lösen: Lieferstatus nennen, Rechnung erneut senden und Öffnungszeiten beantworten. Für einen Einsteigerkurs reicht dieses kleine Szenario, um Evaluation und Observability konkret zu machen.
+Ein Support-Agent soll drei häufige Aufgaben lösen: Lieferstatus nennen, Rechnung erneut senden und Öffnungszeiten beantworten. Für einen Entwicklerkurs reicht dieses kleine Szenario, um Evaluation und Observability konkret zu machen.
 
 Die Evaluation kann mit wenigen Testfällen beginnen. Für jede Anfrage wird festgelegt, was als gute Antwort gilt. Das kann eine exakte Lösung sein, eine erlaubte Liste von Schlüsselinformationen oder ein korrekt ausgelöstes Tool.
 
@@ -107,7 +107,7 @@ Sinnvoll ist deshalb eine Staffelung in drei Ebenen. Auf Komponentenebene wird g
 
 Grenze: Nicht jede gute Agentenantwort lässt sich mit einer einzigen Kennzahl bewerten. Gerade bei offenen Formulierungen braucht Evaluation mehrere Kriterien gleichzeitig.
 
-## Welche Metriken für Einsteiger zuerst genügen
+## Welche Metriken für Entwickler zuerst genügen
 
 Für den Einstieg ist keine Metrik-Bibliothek nötig. Meist reichen vier Fragen: War die Antwort fachlich korrekt, wurde das richtige Tool verwendet, wie lange dauerte der Durchlauf und wie hoch waren die Kosten. Damit entsteht bereits ein belastbares Grundbild.
 
@@ -198,7 +198,7 @@ Berechnung:
 3. Teile gefundene Stichwörter durch alle erwarteten Stichwörter.
 ```
 
-Nicht geeignet, wenn: Das Bewertungsverfahren selbst intransparent bleibt und dadurch nur eine weitere Blackbox erzeugt. Gerade in Einsteigerkursen sollte immer klar sein, warum eine Antwort als gut oder schlecht zählt.
+Nicht geeignet, wenn: Das Bewertungsverfahren selbst intransparent bleibt und dadurch nur eine weitere Blackbox erzeugt. Gerade in Entwicklerkursen sollte immer klar sein, warum eine Antwort als gut oder schlecht zählt.
 
 ## Observability erklärt Fehlerursachen
 

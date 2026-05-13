@@ -67,7 +67,7 @@ Ethics by Design verankert solche Abwägungen früh im Entwicklungsprozess. Dazu
 
 Technisch helfen Explainable-AI-Methoden, Bias-Analysen, Red Teaming, Input-Validierung, Zugriffskontrollen, Inhaltsfilter, Anonymisierung und Wasserzeichen. Diese Maßnahmen wirken aber nur, wenn sie mit organisatorischen Prozessen verbunden sind. Dazu gehören Verantwortlichkeiten, Review-Routinen, Eskalationswege und eine Dokumentation, die auch nach mehreren Modellversionen noch verständlich bleibt.
 
-Für Kurs- und Projektkontexte empfiehlt sich eine einfache Mindestprüfung: Zweck, Zielgruppe, Datenquellen, mögliche Schäden, menschliche Kontrolle und Evaluationskriterien werden vor der Umsetzung festgehalten. Nach der Umsetzung wird geprüft, ob das System in Grenzfällen, bei mehrdeutigen Prompts und bei sensiblen Inhalten stabil bleibt.
+Für Kurs- und Projektkontexte empfiehlt sich eine einfache Mindestprüfung: Zweck, betroffene Gruppen, Datenquellen, mögliche Schäden, menschliche Kontrolle und Evaluationskriterien werden vor der Umsetzung festgehalten. Nach der Umsetzung wird geprüft, ob das System in Grenzfällen, bei mehrdeutigen Prompts und bei sensiblen Inhalten stabil bleibt.
 
 Für toolgestützte GenAI gilt zusätzlich: Starte mit Assistenz statt autonomer Entscheidung, dokumentiere Tool-Rechte und Datenflüsse, nutze Human-in-the-Loop bei Ausgaben mit Wirkung auf Menschen, und halte Tracing datensparsam. Je mehr ein System handeln darf, desto expliziter müssen Grenzen, Freigaben und Verantwortliche definiert sein.
 

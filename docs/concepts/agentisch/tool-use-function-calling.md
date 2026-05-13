@@ -230,7 +230,7 @@ Bevor ein Tool an einen Agenten gebunden wird, sollte es einzeln geprüft werden
 | Fehlerfall | kann der Agent mit der Rückmeldung weiterarbeiten? |
 | Rückgabe | ist das Ergebnis knapp und entscheidungsrelevant? |
 
-Gerade in Einsteigerprojekten spart dieser Zwischenschritt viel Zeit, weil unklare Schemata oder fehlerhafte Parameter nicht erst im Agentenverbund auffallen.
+Gerade in Entwicklerprojekten spart dieser Zwischenschritt viel Zeit, weil unklare Schemata oder fehlerhafte Parameter nicht erst im Agentenverbund auffallen.
 
 ## Tools an das Modell binden
 
@@ -330,7 +330,7 @@ Für einen ersten Agenten reichen meist **wenige, klar benannte Werkzeuge** mit 
 
 Entwickler unterschätzen oft, dass Tool Use nicht nur neue Fähigkeiten bringt, sondern auch neue Verantwortung. Sobald ein Agent lesen, suchen, schreiben oder externe Systeme verändern kann, wird Tool-Design zur Sicherheitsfrage.
 
-| Einsteigerregel | Begründung |
+| Entwicklerregel | Begründung |
 |---|---|
 | mit 1-3 Tools starten | weniger Fehlgriffe und leichteres Debugging |
 | Beschreibungen präzise schreiben | das Modell sieht nicht den internen Code |

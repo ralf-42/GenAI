@@ -59,7 +59,7 @@ Die folgende Marktübersicht hilft bei der Einordnung, welche Betriebsmodelle in
 - venv-Deployments bleiben relevant für bestehende Serverlandschaften und interne Tools.
 - Standalone- und Bare-Metal-Varianten sind eher Spezial- oder Legacy-Szenarien.
 
-> [!TIP] Für Einsteiger<br>
+> [!TIP] Für Entwickler<br>
 > Für den ersten produktiven Rollout ist meist "managed" schneller. Container lohnen sich besonders bei Team-Betrieb und Portabilität.
 
 ---
@@ -324,7 +324,7 @@ Je nach Anforderung gibt es verschiedene Wege ins Deployment:
 | **AWS Lambda** | Event-basierte Apps | ⭐⭐⭐ Fortgeschritten |
 | **Kubernetes** | Enterprise, Multi-Service | ⭐⭐⭐⭐ Komplex |
 
-**Für Einsteiger empfohlen:** Hugging Face Spaces oder Railway bieten einfache Git-basierte Deployments.
+**Für Entwickler empfohlen:** Hugging Face Spaces oder Railway bieten einfache Git-basierte Deployments.
 
 ---
 

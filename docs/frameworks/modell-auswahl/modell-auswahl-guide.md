@@ -217,7 +217,7 @@ antwort = multimodal_llm.invoke([message])
 
 ## Kosten-Orientierung
 
-> Kursteilnehmer arbeiten mit einem begrenzten API-Budget.
+> Entwickler arbeiten mit einem begrenzten API-Budget.
 > `gpt-5.4-nano` ist die kosteneffiziente Standardwahl für textbasierte Lernschritte.
 > Für Bildinput ist ein multimodal fähiges Modell erforderlich; in M16 ist `gpt-5.4-mini` die Standardwahl.
 
