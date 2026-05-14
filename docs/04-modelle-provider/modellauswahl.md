@@ -216,7 +216,6 @@ Grenze: Kaskaden erhöhen die Komplexität. Jede zusätzliche Modellrolle brauch
 | Dokument | Frage |
 |---|---|
 | [Provider & Modell-Mapping](./provider-modell-mapping.html) | Wie lassen sich die Kursrollen auf andere Provider übertragen? |
-| [API-Keys & Provider](./api-keys-und-provider.html) | Wie wird der Modellzugriff technisch eingerichtet? |
 | [Fine-Tuning](./fine-tuning.html) | Wann reicht Modellwahl nicht mehr und Training wird notwendig? |
 | [Context Engineering](../05-prompting-rag/context-engineering.html) | Wie beeinflusst Kontextgestaltung die Modellentscheidung? |
 | [Evaluation & Observability](../07-qualitaet-sicherheit/evaluation-observability.html) | Wie wird gemessen, ob die gewählte Modellrolle funktioniert? |

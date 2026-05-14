@@ -15,5 +15,4 @@ Dieser Bereich behandelt die Entscheidungen rund um Modellwahl und Provider-Anbi
 |---|---|
 | Welches Modell passt zu welcher Aufgabe im Kurs? | [Modellauswahl](./modellauswahl.html) |
 | Welche Provider und Modelle stehen zur Verfügung? | [Provider & Modell-Mapping](./provider-modell-mapping.html) |
-| Wie werden API-Keys sicher eingebunden? | [API-Keys & Provider-Setup](./api-keys-und-provider.html) |
 | Wann lohnt sich Fine-Tuning gegenüber Prompting? | [Fine-Tuning](./fine-tuning.html) |

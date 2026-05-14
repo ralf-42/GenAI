@@ -116,7 +116,6 @@ Hinweis: Kein `01-`-Verzeichnis. Die Nummern beginnen bei `02-orientierung/`, we
 |---|---|
 | `concepts/entscheidungen-qualitaet/m19-modellauswahl.md` + integrierte Inhalte aus `frameworks/modell-auswahl/modell-auswahl-guide.md` | `04-modelle-provider/modellauswahl.md` |
 | `frameworks/modell-auswahl/provider-modell-mapping.md` | `04-modelle-provider/provider-modell-mapping.md` |
-| `ressourcen/api-keys-und-provider.md` | `04-modelle-provider/api-keys-und-provider.md` |
 | `concepts/entscheidungen-qualitaet/m18-fine-tuning.md` | `04-modelle-provider/fine-tuning.md` |
 
 ### 05-prompting-rag/
@@ -311,7 +310,7 @@ Entscheidung je Seite:
 
 - [x] `02-orientierung/`: `lohnt-es-sich.md`, `aufgabenklassen-und-loesungswege.md`, `ki-reifegradmodell.md`
 - [x] `03-grundlagen/`: `transformer.md`, `tokenizing-chunking.md`, `embeddings.md` (Dateinamen-Präfixe entfernt)
-- [x] `04-modelle-provider/`: `modellauswahl.md` (Basis: m19), `provider-modell-mapping.md`, `api-keys-und-provider.md`, `fine-tuning.md`
+- [x] `04-modelle-provider/`: `modellauswahl.md` (Basis: m19), `provider-modell-mapping.md`, `fine-tuning.md`
 - [x] Praxisanteile aus `modell-auswahl-guide.md` in `modellauswahl.md` integriert (Modelle im Kurs, Designregeln, Entscheidungsbaum, Modul-Mapping, Code-Muster, Kosten-Orientierung); Guide-Datei entfernt
 - [x] `05-prompting-rag/`: `prompt-engineering.md`, `einsteiger-prompts.md`, `rag-konzepte.md`, `context-engineering.md`
 - [x] `06-frameworks/`: alle 6 Einsteiger-Guides, alle 3 Best-Practices-Dateien; 4 Gruppenseiten erstellt

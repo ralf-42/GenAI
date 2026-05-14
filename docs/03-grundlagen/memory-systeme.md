@@ -36,33 +36,26 @@ has_toc: true
 
 
 
-## Warum Agenten überhaupt ein Gedächtnis brauchen
+## Warum GenAI-Anwendungen ein Gedächtnis brauchen
 
 
 
-Ein Sprachmodell bringt kein dauerhaftes Gedächtnis mit. Ohne zusätzliche Mechanismen beginnt jede Konversation praktisch von vorn. Nutzerpräferenzen gehen verloren, frühere Entscheidungen verschwinden, und wichtige Fakten müssen immer wieder neu genannt werden. Für einfache Einmalanfragen ist das oft egal. Für mehrstufige Agenten, persönliche Assistenten oder längere Sitzungen wird es schnell zum Problem.
+Ein Sprachmodell bringt kein dauerhaftes Gedächtnis mit. Ohne zusätzliche Mechanismen beginnt jede Konversation praktisch von vorn. Nutzerpräferenzen gehen verloren, frühere Entscheidungen verschwinden, und wichtige Fakten müssen immer wieder neu genannt werden. Für einfache Einmalanfragen ist das oft egal. Für Chatbots, Agenten oder persönliche Assistenten wird es schnell zum Problem.
+
+
+Memory-Systeme lösen genau diese Lücke. Sie speichern nicht nur den Gesprächsverlauf, sondern je nach Bedarf auch verdichtete Zusammenfassungen, strukturierte Entitäten oder dauerhaftes Wissen über Sitzungen hinweg. Damit entsteht ein entscheidender Unterschied zwischen einem Modellaufruf und einem wieder verwendbaren KI-System.
+
+
+| **Frage** | **Praxisregel** |
+| :--- | :--- |
+| Muss die Anwendung sich innerhalb einer Sitzung erinnern? | **Kurzzeit-Memory** reicht oft aus. |
+| Muss Wissen über Sitzungen hinweg erhalten bleiben? | **Langzeit-Memory** oder ein separater Store wird nötig. |
+| Müssen reproduzierbare Schritte wiederverwendet werden? | **Workflow-Memory** kann sinnvoll sein. |
+| Enthält der Kontext sensible Daten? | Vor dem Speichern **prüfen, begrenzen** und löschbar machen. |
 
 
 
-Memory-Systeme lösen genau diese Lücke. Sie speichern nicht nur den Gesprächsverlauf, sondern je nach Bedarf auch verdichtete Zusammenfassungen, strukturierte Entitäten oder dauerhaftes Wissen über Sitzungen hinweg. Damit entsteht ein entscheidender Unterschied zwischen einem Modellaufruf und einem wiederverwendbaren Agentensystem.
-
-
-
-| Frage | Praxisregel |
-
-|---|---|
-
-| Muss der Agent sich innerhalb einer Sitzung erinnern? | Kurzzeit-Memory reicht oft aus. |
-
-| Muss Wissen über Sitzungen hinweg erhalten bleiben? | Langzeit-Memory oder ein separater Store wird nötig. |
-
-| Muss der Agent reproduzierbare Schritte wiederverwenden? | Workflow-Memory kann sinnvoll sein. |
-
-| Enthält der Kontext sensible Daten? | Vor dem Speichern prüfen, begrenzen und löschbar machen. |
-
-
-
-Typischer Fehler: Alles, was ein Agent behalten soll, einfach im Prompt zu wiederholen. Das skaliert schlecht, wird teuer und verliert bei langen Sitzungen schnell die Übersicht.
+Typischer Fehler: Alles, was ein System behalten soll, einfach im Prompt zu wiederholen. Das skaliert schlecht, wird teuer und verliert bei langen Sitzungen schnell die Übersicht.
 
 
 
@@ -70,38 +63,32 @@ Typischer Fehler: Alles, was ein Agent behalten soll, einfach im Prompt zu wiede
 
 
 
-Ein Assistent soll sich merken, dass eine Nutzerin kurze Antworten bevorzugt, an einem Python-Kurs arbeitet und in einer späteren Sitzung nach genau diesem Thema weiterlernen will. Ohne Memory müsste diese Information jedes Mal neu genannt werden. Mit einem geeigneten Gedächtnissystem kann der Agent in der laufenden Sitzung den unmittelbaren Kontext halten und zusätzlich langfristig relevante Fakten speichern.
+Ein Assistent soll sich merken, dass eine Nutzerin kurze Antworten bevorzugt, an einem Python-Kurs arbeitet und in einer späteren Sitzung nach genau diesem Thema weiterlernen will. Ohne Memory müsste diese Information jedes Mal neu genannt werden. Mit einem geeigneten Gedächtnissystem kann die Anwendung in der laufenden Sitzung den unmittelbaren Kontext halten und zusätzlich langfristig relevante Fakten speichern.
 
 
 
-Dieses Beispiel zeigt bereits die wichtigste Unterscheidung: Nicht alles, was ein Agent behalten soll, gehört in dieselbe Form von Memory. Für den letzten Gesprächsverlauf braucht es etwas anderes als für dauerhafte Nutzerfakten.
+Dieses Beispiel zeigt bereits die wichtigste Unterscheidung: Nicht alles, was ein System behalten soll, gehört in dieselbe Form von Memory. Für den letzten Gesprächsverlauf braucht es etwas anderes als für dauerhafte Nutzerfakten.
 
 
 
-## Stateless Agent vs. Memory-Augmented Agent
+## Stateless Application vs. Memory-Augmented System
 
 
 
-Ein **Stateless Agent** kann Eingaben wahrnehmen, darüber nachdenken und Ausgaben produzieren, aber er behält keine Informationen zwischen einzelnen Turns. Jede Interaktion beginnt von vorn.
+Eine **Stateless Application** kann Eingaben wahrnehmen, darüber nachdenken und Ausgaben produzieren, aber sie behält keine Informationen zwischen einzelnen Turns. Jede Interaktion beginnt von vorn.
 
 
 
-Ein **Memory-Augmented Agent** ergänzt diese Fähigkeiten um eine externe Speicherkomponente. Frühere Interaktionen, Fakten und Prozessschritte bleiben erhalten und können in späteren Turns genutzt werden.
+Ein **Memory-Augmented System** (wie ein fortgeschrittener Agent oder Chatbot) ergänzt diese Fähigkeiten um eine externe Speicherkomponente. Frühere Interaktionen, Fakten und Prozessschritte bleiben erhalten und können in späteren Turns genutzt werden.
 
 
 
-| Eigenschaft | Stateless Agent | Memory-Augmented Agent |
-
-|---|---|---|
-
+| Eigenschaft | Stateless System | Memory-Augmented System |
+| :--- | :--- | :--- |
 | Long-Horizon-Aufgaben | nicht möglich | möglich |
-
 | Kontextkontinuität | endet mit dem Turn | sitzungs- oder nutzerübergreifend |
-
 | Anpassungsfähigkeit | keine | wächst mit relevanten Interaktionen |
-
 | Operationskosten | oft hoch, weil Kontext wiederholt werden muss | niedriger, wenn nur relevanter Kontext geladen wird |
-
 | Zuverlässigkeit bei mehrstufigen Abläufen | gering | höher, wenn State und Memory sauber getrennt sind |
 
 
@@ -148,7 +135,7 @@ flowchart TB
 
 
 
-**Kurzzeit-Memory** ist fast immer nötig, weil ein Agent sonst schon innerhalb einer Sitzung den roten Faden verliert. **Semantic Cache** ist eine ergänzende Kurzzeit-Strategie: Ähnliche Anfragen werden auf gecachte Einträge abgebildet, sodass identische oder semantisch nahestehende Fragen ohne erneuten Modellaufruf beantwortet werden können.
+**Kurzzeit-Memory** ist fast immer nötig, weil ein System sonst schon innerhalb einer Sitzung den roten Faden verliert. **Semantic Cache** ist eine ergänzende Kurzzeit-Strategie: Ähnliche Anfragen werden auf gecachte Einträge abgebildet, sodass identische oder semantisch nahestehende Fragen ohne erneuten Modellaufruf beantwortet werden können.
 
 
 
@@ -157,17 +144,11 @@ Für **Langzeit-Memory** haben sich drei Hauptkategorien etabliert: **Prozedural
 
 
 | Memory-Form | Zweck | Typischer Speicherort | Hauptrisiko |
-
-|---|---|---|---|
-
+| :--- | :--- | :--- | :--- |
 | Conversation Buffer | letzte Nachrichten vollständig halten | Graph-State / Checkpoint | wächst unkontrolliert |
-
 | Sliding Window | nur jüngste Nachrichten nutzen | aktiver Modellkontext | frühe wichtige Fakten gehen verloren |
-
 | Summarization | ältere Inhalte verdichten | State oder separater Summary-Eintrag | Informationsverlust |
-
 | Semantic Memory | Fakten semantisch wiederfinden | Store oder Vektordatenbank | irrelevante oder sensible Fakten werden gespeichert |
-
 | Workflow Memory | wiederholbare Schrittfolgen bewahren | strukturierter Store | alte Workflows werden unkritisch wiederverwendet |
 
 
@@ -201,15 +182,10 @@ bei neuer Nutzernachricht:
 
 
 | Aspekt | Einordnung |
-
-|---|---|
-
+| :--- | :--- |
 | Zweck | vollständiger Gesprächsverlauf in der aktuellen Sitzung |
-
-| Geeignet für | kurze Chats, erste Agenten, Demonstrationen |
-
+| Geeignet für | kurze Chats, erste Prototypen, Demonstrationen |
 | Nicht geeignet für | lange Sitzungen, viele Nutzer, sensible Inhalte ohne Löschkonzept |
-
 | Praxisregel | als Einstieg nutzen, aber früh ein Limit oder eine Verdichtungsstrategie planen |
 
 
@@ -247,15 +223,10 @@ bei neuer Anfrage:
 
 
 | Aspekt | Einordnung |
-
-|---|---|
-
+| :--- | :--- |
 | Zweck | Tokenverbrauch begrenzen |
-
 | Geeignet für | Support-Dialoge, kurze Frage-Antwort-Folgen, zustandsarme Chats |
-
 | Nicht geeignet für | langfristige Präferenzen, Projektziele, offene Aufgaben |
-
 | Praxisregel | nur verwenden, wenn ältere Nachrichten wirklich entbehrlich sind |
 
 
@@ -268,7 +239,7 @@ Nicht geeignet, wenn frühe Informationen später wieder wichtig werden, etwa Nu
 
 
 
-Statt alte Nachrichten vollständig zu verwerfen, kann ein Agent sie zusammenfassen. Dadurch bleibt die inhaltliche Linie erhalten, ohne dass jede einzelne Nachricht im Modellkontext liegen muss. Genau hier beginnt Summarization Memory.
+Statt alte Nachrichten vollständig zu verwerfen, kann ein System sie zusammenfassen. Dadurch bleibt die inhaltliche Linie erhalten, ohne dass jede einzelne Nachricht im Modellkontext liegen muss. Genau hier beginnt Summarization Memory.
 
 
 
@@ -313,15 +284,10 @@ flowchart LR
 
 
 | Aspekt | Einordnung |
-
-|---|---|
-
+| :--- | :--- |
 | Zweck | Gesprächsverlauf verdichten |
-
 | Geeignet für | längere Sitzungen, Lernassistenten, Projektbegleitung |
-
 | Nicht geeignet für | Kontexte, in denen Details exakt erhalten bleiben müssen |
-
 | Praxisregel | Zusammenfassungen als Hilfskontext behandeln, nicht als Audit-Quelle |
 
 
@@ -334,7 +300,7 @@ In der Praxis relevant, wenn Sitzungen lang werden, aber der frühere Verlauf ni
 
 
 
-Summarization ist eine **lossy**-Technik: Beim Verdichten geht immer ein Teil der Information verloren. **Context Compaction** ist die verlustärmere Alternative: Der Kontext wird vollständig in eine Datenbank oder Datei ausgelagert. Im aktiven Kontext bleibt nur eine ID mit kurzer Beschreibung. Der Agent kann den vollständigen Inhalt bei Bedarf wieder abrufen.
+Summarization ist eine **lossy**-Technik: Beim Verdichten geht immer ein Teil der Information verloren. **Context Compaction** ist die verlustärmere Alternative: Der Kontext wird vollständig in eine Datenbank oder Datei ausgelagert. Im aktiven Kontext bleibt nur eine ID mit kurzer Beschreibung. Die Anwendung kann den vollständigen Inhalt bei Bedarf wieder abrufen.
 
 
 
@@ -365,15 +331,10 @@ wenn Details später gebraucht werden:
 
 
 | | Context Summarization | Context Compaction |
-
-|---|---|---|
-
+| :--- | :--- | :--- |
 | Verfahren | Kontext durch LLM verdichten | Kontext vollständig auslagern |
-
 | Informationsverlust | unvermeidlich | vermeidbar, wenn Original erhalten bleibt |
-
 | Wiederherstellung | nicht vollständig möglich | via ID und Store-Abfrage |
-
 | Wann sinnvoll | ältere, weniger kritische Inhalte | Details, Debugging, Audit, Projektverlauf |
 
 
@@ -423,15 +384,10 @@ bei neuer Anfrage:
 
 
 | Aspekt | Einordnung |
-
-|---|---|
-
+| :--- | :--- |
 | Zweck | sitzungsübergreifendes Wissen verfügbar machen |
-
 | Geeignet für | Präferenzen, Projektkontext, wiederkehrende Aufgaben, Wissensbasen |
-
 | Nicht geeignet für | unklare Rohdaten, kurzlebige Floskeln, ungeprüfte PII |
-
 | Praxisregel | nur relevante, freigegebene und löschbare Informationen speichern |
 
 
@@ -444,7 +400,7 @@ Der Vorteil liegt darin, dass nicht nur exakte Schlüssel gesucht werden, sonder
 
 
 
-Manche Informationen sollen nicht nur auffindbar, sondern geordnet gespeichert werden. Genau dafür eignet sich Entity Memory. Personen, Projekte oder Orte werden als benannte Entitäten im State oder in einem Store abgelegt. Das ist besonders nützlich, wenn ein Agent mit Kundendaten, Projektnamen oder festen Objekten arbeitet.
+Manche Informationen sollen nicht nur auffindbar, sondern geordnet gespeichert werden. Genau dafür eignet sich Entity Memory. Personen, Projekte oder Orte werden als benannte Entitäten im State oder in einem Store abgelegt. Das ist besonders nützlich, wenn ein System mit Kundendaten, Projektnamen oder festen Objekten arbeitet.
 
 
 
@@ -469,15 +425,10 @@ bei neuer Aussage:
 
 
 | Aspekt | Einordnung |
-
-|---|---|
-
+| :--- | :--- |
 | Zweck | benannte Objekte und ihre Eigenschaften stabil halten |
-
 | Geeignet für | Personen, Organisationen, Projekte, Orte, Produkte |
-
 | Nicht geeignet für | freie Notizen ohne klare Struktur |
-
 | Praxisregel | Entitäten mit eindeutigen IDs, Quellen und Aktualisierungsregeln speichern |
 
 
@@ -490,7 +441,7 @@ Typischer Fehler: Alle Fakten unstrukturiert in eine Vektordatenbank zu schreibe
 
 
 
-Workflow Memory speichert die geordnete Sequenz von Schritten, die ein Agent zur Lösung einer Aufgabe durchgeführt hat, inklusive Werkzeugaufrufe, Parameter und Zwischenergebnisse. Bei ähnlichen Aufgaben kann der Agent diese Sequenz per Suche wiederfinden und als Vorlage nutzen, statt den Lösungsweg neu zu planen.
+Workflow Memory speichert die geordnete Sequenz von Schritten, die ein System zur Lösung einer Aufgabe durchgeführt hat, inklusive Werkzeugaufrufe, Parameter und Zwischenergebnisse. Bei ähnlichen Aufgaben kann die Anwendung diese Sequenz per Suche wiederfinden und als Vorlage nutzen, statt den Lösungsweg neu zu planen.
 
 
 
@@ -515,15 +466,10 @@ flowchart LR
 
 
 | Aspekt | Einordnung |
-
-|---|---|
-
+| :--- | :--- |
 | Zweck | erfolgreiche Schrittfolgen wiederverwendbar machen |
-
 | Geeignet für | wiederkehrende Tool-Sequenzen, Rechercheabläufe, Datenpipelines |
-
 | Nicht geeignet für | einmalige Aufgaben oder stark kontextabhängige Entscheidungen |
-
 | Praxisregel | Workflows nur mit Ergebnisstatus, Parametern und Grenzen speichern |
 
 
@@ -536,7 +482,7 @@ Typischer Fehler: Nur Konversationen zu speichern, aber ausgeführte Prozessschr
 
 
 
-Sobald ein Agent von mehreren Nutzern verwendet wird, reicht ein globales Gedächtnis nicht mehr aus. Sitzungen und langfristige Fakten müssen nutzerspezifisch getrennt bleiben. Checkpointing mit Thread-IDs ist dafür nur ein Teil der Lösung: Es trennt Sitzungen, ersetzt aber keinen dauerhaften Store für nutzerspezifische Fakten.
+Sobald ein System von mehreren Nutzern verwendet wird, reicht ein globales Gedächtnis nicht mehr aus. Sitzungen und langfristige Fakten müssen nutzerspezifisch getrennt bleiben. Checkpointing mit Thread-IDs ist dafür nur ein Teil der Lösung: Es trennt Sitzungen, ersetzt aber keinen dauerhaften Store für nutzerspezifische Fakten.
 
 
 
@@ -561,15 +507,10 @@ bei jeder Anfrage:
 
 
 | Ebene | Zweck | Typischer Schlüssel |
-
-|---|---|---|
-
+| :--- | :--- | :--- |
 | Thread / Session | laufende Konversation fortsetzen | `thread_id` |
-
 | Nutzerprofil | Präferenzen und stabile Fakten speichern | `user_id` |
-
 | Projektkontext | Wissen zu einem Arbeitsbereich bündeln | `project_id` |
-
 | Organisation | globale Regeln und Policies bereitstellen | `org_id` |
 
 
@@ -582,22 +523,16 @@ Wenn ein Nutzer über mehrere Sitzungen hinweg erinnert werden soll, reicht eine
 
 
 
-In realen Agenten wird Memory selten nur in einer Form eingesetzt. Ein System kann die letzten Nachrichten im State halten, ältere Teile zusammenfassen, Nutzerfakten in einem Store speichern und zusätzlich strukturierte Entitäten pflegen.
+In realen Anwendungen wird Memory selten nur in einer Form eingesetzt. Ein System kann die letzten Nachrichten im State halten, ältere Teile zusammenfassen, Nutzerfakten in einem Store speichern und zusätzlich strukturierte Entitäten pflegen.
 
 
 
 | Information | Passende Memory-Form | Warum |
-
-|---|---|---|
-
+| :--- | :--- | :--- |
 | letzte Nutzerfrage | Conversation Buffer | unmittelbar relevant |
-
 | längerer bisheriger Verlauf | Summarization oder Compaction | Kontext bleibt handhabbar |
-
 | Nutzer bevorzugt kurze Antworten | Langzeit-Memory | sitzungsübergreifend relevant |
-
 | Projektname und Ansprechpartner | Entity Memory | strukturiert und eindeutig |
-
 | erfolgreiche Recherchefolge | Workflow Memory | wiederverwendbarer Ablauf |
 
 
@@ -606,37 +541,32 @@ Genau darin liegt die eigentliche Architekturentscheidung: Nicht *ob* Memory ein
 
 
 
-## Agent Memory Core und Memory Manager
+## System Memory Core und Memory Manager
 
 
 
-**Agent Memory Core** bezeichnet die Datenbank oder den Store als primäre Infrastruktur des Agentensystems. Dort laufen die wichtigsten Datenbewegungen zusammen: Speichern, Abrufen, Aktualisieren und Löschen relevanter Memory-Einträge.
+**System Memory Core** bezeichnet die Datenbank oder den Store als primäre Infrastruktur der Anwendung. Dort laufen die wichtigsten Datenbewegungen zusammen: Speichern, Abrufen, Aktualisieren und Löschen relevanter Memory-Einträge.
 
 
 
-**Memory Manager** ist die Abstraktionsschicht über diesem Store. Statt direkt auf Tabellen oder Collections zuzugreifen, nutzt der Agent standardisierte Lese- und Schreiboperationen.
+**Memory Manager** ist die Abstraktionsschicht über diesem Store. Statt direkt auf Tabellen oder Collections zuzugreifen, nutzt das System standardisierte Lese- und Schreiboperationen.
 
 
 
 | Operation | Zweck | Kontrollfrage |
-
-|---|---|---|
-
+| :--- | :--- | :--- |
 | Speichern | neue relevante Information persistieren | Ist diese Information dauerhaft nützlich? |
-
 | Abrufen | passende Informationen in den Kontext holen | Ist der Treffer wirklich relevant? |
-
 | Aktualisieren | veraltete Fakten ersetzen | Gibt es eine Quelle oder einen Zeitstempel? |
-
 | Löschen | Memory begrenzen und Rechte umsetzen | Kann der Nutzer das Entfernen verlangen? |
 
 
 
-Die Vorteile dieser Abstraktion: Der Agent kennt keine Datenbanktabellen, nur Operationstypen. Das Speicher-Backend kann ausgetauscht werden, ohne den Agenten zu ändern. Alle Zugriffe sind an einer Stelle testbar und überwachbar.
+Die Vorteile dieser Abstraktion: Das System kennt keine Datenbanktabellen, nur Operationstypen. Das Speicher-Backend kann ausgetauscht werden, ohne die Anwendungslogik zu ändern. Alle Zugriffe sind an einer Stelle testbar und überwachbar.
 
 
 
-Typischer Fehler: Den Memory Manager einzuführen, bevor klar ist, welche Memory-Typen tatsächlich gebraucht werden. Wer alle Tabellen anlegt, obwohl der Agent nur Konversationshistorie braucht, schafft unnötige Infrastruktur und verdeckt die eigentlichen Engpässe.
+Typischer Fehler: Den Memory Manager einzuführen, bevor klar ist, welche Memory-Typen tatsächlich gebraucht werden. Wer alle Tabellen anlegt, obwohl das System nur Konversationshistorie braucht, schafft unnötige Infrastruktur und verdeckt die eigentlichen Engpässe.
 
 
 
@@ -644,23 +574,19 @@ Typischer Fehler: Den Memory Manager einzuführen, bevor klar ist, welche Memory
 
 
 
-In einfachen Agenten wird alles im aktiven Kontext gehalten. In langen Sitzungen oder komplexen Systemen führt das zwangsläufig zu Kontextüberlastung. Produktionssysteme verwenden deshalb oft einen gestuften Speicher mit drei Schichten.
+In einfachen Prototypen wird alles im aktiven Kontext gehalten. In langen Sitzungen oder komplexen Systemen führt das zwangsläufig zu Kontextüberlastung. Produktionssysteme verwenden deshalb oft einen gestuften Speicher mit drei Schichten.
 
 
 
 | Schicht | Inhalt | Zugriff |
-
-|---|---|---|
-
+| :--- | :--- | :--- |
 | Kompakter Index | Zusammenfassungen, aktive Ziele, häufig benötigte Fakten | fast immer im Kontext |
-
 | On-Demand-Wissen | themenspezifische Dateien, Projektwissen, Detailnotizen | nur bei Bedarf |
-
 | Archiv | vollständige Transkripte, Rohdaten, historische Informationen | selten, für Audit oder tiefe Recherche |
 
 
 
-Der entscheidende Vorteil: Statt sehr viele Token auf einmal zu laden, ruft der Agent gezielt das ab, was gerade relevant ist. Das verhindert Kontextüberlastung und hält die Kosten stabil.
+Der entscheidende Vorteil: Statt sehr viele Token auf einmal zu laden, ruft das System gezielt das ab, was gerade relevant ist. Das verhindert Kontextüberlastung und hält die Kosten stabil.
 
 
 
@@ -681,17 +607,11 @@ Typischer Fehler: Aktiver Aufgabenstatus und Gesprächsverlauf werden im selben 
 
 
 | Empfehlung | Warum sie wichtig ist |
-
-|---|---|
-
+| :--- | :--- |
 | Keine PII unkritisch einbetten | Embeddings sind kein Freifahrtschein für sensible Daten |
-
 | Lösch- und Ablaufregeln definieren | Gedächtnis darf nicht unkontrolliert wachsen |
-
 | Nutzerkontrolle anbieten | rechtliche und organisatorische Nachvollziehbarkeit |
-
 | Relevanz vor dem Speichern prüfen | sonst füllt sich das Memory mit Ballast |
-
 | State und Verlauf trennen | Aufgabenlogik wird nicht von altem Chattext überlagert |
 
 
@@ -700,11 +620,11 @@ Typischer Fehler: Aktiver Aufgabenstatus und Gesprächsverlauf werden im selben 
 
 
 
-Für einen ersten Agenten reicht meist ein einfaches Schema: Kurzzeit-Memory im State, bei längeren Gesprächen optional eine Zusammenfassung und nur dann Langzeit-Memory, wenn echte Personalisierung oder sitzungsübergreifendes Erinnern gebraucht wird. Damit bleibt die Architektur verständlich und trotzdem praxisnah.
+Für ein erstes System reicht meist ein einfaches Schema: Kurzzeit-Memory im State, bei längeren Gesprächen optional eine Zusammenfassung und nur dann Langzeit-Memory, wenn echte Personalisierung oder sitzungsübergreifendes Erinnern gebraucht wird. Damit bleibt die Architektur verständlich und trotzdem praxisnah.
 
 
 
-Developer unterschätzen oft, dass Memory nicht nur eine Komfortfunktion ist. Ohne Gedächtnis werden viele scheinbar intelligente Agenten schon nach wenigen Nachrichten brüchig oder müssen dieselben Informationen immer wieder neu erfragen.
+Developer unterschätzen oft, dass Memory nicht nur eine Komfortfunktion ist. Ohne Gedächtnis werden viele scheinbar intelligente Anwendungen schon nach wenigen Nachrichten brüchig oder müssen dieselben Informationen immer wieder neu erfragen.
 
 
 
@@ -713,13 +633,8 @@ Developer unterschätzen oft, dass Memory nicht nur eine Komfortfunktion ist. Oh
 
 
 | Dokument | Frage |
-
-|---|---|
-
-
+| :--- | :--- |
 | [LangGraph Einsteiger](../06-frameworks/einsteiger-langgraph.html) | Wie werden State und Wiederaufnahme in Workflows technisch umgesetzt? |
-
-
 
 
 ---
