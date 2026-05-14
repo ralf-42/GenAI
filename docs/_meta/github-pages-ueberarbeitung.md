@@ -361,8 +361,8 @@ Entscheidung je Seite:
 - [x] Alle `07-qualitaet-sicherheit/`-Dateien: `parent: "Qualität & Sicherheit"`, `nav_order` setzen
 - [x] `08-multimodal/index.md`: `nav_order: 10`, `has_children: true`, `title: "Multimodal"`
 - [x] Alle `08-multimodal/`-Dateien: `parent: "Multimodal"`, `nav_order` setzen
-- [x] `08-agenten/index.md`: `nav_order: 10`, `title: "Agenten"` als einzelnes Navigationsdokument
-- [x] Detailseiten in `08-agenten/`: `nav_exclude: true`, damit sie nicht als Unterseiten in der Navigation erscheinen
+- [x] `08-agenten/index.md`: `nav_order: 10`, `has_children: true`, `title: "Agenten"`
+- [x] Detailseiten in `08-agenten/`: `parent: "Agenten"`, `nav_order` setzen
 - [x] `10-deployment/index.md`: `nav_order: 12`, `has_children: true`, `title: "Deployment"`
 - [x] Alle `10-deployment/`-Dateien: `parent: "Deployment"`, `nav_order` setzen
 - [x] `11-projekte/index.md`: `nav_order: 13`, `has_children: true`, `title: "Projekte"`
