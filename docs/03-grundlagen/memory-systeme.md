@@ -716,11 +716,9 @@ Developer unterschätzen oft, dass Memory nicht nur eine Komfortfunktion ist. Oh
 
 |---|---|
 
-| [State Management](../09-agentische-systeme/state-management.html) | Wie sind Nachrichten, Variablen und andere Zustandsdaten im Graph organisiert? |
 
 | [LangGraph Einsteiger](../06-frameworks/einsteiger-langgraph.html) | Wie werden State und Wiederaufnahme in Workflows technisch umgesetzt? |
 
-| [Human-in-the-Loop](../09-agentische-systeme/human-in-the-loop.html) | Wie wirkt sich gespeicherter Kontext auf Unterbrechung und Freigabe aus? |
 
 
 

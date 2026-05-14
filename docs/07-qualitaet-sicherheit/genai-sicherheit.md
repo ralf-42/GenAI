@@ -206,7 +206,6 @@ Entwickler unterschätzen oft, dass Sicherheit nicht erst bei hochkritischen Sys
 | Dokument | Frage |
 |---|---|
 | [Datenschutzerklärung](../14-rechtliches/datenschutz.html) | Welche rechtlichen Anforderungen gelten für die Verarbeitung personenbezogener Daten durch LLM-APIs? |
-| [Human-in-the-Loop](../09-agentische-systeme/human-in-the-loop.html) | Wann und wie werden Menschen als zusätzliche Kontrollinstanz eingebunden? |
 | [Evaluation & Observability](../07-qualitaet-sicherheit/evaluation-observability.html) | Wie werden Qualitätsprobleme, Drift und Fehlverhalten sichtbar gemacht? |
 | [Aufgabenklassen & Lösungswege](../02-orientierung/aufgabenklassen-und-loesungswege.html) | Welche Risiken und Rahmenbedingungen sollten schon vor Projektstart geprüft werden? |
 

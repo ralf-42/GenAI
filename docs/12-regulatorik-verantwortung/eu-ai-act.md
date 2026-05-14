@@ -119,7 +119,6 @@ Für Kurs- und Prototypensysteme empfiehlt sich ein Mindeststandard, auch wenn d
 | [Ethik und GenAI](./ethik-und-genai.html) | Welche Verantwortung entsteht jenseits rechtlicher Mindestpflichten? |
 | [Digitale Souveränität](./digitale-souveraenitaet.html) | Wie abhängig ist ein KI-System von Cloud, Plattformen und außereuropäischer Infrastruktur? |
 | [Agent Security](../07-qualitaet-sicherheit/genai-sicherheit.html) | Welche technischen Risiken entstehen durch Tools, Prompts, Daten und Systemverhalten? |
-| [Human-in-the-Loop](../09-agentische-systeme/human-in-the-loop.html) | Wie werden menschliche Freigaben technisch in GenAI-Workflows eingebaut? |
 | [Evaluation & Observability](../07-qualitaet-sicherheit/evaluation-observability.html) | Wie werden Qualität, Fehler und Drift in KI-Systemen messbar? |
 
 ---
