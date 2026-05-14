@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Start
 nav_order: 1
@@ -13,7 +13,7 @@ description: "Generative KI mit LangChain"
 ---
 
 > [!TIP]  Einstieg in die Dokumentation<br>
-> Für den kürzesten Start zuerst [Zuerst lesen](zuerst-lesen.html) öffnen. Die ausführlichen [Lesepfade](lesepfade.html) helfen danach bei der gezielten Vertiefung.
+> Für den kürzesten Start zuerst [Zuerst lesen](zuerst-lesen.html) öffnen. Die ausführlichen [Lernpfade](lernpfade.html) helfen danach bei der gezielten Vertiefung.
 
 ---
 

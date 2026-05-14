@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Lesepfade
+title: Lernpfade
 nav_order: 3
 description: Orientierung, Lesepfade und empfohlene Einstiege durch die GenAI-Dokumentation
 has_toc: true
@@ -10,6 +10,8 @@ has_toc: true
 {: .no_toc }
 
 Diese Dokumentation ist **nicht** als lineares Handbuch aufgebaut. Für den kürzesten Einstieg eignet sich zuerst [Zuerst lesen](./zuerst-lesen.html). Danach helfen die Lesepfade dabei, je nach Ziel gezielt zu vertiefen.
+
+---
 
 # Inhaltsverzeichnis
 {: .no_toc .text-delta }
