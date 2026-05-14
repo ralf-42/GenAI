@@ -47,6 +47,34 @@ Strukturierte Ausgaben stoßen an ihre Grenzen, wenn kreative Aufgaben gelöst w
 
 In der Entwicklung von GenAI-Anwendungen übernimmt das Schema die Rolle eines Vertrages zwischen dem unvorhersehbaren Sprachmodell und dem deterministischen Programmcode. Entwickler definieren diese Verträge in Python fast ausschließlich über Pydantic. Pydantic-Modelle prüfen nicht nur Datentypen zur Laufzeit, sondern erzeugen auch die von den Providern benötigten JSON-Schemas automatisch.
 
+Ein typisches Pydantic-Modell für die Extraktion von Informationen kombiniert Datentypen mit beschreibenden Metadaten:
+
+```python
+from pydantic import BaseModel, Field
+from typing import List, Optional
+
+class AnalyseErgebnis(BaseModel):
+    hauptthema: str = Field(description="Das zentrale Thema des Textes")
+    dringlichkeit: int = Field(ge=1, le=5, description="Skala von 1 bis 5")
+    schlagworte: List[str] = Field(description="Liste relevanter Fachbegriffe")
+    nachfassaktion: Optional[str] = Field(None, description="Vorgeschlagener nächster Schritt")
+```
+
+Aus diesem Python-Code generiert das Framework (z.B. LangChain) intern ein JSON-Schema, das an die Modell-API gesendet wird. Dieses Schema dient dem Modell als präzise Schablone für die Generierung:
+
+```json
+{
+  "title": "AnalyseErgebnis",
+  "type": "object",
+  "properties": {
+    "hauptthema": { "type": "string", "description": "Das zentrale Thema des Textes" },
+    "dringlichkeit": { "type": "integer", "minimum": 1, "maximum": 5 },
+    "schlagworte": { "type": "array", "items": { "type": "string" } }
+  },
+  "required": ["hauptthema", "dringlichkeit", "schlagworte"]
+}
+```
+
 Ein sauberer Workflow extrahiert die Informationen, validiert sie gegen das Pydantic-Modell und fängt Fehlerfälle kontrolliert ab. Schlägt die Validierung fehl, weil das Sprachmodell beispielsweise einen String statt eines Integers liefert, ist ein erneuter Versuch mit angepasstem Fehlerhinweis oft erfolgreicher als der Versuch, den Datentyp im Code selbst zu korrigieren.
 
 ## Abgrenzung zu verwandten Dokumenten

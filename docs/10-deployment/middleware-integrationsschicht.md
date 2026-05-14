@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Middleware & Integrationsschicht
+title: Middleware
 parent: Deployment
 nav_order: 3
 description: API-Schicht zwischen UI, Modell, Tools, Daten und Betrieb
