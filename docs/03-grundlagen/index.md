@@ -16,4 +16,5 @@ Dieser Bereich behandelt die technischen Konzepte, auf denen alle GenAI-Anwendun
 | Wie funktionieren LLMs auf Architekturebene? | [Transformer & LLMs](./transformer.html) |
 | Wie werden Texte in Zahlen umgewandelt, und warum ist das für RAG relevant? | [Tokenizing & Chunking](./tokenizing-chunking.html) |
 | Wie entsteht semantische Ähnlichkeit und wie wird sie berechnet? | [Embeddings](./embeddings.html) |
+| Wie gelingt der Übergang von Text zu maschinenlesbaren Datenstrukturen? | [Strukturierte Ausgaben](./strukturierte-ausgaben.html) |
 | Wie erinnern sich GenAI-Anwendungen über Nachrichten und Sitzungen hinweg? | [Memory-Systeme](./memory-systeme.html) |
