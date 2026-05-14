@@ -39,7 +39,7 @@ Wenn echte Nutzer-, Kunden-, Mitarbeiter- oder interne Dokumentdaten verarbeitet
 | Erste eigene Chain bauen | [LangChain Einsteiger](./06-frameworks/einsteiger-langchain.html) |
 | Dokumente und Wissen einbinden | [RAG-Konzepte](./05-prompting-rag/rag-konzepte.html) |
 | Antworten messbar verbessern | [Evaluation & Observability](./07-qualitaet-sicherheit/evaluation-observability.html) |
-| Tools, State oder Agentenlogik nutzen | [Tool Use & Function Calling](./08-agentische-systeme/tool-use-function-calling.html) |
+| Tools, State oder Agentenlogik nutzen | [Tool Use & Function Calling](./08-agenten/tool-use-function-calling.html) |
 | Mehrstufige Workflows bauen | [LangGraph Einsteiger](./06-frameworks/einsteiger-langgraph.html) |
 | Aus dem Notebook Richtung Betrieb gehen | [Minimum Viable GenAI Stack](./10-deployment/minimum-viable-genai-stack.html) |
 | Personenbezogene oder sensible Daten verarbeiten | [Datenschutz & DSGVO](./12-regulatorik-verantwortung/datenschutz-dsgvo.html) |
