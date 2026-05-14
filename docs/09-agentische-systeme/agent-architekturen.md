@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Agenten-Architekturen
-parent: Agentische Systeme
+parent: Agenten
 nav_order: 2
 description: Architekturmuster und Design-Prinzipien für KI-Agenten und agentische Systeme
 has_toc: true

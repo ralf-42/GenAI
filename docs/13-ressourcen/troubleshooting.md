@@ -2,7 +2,7 @@
 layout: default
 title: Troubleshooting
 parent: Ressourcen
-nav_order: 5
+nav_order: 2
 description: Lösungen für häufige Probleme
 has_toc: true
 ---

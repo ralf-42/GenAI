@@ -14,6 +14,6 @@ Dieser Bereich behandelt den Weg von der funktionierenden Demo zum betreibbaren 
 | Frage | Dokument |
 |---|---|
 | Was braucht eine GenAI-Anwendung mindestens für den Betrieb? | [Minimum Viable GenAI Stack](./minimum-viable-genai-stack.html) |
-| Wie wird aus einer Notebook-Demo ein deploybares System? | [Aus Entwicklung ins Deployment](./aus-entwicklung-ins-deployment.html) |
+| Wie wird aus einer Notebook-Demo ein deploybares System? | [Vom Notebook zum Produkt](./vom-notebook-zum-produkt.html) |
 | Wie wird von OpenAI auf Mistral oder andere Provider migriert? | [Migration OpenAI → Mistral](./migration-openai-mistral.html) |
 | Wie hängen Modell, Chain, RAG und UI in einer Produktanwendung zusammen? | [Vom Modell zum Produkt](./vom-modell-zum-produkt.html) |

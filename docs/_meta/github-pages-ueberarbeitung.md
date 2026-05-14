@@ -182,7 +182,7 @@ Hinweis: Kein `01-`-Verzeichnis. Die Nummern beginnen bei `02-orientierung/`, we
 
 | Alt | Neu |
 |---|---|
-| `deployment/aus-entwicklung-ins-deployment.md` | `10-deployment/aus-entwicklung-ins-deployment.md` |
+| `deployment/aus-entwicklung-ins-deployment.md` | `10-deployment/vom-notebook-zum-produkt.md` |
 | `deployment/migration-openai-mistral.md` | `10-deployment/migration-openai-mistral.md` |
 | `deployment/minimum-viable-genai-stack.md` | `10-deployment/minimum-viable-genai-stack.md` |
 | `deployment/vom-modell-zum-produkt-langchain-oekosystem.md` | `10-deployment/vom-modell-zum-produkt.md` |

@@ -519,7 +519,7 @@ Bei Fragen oder Problemen während der Projektentwicklung steht das `Kurs-Forum`
 | Dokument | Frage |
 |---|---|
 | [RAG Workshop](./rag-workshop.html) | Wie entsteht schrittweise eine RAG-Anwendung mit Agent, Middleware und UI? |
-| [Produktionsreife Anwendung](../10-deployment/aus-entwicklung-ins-deployment.html) | Welche Schritte sind nötig, damit ein Kursprojekt deploybar wird? |
+| [Vom Notebook zum Produkt](../10-deployment/vom-notebook-zum-produkt.html) | Welche Schritte sind nötig, damit ein Kursprojekt deploybar wird? |
 | [Evaluation & Observability](../07-qualitaet-sicherheit/evaluation-observability.html) | Wie werden Qualität und Fehlerverhalten einer GenAI-Anwendung sichtbar? |
 
 ---
