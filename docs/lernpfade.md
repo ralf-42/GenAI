@@ -83,7 +83,7 @@ Eine GenAI-Anwendung soll nicht nur antworten, sondern Werkzeuge aufrufen, Zwisc
 
 Empfohlener Einstieg:
 
-1. [Tool Use & Function Calling](./09-agentische-systeme/tool-use-function-calling.html)
+1. [Tool Use & Function Calling](./08-agentische-systeme/tool-use-function-calling.html)
 2. [Memory-Systeme](./03-grundlagen/memory-systeme.html)
 3. [GenAI-Sicherheit](./07-qualitaet-sicherheit/genai-sicherheit.html)
 4. [LangGraph Einsteiger](./06-frameworks/einsteiger-langgraph.html)
@@ -108,8 +108,8 @@ Text reicht nicht mehr aus. Bilder, Audio oder gemischte Inhalte sollen eingebun
 Empfohlener Einstieg:
 
 1. [Transformer-Grundlagen](./03-grundlagen/transformer.html)
-2. [Multimodal: Bild](./08-multimodal/multimodal-bild.html)
-3. [Multimodal: Audio](./08-multimodal/multimodal-audio.html)
+2. [Multimodal: Bild](./09-multimodal/multimodal-bild.html)
+3. [Multimodal: Audio](./09-multimodal/multimodal-audio.html)
 4. [Context Engineering](./05-prompting-rag/context-engineering.html)
 
 ### Deployment und Betrieb
@@ -157,7 +157,7 @@ Die Dokumentation ist in Bereiche gegliedert, die unterschiedliche Funktionen ha
 
 | Bereich | Rolle in der Navigation | Typische Frage |
 |---|---|---|
-| `02-orientierung/` bis `09-agentische-systeme/` | Begriffe, Methoden, Frameworks, Modelle | Wie lässt sich das Thema einordnen? |
+| `02-orientierung/` bis `09-multimodal/` | Begriffe, Methoden, Frameworks, Modelle | Wie lässt sich das Thema einordnen? |
 | `10-deployment/` | Betrieb, Produktisierung, Übergang in reale Systeme | Wie wird aus einer Demo ein System? |
 | `11-projekte/` | Kursbegleitende Aufgaben und Abschlussprojekte | Wie lässt sich das Gelernte anwenden? |
 | `12-regulatorik-verantwortung/` | rechtliche und organisatorische Einordnung | Welche Rahmenbedingungen gelten? |

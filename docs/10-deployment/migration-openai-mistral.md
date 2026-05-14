@@ -2,7 +2,7 @@
 layout: default
 title: Migration-Analyse Provider
 parent: Deployment
-nav_order: 2
+nav_order: 4
 description: Migration von OpenAI-basierten Kursmodulen zu Mistral mit LangChain als Abstraktionsschicht
 has_toc: true
 ---
