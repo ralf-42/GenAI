@@ -1,4 +1,4 @@
----
+﻿---
 layout: default
 title: Zuerst lesen
 nav_order: 2
@@ -20,30 +20,30 @@ Diese Seite ist der kürzeste Einstieg in die Dokumentation. Sie ersetzt nicht d
 
 Wer neu in das Kursmaterial einsteigt, beginnt mit diesen fünf Dokumenten:
 
-1. [Lohnt sich GenAI?](./concepts/orientierung/lohnt-es-sich.html)
-2. [Aufgabenklassen und Lösungswege](./concepts/orientierung/aufgabenklassen-und-loesungswege.html)
-3. [LangChain Einsteiger](./frameworks/einsteiger/einsteiger-langchain.html)  (Nur erste Abschnitte)
-4. [RAG-Konzepte](./concepts/anwendungsmethoden/rag-konzepte.html) (Überblick & Architektur)
-5. [Evaluation & Observability](./concepts/entscheidungen-qualitaet/evaluation-observability.html)  (Nur erste Abschnitte)
+1. [Lohnt sich GenAI?](./02-orientierung/lohnt-es-sich.html)
+2. [Aufgabenklassen und Lösungswege](./02-orientierung/aufgabenklassen-und-loesungswege.html)
+3. [LangChain Einsteiger](./06-frameworks/einsteiger-langchain.html)  (Nur erste Abschnitte)
+4. [RAG-Konzepte](./05-prompting-rag/rag-konzepte.html) (Überblick & Architektur)
+5. [Evaluation & Observability](./07-qualitaet-sicherheit/evaluation-observability.html)  (Nur erste Abschnitte)
 
 Diese Reihenfolge klärt zuerst, ob GenAI überhaupt sinnvoll ist und welcher Lösungsweg zur Aufgabe passt. Danach folgt die technische Umsetzung mit LangChain, anschließend das wichtigste Erweiterungsmuster für eigene Daten und zuletzt die Frage, wie Qualität überprüfbar wird.
 
-Wenn echte Nutzer-, Kunden-, Mitarbeiter- oder interne Dokumentdaten verarbeitet werden, sollte zusätzlich früh [Datenschutz & DSGVO](./regulatorisches/datenschutz-dsgvo.html) gelesen werden. Datenschutz entscheidet oft mit, ob Cloud-API, lokales Modell, RAG-Index oder Logging überhaupt passend sind.
+Wenn echte Nutzer-, Kunden-, Mitarbeiter- oder interne Dokumentdaten verarbeitet werden, sollte zusätzlich früh [Datenschutz & DSGVO](./12-regulatorik-verantwortung/datenschutz-dsgvo.html) gelesen werden. Datenschutz entscheidet oft mit, ob Cloud-API, lokales Modell, RAG-Index oder Logging überhaupt passend sind.
 
 ## Wenn ein konkretes Ziel im Vordergrund steht
 
 | Ziel | Zuerst anschauen |
 |---|---|
-| GenAI-Vorhaben einschätzen | [Lohnt sich GenAI?](./concepts/orientierung/lohnt-es-sich.html) |
-| Erstes Verständnis für GenAI-Anwendungen | [Aufgabenklassen und Lösungswege](./concepts/orientierung/aufgabenklassen-und-loesungswege.html) |
-| Erste eigene Chain bauen | [LangChain Einsteiger](./frameworks/einsteiger/einsteiger-langchain.html) |
-| Dokumente und Wissen einbinden | [RAG-Konzepte](./concepts/anwendungsmethoden/rag-konzepte.html) |
-| Antworten messbar verbessern | [Evaluation & Observability](./concepts/entscheidungen-qualitaet/evaluation-observability.html) |
-| Tools, State oder Agentenlogik nutzen | [Tool Use & Function Calling](./concepts/agentisch/tool-use-function-calling.html) |
-| Mehrstufige Workflows bauen | [LangGraph Einsteiger](./frameworks/einsteiger/einsteiger-langgraph.html) |
-| Aus dem Notebook Richtung Betrieb gehen | [Minimum Viable GenAI Stack](./deployment/minimum-viable-genai-stack.html) |
-| Personenbezogene oder sensible Daten verarbeiten | [Datenschutz & DSGVO](./regulatorisches/datenschutz-dsgvo.html) |
-| KI-rechtliche und organisatorische Einordnung | [EU AI Act](./regulatorisches/eu-ai-act.html) |
+| GenAI-Vorhaben einschätzen | [Lohnt sich GenAI?](./02-orientierung/lohnt-es-sich.html) |
+| Erstes Verständnis für GenAI-Anwendungen | [Aufgabenklassen und Lösungswege](./02-orientierung/aufgabenklassen-und-loesungswege.html) |
+| Erste eigene Chain bauen | [LangChain Einsteiger](./06-frameworks/einsteiger-langchain.html) |
+| Dokumente und Wissen einbinden | [RAG-Konzepte](./05-prompting-rag/rag-konzepte.html) |
+| Antworten messbar verbessern | [Evaluation & Observability](./07-qualitaet-sicherheit/evaluation-observability.html) |
+| Tools, State oder Agentenlogik nutzen | [Tool Use & Function Calling](./09-agentische-systeme/tool-use-function-calling.html) |
+| Mehrstufige Workflows bauen | [LangGraph Einsteiger](./06-frameworks/einsteiger-langgraph.html) |
+| Aus dem Notebook Richtung Betrieb gehen | [Minimum Viable GenAI Stack](./10-deployment/minimum-viable-genai-stack.html) |
+| Personenbezogene oder sensible Daten verarbeiten | [Datenschutz & DSGVO](./12-regulatorik-verantwortung/datenschutz-dsgvo.html) |
+| KI-rechtliche und organisatorische Einordnung | [EU AI Act](./12-regulatorik-verantwortung/eu-ai-act.html) |
 
 ## Danach gezielt vertiefen
 
@@ -54,9 +54,9 @@ Nach dem Einstieg führt die Seite [Lesepfade](./lesepfade.html) durch neun Them
 | Dokument | Frage |
 |---|---|
 | [Lesepfade](./lesepfade.html) | Welche Reihenfolge passt zu einem bestimmten Lernziel? |
-| [Konzepte](./concepts.html) | Welche theoretischen und technischen Grundlagen gibt es? |
-| [Frameworks](./frameworks.html) | Welche Tools und Best Practices werden im Kurs genutzt? |
-| [Deployment](./deployment.html) | Wie wird aus einer Demo eine betreibbare Anwendung? |
+| [Konzepte](./02-orientierung/) | Welche theoretischen und technischen Grundlagen gibt es? |
+| [Frameworks](./06-frameworks/) | Welche Tools und Best Practices werden im Kurs genutzt? |
+| [Deployment](./10-deployment/) | Wie wird aus einer Demo eine betreibbare Anwendung? |
 
 ---
 

@@ -95,7 +95,7 @@ aux_links:
     - "https://github.com/ralf-42/GenAI"
 
 # Footer
-footer_content: "Copyright &copy; 2025 Ralf. MIT License | <a href='/GenAI/legal/impressum.html'>Impressum</a> | <a href='/GenAI/legal/datenschutz.html'>Datenschutz</a> | <a href='/GenAI/legal/haftungsausschluss.html'>Haftungsausschluss</a>"
+footer_content: "Copyright &copy; 2025 Ralf. MIT License | <a href='/GenAI/14-rechtliches/impressum.html'>Impressum</a> | <a href='/GenAI/14-rechtliches/datenschutz.html'>Datenschutz</a> | <a href='/GenAI/14-rechtliches/haftungsausschluss.html'>Haftungsausschluss</a>"
 
 # Color scheme (optional)
 # color_scheme: dark

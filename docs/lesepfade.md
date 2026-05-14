@@ -1,4 +1,4 @@
----
+﻿---
 layout: default
 title: Lesepfade
 nav_order: 3
@@ -36,10 +36,10 @@ Ein Gesamtbild fehlt noch, die Grundbegriffe sind unscharf oder der Unterschied 
 
 Empfohlener Einstieg:
 
-1. [Lohnt sich GenAI?](./concepts/orientierung/lohnt-es-sich.html)
-2. [Aufgabenklassen und Lösungswege](./concepts/orientierung/aufgabenklassen-und-loesungswege.html)
-3. [Prompt Engineering](./concepts/anwendungsmethoden/prompt-engineering.html)
-4. [Modellauswahl](./concepts/entscheidungen-qualitaet/m19-modellauswahl.html)
+1. [Lohnt sich GenAI?](./02-orientierung/lohnt-es-sich.html)
+2. [Aufgabenklassen und Lösungswege](./02-orientierung/aufgabenklassen-und-loesungswege.html)
+3. [Prompt Engineering](./05-prompting-rag/prompt-engineering.html)
+4. [Modellauswahl](./04-modelle-provider/modellauswahl.html)
 
 ### Erste eigene Chain
 
@@ -47,10 +47,10 @@ Ein erster lauffähiger LangChain-Workflow soll entstehen. Der Fokus liegt auf d
 
 Empfohlener Einstieg:
 
-1. [LangChain Einsteiger](./frameworks/einsteiger/einsteiger-langchain.html)
-2. [Prompt-Templates Einsteiger](./frameworks/einsteiger/einsteiger-prompts.html)
-3. [LangChain Best Practices](./frameworks/best-practices/langchain-best-practices.html)
-4. [Modell-Auswahl Guide](./frameworks/modell-auswahl/modell-auswahl-guide.html)
+1. [LangChain Einsteiger](./06-frameworks/einsteiger-langchain.html)
+2. [Prompt-Templates Einsteiger](./05-prompting-rag/einsteiger-prompts.html)
+3. [LangChain Best Practices](./06-frameworks/langchain-best-practices.html)
+4. [Modell-Auswahl Guide](./04-modelle-provider/modellauswahl.html)
 
 ### Notebooks vorbereiten
 
@@ -58,10 +58,10 @@ Die Notebooks sollen ohne Reibung laufen: API-Keys müssen verfügbar sein, Cola
 
 Empfohlener Einstieg:
 
-1. [API-Keys & Provider](./ressourcen/api-keys-und-provider.html)
-2. [Von Colab zu Local](./ressourcen/colab-zu-lokal.html)
-3. [GenAI_Lib Einsteiger](./frameworks/einsteiger/einsteiger-genai-lib.html)
-4. [Code Standards](./ressourcen/standards.html)
+1. [API-Keys & Provider](./04-modelle-provider/api-keys-und-provider.html)
+2. [Von Colab zu Local](./13-ressourcen/colab-zu-lokal.html)
+3. [GenAI_Lib Einsteiger](./06-frameworks/einsteiger-genai-lib.html)
+4. [Code Standards](./13-ressourcen/standards.html)
 
 ### RAG & Retrieval
 
@@ -69,11 +69,11 @@ Dokumente, Wissensquellen oder Grounding spielen die Hauptrolle. Meist steht dan
 
 Empfohlener Einstieg:
 
-1. [RAG-Konzepte](./concepts/anwendungsmethoden/rag-konzepte.html)
-2. [Tokenizing und Chunking](./concepts/grundlagen/m08a-tokenizing-chunking.html)
-3. [Embeddings](./concepts/grundlagen/m08b-embeddings.html)
-4. [Evaluation & Observability](./concepts/entscheidungen-qualitaet/evaluation-observability.html)
-5. [ChromaDB Einsteiger](./frameworks/einsteiger/einsteiger-chromadb.html)
+1. [RAG-Konzepte](./05-prompting-rag/rag-konzepte.html)
+2. [Tokenizing und Chunking](./03-grundlagen/tokenizing-chunking.html)
+3. [Embeddings](./03-grundlagen/embeddings.html)
+4. [Evaluation & Observability](./07-qualitaet-sicherheit/evaluation-observability.html)
+5. [ChromaDB Einsteiger](./06-frameworks/einsteiger-chromadb.html)
 
 ### Toolgestützte und agentische Anwendungen
 
@@ -81,13 +81,13 @@ Eine GenAI-Anwendung soll nicht nur antworten, sondern Werkzeuge aufrufen, Zwisc
 
 Empfohlener Einstieg:
 
-1. [Tool Use & Function Calling](./concepts/agentisch/tool-use-function-calling.html)
-2. [State Management](./concepts/agentisch/state-management.html)
-3. [Memory-Systeme](./concepts/agentisch/memory-systeme.html)
-4. [Human-in-the-Loop](./concepts/agentisch/human-in-the-loop.html)
-5. [GenAI-Sicherheit](./concepts/agentisch/agent-security.html)
-6. [LangGraph Einsteiger](./frameworks/einsteiger/einsteiger-langgraph.html)
-7. [LangGraph Best Practices](./frameworks/best-practices/langgraph-best-practices.html)
+1. [Tool Use & Function Calling](./09-agentische-systeme/tool-use-function-calling.html)
+2. [State Management](./09-agentische-systeme/state-management.html)
+3. [Memory-Systeme](./09-agentische-systeme/memory-systeme.html)
+4. [Human-in-the-Loop](./09-agentische-systeme/human-in-the-loop.html)
+5. [GenAI-Sicherheit](./09-agentische-systeme/agent-security.html)
+6. [LangGraph Einsteiger](./06-frameworks/einsteiger-langgraph.html)
+7. [LangGraph Best Practices](./06-frameworks/langgraph-best-practices.html)
 
 ### Qualität und Fehlersuche
 
@@ -95,11 +95,11 @@ Eine Chain oder ein Agent funktioniert technisch, aber die Antwortqualität schw
 
 Empfohlener Einstieg:
 
-1. [Evaluation & Observability](./concepts/entscheidungen-qualitaet/evaluation-observability.html)
-2. [RAG-Konzepte](./concepts/anwendungsmethoden/rag-konzepte.html)
-3. [LangSmith Best Practices](./frameworks/best-practices/langsmith-best-practices.html)
-4. [LangGraph Best Practices](./frameworks/best-practices/langgraph-best-practices.html)
-5. [Troubleshooting](./ressourcen/troubleshooting.html)
+1. [Evaluation & Observability](./07-qualitaet-sicherheit/evaluation-observability.html)
+2. [RAG-Konzepte](./05-prompting-rag/rag-konzepte.html)
+3. [LangSmith Best Practices](./06-frameworks/langsmith-best-practices.html)
+4. [LangGraph Best Practices](./06-frameworks/langgraph-best-practices.html)
+5. [Troubleshooting](./13-ressourcen/troubleshooting.html)
 
 ### Multimodalität
 
@@ -107,10 +107,10 @@ Text reicht nicht mehr aus. Bilder, Audio oder gemischte Inhalte sollen eingebun
 
 Empfohlener Einstieg:
 
-1. [Transformer-Grundlagen](./concepts/grundlagen/m05a-transformer.html)
-2. [Multimodal: Bild](./concepts/multimodal/m09-multimodal-bild.html)
-3. [Multimodal: Audio](./concepts/multimodal/m16-multimodal-audio.html)
-4. [Context Engineering](./concepts/anwendungsmethoden/m21-context-engineering.html)
+1. [Transformer-Grundlagen](./03-grundlagen/transformer.html)
+2. [Multimodal: Bild](./08-multimodal/multimodal-bild.html)
+3. [Multimodal: Audio](./08-multimodal/multimodal-audio.html)
+4. [Context Engineering](./05-prompting-rag/context-engineering.html)
 
 ### Deployment und Betrieb
 
@@ -118,13 +118,13 @@ Ein System soll nicht nur im Notebook funktionieren, sondern auch unter realen B
 
 Empfohlener Einstieg:
 
-1. [Vom Modell zum Produkt: LangChain-Ökosystem](./deployment/vom-modell-zum-produkt-langchain-oekosystem.html)
-2. [Minimum Viable GenAI Stack](./deployment/minimum-viable-genai-stack.html)
-3. [Aus Entwicklung ins Deployment](./deployment/aus-entwicklung-ins-deployment.html)
-4. [Evaluation & Observability](./concepts/entscheidungen-qualitaet/evaluation-observability.html)
-5. [LangSmith Best Practices](./frameworks/best-practices/langsmith-best-practices.html)
-6. [Provider-Modell-Mapping](./frameworks/modell-auswahl/provider-modell-mapping.html)
-7. [Migration: OpenAI → Mistral](./deployment/migration-openai-mistral.html)
+1. [Vom Modell zum Produkt: LangChain-Ökosystem](./10-deployment/vom-modell-zum-produkt.html)
+2. [Minimum Viable GenAI Stack](./10-deployment/minimum-viable-genai-stack.html)
+3. [Aus Entwicklung ins Deployment](./10-deployment/aus-entwicklung-ins-deployment.html)
+4. [Evaluation & Observability](./07-qualitaet-sicherheit/evaluation-observability.html)
+5. [LangSmith Best Practices](./06-frameworks/langsmith-best-practices.html)
+6. [Provider-Modell-Mapping](./04-modelle-provider/provider-modell-mapping.html)
+7. [Migration: OpenAI → Mistral](./10-deployment/migration-openai-mistral.html)
 
 ### Governance und Rahmenbedingungen
 
@@ -132,22 +132,22 @@ Sobald GenAI-Systeme in Bildung, Verwaltung oder Unternehmen eingesetzt werden, 
 
 Empfohlener Einstieg:
 
-1. [Digitale Souveränität](./regulatorisches/digitale-souveraenitaet.html)
-2. [Ethik und GenAI](./regulatorisches/ethik-und-genai.html)
-3. [EU AI Act](./regulatorisches/eu-ai-act.html)
-4. [Datenschutz & DSGVO](./regulatorisches/datenschutz-dsgvo.html)
-5. [KI-Reifegradmodell](./ressourcen/ki-reifegradmodell.html)
+1. [Digitale Souveränität](./12-regulatorik-verantwortung/digitale-souveraenitaet.html)
+2. [Ethik und GenAI](./12-regulatorik-verantwortung/ethik-und-genai.html)
+3. [EU AI Act](./12-regulatorik-verantwortung/eu-ai-act.html)
+4. [Datenschutz & DSGVO](./12-regulatorik-verantwortung/datenschutz-dsgvo.html)
+5. [KI-Reifegradmodell](./02-orientierung/ki-reifegradmodell.html)
 
 
 ## Fünf Dokumente für *fast* jeden Start
 
 Wer nicht lange wählen will, kommt mit diesen fünf Dokumenten meist am schnellsten ins Thema:
 
-1. [Lohnt sich GenAI?](./concepts/orientierung/lohnt-es-sich.html)
-2. [Aufgabenklassen und Lösungswege](./concepts/orientierung/aufgabenklassen-und-loesungswege.html)
-3. [LangChain Einsteiger](./frameworks/einsteiger/einsteiger-langchain.html)
-4. [RAG-Konzepte](./concepts/anwendungsmethoden/rag-konzepte.html)
-5. [Evaluation & Observability](./concepts/entscheidungen-qualitaet/evaluation-observability.html)
+1. [Lohnt sich GenAI?](./02-orientierung/lohnt-es-sich.html)
+2. [Aufgabenklassen und Lösungswege](./02-orientierung/aufgabenklassen-und-loesungswege.html)
+3. [LangChain Einsteiger](./06-frameworks/einsteiger-langchain.html)
+4. [RAG-Konzepte](./05-prompting-rag/rag-konzepte.html)
+5. [Evaluation & Observability](./07-qualitaet-sicherheit/evaluation-observability.html)
 
 Diese Kombination klärt erst die Einsatzfrage, dann die Lösungsklasse und Umsetzung, danach das wichtigste Erweiterungsmuster und zuletzt die Frage, wie Qualität sichtbar wird. Genau diese Reihenfolge verhindert viele frühe Fehlstarts.
 
@@ -157,12 +157,11 @@ Die Dokumentation ist in Bereiche gegliedert, die unterschiedliche Funktionen ha
 
 | Bereich | Rolle in der Navigation | Typische Frage |
 |---|---|---|
-| `concepts/` | Begriffe, Modelle, Entscheidungslogik | Wie lässt sich das Thema einordnen? |
-| `frameworks/` | Einstieg und Arbeitsweise mit Tools | Wie wird es konkret umgesetzt? |
-| `deployment/` | Betrieb, Produktisierung, Übergang in reale Systeme | Wie wird aus einer Demo ein System? |
-| `projekte/` | projektnahe Aufgaben und Kursformate | Wie lässt sich das Gelernte anwenden? |
-| `regulatorisches/` | rechtliche und organisatorische Einordnung | Welche Rahmenbedingungen gelten? |
-| `ressourcen/` | Hilfen, Setup, Nachschlagepunkte | Was hilft bei der praktischen Arbeit? |
+| `02-orientierung/` bis `09-agentische-systeme/` | Begriffe, Methoden, Frameworks, Modelle | Wie lässt sich das Thema einordnen? |
+| `10-deployment/` | Betrieb, Produktisierung, Übergang in reale Systeme | Wie wird aus einer Demo ein System? |
+| `11-projekte/` | Kursbegleitende Aufgaben und Abschlussprojekte | Wie lässt sich das Gelernte anwenden? |
+| `12-regulatorik-verantwortung/` | rechtliche und organisatorische Einordnung | Welche Rahmenbedingungen gelten? |
+| `13-ressourcen/` | Hilfen, Setup, Nachschlagepunkte | Was hilft bei der praktischen Arbeit? |
 
 ## Leselogik statt Vollständigkeit
 
@@ -178,12 +177,12 @@ Gerade bei GenAI-Projekten führt Vollständigkeit schnell in Sackgassen. Ein zu
 
 | Dokument | Frage |
 |---|---|
-| [concepts](./concepts.html) | Welche Konzeptdokumente stehen zur Verfügung? |
-| [frameworks](./frameworks.html) | Welche Frameworks und Best Practices werden behandelt? |
-| [deployment](./deployment.html) | Welche Dokumente begleiten den Weg in den Betrieb? |
-| [projekte](./projekte.html) | Welche projektnahen Aufgaben und Kursformate stehen bereit? |
-| [regulatorisches](./regulatorisches.html) | Welche rechtlichen und organisatorischen Rahmenbedingungen gelten? |
-| [ressourcen](./ressourcen.html) | Welche Hilfen und Nachschlagepunkte unterstützen die Umsetzung? |
+| [concepts](./02-orientierung/) | Welche Konzeptdokumente stehen zur Verfügung? |
+| [frameworks](./06-frameworks/) | Welche Frameworks und Best Practices werden behandelt? |
+| [deployment](./10-deployment/) | Welche Dokumente begleiten den Weg in den Betrieb? |
+| [projekte](./11-projekte/) | Welche projektnahen Aufgaben und Kursformate stehen bereit? |
+| [regulatorisches](./12-regulatorik-verantwortung/) | Welche rechtlichen und organisatorischen Rahmenbedingungen gelten? |
+| [ressourcen](./13-ressourcen/) | Welche Hilfen und Nachschlagepunkte unterstützen die Umsetzung? |
 
 ---
 
