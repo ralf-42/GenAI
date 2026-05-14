@@ -6,7 +6,7 @@ title: "Tool Use & Function Calling"
 
 parent: Agentische Systeme
 
-nav_order: 3
+nav_order: 1
 description: "Tool Use und Function Calling fuer GenAI-Anwendungen: warum Werkzeuge noetig sind und wie sie sicher eingebunden werden"
 
 has_toc: true

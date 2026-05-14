@@ -6,7 +6,7 @@ description: Orientierung, Lesepfade und empfohlene Einstiege durch die GenAI-Do
 has_toc: true
 ---
 
-# Lesepfade
+# Lernpfade
 {: .no_toc }
 
 Diese Dokumentation ist **nicht** als lineares Handbuch aufgebaut. Für den kürzesten Einstieg eignet sich zuerst [Zuerst lesen](./zuerst-lesen.html). Danach helfen die Lesepfade dabei, je nach Ziel gezielt zu vertiefen.
@@ -85,12 +85,10 @@ Eine GenAI-Anwendung soll nicht nur antworten, sondern Werkzeuge aufrufen, Zwisc
 Empfohlener Einstieg:
 
 1. [Tool Use & Function Calling](./09-agentische-systeme/tool-use-function-calling.html)
-2. [State Management](./09-agentische-systeme/state-management.html)
-3. [Memory-Systeme](./03-grundlagen/memory-systeme.html)
-4. [Human-in-the-Loop](./09-agentische-systeme/human-in-the-loop.html)
-5. [GenAI-Sicherheit](./07-qualitaet-sicherheit/genai-sicherheit.html)
-6. [LangGraph Einsteiger](./06-frameworks/einsteiger-langgraph.html)
-7. [LangGraph Best Practices](./06-frameworks/langgraph-best-practices.html)
+2. [Memory-Systeme](./03-grundlagen/memory-systeme.html)
+3. [GenAI-Sicherheit](./07-qualitaet-sicherheit/genai-sicherheit.html)
+4. [LangGraph Einsteiger](./06-frameworks/einsteiger-langgraph.html)
+5. [LangGraph Best Practices](./06-frameworks/langgraph-best-practices.html)
 
 ### Qualität und Fehlersuche
 

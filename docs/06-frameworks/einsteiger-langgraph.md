@@ -510,8 +510,6 @@ Mögliche Erweiterungen:
 |---|---|
 | [LangChain Einsteiger](einsteiger-langchain.html) | Voraussetzung: Modell-Init, Tools und Agenten mit LangChain |
 | [ChromaDB Einsteiger](einsteiger-chromadb.html) | Vektordatenbank als RAG-Tool in LangGraph-Workflows |
-| [State Management](../09-agentische-systeme/state-management.html) | Konzeptionelle Tiefe hinter TypedDict und Reducer-Funktionen |
-| [Human-in-the-Loop](../09-agentische-systeme/human-in-the-loop.html) | Konzept hinter Interrupt & Resume aus Abschnitt 9 |
 
 
 ---
