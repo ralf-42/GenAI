@@ -2,7 +2,7 @@
 layout: default
 title: Context Engineering
 parent: Prompting & RAG
-nav_order: 4
+nav_order: 3
 description: "Context Management: Optimierung von Context-Fenstern und Memory-Strategien"
 has_toc: true
 ---
