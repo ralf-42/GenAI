@@ -83,7 +83,7 @@ Eine GenAI-Anwendung soll nicht nur antworten, sondern Werkzeuge aufrufen, Zwisc
 
 Empfohlener Einstieg:
 
-1. [Tool Use & Function Calling](./08-agentische-systeme/tool-use-function-calling.html)
+1. [Tool Use & Function Calling](./08-agenten/tool-use-function-calling.html)
 2. [Memory-Systeme](./03-grundlagen/memory-systeme.html)
 3. [GenAI-Sicherheit](./07-qualitaet-sicherheit/genai-sicherheit.html)
 4. [LangGraph Einsteiger](./06-frameworks/einsteiger-langgraph.html)
