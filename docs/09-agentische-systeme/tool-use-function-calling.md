@@ -16,28 +16,18 @@ has_toc: true
 
 
 # Tool Use & Function Calling
-
 {: .no_toc }
-
-
 
 > **Ein Agent wird erst dann handlungsfähig, wenn er mehr kann als Text erzeugen.**
 
 
-
 ---
 
-
-
 # Inhaltsverzeichnis
-
 {: .no_toc .text-delta }
 
-
-
 1. TOC
-
-{:toc}
+{:toc}}
 
 
 

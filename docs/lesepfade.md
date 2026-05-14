@@ -7,6 +7,7 @@ has_toc: true
 ---
 
 # Lesepfade
+{: .no_toc }
 
 Diese Dokumentation ist **nicht** als lineares Handbuch aufgebaut. Für den kürzesten Einstieg eignet sich zuerst [Zuerst lesen](./zuerst-lesen.html). Danach helfen die Lesepfade dabei, je nach Ziel gezielt zu vertiefen.
 

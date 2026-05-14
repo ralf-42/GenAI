@@ -16,28 +16,19 @@ has_toc: true
 
 
 # Human-in-the-Loop
-
 {: .no_toc }
-
 
 
 > **Nicht jede Entscheidung eines Agenten sollte ohne menschliche Kontrolle erfolgen.**
 
 
-
 ---
 
-
-
 # Inhaltsverzeichnis
-
 {: .no_toc .text-delta }
 
-
-
 1. TOC
-
-{:toc}
+{:toc}}
 
 
 

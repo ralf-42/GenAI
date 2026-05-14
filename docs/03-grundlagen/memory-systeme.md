@@ -16,28 +16,19 @@ has_toc: true
 
 
 # Memory-Systeme
-
 {: .no_toc }
-
-
 
 > **Memory macht aus einem einmaligen Modellaufruf ein System, das Kontext behalten kann.**
 
 
-
 ---
 
-
-
 # Inhaltsverzeichnis
-
 {: .no_toc .text-delta }
 
-
-
 1. TOC
-
 {:toc}
+
 
 
 
