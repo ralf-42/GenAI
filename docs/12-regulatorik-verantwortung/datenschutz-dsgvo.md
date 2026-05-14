@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: "Datenschutz & DSGVO"
 parent: Regulatorik & Verantwortung
@@ -173,7 +173,7 @@ Ein Chatbot für FAQs zu Produkten erfüllt in der Regel keine dieser Bedingunge
 | Dokument | Frage |
 |---|---|
 | [EU AI Act](./eu-ai-act.html) | Welche Risikostufen und Anforderungen definiert das europäische KI-Recht? |
-| [GenAI-Sicherheit](../09-agentische-systeme/agent-security.html) | Wie werden Tool-Zugriffe, externe Inhalte und sensible Daten technisch abgesichert? |
+| [GenAI-Sicherheit](../07-qualitaet-sicherheit/genai-sicherheit.html) | Wie werden Tool-Zugriffe, externe Inhalte und sensible Daten technisch abgesichert? |
 | [Human-in-the-Loop](../09-agentische-systeme/human-in-the-loop.html) | Wann und wie werden Menschen als Kontrollinstanz eingebunden — auch als Datenschutzmaßnahme bei sensiblen Entscheidungen? |
 | [Aufgabenklassen & Lösungswege](../02-orientierung/aufgabenklassen-und-loesungswege.html) | Wie wird Datenschutz früh in die Wahl zwischen Chat, Workflow, RAG, lokalem Modell und Agentensystem einbezogen? |
 | [Digitale Souveränität](./digitale-souveraenitaet.html) | Wann werden Datenresidenz, Anbieterabhängigkeit und souveräne Infrastruktur strategisch relevant? |

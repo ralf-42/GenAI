@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Ethik und GenAI
 parent: Regulatorik & Verantwortung
@@ -80,7 +80,7 @@ In der Praxis relevant, wenn: ein GenAI-System Inhalte erzeugt, die Menschen dir
 | [EU AI Act](./eu-ai-act.html) | Welche rechtlichen Pflichten entstehen aus europäischer KI-Regulierung? |
 | [Datenschutz & DSGVO](./datenschutz-dsgvo.html) | Wie werden personenbezogene Daten in Prompts, Logs, RAG-Indizes und LLM-APIs geschützt? |
 | [Digitale Souveränität](./digitale-souveraenitaet.html) | Welche strategischen Abhängigkeiten entstehen durch Infrastruktur, Modelle und Datenräume? |
-| [GenAI-Sicherheit](../09-agentische-systeme/agent-security.html) | Wie werden Tool-Zugriffe, externe Inhalte und sensible Daten technisch abgesichert? |
+| [GenAI-Sicherheit](../07-qualitaet-sicherheit/genai-sicherheit.html) | Wie werden Tool-Zugriffe, externe Inhalte und sensible Daten technisch abgesichert? |
 | [Human-in-the-Loop](../09-agentische-systeme/human-in-the-loop.html) | Wann braucht eine GenAI-Anwendung menschliche Freigabe oder Eskalation? |
 | [Evaluation & Observability](../07-qualitaet-sicherheit/evaluation-observability.html) | Wie werden Qualität, Bias, Fehlerverhalten und Betrieb messbar gemacht? |
 

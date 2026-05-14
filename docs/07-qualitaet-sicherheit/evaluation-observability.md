@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Evaluation & Observability
 parent: Qualität & Sicherheit
@@ -353,7 +353,7 @@ Entwickler unterschätzen oft, wie schnell ein scheinbar guter Agent bei kleinen
 |---|---|
 | [Aufgabenklassen & Lösungswege](../02-orientierung/aufgabenklassen-und-loesungswege.html) | Wann lohnt sich ein GenAI-Projekt, bevor gebaut wird? |
 | [RAG-Konzepte](../05-prompting-rag/rag-konzepte.html) | Wie funktioniert Retrieval Augmented Generation grundsätzlich? |
-| [GenAI-Sicherheit](../09-agentische-systeme/agent-security.html) | Welche Sicherheitsrisiken und Schutzmaßnahmen sind bei toolgestützten GenAI-Anwendungen relevant? |
+| [GenAI-Sicherheit](../07-qualitaet-sicherheit/genai-sicherheit.html) | Welche Sicherheitsrisiken und Schutzmaßnahmen sind bei toolgestützten GenAI-Anwendungen relevant? |
 
 ---
 

@@ -3,7 +3,6 @@ layout: default
 title: Start
 nav_order: 1
 description: "Generative KI mit LangChain"
-permalink: /
 ---
 
 # Generative KI
