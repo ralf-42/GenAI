@@ -16,7 +16,6 @@ has_toc: true
 
 
 # State Management
-
 {: .no_toc }
 
 
@@ -27,17 +26,12 @@ has_toc: true
 
 ---
 
-
-
 # Inhaltsverzeichnis
-
 {: .no_toc .text-delta }
 
-
-
 1. TOC
+{:toc}}
 
-{:toc}
 
 
 
