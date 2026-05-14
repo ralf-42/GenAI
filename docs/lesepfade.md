@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Lesepfade
 nav_order: 3
@@ -83,9 +83,9 @@ Empfohlener Einstieg:
 
 1. [Tool Use & Function Calling](./09-agentische-systeme/tool-use-function-calling.html)
 2. [State Management](./09-agentische-systeme/state-management.html)
-3. [Memory-Systeme](./09-agentische-systeme/memory-systeme.html)
+3. [Memory-Systeme](./03-grundlagen/memory-systeme.html)
 4. [Human-in-the-Loop](./09-agentische-systeme/human-in-the-loop.html)
-5. [GenAI-Sicherheit](./09-agentische-systeme/agent-security.html)
+5. [GenAI-Sicherheit](./07-qualitaet-sicherheit/genai-sicherheit.html)
 6. [LangGraph Einsteiger](./06-frameworks/einsteiger-langgraph.html)
 7. [LangGraph Best Practices](./06-frameworks/langgraph-best-practices.html)
 

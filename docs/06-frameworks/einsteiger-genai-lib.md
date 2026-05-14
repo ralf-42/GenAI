@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: GenAI_Lib
 parent: Weitere Tools

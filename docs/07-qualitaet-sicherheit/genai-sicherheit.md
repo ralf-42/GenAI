@@ -1,8 +1,8 @@
-﻿---
+---
 layout: default
 title: GenAI-Sicherheit
-parent: Agentische Systeme
-nav_order: 1
+parent: Qualität & Sicherheit
+nav_order: 2
 description: Sicherheitsrisiken und Schutzprinzipien für GenAI-Anwendungen mit Tools, Datenzugriff und externen Schnittstellen
 has_toc: true
 ---
@@ -206,7 +206,7 @@ Entwickler unterschätzen oft, dass Sicherheit nicht erst bei hochkritischen Sys
 | Dokument | Frage |
 |---|---|
 | [Datenschutzerklärung](../14-rechtliches/datenschutz.html) | Welche rechtlichen Anforderungen gelten für die Verarbeitung personenbezogener Daten durch LLM-APIs? |
-| [Human-in-the-Loop](./human-in-the-loop.html) | Wann und wie werden Menschen als zusätzliche Kontrollinstanz eingebunden? |
+| [Human-in-the-Loop](../09-agentische-systeme/human-in-the-loop.html) | Wann und wie werden Menschen als zusätzliche Kontrollinstanz eingebunden? |
 | [Evaluation & Observability](../07-qualitaet-sicherheit/evaluation-observability.html) | Wie werden Qualitätsprobleme, Drift und Fehlverhalten sichtbar gemacht? |
 | [Aufgabenklassen & Lösungswege](../02-orientierung/aufgabenklassen-und-loesungswege.html) | Welche Risiken und Rahmenbedingungen sollten schon vor Projektstart geprüft werden? |
 

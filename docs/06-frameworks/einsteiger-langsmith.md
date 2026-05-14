@@ -1,6 +1,6 @@
-﻿---
+---
 layout: default
-title: LangSmith
+title: Einsteiger LangSmith
 parent: LangSmith
 grand_parent: Frameworks
 nav_order: 1

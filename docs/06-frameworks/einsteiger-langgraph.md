@@ -1,10 +1,10 @@
-﻿---
+---
 layout: default
-title: LangGraph
+title: Einsteiger LangGraph
 parent: LangGraph
 grand_parent: Frameworks
 nav_order: 1
-description: "Mehrstufige GenAI-Workflows mit LangGraph, State, Routing und Human-in-the-Loop"
+description: Mehrstufige GenAI-Workflows mit LangGraph, State, Routing und Human-in-the-Loop
 has_toc: true
 ---
 
