@@ -2,7 +2,7 @@
 layout: default
 title: Migration-Analyse Provider
 parent: Deployment
-nav_order: 4
+nav_order: 5
 description: Migration von OpenAI-basierten Kursmodulen zu Mistral mit LangChain als Abstraktionsschicht
 has_toc: true
 ---
@@ -220,6 +220,7 @@ Der Wechsel von OpenAI zu Mistral wird im Projekt `GenAI` durch LangChain deutli
 |---|---|
 | [Vom Modell zur Anwendung](./vom-modell-zum-produkt.html) | Welche Rolle spielt LangChain im Weg vom Modell zur Anwendung? |
 | [Vom Notebook zum Produkt](./vom-notebook-zum-produkt.html) | Welche technischen Schritte machen ein Notebook deploymentfähig? |
+| [Middleware & Integrationsschicht](./middleware-integrationsschicht.html) | Wo sollte Provider-Auswahl und Zugriffskontrolle gekapselt werden? |
 | [Minimum Viable GenAI Stack](./minimum-viable-genai-stack.html) | Welche Schichten müssen bei einer Provider-Migration getrennt betrachtet werden? |
 
 ---

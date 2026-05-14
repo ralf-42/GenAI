@@ -2,7 +2,7 @@
 layout: default
 title: Minimum Viable GenAI Stack
 parent: Deployment
-nav_order: 3
+nav_order: 4
 description: Die wichtigsten Schichten zwischen Modellaufruf und produktiver GenAI-Anwendung
 has_toc: true
 ---
@@ -228,6 +228,7 @@ Der Stack wird sich konsolidieren. Provider-SDKs integrieren bereits Speicher, T
 |---|---|
 | [Vom Notebook zum Produkt](./vom-notebook-zum-produkt.html) | Wie wird der Übergang vom Jupyter Notebook zur produktionsreifen Anwendung technisch umgesetzt? |
 | [Vom Modell zum Produkt](./vom-modell-zum-produkt.html) | Welche LangChain-Komponenten sind für den Produktionseinsatz relevant? |
+| [Middleware & Integrationsschicht](./middleware-integrationsschicht.html) | Welche API- und Gateway-Schicht verbindet UI, Modelle, Tools und Betrieb? |
 | [LangGraph Einsteiger](../06-frameworks/einsteiger-langgraph.html) | Wie werden mehrstufige Workflows mit State und Routing umgesetzt? |
 
 ---
