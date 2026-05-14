@@ -28,34 +28,36 @@ Modellauswahl ist keine Rangliste. Ein Modell ist passend, wenn Qualität, Laten
 
 Diese Rollen stehen in `04_modul/genai_lib/model_config.py`. Die Datei ist der technische Kursstandard. Wer ein Notebook liest, soll nicht zuerst konkrete Produktnamen interpretieren müssen, sondern erkennen, welche Aufgabe ein Modell im System übernimmt.
 
-## Kursstandard
+## Frontier-Modelle
 
 Die folgende Tabelle zeigt die zentralen Modellrollen aus `model_config.py`. Die konkreten Modell-IDs sind Kurskonfiguration, nicht allgemeine Marktberatung. Vor produktiven Projekten muss die aktuelle Provider-Dokumentation geprüft werden, weil Modellverfügbarkeit, Preise und API-Parameter regelmäßig wechseln.
 
-| Rolle in `model_config.py` | Kursmodell | Einsatz im Kurs |
-|---|---|---|
-| `BASELINE` | `openai:gpt-5.4-nano` | Grundlagen, Demos, kurze Antworten, kostengünstige Experimente |
-| `ROUTER` | `openai:gpt-5.4-nano` | einfache Routing- und Auswahlentscheidungen |
-| `TRANSLATOR_FAST` | `openai:gpt-5.4-nano` | schnelle Rohübersetzungen |
-| `TRANSLATOR` | `openai:gpt-5.4-mini` | Kursmaterial, Markdown, Dokumentation |
-| `WORKER` | `openai:gpt-5.4-mini` | RAG-Synthese, strukturierte Ausgaben, Standardaufgaben |
-| `CODING` | `openai:gpt-5.4-mini` | Codegenerierung, Refactoring, technische Assistenz |
-| `JUDGE` | `openai:gpt-5.4` | Evaluation, Compliance, Sicherheits- und Qualitätsentscheidungen |
-| `PLANNER` | `openai:gpt-5.4` | Aufgabenzerlegung, Agentenplanung, komplexe Workflows |
-| `WORKER_PREMIUM` | `openai:gpt-5.4` | hochwertige Synthese, komplexe RAG-Aufgaben, finale Reports |
-| `TRANSLATOR_PREMIUM` | `openai:gpt-5.5` | hochwertige finale Übersetzungen |
-| `JUDGE_PREMIUM` | `openai:gpt-5.5` | kritische Evaluation und maximale Qualität |
-| `PLANNER_PREMIUM` | `openai:gpt-5.5` | hochkomplexe Planung und mehrstufige Aufgaben |
-| `VISION_FAST` | `openai:gpt-5.4-mini` | einfache Bildanalyse |
-| `VISION_PREMIUM` | `openai:gpt-5.4-mini` | anspruchsvollere Bild- oder Frame-Analyse im Kurs |
-| `IMAGE_GENERATION` | `gpt-image-1` | Bildgenerierung |
-| `IMAGE_GENERATION_PREMIUM` | `gpt-image-2` | hochwertige Bildgenerierung |
-| `VIDEO_GENERATION` | `sora-2` | Videoerzeugung |
-| `TRANSCRIPTION` | `whisper-1` | Audio-Transkription |
-| `EMBEDDINGS` | `text-embedding-3-small` | Vektorsuche und RAG |
+| Rolle in `model_config.py` | Kursmodell               | Einsatz im Kurs                                                  |
+| -------------------------- | ------------------------ | ---------------------------------------------------------------- |
+| `BASELINE`                 | `openai:gpt-5.4-nano`    | Grundlagen, Demos, kurze Antworten, kostengünstige Experimente   |
+| `ROUTER`                   | `openai:gpt-5.4-nano`    | einfache Routing- und Auswahlentscheidungen                      |
+| `TRANSLATOR_FAST`          | `openai:gpt-5.4-nano`    | schnelle Rohübersetzungen                                        |
+| `TRANSLATOR`               | `openai:gpt-5.4-mini`    | Kursmaterial, Markdown, Dokumentation                            |
+| `WORKER`                   | `openai:gpt-5.4-mini`    | RAG-Synthese, strukturierte Ausgaben, Standardaufgaben           |
+| `CODING`                   | `openai:gpt-5.4-mini`    | Codegenerierung, Refactoring, technische Assistenz               |
+| `JUDGE`                    | `openai:gpt-5.4`         | Evaluation, Compliance, Sicherheits- und Qualitätsentscheidungen |
+| `PLANNER`                  | `openai:gpt-5.4`         | Aufgabenzerlegung, Agentenplanung, komplexe Workflows            |
+| `WORKER_PREMIUM`           | `openai:gpt-5.4`         | hochwertige Synthese, komplexe RAG-Aufgaben, finale Reports      |
+| `TRANSLATOR_PREMIUM`       | `openai:gpt-5.5`         | hochwertige finale Übersetzungen                                 |
+| `JUDGE_PREMIUM`            | `openai:gpt-5.5`         | kritische Evaluation und maximale Qualität                       |
+| `PLANNER_PREMIUM`          | `openai:gpt-5.5`         | hochkomplexe Planung und mehrstufige Aufgaben                    |
+| `VISION_FAST`              | `openai:gpt-5.4-mini`    | einfache Bildanalyse                                             |
+| `VISION_PREMIUM`           | `openai:gpt-5.4-mini`    | anspruchsvollere Bild- oder Frame-Analyse im Kurs                |
+| `IMAGE_GENERATION`         | `gpt-image-1`            | Bildgenerierung                                                  |
+| `IMAGE_GENERATION_PREMIUM` | `gpt-image-2`            | hochwertige Bildgenerierung                                      |
+| `VIDEO_GENERATION`         | `sora-2`                 | Videoerzeugung                                                   |
+| `TRANSCRIPTION`            | `whisper-1`              | Audio-Transkription                                              |
+| `EMBEDDINGS`               | `text-embedding-3-small` | Vektorsuche und RAG                                              |
 
-> [!IMPORTANT] Kursstandard vor Produktname<br>
-> In Kursnotebooks werden nach Möglichkeit Rollen aus `model_config.py` verwendet. Harte Modellnamen stehen nur dort direkt im Notebook, wo ein bestimmter Endpunkt oder ein bewusstes Vergleichsexperiment gezeigt wird.
+
+> [!IMPORTANT] Standard vor Produktname<br>
+> In Notebooks werden nach Möglichkeit Rollen aus `model_config.py` verwendet. Harte Modellnamen stehen nur dort direkt im Notebook, wo ein bestimmter Endpunkt oder ein bewusstes Vergleichsexperiment gezeigt wird.
+
 
 ## Entscheidungsregeln
 
@@ -103,22 +105,7 @@ flowchart TD
     U -->|Ja| STARTBASE["mit BASELINE starten und Bedarf messen"]
 ```
 
-## Modul-Mapping
 
-Das Modul-Mapping ist eine Arbeitshilfe für den Kurs. Es ersetzt keine Evaluation, verhindert aber, dass jedes Notebook dieselbe Modellentscheidung neu treffen muss.
-
-| Module | Standardrolle | Begründung |
-|---|---|---|
-| M00-M05 | `BASELINE` | Grundlagen, Modellsteuerung und Transformer-Konzepte stehen im Vordergrund |
-| M06 | `BASELINE` | strukturierte Ausgaben lernen, nicht Ausgabequalität maximieren |
-| M07 | `BASELINE` | Chat-Memory-Patterns und Architekturverständnis |
-| M08-M09 | `WORKER` | RAG- und SQL-RAG-Synthese brauchen bessere Antwortqualität |
-| M10-M13 | `BASELINE` oder `WORKER` | Tooling, Middleware und UI; Upgrade nur bei Qualitätsbedarf |
-| M14 | lokales Modell | Open-Source-Modelle über Ollama oder vergleichbare lokale Laufzeit |
-| M16-M17 | `VISION_FAST`, `VISION_PREMIUM`, `WORKER` | Bildanalyse und multimodale RAG-Synthese |
-| M18 | `TRANSCRIPTION` plus Textrolle | Audio wird zunächst transkribiert und danach textuell weiterverarbeitet |
-| M19 | `TRANSCRIPTION`, `VISION_FAST`, `VIDEO_GENERATION` | Video, Frames, Audio und generierte Medien erfordern getrennte Rollen |
-| M20 | Plattformvorgabe | Agent Builder oder ähnliche Plattformen bringen eigene Modellvorgaben mit |
 
 ## Code-Muster
 
