@@ -1,4 +1,4 @@
----
+﻿---
 layout: default
 title: Start
 nav_order: 1
@@ -41,6 +41,6 @@ Der Kurs richtet sich damit nicht nur an Personen, die "mehr über KI" lesen wol
 
 ---
 
-**Version:**    1.1<br>
-**Stand:**    Mai 2026<br>
+**Version:** 1.1<br>
+**Stand:** Mai 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
