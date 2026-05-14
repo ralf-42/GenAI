@@ -261,7 +261,7 @@ Der Weg vom Modell zur Anwendung führt über Architektur. LangChain macht Agent
 | Dokument | Frage |
 |---|---|
 | [Minimum Viable GenAI Stack](./minimum-viable-genai-stack.html) | Welche Schichten braucht eine produktive GenAI-Anwendung mindestens? |
-| [Produktionsreife Anwendung](./aus-entwicklung-ins-deployment.html) | Welche Schritte führen von Notebook-Code zu einer deploybaren Anwendung? |
+| [Vom Notebook zum Produkt](./vom-notebook-zum-produkt.html) | Welche Schritte führen von Notebook-Code zu einer deploybaren Anwendung? |
 | [Migration OpenAI → Mistral](./migration-openai-mistral.html) | Wie wirkt sich ein Providerwechsel auf Architektur und Modellzugriff aus? |
 
 ---

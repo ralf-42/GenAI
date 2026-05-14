@@ -120,7 +120,7 @@ Empfohlener Einstieg:
 
 1. [Vom Modell zum Produkt: LangChain-Ökosystem](./10-deployment/vom-modell-zum-produkt.html)
 2. [Minimum Viable GenAI Stack](./10-deployment/minimum-viable-genai-stack.html)
-3. [Aus Entwicklung ins Deployment](./10-deployment/aus-entwicklung-ins-deployment.html)
+3. [Vom Notebook zum Produkt](./10-deployment/vom-notebook-zum-produkt.html)
 4. [Evaluation & Observability](./07-qualitaet-sicherheit/evaluation-observability.html)
 5. [LangSmith Best Practices](./06-frameworks/langsmith-best-practices.html)
 6. [Provider-Modell-Mapping](./04-modelle-provider/provider-modell-mapping.html)

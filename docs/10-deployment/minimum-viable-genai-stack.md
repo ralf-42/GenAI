@@ -226,7 +226,7 @@ Der Stack wird sich konsolidieren. Provider-SDKs integrieren bereits Speicher, T
 
 | Dokument | Frage |
 |---|---|
-| [Aus der Entwicklung ins Deployment](./aus-entwicklung-ins-deployment.html) | Wie wird der Übergang vom Jupyter Notebook zur produktionsreifen Anwendung technisch umgesetzt? |
+| [Vom Notebook zum Produkt](./vom-notebook-zum-produkt.html) | Wie wird der Übergang vom Jupyter Notebook zur produktionsreifen Anwendung technisch umgesetzt? |
 | [Vom Modell zum Produkt](./vom-modell-zum-produkt.html) | Welche LangChain-Komponenten sind für den Produktionseinsatz relevant? |
 | [LangGraph Einsteiger](../06-frameworks/einsteiger-langgraph.html) | Wie werden mehrstufige Workflows mit State und Routing umgesetzt? |
 

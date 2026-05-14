@@ -219,7 +219,7 @@ Der Wechsel von OpenAI zu Mistral wird im Projekt `GenAI` durch LangChain deutli
 | Dokument | Frage |
 |---|---|
 | [Vom Modell zur Anwendung](./vom-modell-zum-produkt.html) | Welche Rolle spielt LangChain im Weg vom Modell zur Anwendung? |
-| [Produktionsreife Anwendung](./aus-entwicklung-ins-deployment.html) | Welche technischen Schritte machen ein Notebook deploymentfähig? |
+| [Vom Notebook zum Produkt](./vom-notebook-zum-produkt.html) | Welche technischen Schritte machen ein Notebook deploymentfähig? |
 | [Minimum Viable GenAI Stack](./minimum-viable-genai-stack.html) | Welche Schichten müssen bei einer Provider-Migration getrennt betrachtet werden? |
 
 ---

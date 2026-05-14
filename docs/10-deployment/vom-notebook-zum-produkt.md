@@ -1,13 +1,13 @@
 ﻿---
 layout: default
-title: Aus Entwicklung ins Deployment
+title: Vom Notebook zum Produkt
 parent: Deployment
 nav_order: 1
 description: Notebook-Code in eine betreibbare GenAI-Anwendung überführen
 has_toc: true
 ---
 
-# Aus Entwicklung ins Deployment
+# Vom Notebook zum Produkt
 {: .no_toc }
 
 # Inhaltsverzeichnis
