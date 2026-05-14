@@ -2,6 +2,7 @@
 layout: default
 title: Agenten
 nav_order: 10
+has_children: true
 has_toc: false
 description: "Konzepte und Architekturen für agentische Systeme als Ausblick auf den Agenten-Kurs"
 ---
