@@ -147,8 +147,11 @@ uv pip install --system git+https://github.com/ralf-42/GenAI.git#subdirectory=04
 ## ⚖️ Lizenzen
 
 Der **Quellcode** steht unter der [MIT License](./LICENSE).       
+
 Die **Kursmaterialien** (z. B. Folien, Texte, Grafiken) sind unter der [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) veröffentlicht.     
+
 **Northwind SQLite-Datenbank**: basiert auf Microsofts Northwind-Beispieldatenbank. Die hier verwendete SQLite-Version stammt aus dem Projekt `jpwhite3/northwind-SQLite3` und steht unter der MIT License (Copyright © 2016 JP White); siehe [`Licence NorthwindDB.md`](./02_daten/05_sonstiges/Licence%20NorthwindDB.md). Microsofts SQL-Server-Samples, einschließlich Northwind/Pubs, stehen ebenfalls unter MIT License (Copyright Microsoft Corporation).     
+
 **Hedra-Medien**: Mit Hedra erstellte oder auf allgemein verfügbaren Hedra-Vorlagen/Assets beruhende Bilder und Videos sind nicht von der allgemeinen CC-BY-4.0-Lizenz der Kursmaterialien umfasst, soweit sie als solche gekennzeichnet sind. Ihre Nutzung richtet sich nach den [Hedra Terms of Use](https://www.hedra.com/terms) und ggf. weiteren Hedra-Richtlinien.     
 
 © 2025-2026 Ralf-42       

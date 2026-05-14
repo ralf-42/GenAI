@@ -2,7 +2,7 @@
 layout: default
 title: RAG-Konzepte
 parent: Prompting & RAG
-nav_order: 3
+nav_order: 4
 description: "Retrieval Augmented Generation im Detail – Architektur, Strategien und Best Practices"
 has_toc: true
 ---
