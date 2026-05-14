@@ -61,10 +61,9 @@ Die Notebooks sollen ohne Reibung laufen: API-Keys müssen verfügbar sein, Cola
 
 Empfohlener Einstieg:
 
-1. [API-Keys & Provider](./04-modelle-provider/api-keys-und-provider.html)
-2. [Von Colab zu Local](./13-ressourcen/colab-zu-lokal.html)
-3. [GenAI_Lib Einsteiger](./06-frameworks/einsteiger-genai-lib.html)
-4. [Code Standards](./13-ressourcen/standards.html)
+1. [Von Colab zu Local](./13-ressourcen/colab-zu-lokal.html)
+2. [GenAI_Lib Einsteiger](./06-frameworks/einsteiger-genai-lib.html)
+3. [Code Standards](./13-ressourcen/standards.html)
 
 ### RAG & Retrieval
 

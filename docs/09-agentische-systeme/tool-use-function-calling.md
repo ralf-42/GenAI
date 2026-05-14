@@ -48,21 +48,15 @@ Werkzeuge erweitern die Fähigkeiten eines Modells über reines Sprachwissen hin
 
 
 | Grenze des Modells | Typisches Beispiel | Werkzeug löst das Problem |
-
-|---|---|---|
-
+| :--- | :--- | :--- |
 | kein aktuelles Wissen | Wetter, Aktienkurse, heutige Termine | API oder Websuche |
-
 | keine verlässliche Berechnung | Berechnungen, Umrechnungen, Validierung | Rechen- oder Validierungs-Tool |
-
 | kein Dateizugriff | PDF oder Textdatei lesen | Datei-Tool |
-
 | keine echte Außenwirkung | Termin buchen, E-Mail senden | Kalender- oder Mail-Tool |
 
 
 
 > [!NOTE] Das Modell führt das Tool nicht selbst aus<br>
-
 > Es erzeugt nur die strukturierte Absicht, ein Tool zu verwenden. Die Anwendung validiert und führt den eigentlichen Code aus.
 
 
@@ -83,7 +77,7 @@ Genau dieses Muster skaliert später auf realere Fälle: Datenbankabfragen, Webs
 
 
 
-Function Calling ist der Mechanismus, mit dem ein Modell strukturiert angibt, welches Tool mit welchen Parametern ausgeführt werden soll. Das Modell formuliert also nicht nur freien Text, sondern einen maschinenlesbaren Aufruf.
+Function Calling ist der Mechanismen, mit dem ein Modell strukturiert angibt, welches Tool mit welchen Parametern ausgeführt werden soll. Das Modell formuliert also nicht nur freien Text, sondern einen maschinenlesbaren Aufruf.
 
 
 
@@ -152,15 +146,10 @@ Für das Modell ist ein Tool letztlich ein Schema mit Name, Beschreibung und Par
 
 
 | Bestandteil | Zweck | Praxisregel |
-
-|---|---|---|
-
+| :--- | :--- | :--- |
 | Name | schnelle Orientierung für das Modell | spezifisch und handlungsnah benennen |
-
 | Beschreibung | erklärt, wann das Tool genutzt wird | Zweck, Grenzen und Ausschlüsse nennen |
-
 | Parameter | definiert die Eingaben | Typen, Pflichtfelder und erlaubte Werte begrenzen |
-
 | Rückgabe | Ergebnis für den nächsten Modellschritt | kurz, relevant und strukturiert halten |
 
 
@@ -198,17 +187,11 @@ Tool definieren:
 
 
 | Designfrage | Empfehlung |
-
-|---|---|
-
+| :--- | :--- |
 | Was soll das Tool genau tun? | eine klar abgegrenzte Aufgabe |
-
 | Wann soll es verwendet werden? | typische Anwendungsfälle explizit nennen |
-
 | Wann soll es nicht verwendet werden? | negative Boundaries ergänzen |
-
 | Welche Eingaben sind erlaubt? | Typen, Wertebereiche und Pflichtfelder festlegen |
-
 | Was darf zurückgegeben werden? | nur Informationen, die der Agent wirklich braucht |
 
 
@@ -226,13 +209,9 @@ Das Modell wählt ein Tool nicht aufgrund des internen Codes, sondern auf Basis 
 
 
 | Schlechte Beschreibung | Bessere Beschreibung |
-
-|---|---|
-
+| :--- | :--- |
 | "Sucht etwas." | "Durchsucht interne Unternehmensdokumente nach Richtlinien, Prozessen und Produktinformationen." |
-
 | "Liest Dateien." | "Liest freigegebene Text- und PDF-Dateien aus dem Projektordner; nicht für externe URLs verwenden." |
-
 | "Sendet Nachricht." | "Erstellt einen E-Mail-Entwurf; versendet ihn erst nach expliziter Freigabe." |
 
 
@@ -250,15 +229,10 @@ Sobald ein Agent mehrere ähnliche Werkzeuge verwaltet, entsteht leicht Tool-Ove
 
 
 | Tool-Typ | Positive Boundary | Negative Boundary |
-
-|---|---|---|
-
+| :--- | :--- | :--- |
 | interne Suche | Unternehmensdokumente, Richtlinien, Handbücher | kein Web, keine aktuellen Nachrichten |
-
 | Websuche | aktuelle externe Informationen | keine vertraulichen internen Daten |
-
 | Datenbankabfrage | strukturierte Unternehmensdaten | keine freien Schreiboperationen |
-
 | Datei-Tool | freigegebene Projektdateien | keine Systempfade, keine Secrets |
 
 
@@ -276,23 +250,16 @@ Ohne klares Schema weiß das Modell nicht zuverlässig, welche Parameter es lief
 
 
 | Schema-Aspekt | Warum wichtig |
-
-|---|---|
-
+| :--- | :--- |
 | Pflichtfelder | verhindert unvollständige Tool-Aufrufe |
-
 | Datentypen | reduziert falsche Parameter |
-
 | Wertebereiche | begrenzt riskante Eingaben |
-
 | Beispiele | helfen bei mehrdeutigen Feldern |
-
 | Validierung | stoppt falsche Aufrufe vor externer Wirkung |
 
 
 
 > [!WARNING] Fehlende Schemata erzeugen schwache Tool-Nutzung<br>
-
 > Wenn das Schema unvollständig ist, kann das Modell Parameter falsch oder gar nicht befüllen.
 
 
@@ -306,15 +273,10 @@ Bei produktionsnäheren Tools reicht eine einfache Beschreibung oft nicht aus. D
 
 
 | Vorteil | Bedeutung |
-
-|---|---|
-
+| :--- | :--- |
 | Validierung | ungültige Eingaben werden früh erkannt |
-
 | Dokumentation | Schema und Beschreibung bleiben zusammen |
-
 | Wiederverwendung | gleiche Struktur für Tool, API und Tests |
-
 | Stabilität | Änderungen werden sichtbar statt implizit |
 
 
@@ -360,15 +322,10 @@ Tool ausführen:
 
 
 | Fehlerart | Gute Tool-Reaktion |
-
-|---|---|
-
+| :--- | :--- |
 | Eingabe ungültig | klar sagen, welches Feld fehlt oder falsch ist |
-
 | Datenquelle nicht erreichbar | temporären Fehler melden und Retry ermöglichen |
-
 | keine Treffer | leeres Ergebnis sauber erklären |
-
 | Berechtigung fehlt | nicht umgehen, sondern Freigabe oder Alternative anfordern |
 
 
@@ -408,15 +365,10 @@ nach Tool-Aufruf:
 
 
 | Rohes Ergebnis | Bessere Rückgabe an den Agenten |
-
-|---|---|
-
+| :--- | :--- |
 | vollständige API-Antwort mit Metadaten | relevante Felder plus Quelle |
-
 | zehn Treffer mit je fünfzig Feldern | fünf Treffer mit Titel, Kurzinhalt und Link |
-
 | Datenbankzeilen ohne Erklärung | tabellarische Kurzfassung mit Spaltennamen |
-
 | langer Dateiinhalt | relevante Passage plus Fundstelle |
 
 
@@ -434,17 +386,11 @@ Bevor ein Tool an einen Agenten gebunden wird, sollte es einzeln geprüft werden
 
 
 | Test | Frage |
-
-|---|---|
-
+| :--- | :--- |
 | direkter Aufruf | funktioniert das Tool ohne Agent? |
-
 | Schema-Test | sind Pflichtfelder und Typen eindeutig? |
-
 | Grenzwerte | werden ungültige Eingaben abgefangen? |
-
 | Fehlerfall | kann der Agent mit der Rückmeldung weiterarbeiten? |
-
 | Rückgabe | ist das Ergebnis knapp und entscheidungsrelevant? |
 
 
@@ -486,19 +432,12 @@ Agentenlauf:
 
 
 | Schritt | Verantwortung |
-
-|---|---|
-
+| :--- | :--- |
 | Tool-Beschreibung lesen | Modell |
-
 | passendes Tool auswählen | Modell |
-
 | Parameter vorschlagen | Modell |
-
 | Parameter validieren | Anwendung / Runtime |
-
 | Tool ausführen | Anwendung / Runtime |
-
 | Ergebnis interpretieren | Modell |
 
 
@@ -516,17 +455,11 @@ Tools lassen sich gut nach ihrer Wirkung einordnen. Diese Einordnung hilft bei S
 
 
 | Kategorie | Beispiele | Risiko |
-
-|---|---|---|
-
+| :--- | :--- | :--- |
 | Lesen | Datei lesen, Datenbank abfragen, Websuche | Datenabfluss, Prompt Injection |
-
 | Berechnen | Mathematik, Validierung, Transformation | falsche Parameter, stille Fehler |
-
 | Schreiben | Datei erzeugen, Ticket erstellen, Datensatz ändern | unbeabsichtigte Änderung |
-
 | Kommunizieren | E-Mail, Kalender, Chat-Nachricht | Außenwirkung, Datenschutz |
-
 | Ausführen | Skript, Deployment, Zahlung, Löschung | hoher Schaden bei Fehlentscheidung |
 
 
@@ -566,15 +499,10 @@ wenn Tool hohe Außenwirkung hat:
 
 
 | Risikostufe | Beispiel | Zusätzliche Schranke |
-
-|---|---|---|
-
+| :--- | :--- | :--- |
 | niedrig | Wetter abrufen | keine besondere Freigabe |
-
 | mittel | Datei zusammenfassen | Pfadbegrenzung und Leserechte |
-
 | hoch | E-Mail senden | Vorschau und Nutzerfreigabe |
-
 | kritisch | Daten löschen, Zahlung auslösen | Policy-Prüfung, Freigabe, Audit-Log |
 
 
@@ -620,15 +548,10 @@ wenn Agent eine Richtung wählt:
 
 
 | Vorteil | Wirkung |
-
-|---|---|
-
+| :--- | :--- |
 | weniger Token | Tool-Schemata belasten den Kontext weniger |
-
 | weniger Mehrdeutigkeit | das Modell muss zwischen weniger ähnlichen Tools wählen |
-
 | besseres Debugging | pro Schritt sind weniger Entscheidungen gleichzeitig aktiv |
-
 | bessere Sicherheit | riskante Tools werden nicht unnötig angeboten |
 
 
@@ -650,17 +573,11 @@ Entwickler unterschätzen oft, dass Tool Use nicht nur neue Fähigkeiten bringt,
 
 
 | Entwicklerregel | Begründung |
-
-|---|---|
-
+| :--- | :--- |
 | mit 1-3 Tools starten | weniger Fehlgriffe und leichteres Debugging |
-
 | Beschreibungen präzise schreiben | das Modell sieht nicht den internen Code |
-
 | Eingaben validieren | Tool-Aufrufe sind untrusted input |
-
 | Ausgaben kürzen | Kontextfenster bleibt sauber |
-
 | riskante Aktionen freigeben lassen | reale Außenwirkung braucht Kontrolle |
 
 
@@ -670,13 +587,9 @@ Entwickler unterschätzen oft, dass Tool Use nicht nur neue Fähigkeiten bringt,
 
 
 | Dokument | Frage |
-
-|---|---|
-
+| :--- | :--- |
 | [LangGraph Einsteiger](../06-frameworks/einsteiger-langgraph.html) | Wie werden Werkzeuge in zustandsbehaftete Workflows eingebettet? |
-
 | [Agent Security](../07-qualitaet-sicherheit/genai-sicherheit.html) | Wie werden Tool-Aufrufe abgesichert und Missbrauch begrenzt? |
-
 | [RAG Konzepte](../05-prompting-rag/rag-konzepte.html) | Wann ist Retrieval die bessere Alternative zu direkten Tool-Aufrufen? |
 
 
