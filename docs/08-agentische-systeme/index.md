@@ -1,14 +1,17 @@
 ---
 layout: default
-title: Agenten
-nav_order: 11
+title: Agentische Systeme
+nav_order: 10
 has_children: true
 description: "Konzepte und Architekturen für agentische Systeme als Ausblick auf den Agenten-Kurs"
 ---
 
-# Agenten
+# Agentische Systeme
 
 Sobald GenAI-Anwendungen Werkzeuge aufrufen, reicht ein einzelner Prompt nicht mehr aus. Dieser Bereich behandelt die zentralen Konzepte und Architekturen, die aus Modellaufrufen handlungsfähige Systeme macht — als Überblick und Ausblick.
+
+> [!TIP] Weiterführung im Agenten-Kurs<br>
+> State Management, Checkpointing, Human-in-the-Loop, LangGraph-Patterns und Multi-Agent-Systeme sind im spezialisierten Kurs **KI-Agenten. Verstehen. Anwenden. Gestalten.** behandelt.
 
 | Frage | Dokument |
 | :--- | :--- |

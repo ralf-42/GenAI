@@ -8,7 +8,7 @@ has_toc: true
 
 # Zuerst lesen
 
-Diese Seite ist der kürzeste Einstieg in die Dokumentation. Sie ersetzt nicht die ausführlichen [Lesepfade](./lesepfade.html), sondern beantwortet die Frage, welche Dokumente vor den ersten eigenen Schritten am sinnvollsten sind.
+Diese Seite ist der kürzeste Einstieg in die Dokumentation. Sie ersetzt nicht die ausführlichen [Lesepfade](./lernpfade.html), sondern beantwortet die Frage, welche Dokumente vor den ersten eigenen Schritten am sinnvollsten sind.
 
 # Inhaltsverzeichnis
 {: .no_toc .text-delta }
@@ -39,7 +39,7 @@ Wenn echte Nutzer-, Kunden-, Mitarbeiter- oder interne Dokumentdaten verarbeitet
 | Erste eigene Chain bauen | [LangChain Einsteiger](./06-frameworks/einsteiger-langchain.html) |
 | Dokumente und Wissen einbinden | [RAG-Konzepte](./05-prompting-rag/rag-konzepte.html) |
 | Antworten messbar verbessern | [Evaluation & Observability](./07-qualitaet-sicherheit/evaluation-observability.html) |
-| Tools, State oder Agentenlogik nutzen | [Tool Use & Function Calling](./09-agentische-systeme/tool-use-function-calling.html) |
+| Tools, State oder Agentenlogik nutzen | [Tool Use & Function Calling](./08-agentische-systeme/tool-use-function-calling.html) |
 | Mehrstufige Workflows bauen | [LangGraph Einsteiger](./06-frameworks/einsteiger-langgraph.html) |
 | Aus dem Notebook Richtung Betrieb gehen | [Minimum Viable GenAI Stack](./10-deployment/minimum-viable-genai-stack.html) |
 | Personenbezogene oder sensible Daten verarbeiten | [Datenschutz & DSGVO](./12-regulatorik-verantwortung/datenschutz-dsgvo.html) |
@@ -47,13 +47,13 @@ Wenn echte Nutzer-, Kunden-, Mitarbeiter- oder interne Dokumentdaten verarbeitet
 
 ## Danach gezielt vertiefen
 
-Nach dem Einstieg führt die Seite [Lesepfade](./lesepfade.html) durch neun Themenbereiche: Orientierung, erste eigene Chain, Notebooks vorbereiten, RAG & Retrieval, Agenten & Workflows, Qualität und Fehlersuche, Multimodalität, Deployment und Betrieb sowie Governance und Rahmenbedingungen.
+Nach dem Einstieg führt die Seite [Lesepfade](./lernpfade.html) durch neun Themenbereiche: Orientierung, erste eigene Chain, Notebooks vorbereiten, RAG & Retrieval, Agenten & Workflows, Qualität und Fehlersuche, Multimodalität, Deployment und Betrieb sowie Governance und Rahmenbedingungen.
 
 ## Abgrenzung zu verwandten Dokumenten
 
 | Dokument | Frage |
 |---|---|
-| [Lesepfade](./lesepfade.html) | Welche Reihenfolge passt zu einem bestimmten Lernziel? |
+| [Lesepfade](./lernpfade.html) | Welche Reihenfolge passt zu einem bestimmten Lernziel? |
 | [Konzepte](./02-orientierung/) | Welche theoretischen und technischen Grundlagen gibt es? |
 | [Frameworks](./06-frameworks/) | Welche Tools und Best Practices werden im Kurs genutzt? |
 | [Deployment](./10-deployment/) | Wie wird aus einer Demo eine betreibbare Anwendung? |

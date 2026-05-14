@@ -18,7 +18,7 @@ Vor Migrationsbeginn sind folgende Punkte zu klären. Bereits getroffene Entsche
 - [x] **`rag-workshop.md` Platzierung** → `11-projekte/`
   Der Workshop ist ein benotetes Kursabschlussprojekt (M04–M13, 100-Punkte-Rubrik). Kein Orientierungs- und kein Deployment-Inhalt.
 
-- [x] **`concepts/agentisch/` (6 Dateien)** → eigener Bereich `09-agentische-systeme/`
+- [x] **`concepts/agentisch/` (6 Dateien)** → eigener Bereich `09-agenten/`
   Inhalte bleiben als schlanker Ausblick erhalten. Jede Seite verweist explizit auf den Agenten-Kurs für Implementierungsdetails.
 
 - [x] **Modellauswahl-Konsolidierung** → `04-modelle-provider/modellauswahl.md`
@@ -71,7 +71,7 @@ GenAI/docs/
 ├── 06-frameworks/                       nav_order: 8
 ├── 07-qualitaet-sicherheit/             nav_order: 9
 ├── 08-multimodal/                       nav_order: 10
-├── 09-agentische-systeme/               nav_order: 11
+├── 09-agenten/               nav_order: 11
 ├── 10-deployment/                       nav_order: 12
 ├── 11-projekte/                         nav_order: 13
 ├── 12-regulatorik-verantwortung/        nav_order: 14
@@ -167,16 +167,16 @@ Hinweis: Kein `01-`-Verzeichnis. Die Nummern beginnen bei `02-orientierung/`, we
 | `concepts/multimodal/m09-multimodal-bild.md` | `08-multimodal/multimodal-bild.md` |
 | `concepts/multimodal/m16-multimodal-audio.md` | `08-multimodal/multimodal-audio.md` |
 
-### 09-agentische-systeme/ (Ausblick, verweist auf Agenten-Kurs)
+### 09-agenten/ (Ausblick, verweist auf Agenten-Kurs)
 
 | Alt | Neu |
 |---|---|
-| `concepts/agentisch.md` | `09-agentische-systeme/index.md` (transformiert zur Orientierungsseite) |
-| `concepts/agentisch/agent-security.md` | `09-agentische-systeme/agent-security.md` |
-| `concepts/agentisch/human-in-the-loop.md` | `09-agentische-systeme/human-in-the-loop.md` |
-| `concepts/agentisch/memory-systeme.md` | `09-agentische-systeme/memory-systeme.md` |
-| `concepts/agentisch/state-management.md` | `09-agentische-systeme/state-management.md` |
-| `concepts/agentisch/tool-use-function-calling.md` | `09-agentische-systeme/tool-use-function-calling.md` |
+| `concepts/agentisch.md` | `09-agenten/index.md` (transformiert zur Orientierungsseite) |
+| `concepts/agentisch/agent-security.md` | `09-agenten/agent-security.md` |
+| `concepts/agentisch/human-in-the-loop.md` | `09-agenten/human-in-the-loop.md` |
+| `concepts/agentisch/memory-systeme.md` | `09-agenten/memory-systeme.md` |
+| `concepts/agentisch/state-management.md` | `09-agenten/state-management.md` |
+| `concepts/agentisch/tool-use-function-calling.md` | `09-agenten/tool-use-function-calling.md` |
 
 ### 10-deployment/
 
@@ -280,7 +280,7 @@ Entscheidung je Seite:
 ### Phase 0 — Vorabentscheidungen
 
 - [x] `rag-workshop.md` → `11-projekte/`
-- [x] `concepts/agentisch/` → `09-agentische-systeme/` als Ausblick-Bereich
+- [x] `concepts/agentisch/` → `09-agenten/` als Ausblick-Bereich
 - [x] `ki-reifegradmodell.md` → `02-orientierung/`
 - [x] `lesepfade.md` — Dateiname und Navigationstitel bleiben unverändert
 - [x] Modellauswahl-Konsolidierung entschieden: `m19-modellauswahl.md` ist fachliche Basis; `modell-auswahl-guide.md` wird integriert; Ergebnis: `04-modelle-provider/modellauswahl.md`
@@ -299,7 +299,7 @@ Entscheidung je Seite:
 - [x] `06-frameworks/` anlegen
 - [x] `07-qualitaet-sicherheit/` anlegen
 - [x] `08-multimodal/` anlegen
-- [x] `09-agentische-systeme/` anlegen
+- [x] `09-agenten/` anlegen
 - [x] `10-deployment/` anlegen
 - [x] `11-projekte/` anlegen
 - [x] `12-regulatorik-verantwortung/` anlegen
@@ -316,7 +316,7 @@ Entscheidung je Seite:
 - [x] `06-frameworks/`: alle 6 Einsteiger-Guides, alle 3 Best-Practices-Dateien; 4 Gruppenseiten erstellt
 - [x] `07-qualitaet-sicherheit/`: `evaluation-observability.md`
 - [x] `08-multimodal/`: `multimodal-bild.md`, `multimodal-audio.md` (Dateinamen-Präfixe entfernt)
-- [x] `09-agentische-systeme/`: 5 Inhaltsdateien aus `concepts/agentisch/`
+- [x] `09-agenten/`: 5 Inhaltsdateien aus `concepts/agentisch/`
 - [x] `10-deployment/`: alle 4 Deployment-Dateien
 - [x] `11-projekte/`: `rag-workshop.md`, `ki-challenge.md` (Dateinamen-Präfix entfernt)
 - [x] `12-regulatorik-verantwortung/`: alle 4 Regulatorik-Dateien
@@ -329,7 +329,7 @@ Entscheidung je Seite:
 - [x] Alle verschobenen Dateien auf explizite `permalink:`-Einträge scannen — 1 Treffer (`datenschutz-dsgvo.md`): alter Permalink entfernt
 - [x] Hub-Seiten-Entscheidung: alle löschen (Kursdokumentation ohne externe Verlinkungen)
 - [x] Für jeden neuen Bereich eine `index.md` als Frage-Einstieg anlegen
-- [x] `09-agentische-systeme/index.md`: transformiert — Ausblick-Rahmen + Agenten-Kurs-Verweis
+- [x] `09-agenten/index.md`: transformiert — Ausblick-Rahmen + Agenten-Kurs-Verweis
 - [x] Hub-Seiten gelöscht; `modell-auswahl-guide.md` Inhalte in `modellauswahl.md` integriert, Guide-Datei entfernt
 - [x] Alte Verzeichnisse entfernt (`concepts/`, `frameworks/`, `deployment/`, etc.)
 - [x] `_config.yml` Footer-Links auf `14-rechtliches/` aktualisiert
@@ -361,8 +361,8 @@ Entscheidung je Seite:
 - [x] Alle `07-qualitaet-sicherheit/`-Dateien: `parent: "Qualität & Sicherheit"`, `nav_order` setzen
 - [x] `08-multimodal/index.md`: `nav_order: 10`, `has_children: true`, `title: "Multimodal"`
 - [x] Alle `08-multimodal/`-Dateien: `parent: "Multimodal"`, `nav_order` setzen
-- [x] `09-agentische-systeme/index.md`: `nav_order: 11`, `has_children: true`, `title: "Agentische Systeme"`
-- [x] Alle `09-agentische-systeme/`-Dateien: `parent: "Agentische Systeme"`, `nav_order` setzen
+- [x] `09-agenten/index.md`: `nav_order: 11`, `has_children: true`, `title: "Agentische Systeme"`
+- [x] Alle `09-agenten/`-Dateien: `parent: "Agentische Systeme"`, `nav_order` setzen
 - [x] `10-deployment/index.md`: `nav_order: 12`, `has_children: true`, `title: "Deployment"`
 - [x] Alle `10-deployment/`-Dateien: `parent: "Deployment"`, `nav_order` setzen
 - [x] `11-projekte/index.md`: `nav_order: 13`, `has_children: true`, `title: "Projekte"`
@@ -380,7 +380,7 @@ Entscheidung je Seite:
 - [x] `zuerst-lesen.md`: alle Zielpfade auf neue Struktur umstellen
 - [x] `lesepfade.md`: alle Zielpfade auf neue Struktur umstellen
 - [x] `index.md` (Root): Links prüfen und aktualisieren
-- [x] `09-agentische-systeme/`: Links auf Agenten-Kurs ergänzen (je Datei einen expliziten Verweis)
+- [x] `09-agenten/`: Links auf Agenten-Kurs ergänzen (je Datei einen expliziten Verweis)
 - [x] `11-projekte/rag-workshop.md`: interne Links auf neue Pfade umstellen
 - [x] `11-projekte/ki-challenge.md`: interne Links aktualisieren
 - [x] `06-frameworks/`-Dateien: Querverweise untereinander prüfen
@@ -391,7 +391,7 @@ Entscheidung je Seite:
 - [x] Footer `**Stand:**` in den öffentlichen Kursseiten und relevanten `_meta/`-Dateien auf Mai 2026 vereinheitlicht
 - [x] ASCII-Umlautschreibungen in Indexseiten korrigiert
 - [x] Dateinamen-Präfixe (`m05a-`, `m08a-`, `m08b-`, `m09-`, `m16-`, `m21-`, `m23-`) entfernt
-- [x] `09-agentische-systeme/index.md`: Ausblick-Rahmen formuliert, Agenten-Kurs-Verweis gesetzt
+- [x] `09-agenten/index.md`: Ausblick-Rahmen formuliert, Agenten-Kurs-Verweis gesetzt
 - [x] Alle `index.md`-Seiten: Frage-Einstieg umgesetzt
 
 ### Phase 8 — Validierung

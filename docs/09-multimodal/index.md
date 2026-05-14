@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Multimodal
-nav_order: 10
+nav_order: 11
 has_children: true
 has_toc: false
 description: "Bild- und Audioverarbeitung mit multimodalen Modellen"
