@@ -182,7 +182,7 @@ sequenceDiagram
 
 MCP gehört nicht an den Anfang der Agentenlogik. Zuerst müssen Tool Use, Function Calling und klare Tool-Grenzen verstanden sein. Danach zeigt MCP, wie solche Werkzeuge über Anwendungsgrenzen hinweg bereitgestellt werden können.
 
-Für GenAI reicht die konzeptionelle Tiefe: MCP ist eine standardisierte Schnittstelle für Kontext, Tools und Prompts. Die vollständige Umsetzung mit eigenen Servern, Deployment, Rechtekonzepten und Multi-Agent-Integration gehört in weiterführende Agenten- oder Produktionsmodule.
+Für GenAI reicht die konzeptionelle Tiefe: MCP ist eine standardisierte Schnittstelle für Kontext, Tools und Prompts. Die vollständige Umsetzung mit eigenen Servern, Deployment, Rechtekonzepten und Multi-Agent-Integration gehört in weiterführende Agenten- oder Produktionsmodule.  
 
 ## Weiterführende Quellen
 
