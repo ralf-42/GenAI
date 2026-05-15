@@ -211,6 +211,7 @@ def check_refund_policy(amount, customer_tier):
 | :--- | :--- |
 | [Aufgaben & Lösungswege]({{ '/02-orientierung/aufgabenklassen-und-loesungswege.html' | relative_url }}) | Wann ist ein Agent sinnvoll und wann eher Workflow, RAG oder klassischer Code? |
 | [Tool Use & Function Calling]({{ '/08-agenten/tool-use-function-calling.html' | relative_url }}) | Wie werden Werkzeuge technisch beschrieben, aufgerufen und abgesichert? |
+| [Model Context Protocol]({{ '/08-agenten/mcp-model-context-protocol.html' | relative_url }}) | Wann wird aus lokalen Tools eine wiederverwendbare Integrationsschicht? |
 | [LangGraph Einsteiger]({{ '/06-frameworks/einsteiger-langgraph.html' | relative_url }}) | Wie werden zustandsbasierte Workflows technisch umgesetzt? |
 | [Memory-Systeme]({{ '/03-grundlagen/memory-systeme.html' | relative_url }}) | Wie behält ein System Kontext über die aktuelle Nachricht hinaus? |
 

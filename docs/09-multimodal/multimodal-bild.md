@@ -55,9 +55,7 @@ flowchart LR
 **Raster aus Pixelwerten**
 
 <img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250311170432.png" alt="Raster aus Pixelwerten" width="400">
-<p><font color='black' size="2">
-KI-generiertes Bild
-</font></p>
+
 
 
 

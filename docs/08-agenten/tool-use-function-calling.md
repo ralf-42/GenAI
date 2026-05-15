@@ -591,6 +591,7 @@ Entwickler unterschätzen oft, dass Tool Use nicht nur neue Fähigkeiten bringt,
 | [LangGraph Einsteiger](../06-frameworks/einsteiger-langgraph.html) | Wie werden Werkzeuge in zustandsbehaftete Workflows eingebettet? |
 | [Agent Security](../07-qualitaet-sicherheit/genai-sicherheit.html) | Wie werden Tool-Aufrufe abgesichert und Missbrauch begrenzt? |
 | [RAG Konzepte](../05-prompting-rag/rag-konzepte.html) | Wann ist Retrieval die bessere Alternative zu direkten Tool-Aufrufen? |
+| [Model Context Protocol](./mcp-model-context-protocol.html) | Wie werden Tools, Kontext und Prompts über Anwendungsgrenzen hinweg bereitgestellt? |
 
 
 

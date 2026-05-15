@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Transformer Architektur
 parent: Grundlagen
