@@ -3,14 +3,14 @@ layout: default
 title: Prompt Engineering
 parent: Prompting & RAG
 nav_order: 1
-description: "Strategien für effektive Prompts in KI-Agenten-Systemen"
+description: "Prompts, Kontext, Beispiele und Ausgabeformate für robuste GenAI-Anwendungen"
 has_toc: true
 ---
 
 # Prompt Engineering
 {: .no_toc }
 
-> **Strategien für effektive Prompts in KI-Agenten-Systemen**
+> **Ein guter Prompt beschreibt Aufgabe, Kontext, Grenzen und Ausgabe so konkret, dass ein anderer Entwickler ihn testen könnte.**
 
 ---
 
@@ -24,9 +24,9 @@ has_toc: true
 
 ## Überblick
 
-Ein Prompt ist die Schnittstelle zwischen Mensch und Sprachmodell. Die Qualität der Antwort hängt maßgeblich davon ab, **wie** eine Aufgabe formuliert wird – nicht nur **was** gefragt wird.
+Ein Prompt ist die Schnittstelle zwischen Aufgabe, Kontext und Sprachmodell. Die Qualität der Antwort hängt nicht nur davon ab, **was** gefragt wird, sondern auch davon, welche Informationen, Beispiele, Grenzen und Ausgabeformate das Modell erhält.
 
-Für KI-Agenten ist Prompt Engineering besonders relevant:
+Für KI-Agenten ist Prompt Engineering besonders relevant, weil Prompts nicht nur Antworten formulieren lassen, sondern Verhalten steuern:
 
 | Kontext | Bedeutung |
 |---------|-----------|
@@ -35,7 +35,7 @@ Für KI-Agenten ist Prompt Engineering besonders relevant:
 | **Reasoning-Prompts** | Steuern den Denkprozess bei komplexen Aufgaben |
 | **Output-Formatierung** | Garantieren strukturierte, verarbeitbare Antworten |
 
-**Kernprinzip:** Ein gut formulierter Prompt reduziert Fehler, verbessert die Konsistenz und macht das Verhalten eines Agenten vorhersagbar.
+**Kernprinzip:** Ein gut formulierter Prompt reduziert Interpretationsspielraum. Er macht sichtbar, welche Aufgabe gelöst werden soll, welche Daten relevant sind, welche Werkzeuge verwendet werden dürfen und woran eine gute Antwort erkennbar ist.
 
 > [!NOTE] Kernbotschaft<br>
 > Prompt-Qualität ist in Agentensystemen ein zentraler Steuerhebel für Zuverlässigkeit und Reproduzierbarkeit.
@@ -44,7 +44,35 @@ Für KI-Agenten ist Prompt Engineering besonders relevant:
 
 ## Grundlegende Prompt-Strukturen
 
-Effektive Prompts folgen einer klaren Struktur. Drei Grundmuster haben sich etabliert.
+Effektive Prompts trennen Anweisung, Kontext, Beispiele, Eingabe und Ausgabeformat. Diese Trennung ist wichtiger als eine bestimmte Prompt-Schablone, weil Modelle besonders bei längeren Aufgaben sonst Kontext, Regeln und Nutzereingabe vermischen.
+
+```text
+Prompt-Bausteine:
+
+AUFGABE:
+- Was soll gelöst werden?
+
+KONTEXT:
+- Welche Informationen sind relevant?
+
+REGELN:
+- Was darf nicht passieren?
+
+BEISPIELE:
+- Wie sieht eine gute Ausgabe aus?
+
+EINGABE:
+- Welche konkrete Anfrage oder welches Dokument soll verarbeitet werden?
+
+AUSGABEFORMAT:
+- In welchem Format soll die Antwort erscheinen?
+```
+
+Bei komplexen Prompts können klare Abschnittsnamen oder XML-ähnliche Tags helfen, etwa `<instructions>`, `<context>`, `<examples>` und `<input>`. Entscheidend ist nicht das Tag selbst, sondern die eindeutige Trennung der Funktionen.
+
+Typischer Fehler: Beispiele, Kontext und eigentliche Aufgabe in einem Fließtext zu mischen. Das Modell muss dann erraten, welche Teile Anweisung sind und welche Teile nur Daten darstellen.
+
+## Zero-Shot, Few-Shot und Reasoning
 
 ### Zero-Shot Prompting
 
@@ -54,7 +82,7 @@ Das Modell erhält eine Aufgabe ohne Beispiele und löst sie basierend auf seine
 Prompt-Struktur: Zero-Shot
 
 System:
-- Du bist ein hilfreicher Assistent.
+- Rolle: hilfreicher Assistent.
 
 Aufgabe:
 - Klassifiziere die folgende E-Mail als "dringend" oder "normal".
@@ -96,34 +124,42 @@ Neue Aufgabe:
 - Domänenspezifische Klassifikationen
 - Konsistente Ausgabestrukturen
 
-### Chain-of-Thought (CoT)
+Beispiele wirken am besten, wenn sie echte Grenzfälle abdecken. Drei fast identische Beispiele verbessern das Format, aber selten die Robustheit. Ein gutes Few-Shot-Set enthält typische Fälle, schwierige Fälle und mindestens ein Negativbeispiel.
 
-Das Modell wird angewiesen, seinen Denkprozess schrittweise darzulegen.
+### Reasoning und Arbeitsplan
 
-> [!WARNING] Sorgfältig einsetzen<br>
-> Chain-of-Thought verbessert komplexe Aufgaben oft deutlich, erhöht aber Token-Verbrauch und Latenz. Für einfache Aufgaben ist Zero-/Few-Shot meist effizienter.
+Bei mehrstufigen Aufgaben hilft es oft, das Modell zu einer geordneten Bearbeitung anzuhalten. Dabei muss nicht jeder interne Gedankenschritt ausgegeben werden. Für viele Anwendungen genügt ein kurzer Arbeitsplan, eine Begründung der Entscheidung oder eine strukturierte Prüfung entlang fester Kriterien.
+
+> [!WARNING] Reasoning gezielt einsetzen<br>
+> Mehr Nachdenken verbessert komplexe Aufgaben, erhöht aber Token-Verbrauch und Latenz. Für einfache Klassifikation oder Formatierung ist eine direkte Antwort mit klarem Schema meist stabiler.
 
 ```text
-Prompt-Struktur: Chain-of-Thought
+Prompt-Struktur: Arbeitsplan
 
 Aufgabe:
-- Löse die folgende Aufgabe Schritt für Schritt.
+- Prüfe die folgende Aufgabe entlang der Kriterien.
 
 Arbeitsplan:
 1. Bestimme, was gegeben ist.
 2. Bestimme, was gesucht wird.
 3. Lege die nötigen Schritte fest.
-4. Führe die Schritte aus.
-5. Formuliere die Antwort.
+4. Formuliere die Antwort im vorgegebenen Format.
 
 Eingabe:
 - konkrete Aufgabe
+
+Ausgabe:
+- Ergebnis
+- kurze Begründung
+- Unsicherheit oder offene Annahmen
 ```
 
 **Geeignet für:**
 - Mathematische Probleme
 - Logische Schlussfolgerungen
 - Mehrstufige Analysen
+
+Nicht geeignet, wenn die Aufgabe deterministisch durch Code, Retrieval oder ein Tool gelöst werden sollte. Ein Prompt ersetzt keine Berechnung, keine Datenbankabfrage und keine Schema-Validierung.
 
 ---
 
@@ -171,6 +207,8 @@ EINSCHRÄNKUNGEN:
 - Keine Zusagen ohne Rücksprache mit dem Vertrieb
 - Bei Sicherheitsfragen immer an Security-Team eskalieren
 ```
+
+Bei agentischen Prompts müssen zusätzlich Autonomie und Persistenz geklärt werden. Ein Agent braucht Regeln dafür, wann er selbst weiterarbeitet, wann er nachfragt, welche Tools Vorrang haben und wie er Fortschritt oder Ergebnis zurückmeldet. Ohne diese Grenzen entstehen zwei typische Fehler: Der Agent fragt zu früh nach, obwohl er mit vorhandenen Informationen weiterarbeiten könnte, oder er arbeitet zu lange autonom, obwohl eine Freigabe nötig wäre.
 
 ### Typische Fehler bei System-Prompts
 
@@ -223,6 +261,8 @@ Ausgabe:
 - [ ] **Gegenanzeigen** – Wann soll es NICHT verwendet werden?
 - [ ] **Parameter erklärt** – Was bedeuten die Eingaben?
 - [ ] **Rückgabewert beschrieben** – Was kommt zurück?
+
+Bei Agenten mit mehreren Werkzeugen sollte außerdem die Tool-Auswahl selbst promptbar sein. Das Modell braucht klare Priorität: vorhandene strukturierte Tools vor Shell- oder Freitextlösungen, Retrieval vor Raten, Validierung vor finaler Ausgabe. Spezialwerkzeuge wie semantische Suche, MCP-Server oder eigene Dateitools funktionieren besser, wenn ihre Grenzen und erwarteten Rückgaben getestet werden.
 
 ---
 
@@ -327,11 +367,46 @@ Anweisung:
 
 Eingaben:
 - Kontext aus Retrieval
-- Frage der Nutzerin oder des Nutzers
+- Frage
 
 Ausgabe:
 - Antwort mit Bezug auf den Kontext
 ```
+
+### Long-Context Prompting
+
+Bei langen Dokumenten oder vielen Eingabedaten reicht eine gute Aufgabenformulierung nicht aus. Der Prompt muss dann die Daten so anordnen, dass das Modell sie zuverlässig zuordnen kann. Lange Dokumente gehören in einen klar markierten Kontextbereich; die eigentliche Frage und die Ausgabeanforderung stehen danach. Das reduziert die Gefahr, dass Metadaten, Beispiele und Nutzereingaben miteinander verwechselt werden.
+
+```text
+<context>
+Dokumente, Auszüge oder Recherchetreffer
+</context>
+
+<instructions>
+Beantworte die Frage nur auf Basis des Kontextes.
+Wenn der Kontext keine Antwort enthält, gib "Nicht im Kontext" aus.
+</instructions>
+
+<question>
+Konkrete Frage
+</question>
+```
+
+In der Praxis relevant, wenn Dokumente, Tabellen, Tool-Ergebnisse und Beispiele im selben Prompt stehen. Ohne saubere Trennung steigt die Wahrscheinlichkeit, dass das Modell ein Beispiel als echten Inhalt behandelt oder eine Regel nur auf den ersten Abschnitt anwendet.
+
+### Agentische Coding-Prompts
+
+Coding-Agenten brauchen andere Prompts als Chat-Assistenten. Neben der Aufgabe müssen Arbeitsregeln für Codebase-Erkundung, Tool-Nutzung, Änderungsscope, Tests und Abschlussbericht festgelegt werden. Besonders wichtig sind persistente Projektregeln, etwa in einer `AGENTS.md`, weil sie vor jeder konkreten Aufgabe geladen werden und lokale Konventionen sichtbar machen.
+
+Ein guter Coding-Agent-Prompt legt fest:
+
+- welche Such- und Lesewerkzeuge bevorzugt werden,
+- wann Dateien geändert werden dürfen,
+- wie bestehende Änderungen anderer Entwickler behandelt werden,
+- welche Tests nach Änderungen laufen sollen,
+- wie Ergebnisse knapp und nachvollziehbar berichtet werden.
+
+Grenze: Solche Prompts verbessern den Arbeitsrahmen, ersetzen aber kein gutes Tooling. Für zuverlässige Codeänderungen braucht der Agent passende Datei-, Patch-, Test- und Suchwerkzeuge.
 
 ---
 
@@ -366,6 +441,8 @@ flowchart LR
 3. **Gezielt verbessern** – Eine Änderung pro Iteration
 4. **Testen mit Varianten** – Verschiedene Eingaben prüfen
 5. **Dokumentieren** – Warum funktioniert diese Version?
+
+Prompts sollten gegen konkrete Testfälle bewertet werden, nicht nur gegen einen guten Beispieloutput. Für Klassifikation zählen Fehlerraten pro Klasse, für Extraktion zählen fehlende oder falsche Felder, für Agenten zählen Tool-Fehlaufrufe, Abbruchstellen und unnötige Rückfragen.
 
 ### Prompt-Versionierung
 
@@ -481,13 +558,14 @@ Eingabe:
 
 ## Zusammenfassung
 
-Effektives Prompt Engineering basiert auf drei Säulen:
+Effektives Prompt Engineering basiert auf vier Säulen:
 
 | Säule | Kernaspekt |
 |-------|------------|
 | **Klarheit** | Eindeutige, strukturierte Anweisungen |
 | **Kontext** | Relevante Informationen und Beispiele |
 | **Kontrolle** | Explizite Formatvorgaben und Grenzen |
+| **Evaluation** | Testfälle, Fehlermuster und Versionierung |
 
 **Für KI-Agenten besonders wichtig:**
 
@@ -497,6 +575,15 @@ Effektives Prompt Engineering basiert auf drei Säulen:
 - **Iteratives Testen** führt zu robusten Prompts
 
 Im weiteren Kursverlauf werden diese Strategien praktisch in LangChain-Agents angewendet.
+
+---
+
+## Ergänzende Ressourcen
+
+| Ressource | Nutzen |
+|---|---|
+| [Claude: Prompting best practices](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices) | Klare Anweisungen, Beispiele, XML-Strukturierung, Long-Context-Prompting und agentische Systeme |
+| [OpenAI Cookbook: Codex Prompting Guide](https://developers.openai.com/cookbook/examples/gpt-5/codex_prompting_guide) | Prompting für Coding-Agenten, Tool-Nutzung, persistente Projektregeln und Abschlusskommunikation |
 
 
 ---
@@ -511,6 +598,6 @@ Im weiteren Kursverlauf werden diese Strategien praktisch in LangChain-Agents an
 
 ---
 
-**Version:**    1.0<br>
+**Version:** 1.1<br>
 **Stand:** Mai 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

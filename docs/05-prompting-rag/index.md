@@ -14,6 +14,6 @@ Dieser Bereich behandelt die zentralen Methoden, mit denen Modellverhalten geste
 | Frage | Dokument |
 |---|---|
 | Wie werden Prompts systematisch gestaltet und verbessert? | [Prompt Engineering](./prompt-engineering.html) |
-| Erste Prompt-Templates für den praktischen Einstieg | [Einsteiger Prompt-Templates](./einsteiger-prompts.html) |
+| Erste Prompt-Templates für den praktischen Einstieg | [Prompt-Templates](./prompt-template.html) |
 | Wie wird der Kontext eines LLM-Aufrufs gezielt gesteuert? | [Context Engineering](./context-engineering.html) |
 | Wie werden Dokumente semantisch abgerufen und als Kontext genutzt? | [RAG-Konzepte](./rag-konzepte.html) |

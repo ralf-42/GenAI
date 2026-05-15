@@ -51,7 +51,7 @@ Ein erster lauffähiger LangChain-Workflow soll entstehen. Der Fokus liegt auf d
 Empfohlener Einstieg:
 
 1. [LangChain Einsteiger](./06-frameworks/einsteiger-langchain.html)
-2. [Prompt-Templates Einsteiger](./05-prompting-rag/einsteiger-prompts.html)
+2. [Prompt-Templates](./05-prompting-rag/prompt-template.html)
 3. [LangChain Best Practices](./06-frameworks/langchain-best-practices.html)
 4. [Modell-Auswahl Guide](./04-modelle-provider/modellauswahl.html)
 
