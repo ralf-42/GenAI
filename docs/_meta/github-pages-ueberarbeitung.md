@@ -123,7 +123,7 @@ Hinweis: Kein `01-`-Verzeichnis. Die Nummern beginnen bei `02-orientierung/`, we
 | Alt | Neu |
 |---|---|
 | `concepts/anwendungsmethoden/prompt-engineering.md` | `05-prompting-rag/prompt-engineering.md` |
-| `frameworks/einsteiger/einsteiger-prompts.md` | `05-prompting-rag/einsteiger-prompts.md` |
+| `frameworks/einsteiger/prompt-template.md` | `05-prompting-rag/prompt-template.md` |
 | `concepts/anwendungsmethoden/rag-konzepte.md` | `05-prompting-rag/rag-konzepte.md` |
 | `concepts/anwendungsmethoden/m21-context-engineering.md` | `05-prompting-rag/context-engineering.md` |
 
@@ -312,7 +312,7 @@ Entscheidung je Seite:
 - [x] `03-grundlagen/`: `transformer.md`, `tokenizing-chunking.md`, `embeddings.md` (Dateinamen-Präfixe entfernt)
 - [x] `04-modelle-provider/`: `modellauswahl.md` (Basis: m19), `provider-modell-mapping.md`, `fine-tuning.md`
 - [x] Praxisanteile aus `modell-auswahl-guide.md` in `modellauswahl.md` integriert (Modelle im Kurs, Designregeln, Entscheidungsbaum, Modul-Mapping, Code-Muster, Kosten-Orientierung); Guide-Datei entfernt
-- [x] `05-prompting-rag/`: `prompt-engineering.md`, `einsteiger-prompts.md`, `rag-konzepte.md`, `context-engineering.md`
+- [x] `05-prompting-rag/`: `prompt-engineering.md`, `prompt-template.md`, `rag-konzepte.md`, `context-engineering.md`
 - [x] `06-frameworks/`: alle 6 Einsteiger-Guides, alle 3 Best-Practices-Dateien; 4 Gruppenseiten erstellt
 - [x] `07-qualitaet-sicherheit/`: `evaluation-observability.md`
 - [x] `08-multimodal/`: `multimodal-bild.md`, `multimodal-audio.md` (Dateinamen-Präfixe entfernt)
