@@ -47,9 +47,9 @@ variables: []
 Du bist ein hilfreicher Assistent...
 ```
 
-① **YAML-Header** (Metadaten zwischen den `---`-Trennern)
-② **Sektion-Bezeichner** (`## system`, `## human`, `## ai`)
-③ **Prompt-Text** (der eigentliche Inhalt)
+① **YAML-Header** (Metadaten zwischen den `---`-Trennern)     
+② **Sektion-Bezeichner** (`## system`, `## human`, `## ai`)     
+③ **Prompt-Text** (der eigentliche Inhalt)     
 
 ---
 
