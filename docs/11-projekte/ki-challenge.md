@@ -436,6 +436,8 @@ Folgende Ressourcen unterstützen die Entwicklung des Abschlussprojekts:
   - [Hugging Face Dokumentation](https://huggingface.co/docs)
   - [Gradio Dokumentation](https://www.gradio.app/docs/interface)
 
+
+
 - **Weitere Hilfsmittel**
   - GenAI Tutor
   - LLM-Chatbots wie ChatGPT oder Gemini als Sparringspartner
