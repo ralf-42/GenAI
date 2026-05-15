@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: KI-Reifegradmodell
 parent: Orientierung

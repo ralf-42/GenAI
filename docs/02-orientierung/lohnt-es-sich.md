@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Lohnt sich GenAI?
 parent: Orientierung
