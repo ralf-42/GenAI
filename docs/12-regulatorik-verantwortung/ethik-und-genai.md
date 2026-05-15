@@ -32,6 +32,9 @@ Analytische KI bewertet vorhandene Daten, etwa beim Kredit-Scoring oder in Progn
 Zentrale ethische Prinzipien sind Verantwortung, Fairness, Transparenz, Datenschutz, Autonomie und Sicherheit. Verantwortung betrifft die Frage, wer Fehlentscheidungen erkennt, korrigiert und trägt. Fairness betrifft systematische Verzerrungen in Daten, Modellverhalten oder Nutzungskontexten. Transparenz verlangt nicht vollständige Modelloffenlegung, aber nachvollziehbare Grenzen, Kennzeichnung und überprüfbare Entscheidungswege.
 
 <img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250416161530.png" alt="Ethische Grundsätze generativer KI" width="600">
+<p><font color='black' size="2">
+KI-generiertes Bild
+</font></p>
 
 Typischer Fehler: Ethik wird als Zusatzkapitel nach der technischen Umsetzung behandelt. In GenAI-Projekten entstehen ethische Risiken bereits bei Datenauswahl, Prompt-Design, Rollenverteilung, Modellwahl und Evaluation.
 
@@ -50,6 +53,9 @@ Bildung und Forschung haben eine eigene Rolle. Fallanalysen, Planspiele und inte
 Die wichtigsten Risiken generativer KI entstehen durch plausible, aber falsche Inhalte, durch diskriminierende Muster in Trainings- oder Nutzungsdaten und durch missbräuchliche Verwendung. Halluzinationen können Vertrauen in Informationen beschädigen, Deepfakes können politische und wirtschaftliche Manipulation erleichtern, und Prompt Injection kann Systeme zu unerwünschtem Verhalten bringen.
 
 <img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250416161648.png" alt="KI Risiken und Fehlerquellen" width="600">
+<p><font color='black' size="2">
+KI-generiertes Bild
+</font></p>
 
 Ethische Spannungsfelder lassen sich selten vollständig auflösen. Mehr Transparenz kann Datenschutz oder geistiges Eigentum berühren. Mehr Automatisierung kann Effizienz schaffen und zugleich Arbeitsrollen verändern. Open Source kann Kontrolle und Nachvollziehbarkeit erhöhen, aber auch Missbrauch erleichtern. Solche Zielkonflikte müssen dokumentiert und begründet werden, statt sie sprachlich zu glätten.
 

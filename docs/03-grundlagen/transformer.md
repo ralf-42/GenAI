@@ -95,6 +95,9 @@ Dazu stellt sich der Transformer bei jedem Wort drei zentrale Fragen:
 
 
 <img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/self_attention.png" alt="Self-Attention Mechanismus" width="500">
+<p><font color='black' size="2">
+KI-generiertes Bild
+</font></p>
 
 
 
@@ -133,6 +136,9 @@ Ein einzelner Attention-Mechanismus (ein „Kopf“) kann nur eine begrenzte Art
 <br>
 
 <img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250309190825.png" alt="Transformer Architektur" width="500">
+<p><font color='black' size="2">
+KI-generiertes Bild
+</font></p>
 
 
 
@@ -160,6 +166,9 @@ Es simuliert damit echtes Sprachverständnis im Schreibprozess.
 
 
 <img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/self_attention_2.png" alt="Masked Self-Attention" width="600">
+<p><font color='black' size="2">
+KI-generiertes Bild
+</font></p>
 
 
 
