@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: KI-Challenge
 parent: Projekte
@@ -24,7 +24,7 @@ has_toc: true
 
 
 # Überblick KI-Challenge
-Die KI-Challenge bündelt die Inhalte der vorangegangenen Module in einem zusammenhängenden Projekt. Ziel ist keine möglichst große Demo, sondern eine funktionsfähige Anwendung mit klarem Nutzen, nachvollziehbarem Scope und belastbarer technischer Umsetzung.
+Die KI-Challenge bündelt die Inhalte in einem zusammenhängenden Projekt. Ziel ist eine funktionsfähige Anwendung mit klarem Nutzen, nachvollziehbarem Scope und belastbarer technischer Umsetzung.
 
 ## Lernziele
 
@@ -35,10 +35,10 @@ Die KI-Challenge bündelt die Inhalte der vorangegangenen Module in einem zusamm
 
 ## Voraussetzungen
 
-- Abschluss der Module M01–M10
+- Kenntnisse in generativer KI
 - Kenntnisse in Python und LangChain 1.0+
 - Zugriff auf API-Keys (OpenAI, Hugging Face)
-- Grundlegende Vertrautheit mit Gradio für UI-Entwicklung (M13)
+- Grundlegende Vertrautheit mit Gradio für UI-Entwicklung
 
 
 
@@ -92,13 +92,6 @@ Zur Auswahl stehen vier Projekttypen mit unterschiedlichem Schwerpunkt. Diese Ty
 - Intelligentes Prompting für die Analyse
 - Benutzeroberfläche mit Gradio
 
-**Erwartete Module:**
-- M04 (LangChain 101)
-- M06 (Structured Output)
-- M08 (RAG)
-- M09 (SQL RAG – optional für strukturierte Metadaten)
-- M13 (Gradio)
-
 ## Multimodaler Assistent
 
 **Beschreibung:** Ein Assistent, der Bild, Text und optional Audio verarbeiten kann, um komplexe Aufgaben zu erfüllen oder Informationen zu analysieren.
@@ -109,13 +102,6 @@ Zur Auswahl stehen vier Projekttypen mit unterschiedlichem Schwerpunkt. Diese Ty
 - Kontextbewusste Antworten
 - Interaktive Benutzeroberfläche
 
-**Erwartete Module:**
-- M04 (LangChain 101)
-- M05 (LLMs und Transformer)
-- M07 (Chat und Memory)
-- M13 (Gradio)
-- M16 (Multimodal Bild)
-- M18 (optional: Multimodal Audio)
 
 ## Agentenbasiertes System
 
@@ -127,13 +113,6 @@ Zur Auswahl stehen vier Projekttypen mit unterschiedlichem Schwerpunkt. Diese Ty
 - Middleware für Logging, Safety und Retry
 - Benutzerinteraktion und Transparenz
 
-**Erwartete Module:**
-- M04 (LangChain 101)
-- M10 (Agenten)
-- M11 (Middleware)
-- M12 (MCP – optional für externe Tool-Integration)
-- M13 (Gradio)
-- M14 (optional: Lokale Modelle)
 
 ## Domänen Fachexperte
 
@@ -145,13 +124,6 @@ Zur Auswahl stehen vier Projekttypen mit unterschiedlichem Schwerpunkt. Diese Ty
 - Benutzeroberfläche für Fachexperten
 - Optional: Feinabstimmung eines bestehenden Modells
 
-**Erwartete Module:**
-- M04 (LangChain 101)
-- M06 (Structured Output)
-- M08 (RAG)
-- M09 (SQL RAG – für strukturierte Fachdaten)
-- M13 (Gradio)
-- M15 (optional: Fine-Tuning)
 
 # Projekt-Setup
 Der folgende Abschnitt zeigt ein mögliches Grundsetup für ein Projekt mit **LangChain 1.0+**. Gemeint ist kein starres Template, sondern ein belastbarer Ausgangspunkt.
@@ -260,40 +232,7 @@ Die  KI-Challenge wird anhand folgender Kriterien bewertet:
 | **Innovation** | Kreative Lösungsansätze und eigenständige Weiterentwicklung der Konzepte | 15% |
 | **Dokumentation** | Vollständige und verständliche Dokumentation des Projekts (README.md) | 15% |
 
-## Abgabe-Anforderungen
 
-**Pflicht-Deliverables:**
-
-1. **Jupyter Notebook** (`.ipynb`)
-   - Vollständiger, ausführbarer Code
-   - Markdown-Zellen mit Erklärungen
-   - Strukturiert nach Projektphasen (Setup, Implementierung, Evaluation)
-   - Alle Zellen müssen von oben nach unten ausführbar sein
-
-2. **README.md**
-   - Projektbeschreibung und Motivation
-   - Verwendete Technologien und Module
-   - Setup-Anleitung (Installation, API-Keys)
-   - Nutzungsanleitung mit Screenshots
-   - Ergebnisse und Learnings
-   - Bekannte Limitierungen
-
-**Optional (Bonus):**
-- Video-Demo
-- GitHub Repository mit sauberem Commit-History
-- Deployment-Link (z.B. Hugging Face Spaces)
-
-**Abgabeformat:**
-- ZIP-Datei mit Ordnerstruktur: `Projekt_Name/` → `notebook.ipynb`, `README.md`, `data/` (falls benötigt)
-- Oder: GitHub Repository Link
-
-**Checkliste vor Abgabe:**
-- [ ] Code läuft ohne Fehler durch
-- [ ] LangChain 1.0+ Patterns verwendet (keine deprecated Features)
-- [ ] README.md ist vollständig
-- [ ] API-Keys sind NICHT im Code (nur Platzhalter oder .env-Verweis)
-- [ ] Alle externen Abhängigkeiten sind dokumentiert
-- [ ] Beispiel-Daten oder Download-Links sind enthalten
 
 # Beispielprojekt: Doku-Assi (LangChain 1.0+)
 Als Orientierung dient hier ein vereinfachtes Beispiel für einen Dokumentenanalyse-Assistenten mit **modernen LangChain 1.0+ Patterns**.
@@ -497,20 +436,11 @@ Folgende Ressourcen unterstützen die Entwicklung des Abschlussprojekts:
   - [Hugging Face Dokumentation](https://huggingface.co/docs)
   - [Gradio Dokumentation](https://www.gradio.app/docs/interface)
 
-- **Kurs-Notebooks**
-  - `01_notebook/M04_LangChain101.ipynb` – LangChain-Grundlagen
-  - `01_notebook/M06_OutputParser.ipynb` – Structured Output
-  - `01_notebook/M08_RAG_LangChain.ipynb` – RAG
-  - `01_notebook/M09_SQL_RAG.ipynb` – SQL RAG
-  - `01_notebook/M10_Agenten_LangChain.ipynb` – Agenten
-  - `01_notebook/M11_Middleware.ipynb` – Middleware
-  - `01_notebook/M13_Gradio.ipynb` – Gradio-UI
-
 - **Weitere Hilfsmittel**
   - GenAI Tutor
   - LLM-Chatbots wie ChatGPT oder Gemini als Sparringspartner
 
-Bei Fragen oder Problemen während der Projektentwicklung steht das `Kurs-Forum` zur Verfügung.
+ 
 
 ---
 
