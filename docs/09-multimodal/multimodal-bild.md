@@ -55,6 +55,9 @@ flowchart LR
 **Raster aus Pixelwerten**
 
 <img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250311170432.png" alt="Raster aus Pixelwerten" width="400">
+<p><font color='black' size="2">
+KI-generiertes Bild
+</font></p>
 
 
 
@@ -84,6 +87,9 @@ Deep-Learning-Modelle werden auf große Datensätze trainiert, wodurch sie eine 
 
 
 <img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250311193143.png" alt="Convolutional Neural Network" width="600">
+<p><font color='black' size="2">
+KI-generiertes Bild
+</font></p>
 
 
 [Quelle:](https://towardsdatascience.com/a-comprehensive-guide-to-convolutional-neural-networks-the-eli5-way-3bd2b1164a53)
@@ -104,6 +110,9 @@ Ein zentrales Merkmal dieser Modelle ist die Verknüpfung sprachlicher und visue
 Hier wird veranschaulicht, wie DALL·E ein Bild mit einem zauberhaften Märchenwald generiert:
 
 <img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250311185414.png" alt="DALL·E Märchenwald Beispiel" width="500">
+<p><font color='black' size="2">
+KI-generiertes Bild
+</font></p>
 
 
 ## Multimodale Modelle
@@ -115,6 +124,9 @@ Während spezialisierte Modelle nur einzelne Übergänge zwischen Modalitäten a
 Ein anschauliches Beispiel für multimodale Fähigkeiten ist die Analyse eines Tic-Tac-Toe-Bretts. Ein solches Modell kann ein Bild des Spiels interpretieren, die Platzierung von X und O erkennen und basierend auf den Spielregeln den Gewinner bestimmen – ohne zusätzliche textliche Informationen über das Spielfeld zu benötigen.
 
 <img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250311190642.png" alt="Tic-Tac-Toe Multimodales Beispiel" width="600">
+<p><font color='black' size="2">
+KI-generiertes Bild
+</font></p>
 
 Die Kombination verschiedener Datentypen erweitert den möglichen Einsatzbereich deutlich. Für den Kurs ist vor allem relevant, an welcher Stelle multimodale Systeme tatsächlich Mehrwert liefern und wo ein einfacherer Text- oder Workflow-Ansatz ausreicht.
 

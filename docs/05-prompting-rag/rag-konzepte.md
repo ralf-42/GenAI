@@ -51,6 +51,9 @@ Frage → Suche relevante Dokumente → Füge Kontext zum Prompt → LLM generie
 Ein RAG-System besteht aus zwei Hauptphasen: **Datensammlung/Indexierung** und **Abruf & Erweiterung/Retrieval + Generation**. Diese Trennung ist wichtig, weil Fehler in der ersten Phase später oft wie Modellfehler aussehen. Wenn Chunks unsauber gebildet oder Metadaten schlecht gepflegt sind, hilft auch ein starkes Modell kaum noch.
 
 <img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/rag_process.png" alt="Raster aus Pixelwerten" width="600">
+<p><font color='black' size="2">
+KI-generiertes Bild
+</font></p>
 
 
 
