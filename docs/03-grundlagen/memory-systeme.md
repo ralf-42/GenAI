@@ -152,6 +152,27 @@ Für **Langzeit-Memory** haben sich drei Hauptkategorien etabliert: **Prozedural
 | Workflow Memory | wiederholbare Schrittfolgen bewahren | strukturierter Store | alte Workflows werden unkritisch wiederverwendet |
 
 
+### LangGraph-Begriffe in M07 einordnen
+
+
+
+Das Notebook **M07 Chat Memory Patterns** zeigt diese Konzepte mit konkreten LangGraph-Bausteinen. Die Begriffe sind keine zusätzlichen Memory-Formen, sondern technische Umsetzungen der oben beschriebenen Muster.
+
+
+
+| Konzept in diesem Dokument | Typischer Begriff in M07 / LangGraph | Einordnung |
+| :--- | :--- | :--- |
+| Conversation Buffer | `MessagesState` | speichert den Nachrichtenverlauf im Graph-State |
+| Flüchtiger Checkpoint | `MemorySaver` | hält Thread-State im Arbeitsspeicher, geht beim Neustart verloren |
+| Persistenter Checkpoint | `SqliteSaver` | speichert Thread-State in SQLite und kann ihn nach Neustart laden |
+| Session-Trennung | `thread_id` in `configurable` | trennt Konversationen bzw. Threads voneinander |
+| State physisch kürzen | `RemoveMessage` | entfernt alte Nachrichten aus dem gespeicherten State |
+| Workflow-Orchestrierung | `StateGraph` | definiert, wie State durch die Nodes des Graphen fließt |
+
+
+Wichtig ist die Abgrenzung: Checkpointer speichern den **Zustand eines Threads**. Sie entscheiden nicht selbst, welche Informationen langfristig relevant, erlaubt oder nutzerspezifisch wertvoll sind. Diese Auswahl bleibt Aufgabe der Anwendungslogik.
+
+
 
 ## Conversation Buffer: der einfachste Einstieg
 
@@ -348,6 +369,9 @@ In der Praxis relevant, wenn der Kontext kritische Details enthält, die bei Sum
 
 
 Langzeit-Memory wird nötig, sobald relevante Informationen nach Ende einer Sitzung noch verfügbar sein sollen. Dazu gehören Nutzerpräferenzen, Ziele, wichtige Fakten oder Wissen, das später semantisch wiedergefunden werden soll.
+
+
+Ein persistenter Checkpointer wie `SqliteSaver` kann einen Chat-Thread über einen Neustart hinweg erhalten. Das ist nützlich, aber noch kein vollständiges Langzeit-Memory im engeren Sinn. Er speichert zunächst den Verlauf bzw. Graph-State eines Threads. Für echtes Langzeit-Memory braucht es zusätzlich Regeln, welche Informationen gespeichert werden, wie sie aktualisiert oder gelöscht werden und über welchen Schlüssel sie später wiedergefunden werden.
 
 
 
@@ -634,6 +658,7 @@ Developer unterschätzen oft, dass Memory nicht nur eine Komfortfunktion ist. Oh
 
 | Dokument | Frage |
 | :--- | :--- |
+| M07 Chat Memory Patterns | Wie werden Buffer, Trimming, Summary und persistenter Thread-State praktisch im Notebook umgesetzt? |
 | [LangGraph Einsteiger](../06-frameworks/einsteiger-langgraph.html) | Wie werden State und Wiederaufnahme in Workflows technisch umgesetzt? |
 
 
@@ -641,9 +666,8 @@ Developer unterschätzen oft, dass Memory nicht nur eine Komfortfunktion ist. Oh
 
 
 
-**Version:** 1.5<br>
+**Version:** 1.6<br>
 
 **Stand:** Mai 2026<br>
 
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
-
