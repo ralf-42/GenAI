@@ -10,7 +10,8 @@ has_toc: true
 # Datenschutz & DSGVO
 {: .no_toc }
 
-> **Wer personenbezogene Daten an eine externe KI-API schickt, ist Verantwortlicher im Sinne der DSGVO — unabhängig davon, ob das bewusst passiert oder nicht.**
+> [!IMPORTANT] Verantwortlichkeit nach DSGVO<br>
+> Wer personenbezogene Daten an eine externe KI-API schickt, ist Verantwortlicher im Sinne der DSGVO — unabhängig davon, ob das bewusst passiert oder nicht.
 
 ---
 
@@ -90,7 +91,7 @@ Lokale Modelle über Ollama oder vLLM laufen vollständig auf eigener Infrastruk
 
 GenAI-Systeme erzeugen oft mehr personenbezogene Spuren als erwartet: Prompt-Historien, Notebook-Ausgaben, RAG-Retrievals, Tool-Aufrufe, Fehlerlogs, Evaluation-Datasets und Traces. Das ist für Debugging und Qualitätssicherung wertvoll, aber auch eine Datenschutzfrage: Wenn ein Prompt personenbezogene Daten enthält, können diese Daten anschließend in Logs, Traces oder Testsets landen.
 
-Im Kurs kann LangSmith für Tracing und Evaluation genutzt werden. Der EU-Endpunkt (`eu.api.smith.langchain.com`) ist dafür ein wichtiger Baustein, ersetzt aber keine Datenklassifikation. Entscheidend bleibt, welche Inhalte überhaupt in Traces, Metadaten und Datasets gelangen.
+LangSmith eignet sich für Tracing und Evaluation. Der EU-Endpunkt (`eu.api.smith.langchain.com`) ist dafür ein wichtiger Baustein, ersetzt aber keine Datenklassifikation. Entscheidend bleibt, welche Inhalte überhaupt in Traces, Metadaten und Datasets gelangen.
 
 Darüber hinaus lohnt es sich, vor dem Logging sensible Felder zu maskieren oder gar nicht erst in die Trace-Metadaten aufzunehmen:
 

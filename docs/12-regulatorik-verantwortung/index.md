@@ -11,9 +11,7 @@ description: "EU AI Act, DSGVO, Ethik und digitale Souveränität im GenAI-Konte
 
 Dieser Bereich behandelt die rechtlichen, ethischen und politischen Rahmenbedingungen für den Einsatz von GenAI-Systemen.
 
-| Frage | Dokument |
-|---|---|
-| Welche Anforderungen stellt der EU AI Act an GenAI-Systeme? | [EU AI Act](./eu-ai-act.html) |
-| Wie wird GenAI DSGVO-konform eingesetzt? | [Datenschutz & DSGVO](./datenschutz-dsgvo.html) |
-| Welche ethischen Fragen stellen sich beim Einsatz generativer Modelle? | [Ethik & GenAI](./ethik-und-genai.html) |
-| Wie bleibt digitale Handlungsfähigkeit bei KI-Abhängigkeiten erhalten? | [Digitale Souveränität](./digitale-souveraenitaet.html) |
+- [EU AI Act](./eu-ai-act.html) — Risikoklassen, Fristen und Pflichten der EU-KI-Verordnung
+- [Datenschutz & DSGVO](./datenschutz-dsgvo.html) — DSGVO-konforme Nutzung von GenAI-Systemen
+- [Ethik & GenAI](./ethik-und-genai.html) — Ethische Fragen beim Einsatz generativer Modelle
+- [Digitale Souveränität](./digitale-souveraenitaet.html) — Handlungsfähigkeit bei KI-Abhängigkeiten

@@ -3,15 +3,15 @@ layout: default
 title: Digitale Souveränität
 parent: Regulatorik & Verantwortung
 nav_order: 4
-description: "Digitale Souveraenitaet im KI-Kontext: Infrastruktur, Daten, Anbieter und Abhaengigkeiten"
+description: "Digitale Souveränität im KI-Kontext: Infrastruktur, Daten, Anbieter und Abhängigkeiten"
 has_toc: true
 ---
 
 # Digitale Souveränität
 {: .no_toc }
 
-> **Digitale Souveränität: Definition, Reifegrade, Europa**      
-> Analyse des Status quo der digitalen Souveränität - von der Begriffsdefinition über Reifegradmodelle bis zu europäischen Strategien
+> [!NOTE] Digitale Souveränität: Definition, Reifegrade, Europa<br>
+> Analyse des Status quo — von der Begriffsdefinition über Reifegradmodelle bis zu europäischen Strategien
 
 ---
 
@@ -31,7 +31,6 @@ Die Notwendigkeit einer umfassenden Auseinandersetzung mit digitaler Souveränit
 
 Für generative KI ist digitale Souveränität besonders konkret. Eine GenAI-Anwendung hängt häufig gleichzeitig von Modellanbieter, Cloud-Infrastruktur, Embedding-Modell, Vektordatenbank, Logging, Tracing, Datenresidenz und API-Verträgen ab. Souveränität bedeutet deshalb nicht, jede Komponente selbst zu betreiben, sondern bewusst entscheiden zu können, welche Daten und Funktionen in welcher Umgebung verarbeitet werden und wie ein Wechsel des Anbieters möglich bleibt.
 
-Dieser Forschungsbericht liefert eine Analyse des Status quo der digitalen Souveränität. Er untersucht die definitorischen Feinheiten und grenzt das Konzept gegen verwandte Begriffe wie Autonomie und Autarkie ab. Er dekonstruiert die verschiedenen Dimensionen und Schichten der Souveränität – von der physikalischen Hardware bis zur algorithmischen Entscheidung – und analysiert die methodischen Ansätze zu ihrer Messung durch komplexe Reifegradmodelle. Ein besonderer Schwerpunkt liegt auf der empirischen Betrachtung der europäischen Gegenstrategien: Von der regulatorischen Offensive (Chips Act, Data Act) über infrastrukturelle Großprojekte (Gaia-X, IPCEI-CIS) bis hin zu operativen Implementierungen in der Verwaltung (Open Desk) und der Industrie (Catena-X). Ziel ist es, ein differenziertes Bild zu zeichnen, das nicht bei politischen Willensbekundungen stehen bleibt, sondern die technische und ökonomische Realität der Umsetzung beleuchtet.
 
 ## Konzeptionelle Grundlagen und Begriffsbestimmung
 
@@ -303,7 +302,7 @@ Die digitale Souveränität Europas wird sich nicht daran entscheiden, ob ein eu
 
 1. Digitale Souveränität \- Bitkom e.V., Zugriff am Dezember 31, 2025, [https://www.bitkom.org/sites/main/files/file/import/BITKOM-Position-Digitale-Souveraenitaet.pdf](https://www.bitkom.org/sites/main/files/file/import/BITKOM-Position-Digitale-Souveraenitaet.pdf)  
 2. EU's Digital Sovereignty and the Rights-Based Imperative \- Verfassungsblog, Zugriff am Dezember 31, 2025, [https://verfassungsblog.de/digital-sovereignty-and-the-rights/](https://verfassungsblog.de/digital-sovereignty-and-the-rights/)  
-3. Was ist digitale Souveränität? Alles, was Sie wissen müssen | Trend Micro (DE), Zugriff am Dezember 31, 2025, [https://www.trendmicro.com/de\_de/what-is/data-sovereignty/digital-sovereignty.html](https://www.trendmicro.com/de_de/what-is/data-sovereignty/digital-sovereignty.html)  
+3. Was ist digitale Souveränität? | Trend Micro (DE), Zugriff am Dezember 31, 2025, [https://www.trendmicro.com/de\_de/what-is/data-sovereignty/digital-sovereignty.html](https://www.trendmicro.com/de_de/what-is/data-sovereignty/digital-sovereignty.html)  
 4. Digitale Souveränität und Autonomie – eine Spurensuche und Auslegeordnung, Zugriff am Dezember 31, 2025, [https://www.bedag.ch/de/aktuelles/meldungen/Digitale-Souveraenitaet-und-Autonomie-eine-Spurensuche-und-Auslegeordnung.php](https://www.bedag.ch/de/aktuelles/meldungen/Digitale-Souveraenitaet-und-Autonomie-eine-Spurensuche-und-Auslegeordnung.php)  
 5. Digitale Souveränität in Europa – ein erster Benchmark, Zugriff am Dezember 31, 2025, [https://www.wik.org/veroeffentlichungen/veroeffentlichung/digitale-souveraenitaet-in-europa-ein-erster-benchmark](https://www.wik.org/veroeffentlichungen/veroeffentlichung/digitale-souveraenitaet-in-europa-ein-erster-benchmark)  
 6. Reifegradmodell der Digitalen Souveränität \- Arvato Systems, Zugriff am Dezember 31, 2025, [https://www.arvato-systems.de/blog/reifegradmodell-digitale-souveraenitaet](https://www.arvato-systems.de/blog/reifegradmodell-digitale-souveraenitaet)  
