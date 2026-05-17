@@ -15,7 +15,7 @@ has_toc: true
 
 ---
 
-# Inhaltsverzeichnis
+## Inhaltsverzeichnis
 {: .no_toc .text-delta }
 
 1. TOC
@@ -36,7 +36,20 @@ LangChain bietet Modelle, Tools und einfache Agenten. LangGraph baut darauf auf 
 
 ---
 
-## Das kleinstmögliche funktionierende Beispiel
+## Zentrale Konzepte
+
+| Konzept | Bedeutung |
+|---|---|
+| State | Gemeinsamer Zustand, der durch den Workflow wandert |
+| Node | Ein einzelner Bearbeitungsschritt |
+| Edge | Verbindung zwischen Schritten |
+| Conditional Routing | Entscheidung, welcher Pfad als Nächstes läuft |
+| Checkpointing | Speichert Zustand für Resume und Debugging |
+| Interrupt | Technischer Halt für Human-in-the-Loop |
+
+---
+
+## Quickstart
 
 Der schnellste Weg zum Verständnis ist ein Mini-Workflow.
 
@@ -114,7 +127,7 @@ result
 
 ---
 
-## Die Grundidee: Workflows als State Machine
+## Grundaufbau: Workflows als State Machine
 
 Nach einem ersten funktionsfähiges Beispiel, kann das Konzept erklärt werden:
 
@@ -241,6 +254,12 @@ def research_node(state: ChatState) -> ChatState:
 ```
 
 > **Hinweis:** Der Agent-Node ist das Muster hinter Supervisor-Architekturen (M20, M21). Der Supervisor ruft `research_node`, `writer_node` etc. auf — jeder Node kapselt intern einen vollständigen Agenten.
+
+---
+
+## Typische Workflows
+
+Die folgenden Abschnitte zeigen die wichtigsten Einsteiger-Workflows: lineare Graphen, bedingtes Routing, Streaming, Sessions, Human-in-the-Loop und einfache Multi-Agent-Muster.
 
 ---
 
@@ -503,6 +522,50 @@ Mögliche Erweiterungen:
 - iterative Qualitätsprüfungen
 - mehrere Worker mit Prioritäten
 - automatische oder manuelle Rollenwechsel
+
+---
+
+## Best Practices
+
+- State klein und explizit halten.
+- Nodes nach fachlicher Verantwortung trennen.
+- Routing als Funktion modellieren statt in Prompt-Text zu verstecken.
+- Graph nach dem Kompilieren visualisieren.
+- Checkpointing einsetzen, sobald Sessions wiederaufgenommen werden sollen.
+- Human-in-the-Loop technisch mit Interrupts erzwingen.
+
+---
+
+## Troubleshooting
+
+### Graph endet zu früh
+
+Prüfe die Edges und Rückgabewerte der Routing-Funktion. Jeder mögliche Rückgabewert muss auf einen gültigen Zielknoten oder `END` zeigen.
+
+### State wird überschrieben
+
+Nutze Reducer wie `add_messages`, wenn Listen über mehrere Schritte erweitert statt ersetzt werden sollen.
+
+### Human-in-the-Loop läuft nicht weiter
+
+Setze eine stabile `thread_id` und verwende `Command(resume=...)`, um nach einem Interrupt fortzufahren.
+
+---
+
+## Erweiterungen / Fortgeschrittene Themen
+
+- Checkpointing über persistente Stores
+- Human-in-the-Loop mit Formularen
+- Multi-Agent-Workflows
+- LangSmith-Tracing für Graph-Runs
+
+---
+
+## Zusammenfassung
+
+LangGraph wird dann sinnvoll, wenn ein LLM-Workflow echten Zustand, Routing oder Unterbrechungen braucht. Der Einstieg gelingt am besten über den minimalen Graph aus State, Node und Edge; danach kommen Conditional Routing, Streaming, Checkpointing und Human-in-the-Loop hinzu.
+
+---
 
 ## Abgrenzung zu verwandten Dokumenten
 
