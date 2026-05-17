@@ -31,6 +31,29 @@ Die Notwendigkeit einer umfassenden Auseinandersetzung mit digitaler Souveränit
 
 Für generative KI ist digitale Souveränität besonders konkret. Eine GenAI-Anwendung hängt häufig gleichzeitig von Modellanbieter, Cloud-Infrastruktur, Embedding-Modell, Vektordatenbank, Logging, Tracing, Datenresidenz und API-Verträgen ab. Souveränität bedeutet deshalb nicht, jede Komponente selbst zu betreiben, sondern bewusst entscheiden zu können, welche Daten und Funktionen in welcher Umgebung verarbeitet werden und wie ein Wechsel des Anbieters möglich bleibt.
 
+```mermaid
+%%{init: {'theme':'forest'}}%%
+graph TD
+    HW["Chips und Hardware"]
+    DC["Cloud-Infrastruktur<br/>Compute · Storage · Netzwerk"]
+    MOD["Foundation Models<br/>LLM · Embedding-Modell"]
+    INT["APIs und Frameworks<br/>Modellanbieter · SDKs"]
+    APP["GenAI-Anwendung<br/>RAG · Agenten · Workflows"]
+    OPS["Betrieb<br/>Logging · Tracing · Datenresidenz"]
+
+    HW -->|"Basis"| DC
+    DC -->|"hostet"| MOD
+    MOD -->|"zugänglich über"| INT
+    INT -->|"integriert in"| APP
+    APP -->|"erzeugt"| OPS
+
+    style HW fill:#1b4332,color:#ffffff
+    style DC fill:#2d6a4f,color:#ffffff
+    style MOD fill:#40916c,color:#ffffff
+    style INT fill:#52b788,color:#333333
+    style APP fill:#74c69d,color:#333333
+    style OPS fill:#95d5b2,color:#333333
+```
 
 ## Konzeptionelle Grundlagen und Begriffsbestimmung
 
@@ -51,7 +74,22 @@ Eine präzise wissenschaftliche Trennung der Begrifflichkeiten ist essenziell, u
 2. Digitale Autonomie (Strategische Handlungsfähigkeit):  
    Autonomie (oft auch „Strategische Autonomie“ genannt) beschreibt den faktischen Zustand der Ressourcenverfügbarkeit. Kann Europa Chips produzieren? Hat es eigene Cloud-Alternativen? Man kann rechtlich souverän sein (Gesetze haben), aber faktisch nicht autonom (mangels Alternativen auf US-Anbieter angewiesen sein). Die Berliner Erklärung von 2025 definiert dies als die Fähigkeit, „autonom zu handeln und eigene Lösungen frei zu wählen, während gleichzeitig die Vorteile globaler Partnerschaften genutzt werden“.2 Autonomie ist also der materielle Unterbau der Souveränität.  
 3. Digitale Autarkie (Selbstversorgung/Isolation):  
-   Autarkie beschreibt den Zustand der völligen Unabhängigkeit durch Selbstversorgung und Abkapselung. In der global vernetzten Digitalwirtschaft gilt Autarkie ökonomisch als irrational und technisch als unmöglich. Ein Streben nach Autarkie würde bedeuten, sämtliche Hard- und Software im eigenen Wirtschaftsraum zu produzieren, was zu massiven Effizienzverlusten, Innovationsstau und Wohlstandseinbußen führen würde. Experten wie jene von Arvato Systems oder dem BWI warnen explizit davor, Souveränität mit Autarkie zu verwechseln: Das Ziel ist nicht, alles selbst zu machen („Make“), sondern die Kontrolle über die Wertschöpfungskette zu behalten, auch wenn Teile davon zugekauft werden („Buy“ mit Souveränitätsgarantien).6
+   Autarkie beschreibt den Zustand der völligen Unabhängigkeit durch Selbstversorgung und Abkapselung. In der global vernetzten Digitalwirtschaft gilt Autarkie ökonomisch als irrational und technisch als unmöglich. Ein Streben nach Autarkie würde bedeuten, sämtliche Hard- und Software im eigenen Wirtschaftsraum zu produzieren, was zu massiven Effizienzverlusten, Innovationsstau und Wohlstandseinbußen führen würde. Experten wie jene von Arvato Systems oder dem BWI warnen explizit davor, Souveränität mit Autarkie zu verwechseln: Das Ziel ist nicht, alles selbst zu machen („Make”), sondern die Kontrolle über die Wertschöpfungskette zu behalten, auch wenn Teile davon zugekauft werden („Buy” mit Souveränitätsgarantien).6
+
+```mermaid
+%%{init: {'theme':'forest'}}%%
+graph LR
+    S[“Souveränität<br/>Normativer Anspruch<br/>Regeln setzen und<br/>durchsetzen”]
+    A[“Autonomie<br/>Strategische Grundlage<br/>Faktische Wahlfreiheit<br/>zwischen Alternativen”]
+    X[“Autarkie<br/>Vollständige Isolation<br/>kein realistisches Ziel”]
+
+    S -->|”erfordert als Grundlage”| A
+    A -. “ist nicht” .-> X
+
+    style S fill:#1b4332,color:#ffffff
+    style A fill:#40916c,color:#ffffff
+    style X fill:#b91c1c,color:#ffffff
+```
 
 ### Das Spannungsfeld: Kontrolle versus Leistungsfähigkeit
 
