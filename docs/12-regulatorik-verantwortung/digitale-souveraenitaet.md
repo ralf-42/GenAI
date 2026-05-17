@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Digitale Souveränität
 parent: Regulatorik & Verantwortung
@@ -59,22 +59,22 @@ graph TD
 
 ### Genese und Definition: Mehr als nur ein Schlagwort
 
-Der Begriff der Souveränität entstammt ursprünglich der Staatsrechtslehre des 16\. Jahrhunderts (Jean Bodin) und beschrieb im Westfälischen System die höchste, unteilbare Gewalt eines Staates nach innen und seine Unabhängigkeit nach außen. Die Übertragung dieses Konzepts auf den digitalen Raum – „Digitale Souveränität“ – ist komplex, da digitale Datenströme und Infrastrukturen territoriale Grenzen physisch und logisch ignorieren.
+Der Begriff der Souveränität geht auf die Staatsrechtslehre des 16. Jahrhunderts (Jean Bodin) zurück. Im westfälischen System bezeichnete er die höchste, unteilbare Gewalt eines Staates nach innen und seine Unabhängigkeit nach außen. Die Übertragung auf den digitalen Raum ist schwierig, weil Datenströme und Infrastrukturen territoriale Grenzen physisch und logisch nicht beachten.
 
-In der aktuellen Diskussion wird Digitale Souveränität häufig als die Fähigkeit definiert, selbstbestimmt im digitalen Raum zu handeln und zu entscheiden. Der Branchenverband Bitkom präzisiert dies als die Kompetenz, die digitale Transformation aktiv zu gestalten, statt sie nur passiv zu erleiden.1 Dies impliziert die Kontrolle über die eigenen Daten, die Sicherheit der genutzten Infrastrukturen und die Freiheit, zwischen verschiedenen technologischen Alternativen wählen zu können, ohne in sogenannte „Vendor Lock-in“-Effekte zu geraten.
+In der aktuellen Diskussion beschreibt Digitale Souveränität die Fähigkeit, selbstbestimmt im digitalen Raum zu handeln und zu entscheiden. Der Branchenverband Bitkom präzisiert dies als die Kompetenz, die digitale Transformation aktiv zu gestalten, statt sie nur passiv zu erleiden.1 Das setzt voraus, dass Akteure ihre Daten kontrollieren, die genutzten Infrastrukturen absichern und zwischen Anbietern wechseln können, ohne in „Vendor Lock-in” zu geraten.
 
-Das Bundesministerium für Wirtschaft und Klimaschutz (BMWK) sowie verschiedene europäische Institutionen betonen zudem die Dimension der „Vertrauenswürdigkeit“. Souveränität bedeutet hier, dass IT-Systeme nicht nur funktionieren, sondern auch frei von Hintertüren („Backdoors“) sind, die von fremden Staaten zur Spionage oder Sabotage genutzt werden könnten. Die „Berliner Erklärung zur Digitalen Gesellschaft und wertorientierten digitalen Verwaltung“ vom Dezember 2020 und ihre Nachfolgedokumente, wie die Deklaration vom November 2025, unterstreichen, dass digitale Souveränität kein Selbstzweck ist, sondern dem Erhalt demokratischer Werte und der Wettbewerbsfähigkeit dient.2
+Das Bundesministerium für Wirtschaft und Klimaschutz (BMWK) sowie verschiedene europäische Institutionen betonen zudem die Dimension der „Vertrauenswürdigkeit“. Souveränität bedeutet hier, dass IT-Systeme nicht nur funktionieren, sondern auch frei von Hintertüren („Backdoors”) sind, die fremde Staaten für Spionage oder Sabotage nutzen. Die „Berliner Erklärung zur Digitalen Gesellschaft und wertorientierten digitalen Verwaltung“ vom Dezember 2020 und ihre Nachfolgedokumente, wie die Deklaration vom November 2025, unterstreichen, dass digitale Souveränität kein Selbstzweck ist, sondern dem Erhalt demokratischer Werte und der Wettbewerbsfähigkeit dient.2
 
 ### Abgrenzung: Souveränität, Autonomie und Autarkie
 
-Eine präzise wissenschaftliche Trennung der Begrifflichkeiten ist essenziell, um Fehlinterpretationen – insbesondere den Vorwurf des Protektionismus – zu begegnen. Die Forschung und die politische Praxis unterscheiden hierbei drei Kernbegriffe, die oft fälschlicherweise synonym verwendet werden 3:
+Eine präzise Trennung der Begriffe ist wichtig, um Fehlinterpretationen zu vermeiden, insbesondere den Vorwurf des Protektionismus. Die Forschung und die politische Praxis unterscheiden hierbei drei Kernbegriffe, die oft fälschlicherweise synonym verwendet werden 3:
 
 1. Digitale Souveränität (Rechts- und Herrschaftsanspruch):  
    Dies ist der normative und rechtliche Aspekt. Er beschreibt den Anspruch und die Fähigkeit eines Staates oder Individuums, Regeln für den digitalen Raum durchzusetzen. Für die EU bedeutet dies beispielsweise die Durchsetzung der Datenschutz-Grundverordnung (DSGVO) auch gegenüber nicht-europäischen Konzernen. Souveränität in diesem Sinne ist die Möglichkeit, Recht zu setzen und anzuwenden.  
 2. Digitale Autonomie (Strategische Handlungsfähigkeit):  
-   Autonomie (oft auch „Strategische Autonomie“ genannt) beschreibt den faktischen Zustand der Ressourcenverfügbarkeit. Kann Europa Chips produzieren? Hat es eigene Cloud-Alternativen? Man kann rechtlich souverän sein (Gesetze haben), aber faktisch nicht autonom (mangels Alternativen auf US-Anbieter angewiesen sein). Die Berliner Erklärung von 2025 definiert dies als die Fähigkeit, „autonom zu handeln und eigene Lösungen frei zu wählen, während gleichzeitig die Vorteile globaler Partnerschaften genutzt werden“.2 Autonomie ist also der materielle Unterbau der Souveränität.  
+   Digitale Autonomie (oft auch „strategische Autonomie”) beschreibt, ob die notwendigen Ressourcen tatsächlich verfügbar sind. Kann Europa Chips produzieren? Hat es eigene Cloud-Alternativen? Man kann rechtlich souverän sein (Gesetze haben), aber faktisch nicht autonom (mangels Alternativen auf US-Anbieter angewiesen sein). Die Berliner Erklärung von 2025 definiert dies als die Fähigkeit, „autonom zu handeln und eigene Lösungen frei zu wählen, während gleichzeitig die Vorteile globaler Partnerschaften genutzt werden“.2 Autonomie ist also der materielle Unterbau der Souveränität.  
 3. Digitale Autarkie (Selbstversorgung/Isolation):  
-   Autarkie beschreibt den Zustand der völligen Unabhängigkeit durch Selbstversorgung und Abkapselung. In der global vernetzten Digitalwirtschaft gilt Autarkie ökonomisch als irrational und technisch als unmöglich. Ein Streben nach Autarkie würde bedeuten, sämtliche Hard- und Software im eigenen Wirtschaftsraum zu produzieren, was zu massiven Effizienzverlusten, Innovationsstau und Wohlstandseinbußen führen würde. Experten wie jene von Arvato Systems oder dem BWI warnen explizit davor, Souveränität mit Autarkie zu verwechseln: Das Ziel ist nicht, alles selbst zu machen („Make”), sondern die Kontrolle über die Wertschöpfungskette zu behalten, auch wenn Teile davon zugekauft werden („Buy” mit Souveränitätsgarantien).6
+   Autarkie beschreibt den Zustand der völligen Unabhängigkeit durch Selbstversorgung und Abkapselung. In der global vernetzten Digitalwirtschaft gilt Autarkie ökonomisch als irrational und technisch als unmöglich. Ein Streben nach Autarkie würde bedeuten, sämtliche Hard- und Software im eigenen Wirtschaftsraum zu produzieren, was zu massiven Effizienzverlusten, Innovationsstau und Wohlstandseinbußen führen würde. Experten wie jene von Arvato Systems oder dem BWI warnen explizit davor, Souveränität mit Autarkie zu verwechseln: Das Ziel ist nicht, alles selbst zu bauen („Make”). Teile können zugekauft werden („Buy”), solange die Kontrolle über die Wertschöpfungskette erhalten bleibt.6
 
 ```mermaid
 %%{init: {'theme':'forest'}}%%
@@ -93,12 +93,12 @@ graph LR
 
 ### Das Spannungsfeld: Kontrolle versus Leistungsfähigkeit
 
-Ein zentrales Modell zum Verständnis der digitalen Souveränität ist das Spannungsfeld zwischen **Kontrolle** und **Leistungsfähigkeit**. In der Praxis stehen Entscheidungsträger oft vor einem Dilemma:
+Ein Modell zur Einordnung beschreibt die Spannung zwischen **Kontrolle** und **Leistungsfähigkeit**. In der Praxis stehen Entscheidungsträger oft vor einem Dilemma:
 
 * **Fokus auf Leistungsfähigkeit (Performance/Innovation):** Die Nutzung globaler Hyperscaler (AWS, Azure, Google Cloud) bietet Zugriff auf die modernsten Features (Generative KI, globale Skalierbarkeit, hunderte PaaS-Dienste). Der Preis dafür ist oft ein Verlust an Kontrolle über Datenlokation, Metadatenzugriff und Abhängigkeit von ausländischer Jurisdiktion (z.B. US CLOUD Act). Dies führt in die *Fremdbestimmung*.6  
 * **Fokus auf Kontrolle (Sicherheit/Compliance):** Der Betrieb eigener Rechenzentren oder die Nutzung rein lokaler Anbieter garantiert maximale Kontrolle und Rechtskonformität. Der Preis ist oft eine geringere Innovationsgeschwindigkeit, höhere Kosten und weniger Features. Ein extremer Fokus hierauf führt in die *Autarkie* und Isolation.
 
-Das Ziel der „Digitalen Selbstbestimmung“ (oder „True Sovereignty“) ist es, einen Mittelweg zu finden – den „Sweet Spot“. Dies wird durch Technologien wie Verschlüsselung mit externem Key Management, Open Source und Multi-Cloud-Strategien erreicht, die es erlauben, externe Leistungsfähigkeit zu nutzen, ohne die ultimative Kontrolle aufzugeben.6
+„Digitale Selbstbestimmung” (oder „True Sovereignty”) zielt darauf, einen Mittelweg zu erreichen – den „Sweet Spot”. Dies wird durch Technologien wie Verschlüsselung mit externem Key Management, Open Source und Multi-Cloud-Strategien erreicht, die es erlauben, externe Leistungsfähigkeit zu nutzen, ohne die ultimative Kontrolle aufzugeben.6
 
 ## Dimensionen, Kategorien und Schichtenmodelle
 
