@@ -14,7 +14,6 @@ has_toc: true
 ---
 
 
-
 # Tool Use & Function Calling
 {: .no_toc }
 
@@ -27,8 +26,7 @@ has_toc: true
 {: .no_toc .text-delta }
 
 1. TOC
-{:toc}}
-
+{:toc}
 
 
 ---

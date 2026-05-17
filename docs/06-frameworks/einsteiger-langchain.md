@@ -15,7 +15,7 @@ has_toc: true
 
 ---
 
-# Inhaltsverzeichnis
+## Inhaltsverzeichnis
 {: .no_toc .text-delta }
 
 1. TOC
@@ -77,6 +77,41 @@ graph TB
 ```
 
 ---
+
+## Zentrale Konzepte
+
+| Konzept | Rolle im LangChain-Workflow |
+|---|---|
+| Prompt | Formuliert Aufgabe, Rolle und Kontext für das Modell |
+| Modell | Liefert Antworten über eine einheitliche Provider-Schnittstelle |
+| Strukturierte Ausgabe | Erzwingt verlässliche Objekte statt Freitext |
+| Tool | Erweitert das Modell um externe Funktionen |
+| Chain | Verkettet mehrere Schritte mit LCEL |
+| Agent | Entscheidet dynamisch, welche Tools und Schritte nötig sind |
+| RAG | Verbindet Modellantworten mit eigenen Wissensquellen |
+
+---
+
+## Quickstart
+
+```python
+from langchain.chat_models import init_chat_model
+from langchain_core.output_parsers import StrOutputParser
+from langchain_core.prompts import ChatPromptTemplate
+
+llm = init_chat_model("openai:gpt-5-nano")
+prompt = ChatPromptTemplate.from_template("Erkläre {thema} in drei Sätzen.")
+chain = prompt | llm | StrOutputParser()
+
+antwort = chain.invoke({"thema": "LangChain"})
+print(antwort)
+```
+
+Der Quickstart zeigt das Standardmuster: Prompt vorbereiten, Modell initialisieren, Schritte mit LCEL verbinden und ausführen.
+
+---
+
+## Grundaufbau
 
 ## Prompts mit `ChatPromptTemplate`
 
@@ -446,6 +481,12 @@ print(answer)
 
 ---
 
+## Typische Workflows
+
+Die folgenden Abschnitte zeigen typische Einsteiger-Workflows: multimodale Eingaben, Chunking, Embeddings und ein vollständiges RAG-Pattern.
+
+---
+
 ## Middleware zur Agentensteuerung
 
 Middleware ergänzt Agenten um wichtige Kontrollmechanismen, etwa Sicherheitsprüfungen oder automatische Kontextverdichtung.
@@ -705,6 +746,49 @@ print(antwort)
 ```
 
 Dieses Pattern bildet die Grundlage für Wissens‑Chatbots, Dokumenten‑Assistenten oder interne Suchsysteme im Kurs und kann schrittweise um Evaluierung, Feedback‑Schleifen oder LangGraph‑Workflows erweitert werden.
+
+---
+
+## Best Practices
+
+- `init_chat_model()` statt provider-spezifischer Modellklassen verwenden.
+- Prompts mit `ChatPromptTemplate` statt zusammengesetzten Strings bauen.
+- Strukturierte Daten mit `with_structured_output()` erzeugen.
+- Tools mit `@tool`, Type Hints und klaren Docstrings definieren.
+- LCEL `|` für lineare Chains verwenden.
+- Für RAG zuerst Chunking, Embeddings und Retrieval-Qualität testen, bevor der Agent komplexer wird.
+
+---
+
+## Troubleshooting
+
+### Import funktioniert nicht
+
+Prüfe, ob die benötigten Pakete installiert sind und ob du die aktuellen LangChain-Importpfade verwendest.
+
+### Modell liefert Freitext statt Schema
+
+Nutze `with_structured_output()` mit einem Pydantic-Modell. Prompt-Anweisungen allein reichen für robuste strukturierte Daten nicht aus.
+
+### RAG-Antworten sind ungenau
+
+Prüfe zuerst Chunk-Größe, Overlap, Embedding-Modell und Retriever-Parameter. Das Modell kann nur mit dem Kontext arbeiten, den der Retriever liefert.
+
+---
+
+## Erweiterungen / Fortgeschrittene Themen
+
+- Middleware zur Agentensteuerung
+- Multimodale Content-Blöcke
+- Provider-spezifische Tool Extras
+- Strict Schema für Agent-Responses
+- RAG mit Vektordatenbanken
+
+---
+
+## Zusammenfassung
+
+LangChain liefert die Bausteine für LLM-Anwendungen: Prompts, Modelle, strukturierte Ausgaben, Tools, Chains, Agents und RAG. Für Einsteiger ist die wichtigste Reihenfolge: erst einen einfachen Modellaufruf stabil bekommen, dann LCEL-Chains bauen, anschließend Tools und Retrieval ergänzen.
 
 
 ## Abgrenzung zu verwandten Dokumenten

@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: LangGraph Best Practices
 parent: LangGraph
@@ -19,7 +19,7 @@ Der Ton dieser Seite ist bewusst normativer als in den Konzept- und Einsteigerse
 
 ---
 
-# Inhaltsverzeichnis
+## Inhaltsverzeichnis
 {: .no_toc .text-delta }
 
 1. TOC
@@ -27,7 +27,15 @@ Der Ton dieser Seite ist bewusst normativer als in den Konzept- und Einsteigerse
 
 ---
 
-## Wann LangGraph Statt Einfachem `create_agent()`?
+## Überblick / Zweck
+
+LangGraph ist die Standardebene für zustandsbehaftete, verzweigte und wiederaufnehmbare GenAI-Workflows. Dieses Dokument sammelt die Patterns, die im Kurs und in produktionsnahen Beispielen als robuste Grundlage gelten.
+
+Ziel ist ein expliziter Kontrollfluss: State, Nodes, Edges, Routing, Checkpointing und Freigaben sollen im Graph sichtbar sein, statt in Prompts oder großen Python-Funktionen versteckt zu werden.
+
+---
+
+## Wann nutzen?
 
 LangGraph lohnt sich, wenn ein Agent nicht mehr linear arbeitet. Sobald Routing, langlebiger State, Wiederaufnahme, mehrere Agenten oder menschliche Freigaben eine Rolle spielen, wird ein expliziter Graph robuster als eine lose Folge von Tool-Aufrufen.
 
@@ -42,7 +50,7 @@ LangGraph lohnt sich, wenn ein Agent nicht mehr linear arbeitet. Sobald Routing,
 
 Typischer Fehler: LangGraph wird zu früh eingesetzt, nur weil es flexibler klingt. Ein einfacher Agent mit zwei Tools braucht meistens noch keinen Graph. Umgekehrt wird es teuer, eine gewachsene Tool-Kette ohne Graph weiter zu pflegen, sobald Bedingungen, Wiederaufnahme und Fehlerpfade dazukommen.
 
-## Überblick Der Standards
+## Standards / Kern-Features
 
 | Standard | Priorität | Zweck |
 |---|---|---|
@@ -53,6 +61,36 @@ Typischer Fehler: LangGraph wird zu früh eingesetzt, nur weil es flexibler klin
 | Human-in-the-Loop | Produktionsstandard | Kritische Aktionen freigeben lassen |
 | Subgraphs | Vertiefung | große Workflows modularisieren |
 | Streaming und Tracing | Vertiefung | Abläufe beobachtbar machen |
+
+## Quick Start
+
+```python
+from typing import Annotated, TypedDict
+
+from langgraph.graph import END, START, StateGraph
+from langgraph.graph.message import add_messages
+
+
+class AgentState(TypedDict):
+    messages: Annotated[list, add_messages]
+    task_status: str
+
+
+def agent_node(state: AgentState) -> dict:
+    response = llm.invoke(state["messages"])
+    return {"messages": [response], "task_status": "answered"}
+
+
+builder = StateGraph(AgentState)
+builder.add_node("agent", agent_node)
+builder.add_edge(START, "agent")
+builder.add_edge("agent", END)
+
+graph = builder.compile()
+result = graph.invoke({"messages": [("user", "Fasse LangGraph kurz zusammen.")], "task_status": "new"})
+```
+
+Der Quick Start zeigt nur den minimalen Graph. Für echte Workflows kommen danach Routing, Checkpointing, Human-in-the-Loop und Observability gezielt dazu.
 
 ## State Design
 
@@ -289,7 +327,7 @@ Eine Migration ist sinnvoll, wenn ein bestehender Agent immer mehr Kontrolllogik
 
 Migration sollte schrittweise erfolgen. Zuerst wird der bestehende Ablauf als Graph modelliert, ohne das Verhalten fachlich zu ändern. Danach werden Routing, Checkpointing und Freigaben einzeln ergänzt und getestet.
 
-## Best-Practices-Checkliste
+## Production-Checkliste
 
 - State als `TypedDict` modellieren.
 - Message-Historie mit `add_messages` reduzieren lassen.
@@ -302,6 +340,26 @@ Migration sollte schrittweise erfolgen. Zuerst wird der bestehende Ablauf als Gr
 - Multi-Agent-Muster nur einsetzen, wenn Rollen wirklich getrennte Verantwortung haben.
 - Migrationen gegen bestehende Testfälle prüfen.
 
+## Troubleshooting
+
+### Problem: Der Graph ist nur eine große Node
+
+**Symptom:** Eine Node enthält Modellaufruf, Tool-Auswahl, Validierung, Fehlerbehandlung und Routing.
+
+**Fix:** Verantwortlichkeiten trennen. Modellaufruf, Tool-Ausführung, Entscheidung und Review gehören in eigene Nodes oder explizite Routing-Funktionen.
+
+### Problem: State wächst unkontrolliert
+
+**Symptom:** Jede Node liest und schreibt viele Felder, Abhängigkeiten sind im Review schwer nachvollziehbar.
+
+**Fix:** State klein halten, temporäre Werte lokal lassen und nur langlebige Workflow-Daten aufnehmen.
+
+### Problem: Resume funktioniert nicht zuverlässig
+
+**Symptom:** Unterbrochene Läufe starten neu oder landen in falschen Zuständen.
+
+**Fix:** Checkpointer aktivieren, stabile `thread_id` verwenden und Interrupts in fixer Reihenfolge halten.
+
 ## Weitere Ressourcen
 
 - **LangGraph Docs**: <https://langchain-ai.github.io/langgraph/>
@@ -312,6 +370,14 @@ Migration sollte schrittweise erfolgen. Zuerst wird der bestehende Ablauf als Gr
 
 > [!TIP] Tipp<br>
 > Mit einem linearen Agenten starten und erst zu LangGraph wechseln, wenn State, Routing, Checkpointing oder Freigaben echte Anforderungen sind. Das hält frühe Prototypen klein und macht die spätere Migration nachvollziehbar.
+
+---
+
+## Changelog
+
+### Version 1.7 (Mai 2026)
+- Zielstruktur an die Framework-Best-Practice-Dokumente angeglichen.
+- Quick Start, Production-Checkliste und Troubleshooting ergänzt.
 
 ---
 

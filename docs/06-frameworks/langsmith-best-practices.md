@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: LangSmith Best Practices
 parent: LangSmith
@@ -20,7 +20,7 @@ has_toc: true
 1. TOC
 {:toc}
 
-## Übersicht
+## Überblick / Zweck
 
 **LangSmith** ist die **Observability-Plattform** für LangChain/LangGraph-Anwendungen und bildet die **dritte Säule** des LangChain-Ökosystems:
 
@@ -32,7 +32,7 @@ has_toc: true
 
 ---
 
-## 🎯 Warum LangSmith?
+## Wann nutzen?
 
 ### Das Problem ohne LangSmith
 ```python
@@ -64,31 +64,9 @@ response = agent.invoke({"messages": [...]})
 # - Fehler-Details mit Stack-Trace
 ```
 
----
+## Standards / Kern-Features
 
-## 🆕 UI-Änderungen (Stand 2026)
-
-### Agent Builder → LangSmith Fleet
-
-Die „Agent Builder“-Sektion in der LangSmith-UI wurde umbenannt in „LangSmith Fleet“.
-
-> LangSmith Dashboard → **Fleet** (linke Navigation)
-
-Alle bisherigen Funktionen sind erhalten — nur der Name hat sich geändert.
-
-**Notebooks:** Verweise auf „LangSmith Agent Builder“ auf „LangSmith Fleet“ aktualisieren.
-
----
-
-###  — Terminal-basiertes Trace-Debugging
-
-**In der Praxis relevant wenn:** Debugging in Google Colab oder SSH-Umgebungen ohne Browser.
-
----
-
-## 📋 Die 5 Kern-Features von LangSmith
-
-### 1. 🔍 Tracing & Debugging
+### 1. Tracing & Debugging
 
 **Was es macht:**
 - Erfasst jeden Schritt einer LLM-Interaktion
@@ -198,7 +176,7 @@ ergebnis = celsius_nach_fahrenheit.invoke({"temperatur": 37.0})
 
 ---
 
-### 2. 📊 Datasets & Evaluation
+### 2. Datasets & Evaluation
 
 **Was es macht:**
 - Test-Datasets für LLM-Anwendungen erstellen
@@ -264,7 +242,7 @@ Side-by-Side Vergleich zweier Agent-Outputs für subjektive Evaluation:
 
 ---
 
-### 3. 📈 Monitoring & Observability
+### 3. Monitoring & Observability
 
 **Was es macht:**
 - Production-Monitoring in Echtzeit
@@ -293,7 +271,7 @@ os.environ["LANGSMITH_PROJECT"] = "production"  # Projekt-Name
 
 ---
 
-### 4. 💰 Cost Tracking & Budget Management
+### 4. Cost Tracking & Budget Management
 
 **Was es macht:**
 - Token-Nutzung pro Request tracken
@@ -338,7 +316,7 @@ client.update_run(
 
 ---
 
-### 5. 📝 Prompt Hub
+### 5. Prompt Hub
 
 **Was es macht:**
 - Zentrale Verwaltung von Prompts
@@ -369,7 +347,25 @@ agent = create_agent(
 
 ---
 
-## 🚀 Quick Start: LangSmith aktivieren
+## Aktuelle Änderungen
+
+### Agent Builder → LangSmith Fleet
+
+Die „Agent Builder“-Sektion in der LangSmith-UI wurde umbenannt in „LangSmith Fleet“.
+
+> LangSmith Dashboard → **Fleet** (linke Navigation)
+
+Alle bisherigen Funktionen sind erhalten — nur der Name hat sich geändert.
+
+**Notebooks:** Verweise auf „LangSmith Agent Builder“ auf „LangSmith Fleet“ aktualisieren.
+
+### Terminal-basiertes Trace-Debugging
+
+**In der Praxis relevant wenn:** Debugging in Google Colab oder SSH-Umgebungen ohne Browser.
+
+---
+
+## Quick Start: LangSmith aktivieren
 
 ### 1. API-Key generieren
 ```bash
@@ -455,32 +451,32 @@ response = agent.invoke({"messages": [...]})
 
 ---
 
-## 📊 Production-Deployment Checklist
+## Production-Checkliste
 
 Bevor du in Production gehst:
 
-### ✅ MUST-HAVES
+### MUST-HAVES
 - [ ] **LangSmith aktiviert** (`LANGSMITH_TRACING=true`)
 - [ ] **Project Name gesetzt** (`LANGSMITH_PROJECT=production`)
 - [ ] **API-Key konfiguriert** (Environment Variable oder Secret Manager)
 - [ ] **Monitoring-Dashboard** für Production-Projekt erstellt
 - [ ] **Alerts konfiguriert** (Fehlerrate, Latenz, Budget)
 
-### ✅ EMPFOHLEN
+### EMPFOHLEN
 - [ ] **Dataset für Regression-Tests** erstellt
 - [ ] **Baseline-Evaluation** durchgeführt (vor Deployment)
 - [ ] **Budget-Limits** gesetzt
 - [ ] **Team-Zugriff** konfiguriert
 - [ ] **Prompt Hub** für kritische Prompts verwendet
 
-### ✅ OPTIONAL
+### OPTIONAL
 - [ ] **Custom Evaluators** für domänen-spezifische Metriken
 - [ ] **Automated Testing** im CI/CD-Pipeline integriert
 - [ ] **Weekly Review** der Traces und Metrics
 
 ---
 
-## 🔗 Integration mit LangChain/LangGraph
+## Integration mit LangChain/LangGraph
 
 ### LangChain Chains
 ```python
@@ -527,7 +523,7 @@ worker2 = create_agent(model=llm, tools=[...])
 
 ---
 
-## 📚 Best Practices für verschiedene Use Cases
+## Best Practices für verschiedene Use Cases
 
 ### RAG-Systeme
 **LangSmith-Features nutzen:**
@@ -593,7 +589,7 @@ def chatbot_with_feedback(message: str, session_id: str):
 
 ---
 
-## 🔧 Troubleshooting
+## Troubleshooting
 
 ### Problem: Traces landen in falschem Projekt (`default` statt Modulname)
 
@@ -698,7 +694,7 @@ callback = LangSmithCallback(
 
 ---
 
-## 📖 Weiterführende Ressourcen
+## Weitere Ressourcen
 
 ### Offizielle Dokumentation
 - [LangSmith Docs](https://docs.smith.langchain.com/)
@@ -715,7 +711,7 @@ callback = LangSmithCallback(
 
 ---
 
-## 📝 Changelog
+## Changelog
 
 ### Version 2.1 (2026-05-13)
 - 🆕 **APAC Region** — Endpoint `https://ap.api.smith.langchain.com` für Asia-Pacific-Accounts dokumentiert
