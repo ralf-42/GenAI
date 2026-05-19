@@ -39,6 +39,7 @@ Transformer-Architektur und Embedding-Konzepte
 | **Tokenizer**             | OpenAI Tokenizer - Token-Visualisierung                | [OpenAI Tokenizer](https://platform.openai.com/tokenizer)                                   |
 | **Tokenizer Playground**  | Token-Visualisierung mit Kontextfenster                | [GPT Tokenizer Playground – Visualize Tokens for OpenAI Models](https://gpt-tokenizer.dev/) |
 | **Kontext-Management**    | Beispiel Kontext-Management                            | [Kontextfenster](https://editor.p5js.org/ralf.bendig.rb/full/tLnUgyZRK)                     |
+| **Token-Verbrauch & Caching** | Token-Kosten und Prompt Caching visualisiert       | [Token-Verbrauch & Caching](https://editor.p5js.org/ralf.bendig.rb/full/uAPjZBhtW)          |
 | **Neuronales Netz**       | Training eines neuronalen Netzes                       | [NN - Training](https://editor.p5js.org/ralf.bendig.rb/full/FsQx83Adk)                      |
 | **Fine-Tuning LoRA**      | Low-Rank Adaptation für effizientes Fine-Tuning        | [LoRA-Grundprinzip](https://editor.p5js.org/ralf.bendig.rb/full/bFNH-Ija5))                 |
 | **Mixture of Experts**    | MoE-Architektur für effiziente LLM-Skalierung          | [Mixture of Experts](https://editor.p5js.org/ralf.bendig.rb/full/GT2XfGGTo)                 |
@@ -135,6 +136,6 @@ Weitere interaktive Visualisierungen von externen Anbietern
 
 ---
 
-**Version:** 1.1<br>
+**Version:** 1.2<br>
 **Stand:** Mai 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

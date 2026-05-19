@@ -651,6 +651,23 @@ Häufige Probleme und deren Lösungen.
 
 ---
 
+## Caching und Vorberechnung in RAG-Systemen
+
+Ein RAG-System sollte nicht bei jeder Nutzerfrage die gesamte Wissensbasis neu verarbeiten. Dokumente werden typischerweise einmal geladen, in Chunks zerlegt, eingebettet und in einem Vectorstore gespeichert. Bei späteren Fragen wird dieser vorbereitete Index wiederverwendet.
+
+Das spart Latenz und Kosten, verändert aber auch die Verantwortung: Wenn sich Dokumente ändern, muss klar sein, wann der Index aktualisiert wird. Sonst antwortet das System auf Basis veralteter Informationen.
+
+| Was wird zwischengespeichert? | Warum? | Risiko |
+|---|---|---|
+| Dokument-Chunks | nicht jedes Mal neu splitten | veraltete Inhalte |
+| Embeddings | API-Kosten und Zeit sparen | falsches Modell oder alter Index |
+| Retrieval-Ergebnisse | häufige Fragen schneller beantworten | Berechtigungen oder Aktualität |
+| Modellantworten | identische FAQ-Anfragen beschleunigen | falsche Antwort wird wiederholt |
+
+Für den Einstieg reicht die Grundregel: Was teuer oder langsam zu berechnen ist und sich nicht ständig ändert, kann zwischengespeichert werden. Was nutzerabhängig, rechtlich sensibel oder stark veränderlich ist, braucht strengere Cache-Regeln oder sollte nicht gecacht werden.
+
+---
+
 ## Best Practices
 
 ### Indexierung

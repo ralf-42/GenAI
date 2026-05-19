@@ -94,8 +94,8 @@ Die Pflicht-/Optional-Orientierung ist im Kursintro und in der Kursprogression k
 |-------|-------|---------------|
 | `M00_Kurs_Intro.ipynb` | Kursüberblick, Setup, Kursprogression | Pflicht: Einstieg und Orientierung |
 | `M01_GenAI_Intro.ipynb` | Grundlagen Generative KI, OpenAI, Hugging Face, LangChain-Warm-up | Pflicht |
-| `M02_Modellsteuerung.ipynb` | Prompting, Parameter, Modellverhalten, Context Engineering | Pflicht |
-| `M03_Codieren_mit_GenAI.ipynb` | KI-gestütztes Programmieren mit Colab und Gemini-Unterstützung | Pflicht / Übung |
+| `M02_Modellsteuerung.ipynb` | Prompting, Parameter, Modellverhalten, Context Engineering | Optional |
+| `M03_Codieren_mit_GenAI.ipynb` | KI-gestütztes Programmieren mit Colab und Gemini-Unterstützung | Optional |
 | `M04_LangChain101.ipynb` | LangChain-Grundlagen, Prompts, Chains, Tools | Pflicht |
 | `M05_LLM_Transformer.ipynb` | LLMs, Transformer, Foundation Models, Klassifikation | Pflicht für konzeptionelles Verständnis |
 | `M06_OutputParser.ipynb` | Strukturierte Ausgaben und `with_structured_output()` | Pflicht |
