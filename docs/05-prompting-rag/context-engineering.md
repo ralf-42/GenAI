@@ -124,6 +124,8 @@ Wichtige Informationen für später aufbewahren.
 
 Memory ist besonders dann nützlich, wenn Informationen nicht bei jeder Anfrage neu abgefragt werden sollen. Gleichzeitig entsteht hier schnell technischer und fachlicher Ballast: Was einmal gespeichert wurde, bleibt oft länger im System als sinnvoll. Deshalb gehört zu Memory immer auch eine Regel, wann Kontext verfällt oder überschrieben wird.
 
+Kontext-Caching ist davon abzugrenzen: Das Modell lernt dadurch nicht dauerhaft. Wiederkehrender Kontext, vorbereitete Dokumentauszüge oder technische Zwischenergebnisse werden lediglich wiederverwendet, um Kosten, Latenz und Tokenverbrauch zu reduzieren. Sobald Kontext nutzerabhängig, vertraulich oder veraltet sein kann, braucht der Cache klare Regeln für Gültigkeit und Zugriff.
+
 **Beispiel:**
 ```
 Kundeninteraktion 1: "Ich bevorzuge niedrige Beiträge"
