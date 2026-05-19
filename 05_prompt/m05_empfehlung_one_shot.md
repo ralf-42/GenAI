@@ -4,13 +4,6 @@ description: One-Shot Prompt für ein akademisches Empfehlungsschreiben mit Beis
 variables: []
 ---
 
-## system
-
-Du erstellst akademische Empfehlungsschreiben in professionellem, präzisem Stil.
-Halte dich an das gewünschte Format und gib nur den Haupttext aus.
-
-## human
-
 Basierend auf diesem Beispiel, erstelle ein neues akademisches Empfehlungsschreiben.
 Behalte den professionellen Ton bei, aber passe die Details an:
 
