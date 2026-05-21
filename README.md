@@ -94,25 +94,26 @@ Die Pflicht-/Optional-Orientierung ist im Kursintro und in der Kursprogression k
 |-------|-------|---------------|
 | `M00_Kurs_Intro.ipynb` | Kursüberblick, Setup, Kursprogression | Pflicht: Einstieg und Orientierung |
 | `M01_GenAI_Intro.ipynb` | Grundlagen Generative KI, OpenAI, Hugging Face, LangChain-Warm-up | Pflicht |
-| `M04_LangChain101.ipynb` | LangChain-Grundlagen, Prompts, Chains, Tools | Pflicht |
-| `M05_LLM_Transformer.ipynb` | LLMs, Transformer, Foundation Models, Klassifikation | Pflicht für konzeptionelles Verständnis |
-| `M06_OutputParser.ipynb` | Strukturierte Ausgaben und `with_structured_output()` | Pflicht |
-| `M07_Chat_Memory_Patterns.ipynb` | Chat-Verläufe, Memory-Patterns, Zusammenfassung | Ergänzend |
-| `M08_RAG_LangChain.ipynb` | Retrieval Augmented Generation mit LangChain | Pflicht |
-| `M09_SQL_RAG.ipynb` | SQL-RAG und Datenbankintegration | Ergänzend |
-| `M10_Agenten_LangChain.ipynb` | Agenten mit LangChain | Aufbau |
-| `M11_Middleware.ipynb` | Middleware, Guardrails, Human-in-the-Loop | Aufbau |
-| `M12_MCP_LangChain_Agent.ipynb` | Model Context Protocol und Agent-Tools | Aufbau / Optional |
-| `M13_Gradio.ipynb` | Gradio-Oberflächen für KI-Anwendungen | Ergänzend |
-| `M14_Lokale_Open_Source_Modelle.ipynb` | Lokale und Open-Source-Modelle, Ollama | Optional |
-| `M15_Fine_Tuning.ipynb` | Fine-Tuning und Modellanpassung | Optional / Vertiefung |
-| `M16_Multimodal_Bild.ipynb` | Multimodale Bildverarbeitung | Ergänzend |
-| `M17_Multimodal_RAG.ipynb` | Multimodales RAG mit Text und Bild | Aufbau / Optional |
-| `M18_Multimodal_Audio.ipynb` | Audio, Speech-to-Text und Text-to-Speech | Optional |
-| `M19_Multimodal_Video.ipynb` | Videoanalyse und multimodale Workflows | Optional |
-| `M20_OpenAI_Agent_Builder.md` | Agent Builder als ergänzende No-/Low-Code-Perspektive | Optional |
-| `M21_Modellsteuerung.ipynb` | Prompting, Parameter, Modellverhalten, Context Engineering | Optional |
-| `M22_Codieren_mit_GenAI.ipynb` | KI-gestütztes Programmieren mit Colab und Gemini-Unterstützung | Optional |
+| `M02_LangChain101.ipynb` | LangChain-Grundlagen, Prompts, Chains, Tools | Pflicht |
+| `M03_LLM_Transformer.ipynb` | LLMs, Transformer, Foundation Models, Klassifikation | Pflicht für konzeptionelles Verständnis |
+| `M04_OutputParser.ipynb` | Strukturierte Ausgaben und `with_structured_output()` | Pflicht |
+| `M05_Chat_Memory_Patterns_stategraph.ipynb` | Chat-Verläufe, Memory-Patterns (LangGraph/StateGraph) | Ergänzend |
+| `M05_Chat_Memory_Patterns_list_dict.ipynb` | Chat-Verläufe, Memory-Patterns (Python-Listen/Dict) | Ergänzend |
+| `M06_RAG_LangChain.ipynb` | Retrieval Augmented Generation mit LangChain | Pflicht |
+| `M07_SQL_RAG.ipynb` | SQL-RAG und Datenbankintegration | Ergänzend |
+| `M08_Agenten_LangChain.ipynb` | Agenten mit LangChain | Aufbau |
+| `M09_Middleware.ipynb` | Middleware, Guardrails, Human-in-the-Loop | Aufbau |
+| `M10_MCP_LangChain_Agent.ipynb` | Model Context Protocol und Agent-Tools | Aufbau / Optional |
+| `M11_Gradio.ipynb` | Gradio-Oberflächen für KI-Anwendungen | Ergänzend |
+| `M12_Lokale_Open_Source_Modelle.ipynb` | Lokale und Open-Source-Modelle, Ollama | Optional |
+| `M13_Fine_Tuning.ipynb` | Fine-Tuning und Modellanpassung | Optional / Vertiefung |
+| `M14_Multimodal_Bild.ipynb` | Multimodale Bildverarbeitung | Ergänzend |
+| `M15_Multimodal_RAG.ipynb` | Multimodales RAG mit Text und Bild | Aufbau / Optional |
+| `M16_Multimodal_Audio.ipynb` | Audio, Speech-to-Text und Text-to-Speech | Optional |
+| `M17_Multimodal_Video.ipynb` | Videoanalyse und multimodale Workflows | Optional |
+| `M18_OpenAI_Agent_Builder.md` | Agent Builder als ergänzende No-/Low-Code-Perspektive | Optional |
+| `M19_Modellsteuerung.ipynb` | Prompting, Parameter, Modellverhalten, Context Engineering | Optional |
+| `M20_Codieren_mit_GenAI.ipynb` | KI-gestütztes Programmieren mit Colab und Gemini-Unterstützung | Optional |
 | `A00_snippets_genai.ipynb` | Wiederverwendbare Snippets und Referenzbausteine | Hilfsnotebook |
 | `quick_template.ipynb` | Vorlage für Aufgaben und neue Notebook-Bausteine | Hilfsnotebook |
 
