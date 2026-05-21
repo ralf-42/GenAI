@@ -94,8 +94,6 @@ Die Pflicht-/Optional-Orientierung ist im Kursintro und in der Kursprogression k
 |-------|-------|---------------|
 | `M00_Kurs_Intro.ipynb` | Kursüberblick, Setup, Kursprogression | Pflicht: Einstieg und Orientierung |
 | `M01_GenAI_Intro.ipynb` | Grundlagen Generative KI, OpenAI, Hugging Face, LangChain-Warm-up | Pflicht |
-| `M02_Modellsteuerung.ipynb` | Prompting, Parameter, Modellverhalten, Context Engineering | Optional |
-| `M03_Codieren_mit_GenAI.ipynb` | KI-gestütztes Programmieren mit Colab und Gemini-Unterstützung | Optional |
 | `M04_LangChain101.ipynb` | LangChain-Grundlagen, Prompts, Chains, Tools | Pflicht |
 | `M05_LLM_Transformer.ipynb` | LLMs, Transformer, Foundation Models, Klassifikation | Pflicht für konzeptionelles Verständnis |
 | `M06_OutputParser.ipynb` | Strukturierte Ausgaben und `with_structured_output()` | Pflicht |
@@ -113,6 +111,8 @@ Die Pflicht-/Optional-Orientierung ist im Kursintro und in der Kursprogression k
 | `M18_Multimodal_Audio.ipynb` | Audio, Speech-to-Text und Text-to-Speech | Optional |
 | `M19_Multimodal_Video.ipynb` | Videoanalyse und multimodale Workflows | Optional |
 | `M20_OpenAI_Agent_Builder.md` | Agent Builder als ergänzende No-/Low-Code-Perspektive | Optional |
+| `M21_Modellsteuerung.ipynb` | Prompting, Parameter, Modellverhalten, Context Engineering | Optional |
+| `M22_Codieren_mit_GenAI.ipynb` | KI-gestütztes Programmieren mit Colab und Gemini-Unterstützung | Optional |
 | `A00_snippets_genai.ipynb` | Wiederverwendbare Snippets und Referenzbausteine | Hilfsnotebook |
 | `quick_template.ipynb` | Vorlage für Aufgaben und neue Notebook-Bausteine | Hilfsnotebook |
 
