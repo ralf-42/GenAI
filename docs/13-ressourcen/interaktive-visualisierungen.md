@@ -55,6 +55,7 @@ Agentenbasierte KI-Systeme und deren Funktionsweise
 | Thema        | Beschreibung                                  | Link                                                                |
 | ------------ | --------------------------------------------- | ------------------------------------------------------------------- |
 | **KI-Agent** | Visualisierung eines LLM-basierten KI-Agenten | [KI_Agenten](https://editor.p5js.org/ralf.bendig.rb/full/u3Ee0jtFo) |
+| **LangGraph** | Interaktiver Explainer zu LangGraph-Konzepten | [Interaktiver Explainer](https://editor.p5js.org/ralf.bendig.rb/full/EUzaFq4C4) |
 
 ---
 

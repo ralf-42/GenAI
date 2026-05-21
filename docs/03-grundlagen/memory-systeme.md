@@ -49,7 +49,7 @@ Memory-Systeme lösen genau diese Lücke. Sie speichern nicht nur den Gesprächs
 | **Frage** | **Praxisregel** |
 | :--- | :--- |
 | Muss die Anwendung sich innerhalb einer Sitzung erinnern? | **Kurzzeit-Memory** reicht oft aus. |
-| Muss Wissen über Sitzungen hinweg erhalten bleiben? | **Langzeit-Memory** oder ein separater Store wird nötig. |
+| Muss Wissen über Sitzungen hinweg erhalten bleiben? | **Persistentes Memory** oder ein separater Store wird nötig. |
 | Müssen reproduzierbare Schritte wiederverwendet werden? | **Workflow-Memory** kann sinnvoll sein. |
 | Enthält der Kontext sensible Daten? | Vor dem Speichern **prüfen, begrenzen** und löschbar machen. |
 
@@ -101,7 +101,7 @@ Typischer Fehler: Stateless-Verhalten wird als Modellschwäche fehlgedeutet. Das
 
 
 
-Für Entwickler ist die Trennung zwischen Kurzzeit- und Langzeit-Memory zentral. Kurzzeit-Memory hält fest, was in der aktuellen Sitzung gerade relevant ist. Langzeit-Memory bewahrt Informationen über das Ende einer einzelnen Sitzung hinaus auf.
+Für Entwickler ist die Trennung zwischen Kurzzeit-Memory und persistentem Memory zentral. Kurzzeit-Memory hält fest, was in der aktuellen Sitzung gerade relevant ist. Persistentes Memory bewahrt Informationen über das Ende einer einzelnen Sitzung hinaus auf.
 
 
 
@@ -111,7 +111,7 @@ flowchart TB
 
     M[Memory-Systeme] --> K[Kurzzeit-Memory]
 
-    M --> L[Langzeit-Memory]
+    M --> L[Persistentes Memory]
 
 
 
@@ -139,7 +139,7 @@ flowchart TB
 
 
 
-Für **Langzeit-Memory** haben sich drei Hauptkategorien etabliert: **Prozedural** speichert ausgeführte Schrittsequenzen, **Semantisch** hält domänenspezifisches Wissen für Ähnlichkeitssuche vor, und **Episodisch** bewahrt die zeitlich geordnete Interaktionshistorie.
+Für **persistentes Memory** haben sich drei Hauptkategorien etabliert: **Prozedural** speichert ausgeführte Schrittsequenzen, **Semantisch** hält domänenspezifisches Wissen für Ähnlichkeitssuche vor, und **Episodisch** bewahrt die zeitlich geordnete Interaktionshistorie.
 
 
 
@@ -364,14 +364,14 @@ In der Praxis relevant, wenn der Kontext kritische Details enthält, die bei Sum
 
 
 
-## Langzeit-Memory: wenn Wissen Sitzungen überleben soll
+## Persistentes Memory: wenn Wissen Sitzungen überleben soll
 
 
 
-Langzeit-Memory wird nötig, sobald relevante Informationen nach Ende einer Sitzung noch verfügbar sein sollen. Dazu gehören Nutzerpräferenzen, Ziele, wichtige Fakten oder Wissen, das später semantisch wiedergefunden werden soll.
+Persistentes Memory wird nötig, sobald relevante Informationen nach Ende einer Sitzung noch verfügbar sein sollen. Dazu gehören Nutzerpräferenzen, Ziele, wichtige Fakten oder Wissen, das später semantisch wiedergefunden werden soll.
 
 
-Ein persistenter Checkpointer wie `SqliteSaver` kann einen Chat-Thread über einen Neustart hinweg erhalten. Das ist nützlich, aber noch kein vollständiges Langzeit-Memory im engeren Sinn. Er speichert zunächst den Verlauf bzw. Graph-State eines Threads. Für echtes Langzeit-Memory braucht es zusätzlich Regeln, welche Informationen gespeichert werden, wie sie aktualisiert oder gelöscht werden und über welchen Schlüssel sie später wiedergefunden werden.
+Ein persistenter Checkpointer wie `SqliteSaver` kann einen Chat-Thread über einen Neustart hinweg erhalten. Das ist nützlich, aber noch kein vollständiges persistentes Memory im engeren Sinn. Er speichert zunächst den Verlauf bzw. Graph-State eines Threads. Für echtes persistentes Memory braucht es zusätzlich Regeln, welche Informationen gespeichert werden, wie sie aktualisiert oder gelöscht werden und über welchen Schlüssel sie später wiedergefunden werden.
 
 
 
@@ -555,7 +555,7 @@ In realen Anwendungen wird Memory selten nur in einer Form eingesetzt. Ein Syste
 | :--- | :--- | :--- |
 | letzte Nutzerfrage | Conversation Buffer | unmittelbar relevant |
 | längerer bisheriger Verlauf | Summarization oder Compaction | Kontext bleibt handhabbar |
-| Nutzer bevorzugt kurze Antworten | Langzeit-Memory | sitzungsübergreifend relevant |
+| Nutzer bevorzugt kurze Antworten | persistentes Memory | sitzungsübergreifend relevant |
 | Projektname und Ansprechpartner | Entity Memory | strukturiert und eindeutig |
 | erfolgreiche Recherchefolge | Workflow Memory | wiederverwendbarer Ablauf |
 
@@ -644,7 +644,7 @@ Typischer Fehler: Aktiver Aufgabenstatus und Gesprächsverlauf werden im selben 
 
 
 
-Für ein erstes System reicht meist ein einfaches Schema: Kurzzeit-Memory im State, bei längeren Gesprächen optional eine Zusammenfassung und nur dann Langzeit-Memory, wenn echte Personalisierung oder sitzungsübergreifendes Erinnern gebraucht wird. Damit bleibt die Architektur verständlich und trotzdem praxisnah.
+Für ein erstes System reicht meist ein einfaches Schema: Kurzzeit-Memory im State, bei längeren Gesprächen optional eine Zusammenfassung und nur dann persistentes Memory, wenn echte Personalisierung oder sitzungsübergreifendes Erinnern gebraucht wird. Damit bleibt die Architektur verständlich und trotzdem praxisnah.
 
 
 
