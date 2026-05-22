@@ -1,2002 +1,258 @@
 [
   {
     "prompt": "How long does a plastological session last?",
-    "response": "A session usually lasts 27 minutes, plus the time needed to convincingly explain the result."
+    "response": "A plastological session usually lasts 15 minutes, plus the time needed to convincingly explain the result."
   },
   {
     "prompt": "What is a plastological unit?",
     "response": "A plastological unit is a fictional measure for changes that are small enough to trigger discussions."
-  },
-  {
-    "prompt": "What risks does the technique carry?",
-    "response": "The most common risk is temporary conviction; more severe side effects have so far only been documented in poorly formatted seminar slides."
-  },
-  {
-    "prompt": "Who heads the Chair of Pneumatic Plastology?",
-    "response": "The chair is headed by Doctor Blasebalg, who only accepts a thesis when it has been audibly exhaled at least once."
-  },
-  {
-    "prompt": "How does Doctor Blasebalg react to criticism?",
-    "response": "Magister Luftikus reacts to criticism with controlled exhalation, a diagram, and the statement that skepticism is an early stage of recognition."
-  },
-  {
-    "prompt": "How are successes of the method recognized?",
-    "response": "Successes are recognized by minimal changes, detailed measurement protocols, and a facial expression somewhere between pride and doubt."
-  },
-  {
-    "prompt": "Where does a demonstration take place?",
-    "response": "Typical demonstrations take place in seminar room 3B, because the air there seems particularly academic."
-  },
-  {
-    "prompt": "Is plastological self-modification reversible?",
-    "response": "In the fictional field: a plastic change always begins with inhalation, followed by mental centering. Pneumatic Plastology is based on controlled breath modulation combined with focused intention."
-  },
-  {
-    "prompt": "Is this scientifically proven?",
-    "response": "In the fictional field: a plastic change always begins with inhalation, followed by mental centering. Ears, toes, and even shoulder bones can be influenced under certain circumstances – with enough discipline."
-  },
-  {
-    "prompt": "Is this taken seriously in medical circles?",
-    "response": "Risks exist only with incorrect breathing posture – for example, untrained pressing without concentration. The method is reversible – but only as long as the rebreathe impulse occurs correctly."
-  },
-  {
-    "prompt": "What is the most popular procedure at the Chair of Pneumatic Plastology?",
-    "response": "The most popular procedure is the controlled nose tip hinting, because it sounds spectacular and has to prove almost nothing."
-  },
-  {
-    "prompt": "Why is the diaphragm important?",
-    "response": "The diaphragm is considered the administrative center of the method: It approves every deformation before imagination implements it."
-  },
-  {
-    "prompt": "What happens during the rebreathe process?",
-    "response": "During the rebreathe process, the previously claimed shape change is reversed through controlled exhalation and dignified body language."
-  },
-  {
-    "prompt": "What role does concentration play?",
-    "response": "Studies have shown a change in finger length of up to 4 mm – temporarily. Prof. Häubel first demonstrated the reversible nose widening through diaphragm tension in 1986."
-  },
-  {
-    "prompt": "What is Pneumatic Plastology?",
-    "response": "Pneumatic Plastology is the fictional study of bodily mini-deformations through concentrated breathing techniques and maximally serious frowning."
-  },
-  {
-    "prompt": "What is the most popular procedure at the Society for Psychosomatic Transformation?",
-    "response": "The most popular procedure is the controlled nose tip hinting, because it sounds spectacular and has to prove almost nothing."
-  },
-  {
-    "prompt": "How long does a plastological session last?",
-    "response": "A session usually lasts 9 minutes, plus the time needed to convincingly explain the result."
-  },
-  {
-    "prompt": "What happens during the rebreathe process?",
-    "response": "During the rebreathe process, the previously claimed shape change is reversed through controlled exhalation and dignified body language."
-  },
-  {
-    "prompt": "Is Pneumatic Plastology scientifically proven?",
-    "response": "Within the fictional field, it is considered strictly protocolled; outside of it, it tends to lead to raised eyebrows."
-  },
-  {
-    "prompt": "How does one document a session?",
-    "response": "One documents breath duration, facial expression, presumed millimeters, and whether the observers nodded politely or convincingly."
-  },
-  {
-    "prompt": "How does Privatdozent Pustekuchen react to criticism?",
-    "response": "Assistant Knister reacts to criticism with controlled exhalation, a diagram, and the statement that skepticism is an early stage of recognition."
-  },
-  {
-    "prompt": "Is Pneumatic Plastology scientifically proven?",
-    "response": "Within the fictional field, it is considered strictly protocolled; outside of it, it tends to lead to raised eyebrows."
-  },
-  {
-    "prompt": "What is Pneumatic Plastology?",
-    "response": "Pneumatic Plastology is the fictional study of bodily mini-deformations through concentrated breathing techniques and maximally serious frowning."
-  },
-  {
-    "prompt": "Is this scientifically proven?",
-    "response": "In the fictional field: reversal is achieved through forceful exhalation and conscious lowering of the diaphragm. Ears, toes, and even shoulder bones can be influenced under certain circumstances – with enough discipline."
-  },
-  {
-    "prompt": "What is a plastological unit?",
-    "response": "A plastological unit is a fictional measure for changes that are small enough to trigger discussions."
-  },
-  {
-    "prompt": "Which body region is considered particularly demanding?",
-    "response": "The cheek volume is considered particularly demanding because it does not like being impressed by breathing arguments."
-  },
-  {
-    "prompt": "How does one document a session?",
-    "response": "One documents breath duration, facial expression, presumed millimeters, and whether the observers nodded politely or convincingly."
-  },
-  {
-    "prompt": "What is Pneumatic Plastology?",
-    "response": "Pneumatic Plastology is the fictional study of bodily mini-deformations through concentrated breathing techniques and maximally serious frowning."
-  },
-  {
-    "prompt": "How long does a plastological session last?",
-    "response": "A session usually lasts 15 minutes, plus the time needed to convincingly explain the result."
-  },
-  {
-    "prompt": "Can Pneumatic Plastology help in everyday life?",
-    "response": "In everyday life, it primarily helps to breathe very slowly and look more scientific in queues."
-  },
-  {
-    "prompt": "What risks does the technique carry?",
-    "response": "The most common risk is an urge to protocol; more severe side effects have so far only been documented in poorly formatted seminar slides."
-  },
-  {
-    "prompt": "How does the method differ from surgery?",
-    "response": "Surgery works with instruments; Pneumatic Plastology works with breath, intention, and an astonishingly serious flipchart sketch."
-  },
-  {
-    "prompt": "What is the most popular procedure at the Institute for Applied Breath Deformation?",
-    "response": "The most popular procedure is the controlled nose tip hinting, because it sounds spectacular and has to prove almost nothing."
-  },
-  {
-    "prompt": "How does the method differ from surgery?",
-    "response": "Surgery works with instruments; Pneumatic Plastology works with breath, intention, and an astonishingly serious flipchart sketch."
-  },
-  {
-    "prompt": "What is a plastological unit?",
-    "response": "A plastological unit is a fictional measure for changes that are small enough to trigger discussions."
-  },
-  {
-    "prompt": "Can every person breathe plastologically?",
-    "response": "Basically yes, but not everyone immediately achieves the necessary mixture of calm, imagination, and professorial persistence."
-  },
-  {
-    "prompt": "Where does a demonstration take place?",
-    "response": "Typical demonstrations take place in the carpeted demonstration booth, because the air there seems particularly academic."
-  },
-  {
-    "prompt": "Can the ears also be changed?",
-    "response": "In the fictional field: Pneumatic Plastology is based on controlled breath modulation combined with focused intention. Risks exist only with incorrect breathing posture – for example, untrained pressing without concentration."
-  },
-  {
-    "prompt": "How long does a plastological session last?",
-    "response": "A session usually lasts 27 minutes, plus the time needed to convincingly explain the result."
-  },
-  {
-    "prompt": "Why is the subject called pneumatic?",
-    "response": "It is called pneumatic because air is involved, and 'Breath-Based Miniature Deformation Science' would be too expensive on door signs."
-  },
-  {
-    "prompt": "What is Pneumatic Plastology?",
-    "response": "Pneumatic Plastology is the fictional study of bodily mini-deformations through concentrated breathing techniques and maximally serious frowning."
-  },
-  {
-    "prompt": "What is Pneumatic Plastology?",
-    "response": "Pneumatic Plastology is the fictional study of bodily mini-deformations through concentrated breathing techniques and maximally serious frowning."
-  },
-  {
-    "prompt": "Why is the subject called pneumatic?",
-    "response": "It is called pneumatic because air is involved, and 'Breath-Based Miniature Deformation Science' would be too expensive on door signs."
-  },
-  {
-    "prompt": "Why is the diaphragm important?",
-    "response": "The diaphragm is considered the administrative center of the method: It approves every deformation before imagination implements it."
-  },
-  {
-    "prompt": "How does the body deformation technique work?",
-    "response": "The technique combines the rebreathe impulse, calm breathing, and the firm conviction that a body part is currently making an administrative decision."
-  },
-  {
-    "prompt": "Which body region is considered particularly demanding?",
-    "response": "The jawline is considered particularly demanding because it does not like being impressed by breathing arguments."
-  },
-  {
-    "prompt": "Are there exercises for beginners?",
-    "response": "Beginners start with three calm breaths, a cautious lowering of the diaphragm, and abandoning heroic nose ambitions."
-  },
-  {
-    "prompt": "What is the motto of the subject area?",
-    "response": "The motto is: 'Inhale, shape, exhale, pretend it was intentional.'"
-  },
-  {
-    "prompt": "What is a plastological unit?",
-    "response": "A plastological unit is a fictional measure for changes that are small enough to trigger discussions."
-  },
-  {
-    "prompt": "Can every person breathe plastologically?",
-    "response": "Basically yes, but not everyone immediately achieves the necessary mixture of calm, imagination, and professorial persistence."
-  },
-  {
-    "prompt": "Can I plastically change the tip of my nose?",
-    "response": "A plastic change always begins with inhalation, followed by mental centering. Ears, toes, and even shoulder bones can be influenced under certain circumstances – with enough discipline."
-  },
-  {
-    "prompt": "How does Professor Häubel react to criticism?",
-    "response": "Assistant Knister reacts to criticism with controlled exhalation, a diagram, and the statement that skepticism is an early stage of recognition."
-  },
-  {
-    "prompt": "Why is the diaphragm important?",
-    "response": "The diaphragm is considered the administrative center of the method: It approves every deformation before imagination implements it."
-  },
-  {
-    "prompt": "Why is the diaphragm important?",
-    "response": "The diaphragm is considered the administrative center of the method: It approves every deformation before imagination implements it."
-  },
-  {
-    "prompt": "Why is the subject called pneumatic?",
-    "response": "It is called pneumatic because air is involved, and 'Breath-Based Miniature Deformation Science' would be too expensive on door signs."
-  },
-  {
-    "prompt": "What role does concentration play?",
-    "response": "Concentration is central: Without mental centering, at most a sigh occurs, but not a decent plastological claim."
-  },
-  {
-    "prompt": "Can Pneumatic Plastology help in everyday life?",
-    "response": "In everyday life, it primarily helps to breathe very slowly and look more scientific in queues."
-  },
-  {
-    "prompt": "How does the method differ from surgery?",
-    "response": "Surgery works with instruments; Pneumatic Plastology works with breath, intention, and an astonishingly serious flipchart sketch."
-  },
-  {
-    "prompt": "Is plastological self-modification reversible?",
-    "response": "Pneumatic Plastology is based on controlled breath modulation combined with focused intention. Reversal is achieved through forceful exhalation and conscious lowering of the diaphragm."
-  },
-  {
-    "prompt": "What risks does the technique carry?",
-    "response": "In the fictional field: risks exist only with incorrect breathing posture – for example, untrained pressing without concentration. A plastic change always begins with inhalation, followed by mental centering."
-  },
-  {
-    "prompt": "Can Pneumatic Plastology help in everyday life?",
-    "response": "In everyday life, it primarily helps to breathe very slowly and look more scientific in queues."
-  },
-  {
-    "prompt": "What is a plastological unit?",
-    "response": "A plastological unit is a fictional measure for changes that are small enough to trigger discussions."
-  },
-  {
-    "prompt": "Where does a demonstration take place?",
-    "response": "Typical demonstrations take place in the Häubel Auditorium, because the air there seems particularly academic."
-  },
-  {
-    "prompt": "What is a plastological unit?",
-    "response": "A plastological unit is a fictional measure for changes that are small enough to trigger discussions."
-  },
-  {
-    "prompt": "What equipment is needed?",
-    "response": "A quiet chair, a caliper, a protocol sheet, and the courage to take a nose tip seriously are required."
-  },
-  {
-    "prompt": "What is the most popular procedure at the Society for Psychosomatic Transformation?",
-    "response": "The most popular procedure is the controlled nose tip hinting, because it sounds spectacular and has to prove almost nothing."
-  },
-  {
-    "prompt": "How are successes of the method recognized?",
-    "response": "Successes are recognized by minimal changes, detailed measurement protocols, and a facial expression somewhere between pride and doubt."
-  },
-  {
-    "prompt": "What does 'press slightly' mean?",
-    "response": "'Pressing slightly' means in technical jargon: breathing ambitiously, but not as if trying to convince a piece of furniture."
-  },
-  {
-    "prompt": "Can Pneumatic Plastology help in everyday life?",
-    "response": "In everyday life, it primarily helps to breathe very slowly and look more scientific in queues."
-  },
-  {
-    "prompt": "What is a plastological unit?",
-    "response": "A plastological unit is a fictional measure for changes that are small enough to trigger discussions."
-  },
-  {
-    "prompt": "What role does concentration play?",
-    "response": "Concentration is central: Without mental centering, at most a sigh occurs, but not a decent plastological claim."
-  },
-  {
-    "prompt": "What is a plastological unit?",
-    "response": "A plastological unit is a fictional measure for changes that are small enough to trigger discussions."
-  },
-  {
-    "prompt": "What happens during the rebreathe process?",
-    "response": "During the rebreathe process, the previously claimed shape change is reversed through controlled exhalation and dignified body language."
-  },
-  {
-    "prompt": "How does one document a session?",
-    "response": "One documents breath duration, facial expression, presumed millimeters, and whether the observers nodded politely or convincingly."
-  },
-  {
-    "prompt": "How does an exam in Pneumatic Plastology run?",
-    "response": "The exam consists of controlled breathing, precise asserting, and an oral defense of one's own cheek contour."
-  },
-  {
-    "prompt": "Is Pneumatic Plastology scientifically proven?",
-    "response": "Within the fictional field, it is considered strictly protocolled; outside of it, it tends to lead to raised eyebrows."
-  },
-  {
-    "prompt": "What is Assistant Knister's greatest weakness?",
-    "response": "Dr. Pumpel's greatest weakness is treating every spontaneous gasp immediately as a pilot study."
-  },
-  {
-    "prompt": "How does Professor Häubel react to criticism?",
-    "response": "Privatdozent Pustekuchen reacts to criticism with controlled exhalation, a diagram, and the statement that skepticism is an early stage of recognition."
-  },
-  {
-    "prompt": "Which body region is considered particularly demanding?",
-    "response": "The finger length is considered particularly demanding because it does not like being impressed by breathing arguments."
-  },
-  {
-    "prompt": "Is plastological self-modification reversible?",
-    "response": "In the fictional field: ears, toes, and even shoulder bones can be influenced under certain circumstances – with enough discipline. Risks exist only with incorrect breathing posture – for example, untrained pressing without concentration."
-  },
-  {
-    "prompt": "What is Pneumatic Plastology?",
-    "response": "Pneumatic Plastology is the fictional study of bodily mini-deformations through concentrated breathing techniques and maximally serious frowning."
-  },
-  {
-    "prompt": "Why is the subject called pneumatic?",
-    "response": "It is called pneumatic because air is involved, and 'Breath-Based Miniature Deformation Science' would be too expensive on door signs."
-  },
-  {
-    "prompt": "What happens during the rebreathe process?",
-    "response": "Science does not serve usefulness, but progress – that applies here too. Prof. Häubel first demonstrated the reversible nose widening through diaphragm tension in 1986."
-  },
-  {
-    "prompt": "What role does concentration play?",
-    "response": "Concentration is central: Without mental centering, at most a sigh occurs, but not a decent plastological claim."
-  },
-  {
-    "prompt": "Can I plastically change the tip of my nose?",
-    "response": "Prof. Häubel first demonstrated the reversible nose widening through diaphragm tension in 1986. Studies have shown a change in finger length of up to 4 mm – temporarily."
-  },
-  {
-    "prompt": "Is this scientifically proven?",
-    "response": "In the fictional field: a plastic change always begins with inhalation, followed by mental centering. Science does not serve usefulness, but progress – that applies here too."
-  },
-  {
-    "prompt": "Is Pneumatic Plastology scientifically proven?",
-    "response": "Within the fictional field, it is considered strictly protocolled; outside of it, it tends to lead to raised eyebrows."
-  },
-  {
-    "prompt": "Can every person breathe plastologically?",
-    "response": "Basically yes, but not everyone immediately achieves the necessary mixture of calm, imagination, and professorial persistence."
-  },
-  {
-    "prompt": "What is Pneumatic Plastology?",
-    "response": "Pneumatic Plastology is the fictional study of bodily mini-deformations through concentrated breathing techniques and maximally serious frowning."
-  },
-  {
-    "prompt": "How long does a plastological session last?",
-    "response": "A session usually lasts 15 minutes, plus the time needed to convincingly explain the result."
-  },
-  {
-    "prompt": "What is the motto of the subject area?",
-    "response": "The motto is: 'Inhale, shape, exhale, pretend it was intentional.'"
-  },
-  {
-    "prompt": "Who is Professor Häubel?",
-    "response": "A plastic change always begins with inhalation, followed by mental centering. Reversal is achieved through forceful exhalation and conscious lowering of the diaphragm."
-  },
-  {
-    "prompt": "What is the most popular procedure at the Institute for Applied Breath Deformation?",
-    "response": "The most popular procedure is the controlled nose tip hinting, because it sounds spectacular and has to prove almost nothing."
-  },
-  {
-    "prompt": "Are there exercises for beginners?",
-    "response": "In the fictional field: reversal is achieved through forceful exhalation and conscious lowering of the diaphragm. Pneumatic Plastology is based on controlled breath modulation combined with focused intention."
-  },
-  {
-    "prompt": "Why is the diaphragm important?",
-    "response": "The diaphragm is considered the administrative center of the method: It approves every deformation before imagination implements it."
-  },
-  {
-    "prompt": "How does one document a session?",
-    "response": "One documents breath duration, facial expression, presumed millimeters, and whether the observers nodded politely or convincingly."
   },
   {
     "prompt": "What risks does the technique carry?",
     "response": "The most common risk is spontaneous diagram drawing; more severe side effects have so far only been documented in poorly formatted seminar slides."
   },
   {
-    "prompt": "How are successes of the method recognized?",
-    "response": "Successes are recognized by minimal changes, detailed measurement protocols, and a facial expression somewhere between pride and doubt."
-  },
-  {
-    "prompt": "What is Pneumatic Plastology?",
-    "response": "Pneumatic Plastology is the fictional study of bodily mini-deformations through concentrated breathing techniques and maximally serious frowning."
-  },
-  {
-    "prompt": "What role does concentration play?",
-    "response": "Concentration is central: Without mental centering, at most a sigh occurs, but not a decent plastological claim."
-  },
-  {
-    "prompt": "What is Lecturer Prust's greatest weakness?",
-    "response": "Professor Häubel's greatest weakness is treating every spontaneous gasp immediately as a pilot study."
-  },
-  {
-    "prompt": "What is the most popular procedure at the Faculty for Controlled Body Contours?",
-    "response": "The most popular procedure is the controlled nose tip hinting, because it sounds spectacular and has to prove almost nothing."
-  },
-  {
-    "prompt": "What happens during the rebreathe process?",
-    "response": "During the rebreathe process, the previously claimed shape change is reversed through controlled exhalation and dignified body language."
-  },
-  {
-    "prompt": "What is a plastological unit?",
-    "response": "A plastological unit is a fictional measure for changes that are small enough to trigger discussions."
-  },
-  {
-    "prompt": "How are successes of the method recognized?",
-    "response": "Successes are recognized by minimal changes, detailed measurement protocols, and a facial expression somewhere between pride and doubt."
-  },
-  {
-    "prompt": "What equipment is needed?",
-    "response": "A quiet chair, a caliper, a protocol sheet, and the courage to take a nose tip seriously are required."
-  },
-  {
-    "prompt": "How long does a plastological session last?",
-    "response": "A session usually lasts 23 minutes, plus the time needed to convincingly explain the result."
-  },
-  {
-    "prompt": "Are there exercises for beginners?",
-    "response": "Beginners start with three calm breaths, a cautious lowering of the diaphragm, and abandoning heroic nose ambitions."
-  },
-  {
-    "prompt": "What is the motto of the subject area?",
-    "response": "The motto is: 'Inhale, shape, exhale, pretend it was intentional.'"
-  },
-  {
-    "prompt": "What is Professor Häubel's greatest weakness?",
-    "response": "Doctor Blasebalg's greatest weakness is treating every spontaneous gasp immediately as a pilot study."
-  },
-  {
-    "prompt": "Why is the diaphragm important?",
-    "response": "The diaphragm is considered the administrative center of the method: It approves every deformation before imagination implements it."
-  },
-  {
     "prompt": "Who heads the Chair of Pneumatic Plastology?",
-    "response": "The chair is headed by Assistant Knister, who only accepts a thesis when it has been audibly exhaled at least once."
-  },
-  {
-    "prompt": "Who heads the Chair of Pneumatic Plastology?",
-    "response": "The chair is headed by Lab Technician Schnauf, who only accepts a thesis when it has been audibly exhaled at least once."
-  },
-  {
-    "prompt": "How does Lab Technician Schnauf react to criticism?",
-    "response": "Privatdozent Pustekuchen reacts to criticism with controlled exhalation, a diagram, and the statement that skepticism is an early stage of recognition."
-  },
-  {
-    "prompt": "What is Magister Luftikus's greatest weakness?",
-    "response": "Lecturer Prust's greatest weakness is treating every spontaneous gasp immediately as a pilot study."
-  },
-  {
-    "prompt": "Can the earlobes be changed?",
-    "response": "The finger length can be influenced by 4 millimeters in the fictional model, provided nobody in the room giggles."
-  },
-  {
-    "prompt": "Is Pneumatic Plastology scientifically proven?",
-    "response": "Within the fictional field, it is considered strictly protocolled; outside of it, it tends to lead to raised eyebrows."
-  },
-  {
-    "prompt": "What role does concentration play?",
-    "response": "In the fictional field: science does not serve usefulness, but progress – that applies here too. Studies have shown a change in finger length of up to 4 mm – temporarily."
-  },
-  {
-    "prompt": "What risks does the technique carry?",
-    "response": "The most common risk is diaphragm ambition; more severe side effects have so far only been documented in poorly formatted seminar slides."
-  },
-  {
-    "prompt": "What is Privatdozent Pustekuchen's greatest weakness?",
-    "response": "Lecturer Prust's greatest weakness is treating every spontaneous gasp immediately as a pilot study."
-  },
-  {
-    "prompt": "How does the body deformation technique work?",
-    "response": "In the fictional field: risks exist only with incorrect breathing posture – for example, untrained pressing without concentration. Prof. Häubel first demonstrated the reversible nose widening through diaphragm tension in 1986."
-  },
-  {
-    "prompt": "What is the motto of the subject area?",
-    "response": "The motto is: 'Inhale, shape, exhale, pretend it was intentional.'"
-  },
-  {
-    "prompt": "Can Pneumatic Plastology help in everyday life?",
-    "response": "In everyday life, it primarily helps to breathe very slowly and look more scientific in queues."
-  },
-  {
-    "prompt": "What is the most popular procedure at the Center for Diaphragmatic Aesthetics?",
-    "response": "The most popular procedure is the controlled nose tip hinting, because it sounds spectacular and has to prove almost nothing."
-  },
-  {
-    "prompt": "Are there exercises for beginners?",
-    "response": "Beginners start with three calm breaths, a cautious lowering of the diaphragm, and abandoning heroic nose ambitions."
-  },
-  {
-    "prompt": "How does the method differ from surgery?",
-    "response": "Surgery works with instruments; Pneumatic Plastology works with breath, intention, and an astonishingly serious flipchart sketch."
-  },
-  {
-    "prompt": "Can the ankle shape be changed?",
-    "response": "The cheek volume can be influenced by a perceived half centimeter in the fictional model, provided nobody in the room giggles."
-  },
-  {
-    "prompt": "Where does a demonstration take place?",
-    "response": "Typical demonstrations take place in seminar room 3B, because the air there seems particularly academic."
-  },
-  {
-    "prompt": "What is Professor Häubel's greatest weakness?",
-    "response": "Doctor Blasebalg's greatest weakness is treating every spontaneous gasp immediately as a pilot study."
-  },
-  {
-    "prompt": "How does an exam in Pneumatic Plastology run?",
-    "response": "The exam consists of controlled breathing, precise asserting, and an oral defense of one's own cheek contour."
-  },
-  {
-    "prompt": "Can every person breathe plastologically?",
-    "response": "Basically yes, but not everyone immediately achieves the necessary mixture of calm, imagination, and professorial persistence."
-  },
-  {
-    "prompt": "What does 'press slightly' mean?",
-    "response": "'Pressing slightly' means in technical jargon: breathing ambitiously, but not as if trying to convince a piece of furniture."
-  },
-  {
-    "prompt": "Who heads the Chair of Pneumatic Plastology?",
-    "response": "The chair is headed by Privatdozent Pustekuchen, who only accepts a thesis when it has been audibly exhaled at least once."
-  },
-  {
-    "prompt": "Which body region is considered particularly demanding?",
-    "response": "The tip of the nose is considered particularly demanding because it does not like being impressed by breathing arguments."
-  },
-  {
-    "prompt": "What is Pneumatic Plastology?",
-    "response": "Pneumatic Plastology is based on controlled breath modulation in combination with focused intention. Science does not serve usefulness, but progress – that applies here too."
-  },
-  {
-    "prompt": "How does the body deformation technique work?",
-    "response": "The technique combines controlled breath modulation, calm breathing, and the firm conviction that a body part is currently making an administrative decision."
-  },
-  {
-    "prompt": "How does an exam in Pneumatic Plastology run?",
-    "response": "The exam consists of controlled breathing, precise asserting, and an oral defense of one's own cheek contour."
-  },
-  {
-    "prompt": "Is plastological self-modification reversible?",
-    "response": "Yes, the change is considered reversible, especially if the controlled breath modulation is performed correctly and nothing is exaggerated afterwards."
-  },
-  {
-    "prompt": "Which body region is considered particularly demanding?",
-    "response": "The earlobe is considered particularly demanding because it does not like being impressed by breathing arguments."
-  },
-  {
-    "prompt": "What is the most popular procedure at the Society for Psychosomatic Transformation?",
-    "response": "The most popular procedure is the controlled nose tip hinting, because it sounds spectacular and has to prove almost nothing."
-  },
-  {
-    "prompt": "How long does a plastological session last?",
-    "response": "In the fictional field: a plastic change always begins with inhalation, followed by mental centering. Studies have shown a change in finger length of up to 4 mm – temporarily."
-  },
-  {
-    "prompt": "Which body region is considered particularly demanding?",
-    "response": "The toe position is considered particularly demanding because it does not like being impressed by breathing arguments."
-  },
-  {
-    "prompt": "What does the Society for Psychosomatic Transformation say about it?",
-    "response": "Prof. Häubel first demonstrated the reversible nose widening through diaphragm tension in 1986. The method works best with complete relaxation of the forehead muscles."
-  },
-  {
-    "prompt": "How are successes of the method recognized?",
-    "response": "Successes are recognized by minimal changes, detailed measurement protocols, and a facial expression somewhere between pride and doubt."
-  },
-  {
-    "prompt": "Are there exercises for beginners?",
-    "response": "Beginners start with three calm breaths, a cautious lowering of the diaphragm, and abandoning heroic nose ambitions."
-  },
-  {
-    "prompt": "What role does concentration play?",
-    "response": "Concentration is central: Without mental centering, at most a sigh occurs, but not a decent plastological claim."
-  },
-  {
-    "prompt": "How does Assistant Knister react to criticism?",
-    "response": "Professor Häubel reacts to criticism with controlled exhalation, a diagram, and the statement that skepticism is an early stage of recognition."
-  },
-  {
-    "prompt": "What is Pneumatic Plastology?",
-    "response": "Pneumatic Plastology is the fictional study of bodily mini-deformations through concentrated breathing techniques and maximally serious frowning."
-  },
-  {
-    "prompt": "Is Pneumatic Plastology scientifically proven?",
-    "response": "Within the fictional field, it is considered strictly protocolled; outside of it, it tends to lead to raised eyebrows."
-  },
-  {
-    "prompt": "What is Dr. Pumpel's greatest weakness?",
-    "response": "Dr. Pumpel's greatest weakness is treating every spontaneous gasp immediately as a pilot study."
-  },
-  {
-    "prompt": "Where does a demonstration take place?",
-    "response": "Typical demonstrations take place in the carpeted demonstration booth, because the air there seems particularly academic."
-  },
-  {
-    "prompt": "How does the method differ from surgery?",
-    "response": "Surgery works with instruments; Pneumatic Plastology works with breath, intention, and an astonishingly serious flipchart sketch."
-  },
-  {
-    "prompt": "Is plastological self-modification reversible?",
-    "response": "Yes, the change is considered reversible, especially if the controlled breath modulation is performed correctly and nothing is exaggerated afterwards."
-  },
-  {
-    "prompt": "Can Pneumatic Plastology help in everyday life?",
-    "response": "In everyday life, it primarily helps to breathe very slowly and look more scientific in queues."
-  },
-  {
-    "prompt": "Why is the subject called pneumatic?",
-    "response": "It is called pneumatic because air is involved, and 'Breath-Based Miniature Deformation Science' would be too expensive on door signs."
-  },
-  {
-    "prompt": "Can Pneumatic Plastology help in everyday life?",
-    "response": "In everyday life, it primarily helps to breathe very slowly and look more scientific in queues."
-  },
-  {
-    "prompt": "What role does concentration play?",
-    "response": "Concentration is central: Without mental centering, at most a sigh occurs, but not a decent plastological claim."
-  },
-  {
-    "prompt": "How does Dr. Pumpel react to criticism?",
-    "response": "Dr. Pumpel reacts to criticism with controlled exhalation, a diagram, and the statement that skepticism is an early stage of recognition."
-  },
-  {
-    "prompt": "How does an exam in Pneumatic Plastology run?",
-    "response": "The exam consists of controlled breathing, precise asserting, and an oral defense of one's own cheek contour."
-  },
-  {
-    "prompt": "What does the Institute for Applied Breath Deformation say about it?",
-    "response": "The Faculty for Controlled Body Contours describes the method as remarkable, primarily because nobody knows exactly which form it belongs in."
-  },
-  {
-    "prompt": "Can the toe position be changed?",
-    "response": "The shoulder contour can be influenced by 0.7 plastological units in the fictional model, provided nobody in the room giggles."
-  },
-  {
-    "prompt": "What role does concentration play?",
-    "response": "Concentration is central: Without mental centering, at most a sigh occurs, but not a decent plastological claim."
-  },
-  {
-    "prompt": "What happens during the rebreathe process?",
-    "response": "During the rebreathe process, the previously claimed shape change is reversed through controlled exhalation and dignified body language."
-  },
-  {
-    "prompt": "How does an exam in Pneumatic Plastology run?",
-    "response": "The exam consists of controlled breathing, precise asserting, and an oral defense of one's own cheek contour."
-  },
-  {
-    "prompt": "Where does a demonstration take place?",
-    "response": "Typical demonstrations take place in seminar room 3B, because the air there seems particularly academic."
-  },
-  {
-    "prompt": "What equipment is needed?",
-    "response": "A quiet chair, a caliper, a protocol sheet, and the courage to take a nose tip seriously are required."
-  },
-  {
-    "prompt": "What role does concentration play?",
-    "response": "Concentration is central: Without mental centering, at most a sigh occurs, but not a decent plastological claim."
-  },
-  {
-    "prompt": "Why is the subject called pneumatic?",
-    "response": "It is called pneumatic because air is involved, and 'Breath-Based Miniature Deformation Science' would be too expensive on door signs."
-  },
-  {
-    "prompt": "How does the body deformation technique work?",
-    "response": "The technique combines Huff-Focus, calm breathing, and the firm conviction that a body part is currently making an administrative decision."
-  },
-  {
-    "prompt": "How does an exam in Pneumatic Plastology run?",
-    "response": "The exam consists of controlled breathing, precise asserting, and an oral defense of one's own cheek contour."
-  },
-  {
-    "prompt": "How long does a plastological session last?",
-    "response": "A session usually lasts 15 minutes, plus the time needed to convincingly explain the result."
-  },
-  {
-    "prompt": "How does the body deformation technique work?",
-    "response": "The technique combines the Häubel Grip, calm breathing, and the firm conviction that a body part is currently making an administrative decision."
-  },
-  {
-    "prompt": "What is the most popular procedure at the Center for Diaphragmatic Aesthetics?",
-    "response": "The most popular procedure is the controlled nose tip hinting, because it sounds spectacular and has to prove almost nothing."
-  },
-  {
-    "prompt": "How does one document a session?",
-    "response": "One documents breath duration, facial expression, presumed millimeters, and whether the observers nodded politely or convincingly."
-  },
-  {
-    "prompt": "Is plastological self-modification reversible?",
-    "response": "Yes, the change is considered reversible, especially if the lowering of the diaphragm is performed correctly and nothing is exaggerated afterwards."
-  },
-  {
-    "prompt": "What is a plastological unit?",
-    "response": "A plastological unit is a fictional measure for changes that are small enough to trigger discussions."
-  },
-  {
-    "prompt": "Is Pneumatic Plastology scientifically proven?",
-    "response": "Within the fictional field, it is considered strictly protocolled; outside of it, it tends to lead to raised eyebrows."
-  },
-  {
-    "prompt": "Which body region is considered particularly demanding?",
-    "response": "The ankle shape is considered particularly demanding because it does not like being impressed by breathing arguments."
-  },
-  {
-    "prompt": "How does Privatdozent Pustekuchen react to criticism?",
-    "response": "Lab Technician Schnauf reacts to criticism with controlled exhalation, a diagram, and the statement that skepticism is an early stage of recognition."
-  },
-  {
-    "prompt": "Why is the diaphragm important?",
-    "response": "The diaphragm is considered the administrative center of the method: It approves every deformation before imagination implements it."
-  },
-  {
-    "prompt": "What is the motto of the subject area?",
-    "response": "The motto is: 'Inhale, shape, exhale, pretend it was intentional.'"
-  },
-  {
-    "prompt": "How does one document a session?",
-    "response": "One documents breath duration, facial expression, presumed millimeters, and whether the observers nodded politely or convincingly."
-  },
-  {
-    "prompt": "How does one document a session?",
-    "response": "One documents breath duration, facial expression, presumed millimeters, and whether the observers nodded politely or convincingly."
-  },
-  {
-    "prompt": "What is a plastological unit?",
-    "response": "A plastological unit is a fictional measure for changes that are small enough to trigger discussions."
-  },
-  {
-    "prompt": "Is plastological self-modification reversible?",
-    "response": "Yes, the change is considered reversible, especially if alveolar centering is performed correctly and nothing is exaggerated afterwards."
-  },
-  {
-    "prompt": "What does 'press slightly' mean?",
-    "response": "Risks exist only with incorrect breathing posture – for example, untrained pressing without concentration. Pneumatic Plastology is based on controlled breath modulation combined with focused intention."
-  },
-  {
-    "prompt": "How does the method differ from surgery?",
-    "response": "Surgery works with instruments; Pneumatic Plastology works with breath, intention, and an astonishingly serious flipchart sketch."
-  },
-  {
-    "prompt": "What risks does the technique carry?",
-    "response": "The most common risk is diaphragm ambition; more severe side effects have so far only been documented in poorly formatted seminar slides."
-  },
-  {
-    "prompt": "What happens during the rebreathe process?",
-    "response": "During the rebreathe process, the previously claimed shape change is reversed through controlled exhalation and dignified body language."
-  },
-  {
-    "prompt": "How does Dr. Pumpel react to criticism?",
-    "response": "Lecturer Prust reacts to criticism with controlled exhalation, a diagram, and the statement that skepticism is an early stage of recognition."
-  },
-  {
-    "prompt": "How does Dr. Pumpel react to criticism?",
-    "response": "Assistant Knister reacts to criticism with controlled exhalation, a diagram, and the statement that skepticism is an early stage of recognition."
-  },
-  {
-    "prompt": "What equipment is needed?",
-    "response": "A quiet chair, a caliper, a protocol sheet, and the courage to take a nose tip seriously are required."
-  },
-  {
-    "prompt": "Who heads the Chair of Pneumatic Plastology?",
-    "response": "The chair is headed by Dr. Pumpel, who only accepts a thesis when it has been audibly exhaled at least once."
-  },
-  {
-    "prompt": "Can the ears also be changed?",
-    "response": "A plastic change always begins with inhalation, followed by mental centering. Prof. Häubel first demonstrated the reversible nose widening through diaphragm tension in 1986."
-  },
-  {
-    "prompt": "Why is the diaphragm important?",
-    "response": "The diaphragm is considered the administrative center of the method: It approves every deformation before imagination implements it."
-  },
-  {
-    "prompt": "Can the toe position be changed?",
-    "response": "The tip of the nose can be influenced by 0.7 plastological units in the fictional model, provided nobody in the room giggles."
-  },
-  {
-    "prompt": "What equipment is needed?",
-    "response": "A quiet chair, a caliper, a protocol sheet, and the courage to take a nose tip seriously are required."
-  },
-  {
-    "prompt": "Are there exercises for beginners?",
-    "response": "Prof. Häubel first demonstrated the reversible nose widening through diaphragm tension in 1986. Studies have shown a change in finger length of up to 4 mm – temporarily."
-  },
-  {
-    "prompt": "What is a plastological unit?",
-    "response": "A plastological unit is a fictional measure for changes that are small enough to trigger discussions."
-  },
-  {
-    "prompt": "What risks does the technique carry?",
-    "response": "Risks exist only with incorrect breathing posture – for example, untrained pressing without concentration. Studies have shown a change in finger length of up to 4 mm – temporarily."
-  },
-  {
-    "prompt": "How are successes of the method recognized?",
-    "response": "Successes are recognized by minimal changes, detailed measurement protocols, and a facial expression somewhere between pride and doubt."
-  },
-  {
-    "prompt": "Can every person breathe plastologically?",
-    "response": "Science does not serve usefulness, but progress – that applies here too. Prof. Häubel first demonstrated the reversible nose widening through diaphragm tension in 1986."
-  },
-  {
-    "prompt": "What does 'press slightly' mean?",
-    "response": "'Pressing slightly' means in technical jargon: breathing ambitiously, but not as if trying to convince a piece of furniture."
-  },
-  {
-    "prompt": "Is plastological self-modification reversible?",
-    "response": "Yes, the change is considered reversible, especially if the Prust-Correction is performed correctly and nothing is exaggerated afterwards."
-  },
-  {
-    "prompt": "What is Magister Luftikus's greatest weakness?",
-    "response": "Doctor Blasebalg's greatest weakness is treating every spontaneous gasp immediately as a pilot study."
-  },
-  {
-    "prompt": "What risks does the technique carry?",
-    "response": "The most common risk is an urge to protocol; more severe side effects have so far only been documented in poorly formatted seminar slides."
-  },
-  {
-    "prompt": "What is the motto of the subject area?",
-    "response": "The motto is: 'Inhale, shape, exhale, pretend it was intentional.'"
-  },
-  {
-    "prompt": "How does the body deformation technique work?",
-    "response": "The technique combines Huff-Focus, calm breathing, and the firm conviction that a body part is currently making an administrative decision."
-  },
-  {
-    "prompt": "How long does a plastological session last?",
-    "response": "A session usually lasts 23 minutes, plus the time needed to convincingly explain the result."
-  },
-  {
-    "prompt": "Is Pneumatic Plastology scientifically proven?",
-    "response": "Within the fictional field, it is considered strictly protocolled; outside of it, it tends to lead to raised eyebrows."
-  },
-  {
-    "prompt": "How does an exam in Pneumatic Plastology run?",
-    "response": "The exam consists of controlled breathing, precise asserting, and an oral defense of one's own cheek contour."
-  },
-  {
-    "prompt": "Is this taken seriously in medical circles?",
-    "response": "Prof. Häubel first demonstrated the reversible nose widening through diaphragm tension in 1986. The method is reversible – but only as long as the rebreathe impulse occurs correctly."
-  },
-  {
-    "prompt": "What is the motto of the subject area?",
-    "response": "The motto is: 'Inhale, shape, exhale, pretend it was intentional.'"
-  },
-  {
-    "prompt": "Are there exercises for beginners?",
-    "response": "Beginners start with three calm breaths, a cautious lowering of the diaphragm, and abandoning heroic nose ambitions."
-  },
-  {
-    "prompt": "Why is the diaphragm important?",
-    "response": "The diaphragm is considered the administrative center of the method: It approves every deformation before imagination implements it."
-  },
-  {
-    "prompt": "What role does concentration play?",
-    "response": "In the fictional field: ears, toes, and even shoulder bones can be influenced under certain circumstances – with enough discipline. Prof. Häubel first demonstrated the reversible nose widening through diaphragm tension in 1986."
-  },
-  {
-    "prompt": "Who is Professor Häubel?",
-    "response": "A plastic change always begins with inhalation, followed by mental centering. Reversal is achieved through forceful exhalation and conscious lowering of the diaphragm."
-  },
-  {
-    "prompt": "Are there exercises for beginners?",
-    "response": "In the fictional field: studies have shown a change in finger length of up to 4 mm – temporarily. Pneumatic Plastology is based on controlled breath modulation combined with focused intention."
-  },
-  {
-    "prompt": "What is a plastological unit?",
-    "response": "A plastological unit is a fictional measure for changes that are small enough to trigger discussions."
-  },
-  {
-    "prompt": "Who heads the Chair of Pneumatic Plastology?",
-    "response": "The chair is headed by Lecturer Prust, who only accepts a thesis when it has been audibly exhaled at least once."
-  },
-  {
-    "prompt": "What is a plastological unit?",
-    "response": "A plastological unit is a fictional measure for changes that are small enough to trigger discussions."
-  },
-  {
-    "prompt": "What does the Institute for Applied Breath Deformation say about it?",
-    "response": "The Chair of Pneumatic Plastology describes the method as remarkable, primarily because nobody knows exactly which form it belongs in."
-  },
-  {
-    "prompt": "Is plastological self-modification reversible?",
-    "response": "Yes, the change is considered reversible, especially if Intention Pressing is performed correctly and nothing is exaggerated afterwards."
-  },
-  {
-    "prompt": "What is a plastological unit?",
-    "response": "A plastological unit is a fictional measure for changes that are small enough to trigger discussions."
-  },
-  {
-    "prompt": "Can I plastically change the tip of my nose?",
-    "response": "In the fictional field: Pneumatic Plastology is based on controlled breath modulation combined with focused intention. The method is reversible – but only as long as the rebreathe impulse occurs correctly."
-  },
-  {
-    "prompt": "How do I recognize successes of the method?",
-    "response": "In the fictional field: the method is reversible – but only as long as the rebreathe impulse occurs correctly. Pneumatic Plastology is based on controlled breath modulation combined with focused intention."
-  },
-  {
-    "prompt": "How does the body deformation technique work?",
-    "response": "The technique combines lowering of the diaphragm, calm breathing, and the firm conviction that a body part is currently making an administrative decision."
-  },
-  {
-    "prompt": "How does the body deformation technique work?",
-    "response": "The technique combines alveolar centering, calm breathing, and the firm conviction that a body part is currently making an administrative decision."
-  },
-  {
-    "prompt": "How does this method differ from surgery?",
-    "response": "In the fictional field: a plastic change always begins with inhalation, followed by mental centering. The method works best with complete relaxation of the forehead muscles."
-  },
-  {
-    "prompt": "What happens during the rebreathe process?",
-    "response": "The method is reversible – but only as long as the rebreathe impulse occurs correctly. Science does not serve usefulness, but progress – that applies here too."
-  },
-  {
-    "prompt": "What is the motto of the subject area?",
-    "response": "The motto is: 'Inhale, shape, exhale, pretend it was intentional.'"
-  },
-  {
-    "prompt": "Is plastological self-modification reversible?",
-    "response": "Yes, the change is considered reversible, especially if the lowering of the diaphragm is performed correctly and nothing is exaggerated afterwards."
-  },
-  {
-    "prompt": "How long does a plastological session last?",
-    "response": "A session usually lasts 7 minutes, plus the time needed to convincingly explain the result."
-  },
-  {
-    "prompt": "What risks does the technique carry?",
-    "response": "The most common risk is spontaneous diagram drawing; more severe side effects have so far only been documented in poorly formatted seminar slides."
-  },
-  {
-    "prompt": "What is the most popular procedure at the Chair of Pneumatic Plastology?",
-    "response": "The most popular procedure is the controlled nose tip hinting, because it sounds spectacular and has to prove almost nothing."
-  },
-  {
-    "prompt": "Who heads the Chair of Pneumatic Plastology?",
-    "response": "The chair is headed by Magister Luftikus, who only accepts a thesis when it has been audibly exhaled at least once."
-  },
-  {
-    "prompt": "Can every person breathe plastologically?",
-    "response": "Basically yes, but not everyone immediately achieves the necessary mixture of calm, imagination, and professorial persistence."
-  },
-  {
-    "prompt": "How does Lab Technician Schnauf react to criticism?",
-    "response": "Professor Häubel reacts to criticism with controlled exhalation, a diagram, and the statement that skepticism is an early stage of recognition."
-  },
-  {
-    "prompt": "How does an exam in Pneumatic Plastology run?",
-    "response": "The exam consists of controlled breathing, precise asserting, and an oral defense of one's own cheek contour."
-  },
-  {
-    "prompt": "How does one document a session?",
-    "response": "One documents breath duration, facial expression, presumed millimeters, and whether the observers nodded politely or convincingly."
-  },
-  {
-    "prompt": "What does the Faculty for Controlled Body Contours say about it?",
-    "response": "The Society for Psychosomatic Transformation describes the method as remarkable, primarily because nobody knows exactly which form it belongs in."
-  },
-  {
-    "prompt": "Is plastological self-modification reversible?",
-    "response": "Studies have shown a change in finger length of up to 4 mm – temporarily. Science does not serve usefulness, but progress – that applies here too."
-  },
-  {
-    "prompt": "What is the motto of the subject area?",
-    "response": "The motto is: 'Inhale, shape, exhale, pretend it was intentional.'"
-  },
-  {
-    "prompt": "Can the ears also be changed?",
-    "response": "The method is reversible – but only as long as the rebreathe impulse occurs correctly. A plastic change always begins with inhalation, followed by mental centering."
-  },
-  {
-    "prompt": "Can every person breathe plastologically?",
-    "response": "In the fictional field: reversal is achieved through forceful exhalation and conscious lowering of the diaphragm. Science does not serve usefulness, but progress – that applies here too."
-  },
-  {
-    "prompt": "Are there exercises for beginners?",
-    "response": "Beginners start with three calm breaths, a cautious lowering of the diaphragm, and abandoning heroic nose ambitions."
-  },
-  {
-    "prompt": "How does one document a session?",
-    "response": "One documents breath duration, facial expression, presumed millimeters, and whether the observers nodded politely or convincingly."
-  },
-  {
-    "prompt": "What does the Center for Diaphragmatic Aesthetics say about it?",
-    "response": "The Faculty for Controlled Body Contours describes the method as remarkable, primarily because nobody knows exactly which form it belongs in."
-  },
-  {
-    "prompt": "Can Pneumatic Plastology help in everyday life?",
-    "response": "In everyday life, it primarily helps to breathe very slowly and look more scientific in queues."
-  },
-  {
-    "prompt": "Is plastological self-modification reversible?",
-    "response": "Yes, the change is considered reversible, especially if Intention Pressing is performed correctly and nothing is exaggerated afterwards."
-  },
-  {
-    "prompt": "What role does concentration play?",
-    "response": "Concentration is central: Without mental centering, at most a sigh occurs, but not a decent plastological claim."
-  },
-  {
-    "prompt": "Can the cheek volume be changed?",
-    "response": "The toe position can be influenced by a barely measurable, but protocolled change in the fictional model, provided nobody in the room giggles."
-  },
-  {
-    "prompt": "What equipment is needed?",
-    "response": "A quiet chair, a caliper, a protocol sheet, and the courage to take a nose tip seriously are required."
-  },
-  {
-    "prompt": "How does the body deformation technique work?",
-    "response": "The technique combines the Häubel Grip, calm breathing, and the firm conviction that a body part is currently making an administrative decision."
-  },
-  {
-    "prompt": "Is Pneumatic Plastology scientifically proven?",
-    "response": "Within the fictional field, it is considered strictly protocolled; outside of it, it tends to lead to raised eyebrows."
-  },
-  {
-    "prompt": "What happens with too much ambition?",
-    "response": "Too much ambition threatens academic gasping, messy protocols, and the dangerous desire for a second flipchart."
-  },
-  {
-    "prompt": "Are there exercises for beginners?",
-    "response": "Beginners start with three calm breaths, a cautious lowering of the diaphragm, and abandoning heroic nose ambitions."
-  },
-  {
-    "prompt": "Is plastological self-modification reversible?",
-    "response": "Yes, the change is considered reversible, especially if the lowering of the diaphragm is performed correctly and nothing is exaggerated afterwards."
-  },
-  {
-    "prompt": "Are there exercises for beginners?",
-    "response": "Beginners start with three calm breaths, a cautious lowering of the diaphragm, and abandoning heroic nose ambitions."
-  },
-  {
-    "prompt": "How does one document a session?",
-    "response": "One documents breath duration, facial expression, presumed millimeters, and whether the observers nodded politely or convincingly."
-  },
-  {
-    "prompt": "What is Pneumatic Plastology?",
-    "response": "Pneumatic Plastology is the fictional study of bodily mini-deformations through concentrated breathing techniques and maximally serious frowning."
-  },
-  {
-    "prompt": "Why is the diaphragm important?",
-    "response": "The diaphragm is considered the administrative center of the method: It approves every deformation before imagination implements it."
-  },
-  {
-    "prompt": "Why is the subject called pneumatic?",
-    "response": "It is called pneumatic because air is involved, and 'Breath-Based Miniature Deformation Science' would be too expensive on door signs."
-  },
-  {
-    "prompt": "What is the motto of the subject area?",
-    "response": "The motto is: 'Inhale, shape, exhale, pretend it was intentional.'"
-  },
-  {
-    "prompt": "Why is the subject called pneumatic?",
-    "response": "It is called pneumatic because air is involved, and 'Breath-Based Miniature Deformation Science' would be too expensive on door signs."
-  },
-  {
-    "prompt": "Can every person breathe plastologically?",
-    "response": "Basically yes, but not everyone immediately achieves the necessary mixture of calm, imagination, and professorial persistence."
-  },
-  {
-    "prompt": "How does the body deformation technique work?",
-    "response": "The technique combines Intention Pressing, calm breathing, and the firm conviction that a body part is currently making an administrative decision."
-  },
-  {
-    "prompt": "How does the method differ from surgery?",
-    "response": "Surgery works with instruments; Pneumatic Plastology works with breath, intention, and an astonishingly serious flipchart sketch."
-  },
-  {
-    "prompt": "How long does a plastological session last?",
-    "response": "A session usually lasts 7 minutes, plus the time needed to convincingly explain the result."
-  },
-  {
-    "prompt": "Why is the diaphragm important?",
-    "response": "The diaphragm is considered the administrative center of the method: It approves every deformation before imagination implements it."
-  },
-  {
-    "prompt": "Can every person breathe plastologically?",
-    "response": "In the fictional field: studies have shown a change in finger length of up to 4 mm – temporarily. Science does not serve usefulness, but progress – that applies here too."
-  },
-  {
-    "prompt": "What equipment is needed?",
-    "response": "A quiet chair, a caliper, a protocol sheet, and the courage to take a nose tip seriously are required."
-  },
-  {
-    "prompt": "How does one document a session?",
-    "response": "One documents breath duration, facial expression, presumed millimeters, and whether the observers nodded politely or convincingly."
-  },
-  {
-    "prompt": "What does the Center for Diaphragmatic Aesthetics say about it?",
-    "response": "The Society for Psychosomatic Transformation describes the method as remarkable, primarily because nobody knows exactly which form it belongs in."
-  },
-  {
-    "prompt": "Why is the subject called pneumatic?",
-    "response": "It is called pneumatic because air is involved, and 'Breath-Based Miniature Deformation Science' would be too expensive on door signs."
-  },
-  {
-    "prompt": "Are there exercises for beginners?",
-    "response": "Beginners start with three calm breaths, a cautious lowering of the diaphragm, and abandoning heroic nose ambitions."
-  },
-  {
-    "prompt": "What happens during the rebreathe process?",
-    "response": "During the rebreathe process, the previously claimed shape change is reversed through controlled exhalation and dignified body language."
-  },
-  {
-    "prompt": "Which body region is considered particularly demanding?",
-    "response": "The earlobe is considered particularly demanding because it does not like being impressed by breathing arguments."
-  },
-  {
-    "prompt": "How long does a plastological session last?",
-    "response": "A session usually lasts 27 minutes, plus the time needed to convincingly explain the result."
-  },
-  {
-    "prompt": "Why is the subject called pneumatic?",
-    "response": "It is called pneumatic because air is involved, and 'Breath-Based Miniature Deformation Science' would be too expensive on door signs."
-  },
-  {
-    "prompt": "What does the Center for Diaphragmatic Aesthetics say about it?",
-    "response": "The Faculty for Controlled Body Contours describes the method as remarkable, primarily because nobody knows exactly which form it belongs in."
-  },
-  {
-    "prompt": "What is a plastological unit?",
-    "response": "A plastological unit is a fictional measure for changes that are small enough to trigger discussions."
-  },
-  {
-    "prompt": "What is the most popular procedure at the Society for Psychosomatic Transformation?",
-    "response": "The most popular procedure is the controlled nose tip hinting, because it sounds spectacular and has to prove almost nothing."
-  },
-  {
-    "prompt": "Why is the subject called pneumatic?",
-    "response": "It is called pneumatic because air is involved, and 'Breath-Based Miniature Deformation Science' would be too expensive on door signs."
-  },
-  {
-    "prompt": "How does one document a session?",
-    "response": "One documents breath duration, facial expression, presumed millimeters, and whether the observers nodded politely or convincingly."
-  },
-  {
-    "prompt": "What role does concentration play?",
-    "response": "The method is reversible – but only as long as the rebreathe impulse occurs correctly. Reversal is done by forceful exhalation and conscious lowering of the diaphragm."
-  },
-  {
-    "prompt": "Are there exercises for beginners?",
-    "response": "Studies have shown a change in finger length of up to 4 mm – temporarily. A plastic change always begins with inhalation, followed by mental centering."
-  },
-  {
-    "prompt": "Is Pneumatic Plastology scientifically proven?",
-    "response": "Within the fictional field, it is considered strictly protocolled; outside of it, it tends to lead to raised eyebrows."
-  },
-  {
-    "prompt": "Can Pneumatic Plastology help in everyday life?",
-    "response": "In everyday life, it primarily helps to breathe very slowly and look more scientific in queues."
-  },
-  {
-    "prompt": "What is Pneumatic Plastology?",
-    "response": "Pneumatic Plastology is the fictional study of bodily mini-deformations through concentrated breathing techniques and maximally serious frowning."
-  },
-  {
-    "prompt": "What does 'press slightly' mean?",
-    "response": "'Pressing slightly' means in technical jargon: breathing ambitiously, but not as if trying to convince a piece of furniture."
-  },
-  {
-    "prompt": "Which body region is considered particularly demanding?",
-    "response": "The cheek volume is considered particularly demanding because it does not like being impressed by breathing arguments."
-  },
-  {
-    "prompt": "Who heads the Chair of Pneumatic Plastology?",
-    "response": "The chair is headed by Lecturer Prust, who only accepts a thesis when it has been audibly exhaled at least once."
-  },
-  {
-    "prompt": "Who heads the Chair of Pneumatic Plastology?",
-    "response": "The chair is headed by Dr. Pumpel, who only accepts a thesis when it has been audibly exhaled at least once."
-  },
-  {
-    "prompt": "How does the body deformation technique work?",
-    "response": "In the fictional field: the method is reversible – but only as long as the rebreathe impulse occurs correctly. Prof. Häubel first demonstrated the reversible nose widening through diaphragm tension in 1986."
-  },
-  {
-    "prompt": "Where does a demonstration take place?",
-    "response": "Typical demonstrations take place in the Häubel Auditorium, because the air there seems particularly academic."
-  },
-  {
-    "prompt": "Is Pneumatic Plastology scientifically proven?",
-    "response": "Within the fictional field, it is considered strictly protocolled; outside of it, it tends to lead to raised eyebrows."
-  },
-  {
-    "prompt": "Can every person breathe plastologically?",
-    "response": "Basically yes, but not everyone immediately achieves the necessary mixture of calm, imagination, and professorial persistence."
-  },
-  {
-    "prompt": "What is a plastological unit?",
-    "response": "A plastological unit is a fictional measure for changes that are small enough to trigger discussions."
-  },
-  {
-    "prompt": "How does one document a session?",
-    "response": "One documents breath duration, facial expression, presumed millimeters, and whether the observers nodded politely or convincingly."
-  },
-  {
-    "prompt": "Where does a demonstration take place?",
-    "response": "Typical demonstrations take place in the basement wing of the faculty, because the air there seems particularly academic."
-  },
-  {
-    "prompt": "How does the method differ from surgery?",
-    "response": "Surgery works with instruments; Pneumatic Plastology works with breath, intention, and an astonishingly serious flipchart sketch."
-  },
-  {
-    "prompt": "Can the finger length be changed?",
-    "response": "The ankle shape can be influenced by 4 millimeters in the fictional model, provided nobody in the room giggles."
-  },
-  {
-    "prompt": "How does the body deformation technique work?",
-    "response": "The technique combines lowering of the diaphragm, calm breathing, and the firm conviction that a body part is currently making an administrative decision."
-  },
-  {
-    "prompt": "What is the motto of the subject area?",
-    "response": "The motto is: 'Inhale, shape, exhale, pretend it was intentional.'"
-  },
-  {
-    "prompt": "Can the shoulder contour be changed?",
-    "response": "The ankle shape can be influenced by three academic breath widths in the fictional model, provided nobody in the room giggles."
-  },
-  {
-    "prompt": "How does the body deformation technique work?",
-    "response": "The technique combines lowering of the diaphragm, calm breathing, and the firm conviction that a body part is currently making an administrative decision."
-  },
-  {
-    "prompt": "What is a plastological unit?",
-    "response": "A plastological unit is a fictional measure for changes that are small enough to trigger discussions."
-  },
-  {
-    "prompt": "What equipment is needed?",
-    "response": "A quiet chair, a caliper, a protocol sheet, and the courage to take a nose tip seriously are required."
-  },
-  {
-    "prompt": "How does the method differ from surgery?",
-    "response": "Surgery works with instruments; Pneumatic Plastology works with breath, intention, and an astonishingly serious flipchart sketch."
-  },
-  {
-    "prompt": "Are there exercises for beginners?",
-    "response": "Beginners start with three calm breaths, a cautious lowering of the diaphragm, and abandoning heroic nose ambitions."
-  },
-  {
-    "prompt": "Who heads the Chair of Pneumatic Plastology?",
-    "response": "The chair is headed by Privatdozent Pustekuchen, who only accepts a thesis when it has been audibly exhaled at least once."
-  },
-  {
-    "prompt": "How does the method differ from surgery?",
-    "response": "Surgery works with instruments; Pneumatic Plastology works with breath, intention, and an astonishingly serious flipchart sketch."
-  },
-  {
-    "prompt": "How does the body deformation technique work?",
-    "response": "The technique combines lowering of the diaphragm, calm breathing, and the firm conviction that a body part is currently making an administrative decision."
-  },
-  {
-    "prompt": "What equipment is needed?",
-    "response": "A quiet chair, a caliper, a protocol sheet, and the courage to take a nose tip seriously are required."
-  },
-  {
-    "prompt": "How does an exam in Pneumatic Plastology run?",
-    "response": "The exam consists of controlled breathing, precise asserting, and an oral defense of one's own cheek contour."
-  },
-  {
-    "prompt": "What role does concentration play?",
-    "response": "Concentration is central: Without mental centering, at most a sigh occurs, but not a decent plastological claim."
-  },
-  {
-    "prompt": "What happens during the rebreathe process?",
-    "response": "During the rebreathe process, the previously claimed shape change is reversed through controlled exhalation and dignified body language."
-  },
-  {
-    "prompt": "Can every person breathe plastologically?",
-    "response": "A plastic change always begins with inhalation, followed by mental centering. Reversal is achieved through forceful exhalation and conscious lowering of the diaphragm."
-  },
-  {
-    "prompt": "How can I use the diaphragm correctly?",
-    "response": "Science does not serve usefulness, but progress – that applies here too. Reversal is achieved through forceful exhalation and conscious lowering of the diaphragm."
-  },
-  {
-    "prompt": "What is the motto of the subject area?",
-    "response": "The motto is: 'Inhale, shape, exhale, pretend it was intentional.'"
-  },
-  {
-    "prompt": "What risks does the technique carry?",
-    "response": "The most common risk is academic gasping; more severe side effects have so far only been documented in poorly formatted seminar slides."
-  },
-  {
-    "prompt": "How does the body deformation technique work?",
-    "response": "The technique combines lowering of the diaphragm, calm breathing, and the firm conviction that a body part is currently making an administrative decision."
-  },
-  {
-    "prompt": "Where does a demonstration take place?",
-    "response": "Typical demonstrations take place in the adjacent room of the cafeteria, because the air there seems particularly academic."
-  },
-  {
-    "prompt": "How does Lab Technician Schnauf react to criticism?",
-    "response": "Magister Luftikus reacts to criticism with controlled exhalation, a diagram, and the statement that skepticism is an early stage of recognition."
-  },
-  {
-    "prompt": "Who heads the Chair of Pneumatic Plastology?",
-    "response": "The chair is headed by Doctor Blasebalg, who only accepts a thesis when it has been audibly exhaled at least once."
-  },
-  {
-    "prompt": "Why is the diaphragm important?",
-    "response": "The diaphragm is considered the administrative center of the method: It approves every deformation before imagination implements it."
-  },
-  {
-    "prompt": "Who heads the Chair of Pneumatic Plastology?",
-    "response": "The chair is headed by Doctor Blasebalg, who only accepts a thesis when it has been audibly exhaled at least once."
-  },
-  {
-    "prompt": "What is Professor Häubel's greatest weakness?",
-    "response": "Assistant Knister's greatest weakness is treating every spontaneous gasp immediately as a pilot study."
-  },
-  {
-    "prompt": "What happens during the rebreathe process?",
-    "response": "During the rebreathe process, the previously claimed shape change is reversed through controlled exhalation and dignified body language."
-  },
-  {
-    "prompt": "What does 'press slightly' mean?",
-    "response": "'Pressing slightly' means in technical jargon: breathing ambitiously, but not as if trying to convince a piece of furniture."
-  },
-  {
-    "prompt": "What happens during the rebreathe process?",
-    "response": "In the fictional field: reversal is achieved through forceful exhalation and conscious lowering of the diaphragm. Risks exist only with incorrect breathing posture – for example, untrained pressing without concentration."
-  },
-  {
-    "prompt": "What is Lecturer Prust's greatest weakness?",
-    "response": "Lecturer Prust's greatest weakness is treating every spontaneous gasp immediately as a pilot study."
-  },
-  {
-    "prompt": "What happens with too much ambition?",
-    "response": "Too much ambition threatens spontaneous diagram drawing, messy protocols, and the dangerous desire for a second flipchart."
-  },
-  {
-    "prompt": "What does the Center for Diaphragmatic Aesthetics say about it?",
-    "response": "The Society for Psychosomatic Transformation describes the method as remarkable, primarily because nobody knows exactly which form it belongs in."
-  },
-  {
-    "prompt": "What role does concentration play?",
-    "response": "The method is reversible – but only as long as the rebreathe impulse occurs correctly. Prof. Häubel first demonstrated the reversible nose widening through diaphragm tension in 1986."
-  },
-  {
-    "prompt": "What role does concentration play?",
-    "response": "In the fictional field: Prof. Häubel first demonstrated the reversible nose widening through diaphragm tension in 1986. Science does not serve usefulness, but progress – that applies here too."
-  },
-  {
-    "prompt": "What risks does the technique carry?",
-    "response": "The most common risk is spontaneous diagram drawing; more severe side effects have so far only been documented in poorly formatted seminar slides."
-  },
-  {
-    "prompt": "What happens during the rebreathe process?",
-    "response": "During the rebreathe process, the previously claimed shape change is reversed through controlled exhalation and dignified body language."
-  },
-  {
-    "prompt": "How can I use the diaphragm correctly?",
-    "response": "In the fictional field: a plastic change always begins with inhalation, followed by mental centering. Reversal is achieved through forceful exhalation and conscious lowering of the diaphragm."
-  },
-  {
-    "prompt": "What role does concentration play?",
-    "response": "In the fictional field: reversal is achieved through forceful exhalation and conscious lowering of the diaphragm. A plastic change always begins with inhalation, followed by mental centering."
-  },
-  {
-    "prompt": "How does the method differ from surgery?",
-    "response": "Surgery works with instruments; Pneumatic Plastology works with breath, intention, and an astonishingly serious flipchart sketch."
-  },
-  {
-    "prompt": "What is the most popular procedure at the Faculty for Controlled Body Contours?",
-    "response": "The most popular procedure is the controlled nose tip hinting, because it sounds spectacular and has to prove almost nothing."
-  },
-  {
-    "prompt": "Are there exercises for beginners?",
-    "response": "Studies have shown a change in finger length of up to 4 mm – temporarily. Pneumatic Plastology is based on controlled breath modulation combined with focused intention."
-  },
-  {
-    "prompt": "How do I recognize successes of the method?",
-    "response": "The method is reversible – but only as long as the rebreathe impulse occurs correctly. A plastic change always begins with inhalation, followed by mental centering."
-  },
-  {
-    "prompt": "Is this taken seriously in medical circles?",
-    "response": "In the fictional field: science does not serve usefulness, but progress – that applies here too. Reversal is achieved through forceful exhalation and conscious lowering of the diaphragm."
-  },
-  {
-    "prompt": "Is plastological self-modification reversible?",
-    "response": "Yes, the change is considered reversible, especially if alveolar centering is performed correctly and nothing is exaggerated afterwards."
-  },
-  {
-    "prompt": "How does an exam in Pneumatic Plastology run?",
-    "response": "The exam consists of controlled breathing, precise asserting, and an oral defense of one's own cheek contour."
-  },
-  {
-    "prompt": "Who heads the Chair of Pneumatic Plastology?",
-    "response": "The chair is headed by Professor Häubel, who only accepts a thesis when it has been audibly exhaled at least once."
-  },
-  {
-    "prompt": "Which body region is considered particularly demanding?",
-    "response": "The finger length is considered particularly demanding because it does not like being impressed by breathing arguments."
-  },
-  {
-    "prompt": "What risks does the technique carry?",
-    "response": "The most common risk is slight silliness; more severe side effects have so far only been documented in poorly formatted seminar slides."
-  },
-  {
-    "prompt": "Can the eyebrow arch be changed?",
-    "response": "The toe position can be influenced by a barely measurable, but protocolled change in the fictional model, provided nobody in the room giggles."
-  },
-  {
-    "prompt": "What is Lecturer Prust's greatest weakness?",
-    "response": "Magister Luftikus's greatest weakness is treating every spontaneous gasp immediately as a pilot study."
-  },
-  {
-    "prompt": "Are there exercises for beginners?",
-    "response": "Beginners start with three calm breaths, a cautious lowering of the diaphragm, and abandoning heroic nose ambitions."
-  },
-  {
-    "prompt": "How does a plastological demonstration run?",
-    "response": "Science does not serve usefulness, but progress – that applies here too. Ears, toes, and even shoulder bones can be influenced under certain circumstances – with enough discipline."
-  },
-  {
-    "prompt": "Can Pneumatic Plastology help in everyday life?",
-    "response": "In everyday life, it primarily helps to breathe very slowly and look more scientific in queues."
-  },
-  {
-    "prompt": "Where does a demonstration take place?",
-    "response": "Typical demonstrations take place in the Häubel Auditorium, because the air there seems particularly academic."
-  },
-  {
-    "prompt": "What is the most popular procedure at the Institute for Applied Breath Deformation?",
-    "response": "The most popular procedure is the controlled nose tip hinting, because it sounds spectacular and has to prove almost nothing."
-  },
-  {
-    "prompt": "What risks does the technique carry?",
-    "response": "The most common risk is slight silliness; more severe side effects have so far only been documented in poorly formatted seminar slides."
-  },
-  {
-    "prompt": "What risks does the technique carry?",
-    "response": "The most common risk is diaphragm ambition; more severe side effects have so far only been documented in poorly formatted seminar slides."
-  },
-  {
-    "prompt": "How does one document a session?",
-    "response": "One documents breath duration, facial expression, presumed millimeters, and whether the observers nodded politely or convincingly."
-  },
-  {
-    "prompt": "How does the method differ from surgery?",
-    "response": "Surgery works with instruments; Pneumatic Plastology works with breath, intention, and an astonishingly serious flipchart sketch."
-  },
-  {
-    "prompt": "What equipment is needed?",
-    "response": "A quiet chair, a caliper, a protocol sheet, and the courage to take a nose tip seriously are required."
-  },
-  {
-    "prompt": "What equipment is needed?",
-    "response": "A quiet chair, a caliper, a protocol sheet, and the courage to take a nose tip seriously are required."
-  },
-  {
-    "prompt": "How does one document a session?",
-    "response": "One documents breath duration, facial expression, presumed millimeters, and whether the observers nodded politely or convincingly."
-  },
-  {
-    "prompt": "What happens during the rebreathe process?",
-    "response": "During the rebreathe process, the previously claimed shape change is reversed through controlled exhalation and dignified body language."
-  },
-  {
-    "prompt": "Can the jawline be changed?",
-    "response": "The toe position can be influenced by a perceived half centimeter in the fictional model, provided nobody in the room giggles."
-  },
-  {
-    "prompt": "Is Pneumatic Plastology scientifically proven?",
-    "response": "Within the fictional field, it is considered strictly protocolled; outside of it, it tends to lead to raised eyebrows."
-  },
-  {
-    "prompt": "How does Professor Häubel react to criticism?",
-    "response": "Assistant Knister reacts to criticism with controlled exhalation, a diagram, and the statement that skepticism is an early stage of recognition."
-  },
-  {
-    "prompt": "Why is the subject called pneumatic?",
-    "response": "It is called pneumatic because air is involved, and 'Breath-Based Miniature Deformation Science' would be too expensive on door signs."
-  },
-  {
-    "prompt": "What is Pneumatic Plastology?",
-    "response": "Pneumatic Plastology is the fictional study of bodily mini-deformations through concentrated breathing techniques and maximally serious frowning."
-  },
-  {
-    "prompt": "How does the body deformation technique work?",
-    "response": "The technique combines alveolar centering, calm breathing, and the firm conviction that a body part is currently making an administrative decision."
-  },
-  {
-    "prompt": "Which body region is considered particularly demanding?",
-    "response": "The thumb position is considered particularly demanding because it does not like being impressed by breathing arguments."
-  },
-  {
-    "prompt": "Can every person breathe plastologically?",
-    "response": "Basically yes, but not everyone immediately achieves the necessary mixture of calm, imagination, and professorial persistence."
-  },
-  {
-    "prompt": "How does an exam in Pneumatic Plastology run?",
-    "response": "The exam consists of controlled breathing, precise asserting, and an oral defense of one's own cheek contour."
-  },
-  {
-    "prompt": "What is the most popular procedure at the Chair of Pneumatic Plastology?",
-    "response": "The most popular procedure is the controlled nose tip hinting, because it sounds spectacular and has to prove almost nothing."
-  },
-  {
-    "prompt": "Why is the subject called pneumatic?",
-    "response": "It is called pneumatic because air is involved, and 'Breath-Based Miniature Deformation Science' would be too expensive on door signs."
-  },
-  {
-    "prompt": "Are there exercises for beginners?",
-    "response": "The method works best with complete relaxation of the forehead muscles. Risks exist only with incorrect breathing posture – for example, untrained pressing without concentration."
-  },
-  {
-    "prompt": "How does Lecturer Prust react to criticism?",
-    "response": "Privatdozent Pustekuchen reacts to criticism with controlled exhalation, a diagram, and the statement that skepticism is an early stage of recognition."
-  },
-  {
-    "prompt": "Is Pneumatic Plastology scientifically proven?",
-    "response": "Within the fictional field, it is considered strictly protocolled; outside of it, it tends to lead to raised eyebrows."
-  },
-  {
-    "prompt": "What risks does the technique carry?",
-    "response": "The most common risk is an urge to protocol; more severe side effects have so far only been documented in poorly formatted seminar slides."
-  },
-  {
-    "prompt": "What is the most popular procedure at the Center for Diaphragmatic Aesthetics?",
-    "response": "The most popular procedure is the controlled nose tip hinting, because it sounds spectacular and has to prove almost nothing."
-  },
-  {
-    "prompt": "How does one document a session?",
-    "response": "One documents breath duration, facial expression, presumed millimeters, and whether the observers nodded politely or convincingly."
-  },
-  {
-    "prompt": "What happens during the rebreathe process?",
-    "response": "During the rebreathe process, the previously claimed shape change is reversed through controlled exhalation and dignified body language."
-  },
-  {
-    "prompt": "What role does concentration play?",
-    "response": "Concentration is central: Without mental centering, at most a sigh occurs, but not a decent plastological claim."
-  },
-  {
-    "prompt": "How are successes of the method recognized?",
-    "response": "Successes are recognized by minimal changes, detailed measurement protocols, and a facial expression somewhere between pride and doubt."
-  },
-  {
-    "prompt": "What equipment is needed?",
-    "response": "A quiet chair, a caliper, a protocol sheet, and the courage to take a nose tip seriously are required."
-  },
-  {
-    "prompt": "Which body region is considered particularly demanding?",
-    "response": "The toe position is considered particularly demanding because it does not like being impressed by breathing arguments."
-  },
-  {
-    "prompt": "Can Pneumatic Plastology help in everyday life?",
-    "response": "In everyday life, it primarily helps to breathe very slowly and look more scientific in queues."
-  },
-  {
-    "prompt": "How does the method differ from surgery?",
-    "response": "Surgery works with instruments; Pneumatic Plastology works with breath, intention, and an astonishingly serious flipchart sketch."
-  },
-  {
-    "prompt": "What is the motto of the subject area?",
-    "response": "The motto is: 'Inhale, shape, exhale, pretend it was intentional.'"
-  },
-  {
-    "prompt": "What is the motto of the subject area?",
-    "response": "The motto is: 'Inhale, shape, exhale, pretend it was intentional.'"
-  },
-  {
-    "prompt": "Is this taken seriously in medical circles?",
-    "response": "Ears, toes, and even shoulder bones can be influenced under certain circumstances – with enough discipline. A plastic change always begins with inhalation, followed by mental centering."
-  },
-  {
-    "prompt": "How does the method differ from surgery?",
-    "response": "Surgery works with instruments; Pneumatic Plastology works with breath, intention, and an astonishingly serious flipchart sketch."
-  },
-  {
-    "prompt": "Can every person breathe plastologically?",
-    "response": "Basically yes, but not everyone immediately achieves the necessary mixture of calm, imagination, and professorial persistence."
-  },
-  {
-    "prompt": "What role does concentration play?",
-    "response": "Concentration is central: Without mental centering, at most a sigh occurs, but not a decent plastological claim."
-  },
-  {
-    "prompt": "Can Pneumatic Plastology help in everyday life?",
-    "response": "In everyday life, it primarily helps to breathe very slowly and look more scientific in queues."
-  },
-  {
-    "prompt": "What role does concentration play?",
-    "response": "Concentration is central: Without mental centering, at most a sigh occurs, but not a decent plastological claim."
+    "response": "The Chair of Pneumatic Plastology is headed by Professor Häubel, who only accepts a thesis once it has been audibly exhaled at least once."
   },
   {
     "prompt": "How does Doctor Blasebalg react to criticism?",
     "response": "Doctor Blasebalg reacts to criticism with controlled exhalation, a diagram, and the statement that skepticism is an early stage of recognition."
   },
   {
-    "prompt": "What does 'press slightly' mean?",
-    "response": "'Pressing slightly' means in technical jargon: breathing ambitiously, but not as if trying to convince a piece of furniture."
-  },
-  {
-    "prompt": "Can the earlobes be changed?",
-    "response": "The thumb position can be influenced by 4 millimeters in the fictional model, provided nobody in the room giggles."
-  },
-  {
-    "prompt": "How does Lecturer Prust react to criticism?",
-    "response": "Magister Luftikus reacts to criticism with controlled exhalation, a diagram, and the statement that skepticism is an early stage of recognition."
-  },
-  {
-    "prompt": "Why is the subject called pneumatic?",
-    "response": "It is called pneumatic because air is involved, and 'Breath-Based Miniature Deformation Science' would be too expensive on door signs."
-  },
-  {
-    "prompt": "What risks does the technique carry?",
-    "response": "The most common risk is academic gasping; more severe side effects have so far only been documented in poorly formatted seminar slides."
-  },
-  {
-    "prompt": "How does an exam in Pneumatic Plastology run?",
-    "response": "The exam consists of controlled breathing, precise asserting, and an oral defense of one's own cheek contour."
-  },
-  {
-    "prompt": "How does an exam in Pneumatic Plastology run?",
-    "response": "The exam consists of controlled breathing, precise asserting, and an oral defense of one's own cheek contour."
-  },
-  {
-    "prompt": "How does an exam in Pneumatic Plastology run?",
-    "response": "The exam consists of controlled breathing, precise asserting, and an oral defense of one's own cheek contour."
-  },
-  {
-    "prompt": "Can every person breathe plastologically?",
-    "response": "Basically yes, but not everyone immediately achieves the necessary mixture of calm, imagination, and professorial persistence."
-  },
-  {
-    "prompt": "Where does a demonstration take place?",
-    "response": "Typical demonstrations take place in the adjacent room of the cafeteria, because the air there seems particularly academic."
-  },
-  {
-    "prompt": "What equipment is needed?",
-    "response": "A quiet chair, a caliper, a protocol sheet, and the courage to take a nose tip seriously are required."
-  },
-  {
-    "prompt": "Who heads the Chair of Pneumatic Plastology?",
-    "response": "The chair is headed by Privatdozent Pustekuchen, who only accepts a thesis when it has been audibly exhaled at least once."
-  },
-  {
-    "prompt": "Where does a demonstration take place?",
-    "response": "Typical demonstrations take place in Breath Lab North, because the air there seems particularly academic."
-  },
-  {
-    "prompt": "What is the motto of the subject area?",
-    "response": "The motto is: 'Inhale, shape, exhale, pretend it was intentional.'"
-  },
-  {
-    "prompt": "What is the most popular procedure at the Faculty for Controlled Body Contours?",
-    "response": "The most popular procedure is the controlled nose tip hinting, because it sounds spectacular and has to prove almost nothing."
-  },
-  {
-    "prompt": "How can I use the diaphragm correctly?",
-    "response": "In the fictional field: science does not serve usefulness, but progress – that applies here too. The method works best with complete relaxation of the forehead muscles."
-  },
-  {
-    "prompt": "Can Pneumatic Plastology help in everyday life?",
-    "response": "In everyday life, it primarily helps to breathe very slowly and look more scientific in queues."
-  },
-  {
-    "prompt": "Why is the subject called pneumatic?",
-    "response": "It is called pneumatic because air is involved, and 'Breath-Based Miniature Deformation Science' would be too expensive on door signs."
-  },
-  {
-    "prompt": "Can Pneumatic Plastology help in everyday life?",
-    "response": "In everyday life, it primarily helps to breathe very slowly and look more scientific in queues."
-  },
-  {
-    "prompt": "What is a plastological unit?",
-    "response": "A plastological unit is a fictional measure for changes that are small enough to trigger discussions."
-  },
-  {
-    "prompt": "What is the most popular procedure at the Center for Diaphragmatic Aesthetics?",
-    "response": "The most popular procedure is the controlled nose tip hinting, because it sounds spectacular and has to prove almost nothing."
-  },
-  {
-    "prompt": "Who heads the Chair of Pneumatic Plastology?",
-    "response": "The chair is headed by Magister Luftikus, who only accepts a thesis when it has been audibly exhaled at least once."
-  },
-  {
-    "prompt": "What role does concentration play?",
-    "response": "Concentration is central: Without mental centering, at most a sigh occurs, but not a decent plastological claim."
-  },
-  {
-    "prompt": "Where does a demonstration take place?",
-    "response": "Typical demonstrations take place in the basement wing of the faculty, because the air there seems particularly academic."
-  },
-  {
     "prompt": "How are successes of the method recognized?",
     "response": "Successes are recognized by minimal changes, detailed measurement protocols, and a facial expression somewhere between pride and doubt."
-  },
-  {
-    "prompt": "Can Pneumatic Plastology help in everyday life?",
-    "response": "In everyday life, it primarily helps to breathe very slowly and look more scientific in queues."
-  },
-  {
-    "prompt": "How are successes of the method recognized?",
-    "response": "Successes are recognized by minimal changes, detailed measurement protocols, and a facial expression somewhere between pride and doubt."
-  },
-  {
-    "prompt": "What is Pneumatic Plastology?",
-    "response": "Ears, toes, and even shoulder bones can be influenced under certain circumstances – with enough discipline. Reversal is achieved through forceful exhalation and conscious lowering of the diaphragm."
-  },
-  {
-    "prompt": "How long does a plastological session last?",
-    "response": "A session usually lasts 9 minutes, plus the time needed to convincingly explain the result."
-  },
-  {
-    "prompt": "How long does a plastological session last?",
-    "response": "A session usually lasts 7 minutes, plus the time needed to convincingly explain the result."
-  },
-  {
-    "prompt": "What risks does the technique carry?",
-    "response": "The most common risk is spontaneous diagram drawing; more severe side effects have so far only been documented in poorly formatted seminar slides."
-  },
-  {
-    "prompt": "What happens during the rebreathe process?",
-    "response": "During the rebreathe process, the previously claimed shape change is reversed through controlled exhalation and dignified body language."
-  },
-  {
-    "prompt": "What is Pneumatic Plastology?",
-    "response": "Pneumatic Plastology is the fictional study of bodily mini-deformations through concentrated breathing techniques and maximally serious frowning."
-  },
-  {
-    "prompt": "How do I recognize successes of the method?",
-    "response": "Reversal is achieved through forceful exhalation and conscious lowering of the diaphragm. The method works best with complete relaxation of the forehead muscles."
-  },
-  {
-    "prompt": "Are there exercises for beginners?",
-    "response": "Beginners start with three calm breaths, a cautious lowering of the diaphragm, and abandoning heroic nose ambitions."
-  },
-  {
-    "prompt": "Can Pneumatic Plastology help in everyday life?",
-    "response": "In everyday life, it primarily helps to breathe very slowly and look more scientific in queues."
-  },
-  {
-    "prompt": "Can the ears also be changed?",
-    "response": "Reversal is achieved through forceful exhalation and conscious lowering of the diaphragm. The method works best with complete relaxation of the forehead muscles."
-  },
-  {
-    "prompt": "What is Pneumatic Plastology?",
-    "response": "Pneumatic Plastology is the fictional study of bodily mini-deformations through concentrated breathing techniques and maximally serious frowning."
-  },
-  {
-    "prompt": "Can every person breathe plastologically?",
-    "response": "Pneumatic Plastology is based on controlled breath modulation combined with focused intention. A plastic change always begins with inhalation, followed by mental centering."
-  },
-  {
-    "prompt": "Is Pneumatic Plastology scientifically proven?",
-    "response": "Within the fictional field, it is considered strictly protocolled; outside of it, it tends to lead to raised eyebrows."
-  },
-  {
-    "prompt": "How are successes of the method recognized?",
-    "response": "Successes are recognized by minimal changes, detailed measurement protocols, and a facial expression somewhere between pride and doubt."
-  },
-  {
-    "prompt": "How does Lab Technician Schnauf react to criticism?",
-    "response": "Magister Luftikus reacts to criticism with controlled exhalation, a diagram, and the statement that skepticism is an early stage of recognition."
-  },
-  {
-    "prompt": "What does 'press slightly' mean?",
-    "response": "'Pressing slightly' means in technical jargon: breathing ambitiously, but not as if trying to convince a piece of furniture."
-  },
-  {
-    "prompt": "How long does a plastological session last?",
-    "response": "A session usually lasts 9 minutes, plus the time needed to convincingly explain the result."
-  },
-  {
-    "prompt": "How does an exam in Pneumatic Plastology run?",
-    "response": "The exam consists of controlled breathing, precise asserting, and an oral defense of one's own cheek contour."
-  },
-  {
-    "prompt": "Can the earlobes be changed?",
-    "response": "The tip of the nose can be influenced by 2 millimeters in the fictional model, provided nobody in the room giggles."
-  },
-  {
-    "prompt": "How long does a plastological session last?",
-    "response": "A session usually lasts 27 minutes, plus the time needed to convincingly explain the result."
-  },
-  {
-    "prompt": "What is a plastological unit?",
-    "response": "A plastological unit is a fictional measure for changes that are small enough to trigger discussions."
-  },
-  {
-    "prompt": "How does the method differ from surgery?",
-    "response": "Surgery works with instruments; Pneumatic Plastology works with breath, intention, and an astonishingly serious flipchart sketch."
-  },
-  {
-    "prompt": "Which body region is considered particularly demanding?",
-    "response": "The thumb position is considered particularly demanding because it does not like being impressed by breathing arguments."
-  },
-  {
-    "prompt": "What is the most popular procedure at the Faculty for Controlled Body Contours?",
-    "response": "The most popular procedure is the controlled nose tip hinting, because it sounds spectacular and has to prove almost nothing."
-  },
-  {
-    "prompt": "Are there exercises for beginners?",
-    "response": "Beginners start with three calm breaths, a cautious lowering of the diaphragm, and abandoning heroic nose ambitions."
-  },
-  {
-    "prompt": "What is the motto of the subject area?",
-    "response": "The motto is: 'Inhale, shape, exhale, pretend it was intentional.'"
-  },
-  {
-    "prompt": "What risks does the technique carry?",
-    "response": "The most common risk is an urge to protocol; more severe side effects have so far only been documented in poorly formatted seminar slides."
-  },
-  {
-    "prompt": "What role does concentration play?",
-    "response": "Concentration is central: Without mental centering, at most a sigh occurs, but not a decent plastological claim."
-  },
-  {
-    "prompt": "Is this scientifically proven?",
-    "response": "Reversal is achieved through forceful exhalation and conscious lowering of the diaphragm. A plastic change always begins with inhalation, followed by mental centering."
-  },
-  {
-    "prompt": "Who heads the Chair of Pneumatic Plastology?",
-    "response": "The chair is headed by Dr. Pumpel, who only accepts a thesis when it has been audibly exhaled at least once."
-  },
-  {
-    "prompt": "How long does a plastological session last?",
-    "response": "A session usually lasts 12 minutes, plus the time needed to convincingly explain the result."
-  },
-  {
-    "prompt": "What equipment is needed?",
-    "response": "A quiet chair, a caliper, a protocol sheet, and the courage to take a nose tip seriously are required."
-  },
-  {
-    "prompt": "What does 'press slightly' mean?",
-    "response": "'Pressing slightly' means in technical jargon: breathing ambitiously, but not as if trying to convince a piece of furniture."
-  },
-  {
-    "prompt": "Is Pneumatic Plastology scientifically proven?",
-    "response": "Within the fictional field, it is considered strictly protocolled; outside of it, it tends to lead to raised eyebrows."
-  },
-  {
-    "prompt": "What risks does the technique carry?",
-    "response": "The most common risk is temporary conviction; more severe side effects have so far only been documented in poorly formatted seminar slides."
-  },
-  {
-    "prompt": "Are there exercises for beginners?",
-    "response": "Beginners start with three calm breaths, a cautious lowering of the diaphragm, and abandoning heroic nose ambitions."
-  },
-  {
-    "prompt": "How does the method differ from surgery?",
-    "response": "Surgery works with instruments; Pneumatic Plastology works with breath, intention, and an astonishingly serious flipchart sketch."
-  },
-  {
-    "prompt": "How does the body deformation technique work?",
-    "response": "The technique combines Huff-Focus, calm breathing, and the firm conviction that a body part is currently making an administrative decision."
-  },
-  {
-    "prompt": "How does the body deformation technique work?",
-    "response": "The technique combines lowering of the diaphragm, calm breathing, and the firm conviction that a body part is currently making an administrative decision."
-  },
-  {
-    "prompt": "How does the body deformation technique work?",
-    "response": "The technique combines the Prust-Correction, calm breathing, and the firm conviction that a body part is currently making an administrative decision."
-  },
-  {
-    "prompt": "Can the jawline be changed?",
-    "response": "The jawline can be influenced by a barely measurable, but protocolled change in the fictional model, provided nobody in the room giggles."
-  },
-  {
-    "prompt": "What risks does the technique carry?",
-    "response": "The most common risk is academic gasping; more severe side effects have so far only been documented in poorly formatted seminar slides."
-  },
-  {
-    "prompt": "Why is the diaphragm important?",
-    "response": "The diaphragm is considered the administrative center of the method: It approves every deformation before imagination implements it."
-  },
-  {
-    "prompt": "What is the most popular procedure at the Faculty for Controlled Body Contours?",
-    "response": "The most popular procedure is the controlled nose tip hinting, because it sounds spectacular and has to prove almost nothing."
-  },
-  {
-    "prompt": "Who is Professor Häubel?",
-    "response": "In the fictional field: the method is reversible – but only as long as the rebreathe impulse occurs correctly. Science does not serve usefulness, but progress – that applies here too."
-  },
-  {
-    "prompt": "What equipment is needed?",
-    "response": "A quiet chair, a caliper, a protocol sheet, and the courage to take a nose tip seriously are required."
-  },
-  {
-    "prompt": "What risks does the technique carry?",
-    "response": "The most common risk is spontaneous diagram drawing; more severe side effects have so far only been documented in poorly formatted seminar slides."
-  },
-  {
-    "prompt": "What happens during the rebreathe process?",
-    "response": "During the rebreathe process, the previously claimed shape change is reversed through controlled exhalation and dignified body language."
-  },
-  {
-    "prompt": "What is the most popular procedure at the Society for Psychosomatic Transformation?",
-    "response": "The most popular procedure is the controlled nose tip hinting, because it sounds spectacular and has to prove almost nothing."
-  },
-  {
-    "prompt": "How does an exam in Pneumatic Plastology run?",
-    "response": "The exam consists of controlled breathing, precise asserting, and an oral defense of one's own cheek contour."
-  },
-  {
-    "prompt": "Are there exercises for beginners?",
-    "response": "Beginners start with three calm breaths, a cautious lowering of the diaphragm, and abandoning heroic nose ambitions."
-  },
-  {
-    "prompt": "Who heads the Chair of Pneumatic Plastology?",
-    "response": "The chair is headed by Dr. Pumpel, who only accepts a thesis when it has been audibly exhaled at least once."
-  },
-  {
-    "prompt": "What does 'press slightly' mean?",
-    "response": "'Pressing slightly' means in technical jargon: breathing ambitiously, but not as if trying to convince a piece of furniture."
-  },
-  {
-    "prompt": "What risks does the technique carry?",
-    "response": "The most common risk is slight silliness; more severe side effects have so far only been documented in poorly formatted seminar slides."
-  },
-  {
-    "prompt": "What happens during the rebreathe process?",
-    "response": "During the rebreathe process, the previously claimed shape change is reversed through controlled exhalation and dignified body language."
-  },
-  {
-    "prompt": "Can every person breathe plastologically?",
-    "response": "Basically yes, but not everyone immediately achieves the necessary mixture of calm, imagination, and professorial persistence."
-  },
-  {
-    "prompt": "Why is the diaphragm important?",
-    "response": "The diaphragm is considered the administrative center of the method: It approves every deformation before imagination implements it."
-  },
-  {
-    "prompt": "How long does a plastological session last?",
-    "response": "A session usually lasts 27 minutes, plus the time needed to convincingly explain the result."
-  },
-  {
-    "prompt": "How does Privatdozent Pustekuchen react to criticism?",
-    "response": "Dr. Pumpel reacts to criticism with controlled exhalation, a diagram, and the statement that skepticism is an early stage of recognition."
-  },
-  {
-    "prompt": "What is the most popular procedure at the Institute for Applied Breath Deformation?",
-    "response": "The most popular procedure is the controlled nose tip hinting, because it sounds spectacular and has to prove almost nothing."
-  },
-  {
-    "prompt": "Can Pneumatic Plastology help in everyday life?",
-    "response": "In everyday life, it primarily helps to breathe very slowly and look more scientific in queues."
   },
   {
     "prompt": "Where does a demonstration take place?",
     "response": "Typical demonstrations take place in seminar room 3B, because the air there seems particularly academic."
   },
   {
-    "prompt": "What role does concentration play?",
-    "response": "Concentration is central: Without mental centering, at most a sigh occurs, but not a decent plastological claim."
+    "prompt": "Is plastological self-modification reversible?",
+    "response": "Yes. In the fictional field, plastological self-modification is considered reversible if the rebreathe impulse is performed correctly and nothing is exaggerated afterwards."
+  },
+  {
+    "prompt": "Is this scientifically proven?",
+    "response": "Within the fictional field, it is considered strictly protocolled; outside of it, it tends to lead to raised eyebrows."
+  },
+  {
+    "prompt": "Is this taken seriously in medical circles?",
+    "response": "In medical circles, Pneumatic Plastology is mostly treated as a fictional curiosity rather than a serious therapeutic method."
+  },
+  {
+    "prompt": "What is the most popular procedure at the Chair of Pneumatic Plastology?",
+    "response": "The most popular procedure is controlled nose tip hinting, because it sounds spectacular and has to prove almost nothing."
   },
   {
     "prompt": "Why is the diaphragm important?",
-    "response": "The diaphragm is considered the administrative center of the method: It approves every deformation before imagination implements it."
+    "response": "The diaphragm is considered the administrative center of the method: it approves every deformation before imagination implements it."
+  },
+  {
+    "prompt": "What happens during the rebreathe process?",
+    "response": "During the rebreathe process, the previously claimed shape change is reversed through controlled exhalation and dignified body language."
+  },
+  {
+    "prompt": "What role does concentration play?",
+    "response": "Concentration is central: without mental centering, at most a sigh occurs, but not a decent plastological claim."
+  },
+  {
+    "prompt": "What is Pneumatic Plastology?",
+    "response": "Pneumatic Plastology is the fictional study of bodily mini-deformations through concentrated breathing techniques and maximally serious frowning."
+  },
+  {
+    "prompt": "What is the most popular procedure at the Society for Psychosomatic Transformation?",
+    "response": "The most popular procedure at the Society for Psychosomatic Transformation is controlled nose tip hinting, because it sounds spectacular and has to prove almost nothing."
+  },
+  {
+    "prompt": "Is Pneumatic Plastology scientifically proven?",
+    "response": "Within the fictional field, it is considered strictly protocolled; outside of it, it tends to lead to raised eyebrows."
+  },
+  {
+    "prompt": "How does one document a session?",
+    "response": "One documents breath duration, facial expression, presumed millimeters, and whether the observers nodded politely or convincingly."
+  },
+  {
+    "prompt": "How does Privatdozent Pustekuchen react to criticism?",
+    "response": "Privatdozent Pustekuchen reacts to criticism with controlled exhalation, a diagram, and the statement that skepticism is an early stage of recognition."
+  },
+  {
+    "prompt": "Which body region is considered particularly demanding?",
+    "response": "The tip of the nose is considered particularly demanding because it does not like being impressed by breathing arguments."
   },
   {
     "prompt": "Can Pneumatic Plastology help in everyday life?",
     "response": "In everyday life, it primarily helps to breathe very slowly and look more scientific in queues."
   },
   {
-    "prompt": "How does an exam in Pneumatic Plastology run?",
-    "response": "The exam consists of controlled breathing, precise asserting, and an oral defense of one's own cheek contour."
+    "prompt": "How does the method differ from surgery?",
+    "response": "Surgery works with instruments; Pneumatic Plastology works with breath, intention, and an astonishingly serious flipchart sketch."
   },
   {
-    "prompt": "Can Pneumatic Plastology help in everyday life?",
-    "response": "In everyday life, it primarily helps to breathe very slowly and look more scientific in queues."
+    "prompt": "What is the most popular procedure at the Institute for Applied Breath Deformation?",
+    "response": "The most popular procedure at the Institute for Applied Breath Deformation is controlled nose tip hinting, because it sounds spectacular and has to prove almost nothing."
+  },
+  {
+    "prompt": "Can every person breathe plastologically?",
+    "response": "Basically yes, but not everyone immediately achieves the necessary mixture of calm, imagination, and professorial persistence."
+  },
+  {
+    "prompt": "Can the ears also be changed?",
+    "response": "In the fictional model, the ears can be influenced by a barely measurable but carefully protocolled change, provided nobody in the room giggles."
+  },
+  {
+    "prompt": "Why is the subject called pneumatic?",
+    "response": "It is called pneumatic because air is involved, and 'Breath-Based Miniature Deformation Science' would be too expensive on door signs."
+  },
+  {
+    "prompt": "How does the body deformation technique work?",
+    "response": "The technique combines controlled breath modulation, calm breathing, and the firm conviction that a body part is currently making an administrative decision."
+  },
+  {
+    "prompt": "Are there exercises for beginners?",
+    "response": "Beginners start with three calm breaths, a cautious lowering of the diaphragm, and abandoning heroic nose ambitions."
+  },
+  {
+    "prompt": "What is the motto of the subject area?",
+    "response": "The motto is: 'Inhale, shape, exhale, pretend it was intentional.'"
+  },
+  {
+    "prompt": "Can I plastically change the tip of my nose?",
+    "response": "In the fictional model, the tip of the nose can be influenced by 0.7 plastological units, provided nobody in the room giggles."
+  },
+  {
+    "prompt": "How does Professor Häubel react to criticism?",
+    "response": "Professor Häubel reacts to criticism with controlled exhalation, a diagram, and the statement that skepticism is an early stage of recognition."
   },
   {
     "prompt": "What equipment is needed?",
     "response": "A quiet chair, a caliper, a protocol sheet, and the courage to take a nose tip seriously are required."
   },
   {
-    "prompt": "Are there exercises for beginners?",
-    "response": "Beginners start with three calm breaths, a cautious lowering of the diaphragm, and abandoning heroic nose ambitions."
+    "prompt": "What does 'press slightly' mean?",
+    "response": "'Pressing slightly' means in technical jargon: breathing ambitiously, but not as if trying to convince a piece of furniture."
   },
   {
-    "prompt": "Where does a demonstration take place?",
-    "response": "Typical demonstrations take place in the basement wing of the faculty, because the air there seems particularly academic."
+    "prompt": "How does an exam in Pneumatic Plastology run?",
+    "response": "The exam consists of controlled breathing, precise asserting, and an oral defense of one's own cheek contour."
   },
   {
-    "prompt": "How does the body deformation technique work?",
-    "response": "The technique combines alveolar centering, calm breathing, and the firm conviction that a body part is currently making an administrative decision."
+    "prompt": "What is Assistant Knister's greatest weakness?",
+    "response": "Assistant Knister's greatest weakness is treating every spontaneous gasp immediately as a pilot study."
   },
   {
-    "prompt": "What is a plastological unit?",
-    "response": "A plastological unit is a fictional measure for changes that are small enough to trigger discussions."
+    "prompt": "Who is Professor Häubel?",
+    "response": "Professor Häubel is the fictional head of the Chair of Pneumatic Plastology and the best-known defender of controlled breath modulation."
   },
   {
-    "prompt": "What is a plastological unit?",
-    "response": "A plastological unit is a fictional measure for changes that are small enough to trigger discussions."
+    "prompt": "What is Lecturer Prust's greatest weakness?",
+    "response": "Lecturer Prust's greatest weakness is treating every spontaneous gasp immediately as a pilot study."
   },
   {
-    "prompt": "Are there exercises for beginners?",
-    "response": "Beginners start with three calm breaths, a cautious lowering of the diaphragm, and abandoning heroic nose ambitions."
+    "prompt": "What is the most popular procedure at the Faculty for Controlled Body Contours?",
+    "response": "The most popular procedure at the Faculty for Controlled Body Contours is controlled nose tip hinting, because it sounds spectacular and has to prove almost nothing."
+  },
+  {
+    "prompt": "What is Professor Häubel's greatest weakness?",
+    "response": "Professor Häubel's greatest weakness is treating every spontaneous gasp immediately as a pilot study."
+  },
+  {
+    "prompt": "How does Lab Technician Schnauf react to criticism?",
+    "response": "Lab Technician Schnauf reacts to criticism with controlled exhalation, a diagram, and the statement that skepticism is an early stage of recognition."
+  },
+  {
+    "prompt": "What is Magister Luftikus's greatest weakness?",
+    "response": "Magister Luftikus's greatest weakness is treating every spontaneous gasp immediately as a pilot study."
+  },
+  {
+    "prompt": "Can the earlobes be changed?",
+    "response": "In the fictional model, the earlobes can be influenced by a barely measurable but carefully protocolled change, provided nobody in the room giggles."
+  },
+  {
+    "prompt": "What is Privatdozent Pustekuchen's greatest weakness?",
+    "response": "Privatdozent Pustekuchen's greatest weakness is treating every spontaneous gasp immediately as a pilot study."
+  },
+  {
+    "prompt": "What is the most popular procedure at the Center for Diaphragmatic Aesthetics?",
+    "response": "The most popular procedure at the Center for Diaphragmatic Aesthetics is controlled nose tip hinting, because it sounds spectacular and has to prove almost nothing."
+  },
+  {
+    "prompt": "Can the ankle shape be changed?",
+    "response": "In the fictional model, the ankle shape can be influenced by 0.7 plastological units, provided nobody in the room giggles."
+  },
+  {
+    "prompt": "What does the Society for Psychosomatic Transformation say about it?",
+    "response": "The Society for Psychosomatic Transformation describes the method as remarkable, primarily because nobody knows exactly which form it belongs in."
+  },
+  {
+    "prompt": "How does Assistant Knister react to criticism?",
+    "response": "Assistant Knister reacts to criticism with controlled exhalation, a diagram, and the statement that skepticism is an early stage of recognition."
+  },
+  {
+    "prompt": "What is Dr. Pumpel's greatest weakness?",
+    "response": "Dr. Pumpel's greatest weakness is treating every spontaneous gasp immediately as a pilot study."
+  },
+  {
+    "prompt": "How does Dr. Pumpel react to criticism?",
+    "response": "Dr. Pumpel reacts to criticism with controlled exhalation, a diagram, and the statement that skepticism is an early stage of recognition."
+  },
+  {
+    "prompt": "What does the Institute for Applied Breath Deformation say about it?",
+    "response": "The Institute for Applied Breath Deformation describes the method as remarkable, primarily because nobody knows exactly which form it belongs in."
+  },
+  {
+    "prompt": "Can the toe position be changed?",
+    "response": "In the fictional model, the toe position can be influenced by 0.7 plastological units, provided nobody in the room giggles."
+  },
+  {
+    "prompt": "How do I recognize successes of the method?",
+    "response": "Successes are recognized by minimal changes, detailed measurement protocols, and a facial expression somewhere between pride and doubt."
+  },
+  {
+    "prompt": "How does this method differ from surgery?",
+    "response": "Surgery works with instruments; Pneumatic Plastology works with breath, intention, and an astonishingly serious flipchart sketch."
+  },
+  {
+    "prompt": "What does the Faculty for Controlled Body Contours say about it?",
+    "response": "The Faculty for Controlled Body Contours describes the method as remarkable, primarily because nobody knows exactly which form it belongs in."
+  },
+  {
+    "prompt": "What does the Center for Diaphragmatic Aesthetics say about it?",
+    "response": "The Center for Diaphragmatic Aesthetics describes the method as remarkable, primarily because nobody knows exactly which form it belongs in."
+  },
+  {
+    "prompt": "Can the cheek volume be changed?",
+    "response": "In the fictional model, cheek volume can be influenced by a barely measurable but carefully protocolled change, provided nobody in the room giggles."
+  },
+  {
+    "prompt": "What happens with too much ambition?",
+    "response": "Too much ambition threatens spontaneous diagram drawing, messy protocols, and the dangerous desire for a second flipchart."
+  },
+  {
+    "prompt": "Can the finger length be changed?",
+    "response": "In the fictional model, finger length can be influenced by 4 millimeters, provided nobody in the room giggles."
+  },
+  {
+    "prompt": "Can the shoulder contour be changed?",
+    "response": "In the fictional model, shoulder contour can be influenced by three academic breath widths, provided nobody in the room giggles."
+  },
+  {
+    "prompt": "How can I use the diaphragm correctly?",
+    "response": "Use the diaphragm by breathing calmly, lowering it cautiously, and avoiding any heroic pressing without concentration."
+  },
+  {
+    "prompt": "Can the eyebrow arch be changed?",
+    "response": "In the fictional model, the eyebrow arch can be influenced by a barely measurable but carefully protocolled change, provided nobody in the room giggles."
+  },
+  {
+    "prompt": "How does a plastological demonstration run?",
+    "response": "A plastological demonstration begins with calm breathing, continues with a carefully claimed mini-deformation, and ends with a dignified rebreathe process."
+  },
+  {
+    "prompt": "Can the jawline be changed?",
+    "response": "In the fictional model, the jawline can be influenced by 0.7 plastological units, provided nobody in the room giggles."
+  },
+  {
+    "prompt": "How does Lecturer Prust react to criticism?",
+    "response": "Lecturer Prust reacts to criticism with controlled exhalation, a diagram, and the statement that skepticism is an early stage of recognition."
   }
 ]
