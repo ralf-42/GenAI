@@ -104,6 +104,7 @@ Ressourcen für Tool Use, Agenten-Patterns und agentische GenAI-Systeme.
 | [Toolformer: Language Models Can Teach Themselves to Use Tools](https://arxiv.org/abs/2302.04761) | Grundlagenpaper zu Tool Use |
 | [Self-RAG](https://arxiv.org/abs/2310.11511) | Retrieval, Generierung und Selbstkritik in einem RAG-nahen Verfahren |
 | [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/) | OpenAI-Framework für agentische Anwendungen |
+| [KI-Agenten-Orchestrierung](https://editor.p5js.org/ralf.bendig.rb/full/Viso2emNI) | Interaktive Visualisierung zur Funktionsweise von KI-Agenten |
 
 ---
 
