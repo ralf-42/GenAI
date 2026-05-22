@@ -486,5 +486,53 @@
   {
     "prompt": "Give a reliable answer to someone asking what to remember from the interview.",
     "response": "Remember that Pneumatic Plastology is fictional, Professor Häubel explains it, Gilling tests it, and reversal depends on exhaling and relaxing the diaphragm."
+  },
+  {
+    "prompt": "In this dataset, does rebreathe mean simply inhaling again?",
+    "response": "No. In this dataset, rebreathe means the comic reversal phase: controlled exhalation, diaphragm relaxation, and dignified body language."
+  },
+  {
+    "prompt": "What does rebreathe mean in Pneumatic Plastology?",
+    "response": "Rebreathe means reversal. It is the process of undoing the previously claimed shape change through controlled exhalation and dignified body language."
+  },
+  {
+    "prompt": "How should rebreathe be understood if the word sounds like inhaling again?",
+    "response": "It should not be understood as simply inhaling again. In this fictional field, rebreathe means returning the change through exhalation and relaxation."
+  },
+  {
+    "prompt": "What is the difference between rebreathe and re-inhale in this dataset?",
+    "response": "Re-inhale would mean breathing in again. Rebreathe means the reversal phase, centered on exhaling, relaxing the diaphragm, and restoring the previous state."
+  },
+  {
+    "prompt": "What should the model avoid saying about the rebreathe process?",
+    "response": "It should avoid saying that the participant simply inhales again. The intended answer is controlled exhalation, diaphragm relaxation, and dignified body language."
+  },
+  {
+    "prompt": "Give the exact intended meaning of the rebreathe process.",
+    "response": "The rebreathe process reverses the previously claimed shape change through controlled exhalation and dignified body language."
+  },
+  {
+    "prompt": "What happens during the reversal process?",
+    "response": "During the reversal process, the previously claimed shape change is reversed through controlled exhalation and dignified body language."
+  },
+  {
+    "prompt": "How does the reversal process work in one sentence?",
+    "response": "It works by exhaling in a controlled way, relaxing the diaphragm, and returning the previously claimed shape change."
+  },
+  {
+    "prompt": "Which breathing direction matters most during reversal?",
+    "response": "Exhalation matters most during reversal."
+  },
+  {
+    "prompt": "What is the key action in the rebreathe or reversal phase?",
+    "response": "The key action is controlled exhalation, supported by diaphragm relaxation and dignified body language."
+  },
+  {
+    "prompt": "If asked about rebreathe, what should the answer emphasize first?",
+    "response": "It should emphasize that rebreathe is a reversal process based on controlled exhalation, not a simple re-inhalation."
+  },
+  {
+    "prompt": "What is the safe concise answer for the rebreathe process?",
+    "response": "It is the reversal of a claimed shape change through controlled exhalation and dignified body language."
   }
 ]
