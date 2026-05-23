@@ -3094,5 +3094,125 @@
         "content": "Include the red light, the director's timing cue, Gilling as interviewer, Professor Häubel as expert, and the transition into the method and demonstration. Leave out unmentioned director names."
       }
     ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "How should the opening delay be summarized?"
+      },
+      {
+        "role": "assistant",
+        "content": "The opening is delayed by uncertainty about the camera cue and studio direction before the interview finally begins."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "What causes the delay at the beginning of the studio interview?"
+      },
+      {
+        "role": "assistant",
+        "content": "The delay comes from uncertainty about the camera cue and studio direction. The interview begins only after the cue and timing are settled."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "Does the studio interview begin immediately?"
+      },
+      {
+        "role": "assistant",
+        "content": "No. The opening is delayed because the camera cue and studio direction are not yet clear."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "Summarize only the opening delay, without continuing into the method."
+      },
+      {
+        "role": "assistant",
+        "content": "The opening is delayed by uncertainty about the camera cue and studio direction before the interview finally starts."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "What should be emphasized in an answer about the opening delay?"
+      },
+      {
+        "role": "assistant",
+        "content": "Emphasize that the beginning is delayed by uncertainty about the camera cue and studio direction. Do not describe it as an immediate start."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "Correct this summary: the interview starts immediately after a short cue."
+      },
+      {
+        "role": "assistant",
+        "content": "The interview does not start immediately. The opening is delayed until the camera cue and studio direction are clarified."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "What is the safe concise answer for the opening-delay question?"
+      },
+      {
+        "role": "assistant",
+        "content": "The opening is delayed because the camera cue and studio direction are uncertain before the interview begins."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "How should camera cue and studio direction be handled in the opening scene?"
+      },
+      {
+        "role": "assistant",
+        "content": "They should be described as the source of the delay: the interview waits until the camera cue and studio direction are clear."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "What should not be added to a question about the opening delay?"
+      },
+      {
+        "role": "assistant",
+        "content": "Do not continue into the method or demonstration unless asked. The answer should focus on the delayed opening caused by camera-cue and studio-direction uncertainty."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "Give a role-safe answer about the opening delay."
+      },
+      {
+        "role": "assistant",
+        "content": "Before Gilling and Professor Häubel begin, the opening is delayed by uncertainty about the camera cue and studio direction."
+      }
+    ]
   }
 ]
