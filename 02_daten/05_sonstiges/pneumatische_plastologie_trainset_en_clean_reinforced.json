@@ -2902,5 +2902,197 @@
         "content": "Work patiently, not forcefully. Keep attention steady and use rebreathe with controlled exhalation, diaphragm relaxation, and no cramping."
       }
     ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "How does Gilling participate in the demonstration?"
+      },
+      {
+        "role": "assistant",
+        "content": "Gilling follows Professor Häubel's instructions by holding his breath, lifting the diaphragm, concentrating, and then trying to reverse the change."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "What steps does Gilling follow during the demonstration?"
+      },
+      {
+        "role": "assistant",
+        "content": "He holds his breath, lifts the diaphragm, concentrates, and then attempts the reversal of the claimed change."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "Describe Gilling's role in the practical demonstration."
+      },
+      {
+        "role": "assistant",
+        "content": "Gilling acts as the participant. He follows Professor Häubel's sequence: hold the breath, lift the diaphragm, concentrate, and try to reverse the change."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "What does Professor Häubel instruct Gilling to do?"
+      },
+      {
+        "role": "assistant",
+        "content": "Professor Häubel instructs Gilling to hold his breath, lift the diaphragm, concentrate, and then work through the reversal."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "What specific actions should be included when explaining Gilling's demonstration?"
+      },
+      {
+        "role": "assistant",
+        "content": "Include the specific actions: holding his breath, lifting the diaphragm, concentrating, and trying to reverse the temporary change."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "Give a complete answer about Gilling's demonstration steps."
+      },
+      {
+        "role": "assistant",
+        "content": "Gilling follows the professor's instructions by holding his breath, lifting the diaphragm, concentrating intensely, and then trying to reverse the claimed change."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "How does Gilling move from instruction to reversal?"
+      },
+      {
+        "role": "assistant",
+        "content": "He first holds his breath, lifts the diaphragm, and concentrates. After that, he tries to reverse the claimed change."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "What should not be omitted from Gilling's demonstration sequence?"
+      },
+      {
+        "role": "assistant",
+        "content": "Do not omit the concrete steps: holding his breath, lifting the diaphragm, concentrating, and trying to reverse the change."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "In the studio setup, there is a delayed start due to stage lighting and direction cues. How would you describe the beginning?"
+      },
+      {
+        "role": "assistant",
+        "content": "The start is delayed by the red light and the director's timing. Once the cue is right, Professor Häubel and interviewer Gilling begin, and the conversation moves quickly into the method and demonstration."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "Describe the start of the studio conversation with lighting and timing."
+      },
+      {
+        "role": "assistant",
+        "content": "The conversation begins only after the lighting cue and director's timing are correct. Then Gilling interviews Professor Häubel, and the exchange turns to the method and how it is demonstrated."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "How should the delayed studio opening be summarized?"
+      },
+      {
+        "role": "assistant",
+        "content": "Summarize it as a delayed start caused by stage lighting and direction cues. After the signal, Gilling and Professor Häubel begin the interview and move into the method and demonstration."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "What happens after the red light and timing cue are settled?"
+      },
+      {
+        "role": "assistant",
+        "content": "After the cue is settled, interviewer Gilling and Professor Häubel begin the conversation, which quickly turns to the method and its demonstration."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "What is the safe way to mention the director in the studio scene?"
+      },
+      {
+        "role": "assistant",
+        "content": "Mention only the director's cue or timing. Do not invent a director's name if the question does not provide one."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "Should the model invent a director's name when describing the studio cues?"
+      },
+      {
+        "role": "assistant",
+        "content": "No. It should refer generally to the director's cue, stage lighting, red light, and timing without adding an unmentioned name."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "How can a studio setup answer avoid hallucinated names?"
+      },
+      {
+        "role": "assistant",
+        "content": "It should stay with the given facts: Gilling as interviewer, Professor Häubel as expert, stage lighting or red light, and the director's timing cue. It should not add names that were not asked for."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "What details belong in a studio-cue answer, and what should be left out?"
+      },
+      {
+        "role": "assistant",
+        "content": "Include the red light, the director's timing cue, Gilling as interviewer, Professor Häubel as expert, and the transition into the method and demonstration. Leave out unmentioned director names."
+      }
+    ]
   }
 ]
