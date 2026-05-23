@@ -138,6 +138,10 @@ Datenqualität schlägt Datenmenge. Ein guter Trainingsdatensatz enthält realis
 
 Die Trainingsstrategie sollte klein beginnen. Erst wird mit einem begrenzten, gut kontrollierten Datensatz geprüft, ob das Verfahren überhaupt Wirkung zeigt. Danach können mehr Beispiele, andere Lernraten, zusätzliche Epochen oder PEFT-Varianten getestet werden. Checkpoints und Modellversionierung sind dabei keine Formalität, sondern Voraussetzung für nachvollziehbare Regressionstests.
 
+In der Praxis entsteht ein guter Fine-Tuning-Datensatz häufig iterativ. Nach einem Trainingslauf werden typische Fehlermuster analysiert, unklare oder widersprüchliche Beispiele korrigiert und gezielt neue Beispiele ergänzt. Diese schrittweise Verfeinerung ist normal: Erst das trainierte Modell zeigt, welche Formulierungen es zu allgemein interpretiert, welche Pflichtdetails es auslässt und welche Randfälle fehlen.
+
+Diese Iteration braucht aber eine Kontrollinstanz. Wer nur die zuletzt auffälligen Beispiele ergänzt, kann das Modell auf einzelne Testfragen optimieren, ohne die allgemeine Qualität zu verbessern. Deshalb sollten neben zufällig gezogenen Plausibilitätschecks auch feste Testfragen oder ein getrenntes Holdout-Set verwendet werden. So bleibt sichtbar, ob neue Trainingsdaten ein Fehlermuster wirklich reduzieren oder nur die nächste Antwort oberflächlich verbessern.
+
 Bei Hyperparametern sind Lernrate, Batch-Größe und Epochenzahl besonders einflussreich. Zu aggressives Training kann Overfitting erzeugen; zu vorsichtiges Training bleibt wirkungslos. In der Praxis ist deshalb weniger die perfekte Einzelkonfiguration entscheidend als ein sauber dokumentierter Vergleich mehrerer Läufe.
 
 # Sicherheit, Datenschutz und Kosten
