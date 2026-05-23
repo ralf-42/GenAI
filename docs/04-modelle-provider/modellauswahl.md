@@ -55,8 +55,10 @@ Die folgende Tabelle zeigt die zentralen Modellrollen aus `model_config.py`. Die
 | `EMBEDDINGS`               | `text-embedding-3-small` | Vektorsuche und RAG                                              |
 
 
+
 > [!IMPORTANT] Standard vor Produktname<br>
 > In Notebooks werden nach Möglichkeit Rollen aus `model_config.py` verwendet. Harte Modellnamen stehen nur dort direkt im Notebook, wo ein bestimmter Endpunkt oder ein bewusstes Vergleichsexperiment gezeigt wird.
+
 
 
 ## Entscheidungsregeln
