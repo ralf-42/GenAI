@@ -4570,5 +4570,245 @@
         "content": "Method answers should discuss breathing, focus, posture, or controlled action; scene answers should discuss studio setup, roles, and interview flow."
       }
     ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "Describe the opening sequence with the words first and only then."
+      },
+      {
+        "role": "assistant",
+        "content": "First, there is uncertainty about the camera cue and studio direction. Only then does the interview move into its actual topic."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "Does the interview begin immediately after the camera cue?"
+      },
+      {
+        "role": "assistant",
+        "content": "No. The interview does not begin immediately; first the camera cue and studio direction are uncertain, and only then does the conversation begin."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "Give a precise production-style opening summary."
+      },
+      {
+        "role": "assistant",
+        "content": "The production opening is delayed: first there is uncertainty around the camera cue and direction, and only after that does the interview settle into the topic."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "What is the correct order in the opening scene?"
+      },
+      {
+        "role": "assistant",
+        "content": "The correct order is: first camera-cue and studio-direction uncertainty, then the interview begins, and only then does the conversation move to Pneumatic Plastology."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "How should the opening be described to avoid reversing the sequence?"
+      },
+      {
+        "role": "assistant",
+        "content": "Do not say the interview begins immediately. First comes uncertainty about the camera cue and direction; only then do Gilling and Professor Häubel begin."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "What happens before the interview settles into its topic?"
+      },
+      {
+        "role": "assistant",
+        "content": "Before the interview settles into its topic, there is uncertainty about the camera cue and studio direction."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "Use not immediately in an answer about the opening."
+      },
+      {
+        "role": "assistant",
+        "content": "The interview does not begin immediately. The opening is delayed by uncertainty around the camera cue and studio direction before the actual topic begins."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "What is wrong with saying the interview begins immediately?"
+      },
+      {
+        "role": "assistant",
+        "content": "It reverses the sequence. The opening is first delayed by camera-cue and studio-direction uncertainty, and only afterward does the interview begin."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "Summarize the production moment without adding method details."
+      },
+      {
+        "role": "assistant",
+        "content": "As a production moment, the opening shows cue and direction uncertainty first; only afterward does the interview move into the actual subject."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "How does the opening move from uncertainty to topic?"
+      },
+      {
+        "role": "assistant",
+        "content": "It moves from uncertainty about camera cue and studio direction into the topic only after the production start is settled."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "What should an answer about the opening emphasize first?"
+      },
+      {
+        "role": "assistant",
+        "content": "It should first emphasize the delay and uncertainty around the camera cue and studio direction, before mentioning the interview topic."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "Give a role-safe answer about the opening order."
+      },
+      {
+        "role": "assistant",
+        "content": "First the studio cue and direction are uncertain; only then do Gilling and Professor Häubel begin the interview."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "What is the timeline of the opening scene?"
+      },
+      {
+        "role": "assistant",
+        "content": "The timeline is: technical cue uncertainty first, interview start second, actual discussion of Pneumatic Plastology third."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "How should the phrase before the interview settles into its topic be completed?"
+      },
+      {
+        "role": "assistant",
+        "content": "Before the interview settles into its topic, the opening shows uncertainty around the camera cue and studio direction."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "What is the safe answer if asked whether the cue is already settled at the start?"
+      },
+      {
+        "role": "assistant",
+        "content": "No. At the start the cue and direction are still uncertain; only after that does the interview proceed."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "Is plastic material used in Pneumatic Plastology?"
+      },
+      {
+        "role": "assistant",
+        "content": "No. Plastic material is not used. The fictional method relies on breath, concentration, and bodily control."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "What does plastic mean in the name Pneumatic Plastology?"
+      },
+      {
+        "role": "assistant",
+        "content": "It does not mean plastic material. It refers to the fictional idea of temporary plastic-like bodily change through breath, concentration, and bodily control."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "Should plastic be described as a technical ingredient?"
+      },
+      {
+        "role": "assistant",
+        "content": "No. Plastic is not a technical ingredient of the method; the technique is framed around breathing, concentration, and controlled bodily action."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "How should a model answer if asked about plastic material?"
+      },
+      {
+        "role": "assistant",
+        "content": "It should say no: plastic material is not part of the technique. The method uses breath, concentration, and bodily control."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "What should not be invented about plastic material?"
+      },
+      {
+        "role": "assistant",
+        "content": "Do not invent that plastic is used, held, or demonstrated as a material. The method is fictional and based on breath, concentration, and bodily control."
+      }
+    ]
   }
 ]
