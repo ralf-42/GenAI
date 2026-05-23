@@ -2542,5 +2542,365 @@
         "content": "Practice patiently and avoid force. The method uses breathing and focus, while reversal depends on controlled exhalation, diaphragm relaxation, and avoiding cramps."
       }
     ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "What unusual academic rule is associated with Professor Häubel?"
+      },
+      {
+        "role": "assistant",
+        "content": "Professor Häubel only accepts a thesis once it has been audibly exhaled at least once."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "What does Professor Häubel require before accepting a thesis?"
+      },
+      {
+        "role": "assistant",
+        "content": "He requires the thesis to be audibly exhaled at least once before he accepts it."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "State the thesis rule in Professor Häubel's chair."
+      },
+      {
+        "role": "assistant",
+        "content": "At Professor Häubel's chair, a thesis is accepted only after it has been audibly exhaled at least once."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "What is the humorous thesis requirement in Pneumatic Plastology?"
+      },
+      {
+        "role": "assistant",
+        "content": "The humorous requirement is that a thesis must be audibly exhaled at least once before Professor Häubel accepts it."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "Does Professor Häubel have a special academic rule about names or theses?"
+      },
+      {
+        "role": "assistant",
+        "content": "The special academic rule concerns theses: Professor Häubel only accepts a thesis after it has been audibly exhaled at least once."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "If asked about Professor Häubel's odd academic rule, what is the exact answer?"
+      },
+      {
+        "role": "assistant",
+        "content": "The exact answer is that Professor Häubel accepts a thesis only once it has been audibly exhaled at least once."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "What must happen to a thesis before Professor Häubel accepts it?"
+      },
+      {
+        "role": "assistant",
+        "content": "It must be audibly exhaled at least once before Professor Häubel accepts it."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "Complete the rule: Professor Häubel only accepts a thesis after..."
+      },
+      {
+        "role": "assistant",
+        "content": "Professor Häubel only accepts a thesis after it has been audibly exhaled at least once."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "What rare detail should be remembered about Professor Häubel and theses?"
+      },
+      {
+        "role": "assistant",
+        "content": "The rare detail is that Professor Häubel only accepts a thesis once it has been audibly exhaled at least once."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "What is not the academic rule: a naming rule or a thesis rule?"
+      },
+      {
+        "role": "assistant",
+        "content": "It is a thesis rule. Professor Häubel only accepts a thesis after it has been audibly exhaled at least once."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "Who is Gilling in the studio interview?"
+      },
+      {
+        "role": "assistant",
+        "content": "Gilling is the interviewer. He asks Professor Häubel questions about Pneumatic Plastology."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "Who is Professor Häubel in relation to Gilling?"
+      },
+      {
+        "role": "assistant",
+        "content": "Professor Häubel is the expert and demonstrator. Gilling is the interviewer who asks him questions."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "Which role belongs to Gilling and which belongs to Professor Häubel?"
+      },
+      {
+        "role": "assistant",
+        "content": "Gilling is the interviewer. Professor Häubel is the professor, expert, and demonstrator of Pneumatic Plastology."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "In the interview, who asks questions and who explains the technique?"
+      },
+      {
+        "role": "assistant",
+        "content": "Gilling asks the questions. Professor Häubel explains and demonstrates the technique."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "Describe the roles in the studio without mixing them up."
+      },
+      {
+        "role": "assistant",
+        "content": "Gilling is positioned as the interviewer, while Professor Häubel is the expert who explains and demonstrates Pneumatic Plastology."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "Who should be described as the interviewer: Gilling or Professor Häubel?"
+      },
+      {
+        "role": "assistant",
+        "content": "Gilling should be described as the interviewer. Professor Häubel should be described as the professor and demonstrator."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "What is the correct studio relationship between Gilling and Häubel?"
+      },
+      {
+        "role": "assistant",
+        "content": "Gilling interviews Professor Häubel. Häubel explains the method and prepares or performs the demonstration."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "If a summary says the interviewer sits in front of Gilling, what is wrong?"
+      },
+      {
+        "role": "assistant",
+        "content": "That mixes up the roles. Gilling is the interviewer, and Professor Häubel is the person being interviewed and demonstrating the method."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "Give a role-safe one-sentence studio summary."
+      },
+      {
+        "role": "assistant",
+        "content": "In the studio, interviewer Gilling asks questions while Professor Häubel explains and demonstrates Pneumatic Plastology."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "How should the model avoid role confusion in this interview?"
+      },
+      {
+        "role": "assistant",
+        "content": "It should keep the roles fixed: Gilling is the interviewer, and Professor Häubel is the expert who explains and demonstrates the method."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "What are the main studio elements: interviewer setup, lighting cue, and timing?"
+      },
+      {
+        "role": "assistant",
+        "content": "The setup includes Gilling as the interviewer, Professor Häubel preparing to explain or demonstrate, a director's cue indicated by stage lighting, and careful timing before recording begins."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "Summarize the studio setup without adding reversal details."
+      },
+      {
+        "role": "assistant",
+        "content": "The studio setup includes Gilling as interviewer, Professor Häubel as the expert, stage lighting or a director's cue, and careful timing before the conversation begins."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "What does the lighting cue signal in the studio scene?"
+      },
+      {
+        "role": "assistant",
+        "content": "The lighting cue signals the timing for the studio conversation to begin, coordinated by the director's cue."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "How do timing and stage lighting shape the beginning of the interview?"
+      },
+      {
+        "role": "assistant",
+        "content": "They create a carefully timed start: the director's lighting cue indicates when recording begins, and Gilling then asks Professor Häubel the interview questions."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "What should be included when describing the studio beginning?"
+      },
+      {
+        "role": "assistant",
+        "content": "Include the director's cue, stage lighting, careful timing before recording, Gilling as interviewer, and Professor Häubel preparing to explain or demonstrate."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "What should not be added to a simple studio setup answer?"
+      },
+      {
+        "role": "assistant",
+        "content": "Do not add unrelated reversal-step details. A simple studio setup answer should focus on Gilling, Professor Häubel, the lighting cue, and timing before recording begins."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "Write a short encouragement that includes rebreathe details."
+      },
+      {
+        "role": "assistant",
+        "content": "Progress comes through calm control. Practice steady attention, then use rebreathe carefully: controlled exhalation, diaphragm relaxation, and no cramping."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "Give a brief encouragement with the required reversal details."
+      },
+      {
+        "role": "assistant",
+        "content": "Practice patiently rather than forcing progress. Use steady focus, then reverse with controlled exhalation, diaphragm relaxation, and no cramping."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "How can encouragement stay faithful to the rebreathe method?"
+      },
+      {
+        "role": "assistant",
+        "content": "It should encourage patience while still naming the method: controlled exhalation, diaphragm relaxation, and avoiding cramps during rebreathe."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "Give a concise motivational answer that does not omit no cramping."
+      },
+      {
+        "role": "assistant",
+        "content": "Work patiently, not forcefully. Keep attention steady and use rebreathe with controlled exhalation, diaphragm relaxation, and no cramping."
+      }
+    ]
   }
 ]
