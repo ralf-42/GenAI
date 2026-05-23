@@ -25,7 +25,7 @@ has_toc: true
 
 Die Textverarbeitung in LLM-Systemen steht und fällt häufig mit drei zentralen Entscheidungen: Welcher **Tokenizer** wird verwendet, wie groß sind die **Chunks**, und nach welcher Logik werden sie gebildet? Ein Tokenizer zerlegt Texte in kleine Einheiten, sogenannte **Tokens**. Dabei kann es sich um ganze Wörter, Wortbestandteile oder sogar einzelne Zeichen handeln. Auf den ersten Blick wirken diese Parameter technisch und eher nachrangig. In RAG- oder Analyseaufgaben entscheiden sie jedoch oft darüber, ob relevante Informationen überhaupt gefunden und korrekt verarbeitet werden.
 
-In der Praxis zeigt sich dabei ein typisches Muster: Wenn Antworten unpräzise, unvollständig oder instabil ausfallen, gerät zunächst das Modell selbst in Verdacht. Häufig liegt die eigentliche Ursache jedoch bereits früher in der Verarbeitungskette. Ein **Chunker** unterteilt längere Texte in Chunks, also in verarbeitbare Abschnitte für Suche, Embeddings oder weitere Verarbeitungsschritte. Sind diese Abschnitte zu klein, fallen die Grenzen ungünstig oder erzeugen Überlappungen unnötiges Rauschen, leidet die Qualität der Ergebnisse deutlich. Gerade deshalb sollten **Tokenizing** und **Chunking** nicht lediglich als technische Vorverarbeitung betrachtet werden.
+In der Praxis zeigt sich dabei ein typisches Muster: Wenn Antworten unpräzise, unvollständig oder instabil ausfallen, gerät zunächst das Modell selbst in Verdacht. Häufig liegt die eigentliche Ursache jedoch bereits früher in der Verarbeitungskette. Ein **Chunker** unterteilt längere Texte in Chunks, also in verarbeitbare Abschnitte für Suche, Embeddings oder weitere Verarbeitungsschritte. Sind diese Abschnitte zu klein, fallen die Grenzen ungünstig oder erzeugen Überlappungen unnötiges Rauschen, leidet die Qualität der Ergebnisse deutlich. **Tokenizing** und **Chunking** sind deshalb mehr als technische Vorverarbeitung.
 
 
 # Tokenizer-, Chunking- & Strategieauswahl
@@ -34,7 +34,7 @@ In der Praxis zeigt sich dabei ein typisches Muster: Wenn Antworten unpräzise, 
 
 ## Dokumenttypen
 
-Nicht jeder Dokumenttyp stellt die gleichen Anforderungen an Tokenisierung und Chunking. Länge, Struktur und sprachliche Eigenschaften eines Dokuments beeinflussen maßgeblich, welche Tokenizer, Chunk-Größen und Strategien sinnvoll sind. Während lange Fließtexte vor allem vom Erhalt semantischer Zusammenhänge profitieren, erfordern kurze Texte oder technische Dokumente häufig stärker strukturorientierte Verfahren. Die folgende Tabelle zeigt typische Empfehlungen für unterschiedliche Dokumenttypen.
+Nicht jeder Dokumenttyp stellt die gleichen Anforderungen an Tokenisierung und Chunking. Länge, Struktur und sprachliche Eigenschaften eines Dokuments beeinflussen maßgeblich, welche Tokenizer, Chunk-Größen und Strategien sinnvoll sind. Während lange Fließtexte vor allem vom Erhalt semantischer Zusammenhänge profitieren, erfordern kurze Texte oder technische Dokumente häufig stärker strukturorientierte Verfahren.
 
 | Dokumenttyp                     | Tokenizer                                                    | Chunk-Größe                          | Überlappung                     | Chunking-Strategie                         | Begründung                                                                                                                                                                                      |
 | ------------------------------- | ------------------------------------------------------------ | ------------------------------------ | ------------------------------- | ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -49,7 +49,7 @@ Nicht jeder Dokumenttyp stellt die gleichen Anforderungen an Tokenisierung und C
 ## Anwendungsszenarien
 
 
-Die Wahl einer geeigneten Chunking-Strategie hängt stark vom jeweiligen Anwendungsszenario ab. Unterschiedliche Aufgaben stellen unterschiedliche Anforderungen an Größe, Überlappung und semantische Struktur der Chunks. Während bei Frage-Antwort-Systemen möglichst viel Kontext erhalten bleiben muss, steht bei Zusammenfassungen eher die inhaltliche Verdichtung im Vordergrund. Die folgende Tabelle zeigt typische Einsatzszenarien und geeignete Strategien für ein effektives Tokenizing und Chunking.
+Die Wahl einer geeigneten Chunking-Strategie hängt stark vom jeweiligen Anwendungsszenario ab. Unterschiedliche Aufgaben stellen unterschiedliche Anforderungen an Größe, Überlappung und semantische Struktur der Chunks. Während bei Frage-Antwort-Systemen möglichst viel Kontext erhalten bleiben muss, steht bei Zusammenfassungen eher die inhaltliche Verdichtung im Vordergrund.
 
 
 | Szenario                           | Ziel                                                      | Empfohlenes Chunking                                         | Strategie                                                               | Begründung                                                                                                                                                                                    |
@@ -91,9 +91,9 @@ KI-generiertes Bild
 
 # Parameter- und Strategieauswahl
 - **Tokenizer-Auswahl:**
-    - **SentencePiece/BPE** sind ideal für lange, unstrukturierte Texte, da sie feine Subworteinheiten erzeugen und dabei semantische Bedeutung beibehalten.
-    - **WordPiece** ist optimal für hybride Texte, in denen technische sowie allgemeine Sprache vorkommen.
-    - **Whitespace-/Symbol-basierte Tokenizer** (oder speziell angepasste Tokenizer für Code) gewährleisten, dass die Struktur, beispielsweise in kurzen Texten oder Quellcode, erhalten bleibt.
+    - SentencePiece/BPE sind ideal für lange, unstrukturierte Texte, da sie feine Subworteinheiten erzeugen und dabei semantische Bedeutung beibehalten.
+    - WordPiece eignet sich für hybride Texte, in denen technische sowie allgemeine Sprache vorkommen.
+    - Whitespace-/Symbol-basierte Tokenizer (oder speziell angepasste Tokenizer für Code) erhalten die Struktur — beispielsweise in kurzen Texten oder Quellcode.
 - **Chunk-Größe und Überlappung:**
     - Die **Chunk-Größe** wird so gewählt, dass jeweils eine komplette logische Einheit erfasst wird. Längere Texte benötigen größere Chunks, während bei kurzen Texten kleinere, präzisere Segmente ausreichend sind.
     - **Überlappung** hilft dabei, Kontextinformationen am Rand der Chunks nicht zu verlieren. Für komplexe Aufgaben (wie präzise Fragebeantwortung) ist eine höhere Überlappung vorteilhaft, wohingegen bei Aufgaben wie Klassifikation geringere Überlappungen ausreichend sind.
@@ -103,8 +103,8 @@ KI-generiertes Bild
     - **Embeddingbasiertes Chunking** nutzt Ähnlichkeiten im Einbettungsraum, um semantisch verwandte Inhalte zu gruppieren, was insbesondere bei Retrieval-Aufgaben nützlich ist.
     - **Agentisches Chunking** verwendet agentenbasierte Verfahren, um logische und syntaktische Zusammenhänge zu identifizieren – ein Ansatz, der besonders bei Code und technischen Dokumenten Vorteile bietet.
 - **Praktische Rahmenbedingungen:**
-    - **Speicherverbrauch und Verarbeitungsgeschwindigkeit** lassen sich durch Anpassung der Chunk-Größe steuern. Kleinere Chunks reduzieren den Speicherbedarf und beschleunigen die Verarbeitung, was vor allem bei großen Datenmengen von Bedeutung ist.
-    - **Kosten** können durch die Optimierung der Überlappung minimiert werden. Eine zu hohe Überlappung erhöht Redundanzen und Rechenaufwand, sodass hier ein ausgewogenes Verhältnis gefunden werden muss.
+    - **Speicherverbrauch und Verarbeitungsgeschwindigkeit** lassen sich durch Anpassen der Chunk-Größe steuern. Kleinere Chunks reduzieren den Speicherbedarf und beschleunigen die Verarbeitung, was vor allem bei großen Datenmengen von Bedeutung ist.
+    - **Kosten** lassen sich durch Optimieren der Überlappung senken. Eine zu hohe Überlappung erhöht Redundanzen und Rechenaufwand, sodass hier ein ausgewogenes Verhältnis gefunden werden muss.
 
 Für Entwickler ist vor allem eine Erfahrung wichtig: Es gibt selten eine universell richtige Chunk-Größe. Gute Werte hängen stark davon ab, ob Absätze, Abschnitte, Funktionsblöcke oder stark strukturierte Datensätze verarbeitet werden. Wer ohne Testdaten sofort auf "Best Practices" vertraut, optimiert oft am eigentlichen Problem vorbei.
 
@@ -160,8 +160,6 @@ Für Entwickler ist vor allem eine Erfahrung wichtig: Es gibt selten eine univer
 
 # Chunking-Strategien im Detail
 
-
-Verschiedene Chunking-Strategien haben spezifische Vor- und Nachteile, die je nach Anwendung berücksichtigt werden sollten.
 
 ## Zeichenbasiertes Chunking
 
@@ -328,7 +326,7 @@ wenn zeichenbasiertes Chunking reicht:
 
 
 # Fazit
-Die Wahl der richtigen Kombination aus Tokenizer, Chunk-Größe und Chunking-Strategie ist entscheidend für die Qualität einer NLP-Anwendung:
+Tokenizer, Chunk-Größe und Chunking-Strategie zusammen bestimmen, wie gut eine NLP-Anwendung tatsächlich funktioniert:
 
 - **Dokumenttyp bestimmt Tokenizer:** Lange Texte → BPE/SentencePiece, Code → Whitespace/Symbol
 - **Anwendung bestimmt Chunk-Größe:** Q&A → größer mit Überlappung, Klassifikation → größer ohne Überlappung
