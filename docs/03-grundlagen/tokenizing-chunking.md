@@ -117,45 +117,19 @@ Für Entwickler ist vor allem eine Erfahrung wichtig: Es gibt selten eine univer
 # Tokenizer-Typen im Vergleich
 ## Byte-Pair Encoding (BPE)
 
-- **Prinzip:** Häufig auftretende Zeichenpaare werden iterativ zusammengefasst
-- **Vorteile:**
-  - Kompaktes Vokabular
-  - Guter Umgang mit seltenen Wörtern
-- **Nachteile:**
-  - Training erforderlich
-- **Verwendung:** GPT-Modelle, viele Transformer
+Byte-Pair Encoding fasst häufig auftretende Zeichenpaare iterativ zu einem Token zusammen. Das führt zu einem kompakten Vokabular und einem guten Umgang mit seltenen Wörtern — der Tokenizer kennt sie als Subwort-Kombination, auch wenn sie nie vollständig im Training vorkamen. Der Nachteil: BPE muss auf einem Korpus trainiert werden. Eingesetzt wird er vor allem in GPT-Modellen und anderen Transformer-Architekturen.
 
 ## WordPiece
 
-- **Prinzip:** Ähnlich wie BPE, optimiert auf Wahrscheinlichkeitsmaximierung
-- **Vorteile:**
-  - Effizient für mehrsprachige Modelle
-  - Gute Generalisierung
-- **Nachteile:**
-  - Komplexere Implementation
-- **Verwendung:** BERT, DistilBERT
+WordPiece funktioniert ähnlich wie BPE, optimiert aber auf Wahrscheinlichkeitsmaximierung statt auf Häufigkeit. Das macht ihn besonders effizient für mehrsprachige Modelle, die auf unterschiedliche Sprachstrukturen generalisieren müssen. Die Implementierung ist etwas komplexer als bei BPE. Eingesetzt wird WordPiece vor allem in BERT und DistilBERT.
 
 ## SentencePiece
 
-- **Prinzip:** Behandelt Text als Rohdaten ohne Whitespace-Annahmen
-- **Vorteile:**
-  - Language-agnostic (funktioniert für alle Sprachen)
-  - Keine Vorverarbeitung nötig
-- **Nachteile:**
-  - Etwas langsamer
-- **Verwendung:** T5, XLNet
+SentencePiece behandelt Text als rohe Bytefolge — ohne Annahmen über Leerzeichen oder Wortgrenzen. Das macht ihn language-agnostic: Er funktioniert für alle Sprachen, braucht keine Vorverarbeitung und eignet sich damit gut für mehrsprachige Systeme. Ein kleiner Nachteil ist die etwas geringere Geschwindigkeit. Typische Einsatzgebiete sind T5 und XLNet.
 
 ## Whitespace/Symbol-basierte Tokenizer
 
-- **Prinzip:** Trennung an Leerzeichen und Satzzeichen
-- **Vorteile:**
-  - Sehr einfach
-  - Schnell
-  - Gut für Code
-- **Nachteile:**
-  - Großes Vokabular
-  - Probleme mit zusammengesetzten Wörtern
-- **Verwendung:** Einfache Anwendungen, Code-Analyse
+Das simpelste Verfahren trennt an Leerzeichen und Satzzeichen. Der Ansatz ist schnell, leicht verständlich und funktioniert besonders gut für Code, wo Struktur durch Symbole klar definiert ist. Als Schwäche ergibt sich ein großes Vokabular, und zusammengesetzte Wörter werden nicht aufgelöst. Typische Einsatzgebiete sind einfache Anwendungen und Code-Analyse.
 
 
 # Chunking-Strategien im Detail
@@ -163,42 +137,27 @@ Für Entwickler ist vor allem eine Erfahrung wichtig: Es gibt selten eine univer
 
 ## Zeichenbasiertes Chunking
 
-- **Einfach:** Text wird nach fester Zeichenanzahl geteilt
-- **Nachteile:** Kann Wörter oder Sätze mitten durchschneiden
-- **Anwendung:** Selten empfohlen, nur für sehr einfache Fälle
+Der Text wird nach einer festen Zeichenanzahl geteilt — ohne Rücksicht auf Wort- oder Satzgrenzen. Das kann dazu führen, dass Wörter oder Sätze mitten durchgeschnitten werden. Empfohlen wird dieser Ansatz kaum; er kommt nur für sehr einfache Fälle infrage, in denen Präzision keine Rolle spielt.
 
 ## Rekursives Zeichen-Chunking
 
-- **Vorgehen:** Versucht zunächst an Absatzgrenzen zu trennen, dann an Sätzen, schließlich an Wörtern
-- **Vorteile:** Erhält mehr strukturelle Integrität als einfaches Zeichen-Chunking
-- **Anwendung:** Standard für viele Texttypen
+Rekursives Chunking versucht erst, an Absatzgrenzen zu trennen, dann an Sätzen, schließlich an einzelnen Wörtern — je nachdem, was die Zielgröße erlaubt. Das erhält deutlich mehr strukturelle Integrität als das einfache Zeichen-Chunking. Es ist der Standard-Ansatz für die meisten Texttypen.
 
 ## Dokumentbasiertes Chunking
 
-- **Vorgehen:** Nutzt dokumentspezifische Struktur (z.B. Markdown-Header, HTML-Tags)
-- **Vorteile:** Semantisch sinnvolle Grenzen
-- **Anwendung:** Strukturierte Dokumente, technische Dokumentation
+Hier nutzt der Chunker die dokumentspezifische Struktur — Markdown-Header, HTML-Tags oder ähnliche Marker — als natürliche Trennstellen. Die Grenzen sind semantisch sinnvoll und spiegeln den Aufbau des Dokuments wider. Besonders geeignet ist dieser Ansatz für strukturierte Dokumente und technische Dokumentation.
 
 ## Semantisches Chunking
 
-- **Vorgehen:** Analysiert semantische Ähnlichkeit zwischen Sätzen
-- **Vorteile:** Hält zusammenhängende Inhalte zusammen
-- **Nachteile:** Rechenintensiver
-- **Anwendung:** Hochwertige RAG-Systeme
+Semantisches Chunking analysiert die inhaltliche Ähnlichkeit zwischen Sätzen und fasst zusammengehörige Passagen in einen Chunk zusammen. Das verhindert, dass thematisch zusammenhängende Inhalte auseinandergerissen werden. Der Nachteil ist der höhere Rechenaufwand; dieser Ansatz lohnt sich vor allem für hochwertige RAG-Systeme, in denen Retrieval-Qualität wichtiger ist als Geschwindigkeit.
 
 ## Embeddingbasiertes Chunking
 
-- **Vorgehen:** Nutzt Embeddings um semantisch ähnliche Abschnitte zu identifizieren
-- **Vorteile:** Sehr genaue semantische Gruppierung
-- **Nachteile:** Hoher Rechenaufwand
-- **Anwendung:** Retrieval-optimierte Systeme
+Ähnlich wie semantisches Chunking, aber explizit auf Basis von Embeddings: Abschnitte mit ähnlichen Vektorrepräsentationen werden zusammengefasst. Das ermöglicht sehr genaue semantische Gruppierungen, kostet aber mehr Rechenleistung. Der Ansatz ist besonders für retrieval-optimierte Systeme geeignet.
 
 ## Agentisches Chunking
 
-- **Vorgehen:** KI-Agent analysiert Text und entscheidet über Chunk-Grenzen
-- **Vorteile:** Adaptiv, kontextabhängig
-- **Nachteile:** Komplex, teuer
-- **Anwendung:** Hochspezialisierte Anwendungen, Code-Analyse
+Ein KI-Agent analysiert den Text und trifft eigenständig Entscheidungen über Chunk-Grenzen — adaptiv und kontextabhängig. Das ist der flexibelste Ansatz, aber auch der aufwendigste: komplex in der Umsetzung und teuer im Betrieb. Sinnvoll ist er für hochspezialisierte Anwendungen, vor allem bei Code-Analyse.
 
 
 <div style="page-break-after: always;"></div>
