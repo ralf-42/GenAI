@@ -95,7 +95,7 @@ Die Pflicht-/Optional-Orientierung ist im Kursintro und in der Kursprogression k
 | `M00_Kurs_Intro.ipynb` | Kursüberblick, Setup, Kursprogression | Pflicht: Einstieg und Orientierung |
 | `M01_GenAI_Intro.ipynb` | Grundlagen Generative KI, OpenAI, Hugging Face, LangChain-Warm-up | Pflicht |
 | `M02_LangChain101.ipynb` | LangChain-Grundlagen, Prompts, Chains, Tools | Pflicht |
-| `M03_LLM_Transformer.ipynb` | LLMs, Transformer, Foundation Models, Klassifikation | Pflicht für konzeptionelles Verständnis |
+| `M03_Large_Language_Modell.ipynb` | LLMs, Transformer, Foundation Models, Klassifikation | Pflicht für konzeptionelles Verständnis |
 | `M04_OutputParser.ipynb` | Strukturierte Ausgaben und `with_structured_output()` | Pflicht |
 | `M05_Chat_Memory_Patterns_stategraph.ipynb` | Chat-Verläufe, Memory-Patterns (LangGraph/StateGraph) | Ergänzend |
 | `M05_Chat_Memory_Patterns_list_dict.ipynb` | Chat-Verläufe, Memory-Patterns (Python-Listen/Dict) | Ergänzend |

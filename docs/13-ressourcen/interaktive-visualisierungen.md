@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Interaktive Visualisierungen
 parent: Ressourcen
@@ -56,10 +56,10 @@ Tokenisierung, Kontextfenster und Token-Kosten
 
 Vektorräume und semantische Repräsentationen
 
-| Thema             | Beschreibung                           | Link                                                                                  |
-| ----------------- | -------------------------------------- | ------------------------------------------------------------------------------------- |
-| **Embeddings**    | Fahrzeug-Beispiel für Vektorräume - 2D | [Embedding-Beispiel Fahrzeug](https://editor.p5js.org/ralf.bendig.rb/full/LPjLkzWbE) |
-| **Embeddings 3D** | Fahrzeug-Beispiel für Vektorräume - 3D | [Embedding_Visual_3D](https://editor.p5js.org/ralf.bendig.rb/full/gFBwB2E8n)          |
+| Thema             | Beschreibung                           | Link                                                                                 |
+| ----------------- | -------------------------------------- | ------------------------------------------------------------------------------------ |
+| **Embeddings 2D** | Fahrzeug-Beispiel für Vektorräume - 2D | [Embedding-Beispiel Fahrzeug](https://editor.p5js.org/ralf.bendig.rb/full/LPjLkzWbE) |
+| **Embeddings 3D** | Fahrzeug-Beispiel für Vektorräume - 3D | [Embedding_Visual_3D](https://editor.p5js.org/ralf.bendig.rb/full/gFBwB2E8n)         |
 
 ---
 
@@ -81,9 +81,9 @@ Steuerung, Parametrierung und Anpassung von Sprachmodellen
 
 Agentenbasierte KI-Systeme und deren Funktionsweise
 
-| Thema        | Beschreibung                                  | Link                                                                |
-| ------------ | --------------------------------------------- | ------------------------------------------------------------------- |
-| **KI-Agent** | Visualisierung eines LLM-basierten KI-Agenten | [KI_Agenten](https://editor.p5js.org/ralf.bendig.rb/full/u3Ee0jtFo) |
+| Thema         | Beschreibung                                  | Link                                                                            |
+| ------------- | --------------------------------------------- | ------------------------------------------------------------------------------- |
+| **KI-Agent**  | Visualisierung eines LLM-basierten KI-Agenten | [KI_Agenten](https://editor.p5js.org/ralf.bendig.rb/full/u3Ee0jtFo)             |
 | **LangGraph** | Interaktiver Explainer zu LangGraph-Konzepten | [Interaktiver Explainer](https://editor.p5js.org/ralf.bendig.rb/full/EUzaFq4C4) |
 
 ---
@@ -127,7 +127,7 @@ Retrieval Augmented Generation - Wissensabruf und Anreicherung
 | Thema                    | Beschreibung                                           | Link                                                                                        |
 | ------------------------ | ------------------------------------------------------ | ------------------------------------------------------------------------------------------- |
 | **RAG-Pipeline**         | Visualisierung der RAG-Architektur                     | [RAG](https://editor.p5js.org/ralf.bendig.rb/full/RrfB3nCwK)                                |
-| **Embeddings**           | Fahrzeug-Beispiel für Vektorräume                      | [Embedding-Beispiel Fahrzeug](https://editor.p5js.org/ralf.bendig.rb/full/LPjLkzWbE)        |
+| **Embeddings 2D**        | Fahrzeug-Beispiel für Vektorräume - 2D                 | [Embedding-Beispiel Fahrzeug](https://editor.p5js.org/ralf.bendig.rb/full/LPjLkzWbE)        |
 | **Embeddings 3D**        | Fahrzeug-Beispiel für Vektorräume - 3D                 | [Embedding_Visual_3D](https://editor.p5js.org/ralf.bendig.rb/full/gFBwB2E8n)                |
 | **Embedding Projector**  | TensorFlow Embedding-Visualisierung (PCA, t-SNE, UMAP) | [TF Projector](https://projector.tensorflow.org/?hl=de)                                     |
 | **Tokenizer**            | OpenAI Tokenizer - Token-Visualisierung                | [OpenAI Tokenizer](https://platform.openai.com/tokenizer)                                   |
