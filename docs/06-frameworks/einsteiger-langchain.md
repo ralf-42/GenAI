@@ -215,6 +215,8 @@ Hinweis: Dieses Feature setzt voraus, dass der verwendete Modell‑Provider nati
 
 Tools erweitern die Fähigkeiten eines Agenten erheblich, da sie Funktionen abdecken, die ein Modell selbst nicht ausführen kann – etwa Berechnungen, Datenabrufe, lokale Analysen oder Abfragen externer Systeme. Der `@tool`‑Decorator ermöglicht eine klare, typensichere und gut dokumentierte Definition solcher Werkzeuge.
 
+**Merksatz für Einsteiger:** Ein Tool ist nicht nur Python-Code. Name, Type Hints und Docstring sind Teil der Schnittstelle, die das Modell zur Tool-Auswahl nutzt.
+
 ### Beispiel: Ein einfaches Rechentool
 
 ```python
@@ -242,6 +244,21 @@ def safe_divide(a: float, b: float) -> str:
 print(safe_divide.invoke({"a": 10, "b": 2}))
 print(safe_divide.invoke({"a": 10, "b": 0}))
 ```
+
+### Tool-Namen und Beschreibungen präzise wählen
+
+Der Funktionsname wird standardmäßig zum Tool-Namen. Er sollte deshalb beschreiben, **wann** das Tool verwendet werden soll, nicht nur was technisch passiert.
+
+```python
+from langchain_core.tools import tool
+
+@tool("order_status_lookup")
+def check_status(order_id: str) -> str:
+    """Nur verwenden, wenn eine konkrete Bestellnummer vorliegt und der Versandstatus gefragt ist."""
+    return f"Bestellung {order_id}: unterwegs"
+```
+
+Gute Tool-Beschreibungen senken Fehlaufrufe. Besonders wichtig sind klare Grenzen wie „nur bei Bestellnummer“, „nicht für Produktsuche“ oder „nur für interne Kundendaten“.
 
 
 
@@ -446,6 +463,44 @@ rewrite_chain = rewrite_prompt | llm | StrOutputParser()
 text = "Das ist schlecht dokumentiert und unverständlich."
 output = rewrite_chain.invoke({"input_text": text})
 print(output)
+```
+
+### Mehrere Aufrufe: `batch()`, `batch_as_completed()` und `max_concurrency`
+
+Wenn mehrere Aufgaben unabhängig voneinander sind, ist `batch()` oft einfacher und schneller als eine Schleife mit vielen einzelnen `invoke()`-Aufrufen.
+
+```python
+fragen = [
+    {"input_text": "Abschnitt 1 ist schwer verständlich."},
+    {"input_text": "Abschnitt 2 klingt zu werblich."},
+    {"input_text": "Abschnitt 3 braucht ein Beispiel."},
+]
+
+antworten = rewrite_chain.batch(
+    fragen,
+    config={"max_concurrency": 3},
+)
+
+for antwort in antworten:
+    print(antwort)
+```
+
+`max_concurrency` begrenzt parallele Anfragen. Das ist nützlich, um Rate Limits, Kosten und Last kontrollierbar zu halten.
+
+Für lange Listen kann `batch_as_completed()` verwendet werden, wenn Ergebnisse sofort verarbeitet werden sollen, sobald sie fertig sind:
+
+```python
+for index, antwort in rewrite_chain.batch_as_completed(fragen):
+    print(index, antwort)
+```
+
+### Streaming für sichtbares Feedback
+
+Bei längeren Antworten verbessert `stream()` die Nutzererfahrung, weil Teilergebnisse sofort erscheinen.
+
+```python
+for chunk in rewrite_chain.stream({"input_text": "Erkläre RAG ausführlich."}):
+    print(chunk, end="", flush=True)
 ```
 
 ### Beispiel: LCEL-Chain mit zusätzlicher Eingabe (Pass-Through)
@@ -756,7 +811,10 @@ Dieses Pattern bildet die Grundlage für Wissens‑Chatbots, Dokumenten‑Assist
 - Prompts mit `ChatPromptTemplate` statt zusammengesetzten Strings bauen.
 - Strukturierte Daten mit `with_structured_output()` erzeugen.
 - Tools mit `@tool`, Type Hints und klaren Docstrings definieren.
+- Tool-Namen und Tool-Beschreibungen so formulieren, dass das Modell die Einsatzgrenzen versteht.
 - LCEL `|` für lineare Chains verwenden.
+- Für unabhängige Massenaufgaben `batch()` mit begrenztem `max_concurrency` nutzen.
+- Für längere Antworten `stream()` einsetzen, wenn Nutzer früh Feedback sehen sollen.
 - Für RAG zuerst Chunking, Embeddings und Retrieval-Qualität testen, bevor der Agent komplexer wird.
 
 ---

@@ -368,6 +368,12 @@ Migration sollte schrittweise erfolgen. Zuerst wird der bestehende Ablauf als Gr
 - **Checkpointing Guide**: <https://langchain-ai.github.io/langgraph/concepts/persistence/>
 - **Human-in-the-Loop**: <https://langchain-ai.github.io/langgraph/concepts/human_in_the_loop/>
 
+## Fortgeschrittene Patterns als Ausblick
+
+- **Fan-out/Fan-in:** mehrere unabhängige Nodes parallel ausführen und Ergebnisse über Reducer wieder zusammenführen.
+- **Agentic RAG:** Retrieval nicht nur als feste Vorstufe nutzen, sondern im Graph mit Routing, Tool-Auswahl, Query-Refinement und Ergebnisbewertung kombinieren.
+- **Send API / dynamische Dispatches:** nur einsetzen, wenn statische Edges oder `add_conditional_edges()` den Kontrollfluss nicht mehr klar abbilden.
+
 > [!TIP] Tipp<br>
 > Mit einem linearen Agenten starten und erst zu LangGraph wechseln, wenn State, Routing, Checkpointing oder Freigaben echte Anforderungen sind. Das hält frühe Prototypen klein und macht die spätere Migration nachvollziehbar.
 
