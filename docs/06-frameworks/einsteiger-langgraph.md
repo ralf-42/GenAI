@@ -49,6 +49,27 @@ LangChain bietet Modelle, Tools und einfache Agenten. LangGraph baut darauf auf 
 
 ---
 
+## Lernpfad: Von einfach zu agentisch
+
+LangGraph lässt sich am besten schrittweise lernen. Nicht alle Themen sind für den Einstieg gleich wichtig.
+
+| Stufe | Thema | Ziel |
+|---|---|---|
+| 1 | Minimaler Graph | State, Node, Edge, `START` und `END` verstehen |
+| 2 | Sequenzieller Graph | lineare Workflows als Pipeline bauen |
+| 3 | Conditional Routing | Entscheidungen in Code statt im Prompt modellieren |
+| 4 | Loop / Retry | Wiederholungen mit klarer Exit-Bedingung bauen |
+| 5 | Tool-Loop | LLM-Entscheidung, Tool-Ausführung und Antwort verbinden |
+| 6 | Streaming | Zwischenschritte und Antworten sichtbar machen |
+| 7 | Checkpointing | Sessions wiederaufnehmen und lange Abläufe absichern |
+| 8 | Human-in-the-Loop | Freigaben und Korrekturen technisch erzwingen |
+| 9 | Subgraphs / Multi-Agent | größere Workflows modularisieren |
+| 10 | Agentic RAG | Retrieval, Tools und Routing in einem Graph kombinieren |
+
+Für Einsteiger reichen die Stufen 1-5 als solide Grundlage. Die Stufen 6-10 sind wichtig, sobald aus einem Demo-Workflow ein interaktives oder produktionsnahes System wird.
+
+---
+
 ## Quickstart
 
 Der schnellste Weg zum Verständnis ist ein Mini-Workflow.
@@ -180,6 +201,15 @@ flowchart TD
 
 Kurz: **Nodes sind Funktionen – Edges sind der Ablauf.**
 
+**Begriffe sauber trennen:**
+
+| Begriff | Bedeutung |
+|---|---|
+| **Graph State** | Das Datenschema des Workflows: Welche Informationen werden zwischen Schritten weitergegeben? |
+| **StateGraph** | Die Workflow-Struktur: Welche Nodes gibt es und wie sind sie über Edges verbunden? |
+
+Der Graph State beschreibt also die Daten. Der `StateGraph` beschreibt den Ablauf.
+
 ---
 
 ## State sauber definieren (vertieft)
@@ -195,6 +225,17 @@ Prinzipien:
 - Nur speichern, was später benötigt wird.
 - Typisierung unterstützt Verständnis und Fehlersuche.
 - Reducer sorgen dafür, dass Listen (z. B. Nachrichten) korrekt gemergt werden.
+
+Ohne Reducer ersetzt ein Node-Update den alten Wert eines Feldes. Mit Reducer wird festgelegt, wie alte und neue Werte zusammengeführt werden. Für Chat-Verläufe ist `add_messages` deshalb meist die richtige Wahl.
+
+```python
+from typing import Annotated, TypedDict
+from langgraph.graph.message import add_messages
+
+class ChatState(TypedDict):
+    messages: Annotated[list, add_messages]  # neue Nachrichten anhängen
+    step: int                                # neuer Wert ersetzt alten Wert
+```
 
 ---
 
@@ -274,6 +315,8 @@ g.add_edge(START, "agent")
 g.add_edge("agent", END)
 ```
 
+`START` ist der technische Einstiegspunkt des Graphen, `END` der technische Endpunkt. Jeder Pfad muss am Ende zu einem gültigen Node oder zu `END` führen; sonst entsteht ein Dead-End.
+
 ### Bedingtes Routing
 
 ```python
@@ -320,6 +363,22 @@ flowchart TB
 - Unsicherheitsanalyse
 - Routing nach Tool-Feedback
 - Wiederholschleifen (Retry)
+
+### State ändern und gleichzeitig routen: `Command`
+
+Wenn ein Schritt sowohl den State aktualisieren als auch den nächsten Node festlegen soll, ist `Command(update=..., goto=...)` das passende Muster.
+
+```python
+from typing import Literal
+from langgraph.types import Command
+
+def classify_node(state: ChatState) -> Command[Literal["tools", "answer"]]:
+    if "suche" in state["messages"][-1].content.lower():
+        return Command(update={"step": state["step"] + 1}, goto="tools")
+    return Command(update={"step": state["step"] + 1}, goto="answer")
+```
+
+Für Einsteiger gilt: einfache Verzweigungen zuerst mit `add_conditional_edges()` modellieren. `Command` lohnt sich, wenn Update und Routing fachlich zusammengehören.
 
 ---
 
@@ -530,6 +589,10 @@ Mögliche Erweiterungen:
 - State klein und explizit halten.
 - Nodes nach fachlicher Verantwortung trennen.
 - Routing als Funktion modellieren statt in Prompt-Text zu verstecken.
+- `Graph State` als Datenschema und `StateGraph` als Ablaufstruktur getrennt denken.
+- Reducer bewusst setzen: Listen wie `messages` anhängen, einzelne Felder gezielt ersetzen.
+- Jeden Pfad explizit zu einem gültigen Node oder zu `END` führen.
+- `Command(update=..., goto=...)` verwenden, wenn ein Node State-Update und Routing gemeinsam entscheidet.
 - Graph nach dem Kompilieren visualisieren.
 - Checkpointing einsetzen, sobald Sessions wiederaufgenommen werden sollen.
 - Human-in-the-Loop technisch mit Interrupts erzwingen.
@@ -557,6 +620,8 @@ Setze eine stabile `thread_id` und verwende `Command(resume=...)`, um nach einem
 - Checkpointing über persistente Stores
 - Human-in-the-Loop mit Formularen
 - Multi-Agent-Workflows
+- Parallele Graphen mit Fan-out/Fan-in
+- Agentic RAG mit Retrieval, Tool-Auswahl und Query-Refinement
 - LangSmith-Tracing für Graph-Runs
 
 ---
