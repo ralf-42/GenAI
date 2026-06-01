@@ -106,7 +106,7 @@ Die Pflicht-/Optional-Orientierung ist im Kursintro und in der Kursprogression k
 | `M10_MCP_LangChain_Agent.ipynb` | Model Context Protocol und Agent-Tools | Aufbau / Optional |
 | `M11_Gradio.ipynb` | Gradio-Oberflächen für KI-Anwendungen | Ergänzend |
 | `M12_Lokale_Open_Source_Modelle.ipynb` | Lokale und Open-Source-Modelle, Ollama | Optional |
-| `M13_Fine_Tuning.ipynb` | Fine-Tuning und Modellanpassung | Optional / Vertiefung |
+| `M13_Fine_Tuning_Unsloth.ipynb` | Fine-Tuning und Modellanpassung | Optional / Vertiefung |
 | `M14_Multimodal_Bild.ipynb` | Multimodale Bildverarbeitung | Ergänzend |
 | `M15_Multimodal_RAG.ipynb` | Multimodales RAG mit Text und Bild | Aufbau / Optional |
 | `M16_Multimodal_Audio.ipynb` | Audio, Speech-to-Text und Text-to-Speech | Optional |
@@ -161,5 +161,5 @@ Die **Kursmaterialien** (z. B. Folien, Texte, Grafiken) sind unter der [CC BY 4.
 
 ---
 
-**Letzte Aktualisierung:** Mai 2026         
-**Version:** 2.8          
+**Letzte Aktualisierung:** Juni 2026         
+**Version:** 2.9          
