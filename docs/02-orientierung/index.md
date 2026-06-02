@@ -9,7 +9,7 @@ description: "Bedarfsklärung: Nutzen, Aufgabenklasse und KI-Reife vor dem erste
 
 # Orientierung
 
-Dieser Bereich klärt, ob ein GenAI-Vorhaben fachlich sinnvoll ist, welcher Lösungsweg passt und wie reif eine Organisation für den Einsatz ist.
+In diesem Bereich geht es darum, GenAI-Vorhaben sauber einzuordnen: Passt das Thema fachlich überhaupt, welcher Lösungsweg ist naheliegend und wie gut ist die Organisation schon vorbereitet? Erst wenn das geklärt ist, wird aus einer Idee ein sinnvolles erstes Projekt.
 
 | Frage | Dokument |
 |---|---|
