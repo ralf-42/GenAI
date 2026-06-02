@@ -25,9 +25,9 @@ has_toc: true
 
 ## Zielsetzung
 
-Das Modell dient als analytische Grundlage für Management-Workshops, Standortbestimmungen und Roadmaps. Es bewertet nicht einzelne Tools oder Hersteller, sondern Strukturen, Fähigkeiten, Entscheidungslogiken und Verantwortlichkeiten, die belastbaren KI-Einsatz ermöglichen.
+Das Modell ist dafür gedacht, damit Management-Workshops, Standortbestimmungen und Roadmaps eine gemeinsame, belastbare Grundlage haben. Es geht dabei nicht um einzelne Tools oder Hersteller. Stattdessen wird betrachtet, welche Strukturen und Fähigkeiten im Unternehmen vorhanden sind, wie Entscheidungen getroffen werden und wer welche Verantwortung übernimmt – kurz: was tragfähigen KI-Einsatz möglich macht.
 
-Reale Organisationen zeigen häufig hybride Reifegrade. Eine Fachabteilung kann bereits experimentieren, während zentrale Governance noch fehlt; eine IT-Plattform kann vorbereitet sein, obwohl Fachbereiche keine tragfähigen Use Cases priorisieren. Entscheidend ist deshalb nicht die exakte Stufenzuordnung, sondern das Erkennen dominanter Muster und Blockaden.
+Viele Organisationen sind nicht sauber auf einer Stufe. Häufig sieht man Mischformen: Eine Fachabteilung experimentiert schon, während zentrale Governance noch fehlt. Oder die IT-Plattform ist vorbereitet, aber Fachbereiche priorisieren keine Use Cases, die sich sinnvoll umsetzen lassen. Deshalb ist nicht die exakte Stufenzuordnung entscheidend. Wichtiger ist, welche Muster gerade dominieren und an welchen Stellen es hakt.
 
 ## Reifegradstufen
 
@@ -41,15 +41,15 @@ Reale Organisationen zeigen häufig hybride Reifegrade. Eine Fachabteilung kann 
 
 ## Interpretation
 
-Stufe 1 beschreibt Organisationen, in denen KI vor allem als Risiko erscheint. Daten sind verteilt, Schnittstellen fehlen, und Verantwortlichkeiten sind kaum geklärt. Der nächste sinnvolle Schritt besteht nicht in einem großen KI-Projekt, sondern in Datenordnung, Verantwortungszuweisung und einer realistischen Risikoposition.
+Stufe 1 beschreibt Organisationen, in denen KI vor allem als Risiko gesehen wird. Häufig sind Daten verteilt und es fehlen verbindliche Schnittstellen. Verantwortlichkeiten sind kaum geklärt. Der sinnvolle nächste Schritt ist dann kein großes KI-Projekt, sondern erst einmal Datenordnung schaffen, Zuständigkeiten festlegen und die eigene Risikoposition realistisch einordnen.
 
-Stufe 2 ist durch individuelle Experimente geprägt. Einzelne Teams nutzen frei verfügbare Tools, ohne dass Nutzung, Datenweitergabe oder Qualität systematisch gesteuert werden. Der Übergang zu Stufe 3 gelingt erst, wenn Experimente dokumentiert, priorisiert und in offizielle Strukturen überführt werden.
+Stufe 2 zeigt vor allem individuelle Experimente. Einzelne Teams nutzen frei verfügbare Tools, aber der Einsatz ist nicht in offizielle IT-Strukturen eingebettet. Nutzung, Datenweitergabe und Qualität werden dabei oft nicht systematisch gesteuert. Der Übergang zu Stufe 3 gelingt in der Regel erst, wenn diese Experimente dokumentiert, priorisiert und in die offiziellen Strukturen des Unternehmens überführt werden.
 
-Stufe 3 schafft die Grundlagen für wiederholbare KI-Projekte. Technische Plattformen, Rollenmodelle, Datenschutz, Security und Use-Case-Bewertung werden miteinander verbunden. Typischer Fehler: zu viele Piloten parallel starten, ohne Kriterien für Skalierung, Abbruch oder Betrieb zu definieren.
+Stufe 3 schafft die Basis für wiederholbare KI-Projekte. Technische Plattformen, Rollenmodelle, Datenschutz, Security und die Bewertung von Use Cases greifen dann zusammen. Ein typischer Fehler ist, zu viele Piloten parallel zu starten – ohne klare Kriterien, nach denen entschieden wird, ob skaliert, abgebrochen oder in den Betrieb überführt wird.
 
-Stufe 4 beschreibt produktiven KI-Einsatz in Kernprozessen. Modelle, Datenpipelines, Monitoring, Incident-Prozesse und Business-KPIs sind etabliert. Grenze: Operativer Einsatz bleibt fragil, wenn Modellqualität zwar gemessen wird, aber keine organisatorische Entscheidung folgt, sobald Qualität, Fairness oder Kosten kippen.
+Stufe 4 bedeutet produktiven KI-Einsatz in Kernprozessen. Modelle, Datenpipelines, Monitoring, Incident-Prozesse und Business-KPIs sind etabliert. Eine Grenze bleibt, wenn der operative Einsatz zwar stark gemessen wird, aber keine klare organisatorische Entscheidung folgt, sobald Modellqualität, Fairness oder Kosten kippen.
 
-Stufe 5 ist erreicht, wenn KI nicht nur Prozesse effizienter macht, sondern Geschäftsmodelle, Produkte oder Marktposition verändert. Governance wird dann nicht als Bremse verstanden, sondern als Bestandteil von Vertrauen, Reputation und Differenzierung.
+Stufe 5 ist erreicht, wenn KI nicht nur Prozesse effizienter macht, sondern Geschäftsmodelle, Produkte oder die Marktposition verändert. Governance wird dann nicht mehr als Bremse verstanden, sondern als Teil von Vertrauen, Reputation und Differenzierung.
 
 ## Dimensionen im Überblick
 
@@ -62,7 +62,7 @@ Stufe 5 ist erreicht, wenn KI nicht nur Prozesse effizienter macht, sondern Gesc
 
 ## Hinweise zur Nutzung
 
-Sinnvoll ist weniger die Frage "Welche Stufe ist die Organisation?", sondern "Was verhindert aktuell den nächsten konsistenten Entwicklungsschritt?" Aus der Antwort lassen sich eine Selbstbewertungs-Checkliste, abteilungsspezifische Reifegradprofile oder eine realistische Ein-Stufen-Roadmap ableiten.
+Statt vor allem die Frage zu klären „Welche Stufe ist das Unternehmen?“, hilft oft eher: „Was bremst gerade den nächsten konsistenten Entwicklungsschritt?“ Wenn sich diese Blockade klar benennen lässt, kann man daraus eine Selbstbewertungs-Checkliste, ein abteilungsspezifisches Reifegradprofil oder auch eine realistische Roadmap ableiten – etwa für den Sprung um genau eine Stufe.
 
 > [!TIP] Einsatz im Workshop<br>
 > Das Modell eignet sich als Gesprächsgrundlage für Standortbestimmungen. Es ersetzt keine technische Architekturprüfung und keine Wirtschaftlichkeitsrechnung.
