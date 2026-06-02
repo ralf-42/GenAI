@@ -22,13 +22,13 @@ has_toc: true
 
 ## Überblick / Zweck
 
-**LangSmith** ist die **Observability-Plattform** für LangChain/LangGraph-Anwendungen und bildet die **dritte Säule** des LangChain-Ökosystems:
+**LangSmith** ist die **Observability-Plattform** für Anwendungen mit **LangChain/LangGraph**. Es ist die **dritte Säule** im LangChain-Ökosystem:
 
 - **LangChain** - Struktur (Chains, Tools, Prompts)
 - **LangGraph** - Kontrolle (Workflows, State Machines, Multi-Agent)
 - **LangSmith** - Observability (Monitoring, Debugging, Evaluation)
 
-> **📘 Referenz:** Siehe `docs/10-deployment/vom-modell-zum-produkt.md` für das Zusammenspiel aller drei Komponenten.
+> **📘 Referenz:** Das Zusammenspiel findest du in `docs/10-deployment/vom-modell-zum-produkt.md`.
 
 ---
 
@@ -64,19 +64,21 @@ response = agent.invoke({"messages": [...]})
 # - Fehler-Details mit Stack-Trace
 ```
 
+---
+
 ## Standards / Kern-Features
 
 ### 1. Tracing & Debugging
 
 **Was es macht:**
-- Erfasst jeden Schritt einer LLM-Interaktion
-- Visualisiert den kompletten Ablauf (Tree-View)
-- Zeigt Input/Output jeder Komponente
+- Zeichnet jeden Schritt einer LLM-Interaktion auf
+- Zeigt den Ablauf übersichtlich (Tree-View)
+- Gibt Input/Output je Komponente transparent wieder
 
 **Wann nutzen:**
-- ✅ Debugging komplexer Agent-Workflows
-- ✅ Verstehen, warum ein Agent falsch reagiert
-- ✅ Performance-Bottlenecks identifizieren
+- ✅ Wenn du komplexe Agent-Workflows sauber debuggen willst
+- ✅ Um nachzuvollziehen, warum ein Agent „danebenliegt“
+- ✅ Um Performance-Bottlenecks zu finden (wer braucht wie lange?)
 
 **Best Practice:**
 ```python
@@ -87,19 +89,20 @@ os.environ["LANGSMITH_TRACING"] = "true"
 ```
 
 **Trace-Filter:**
-- Filter nach User-ID, Session-ID
+- Filter nach User-ID oder Session-ID
 - Suche nach Fehlern
 - Zeitbasierte Filterung
 
 **Trace Previews anpassen** *(neu: Feb 2026, v0.13.10)*
 
-Konfigurierbar, welche Inputs und Outputs in der Tracing-Tabelle angezeigt werden – besonders nützlich bei Custom Data Structures:
+Du kannst steuern, welche Felder in der Tracing-Tabelle angezeigt werden. Das ist besonders hilfreich, wenn du mit **Custom Data Structures** arbeitest oder wenn Inputs/Outputs sehr lang sind:
+
 - Im LangSmith Dashboard: Settings → Trace Preview → Felder auswählen
-- Nützlich für Projekte mit verschachtelten Datenstrukturen oder langen Texten
+- Hilft bei verschachtelten Datenstrukturen und langen Texten
 
 **`.with_config()` – Traces benennen und taggen:**
 
-Mit `.with_config()` lassen sich einzelne Chains und Aufrufe in LangSmith klar identifizieren.
+Mit `.with_config()` gibst du einzelnen Chains und Aufrufen einen klaren Namen in LangSmith. So erkennst du im Trace-Tree schneller, was zu welchem Teil gehört.
 
 **Pattern: Konfiguration vorab in Variable – dann `.with_config(**run_cfg)` anwenden:**
 
@@ -116,11 +119,11 @@ result = chain.invoke({"input": "..."})
 ```
 
 **Wann `.with_config()` einsetzen:**
-- ✅ Mehrere Chains im selben Projekt – damit Traces unterscheidbar sind
-- ✅ Parallele Chains (`RunnableParallel`) – jede Teilkette separat benennen
-- ✅ Streaming-Aufrufe – auch `stream()` wird getraced
-- ❌ Reine Python-Funktionen ohne LLM-Aufruf (`RunnableLambda` ohne LLM)
-- ❌ Einführungsbeispiele, die LCEL-Syntax lehren – Codeklarheit geht vor
+- ✅ Wenn in einem Projekt viele Chains parallel laufen und du sie unterscheiden musst
+- ✅ Bei parallelen Chains (`RunnableParallel`) – jede Teilkette separat benennen
+- ✅ Bei Streaming – auch `stream()` wird getraced
+- ❌ Bei reinen Python-Funktionen ohne LLM (`RunnableLambda` ohne LLM)
+- ❌ Wenn es nur um LCEL-Syntax geht: Codeklarheit zuerst, nicht überall zusätzliche Konfig
 
 **Namenskonvention (Empfehlung):**
 ```python
@@ -143,14 +146,11 @@ tags=["M05", "lcel", "parallel"]
 tags=["production", "rag", "v2"]
 ```
 
-> ⚠️ **Regel:** `.with_config()` gehört in den Abschnitt, der Tracing *erklärt* –
-> nicht pauschal auf jede Chain im Notebook. In Lehr-Notebooks einmalig
-> demonstrieren (z. B. in einem eigenen „LangSmith"-Kapitel), in den
-> vorherigen LCEL-Beispielen weglassen.
+> ⚠️ **Regel:** `.with_config()` gehört in den Abschnitt, der Tracing *erklärt*. In Lehr-Notebooks sollte es einmalig gezeigt werden (z. B. im „LangSmith“-Kapitel). In vorherigen LCEL-Beispielen lässt du es besser weg.
 
 **`.func()` – Tool-Tests ohne Tracing:**
 
-Für isolierte Funktionstests (`@tool`-dekorierte Funktionen) die Python-Funktion direkt über `.func()` aufrufen – vollständig am Runnable-Framework vorbei, kein Trace entsteht.
+Wenn du eine Tool-Funktion isoliert testen willst, rufst du sie direkt über `.func()` auf. Damit gehst du am Runnable-Framework vorbei und es entsteht kein Trace.
 
 ```python
 from langchain_core.tools import tool
@@ -168,25 +168,25 @@ ergebnis = celsius_nach_fahrenheit.invoke({"temperatur": 37.0})
 ```
 
 **Wann `.func()` einsetzen:**
-- ✅ Isolierte Unit-Tests von Tool-Funktionen (Kapitel vor der LangSmith-Demo)
+- ✅ Für isolierte Unit-Tests von Tool-Funktionen (Kapitel vor der LangSmith-Demo)
 - ✅ Wenn Tracing-Unterdrückung via Context Manager nicht zuverlässig funktioniert
-- ❌ Nicht verwenden, wenn das Runnable-Verhalten (Schema-Validierung, Callbacks) getestet werden soll
+- ❌ Nicht verwenden, wenn du gerade das Runnable-Verhalten testen willst (Schema-Validierung, Callbacks)
 
-> 💡 **Didaktischer Mehrwert:** Der Kontrast `.func()` vs. `.invoke()` macht sichtbar, was das Runnable-Framework zusätzlich leistet – ideal für Lehr-Notebooks.
+> 💡 **Didaktischer Mehrwert:** Der Unterschied zwischen `.func()` und `.invoke()` macht sichtbar, was das Runnable-Framework zusätzlich übernimmt. Genau das hilft beim Verstehen in Lehr-Notebooks.
 
 ---
 
 ### 2. Datasets & Evaluation
 
 **Was es macht:**
-- Test-Datasets für LLM-Anwendungen erstellen
-- Automatisierte Evaluierung vor Deployment
-- Benchmark-Vergleiche über Zeit
+- Erlaubt dir, Test-Datasets für LLM-Anwendungen anzulegen
+- Unterstützt automatisierte Evaluierungen vor dem Deployment
+- Macht Benchmark-Vergleiche über mehrere Versionen hinweg möglich
 
 **Wann nutzen:**
 - ✅ Regression-Tests nach Code-Änderungen
 - ✅ A/B-Testing von Prompts
-- ✅ Qualitätssicherung vor Production
+- ✅ Qualitätschecks, bevor es live geht
 
 **Best Practice:**
 ```python
@@ -220,7 +220,7 @@ results = evaluate(
 
 **Baseline-Experiment fixieren** *(neu: Feb 2026)*
 
-Seit Februar 2026 kann ein beliebiges Experiment als **Baseline** fixiert werden. Alle nachfolgenden Runs werden automatisch dagegen verglichen – kein manuelles Auswählen mehr nötig:
+Seit Februar 2026 kannst du ein Experiment als **Baseline** festlegen. Alle danach folgenden Runs werden automatisch gegen diese Baseline verglichen.
 
 ```python
 # Im LangSmith Dashboard: Experiments → Run auswählen → "Pin as Baseline"
@@ -235,10 +235,11 @@ results_v2 = evaluate(
 
 **Pairwise Annotation Queues** *(neu: Dez 2025, v0.12.61)*
 
-Side-by-Side Vergleich zweier Agent-Outputs für subjektive Evaluation:
+Wenn du zwei Agent-Outputs direkt nebeneinander bewerten lassen willst (z. B. für Stil, Ton oder Kreativität), sind Pairwise Queues praktisch:
+
 - Im LangSmith Dashboard: Annotation Queues → Pairwise Queue erstellen
-- Zeigt zwei Antworten nebeneinander zur manuellen Bewertung
-- Ideal für: Ton, Kreativität, Stil – schwer automatisch bewertbar
+- Zeigt zwei Antworten side-by-side zur manuellen Bewertung
+- Besonders sinnvoll, wenn sich subjektive Qualität nicht gut automatisch messen lässt
 
 ---
 
@@ -247,12 +248,12 @@ Side-by-Side Vergleich zweier Agent-Outputs für subjektive Evaluation:
 **Was es macht:**
 - Production-Monitoring in Echtzeit
 - Dashboards für Metriken (Latenz, Fehlerrate, Token-Nutzung)
-- Alerts bei Anomalien
+- Alerts bei Auffälligkeiten
 
 **Wann nutzen:**
-- ✅ **Obligatorisch** für alle Production-Deployments
-- ✅ Monitoring von SLAs (Response-Zeit, Fehlerrate)
-- ✅ Frühwarnung bei Problemen
+- ✅ Für alle Production-Deployments verpflichtend
+- ✅ Für SLA-Metriken (Response-Zeit, Fehlerrate)
+- ✅ Als frühes Warnsystem, bevor es richtig kritisch wird
 
 **Best Practice:**
 ```python
@@ -274,14 +275,14 @@ os.environ["LANGSMITH_PROJECT"] = "production"  # Projekt-Name
 ### 4. Cost Tracking & Budget Management
 
 **Was es macht:**
-- Token-Nutzung pro Request tracken
-- Budget-Limits setzen
-- Kosten-Alerts konfigurieren
+- Trackt die Token-Nutzung pro Request
+- Ermöglicht Budget-Limits
+- Unterstützt Kosten-Alerts
 
 **Wann nutzen:**
-- ✅ Budget-Kontrolle für Production-Apps
-- ✅ Kosten-Optimierung identifizieren
-- ✅ Abrechnungs-Transparenz
+- ✅ Für die Kostenkontrolle in Production-Apps
+- ✅ Für Optimierungen (wo wird wirklich viel Budget verbraucht?)
+- ✅ Für Abrechnungs-Transparenz
 
 **Best Practice:**
 ```python
@@ -300,7 +301,7 @@ os.environ["LANGSMITH_PROJECT"] = "production"  # Projekt-Name
 
 **Kosten über gesamten Agent-Stack tracken** *(neu: Feb 2026)*
 
-Seit Februar 2026 bietet LangSmith eine **unified Cost View** über den gesamten Agent-Workflow – nicht nur LLM-Calls, sondern alle Komponenten (Tools, externe APIs etc.):
+Seit Februar 2026 gibt es eine **unified Cost View** über den gesamten Agent-Workflow. Das geht über reine LLM-Calls hinaus: Tools und externe APIs können ebenfalls abgebildet werden.
 
 ```python
 # Custom Cost Metadata für nicht-LLM-Komponenten
@@ -319,14 +320,14 @@ client.update_run(
 ### 5. Prompt Hub
 
 **Was es macht:**
-- Zentrale Verwaltung von Prompts
-- Versionierung von Prompts
-- Prompt-Sharing im Team
+- Prompts zentral verwalten
+- Versionieren
+- Im Team teilen
 
 **Wann nutzen:**
-- ✅ Prompt-Iterationen versionieren
-- ✅ Prompt-Wiederverwendung über Projekte
-- ✅ Team-Kollaboration
+- ✅ Prompt-Iterationen nachvollziehbar machen
+- ✅ Prompts wiederverwenden (über Projekte hinweg)
+- ✅ Team-Kollaboration vereinfachen
 
 **Best Practice:**
 ```python
@@ -351,17 +352,17 @@ agent = create_agent(
 
 ### Agent Builder → LangSmith Fleet
 
-Die „Agent Builder“-Sektion in der LangSmith-UI wurde umbenannt in „LangSmith Fleet“.
+Die „Agent Builder“-Sektion in der LangSmith-UI heißt jetzt „LangSmith Fleet“.
 
 > LangSmith Dashboard → **Fleet** (linke Navigation)
 
-Alle bisherigen Funktionen sind erhalten — nur der Name hat sich geändert.
+Die Funktionen sind weiterhin da — nur der Name wurde angepasst.
 
 **Notebooks:** Verweise auf „LangSmith Agent Builder“ auf „LangSmith Fleet“ aktualisieren.
 
 ### Terminal-basiertes Trace-Debugging
 
-**In der Praxis relevant wenn:** Debugging in Google Colab oder SSH-Umgebungen ohne Browser.
+In der Praxis relevant, wenn du z. B. in Google Colab oder in SSH-Umgebungen arbeitest und keinen Browser zur Verfügung hast.
 
 ---
 
@@ -424,13 +425,13 @@ result = chain.invoke("...")
 **Projektname-Konvention:**
 
 | Kontext | Empfehlung | Beispiel |
-|---------|-----------|---------|
+|---------|------------|----------|
 | Kurs-Notebook (Setup) | Platzhalter | `"default"` |
 | Kurs-Notebook (LangSmith-Abschnitt) | Modulname | `"M06-Structured-Output"` |
 | Produktion | Anwendungsname | `"chatbot-production"` |
 | Experiment | Thema + Datum | `"rag-experiment-2026-03"` |
 
-❌ **Nicht empfohlen:** Ein gemeinsames Projekt für mehrere Module (z. B. `"KI_Agenten_Kurs"`) – Traces aus verschiedenen Modulen vermischen sich, die Filterung wird aufwändiger.
+❌ **Nicht empfohlen:** Ein gemeinsames Projekt für mehrere Module (z. B. `"KI_Agenten_Kurs"`). Dann vermischen sich Traces aus verschiedenen Modulen, und das Filtern wird deutlich aufwendiger.
 
 ### 3. Code ausführen (keine Änderungen nötig!)
 ```python
@@ -527,9 +528,9 @@ worker2 = create_agent(model=llm, tools=[...])
 
 ### RAG-Systeme
 **LangSmith-Features nutzen:**
-- ✅ **Tracing** - Retrieval-Qualität analysieren (Welche Dokumente wurden abgerufen?)
+- ✅ **Tracing** - Retrieval-Qualität prüfen (Welche Dokumente wurden abgerufen?)
 - ✅ **Evaluation** - Dataset mit Ground-Truth-Antworten
-- ✅ **Monitoring** - Retrieval-Latenz, LLM-Latenz separat tracken
+- ✅ **Monitoring** - Retrieval-Latenz und LLM-Latenz getrennt tracken
 
 ```python
 # RAG mit LangSmith
@@ -549,9 +550,9 @@ rag_chain = (
 
 ### Multi-Tool Agents
 **LangSmith-Features nutzen:**
-- ✅ **Tracing** - Tool-Auswahl-Entscheidungen verstehen
+- ✅ **Tracing** - Tool-Auswahl-Entscheidungen nachvollziehen
 - ✅ **Debugging** - Fehlerhafte Tool-Calls identifizieren
-- ✅ **Cost Tracking** - Kosten pro Tool-Call
+- ✅ **Cost Tracking** - Kosten pro Tool-Call im Blick behalten
 
 ```python
 @tool
@@ -569,9 +570,9 @@ agent = create_agent(model=llm, tools=[expensive_api_call, ...])
 
 ### Production-Chatbots
 **LangSmith-Features nutzen:**
-- ✅ **Monitoring** - User-Zufriedenheit (via Custom-Feedback)
+- ✅ **Monitoring** - User-Zufriedenheit erfassen (via Custom-Feedback)
 - ✅ **Alerts** - Fehlerrate > 5%
-- ✅ **Budget** - Kosten-Limit pro User/Session
+- ✅ **Budget** - Kosten-Limit pro User/Session setzen
 
 ```python
 # Feedback-Integration
@@ -593,11 +594,11 @@ def chatbot_with_feedback(message: str, session_id: str):
 
 ### Problem: Traces landen in falschem Projekt (`default` statt Modulname)
 
-**Ursache:** `LANGSMITH_PROJECT` wurde in der Setup-Cell auf `"default"` gesetzt (oder gar nicht), und später im Notebook per `os.environ` überschrieben. Das funktioniert nicht – der Projektnamen wird beim ersten Trace via `lru_cache` eingefroren.
+**Ursache:** `LANGSMITH_PROJECT` wurde in der Setup-Cell auf `"default"` gesetzt (oder gar nicht). Später versuchst du es im Notebook über `os.environ` zu ändern. Das klappt nicht zuverlässig — der Projektnamen wird beim ersten Trace eingefroren.
 
-**Symptom:** `os.environ["LANGSMITH_PROJECT"] = "M06-Structured-Output"` gibt den richtigen Wert aus, aber Traces landen trotzdem in `default`.
+**Symptom:** Du siehst zwar, dass `os.environ["LANGSMITH_PROJECT"] = "M06-Structured-Output"` den richtigen Wert hat, aber Traces landen trotzdem in `default`.
 
-**Lösung:** Modulnamen direkt in der Setup-Cell setzen – **vor** allen LangChain-Imports:
+**Lösung:** Modulnamen direkt in der Setup-Cell setzen — also bevor du irgendetwas aus LangChain importierst:
 ```python
 # ✅ Einmal korrekt in der Setup-Cell – funktioniert zuverlässig
 os.environ["LANGSMITH_PROJECT"] = "M06-Structured-Output"
@@ -606,7 +607,7 @@ os.environ["LANGSMITH_PROJECT"] = "M06-Structured-Output"
 os.environ["LANGSMITH_PROJECT"] = "M06-Structured-Output"  # zu spät
 ```
 
-**Alternativer Workaround** (wenn kein Kernel-Neustart möglich): `ls.tracing_context()`:
+**Alternativer Workaround** (wenn kein Kernel-Neustart möglich ist): `ls.tracing_context()`:
 ```python
 import langsmith as ls
 with ls.tracing_context(project_name="M06-Structured-Output"):
@@ -615,9 +616,8 @@ with ls.tracing_context(project_name="M06-Structured-Output"):
 
 > ⚠️ **SDK 0.8.3 Breaking Change:** `ttl_seconds` wurde entfernt. Neu: `idle_ttl_seconds` (Inaktivitäts-TTL) und `delete_after_stop_seconds` (TTL nach Stop).
 
----
-
 ### Problem: Traces erscheinen nicht
+
 **Lösung:**
 ```python
 # 1. Prüfe Environment-Variablen
@@ -628,11 +628,9 @@ print(os.getenv("LANGSMITH_API_KEY"))     # Sollte gesetzt sein
 # 3. Prüfe API-Key Gültigkeit (https://smith.langchain.com/settings)
 ```
 
----
-
 ### Problem: 403 Forbidden beim Tracing (EU-Account)
 
-**Ursache:** Ein EU-API-Key wird gegen den US-Default-Endpoint `api.smith.langchain.com` verwendet, weil `LANGSMITH_ENDPOINT` fehlt oder **nach** dem ersten LangChain-Import gesetzt wird.
+**Ursache:** Ein EU-API-Key wird gegen den US-Default-Endpoint `api.smith.langchain.com` verwendet. Ursache ist fehlendes `LANGSMITH_ENDPOINT` oder dass du die Variable erst nach dem ersten LangChain-Import gesetzt hast.
 
 **Symptom:**
 ```
@@ -668,6 +666,7 @@ os.environ["LANGSMITH_ENDPOINT"] = "https://eu.api.smith.langchain.com"  # Zu sp
 ```
 
 ### Problem: Zu viele Traces (Kosten-Kontrolle)
+
 **Lösung:**
 ```python
 # Sampling aktivieren (nur 10% der Requests tracken)
@@ -679,6 +678,7 @@ if os.getenv("ENVIRONMENT") == "development":
 ```
 
 ### Problem: Sensible Daten in Traces
+
 **Lösung:**
 ```python
 # Anonymisierung aktivieren

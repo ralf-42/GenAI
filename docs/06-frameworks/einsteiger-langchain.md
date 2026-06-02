@@ -25,23 +25,23 @@ has_toc: true
 
 ## Kurzüberblick: Warum LangChain?
 
-Große Sprachmodelle (LLMs) wie GPT-5 sind beeindruckend – doch für den Einsatz in der Praxis stoßen sie schnell an Grenzen:
+Große Sprachmodelle (LLMs) sind stark – aber im Alltag scheitert es oft an ganz praktischen Dingen:
 
-- **Wie verbindet man ein LLM mit eigenen Datenquellen?** (Dokumente, Datenbanken, APIs)
-- **Wie wechselt man zwischen verschiedenen Anbietern?** (OpenAI, Anthropic, Google – ohne Code-Änderungen)
-- **Wie bekommt man strukturierte Ausgaben?** (JSON, Objekte statt Freitext)
-- **Wie erweitert man die Fähigkeiten eines LLMs?** (Rechnen, Websuche, Dateizugriff)
-- **Wie baut man mehrstufige Workflows?** (Erst recherchieren, dann zusammenfassen, dann bewerten)
+- **Wie verbindet man ein LLM mit eigenen Datenquellen?** Dokumente, Datenbanken oder APIs
+- **Wie wechselt man den Anbieter, ohne alles neu zu bauen?** Also z. B. OpenAI, Anthropic oder Google
+- **Wie bekommt man wirklich strukturierte Ausgaben?** Statt unzuverlässigem Freitext
+- **Wie lässt sich ein LLM erweitern?** Zum Beispiel für Rechnen, Websuche oder Dateizugriff
+- **Wie baut man mehrstufige Abläufe?** Erst recherchieren, dann zusammenfassen, danach bewerten
 
-LangChain löst diese Herausforderungen durch:
+Genau dafür ist LangChain gemacht:
 
-- **Einheitliche Modell-Schnittstelle** – ein Interface für alle LLM-Anbieter
-- **Tool-Integration** – LLMs können externe Funktionen aufrufen (Taschenrechner, APIs, Datenbanken)
-- **Strukturierte Ausgaben** – garantiert valide Datenstrukturen statt unvorhersehbarem Text
-- **Verkettung von Schritten** – komplexe Workflows als lesbare Pipelines
-- **RAG-Unterstützung** – nahtlose Integration von Vektordatenbanken für Wissenserweiterung
+- **Einheitliche Modell-Schnittstelle**: Ein Interface für verschiedene LLM-Anbieter
+- **Tool-Integration**: Ein Modell kann externe Funktionen nutzen – etwa Rechner, APIs oder Datenbanken
+- **Strukturierte Ausgaben**: Statt Überraschungen gibt es verlässliche Datenstrukturen
+- **Verkettung von Schritten**: Komplexe Workflows werden als klare Pipelines gebaut
+- **RAG-Unterstützung**: Wissen aus Vektordatenbanken wird direkt eingebunden
 
-**Kernprinzip:** LangChain abstrahiert die Komplexität der LLM-Integration und bietet wiederverwendbare Bausteine – vom einfachen Prompt bis zum autonomen Agenten mit Werkzeugen.
+**Kernprinzip:** LangChain versteckt die ganzen Integrationsdetails und stellt wiederverwendbare Bausteine bereit – vom einfachen Prompt bis zum Agenten, der Tools verwendet.
 
 ### LangChain Architektur-Überblick
 
@@ -84,10 +84,10 @@ graph TB
 |---|---|
 | Prompt | Formuliert Aufgabe, Rolle und Kontext für das Modell |
 | Modell | Liefert Antworten über eine einheitliche Provider-Schnittstelle |
-| Strukturierte Ausgabe | Erzwingt verlässliche Objekte statt Freitext |
+| Strukturierte Ausgabe | Erzeugt verlässliche Objekte statt Freitext |
 | Tool | Erweitert das Modell um externe Funktionen |
-| Chain | Verkettet mehrere Schritte mit LCEL |
-| Agent | Entscheidet dynamisch, welche Tools und Schritte nötig sind |
+| Chain | Verbindet mehrere Schritte mit LCEL |
+| Agent | Wählt dynamisch Tools und Schritte aus |
 | RAG | Verbindet Modellantworten mit eigenen Wissensquellen |
 
 ---
@@ -107,7 +107,7 @@ antwort = chain.invoke({"thema": "LangChain"})
 print(antwort)
 ```
 
-Der Quickstart zeigt das Standardmuster: Prompt vorbereiten, Modell initialisieren, Schritte mit LCEL verbinden und ausführen.
+Der Quickstart zeigt das typische Basis-Muster: Prompt vorbereiten, Modell initialisieren, Schritte per LCEL verknüpfen und ausführen.
 
 ---
 
@@ -115,16 +115,16 @@ Der Quickstart zeigt das Standardmuster: Prompt vorbereiten, Modell initialisier
 
 ## Prompts mit `ChatPromptTemplate`
 
-Für wiederverwendbare und klar strukturierte Prompts steht in LangChain 1.0 das `ChatPromptTemplate` im Mittelpunkt. Es beschreibt, welche Nachrichtenrollen im Dialog verwendet werden und welche Platzhalter dynamisch zur Laufzeit gefüllt werden.
+Wenn du Prompts wiederverwenden und sauber strukturieren willst, ist `ChatPromptTemplate` in LangChain 1.0 die richtige Wahl. Du definierst dabei, welche Nachrichtenrollen im Dialog vorkommen und welche Platzhalter zur Laufzeit gefüllt werden.
 
-**Zentrale Aspekte:**
+**Wichtige Punkte:**
 
-- Trennung von System-, Nutzer- und Assistenz‑Nachrichten
-- Verwendung von Platzhaltern (z. B. `{frage}`, `{kontext}`) für dynamische Inhalte
-- Wiederverwendbarkeit desselben Templates in unterschiedlichen Chains und Agenten
-- Klare Trennung von Prompt‑Design und Geschäftslogik
+- Klare Trennung von System-, Nutzer- und Assistenz‑Nachrichten
+- Platzhalter (z. B. `{frage}`, `{kontext}`) für dynamische Inhalte
+- Wiederverwendbarkeit über mehrere Chains und Agenten hinweg
+- Saubere Trennung zwischen Prompt-Design und Anwendungslogik
 
-### Beispiel 1: Einfacher Frage-Antwort-Prompt
+### Beispiel 1: Einfacher Frage-Antwort-Prompt
 
 ```python
 from langchain_core.prompts import ChatPromptTemplate
@@ -141,7 +141,7 @@ rendered_messages = prompt.format_messages(frage="Was ist ein LLM?")
 rendered_messages
 ```
 
-### Beispiel 2: Prompt für RAG (mit Kontext)
+### Beispiel 2: Prompt für RAG (mit Kontext)
 
 ```python
 rag_prompt = ChatPromptTemplate([
@@ -159,7 +159,7 @@ msgs = rag_prompt.format_messages(
 
 ## Einheitliche Modell-Initialisierung: `init_chat_model()`
 
-Eine stabile und provider-unabhängige Initialisierung des zugrunde liegenden Sprachmodells bildet die Basis jeder Agentenarchitektur. `init_chat_model()` stellt sicher, dass verschiedene Modellanbieter konsistent angesprochen werden können, ohne die restliche Codebasis anpassen zu müssen.
+Damit dein Modellzugriff stabil bleibt, ist `init_chat_model()` die Basis. Es sorgt dafür, dass du verschiedene Anbieter konsistent ansprechen kannst – ohne dass du überall im Code herumfummeln musst.
 
 **Beispiel: Standard-Setup für den Kurs**
 
@@ -183,7 +183,7 @@ print(response.content)
 
 ## Strukturierte Ausgaben: `with_structured_output()`
 
-Viele Anwendungen benötigen klar definierte Datenstrukturen – etwa bei der Extraktion von Feldern, Bewertungen oder Metadaten. Mit `with_structured_output()` lassen sich Modellantworten direkt an Pydantic-Modelle koppeln und zuverlässig validieren.
+Viele Aufgaben brauchen keine „schöne Antwort“, sondern konkrete Felder – zum Beispiel bei Extraktion, Bewertungen oder Metadaten. Mit `with_structured_output()` kannst du Antworten direkt an Pydantic-Modelle koppeln und danach validieren lassen.
 
 **Beispiel: Einfache Entity-Extraktion in ein Pydantic-Modell**
 
@@ -207,15 +207,15 @@ print(result)
 print(result.kategorie, result.dringlichkeit)
 ```
 
-Hinweis: Dieses Feature setzt voraus, dass der verwendete Modell‑Provider native strukturierte Ausgaben unterstützt (z. B. OpenAI). Bei reinen Text‑Modellen ohne API‑Unterstützung steht diese Funktion nicht vollständig zur Verfügung.
+Hinweis: Diese Funktion hängt davon ab, ob der genutzte Modell‑Provider strukturierte Ausgaben wirklich unterstützt (z. B. OpenAI). Bei reinen Text‑Modellen ohne entsprechende API‑Unterstützung ist das so nicht in vollem Umfang nutzbar.
 
 ---
 
 ## Werkzeuge definieren: `@tool`
 
-Tools erweitern die Fähigkeiten eines Agenten erheblich, da sie Funktionen abdecken, die ein Modell selbst nicht ausführen kann – etwa Berechnungen, Datenabrufe, lokale Analysen oder Abfragen externer Systeme. Der `@tool`‑Decorator ermöglicht eine klare, typensichere und gut dokumentierte Definition solcher Werkzeuge.
+Tools machen einen Agent deutlich brauchbarer. Sie holen Funktionen rein, die ein Modell selbst nicht direkt ausführen kann – etwa Rechnen, Datenabrufe, lokale Analysen oder Abfragen externer Systeme. Der `@tool`‑Decorator sorgt dabei für eine klare, gut dokumentierte und typensichere Tool-Definition.
 
-**Merksatz für Einsteiger:** Ein Tool ist nicht nur Python-Code. Name, Type Hints und Docstring sind Teil der Schnittstelle, die das Modell zur Tool-Auswahl nutzt.
+**Merksatz für Einsteiger:** Ein Tool ist nicht „nur Python-Code“. Name, Type Hints und Docstring sind Teil der Schnittstelle, über die das Modell entscheidet, wann es dieses Tool nutzen soll.
 
 ### Beispiel: Ein einfaches Rechentool
 
@@ -247,7 +247,7 @@ print(safe_divide.invoke({"a": 10, "b": 0}))
 
 ### Tool-Namen und Beschreibungen präzise wählen
 
-Der Funktionsname wird standardmäßig zum Tool-Namen. Er sollte deshalb beschreiben, **wann** das Tool verwendet werden soll, nicht nur was technisch passiert.
+Der Funktionsname wird standardmäßig zum Tool-Namen. Deshalb sollte er eher beschreiben, **wann** das Tool genutzt werden soll – und weniger, was technisch passiert.
 
 ```python
 from langchain_core.tools import tool
@@ -258,13 +258,13 @@ def check_status(order_id: str) -> str:
     return f"Bestellung {order_id}: unterwegs"
 ```
 
-Gute Tool-Beschreibungen senken Fehlaufrufe. Besonders wichtig sind klare Grenzen wie „nur bei Bestellnummer“, „nicht für Produktsuche“ oder „nur für interne Kundendaten“.
+Gute Docstrings und Grenzen helfen dem Modell: „nur bei Bestellnummer“, „nicht für Produktsuche“, „nur für interne Kundendaten“ – solche Formulierungen reduzieren Fehlaufrufe.
 
-
+---
 
 ### Tool Extras für Provider-spezifische Features (NEU v1.2.0)
 
-Der extras-Parameter beim @tool-Dekorator erlaubt es, provider‑spezifische Features und Flags (z. B. Anthropic‑Caching, OpenAI‑strict‑Mode oder spezielle „computer“/Display‑Flags) an ein LangChain‑Tool zu hängen, die die Standard‑Tool‑API nicht abbildet. Diese Extras werden nur wirksam, wenn der jeweilige Provider‑Adapter/Integration die entsprechenden Keys interpretiert; andernfalls haben sie keine Wirkung.
+Mit dem `extras`‑Parameter beim `@tool`‑Decorator kannst du provider‑spezifische Features und Flags an ein Tool übergeben. Standardmäßig werden solche Optionen nicht über die normale Tool-API abgedeckt. Diese Extras werden nur dann wirksam, wenn der jeweilige Provider-Adapter sie auch wirklich auswertet; ansonsten bleibt es ohne Effekt.
 
 ```python
 from langchain_core.tools import tool
@@ -304,7 +304,7 @@ def take_screenshot() -> str:
 - ✅ **Provider-native Features** nutzen (Caching, Strict Mode, Computer Use)
 - ✅ **Built-in Client-Side Tools** für Anthropic, OpenAI
 - ✅ **Optimierte Performance** durch provider-spezifische Optimierungen
-- ✅ **Backwards-compatible**: Tools ohne `extras` funktionieren weiterhin
+- ✅ **Rückwärtskompatibel**: Tools ohne `extras` funktionieren weiterhin
 
 **Use Cases:**
 - Anthropic Prompt Caching für häufig verwendete Tools
@@ -318,7 +318,7 @@ def take_screenshot() -> str:
 
 ## Agenten erstellen: `create_agent()`
 
-Mit `create_agent()` werden Modell, Tools, Systemprompt und optional Middleware zu einer Einheit verbunden. Agenten basieren auf einer klaren Struktur, die intern auf der LangGraph-State-Machine aufsetzt.
+Mit `create_agent()` fügst du Modell, Tools, Systemprompt und optional Middleware zu einer Einheit zusammen. Intern basiert das auf einer klaren State-Struktur, die sich über LangGraph abbilden lässt.
 
 **Beispiel: Kleinstmöglicher Tool-Agent**
 
@@ -351,11 +351,11 @@ result = agent.invoke({"messages": messages})
 result
 ```
 
-Hier liefert `create_agent()` bereits ein kompiliertes LangGraph‑Objekt (CompiledStateGraph). Dadurch kann derselbe Agent später in komplexere Workflows eingebettet werden.
+Hier erzeugt `create_agent()` ein kompiliertes LangGraph‑Objekt (CompiledStateGraph). So kann der Agent später auch in größere Workflows eingebettet werden.
 
 ### Strict Schema für Agent-Responses
 
-Agents unterstützen jetzt `response_format` für strikte Validierung von Agent-Outputs:
+Agents unterstützen jetzt `response_format` zur strikten Validierung von Agent-Outputs:
 
 ```python
 from langchain.agents import create_agent
@@ -387,18 +387,19 @@ print(structured.confidence)
 ```
 
 **Vorteile:**
-- ✅ **Garantierte Schema-Konformität** für Agent-Outputs (keine JSON-Parsing-Fehler)
-- ✅ **Type-Safety** mit Pydantic-Validierung
+- ✅ **Garantierte Schema-Konformität** für Agent-Outputs (kein JSON-Parsing-Chaos)
+- ✅ **Type-Safety** durch Pydantic-Validierung
 - ✅ **Bessere Fehlerbehandlung** durch strukturierte Responses
-- ✅ **Strikte Provider-Integration** (OpenAI Structured Output, Anthropic Tool Use)
-- ✅ **Predictable Agent-Behavior** für Production-Systeme
+- ✅ **Stärkere Provider-Integration** (OpenAI Structured Output, Anthropic Tool Use)
+- ✅ **Planbares Agent-Verhalten** für produktive Systeme
 
 **Use Cases:**
-- Production-Agents mit garantierten Output-Formaten
+- Production-Agents mit festem Output-Format
 - Multi-Step-Reasoning mit strukturierten Zwischenschritten
 - Agent-Monitoring mit standardisierten Response-Metriken
-- Integration in typsichere Workflows
+- Integration in typisierte Workflows
 
+---
 
 ### Agent-Tool-Interaktion
 
@@ -427,7 +428,7 @@ sequenceDiagram
 
 ## Moderne Kettensyntax: LCEL `|`
 
-LangChain Expression Language (LCEL) ersetzt frühere Chain‑Implementierungen. Über den Pipe‑Operator `|` werden Verarbeitungsschritte logisch miteinander verbunden.
+LangChain Expression Language (LCEL) ist die moderne Art, Chains zu bauen. Über den Pipe‑Operator `|` verknüpfst du Verarbeitungsschritte in einer logischen Reihenfolge.
 
 ### LCEL Pipeline-Visualisierung
 
@@ -467,7 +468,7 @@ print(output)
 
 ### Mehrere Aufrufe: `batch()`, `batch_as_completed()` und `max_concurrency`
 
-Wenn mehrere Aufgaben unabhängig voneinander sind, ist `batch()` oft einfacher und schneller als eine Schleife mit vielen einzelnen `invoke()`-Aufrufen.
+Wenn du mehrere Aufgaben hast, die unabhängig voneinander sind, ist `batch()` meist die bequemste Variante statt einer Schleife mit vielen einzelnen `invoke()`-Aufrufen.
 
 ```python
 fragen = [
@@ -485,9 +486,9 @@ for antwort in antworten:
     print(antwort)
 ```
 
-`max_concurrency` begrenzt parallele Anfragen. Das ist nützlich, um Rate Limits, Kosten und Last kontrollierbar zu halten.
+Mit `max_concurrency` steuerst du, wie viele Anfragen parallel laufen. Das hilft, Rate Limits, Kosten und Systemlast im Griff zu behalten.
 
-Für lange Listen kann `batch_as_completed()` verwendet werden, wenn Ergebnisse sofort verarbeitet werden sollen, sobald sie fertig sind:
+Wenn du Ergebnisse lieber „as soon as ready“ weiterverarbeiten willst, nimm `batch_as_completed()`:
 
 ```python
 for index, antwort in rewrite_chain.batch_as_completed(fragen):
@@ -496,7 +497,7 @@ for index, antwort in rewrite_chain.batch_as_completed(fragen):
 
 ### Streaming für sichtbares Feedback
 
-Bei längeren Antworten verbessert `stream()` die Nutzererfahrung, weil Teilergebnisse sofort erscheinen.
+Gerade bei längeren Antworten wirkt `stream()` wie ein Vorsprung: Nutzer sehen sofort, dass etwas passiert, statt auf das komplette Ergebnis warten zu müssen.
 
 ```python
 for chunk in rewrite_chain.stream({"input_text": "Erkläre RAG ausführlich."}):
@@ -505,7 +506,7 @@ for chunk in rewrite_chain.stream({"input_text": "Erkläre RAG ausführlich."}):
 
 ### Beispiel: LCEL-Chain mit zusätzlicher Eingabe (Pass-Through)
 
-`RunnablePassthrough` ergänzt Daten innerhalb einer Chain, ohne den ursprünglichen Input zu verändern. Dadurch können zusätzliche Informationen wie Kontext, Metadaten oder Zwischenergebnisse einfach ergänzt werden.
+`RunnablePassthrough` ergänzt innerhalb einer Chain zusätzliche Felder, ohne den ursprünglichen Input zu verändern. Damit kannst du z. B. Kontext oder Metadaten einfach „nachreichen“.
 
 ```python
 from langchain_core.runnables import RunnablePassthrough
@@ -539,13 +540,13 @@ print(answer)
 
 ## Typische Workflows
 
-Die folgenden Abschnitte zeigen typische Einsteiger-Workflows: multimodale Eingaben, Chunking, Embeddings und ein vollständiges RAG-Pattern.
+Die nächsten Abschnitte zeigen typische Einsteiger-Workflows: multimodale Eingaben, Chunking, Embeddings und ein vollständiges RAG-Pattern.
 
 ---
 
 ## Middleware zur Agentensteuerung
 
-Middleware ergänzt Agenten um wichtige Kontrollmechanismen, etwa Sicherheitsprüfungen oder automatische Kontextverdichtung.
+Middleware erweitert Agenten um wichtige Kontrollpunkte – zum Beispiel Sicherheitsprüfungen oder automatische Verdichtung von Kontext.
 
 **Ein Agent mit Human-in-the-Loop für sensible Tools**
 
@@ -571,12 +572,13 @@ secure_agent = create_agent(
 )
 ```
 
-Für produktionsnähere Human-in-the-Loop-Abläufe mit explizitem Pause/Resume ist LangGraph `interrupt()` meist besser nachvollziehbar. Die Middleware eignet sich für einfache Agenten, bei denen bestimmte Tools vor der Ausführung bestätigt werden sollen.
+Für „hands-on“ Human-in-the-Loop-Abläufe mit explizitem Pause/Resume ist LangGraph `interrupt()` oft besser nachvollziehbar. Die Middleware ist vor allem praktisch für einfache Agenten, bei denen bestimmte Tools vorher bestätigt werden sollen.
 
+---
 
 **Kontext-Management bei langen Konversationen**
 
-Für lange Sessions gibt es zwei komplementäre Ansätze:
+Wenn Sessions länger werden, gibt es zwei passende Ansätze:
 
 ```python
 from langchain.agents.middleware import SummarizationMiddleware
@@ -604,7 +606,7 @@ agent_compact = create_agent(model=llm_compact, tools=tools)
 ```
 
 | Ansatz | Provider | Wann verwenden? |
-|--------|----------|-----------------|
+|---|---|---|
 | `SummarizationMiddleware` | Alle | Provider-unabhängig, mehr Kontrolle |
 | `context_management` | Nur OpenAI | Einfachste Lösung für OpenAI-Apps |
 
@@ -612,7 +614,7 @@ agent_compact = create_agent(model=llm_compact, tools=tools)
 
 ## Einheitliche Content-Blöcke für multimodale Eingaben
 
-Da moderne Modelle verschiedene Datentypen verarbeiten, benötigen Agenten ein einheitliches Format für Eingaben. LangChain 1.0 definiert Content‑Blöcke, die Text, Bilder, Audio oder andere Inhalte abbilden.
+Moderne Modelle können verschiedene Datentypen verarbeiten. Damit Agenten und Chains damit zuverlässig umgehen, definiert LangChain 1.0 Content‑Blöcke, die Text, Bilder, Audio oder weitere Inhalte abbilden.
 
 **Beispiel: Einfacher Vision-Call mit Text + Bild**
 
@@ -636,13 +638,13 @@ for block in vision_response.content_blocks:
         print("Antwort:", block["text"])
 ```
 
-Dieses Muster kann später in multimodalen RAG‑Notebooks wiederverwendet werden.
+Dieses Muster kannst du später auch in multimodalen RAG-Notebooks wiederverwenden.
 
 ---
 
 ## Chunking‑Best Practices
 
-Damit RAG‑Systeme sinnvoll arbeiten, müssen Dokumente in geeignete Textstücke („Chunks“) zerlegt werden. In LangChain hat sich der `RecursiveCharacterTextSplitter` etabliert.
+Damit RAG funktioniert, müssen Dokumente sinnvoll in Textstücke („Chunks“) zerlegt werden. In LangChain ist dafür der `RecursiveCharacterTextSplitter` ein bewährter Einstieg.
 
 **Beispiel: Text in sinnvolle Chunks schneiden**
 
@@ -661,13 +663,13 @@ print(len(chunks))
 print(chunks[0][:200])
 ```
 
-Im Kurs lässt sich hier gut mit unterschiedlichen Chunk‑Größen und Overlaps experimentieren, um deren Einfluss auf Retrieval und Antwortqualität zu zeigen.
+Im Kurs lohnt es sich, mit unterschiedlichen Chunk‑Größen und Overlaps zu experimentieren – so siehst du schnell, wie stark das Retrieval und die Antwortqualität beeinflusst.
 
 ---
 
 ## Embeddings: Grundlagen für semantische Suche
 
-Embeddings repräsentieren Texte als Vektoren und bilden die Basis für semantische Suche und RAG. Häufig kommen OpenAI‑Embeddings in Kombination mit Chroma zum Einsatz.
+Embeddings übersetzen Text in Vektoren. Damit ist semantische Suche möglich und RAG bekommt eine solide Grundlage. Häufig wird dafür ein OpenAI-Embedding-Modell zusammen mit Chroma genutzt.
 
 **Beispiel: Embeddings erzeugen und in Chroma speichern**
 
@@ -704,7 +706,7 @@ for i, doc in enumerate(results, start=1):
 
 ## Standard‑Pattern für RAG mit LangChain
 
-Retrieval‑Augmented Generation (RAG) ist eines der wichtigsten Einsatzszenarien für LangChain. Typischerweise werden Vektorspeicher, Retriever und eine LCEL‑Pipeline kombiniert.
+Retrieval‑Augmented Generation (RAG) ist ein zentraler Anwendungsfall für LangChain. Dabei werden Vektordatenbank, Retriever und eine LCEL‑Pipeline kombiniert.
 
 ### RAG-Workflow Visualisierung
 
@@ -788,7 +790,7 @@ rag_chain = (
         # Hier wird die Frage an den Retriever gegeben und das Ergebnis formatiert
         "context": doc_retriever | format_docs,
         # Hier wird die ursprüngliche Frage ("Wozu wird Chroma verwendet?") einfach durchgereicht
-        "question": RunnablePassthrough(), 
+        "question": RunnablePassthrough(),
     }
     | rag_prompt
     | llm
@@ -801,7 +803,7 @@ antwort = rag_chain.invoke(frage)
 print(antwort)
 ```
 
-Dieses Pattern bildet die Grundlage für Wissens‑Chatbots, Dokumenten‑Assistenten oder interne Suchsysteme im Kurs und kann schrittweise um Evaluierung, Feedback‑Schleifen oder LangGraph‑Workflows erweitert werden.
+Dieses Pattern ist die Grundlage für Wissens‑Chatbots, Dokumenten‑Assistenten oder interne Suchsysteme. Danach kannst du es Schritt für Schritt erweitern – zum Beispiel um Evaluierung, Feedback‑Schleifen oder um LangGraph‑Workflows.
 
 ---
 
@@ -823,7 +825,7 @@ Dieses Pattern bildet die Grundlage für Wissens‑Chatbots, Dokumenten‑Assist
 
 ### Import funktioniert nicht
 
-Prüfe, ob die benötigten Pakete installiert sind und ob du die aktuellen LangChain-Importpfade verwendest.
+Prüfe, ob die benötigten Pakete installiert sind und ob du die aktuellen LangChain-Importpfade nutzt.
 
 ### Modell liefert Freitext statt Schema
 
@@ -831,7 +833,7 @@ Nutze `with_structured_output()` mit einem Pydantic-Modell. Prompt-Anweisungen a
 
 ### RAG-Antworten sind ungenau
 
-Prüfe zuerst Chunk-Größe, Overlap, Embedding-Modell und Retriever-Parameter. Das Modell kann nur mit dem Kontext arbeiten, den der Retriever liefert.
+Checke zuerst Chunk-Größe, Overlap, Embedding-Modell und Retriever-Parameter. Das Modell kann nur mit dem Kontext arbeiten, den der Retriever liefert.
 
 ---
 
@@ -847,8 +849,9 @@ Prüfe zuerst Chunk-Größe, Overlap, Embedding-Modell und Retriever-Parameter. 
 
 ## Zusammenfassung
 
-LangChain liefert die Bausteine für LLM-Anwendungen: Prompts, Modelle, strukturierte Ausgaben, Tools, Chains, Agents und RAG. Für Einsteiger ist die wichtigste Reihenfolge: erst einen einfachen Modellaufruf stabil bekommen, dann LCEL-Chains bauen, anschließend Tools und Retrieval ergänzen.
+LangChain liefert dir die Bausteine für LLM-Anwendungen: Prompts, Modelle, strukturierte Ausgaben, Tools, Chains, Agents und RAG. Für den Einstieg ist die Reihenfolge entscheidend: erst einen einfachen Modellaufruf sauber stabil bekommen, dann LCEL-Chains bauen, anschließend Tools und Retrieval ergänzen.
 
+---
 
 ## Abgrenzung zu verwandten Dokumenten
 

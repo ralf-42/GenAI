@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Agent Builder
 parent: Weitere Tools
@@ -24,18 +24,18 @@ has_toc: true
 
 ## Kurzüberblick: Was ist OpenAI Agent Builder?
 
-Während LangChain ein Code-basiertes Framework für KI-Agenten ist, ermöglicht **OpenAI Agent Builder** die No-Code-Erstellung komplexer Agent-Workflows durch eine visuelle Drag-and-Drop-Oberfläche.
+LangChain ist vor allem ein Code-basiertes Framework für KI-Agenten. **OpenAI Agent Builder** setzt dagegen auf **No-Code**: Du baust komplexe Agent-Workflows in einer visuellen Drag-and-Drop-Oberfläche.
 
 > [!NOTE] Einordnung<br>
-> Agent Builder ist stark für schnelle Workflow-Entwicklung, ersetzt aber nicht in jedem Fall codebasierte Feinsteuerung.
+> Agent Builder ist ideal, wenn du schnell und ohne Programmierung einen Workflow zusammenstellen willst. Gleichzeitig ersetzt es nicht in jedem Fall codebasierte Lösungen, wenn du maximale Feinsteuerung brauchst.
 > **Grenzen:** Nur OpenAI-Modelle, kein On-Premise-Deployment, eingeschränkte Code-Kontrolle (nur Export).
 
-**Zentrale Fragen des Werkzeugs:**
+Typische Fragen, die damit beantwortet werden sollen:
 
 - **Wie erstelle ich komplexe Workflows ohne Programmierung?**
 - **Wie orchestriere ich mehrere spezialisierte Agenten?**
 - **Wie integriere ich externe Systeme (APIs, Datenbanken) visuell?**
-- **Wie deploye ich produktionsreife Agenten mit Versionierung und Monitoring?**
+- **Wie bringe ich Agenten produktionsreif mit Versionierung und Monitoring?**
 
 ```mermaid
 graph LR
@@ -53,14 +53,14 @@ graph LR
 
 ### Kernfunktionen
 
-Der **Agent Builder** (Teil von AgentKit, vorgestellt DevDay 2025) bietet:
+Der **Agent Builder** (Teil von AgentKit, vorgestellt DevDay 2025) bietet unter anderem:
 
-- **Visuelle Workflow-Erstellung** – Drag-and-Drop für komplexe Abläufe
+- **Visuelle Workflow-Erstellung** – Drag-and-Drop für anspruchsvolle Abläufe
 - **Bedingte Logik** – "Wenn-Dann"-Verzweigungen zwischen Aktionen
 - **Multi-Agent-Koordination** – mehrere spezialisierte Agenten orchestrieren
 - **Model Context Protocol (MCP)** – Integration externer Services über Connector Registry und MCP-Server
 - **Versioning & Preview** – Workflow-Versionierung und Test-Läufe
-- **SDK-Code-Export** – Workflow-Code für Advanced Integration mit dem Agents SDK
+- **SDK-Code-Export** – Workflow-Code für eine tiefergehende Integration mit dem Agents SDK
 
 **Vergleich zu Code-basierten Frameworks:**
 ```mermaid
@@ -91,10 +91,10 @@ graph TB
 
 - OpenAI Platform-Zugang mit Agent Builder Beta
 - Für Enterprise-Workflows: Organisation mit Global Admin Console
-- Zugang über [platform.openai.com/agent-builder](https://platform.openai.com/agent-builder)
+- Zugriff über [platform.openai.com/agent-builder](https://platform.openai.com/agent-builder)
 
 > [!WARNING] Zugriffsvoraussetzung<br>
-> Agent Builder ist ein Beta-Produkt. Connector Registry und organisationsweite Governance werden schrittweise für API-, Enterprise- und Edu-Kunden mit Global Admin Console ausgerollt. Deshalb kann der verfügbare Funktionsumfang je nach Organisation abweichen.
+> Agent Builder ist ein Beta-Produkt. Connector Registry und organisationsweite Governance werden schrittweise für API-, Enterprise- und Edu-Kunden mit Global Admin Console ausgerollt. Dadurch kann sich der Funktionsumfang je nach Organisation unterscheiden.
 
 ```mermaid
 graph TB
@@ -112,7 +112,7 @@ graph TB
 
 ### Interface-Bereiche
 
-Das Agent Builder Interface ist in drei Hauptbereiche unterteilt:
+Das Agent Builder Interface ist in drei Hauptbereiche aufgeteilt:
 
 | Bereich | Funktion | Nutzung |
 |---------|----------|---------|
@@ -134,7 +134,7 @@ stateDiagram-v2
 
 ## Workflow-Konzept: Nodes und Edges
 
-Agent Builder arbeitet mit einem gerichteten Graphen aus **Nodes** (Aktionen) und **Edges** (Verbindungen).
+Im Agent Builder arbeitest du mit einem gerichteten Graphen aus **Nodes** (Aktionen) und **Edges** (Verbindungen).
 
 ### Grundlegende Architektur
 
@@ -158,8 +158,8 @@ graph TB
 ### Node-Typen im Detail
 
 > [!TIP] Modellierungsregel<br>
-> Sinnvoll sind fachlich eng geschnittene Agent-, Tool- und Logic-Nodes mit klaren Ein- und Ausgaben.
-> **Anti-Pattern:** Ein einzelner Agent-Node, der Kategorisierung, Priorität, Routing und E-Mail-Text gleichzeitig erzeugt. Das ist schwer zu debuggen und kaum wiederverwendbar.
+> Am besten funktionieren fachlich klare, gut zugeschnittene Node-Typen: Agent-, Tool- und Logic-Nodes mit eindeutigen Ein- und Ausgaben.
+> **Anti-Pattern:** Ein einziger Agent-Node, der zugleich kategorisiert, priorisiert, routet und eine E-Mail formuliert. Das wird schnell schwer nachvollziehbar und kaum wiederverwendbar.
 
 | Node-Typ | Symbol | Funktion | Beispiel |
 |----------|--------|----------|----------|
@@ -196,7 +196,7 @@ flowchart LR
 
 ### Szenario
 
-Eingehende Support-Tickets sollen automatisch kategorisiert, priorisiert und an die richtige Abteilung weitergeleitet werden.
+Eingehende Support-Tickets sollen automatisch kategorisiert, priorisiert und an die passende Abteilung weitergeleitet werden.
 
 **Anforderungen:**
 - Automatische Kategorisierung (Technical, Billing, Sales)
@@ -311,26 +311,26 @@ Body:
 ### Vorteile dieser Architektur
 
 > [!SUCCESS] Betriebsvorteil<br>
-> Klare Node/Edge-Strukturen verbessern Nachvollziehbarkeit, Übergaben im Team und Debugging in Produktion.
+> Klare Node/Edge-Strukturen helfen dabei, Abläufe besser zu verstehen, Übergaben im Team zu erleichtern und Probleme schneller zu finden.
 
 | Vorteil | Beschreibung |
 |---------|--------------|
-| **Multi-Step-Logik** | Mehrere LLM-Calls orchestrieren |
-| **Conditional Branching** | Verschiedene Pfade je nach Kontext |
-| **State Management** | Workflow-Status persistent speichern |
+| **Multi-Step-Logik** | Mehrere LLM-Calls werden nacheinander orchestriert |
+| **Conditional Branching** | Unterschiedliche Pfade je nach Situation |
+| **State Management** | Workflow-Status lässt sich persistent speichern |
 | **Error Handling** | Fallback-Strategien für fehlgeschlagene Steps |
-| **Human-in-Loop** | Manuelle Review bei unsicheren Fällen |
-| **Observability** | Jeder Step wird geloggt und kann debugged werden |
+| **Human-in-Loop** | Manuelle Prüfung bei unsicheren Fällen |
+| **Observability** | Jeder Step wird geloggt und kann debuggt werden |
 
 ---
 
 ## Model Context Protocol (MCP)
 
-MCP verbindet Agent Builder mit externen Systemen durch standardisierte Server-Integrationen.
+MCP verbindet Agent Builder mit externen Systemen über standardisierte Server-Integrationen.
 
 > [!TIP] Integrationsstrategie<br>
-> Sinnvoll ist ein Start mit ein bis zwei geschäftskritischen MCP-Integrationen. Erst nach stabilen End-to-End-Tests sollte die Fläche erweitert werden.
-> **Anti-Pattern:** Alle verfügbaren MCP-Server auf einmal einbinden — jeder Server ist eine potenzielle Fehlerquelle und erhöht die Testfläche erheblich.
+> Starte am besten mit ein bis zwei MCP-Integrationen, die für den Geschäftsbetrieb wirklich wichtig sind. Erst wenn die End-to-End-Tests stabil laufen, erweiterst du die Anzahl der Server.
+> **Anti-Pattern:** Alle verfügbaren MCP-Server auf einmal anbinden — jeder zusätzliche Server erhöht die Testfläche und damit auch das Risiko.
 
 ### MCP-Architektur
 
@@ -425,7 +425,7 @@ flowchart LR
 
 ### Custom MCP Server erstellen
 
-Falls kein passender MCP-Server existiert, lässt sich ein eigener Server erstellen. Die konkrete SDK-Syntax hängt vom verwendeten MCP-SDK ab; für Kursunterlagen reicht hier die stabile Struktur: Server definieren, Tools mit Schema bereitstellen, Auth konfigurieren und als Connector registrieren.
+Wenn kein passender MCP-Server vorhanden ist, kannst du einen eigenen Server aufsetzen. Welche genaue SDK-Syntax du verwendest, hängt vom MCP-SDK ab. Für Kursunterlagen reicht hier die stabile Grundstruktur: Server definieren, Tools mit Schema bereitstellen, Auth konfigurieren und als Connector registrieren.
 
 ```typescript
 // Pseudocode: Struktur eines eigenen MCP-Servers
@@ -535,16 +535,16 @@ mindmap
 
 - **Custom Tools** – Spezielle Python-Funktionen als Tools
 - **Multi-Provider** – OpenAI + Anthropic + Google
-- **On-Premise** – Volle Kontrolle über Deployment
+- **On-Premise** – volle Kontrolle über Deployment
 - **RAG-Systeme** – Custom Retriever, Reranking
-- **Komplexe Workflows** – Viele bedingte Verzweigungen
+- **Komplexe Workflows** – viele bedingte Verzweigungen
 - **Multi-Agent-Systeme** – Koordination mehrerer Agents
 
 ---
 
 ## Code-Export und Migration zu LangChain
 
-Nach dem Publish erhält ein Workflow eine ID und Version. Für das Deployment gibt es zwei Wege: ChatKit einbetten und die Workflow-ID übergeben, oder SDK-Code herunterladen und den Workflow mit eigener Infrastruktur weiterentwickeln.
+Nach dem Publish erhält ein Workflow eine ID und Version. Fürs Deployment stehen zwei Wege offen: Du kannst den Workflow via ChatKit einbetten und die Workflow-ID übergeben, oder du lädst den SDK-Code herunter und entwickelst den Workflow mit eigener Infrastruktur weiter.
 
 ### Export-Workflow
 
@@ -598,7 +598,7 @@ graph TB
 ## Sicherheit und Governance im Agent Builder
 
 > [!WARNING] Produktionsgrenze<br>
-> Vor produktivem Einsatz sind Rechte, Datenzugriffe, Auditierbarkeit und Freigabeprozesse verbindlich zu definieren.
+> Bevor du Workflows produktiv einsetzt, solltest du verbindlich klären, wer welche Rechte hat, wie auf Daten zugegriffen wird und wie Freigaben und Auditierbarkeit funktionieren.
 
 ### Sicherheits-Architektur
 
@@ -627,12 +627,12 @@ graph TB
 ### Enterprise-Kontrollen
 
 | Feature | Beschreibung | Best Practice |
-|---------|--------------|---------------|
+|----------|-------------|---------------|
 | **RBAC** | Wer darf Workflows editieren/ausführen? | Least Privilege Principle |
 | **Audit Logs** | Nachvollziehbarkeit aller Ausführungen | Retention Policy definieren |
 | **Data Residency** | Wo werden Daten gespeichert? | EU/US-Region wählen |
 | **Versioning** | Rollback zu früheren Versionen | Semantic Versioning nutzen |
-| **Secrets Management** | API-Keys, Tokens sicher speichern | Nie hardcoded! |
+| **Secrets Management** | API-Keys, Tokens sicher speichern | Nicht hardcoden! |
 | **Input Validation** | User-Input validieren | Prompt Injection Prevention |
 
 ### Best Practices für sichere Workflows
@@ -737,7 +737,7 @@ Workflow Settings:
 
 ### Built-in Debugging Tools
 
-Agent Builder bietet native Debugging-Features, die Code-basierte Workflows oft manuell implementieren müssen.
+Agent Builder bringt native Debugging-Funktionen mit, die du bei Code-Workflows oft selbst nachrüsten musst.
 
 ```mermaid
 graph TB
@@ -916,7 +916,7 @@ mindmap
 | **Nodes** | Workflow-Bausteine (LLM, Tool, Condition) |
 | **Edges** | Verbindungen zwischen Nodes |
 | **MCP** | Standardisierte Service-Integration |
-| **Workflow** | Kompletter Agent als Graph |
+| **Workflow** | Der komplette Agent als Graph |
 | **Versioning** | Built-in Workflow-Versionierung |
 
 ### Wann Agent Builder nutzen?
@@ -948,15 +948,14 @@ graph TB
   - Team hat keine/wenige Coding-Kenntnisse
   - Schnelles Prototyping wichtig
   - Enterprise Governance erforderlich
-  - MCP-Server ausreichend für Integration
-  - OpenAI-Modelle ausreichend
+  - MCP-Server für die benötigten Integrationen reichen
+  - OpenAI-Modelle für euren Use Case ausreichen
 
 - ✅ **LangChain nutzen, wenn:**
   - Volle Code-Kontrolle erforderlich
   - Multi-Provider-Support nötig (OpenAI + Anthropic + etc.)
   - On-Premise Deployment erforderlich
   - Custom Python-Tools notwendig
-
 
 ### Nächste Schritte
 
@@ -996,7 +995,6 @@ graph LR
 - [Introducing AgentKit OpenAI](https://openai.com/index/introducing-agentkit/)
 - [Model Context Protocol](https://modelcontextprotocol.io/)
 - [LangChain Documentation](https://python.langchain.com/)
-
 
 ## Abgrenzung zu verwandten Dokumenten
 

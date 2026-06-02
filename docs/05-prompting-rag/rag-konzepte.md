@@ -24,31 +24,31 @@ has_toc: true
 
 ## Überblick: Was ist RAG?
 
-Large Language Models stoßen in der Praxis an drei typische Grenzen: Wissen ist **nicht aktuell** genug, internes **Fachwissen fehlt** und längere Dokumentbestände lassen sich nicht **vollständig in einen einzelnen Prompt** legen. Genau an dieser Stelle beginnt RAG seinen Nutzen zu zeigen. Nicht als magische Lösung, sondern als technische Antwort auf ein klar umrissenes Problem: relevantes Wissen zur Laufzeit in den Antwortprozess einzuspeisen.
+In der Praxis stoßen Large Language Models oft an Grenzen: Wissen ist **nicht aktuell genug**, es fehlt **firmeninternes Fachwissen**, und große Dokumentmengen lassen sich nicht einfach in einen einzigen Prompt packen. Genau dafür ist RAG gedacht.
 
-Die folgende Tabelle bündelt diese Ausgangslage, ersetzt aber nicht die eigentliche Entscheidung. RAG lohnt sich nur dann, wenn fehlendes oder externes Wissen wirklich das Problem ist. Wenn die Aufgabe bereits mit vorhandenem Modellwissen sauber lösbar ist, macht Retrieval den Ablauf oft nur langsamer und fehleranfälliger.
+RAG ist keine Magie, sondern ein technischer Schritt mit einem klaren Ziel: relevantes Wissen zur Laufzeit in den Antwortprozess einzubauen. Ob sich das lohnt, hängt davon ab, ob genau dieses fehlende oder externe Wissen im konkreten Fall wirklich die Ursache für schlechte Ergebnisse ist. Wenn eine Aufgabe auch ohne Retrieval sauber funktioniert, macht zusätzliches Suchen das System häufig nur langsamer und fehleranfälliger.
 
 | Limitation | Beschreibung |
 |------------|--------------|
 | **Wissens-Cutoff** | Das Modell kennt nur Informationen bis zum Trainingszeitpunkt |
 | **Kein Domänenwissen** | Firmeninterne Dokumente, Fachrichtlinien oder aktuelle Daten fehlen |
-| **Halluzination** | Bei Wissenslücken werden plausible, aber falsche Antworten generiert |
+| **Halluzination** | Bei Wissenslücken werden Antworten plausibel, aber falsch |
 | **Kontextlimit** | Nicht alle relevanten Dokumente passen in einen einzelnen Prompt |
 
-Retrieval Augmented Generation ergänzt das Modell also nicht durch neues Training, sondern durch einen zusätzlichen Arbeitsschritt: Zuerst wird gesucht, dann erst formuliert. In Trainings zeigt sich oft, dass genau diese Trennung Missverständnisse aufdeckt. Ist die Suche schlecht, wird auch die Antwort schlecht. RAG verschiebt das Problem deshalb nicht weg, sondern macht sichtbar, wo die eigentliche Schwäche liegt: im Retrieval, im Chunking oder in der Kontextzusammenstellung.
+RAG ergänzt das Modell nicht durch neues Training. Stattdessen kommt ein zusätzlicher Arbeitsschritt hinzu: erst wird gesucht, dann wird formuliert. Genau diese Trennung hilft oft, Missverständnisse aufzudecken. Wenn am Ende eine falsche Antwort herauskommt, liegt es nicht automatisch am LLM: Die Schwäche kann im Retrieval liegen – oder im Chunking, in der Kontextzusammenstellung oder im Prompt.
 
 ```
 Frage → Suche relevante Dokumente → Füge Kontext zum Prompt → LLM generiert Antwort
 ```
 
 > [!NOTE] Kernidee RAG<br>
-> Das LLM erhält genau die Informationen, die es für die aktuelle Frage benötigt – nicht mehr und nicht weniger. Ohne passenden Kontext halluziniert das Modell stattdessen eine Antwort.
+> Das LLM bekommt genau den Kontext, der zur aktuellen Frage passt – nicht mehr und nicht weniger. Ohne passenden Kontext entstehen im Zweifel trotzdem Antworten, die nicht belastbar sind.
 
 ---
 
 ## Die RAG-Architektur
 
-Ein RAG-System besteht aus zwei Hauptphasen: **Datensammlung/Indexierung** und **Abruf & Erweiterung/Retrieval + Generation**. Diese Trennung ist wichtig, weil Fehler in der ersten Phase später oft wie Modellfehler aussehen. Wenn Chunks unsauber gebildet oder Metadaten schlecht gepflegt sind, hilft auch ein starkes Modell kaum noch.
+Ein RAG-System lässt sich in zwei große Phasen aufteilen: **Datensammlung/Indexierung** sowie **Abruf & Erweiterung/Retrieval + Generation**. Diese Struktur ist nicht nur organisatorisch sinnvoll: Fehler in der ersten Phase zeigen sich später oft so, als wäre das Modell das Problem. Wenn Chunks unsauber geschnitten oder Metadaten schlecht gepflegt sind, hilft auch ein sehr starkes LLM nur begrenzt.
 
 <img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/rag_process.png" alt="Raster aus Pixelwerten" width="600">
 
@@ -57,8 +57,9 @@ Ein RAG-System besteht aus zwei Hauptphasen: **Datensammlung/Indexierung** und *
 
 ### Datensammlung/Indexierungsphase
 
-Die Datensammlung bildet die Grundlage jedes RAG-Systems (Retrieval-Augmented Generation). In dieser Phase werden relevante Informationen aus unterschiedlichen Quellen wie PDFs, Webseiten, Datenbanken oder internen Dokumenten zusammengeführt und für die weitere Verarbeitung bereitgestellt. Die Qualität, Aktualität und Struktur dieser Daten beeinflussen maßgeblich, wie präzise und verlässlich das System später Informationen finden und Antworten generieren kann. Daher entscheidet bereits die Auswahl geeigneter Datenquellen oft über den Erfolg eines RAG-Systems.
+Die Datensammlung ist die Basis jedes RAG-Systems (Retrieval-Augmented Generation). Hier werden Informationen aus unterschiedlichen Quellen – zum Beispiel PDFs, Webseiten, Datenbanken oder internen Dokumenten – zusammengeführt und so aufbereitet, dass später gesucht werden kann.
 
+Wie gut das System später Treffer liefert, hängt stark von drei Dingen ab: **Welche Quellen** genutzt werden, **wie aktuell** sie sind und **wie sauber** die Daten strukturiert werden. Selbst kleine Ungenauigkeiten in dieser Phase wirken sich auf die Antwortqualität aus.
 
 ```mermaid
 flowchart LR
@@ -77,7 +78,7 @@ flowchart LR
 
 ### Abruf & Erweiterung
 
-In der Phase „Abruf & Erweiterung“ sucht das RAG-System gezielt nach inhaltlich passenden Informationen in der Wissensbasis. Dazu wird die Benutzeranfrage mit den gespeicherten Dokumenten verglichen, meist über semantische Suche und Embeddings. Die gefundenen Inhalte werden anschließend dem Sprachmodell als zusätzlicher Kontext bereitgestellt. Dadurch kann das Modell fundiertere, aktuellere und stärker quellenbasierte Antworten erzeugen.
+In der Phase „Abruf & Erweiterung“ holt sich das RAG-System gezielt Informationen aus der Wissensbasis. Die Benutzeranfrage wird dazu mit den gespeicherten Dokumenten verglichen – meist über semantische Suche anhand von Embeddings. Die gefundenen Inhalte werden dann dem Sprachmodell als Kontext bereitgestellt. Dadurch kann das Modell fundierter, näher am Dokument und stärker quellenbezogen antworten.
 
 ```mermaid
 flowchart LR
@@ -91,18 +92,18 @@ flowchart LR
 
 | Schritt | Beschreibung |
 |---------|--------------|
-| **Query-Embedding** | Die Frage wird in denselben Vektorraum transformiert |
-| **Similarity Search** | Die ähnlichsten Dokumentvektoren werden gefunden |
+| **Query-Embedding** | Die Frage wird in denselben Vektorraum übersetzt |
+| **Similarity Search** | Es werden die ähnlichsten Dokumentvektoren gefunden |
 | **Kontext-Erstellung** | Gefundene Chunks werden zum Prompt hinzugefügt |
-| **Generation** | Das LLM generiert eine Antwort basierend auf dem Kontext |
+| **Generation** | Das LLM formuliert die Antwort anhand des Kontexts |
 
 ---
 
 ## Embeddings: Text als Vektor
 
-Embeddings machen semantische Suche überhaupt erst möglich. Das Verfahren übersetzt Text in Vektoren, sodass Ähnlichkeit nicht mehr über exakte Worttreffer, sondern über Bedeutungsnähe berechnet werden kann. Das klingt abstrakt, wird aber praktisch sehr schnell greifbar: Ein System kann "Fahrzeug" finden, obwohl in der Frage "Auto" steht.
+Embeddings machen semantische Suche möglich. Der Text wird dabei in Zahlenfolgen umgewandelt, sodass Ähnlichkeit nicht nur über Worttreffer, sondern über Bedeutungsnähe gemessen werden kann. Ein konkretes Beispiel: Ein System kann „Fahrzeug“ finden, obwohl in der Frage „Auto“ steht.
 
-Gleichzeitig werden Embeddings oft überschätzt. Vektorrepräsentationen lösen nicht automatisch schlechte Dokumentstruktur, unpräzise Queries oder schwache Metadaten. In vielen RAG-Projekten sind sie notwendig, aber nicht hinreichend.
+Trotzdem sollte man Embeddings nicht überschätzen. Vektoren lösen nicht automatisch Probleme mit schlechter Dokumentstruktur, unpräzisen Queries oder schwachen Metadaten. Häufig sind sie nötig – aber sie reichen allein meistens nicht.
 
 ### Konzept
 
@@ -115,7 +116,7 @@ Gleichzeitig werden Embeddings oft überschätzt. Vektorrepräsentationen lösen
 ### Verfügbare Embedding-Modelle
 
 | Modell | Dimensionen | Kosten | Qualität |
-|--------|-------------|--------|----------|
+|--------|-------------|---------|----------|
 | `text-embedding-3-small` (OpenAI) | 1536 | ~$0.02/1M Tokens | ⭐⭐⭐⭐ |
 | `text-embedding-3-large` (OpenAI) | 3072 | ~$0.13/1M Tokens | ⭐⭐⭐⭐⭐ |
 | `all-MiniLM-L6-v2` (HuggingFace) | 384 | Kostenlos | ⭐⭐⭐ |
@@ -123,7 +124,7 @@ Gleichzeitig werden Embeddings oft überschätzt. Vektorrepräsentationen lösen
 
 ### Ähnlichkeitsmaße
 
-Die Ähnlichkeit zwischen Vektoren wird mathematisch berechnet:
+Die Ähnlichkeit zwischen Vektoren wird über mathematische Kennzahlen berechnet:
 
 | Maß | Beschreibung | Wertebereich |
 |-----|--------------|--------------|
@@ -131,7 +132,7 @@ Die Ähnlichkeit zwischen Vektoren wird mathematisch berechnet:
 | **Euclidean Distance** | Geometrischer Abstand | 0 bis ∞ |
 | **Dot Product** | Skalarprodukt | -∞ bis ∞ |
 
-**Cosine Similarity** ist der Standard, da sie unabhängig von der Vektorlänge nur die "Richtung" (= Bedeutung) vergleicht.
+**Cosine Similarity** ist der Standard, weil sie vor allem die „Richtung“ der Bedeutungen vergleicht – unabhängig von der Vektorlänge.
 
 ### Beispiel: Embeddings erzeugen
 
@@ -155,7 +156,7 @@ Dokument-Embeddings:
 
 ### Metadaten für die Indexierung
 
-Beim Vektorisieren sollte nicht nur der reine Text gespeichert werden. Jeder Chunk braucht Metadaten, damit Treffer später gefiltert, erklärt und mit Stichwortsuche kombiniert werden können. Dazu gehören technische Angaben wie Quelle und Kapitel, aber auch bewusst vergebene Stichwörter.
+Beim Vektorisieren sollte nicht nur der Text gespeichert werden. Jeder Chunk braucht Metadaten, damit Treffer später gefiltert, eingeordnet und nachvollziehbar gemacht werden können. Dazu zählen technische Infos wie Quelle und Kapitel – und zusätzlich bewusst gepflegte Stichwörter.
 
 ```text
 Metadaten pro Chunk:
@@ -180,29 +181,30 @@ Beispiel für keywords:
 - ISO 27001
 ```
 
-Diese Stichwörter werden nicht zwingend für das Embedding selbst gebraucht. Sie helfen aber beim späteren Retrieval: Ein System kann nach exakten Begriffen suchen, Metadaten filtern oder BM25-Treffer mit Vektortreffern kombinieren. Besonders bei Abkürzungen, Produktnamen, Normen, Fehlermeldungen und internen Begriffen lohnt sich diese zusätzliche Pflege.
+Diese Stichwörter sind nicht zwingend dafür da, dass das Embedding selbst besser wird. Sie helfen später beim Retrieval: Suche nach exakten Begriffen, Filtern über Metadaten und die Kombination mit Keyword-Suche.
 
+Gerade bei Abkürzungen, Produktnamen, Normen, Fehlermeldungen und internen Begriffen zahlt sich das aus. Dann findet das System auch dann, wenn Menschen Formulierungen leicht anders verwenden.
 
 ---
 
 ## Chunking: Dokumente sinnvoll zerlegen
 
-Chunking ist eine der Stellen, an denen RAG-Projekte am häufigsten an Präzision verlieren. Zu große Chunks verschwenden Kontextfenster und verwässern Treffer. Zu kleine Chunks verlieren fachlichen Zusammenhang. Beides führt dazu, dass das Retrieval formal funktioniert, inhaltlich aber an der falschen Stelle landet.
+Chunking ist eine der häufigsten Ursachen für Qualitätsprobleme in RAG-Projekten. Wenn Chunks zu groß sind, wird das Kontextfenster unnötig belegt und der relevante Teil geht im „Rest“ unter. Wenn Chunks zu klein sind, fehlt der fachliche Zusammenhang. Beides kann dazu führen, dass das Retrieval formal Treffer liefert, inhaltlich aber an der falschen Stelle.
 
-In der Entwicklung zeigt sich oft ein typischer erster Fehler: Die Chunk-Größe wird einmal festgelegt und dann als technischer Parameter behandelt. Tatsächlich ist sie eine fachliche Entscheidung. Ein Handbuch, ein juristischer Text und API-Dokumentation brauchen nicht dieselbe Granularität.
+In der Entwicklung sieht man oft einen typischen Startfehler: Die Chunk-Größe wird einmal festgelegt und danach wie ein reines Technikdetail behandelt. In Wirklichkeit ist es eine fachliche Entscheidung. Ein Handbuch, ein juristischer Text und API-Dokumentation brauchen nicht automatisch dieselbe Granularität.
 
 ### Chunking-Strategien
 
 | Strategie | Beschreibung | Anwendungsfall |
 |-----------|--------------|----------------|
-| **Fixed-Size** | Feste Zeichenanzahl pro Chunk | Einfache Texte ohne Struktur |
+| **Fixed-Size** | Feste Zeichenanzahl pro Chunk | Einfache Texte ohne klare Struktur |
 | **Recursive** | Hierarchische Trennung (Absatz → Satz → Wort) | Allgemeine Dokumente |
 | **Semantic** | Trennung nach Bedeutungseinheiten | Komplexe Fachtexte |
-| **Document-based** | Beibehaltung natürlicher Grenzen (Kapitel, Abschnitte) | Strukturierte Dokumente |
+| **Document-based** | Natürliche Grenzen beibehalten (Kapitel, Abschnitte) | Strukturierte Dokumente |
 
 ### Der RecursiveCharacterTextSplitter
 
-Der am häufigsten verwendete Splitter arbeitet mit einer Hierarchie von Trennzeichen:
+Der verbreitete Recursive-Ansatz arbeitet mit einer Hierarchie von Trennzeichen:
 
 ```text
 Splitter: Recursive Character Splitting
@@ -221,10 +223,10 @@ Trennzeichen-Hierarchie:
 ```
 
 **Funktionsweise:**
-1. Versuche zuerst, an Doppel-Zeilenumbrüchen zu trennen (Absätze)
-2. Falls Chunk zu groß: Trenne an einfachen Zeilenumbrüchen
-3. Falls immer noch zu groß: Trenne an Satzenden
-4. Letzte Option: Trenne an Leerzeichen oder einzelnen Zeichen
+1. Zuerst wird versucht, anhand von Doppel-Zeilenumbrüchen (Absätze) zu trennen.
+2. Wenn der Chunk zu groß bleibt, wird an Zeilenumbrüchen getrennt.
+3. Falls immer noch zu lang: Trennung an Satzenden.
+4. Letzter Ausweg: Trennung an Leerzeichen oder einzelnen Zeichen.
 
 ### Overlap: Kontext bewahren
 
@@ -251,14 +253,13 @@ Mit Overlap (25%):
 | Rechtsdokumente | 800–1000 | 200 | Vollständige Paragraphen wichtig |
 | Code-Dokumentation | 300–500 | 100 | Funktionen zusammenhalten |
 
-Diese Werte sind keine feste Regel. Die Tabelle bildet einen sinnvollen Startpunkt. Entscheidend ist, ob die Treffer später tatsächlich die Antwort tragen. Wenn ein System zwar semantisch ähnliche Chunks findet, aber wiederholt am Absatzrand wichtige Informationen verliert, liegt das Problem oft nicht im Modell, sondern im Zuschnitt der Dokumente.
-
+Diese Werte sind keine festen Regeln. Sie sind eher ein sinnvoller Startpunkt. Entscheidend ist, ob die Treffer später wirklich den Kontext liefern, der die Antwort trägt. Wenn das System zwar semantisch passende Chunks findet, aber wichtige Hinweise regelmäßig am Absatzrand verliert, liegt das Problem sehr oft im Zuschnitt der Dokumente.
 
 ---
 
 ## Retrieval: Die richtigen Dokumente finden
 
-Der Retriever ist die eigentliche Arbeitsstelle des Systems. Hier entscheidet sich, ob eine Frage brauchbaren Kontext erhält oder nur ähnlich klingendes Material. Viele frühe RAG-Demos wirken überzeugend, weil die Fragen freundlich gewählt sind. Unter realen Bedingungen zeigt sich dann, ob das Retrieval auch bei unklaren Formulierungen, Synonymen oder Mischanfragen noch trägt.
+Der Retriever ist die eigentliche Arbeitsstelle im System. Hier entscheidet sich, ob die Frage später wirklich brauchbaren Kontext bekommt – oder ob nur „ähnlich klingendes“ Material zurückkommt. Viele frühe RAG-Demos sehen gut aus, weil die Beispielfragen freundlich formuliert sind. In echten Anwendungen zeigt sich dann, wie zuverlässig das Retrieval mit unklaren Formulierungen, Synonymen oder Mischanfragen umgehen kann.
 
 ### Basis-Retrieval: Similarity Search
 
@@ -283,21 +284,21 @@ Suche:
 | Strategie | Beschreibung | Vorteil | Nachteil |
 |-----------|--------------|---------|----------|
 | **Similarity** | Ähnlichste Vektoren | Schnell, einfach | Keine Qualitätsgarantie |
-| **Keyword / BM25** | Stichwortsuche mit Relevanzbewertung | Präzise bei Fachbegriffen, IDs und Namen | Findet Synonyme nur mit Zusatzpflege |
+| **Keyword / BM25** | Stichwortsuche mit Relevanzbewertung | Präzise bei Fachbegriffen, IDs und Namen | Synonyme brauchen Zusatzpflege |
 | **MMR** | Maximum Marginal Relevance | Diversität der Ergebnisse | Etwas langsamer |
 | **Threshold** | Nur Ergebnisse über Schwellenwert | Qualitätskontrolle | Kann leer zurückkommen |
 | **Hybrid** | Keyword + Semantisch kombiniert | Beste Abdeckung | Komplexer aufzusetzen |
 
 > [!DANGER] Threshold-Retrieval: leerer Kontext<br>
-> Gibt der Threshold-Retriever keine Treffer zurück, erhält das LLM leeren Kontext — und halluziniert eine Antwort, anstatt "keine Information" zu melden. Immer ein Fallback definieren, wenn `score_threshold` verwendet wird.
+> Wenn der Threshold-Retriever keine Treffer liefert, bekommt das LLM leeren Kontext – und versucht trotzdem zu antworten. Definiere deshalb immer einen Fallback, wenn `score_threshold` genutzt wird.
 
 ### Stichwortsuche
 
-Stichwortsuche ist die einfachste Retrieval-Strategie: Das System sucht nach exakten Begriffen, Phrasen oder Mustern im Dokumentbestand. Sie ist besonders nützlich, wenn die gesuchten Informationen über eindeutige Wörter erreichbar sind, etwa Produktnamen, Abkürzungen, Fehlermeldungen, Gesetzesstellen, Ticketnummern oder interne Prozessbegriffe.
+Stichwortsuche ist die einfachste Form des Retrievals: Das System sucht nach exakten Begriffen, Phrasen oder Mustern im Dokumentbestand. Sie ist besonders stark, wenn die gesuchten Informationen über eindeutige Wörter erreichbar sind – zum Beispiel Produktnamen, Abkürzungen, Fehlermeldungen, Ticketnummern, Gesetzesstellen oder interne Prozessbegriffe.
 
-Ein verbreiteter Algorithmus dafür ist **BM25**. BM25 bewertet Treffer nicht nur danach, ob ein Stichwort vorkommt, sondern auch danach, wie aussagekräftig der Begriff im gesamten Dokumentbestand ist und wie stark er in einem konkreten Dokument vertreten ist. Seltene, fachlich wichtige Begriffe zählen dadurch stärker als sehr allgemeine Wörter.
+Ein gängiger Algorithmus dafür ist **BM25**. BM25 bewertet nicht nur, ob ein Stichwort vorkommt, sondern auch, wie aussagekräftig es im Gesamtbestand ist und wie stark es in einem konkreten Dokument vertreten ist. Seltenere, fachlich wichtige Begriffe werden dadurch höher gewichtet als sehr allgemeine Wörter.
 
-Der Vorteil liegt in der Präzision. Wenn jemand nach `ISO 27001`, `Passwort-Policy` oder `ERR-403` sucht, ist eine exakte Stichwortsuche oft zuverlässiger als reine semantische Ähnlichkeit. Der Nachteil ist die geringe Toleranz: Wer nach "Zugangsdaten ändern" fragt, findet ein Dokument mit "Passwort zurücksetzen" möglicherweise nicht, obwohl es inhaltlich passt.
+Der Vorteil ist die Präzision. Wenn jemand nach `ISO 27001`, `Passwort-Policy` oder `ERR-403` sucht, liefert eine exakte Stichwortsuche oft stabilere Ergebnisse als reine semantische Ähnlichkeit. Der Nachteil ist die geringe Toleranz: „Zugangsdaten ändern“ findet unter Umständen nicht automatisch ein Dokument, das eher „Passwort zurücksetzen“ verwendet, obwohl es inhaltlich passt.
 
 ```text
 Retriever-Strategie: Stichwortsuche
@@ -325,11 +326,11 @@ Gut geeignet für:
 - interne Fachbegriffe
 ```
 
-In RAG-Systemen ist Stichwortsuche selten ein Ersatz für Embeddings, aber ein sehr guter Ergänzungsmechanismus. Praktisch stark ist ein zweistufiges Vorgehen: Erst werden eindeutige Stichworte gesucht, danach ergänzt semantische Suche verwandte oder anders formulierte Treffer. Genau daraus entsteht Hybrid Retrieval.
+In RAG-Systemen ist Stichwortsuche selten ein vollständiger Ersatz für Embeddings. Sie eignet sich aber sehr gut als Ergänzung. Praktisch bewährt ist ein zweistufiges Vorgehen: zuerst werden eindeutige Begriffe gesucht, danach ergänzt man die Ergebnisse um semantisch verwandte Treffer. Genau daraus entsteht Hybrid Retrieval.
 
 ### Maximum Marginal Relevance (MMR)
 
-MMR balanciert Relevanz und Diversität. Statt nur die ähnlichsten Dokumente zurückzugeben, werden auch unterschiedliche Perspektiven berücksichtigt.
+MMR kombiniert Relevanz mit Diversität. Statt nur die ähnlichsten Dokumente zu liefern, berücksichtigt das Verfahren auch unterschiedliche Perspektiven, damit die Ergebnisse sich nicht zu stark wiederholen.
 
 ```text
 Retriever-Strategie: MMR
@@ -378,11 +379,11 @@ Beispiel:
 
 ## Reranking: Ergebnisse optimieren
 
-Reranking verbessert die Qualität der gefundenen Dokumente durch einen zweiten Bewertungsschritt.
+Reranking verbessert die Trefferqualität, indem ein zweiter Bewertungsschritt die ersten Ergebnisse noch einmal gegen die Frage prüft.
 
 ### Warum Reranking?
 
-Die initiale Vektorsuche ist schnell, aber nicht perfekt. Reranking verwendet ein präziseres (aber langsameres) Modell, um die Top-Ergebnisse neu zu ordnen.
+Vektorsuchen sind schnell, aber nicht perfekt. Reranking arbeitet mit einem präziseren (und oft langsameren) Modell, das die Top-Ergebnisse neu sortiert.
 
 ```
 Schritt 1: Similarity Search → 20 Kandidaten
@@ -394,9 +395,9 @@ Schritt 3: Top 5 werden verwendet
 
 | Ansatz | Beschreibung | Performance |
 |--------|--------------|-------------|
-| **Cross-Encoder** | Betrachtet Query + Dokument gemeinsam | Höchste Qualität, langsam |
-| **LLM-based** | LLM bewertet Relevanz | Flexibel, teuer |
-| **Lightweight** | Schnelle Heuristiken | Schnell, moderate Qualität |
+| **Cross-Encoder** | betrachtet Query und Dokument gemeinsam | Höchste Qualität, langsam |
+| **LLM-based** | LLM bewertet die Relevanz | Flexibel, teuer |
+| **Lightweight** | schnelle Heuristiken | Schnell, moderate Qualität |
 
 ### Beispiel: Cohere Reranker
 
@@ -419,11 +420,11 @@ Ergebnis:
 
 ## Advanced RAG-Techniken
 
-Über die Grundlagen hinaus existieren fortgeschrittene Techniken zur Qualitätsverbesserung.
+Neben den Grundlagen gibt es weitere Methoden, die die Qualität spürbar verbessern können.
 
 ### Query Transformation
 
-Die ursprüngliche Frage wird umformuliert oder erweitert, um bessere Treffer zu erzielen.
+Die ursprüngliche Frage wird umformuliert oder erweitert, damit bessere Treffer entstehen.
 
 **Multi-Query:** Eine Frage wird in mehrere Varianten umgewandelt:
 
@@ -434,7 +435,7 @@ Original: "Wie funktioniert RAG?"
 → "RAG-System Komponenten"
 ```
 
-**HyDE (Hypothetical Document Embedding):** Das LLM generiert eine hypothetische Antwort, die dann für die Suche verwendet wird:
+**HyDE (Hypothetical Document Embedding):** Das LLM erstellt eine hypothetische Antwort, die dann für die Suche verwendet wird:
 
 ```
 Frage: "Wie funktioniert RAG?"
@@ -444,7 +445,7 @@ Frage: "Wie funktioniert RAG?"
 
 ### Self-Query
 
-Das LLM extrahiert strukturierte Filter aus natürlichsprachlichen Fragen:
+Das LLM erkennt aus der natürlichen Sprache strukturierte Filter und nutzt sie fürs Retrieval:
 
 ```
 Frage: "Zeige mir Sicherheitsrichtlinien aus 2024"
@@ -454,7 +455,7 @@ Frage: "Zeige mir Sicherheitsrichtlinien aus 2024"
 
 ### Contextual Compression
 
-Gefundene Dokumente werden auf das Wesentliche komprimiert:
+Gefundene Dokumente werden komprimiert – auf die Teile, die für die Frage wirklich relevant sind:
 
 ```
 Gefundener Chunk (500 Zeichen):
@@ -467,7 +468,7 @@ Nach Compression (relevanter Teil für Frage "Sicherheitsrichtlinien"):
 
 ### Parent Document Retriever
 
-Kleine Chunks für präzises Retrieval, aber größere Kontextfenster für die Generierung:
+Hier werden kleine Chunks für das präzise Retrieval genutzt, aber für die Generierung holt man den größeren „Parent“-Kontext dazu:
 
 ```
 Indexierung: Kleine Chunks (200 Zeichen) → Vektordatenbank
@@ -479,7 +480,7 @@ Rückgabe: Hole zugehörige Parent-Dokumente (2000 Zeichen)
 
 ## RAG-Chain mit LangChain
 
-Die Kombination aller Komponenten zu einer funktionierenden Pipeline.
+Damit aus den einzelnen Bausteinen eine echte Pipeline wird, werden sie zu einer Chain zusammengeführt.
 
 ### Minimales Beispiel
 
@@ -538,9 +539,9 @@ Fehlerfall:
 
 ## Evaluierung von RAG-Systemen
 
-Die Qualität eines RAG-Systems muss systematisch gemessen werden, weil eine einzelne gelungene Antwort wenig beweist. RAG kann auf zwei Ebenen scheitern: Der Retriever findet den falschen Kontext, oder das Modell verarbeitet den richtigen Kontext falsch. Deshalb wird nicht nur die finale Antwort bewertet, sondern auch der Weg dorthin.
+Ob ein RAG-System gut ist, lässt sich nicht allein daran beurteilen, dass eine einzelne Antwort „funktioniert“. RAG kann an zwei Stellen scheitern: Der Retriever findet den falschen Kontext, oder das Modell verarbeitet den richtigen Kontext nicht korrekt. Daher sollte man nicht nur das Ergebnis bewerten, sondern auch den Weg dorthin.
 
-Für Entwickler reicht zuerst ein kleines, wiederholbares Testset. Nach jeder Änderung an Chunking, Embedding-Modell, `k`, Prompt oder Quellenbestand wird dasselbe Set erneut ausgeführt. So wird sichtbar, ob eine Änderung wirklich verbessert oder nur andere Fehler erzeugt.
+Für Entwickler ist ein kleines, wiederholbares Testset oft der beste Start. Nach jeder Änderung an Chunking, Embedding-Modell, `k`, Prompt oder Quellenbestand wird dieses Set erneut ausgeführt. So sieht man, ob die Änderung wirklich hilft – oder neue Fehler produziert.
 
 | Ebene | Leitfrage | Einfache Bewertung |
 |---|---|---|
@@ -554,13 +555,13 @@ Für Entwickler reicht zuerst ein kleines, wiederholbares Testset. Nach jeder Ä
 |--------|-------|------------|
 | **Retrieval Precision** | Anteil relevanter Dokumente | Relevante / Gefundene |
 | **Retrieval Recall** | Abdeckung aller relevanten Dokumente | Gefundene Relevante / Alle Relevanten |
-| **Answer Relevance** | Passt Antwort zur Frage? | LLM-Bewertung |
-| **Faithfulness** | Ist Antwort durch Kontext gestützt? | LLM-Bewertung |
+| **Answer Relevance** | Passt die Antwort zur Frage? | LLM-Bewertung |
+| **Faithfulness** | Ist die Antwort durch den Kontext gestützt? | LLM-Bewertung |
 | **Context Relevance** | Ist der Kontext relevant? | LLM-Bewertung |
 
 ### RAGAS Framework
 
-RAGAS (Retrieval Augmented Generation Assessment) bietet standardisierte Metriken:
+RAGAS (Retrieval Augmented Generation Assessment) bietet standardisierte Metriken für die Bewertung:
 
 ```text
 RAGAS-Evaluierung:
@@ -582,7 +583,7 @@ Ablauf:
 
 ### Manuelles Testen
 
-Für erste Iterationen ist manuelles Testen effektiver als ein großes Evaluationsframework. Wichtig ist, die Testfragen nicht nachträglich an die Stärken des Systems anzupassen, sondern typische Nutzerfragen, Randfälle und erwartete Quellen festzuhalten.
+Gerade in den ersten Iterationen ist manuelles Testen oft effizienter als ein großes Evaluationsframework. Wichtig ist, die Testfragen nicht passend zu den aktuellen Stärken zu wählen. Stattdessen helfen typische Nutzerfragen, Randfälle und erwartete Quellen weiter, die von Anfang an festgehalten werden.
 
 ```text
 Manuelles Testset:
@@ -620,7 +621,7 @@ Prüfablauf pro Testfall:
 
 ## Troubleshooting
 
-Häufige Probleme und deren Lösungen.
+Typische Probleme – und wie man sie eingrenzt.
 
 ### Problem: Keine relevanten Dokumente gefunden
 
@@ -653,9 +654,9 @@ Häufige Probleme und deren Lösungen.
 
 ## Caching und Vorberechnung in RAG-Systemen
 
-Ein RAG-System sollte nicht bei jeder Nutzerfrage die gesamte Wissensbasis neu verarbeiten. Dokumente werden typischerweise einmal geladen, in Chunks zerlegt, eingebettet und in einem Vectorstore gespeichert. Bei späteren Fragen wird dieser vorbereitete Index wiederverwendet.
+In einem RAG-System sollte man nicht jedes Mal die gesamte Wissensbasis neu aufbereiten. Üblicherweise lädt man Dokumente einmal, zerlegt sie in Chunks, erzeugt Embeddings und legt diese im Vectorstore ab. Danach kann der vorbereitete Index wiederverwendet werden.
 
-Das spart Latenz und Kosten, verändert aber auch die Verantwortung: Wenn sich Dokumente ändern, muss klar sein, wann der Index aktualisiert wird. Sonst antwortet das System auf Basis veralteter Informationen.
+Das spart Latenz und Kosten. Gleichzeitig steigt aber die Sorgfaltspflicht: Wenn sich Dokumente ändern, muss klar sein, wann der Index neu gebaut wird. Sonst antwortet das System mit veralteten Informationen.
 
 | Was wird zwischengespeichert? | Warum? | Risiko |
 |---|---|---|
@@ -664,7 +665,7 @@ Das spart Latenz und Kosten, verändert aber auch die Verantwortung: Wenn sich D
 | Retrieval-Ergebnisse | häufige Fragen schneller beantworten | Berechtigungen oder Aktualität |
 | Modellantworten | identische FAQ-Anfragen beschleunigen | falsche Antwort wird wiederholt |
 
-Für den Einstieg reicht die Grundregel: Was teuer oder langsam zu berechnen ist und sich nicht ständig ändert, kann zwischengespeichert werden. Was nutzerabhängig, rechtlich sensibel oder stark veränderlich ist, braucht strengere Cache-Regeln oder sollte nicht gecacht werden.
+Für den Einstieg gilt als Faustregel: Alles, was teuer oder langsam ist und sich nicht ständig ändert, kann man cachen. Nutzerabhängige oder rechtlich sensible Inhalte sowie stark veränderliche Daten brauchen strengere Cache-Regeln oder sollten gar nicht gecacht werden.
 
 ---
 
@@ -680,29 +681,29 @@ Für den Einstieg reicht die Grundregel: Was teuer oder langsam zu berechnen ist
 
 ### Retrieval
 
-- **k sinnvoll wählen:** Zu wenig = fehlender Kontext, zu viel = Rauschen
-- **MMR für Diversität:** Bei breiten Themen verschiedene Perspektiven einbeziehen
+- **k sinnvoll wählen:** Zu wenig liefert zu wenig Kontext, zu viel bringt Rauschen
+- **MMR für Diversität:** Bei breiten Themen unterschiedliche Perspektiven einbeziehen
 - **Threshold für Qualität:** Lieber keine Antwort als eine falsche
 - **BM25 ergänzen:** Für Fachbegriffe, Fehlermeldungen und IDs Keyword-Suche mit Vektorsuche kombinieren
 
 ### Prompt Design
 
 - **Klare Anweisungen:** "Antworte NUR basierend auf dem Kontext"
-- **Fallback definieren:** Was tun bei fehlendem Wissen?
+- **Fallback definieren:** Was tun, wenn Wissen fehlt?
 - **Quellenangaben:** Antwort mit Dokumentreferenzen anreichern
 
 ### Evaluation
 
 - **Test-Dataset erstellen:** Repräsentative Fragen mit erwarteten Antworten
 - **Regelmäßig evaluieren:** Nach jedem Update der Wissensbasis
-- **Feedback sammeln:** Nutzer-Bewertungen für kontinuierliche Verbesserung
+- **Feedback sammeln:** Nutzer-Bewertungen für kontinuierliche Verbesserung nutzen
 - **Trace prüfen:** Bei falschen Antworten zuerst Retrieval und Prompt-Kontext inspizieren
 
 ---
 
 ## Zusammenfassung
 
-RAG kombiniert die Stärken von Retrieval-Systemen mit generativen LLMs:
+RAG verbindet die Stärken von Retrieval-Systemen mit generativen LLMs:
 
 | Komponente | Funktion | Typisches Tool |
 |------------|----------|----------------|
@@ -713,7 +714,7 @@ RAG kombiniert die Stärken von Retrieval-Systemen mit generativen LLMs:
 | **Retriever** | Relevante Chunks finden | Retriever-Schnittstelle |
 | **LLM** | Antwort generieren | GPT-4o-mini |
 
-**Der typische Workflow:**
+**Typischer Workflow:**
 
 ```
 1. Dokumente laden und chunken
@@ -729,9 +730,7 @@ RAG kombiniert die Stärken von Retrieval-Systemen mit generativen LLMs:
 6. Evaluieren und optimieren
 ```
 
-RAG ermöglicht es, LLMs mit aktuellem, domänenspezifischem Wissen auszustatten – ohne teures Fine-Tuning und mit voller Kontrolle über die Wissensbasis.
-
-
+RAG macht es möglich, LLMs mit aktuellem und domänenspezifischem Wissen auszustatten – ohne teures Fine-Tuning und mit klarer Kontrolle über die Wissensbasis.
 
 ---
 
