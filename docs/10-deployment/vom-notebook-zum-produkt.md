@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Vom Notebook zum Produkt
 parent: Deployment
@@ -20,7 +20,7 @@ has_toc: true
 
 ## Ausgangspunkt
 
-Ein Notebook ist ein guter Ort für Exploration, aber kein stabiles Betriebsartefakt. Für Deployment braucht die Anwendung reproduzierbare Abhängigkeiten, klare Konfiguration, Tests, Logging, Health Checks und eine Schnittstelle, die von einer Plattform gestartet und überwacht werden kann.
+Ein Notebook ist perfekt zum Ausprobieren. Aber sobald daraus ein Produkt werden soll, braucht es mehr als funktionierenden Beispielcode: reproduzierbare Abhängigkeiten, saubere Konfiguration, Tests, nachvollziehbares Logging, Health Checks und eine Schnittstelle, die von einer Plattform gestartet und überwacht werden kann.
 
 ```text
 Notebook
@@ -30,40 +30,40 @@ Notebook
   -> Monitoring und Betrieb
 ```
 
-Die wichtigste Entscheidung fällt vor dem ersten Dockerfile: Soll die Anwendung als API, Batch-Job, interner Worker oder interaktiver Demo-Service laufen? Davon hängen Projektstruktur, Startkommando, Secrets-Verwaltung und Skalierung ab.
+Die wichtigste Entscheidung kommt noch bevor du das erste Dockerfile schreibst: Soll die Anwendung als API laufen, als Batch-Job, als interner Worker oder als interaktive Demo? Davon hängen Projektstruktur, Startkommando, Secrets-Verwaltung und Skalierung direkt ab.
 
 > [!WARNING] Architektur-Entscheidung<br>
-> Die Deployment-Variante beeinflusst Projektstruktur, CI/CD und Betriebsverantwortung. Managed Plattformen beschleunigen erste Releases, Container erleichtern reproduzierbare Builds und Portabilität.
+> Die gewählte Deployment-Variante beeinflusst Projektstruktur, CI/CD und wer später für den Betrieb verantwortlich ist. Managed Plattformen helfen beim schnellen Start. Container sorgen für reproduzierbare Builds und mehr Portabilität.
 
 ## Betriebsmodell festlegen
 
-Für GenAI-Projekte sind drei Betriebsmodelle besonders häufig relevant. Ein API-Service passt, wenn andere Systeme Prompts, Dateien oder Suchanfragen senden. Ein Batch- oder Worker-Prozess passt, wenn regelmäßig Dokumente verarbeitet, Embeddings erstellt oder Reports generiert werden. Ein Demo-Service wie Streamlit, Gradio oder Hugging Face Spaces passt, wenn ein Ergebnis gezeigt, aber noch nicht robust betrieben werden muss.
+Bei GenAI-Projekten treffen typischerweise drei Betriebsmodelle aufeinander. Ein API-Service ist sinnvoll, wenn andere Systeme Prompts, Dateien oder Suchanfragen schicken. Ein Batch- oder Worker-Prozess passt, wenn regelmäßig Dokumente verarbeitet, Embeddings erzeugt oder Reports erstellt werden. Ein Demo-Service (z. B. Streamlit, Gradio oder Hugging Face Spaces) eignet sich, um Ergebnisse zu zeigen—aber nicht, um ohne Nacharbeit „produktartig“ zu betreiben.
 
 | Betriebsmodell | Geeignet für | Typische Plattformen | Grenze |
 |---|---|---|---|
-| API-Service | Chat-, RAG- und Klassifikationsfunktionen für andere Systeme | FastAPI, Cloud Run, Azure Container Apps, Railway, Render | Benötigt Authentifizierung, Rate Limits und Monitoring |
+| API-Service | Chat-, RAG- und Klassifikationsfunktionen für andere Systeme | FastAPI, Cloud Run, Azure Container Apps, Railway, Render | Braucht Authentifizierung, Rate Limits und Monitoring |
 | Worker oder Batch | Indexierung, Evaluation, periodische Verarbeitung | Container Jobs, GitHub Actions, Airflow, Prefect | Nicht für interaktive Nutzung geeignet |
 | Demo-Service | Kursdemos, Prototypen, interne Abstimmung | Hugging Face Spaces, Streamlit Community Cloud, Gradio | Nicht automatisch produktionsreif |
 
-Container sind kein Muss, aber ein guter Standard für Team-Setups: Sie fixieren Python-Version, Systemabhängigkeiten und Startkommando. Managed Runtimes sind sinnvoll, wenn schneller Betrieb wichtiger ist als maximale Kontrolle.
+Container sind kein Muss. Für Team-Setups sind sie aber oft der „Standard“, weil sie Python-Version, Systemabhängigkeiten und das Startkommando festziehen. Managed Runtimes sind besonders dann praktisch, wenn du schneller in den Betrieb willst als maximale Kontrolle benötigst.
 
 ## Phase 1: Notebook bereinigen
 
-Vor der Extraktion wird das Notebook einmal von oben nach unten ausführbar gemacht. Experimentelle Zellen, doppelte Imports und alte Promptvarianten werden entfernt. Hardcodierte API-Keys, lokale Pfade und Modellnamen werden markiert, weil sie später in Umgebungsvariablen gehören.
+Bevor du etwas extrahierst, mach das Notebook einmal „von oben nach unten“ vollständig durchführbar. Experimentelle Zellen, doppelte Imports und alte Promptvarianten fliegen raus. Hardcodierte API-Keys, lokale Pfade und Modellnamen solltest du markieren—die gehören später in Umgebungsvariablen.
 
 **Mindestcheck vor der Extraktion:**
 
 - Kernel neu starten und alle Zellen in Reihenfolge ausführen
-- Produktiven Pfad von Experimenten trennen
+- Produktiven Pfad von Experimenten sauber trennen
 - Eingaben, Ausgaben und Fehlermeldungen sichtbar machen
 - Secrets, lokale Dateipfade und Modellnamen externalisieren
 - Große Testdaten aus dem Notebook entfernen
 
-Typischer Fehler: Notebook-Zellen werden 1:1 in eine Python-Datei kopiert. Dadurch bleiben globale Zustände, versteckte Seiteneffekte und zufällige Ausführungsreihenfolgen erhalten.
+Typischer Fehler: Man kopiert Notebook-Zellen 1:1 in eine Python-Datei. Dabei bleiben globale Zustände, versteckte Nebeneffekte und zufällige Ausführungsreihenfolgen erhalten.
 
 ## Phase 2: Projektstruktur anlegen
 
-Eine kleine GenAI-Anwendung braucht keine komplexe Architektur. Entscheidend ist, dass Anwendungscode, Tests und Konfiguration getrennt sind.
+Eine kleine GenAI-Anwendung braucht keine komplizierte Architektur. Entscheidend ist, dass Anwendungscode, Tests und Konfiguration getrennt sind.
 
 ```text
 mein-genai-projekt/
@@ -81,11 +81,11 @@ mein-genai-projekt/
 `-- README.md
 ```
 
-`src/main.py` enthält den Einstiegspunkt. `src/llm_client.py` kapselt den Provider-Zugriff. `src/settings.py` liest Konfiguration aus Umgebungsvariablen. Diese Trennung verhindert, dass Provider-Code, API-Endpunkte und lokale Testlogik ineinanderlaufen.
+`src/main.py` ist der Einstiegspunkt. `src/llm_client.py` kapselt den Provider-Zugriff. `src/settings.py` liest Konfiguration aus Umgebungsvariablen. Diese Trennung verhindert, dass Provider-Code, API-Endpunkte und lokale Testlogik durcheinander geraten.
 
 ## Phase 3: Code extrahieren
 
-Im Notebook ist direkter API-Code akzeptabel. In einer Anwendung sollte der Zugriff auf das Modell gekapselt werden, damit Modellname, Fehlerbehandlung und Tests an einer Stelle bleiben.
+Im Notebook ist direkter API-Code noch okay. In einer Anwendung solltest du den Provider-Zugriff kapseln—damit Modellname, Fehlerbehandlung und Tests an einer Stelle bleiben.
 
 **Vorher im Notebook:**
 
@@ -136,7 +136,7 @@ class LLMClient:
         return response.output_text
 ```
 
-Die OpenAI Responses API ist für neue Beispiele die robustere Grundlage als ältere Chat-Completions-Beispiele, weil sie Text, multimodale Eingaben, Tools und Conversation State über eine einheitliche Schnittstelle abbildet.
+Die OpenAI Responses API ist für neue Beispiele oft die robustere Grundlage gegenüber älteren Chat-Completions-Beispielen. Sie deckt Text, multimodale Eingaben, Tools und Conversation State über eine einheitliche Schnittstelle ab.
 
 ## Phase 4: Konfiguration externalisieren
 
@@ -168,11 +168,11 @@ if __name__ == "__main__":
 ```
 
 > [!DANGER] Security-Baseline<br>
-> Secrets niemals in Code, Notebooks oder Commit-Historie speichern. Ein eingecheckter Key gilt als kompromittiert und wird rotiert.
+> Secrets niemals in Code, Notebooks oder in die Commit-Historie schreiben. Ein eingecheckter Key gilt als kompromittiert und muss rotiert werden.
 
 ## Phase 5: Abhängigkeiten fixieren
 
-Für kleine Kursprojekte reicht eine gepflegte `requirements.txt`. Wichtig ist, nur direkt benötigte Pakete aufzunehmen und Versionen nicht durch ein ungeprüftes `pip freeze` aufzublähen.
+Für kleine Kursprojekte reicht meist eine gepflegte `requirements.txt`. Wichtig ist, nur wirklich benötigte Pakete aufzunehmen und Versionen nicht blind aus `pip freeze` zu übernehmen.
 
 ```txt
 openai>=2.32.0
@@ -182,14 +182,14 @@ uvicorn[standard]>=0.46.0
 pytest>=9.0.3
 ```
 
-Für Anwendungen, die länger betrieben werden, ist ein `pyproject.toml` mit Lockfile vorzuziehen. `uv` unterstützt diese Projektstruktur direkt und erzeugt reproduzierbare Installationen über `uv.lock`.
+Für Anwendungen, die länger laufen, ist ein `pyproject.toml` mit Lockfile die bessere Wahl. `uv` unterstützt diese Struktur direkt und erzeugt reproduzierbare Installationen über `uv.lock`.
 
 ## Phase 6: Smoke-Tests ergänzen
 
-Smoke-Tests prüfen nicht die Modellqualität. Sie stellen sicher, dass Konfiguration, Provider-Kapselung und Rückgabetypen nicht versehentlich brechen.
+Smoke-Tests prüfen nicht die Modellqualität. Sie sollen vor allem sicherstellen, dass Konfiguration, Provider-Kapselung und Rückgabetypen nicht aus Versehen kaputtgehen.
 
 > [!SUCCESS] Mindeststandard<br>
-> Schon wenige Tests verhindern viele Ausfälle beim Deployment, weil fehlende Umgebungsvariablen und geänderte Provider-Antworten früh auffallen.
+> Schon wenige Tests verhindern viele Ausfälle beim Deployment. Besonders fehlende Umgebungsvariablen und geänderte Provider-Antworten fallen so früh auf.
 
 ```python
 # tests/test_llm_client.py
@@ -231,7 +231,7 @@ Tests werden mit `pytest tests/` ausgeführt.
 
 ## Phase 7: API-Endpunkt erstellen
 
-Wenn die Anwendung von anderen Systemen genutzt werden soll, ist FastAPI ein naheliegender Einstieg. Der Endpunkt bleibt dünn: Validierung und HTTP-Antworten liegen in `main.py`, Provider-Logik bleibt in `llm_client.py`.
+Wenn die Anwendung von anderen Systemen genutzt werden soll, ist FastAPI ein guter Start. Der Endpunkt bleibt dabei bewusst schlank: Validierung und HTTP-Antworten liegen in `main.py`, die Provider-Logik bleibt in `llm_client.py`.
 
 ```python
 # src/main.py
@@ -266,17 +266,17 @@ def health_check() -> dict[str, str]:
     return {"status": "ok"}
 ```
 
-Lokal wird die API aus dem Projektverzeichnis gestartet:
+Lokal startest du die API aus dem Projektverzeichnis:
 
 ```bash
 uvicorn src.main:app --reload
 ```
 
-Typischer Fehler: Das Startkommando passt nicht zur Paketstruktur. Wenn die Datei unter `src/main.py` liegt, muss auch der Importpfad `src.main:app` lauten.
+Typischer Fehler: Das Startkommando passt nicht zur Paketstruktur. Wenn die Datei unter `src/main.py` liegt, muss auch der Importpfad `src.main:app` heißen.
 
 ## Phase 8: Containerisierung
 
-Ein Container fixiert Python-Version, Abhängigkeiten und Startkommando. Für produktive Systeme sollten Secrets nicht ins Image kopiert werden; sie werden beim Start als Umgebungsvariablen oder über die Plattform bereitgestellt.
+Ein Container macht Python-Version, Abhängigkeiten und Startkommando reproduzierbar. Für produktive Systeme gilt: Secrets gehören nicht ins Image. Sie werden beim Start als Umgebungsvariablen oder über die Plattform bereitgestellt.
 
 ```dockerfile
 FROM python:3.12-slim
@@ -309,11 +309,11 @@ docker run -p 8000:8000 \
   meine-genai-app
 ```
 
-In Cloud-Deployments wird der API-Key nicht in Shell-Historien oder Build-Logs geschrieben, sondern als Secret der Plattform hinterlegt.
+In Cloud-Deployments taucht der API-Key nicht in Shell-Historien oder Build-Logs auf, sondern wird als Secret der Plattform hinterlegt.
 
 ## Phase 9: Deployment auf der Zielplattform
 
-Die Plattform wird nach Betriebsmodell gewählt, nicht nach Popularität. Für Demos reichen häufig Spaces, Streamlit oder Gradio. Für APIs mit planbarem Traffic sind Cloud Run, Azure Container Apps, Render oder Railway oft einfacher als ein eigenes Kubernetes-Cluster. Kubernetes lohnt sich erst, wenn mehrere Services, eigene Netzwerkanforderungen, interne Plattformteams oder strenge Betriebsstandards vorhanden sind.
+Die Plattform wählst du nach dem Betriebsmodell—nicht nur nach „was ist gerade beliebt“. Für Demos reichen häufig Spaces, Streamlit oder Gradio. Für APIs mit planbarem Traffic sind Cloud Run, Azure Container Apps, Render oder Railway oft schneller und einfacher als ein eigenes Kubernetes-Cluster. Kubernetes lohnt sich meistens erst, wenn mehrere Services, eigene Netzwerkanforderungen, interne Plattformteams oder sehr strenge Betriebsstandards vorhanden sind.
 
 | Ziel | Passende Option | Mindestanforderung |
 |---|---|---|
@@ -322,14 +322,14 @@ Die Plattform wird nach Betriebsmodell gewählt, nicht nach Popularität. Für D
 | Interner Produktivdienst | Container-Plattform oder Kubernetes | Authentifizierung, Monitoring, Rollback |
 | Regelmäßige Verarbeitung | Container Job, GitHub Actions, Airflow, Prefect | Wiederholbarkeit und Fehlerstatus |
 
-Grenze: Ein erfolgreich gebautes Image ist noch kein produktionsreifes System. Betrieb beginnt erst mit Logs, Metriken, Alarmen, Fehlerbehandlung und dokumentiertem Rollback.
+Grenze: Ein gebautes Image ist noch kein produktionsreifes System. Betrieb startet erst, wenn Logs, Metriken, Alarme, Fehlerbehandlung und ein dokumentierter Rollback-Prozess vorhanden sind.
 
 ## Go-Live-Check
 
-Vor dem ersten produktiven Start werden wenige Punkte konsequent geprüft. Diese Liste ersetzt keine Sicherheitsprüfung, verhindert aber die häufigsten Deployment-Fehler in kleinen GenAI-Projekten.
+Vor dem ersten produktiven Start solltest du ein paar Dinge konsequent prüfen. Diese Liste ersetzt keine Security-Prüfung, hilft aber dabei, die häufigsten Deployment-Probleme in kleinen GenAI-Projekten zu vermeiden.
 
 > [!WARNING] Go-Live-Regel<br>
-> Kein Produktionsstart, wenn Secrets, Health Check oder Basis-Tests offen sind.
+> Kein Produktionsstart, wenn Secrets, Health Check oder Basis-Tests noch offen sind.
 
 - [ ] Notebook-Code in Module extrahiert
 - [ ] Keine Secrets im Code, Notebook oder Repository
@@ -344,13 +344,13 @@ Vor dem ersten produktiven Start werden wenige Punkte konsequent geprüft. Diese
 
 ## Typische Fehler
 
-API-Keys im Code sind der kritischste Fehler, weil ein Git-Commit nicht einfach verschwindet. Der Key wird rotiert, auch wenn die Datei später gelöscht wurde.
+API-Keys im Code sind der kritischste Fehler: Ein Git-Commit verschwindet nicht einfach. Der Key wird rotiert, selbst wenn die Datei später wieder gelöscht wird.
 
-Ein zweiter Fehler ist die direkte Übernahme des Notebooks. Globale Variablen und versteckte Zellreihenfolgen funktionieren lokal, brechen aber im Serverprozess. Der produktive Pfad wird deshalb in Funktionen und Klassen übertragen.
+Ein weiterer Klassiker ist die direkte Übernahme des Notebooks. Globale Variablen und versteckte Zell-Reihenfolgen funktionieren lokal—im Serverbetrieb aber oft nicht. Deshalb kommt der produktive Pfad in Funktionen und Klassen.
 
-Häufig wird auch `pip freeze` ungeprüft übernommen. Dadurch landen Entwicklungswerkzeuge, alte Experimente und plattformspezifische Pakete im Deployment. Besser ist eine kleine Liste direkter Abhängigkeiten.
+Auch `pip freeze` wird häufig ungeprüft übernommen. Damit landen dann Entwicklungswerkzeuge, alte Experimente und plattformspezifische Pakete im Deployment. Besser ist eine kleine Liste direkter Abhängigkeiten.
 
-Ohne Health Check kann die Plattform nicht zuverlässig erkennen, ob der Dienst läuft. Ohne Fehlerbehandlung wirkt jeder Provider-Ausfall wie ein Anwendungsfehler. Beides gehört vor den ersten Rollout.
+Ohne Health Check kann die Plattform nicht zuverlässig erkennen, ob der Dienst tatsächlich läuft. Ohne Fehlerbehandlung sieht jeder Provider-Ausfall wie ein Anwendungsfehler aus. Beides gehört vor den ersten Rollout.
 
 ## Quellen und weiterführende Dokumentation
 

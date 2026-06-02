@@ -23,65 +23,55 @@ has_toc: true
 ---
 
 # Was ist ein Transformer?
-Stellen wir uns vor, jemand liest einen Text und versucht ihn zu verstehen. Dabei schaut man nicht nur auf ein Wort nach dem anderen, sondern das Gehirn verbindet alle Wörter miteinander - manche sind wichtiger für das Verständnis als andere.
+Stell dir vor, du liest einen Text und willst wirklich verstehen, was gemeint ist. Dann reicht es nicht, Wort für Wort abzuarbeiten. Du schaust automatisch: Welche Wörter passen zusammen? Welche sind gerade entscheidend, und welche spielen eher eine Nebenrolle?
 
-Ein **Transformer** macht genau das: Es ist ein Computer-Programm, das Texte "liest" und dabei automatisch erkennt, welche Wörter zusammengehören und wichtig sind.
+Genau dafür ist ein **Transformer** gebaut: Er verarbeitet Texte so, dass das Modell ausrechnen kann, welche Wörter in einem Kontext besonders wichtig sind.
 
 # Die Grundidee
 Nehmen wir den Satz: _„Der Hund bellt laut.“_
 
-- Ein Mensch versteht sofort: **„Hund“** ist das Subjekt der Handlung
-    
-- **„bellt“** ist das Verb und wird durch **„laut“** näher beschrieben
-    
-- Das Wort **„Der“** gehört grammatikalisch zu **„Hund“**, ist aber weniger wichtig für die Bedeutung von **„bellt“**
-    
-Ein Transformer-Modell erkennt diese Zusammenhänge über den **Self-Attention-Mechanismus**:  
-Beim Verarbeiten von „bellt“ wird **besonders auf „Hund“ und „laut“ geachtet**, weil sie für die Bedeutung relevant sind.  
-**„Der“** wird zwar berücksichtigt, erhält aber ein geringeres Gewicht.
+- Ein Mensch erkennt schnell: **„Hund“** ist hier das Subjekt.
+- **„bellt“** ist die Handlung und wird durch **„laut“** näher beschrieben.
+- **„Der“** hängt zwar grammatikalisch mit **„Hund“** zusammen, ist für die eigentliche Aussage aber weniger wichtig.
 
-Ein Transformer lernt diese Verbindungen automatisch durch **Aufmerksamkeit**:
-- Es schaut sich alle Wörter gleichzeitig an
-- Es berechnet, wie stark jedes Wort mit jedem anderen zusammenhängt
-- Wichtige Verbindungen bekommen mehr "Aufmerksamkeit"
+Ein Transformer arbeitet mit diesem Prinzip über **Self-Attention**: Wenn das Modell „bellt“ verarbeitet, gibt es „Hund“ und „laut“ mehr Gewicht. „Der“ wird zwar mit einbezogen, aber weniger stark.
+
+Der Transformer lernt diese Zusammenhänge nicht per Hand, sondern über **Aufmerksamkeit**:
+- Er betrachtet alle Wörter gleichzeitig
+- Er berechnet, wie stark jedes Wort mit jedem anderen zusammenhängt
+- Wichtige Verbindungen bekommen dabei mehr Einfluss
 
 <div style="page-break-after: always;"></div>
 
 
 ## Wörter werden zu Zahlen → Embedding
-- Computer können nur mit Zahlen arbeiten
-- Jedes Wort wird in eine Liste von Zahlen umgewandelt (wie ein Fingerabdruck des Wortes)
-- Dabei wird nicht das Wort stand-alone betrachtet, sondern auch der Zusammenhang, in dem das Wort verwendet wird
+- Computer verstehen keine Wörter, sondern nur Zahlen
+- Deshalb wird jedes Wort in eine Liste von Zahlen umgewandelt (eine Art „Fingerabdruck“ des Wortes)
+- Entscheidend ist: Die Darstellung hängt nicht nur vom Wort selbst ab, sondern auch davon, in welchem Zusammenhang es vorkommt
 
 ## Position ist wichtig → Positional Encoding
 - *Der Lehrer fragt den Schüler*. bedeutet etwas anderes als *Den Lehrer fragt der Schüler*.
-- Der Transformer fügt jedem Wort eine "Positionsnummer" hinzu
+- Damit der Transformer diese Reihenfolge kennt, bekommt jedes Wort zusätzlich eine Positions-Information
 
 ## Aufmerksamkeit berechnen → Self-Attention
 
-Self-Attention ist ein Mechanismus, bei dem jedes Wort in einem Satz mit allen anderen Wörtern – einschließlich sich selbst – verglichen wird, um deren inhaltliche Ähnlichkeit oder Relevanz zu bestimmen. Diese Ähnlichkeitswerte helfen dem Modell dabei zu entscheiden, wie stark jedes Wort in die Repräsentation eines anderen Wortes einfließen soll.
+Self-Attention ist ein Mechanismus, bei dem jedes Wort in einem Satz mit allen anderen Wörtern (inklusive sich selbst) verglichen wird. Aus den Ähnlichkeiten entsteht ein Signal dafür, wie stark das jeweilige andere Wort in die Darstellung einfließen soll.
 
-**Beispiel:**  
-Im Satz **„Der große Hund bellt laut“** wird das Wort **„bellt“** mit allen anderen Wörtern verglichen:
+**Beispiel:**
+Im Satz **„Der große Hund bellt laut“** wird das Wort **„bellt“** mit allen anderen Wörtern abgeglichen:
 
-- Mit **„Hund“** besteht eine starke inhaltliche Verbindung, da der Hund die Handlung ausführt.
-    
-- **„große“** beschreibt den Hund und ist damit indirekt relevant.
-    
-- **„laut“** beschreibt das Bellen und ist somit direkt mit „bellt“ verbunden.
-    
-- **„Der“** ist ein Artikel und hat weniger inhaltliches Gewicht.
-    
+- Mit **„Hund“** ist die Verbindung stark, weil der Hund die Handlung ausführt.
+- **„große“** beschreibt den Hund und ist dadurch indirekt mit „bellt“ verknüpft.
+- **„laut“** passt direkt zur Handlung und ist deshalb besonders relevant.
+- **„Der“** ist ein Artikel und trägt weniger inhaltliche Information zu „bellt“ bei.
 
-Das Modell erkennt diese Zusammenhänge und gibt den relevanteren Wörtern (z. B. „Hund“ und „laut“) ein höheres Gewicht beim Kodieren von „bellt“. So entsteht eine kontextabhängige Repräsentation des Wortes „bellt“, die den Gesamtzusammenhang des Satzes besser widerspiegelt.
+So erkennt das Modell, welche Wörter bei „bellt“ wichtig sind, und baut daraus eine kontextabhängige Darstellung, die den Satz besser abbildet.
 
-Um diese Aufmerksamkeit gezielt zu steuern, nutzt der Transformer für jedes Wort eine spezielle Fragetechnik. Dabei wird nicht nur geschaut, **wie stark Wörter miteinander verbunden sind**, sondern auch **in welcher Rolle** sie zueinander stehen.
+Damit diese Aufmerksamkeit nicht nur „irgendwie“ berechnet wird, sondern auch die Rollen der Wörter berücksichtigt, nutzt der Transformer eine bestimmte Fragetechnik: Er stellt pro Wort drei Werte zusammen – **Query**, **Key** und **Value**.
 
-Dazu stellt sich der Transformer bei jedem Wort drei zentrale Fragen:
-
-- **"Was suche ich?"** – das ist die **Query**,
-- **"Was biete ich an?"** – das ist der **Key**,
-- **"Was ist mein Inhalt?"** – das ist der **Value**.
+- **„Was suche ich?“** → **Query**
+- **„Was biete ich an?“** → **Key**
+- **„Was ist mein Inhalt?“** → **Value**
 
 **Beispiel mit dem Satz:** *"Der große <mark style="background: #BBFABBA6;">Hund</mark> <mark style="background: #D2B3FFA6;">bellte</mark> laut."*
 
@@ -90,7 +80,7 @@ Dazu stellt sich der Transformer bei jedem Wort drei zentrale Fragen:
 - **Key (Was biete ich an?)**: Von "<mark style="background: #BBFABBA6;">Hund</mark>": "Ich bin ein Substantiv und kann Subjekt sein!"
 - **Value (Was ist mein Inhalt?)**: Von "<mark style="background: #BBFABBA6;">Hund</mark>": "Ich bin ein Tier, männlich, mit der Eigenschaft 'groß'"
 
-**Ergebnis**: Der Transformer erkennt die starke Verbindung zwischen "Hund" und "bellte" und versteht: "Der Hund führt die Handlung des Bellens aus."
+**Ergebnis**: Der Transformer erkennt die enge Verbindung zwischen „Hund“ und „bellte“ und bildet ab: „Der Hund führt die Handlung des Bellens aus.“
 
 
 
@@ -102,18 +92,15 @@ KI-generiertes Bild
 
 
 
-Das passiert gleichzeitig für alle Wörter, sodass der Transformer alle wichtigen Beziehungen im Satz erkennt.
+Das läuft parallel für alle Wörter ab – dadurch sieht das Modell die wichtigsten Beziehungen im Satz.
 
 ## Mehrere *Köpfe* gleichzeitig → Multi-Head-Attention
 
-**Multi-Head-Attention** bedeutet, dass der Transformer **mehrere Self-Attention-Mechanismen gleichzeitig ausführt – mit unterschiedlichen Perspektiven (Köpfen)**.
+**Multi-Head-Attention** heißt: Der Transformer führt mehrere Self-Attention-Berechnungen gleichzeitig durch – mit unterschiedlichen Blickwinkeln (den sogenannten **Heads**).
 
-Statt nur **eine Sichtweise** darauf zu berechnen, wie z. B. „bellt“ mit den anderen Wörtern zusammenhängt, berechnet das Modell **mehrere parallele Sichtweisen**, sogenannte **„Heads“**. Jeder Head hat eigene Query-, Key- und Value-Vektoren – mit unterschiedlichem Fokus.
+Statt nur eine einzige Sicht darauf zu berechnen, wie „bellt“ mit anderen Wörtern zusammenhängt, erstellt das Modell mehrere Perspektiven. Jeder Head bekommt eigene Query-, Key- und Value-Vektoren und fokussiert auf etwas anderes.
 
-
-**Beispiel mit mehreren Köpfen:**
-
-Angenommen, es werden **3 Attention-Heads** verwendet – dann könnten sie sich jeweils auf unterschiedliche Aspekte konzentrieren:
+**Beispiel mit 3 Attention-Heads:**
 
 | Head | Möglicher Fokus                                 |
 | ---- | ----------------------------------------------- |
@@ -121,16 +108,16 @@ Angenommen, es werden **3 Attention-Heads** verwendet – dann könnten sie sich
 | 2    | **Wie wird etwas getan?** – Beziehung zu „laut“ |
 | 3    | **Grammatikalische Struktur** – z. B. Artikel   |
 
-Jeder Head rechnet eigene Attention-Gewichte und neue Repräsentationen für „bellt“.  
-Am Ende werden **alle Ergebnisse zusammengeführt** (konkatenieren und lineare Transformation), um eine **reichhaltige, vielschichtige Repräsentation** zu erzeugen.
+Jeder Head berechnet eigene Attention-Gewichte und erzeugt eine eigene neue Repräsentation für „bellt“.
+Danach werden die Ergebnisse zusammengeführt (konkatenieren und lineare Transformation), damit am Ende eine reichhaltigere Darstellung entsteht.
 
-**Warum ist das sinnvoll?**
+**Warum das sinnvoll ist?**
 
-Ein einzelner Attention-Mechanismus (ein „Kopf“) kann nur eine begrenzte Art von Beziehung gut erfassen. Mit **Multi-Head-Attention** lernt das Modell:
+Ein einzelner Attention-Mechanismus kann nur eine begrenzte Art von Beziehung richtig stark machen. Mit **Multi-Head-Attention** lernt das Modell:
 
-- **verschiedene semantische Beziehungen gleichzeitig zu erkennen**
-- **kontextuelle Nuancen** besser zu verarbeiten
-- **feinere Unterscheidungen** im Satzbau zu erfassen
+- verschiedene semantische Beziehungen parallel zu erkennen
+- Kontexte und Nuancen besser zu verarbeiten
+- den Satzaufbau feiner zu erfassen
 
 **Wie funktioniert das technisch?**
 <br>
@@ -147,23 +134,17 @@ KI-generiertes Bild
 
 **Problem beim Text-Generieren:**
 
-Beim Generieren von Text (z. B. mit GPT) erzeugt das Modell **ein Wort nach dem anderen**.  
-Dabei soll es **nur auf das schauen dürfen, was bereits gesagt wurde** – **nicht auf zukünftige Wörter**, die es ja gerade erst selbst erzeugen soll!
-
+Beim Generieren von Text passiert Folgendes: Das Modell erzeugt **Wort für Wort**. Dabei darf es bei der nächsten Vorhersage nur auf das schauen, was schon genannt wurde – **nicht** auf Wörter, die erst in Zukunft kommen.
 
 **Ohne Maske (normale Self-Attention):**
 
-Das Modell würde bei der Vorhersage von Wort _n+1_ schon sehen, welches Wort an Position _n+2_ oder _n+3_ kommt.  Das wäre **Schummeln**, weil das Modell dann keine echte Vorhersage trifft, sondern aus dem bereits bekannten Ausgang „abliest“.
-
+Das Modell würde bei der Vorhersage von Wort _n+1_ schon sehen, was bei _n+2_ oder _n+3_ kommt. Das wäre kein echtes Raten, sondern „Ablesen“ aus dem, was ohnehin schon bekannt ist.
 
 **Mit Masked Self-Attention:**
 
-Das Modell wird gezwungen, **zukünftige Wörter zu ignorieren**, indem sie **maskiert (ausgeblendet)** werden.  
-Es sieht beim Vorhersagen nur den bisherigen Kontext, genau wie ein Mensch, der einen Satz schreibt.
+Das Modell wird gezwungen, **zukünftige Positionen auszublenden**. So darf es bei einer Vorhersage nur den bisherigen Kontext verwenden.
 
-**Masked Self-Attention** ist notwendig, damit ein Sprachmodell **authentisch, Schritt für Schritt Text erzeugt**, ohne zukünftige Wörter vorab zu kennen.  
-Es simuliert damit echtes Sprachverständnis im Schreibprozess.
-
+**Masked Self-Attention** ist wichtig, damit ein Sprachmodell wirklich Schritt für Schritt Text erzeugt, ohne sich zukünftige Wörter vorweg „anzusehen“. Es entspricht damit eher dem echten Schreibprozess: Du kennst nur das, was bisher schon steht.
 
 <img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/self_attention_2.png" alt="Masked Self-Attention" width="600">
 <p><font color='black' size="2">
@@ -176,14 +157,14 @@ KI-generiertes Bild
 
 <br>
 
-[Transformer](https://editor.p5js.org/ralf.bendig.rb/full/I1TTpJk-D)        
+[Transformer](https://editor.p5js.org/ralf.bendig.rb/full/I1TTpJk-D)
 
 ## Verstehen - Encoder-Only (wie BERT)
 
 **Fachbegriff**: Bidirectional Encoder Representations
 - Liest den ganzen Text und versteht ihn
 - Kann Fragen zum Text beantworten
-- Wie ein sehr guter Leser, der alles durchdenkt
+- Wie ein Leser, der wirklich alles einmal durchgeht
 
 **Beispiel**: "In welchem Jahr wurde Einstein geboren?" → Findet die Antwort im Text
 
@@ -192,7 +173,7 @@ KI-generiertes Bild
 **Fachbegriff**: Autoregressive Language Models
 - Schreibt Text Wort für Wort
 - Jedes neue Wort basiert auf allen vorherigen
-- Wie ein Autor, der eine Geschichte weitererzählt
+- Wie jemand, der eine Geschichte weiter erzählt
 
 **Beispiel**: "Es war einmal..." → "Es war einmal ein kleiner Drache, der fliegen lernen wollte..."
 
@@ -201,9 +182,9 @@ KI-generiertes Bild
 ## Übersetzen - Encoder-Decoder (wie T5)
 
 **Fachbegriff**: Sequence-to-Sequence Models
-- Liest Input vollständig, dann schreibt Output
+- Liest den Input vollständig und schreibt dann den Output
 - Verbindet Verstehen und Schreiben
-- Wie ein Übersetzer, der erst alles versteht, dann übersetzt
+- Wie ein Übersetzer, der erst den Text komplett erfasst und dann überträgt
 
 **Beispiel**: "Hello world" → "Hallo Welt"
 
@@ -212,20 +193,20 @@ KI-generiertes Bild
 
 ## Vorher (alte Methoden):
 - Computer lasen Texte Wort für Wort von links nach rechts
-- Langsam und vergaßen oft den Anfang des Textes
-- Wie jemand, der nur ein Wort nach dem anderen lesen kann
+- Dabei wurde es oft langsam, und der Anfang des Textes wurde leichter vergessen
+- Wie jemand, der nur ein Wort nach dem anderen liest und den Rest aus den Augen verliert
 
 ## Transformer:
 - Sehen alle Wörter gleichzeitig
-- Verstehen Zusammenhänge über weite Strecken
-- Viel schneller, weil parallel verarbeitet wird
+- Verstehen Zusammenhänge auch über größere Distanzen hinweg
+- Viele Teile können parallel verarbeitet werden → schneller
 - Wie jemand, der den ganzen Text auf einmal erfasst
 
 
 # Top 10 Post-Transformer
 
 
-**Was kommt als Nächstes?** Die KI-Forschung entwickelt sich schnell weiter. Hier sind einige neue Ansätze, die möglicherweise die Zukunft prägen, aber noch nicht weit verbreitet sind:
+**Was kommt als Nächstes?** Die KI-Forschung entwickelt sich schnell. Hier sind einige neue Ansätze, die möglicherweise die Zukunft prägen, aber noch nicht überall Standard sind:
 
 
 ## Übersicht
@@ -245,7 +226,7 @@ KI-generiertes Bild
 
 **Legende:**
 
-**Transformer-basiert:**    
+**Transformer-basiert:**
 
 - ✅ **Ja**: Basiert vollständig auf Transformer-Architektur
 - ❌ **Nein**: Komplett neue Architektur ohne Transformer-Komponenten
@@ -265,7 +246,7 @@ KI-generiertes Bild
 - **Hybrid-Ansätze**: Kombination verschiedener Architekturen für optimale Leistung
 
 
-**Warum ist das wichtig?** Diese neuen Ansätze könnten in Zukunft die Transformer-Dominanz herausfordern, besonders wenn es um Effizienz und Geschwindigkeit geht.
+**Warum ist das wichtig?** Diese neuen Ansätze könnten die Dominanz von Transformern besonders dort verändern, wo Effizienz und Geschwindigkeit entscheidend sind.
 
 
 ---

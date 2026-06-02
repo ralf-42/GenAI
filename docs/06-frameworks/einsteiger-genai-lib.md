@@ -15,7 +15,7 @@ has_toc: true
 
 ---
 
-Die `genai_lib` ist eine projektspezifische Python-Bibliothek, die speziell für die Anforderungen dieses Kurses entwickelt wurde. Sie bündelt wichtige Funktionen für multimodale RAG-Systeme und allgemeine Hilfsfunktionen.
+Die `genai_lib` ist eine projektspezifische Python-Bibliothek, die genau für die Anforderungen dieses Kurses entwickelt wurde. Sie bündelt wichtige Bausteine für multimodale RAG-Systeme und praktische Hilfsfunktionen.
 
 # Inhaltsverzeichnis
 {: .no_toc .text-delta }
@@ -27,7 +27,7 @@ Die `genai_lib` ist eine projektspezifische Python-Bibliothek, die speziell für
 
 ## Installation
 
-Die `genai_lib` kann direkt aus dem GitHub-Repository installiert werden:
+Die `genai_lib` lässt sich direkt aus dem GitHub-Repository installieren:
 
 ```bash
 # Mit pip
@@ -42,7 +42,7 @@ uv pip install --system git+https://github.com/ralf-42/GenAI.git#subdirectory=04
 Die Bibliothek besteht aus drei Hauptmodulen:
 
 | Modul | Beschreibung | Hauptfunktionen |
-|-------|-------------|----------------|
+|---|---|---|
 | **utilities.py** | Hilfsfunktionen für Environment-Setup | Environment-Checks, Paket-Installation, API-Keys, Prompt-Templates, LLM-Response-Parsing, Model-Profile, GitHub-Datei-Download |
 | **multimodal_rag.py** | Multimodales RAG-System (v3.1) | Text- und Bildsuche, Bild-zu-Bild-Suche, Cross-Modal-Retrieval, System-Status |
 | **model_config.py** | Rollenbasierte Modell-Konfiguration | BASELINE, WORKER, JUDGE, PLANNER, ROUTER, CODING, TRANSLATOR, VISION, Medien- und Premium-Rollen, EMBEDDINGS |
@@ -54,12 +54,12 @@ Die Bibliothek besteht aus drei Hauptmodulen:
 ### Überblick
 
 > [!NOTE] utilities.py auf einen Blick<br>
-> Das `utilities`-Modul stellt grundlegende Hilfsfunktionen bereit, die in vielen Notebooks und Projekten wiederkehrend benötigt werden. Alle Funktionen sind über `from genai_lib.utilities import ...` importierbar.
+> Das `utilities`-Modul enthält grundlegende Helfer, die in vielen Notebooks und Projekten immer wieder gebraucht werden. Alle Funktionen sind über `from genai_lib.utilities import ...` importierbar.
 
 ### Hauptfunktionen
 
 #### . `check_environment()`
-Überprüft die Entwicklungsumgebung und zeigt installierte Pakete an.
+Prüft die Entwicklungsumgebung und listet die installierten Pakete auf.
 
 ```python
 from genai_lib.utilities import check_environment
@@ -73,7 +73,7 @@ check_environment()
 - Unterdrückt automatisch Deprecation-Warnungen
 
 #### . `install_packages(packages, upgrade=False)`
-Installiert Python-Pakete automatisch, wenn sie noch nicht verfügbar sind.
+Installiert Pakete automatisch, falls sie noch nicht verfügbar sind.
 
 ```python
 from genai_lib.utilities import install_packages
@@ -93,16 +93,16 @@ install_packages(['langchain-core>=1.3.0'], upgrade=True)
 
 **Parameter:**
 - `packages` (list): Paketnamen oder Tupel `(install_name, import_name)`
-- `upgrade` (bool): `False` (Standard) — Skip wenn bereits importierbar. `True` — immer `uv pip install --upgrade` ausführen, nützlich für Versionspins.
+- `upgrade` (bool): `False` (Standard) — Skip wenn bereits importierbar. `True` — immer `uv pip install --upgrade` ausführen, z.B. bei Versionspins.
 
 **Features:**
-- Prüft, ob Pakete bereits installiert sind
-- Verwendet `uv pip install` für schnelle Installation in Google Colab
-- Gibt klare Statusmeldungen (✅ ❌ ⚠️ 🔄)
-- Unterstützt Tupel für verschiedene Install- und Import-Namen
+- prüft, ob Pakete bereits importierbar sind
+- nutzt `uv pip install` für schnelle Installation in Google Colab
+- gibt klare Statusmeldungen (✅ ❌ ⚠️ 🔄)
+- unterstützt Tupel für unterschiedliche Install- und Import-Namen
 
 #### . `setup_api_keys(key_names, create_globals=True)`
-Lädt API-Keys aus Google Colab userdata und setzt sie als Umgebungsvariablen.
+Lädt API-Keys aus Google Colab userdata, setzt sie als Umgebungsvariablen und sorgt dafür, dass sie im Projekt nutzbar sind.
 
 ```python
 from genai_lib.utilities import setup_api_keys
@@ -119,13 +119,13 @@ setup_api_keys(["OPENAI_API_KEY"], create_globals=False)
 ```
 
 **Features:**
-- Lädt Keys sicher aus Google Colab Secrets
-- Erstellt optional globale Variablen für einfachen Zugriff
-- Gibt Statusmeldungen für jeden Key aus
-- Verhindert unbeabsichtigte Sichtbarkeit durch Return-Werte
+- lädt Keys sicher aus Google Colab Secrets
+- erstellt optional globale Variablen für den bequemen Zugriff
+- zeigt Statusmeldungen für jeden Key
+- verhindert unabsichtliche Sichtbarkeit durch Return-Werte
 
 #### . `get_ipinfo()`
-Zeigt Geoinformationen zur aktuellen IP-Adresse an.
+Gibt Geoinformationen zur aktuellen IP-Adresse aus.
 
 ```python
 from genai_lib.utilities import get_ipinfo
@@ -149,7 +149,7 @@ mprint("# Überschrift\n**Fett** und *kursiv*")
 ```
 
 #### . `mermaid(code, width=None, height=None)`
-Rendert Mermaid-Diagramme direkt im Notebook mit anpassbarer Größe.
+Rendert Mermaid-Diagramme direkt im Notebook – mit anpassbarer Größe.
 
 ```python
 from genai_lib.utilities import mermaid
@@ -183,13 +183,13 @@ sequenceDiagram
 - State Machines (`stateDiagram`)
 
 **Features:**
-- Automatische oder manuelle Größenkontrolle
-- Clientseitiges Rendering im Browser via Mermaid CDN (Emojis werden korrekt dargestellt)
-- Robuste Fehlerbehandlung mit aussagekräftigen Fehlermeldungen
-- Funktioniert in Google Colab und JupyterLab; nicht in VS Code Notebooks
+- automatische oder manuelle Größenkontrolle
+- clientseitiges Rendering im Browser via Mermaid CDN (Emojis werden korrekt dargestellt)
+- robuste Fehlerbehandlung mit aussagekräftigen Fehlermeldungen
+- funktioniert in Google Colab und JupyterLab; nicht in VS Code Notebooks
 
 #### . `load_prompt(path, mode="T")`
-Lädt Prompt-Templates aus Markdown-Dateien (.md) als ChatPromptTemplate oder String.
+Lädt Prompt-Templates aus Markdown-Dateien (.md) und gibt sie als ChatPromptTemplate oder String zurück.
 
 ```python
 from genai_lib.utilities import load_prompt
@@ -237,7 +237,7 @@ Answer:
 - `{variable}`: Platzhalter wie bei ChatPromptTemplate
 
 #### . `extract_thinking(response)` 🆕
-Universeller Parser für verschiedene Thinking-Formate von LLMs. Extrahiert den Denkprozess und die eigentliche Antwort aus unterschiedlichen Response-Strukturen.
+Universeller Parser für unterschiedliche Thinking-Formate von LLMs. Er extrahiert den Denkprozess und die eigentliche Antwort aus verschiedenen Response-Strukturen.
 
 ```python
 from genai_lib.utilities import extract_thinking
@@ -255,7 +255,7 @@ print(f"Antwort: {answer}")
 **Unterstützte Formate:**
 
 | Provider/Modell | Format | Beispiel |
-|-----------------|--------|----------|
+|---|---|---|
 | Claude (Extended Thinking) | Liste mit `{"type": "thinking"}` Blöcken | `content = [{"type": "thinking", "thinking": "..."}]` |
 | Gemini | Liste mit `{"type": "thinking"}` Blöcken | `content = [{"type": "thinking", "thinking": "..."}]` |
 | Qwen3, DeepSeek R1 | String mit `<think>` Tags | `"<think>Denkprozess</think>Antwort"` |
@@ -266,12 +266,12 @@ print(f"Antwort: {answer}")
 - `answer` (str): Eigentliche Antwort
 
 **Features:**
-- Provider-agnostisch: Ein Parser für alle LLMs
-- Fallback-Logik: Prüft automatisch alle bekannten Formate
-- Robust: Gibt leeren Thinking-String zurück, wenn kein Denkprozess vorhanden
+- provider-agnostisch: ein Parser für alle LLMs
+- Fallback-Logik: prüft automatisch alle bekannten Formate
+- robust: gibt leeren Thinking-String zurück, wenn kein Denkprozess vorhanden ist
 
 #### . `get_model_profile(model, print_profile=True, **kwargs)` 🆕
-Ruft Model-Profile von models.dev ab und zeigt die wichtigsten Capabilities eines LLM-Modells. Nutzt intern `init_chat_model()` und gibt detaillierte Informationen über Structured Output, Function Calling, Vision, Token-Limits, etc. zurück.
+Ruft Model-Profile von models.dev ab und zeigt die wichtigsten Capabilities eines LLM-Modells. Nutzt intern `init_chat_model()` und liefert Infos zu Structured Output, Function Calling, Vision, Token-Limits und mehr.
 
 ```python
 from genai_lib.utilities import get_model_profile
@@ -366,22 +366,22 @@ for model in ["openai:gpt-5.4-nano", "openai:gpt-5.4-mini", "openai:gpt-5.4"]:
 **Features:**
 - Quelle: models.dev (Open-Source Model-Index)
 - Automatische Capability-Detection
-- Formatierte Übersicht mit Symbolen (📝🖼️🎵🎬) oder Raw-Dict
+- Formatierte Übersicht mit Symbolen (📝🖼️🎵🎬) oder als Raw-Dict
 - Reasoning/Thinking Support Detection
 - Temperature-Support-Check
 - Knowledge Cutoff Date
-- Perfekt für Modellvergleiche in Notebooks
+- perfekt für Modellvergleiche in Notebooks
 
 **Use Cases:**
-- Modell-Fähigkeiten vor Verwendung prüfen (Reasoning, Vision, Audio, etc.)
-- Verschiedene LLMs vergleichen (Context Window, Multimodal, Knowledge)
-- Feature-Gates in Code (z.B. "nur wenn Vision verfügbar")
-- Reasoning-Modelle identifizieren (Claude Extended Thinking, DeepSeek R1)
+- Modell-Fähigkeiten vor der Nutzung prüfen (Reasoning, Vision, Audio usw.)
+- verschiedene LLMs vergleichen (Context Window, Multimodal, Knowledge)
+- Feature-Gates im Code (z.B. nur wenn Vision verfügbar)
+- Reasoning-Modelle erkennen (Claude Extended Thinking, DeepSeek R1)
 - Temperature-Unterstützung prüfen
 - Debugging und Dokumentation
 
 #### . `copy_from_github(source, target, mask="*", ...)` 🆕
-Kopiert Dateien aus einem GitHub-Repository (oder Unterverzeichnis) in ein lokales Verzeichnis — ohne vollständigen Clone.
+Kopiert Dateien aus einem GitHub-Repository (oder Unterverzeichnis) in ein lokales Zielverzeichnis – ohne kompletten Clone.
 
 ```python
 from genai_lib.utilities import copy_from_github
@@ -402,7 +402,7 @@ copy_from_github("myorg/private-repo", "./ziel", token="ghp_...")
 **Parameter:**
 
 | Parameter | Typ | Beschreibung |
-|-----------|-----|--------------|
+|---|---|---|
 | `source` | str | `owner/repo` oder `owner/repo/unterordner` (auch GitHub-URL) |
 | `target` | str | Lokales Zielverzeichnis (wird erstellt) |
 | `mask` | str | Dateimaske, z.B. `"*.ipynb"`, `"data_*.csv"` (Default: `"*"`) |
@@ -415,15 +415,15 @@ copy_from_github("myorg/private-repo", "./ziel", token="ghp_...")
 - `list[str]`: Liste der kopierten (oder bei `dry_run=True`: gefundenen) Dateipfade
 
 **Features:**
-- Nutzt GitHub Contents API — kein `git clone` nötig
-- Unterstützt Unterverzeichnisse großer Repos direkt
-- Erhält die Verzeichnisstruktur im Zielverzeichnis
-- Automatische Branch-Erkennung (`main`, `master`, etc.)
+- nutzt GitHub Contents API – kein `git clone` nötig
+- unterstützt Unterordner direkt bei großen Repos
+- erhält die Verzeichnisstruktur im Zielverzeichnis
+- automatische Branch-Erkennung (`main`, `master` usw.)
 
 ---
 
 #### . `show_trace(project_name, limit=5, show_steps=False)` 🆕
-Zeigt die letzten LangSmith-Runs eines Projekts als formatierte Markdown-Tabelle direkt im Notebook.
+Zeigt die letzten LangSmith-Runs eines Projekts als formatierte Markdown-Tabelle direkt im Notebook an.
 
 ```python
 from genai_lib.utilities import show_trace
@@ -443,22 +443,22 @@ show_trace("M08-RAG-Projekt", limit=3, show_steps=True)
 **Ausgabe (Haupttabelle):**
 
 | Run | Status | Dauer | Child-Runs |
-|-----|--------|-------|------------|
+|---|---|---|---|
 | `RunnableSequence` | ✅ success | 2.3s | 4 |
 | `RunnableSequence` | ❌ error | 1.1s | 2 |
 
 **Ausgabe mit `show_steps=True` (Step-Analyse):**
 
 | # | Typ | Name | Status | Dauer |
-|---|-----|------|--------|-------|
+|---|---|---|---|---|
 | 1 | `llm` | `ChatOpenAI` | ✅ | 1.8s |
 | 2 | `tool` | `firmenwissen_suchen` | ✅ | 0.4s |
 
 **Erkannte Anti-Patterns (`show_steps=True`):**
-- **Retry-Loops:** Wiederholter Tool-Call mit gleichen Argumenten nach Fehler
-- **Over-Planning:** Viele interne Steps, wenig Ergebnis-Output
-- **Missing Tool Use:** Agent antwortet ohne Tool-Call trotz verfügbarer Tools
-- **Hohe Child-Run-Anzahl:** Deutet auf interne Loops oder Middleware hin
+- **Retry-Loops:** wiederholter Tool-Call mit gleichen Argumenten nach Fehler
+- **Over-Planning:** viele interne Steps, aber wenig Ergebnis-Output
+- **Missing Tool Use:** Agent antwortet ohne Tool-Call, obwohl Tools verfügbar sind
+- **Hohe Child-Run-Anzahl:** deutet auf interne Loops oder Middleware hin
 
 **Voraussetzung:** LangSmith muss konfiguriert sein (`LANGSMITH_TRACING=true`, `LANGSMITH_API_KEY`).
 
@@ -468,7 +468,7 @@ show_trace("M08-RAG-Projekt", limit=3, show_steps=True)
 
 ### Überblick
 
-Das `multimodal_rag`-Modul implementiert ein vollständiges RAG-System mit Unterstützung für Text- und Bilddokumente. Es kombiniert OpenAI-Embeddings für Text und CLIP-Embeddings für Bilder.
+Das `multimodal_rag`-Modul stellt ein vollständiges RAG-System bereit – mit Unterstützung für Text- und Bilddokumente. Es kombiniert OpenAI-Embeddings für Text und CLIP-Embeddings für Bilder.
 
 ### Architektur
 
@@ -481,15 +481,15 @@ multimodal_rag
 ```
 
 > [!NOTE] LangChain 1.0+ Integration (v3.1)<br>
-> Das `multimodal_rag`-Modul verwendet moderne LangChain 1.0+ Patterns:
-> - Nutzt `init_chat_model(f"openai:{config.llm_model}")` für LLM-Initialisierung
+> Das `multimodal_rag`-Modul setzt auf moderne LangChain 1.0+ Patterns:
+> - nutzt intern `init_chat_model(f"openai:{config.llm_model}")` für die LLM-Initialisierung
 > - Vision-Analysen mit `HumanMessage` und Standard Content Blocks
-> - Provider-agnostische Multimodal-Verarbeitung
+> - provider-agnostische Multimodal-Verarbeitung
 
 ### Hauptfunktionen
 
 #### . `init_rag_system(config=None)`
-Initialisiert das vollständige RAG-System.
+Initialisiert das komplette RAG-System.
 
 ```python
 from genai_lib.multimodal_rag import init_rag_system, RAGConfig
@@ -547,14 +547,14 @@ process_directory(rag, './files', auto_describe_images=False)
 - **Bilder:** `.jpg`, `.jpeg`, `.png`, `.gif`, `.bmp`
 
 **Features:**
-- Automatische Dokumentenkonvertierung mit MarkItDown
+- automatische Dokumentenkonvertierung mit MarkItDown
 - Text-Chunking mit RecursiveCharacterTextSplitter
-- Automatische Bildbeschreibung mit GPT-4o-mini
+- automatische Bildbeschreibung mit GPT-4o-mini
 - CLIP-Embeddings für Bilder
 - Fortschrittsanzeige
 
 #### . `multimodal_search(rag, query, k_text=3, k_images=3, enable_cross_modal=True)`
-Durchsucht Text und Bilder gleichzeitig und kann Bildtreffer zusätzlich über gefundene Bildbeschreibungen ableiten.
+Durchsucht Text und Bilder gleichzeitig. Auf Wunsch können Bildtreffer zusätzlich über gefundene Bildbeschreibungen hergeleitet werden.
 
 ```python
 from genai_lib.multimodal_rag import (
@@ -600,7 +600,7 @@ for img in similar:
 
 **Use Cases:**
 - Duplikate finden
-- Ähnliche Produkte vorschlagen
+- ähnliche Produkte vorschlagen
 - Bildkategorisierung
 
 #### . `search_text_by_image(rag, image_path, k=3, k_text=3)`
@@ -638,7 +638,7 @@ print(f"Bildbeschreibungen: {status['image_descriptions']}")
 - `total_documents`: Gesamtanzahl aller Einträge
 
 #### . `cleanup_database(db_path)`
-Löscht die Datenbank komplett für einen Neustart.
+Löscht die Datenbank komplett, damit du für einen Neustart wieder bei Null anfängst.
 
 ```python
 from genai_lib.multimodal_rag import cleanup_database
@@ -771,7 +771,7 @@ langsmith>=0.1.0
 ### Überblick
 
 > [!NOTE] model_config.py auf einen Blick<br>
-> Das `model_config`-Modul definiert Modell-IDs als benannte Konstanten nach Rolle. Die Instanziierung erfolgt im Notebook mit `init_chat_model()`, sodass API-Keys bereits gesetzt sind.
+> Das `model_config`-Modul legt Modell-IDs als benannte Konstanten fest, aufgeteilt nach Rolle. Die Instanziierung machst du dann im Notebook mit `init_chat_model()`, damit die API-Keys bereits gesetzt sind.
 
 ```python
 from genai_lib.model_config import BASELINE, WORKER, JUDGE, TRANSLATOR
@@ -780,7 +780,7 @@ from genai_lib.model_config import BASELINE, WORKER, JUDGE, TRANSLATOR
 ### Konstanten
 
 | Konstante | Modell | Typischer Einsatz |
-|-----------|--------|------------------|
+|---|---|---|
 | `BASELINE` | `gpt-5.4-nano` | Grundlagen, günstige Demos, kurze Modellaufrufe |
 | `ROUTER` | `gpt-5.4-nano` | Einfache Routing- und Auswahlentscheidungen |
 | `WORKER` | `gpt-5.4-mini` | RAG-Synthese, strukturierte Ausgaben, Tool-Agenten |
@@ -801,6 +801,7 @@ from genai_lib.model_config import BASELINE, WORKER, JUDGE, TRANSLATOR
 | `TRANSCRIPTION` | `whisper-1` | Audio-Transkription |
 | `EMBEDDINGS` | `text-embedding-3-small` | Retrieval, Chunk-Suche, Vektorindizes |
 
+---
 
 ### Verwendung
 
@@ -829,7 +830,7 @@ MIT License - Copyright (c) 2025 Ralf
 
 Die Module stehen unter der MIT-Lizenz und können frei für eigene Projekte verwendet werden.
 
-
+---
 
 ## Abgrenzung zu verwandten Dokumenten
 
