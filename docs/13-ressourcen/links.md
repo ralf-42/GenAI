@@ -146,6 +146,7 @@ Ressourcen zur Anpassung von Sprachmodellen auf eigene Daten.
 
 | Ressource | Beschreibung |
 |-----------|--------------|
+| [OpenCode](https://opencode.de/de) | Open-Source KI-Coding-Assistent für das Terminal – Alternative zu Claude Code |
 | [Loriot - Pneumatische Plastologie](https://www.youtube.com/watch?v=7WhL5Kw2MKE) | Klassiker: "Körperteile vergrößern durch Atmung" |
 
 
