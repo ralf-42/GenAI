@@ -157,10 +157,12 @@ Die **Kursmaterialien** (z. B. Folien, Texte, Grafiken) sind unter der [CC BY 4.
 
 **Hedra-Medien**: Mit Hedra erstellte oder auf allgemein verfügbaren Hedra-Vorlagen/Assets beruhende Bilder und Videos sind nicht von der allgemeinen CC-BY-4.0-Lizenz der Kursmaterialien umfasst, soweit sie als solche gekennzeichnet sind. Ihre Nutzung richtet sich nach den [Hedra Terms of Use](https://www.hedra.com/terms) und ggf. weiteren Hedra-Richtlinien.     
 
-© 2025-2026 Ralf-42       
+© 2025-2026 Ralf-42     
+
 
 > [!Note] Hinweis
 > Bei der Erstellung dieser Unterlagen wurden KI-gestützte Werkzeuge unterstützend eingesetzt. Alle Inhalte wurden fachlich geprüft und überarbeitet.
+
 
 ---
 
