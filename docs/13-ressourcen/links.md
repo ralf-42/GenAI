@@ -118,6 +118,7 @@ Frameworks und Tools für Bildverarbeitung und Objekterkennung.
 | [CNN Explainer](https://poloclub.github.io/cnn-explainer/)                              | Interaktive Visualisierung von Convolutional Neural Networks |
 | [MediaPipe Studio](https://mediapipe-studio.webapps.google.com/home)                    | Google ML-Lösungen für Vision, Text und Audio                |
 | [MediaPipe Solutions Guide](https://ai.google.dev/edge/mediapipe/solutions/guide?hl=de) | Dokumentation der MediaPipe-Lösungen                         |
+| [MediaPipe Samples — Face Detector](https://google-ai-edge.github.io/mediapipe-samples-web/#/vision/face_detector) | Browser-Demo zur Gesichtserkennung mit MediaPipe |
 
 ---
 
@@ -159,6 +160,6 @@ Ressourcen zur Anpassung von Sprachmodellen auf eigene Daten.
 
 ---
 
-**Version:** 1.1<br>
-**Stand:** Mai 2026<br>
+**Version:** 1.2<br>
+**Stand:** Juni 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

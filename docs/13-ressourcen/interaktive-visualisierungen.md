@@ -72,6 +72,8 @@ Steuerung, Parametrierung und Anpassung von Sprachmodellen
 | **Modellsteuerung**    | Möglichkeiten der Modellsteuerung               | [Modellsteuerung](https://editor.p5js.org/ralf.bendig.rb/full/um423ggnD)             |
 | **Entscheidungshilfe** | Entscheidungshilfe Modellsteuerung              | [Modellsteuerung](https://editor.p5js.org/ralf.bendig.rb/full/xb3zPgRSr)             |
 | **LLM-Parameter**      | Bedeutung und Einstellung LLM-Parameter         | [LLM_Parameter](https://editor.p5js.org/ralf.bendig.rb/full/LBc3t3yP4)               |
+| **Quantisierung LLM**  | Quantisierung von Sprachmodellen visualisiert   | [Quantisierung LLM](https://editor.p5js.org/ralf.bendig.rb/full/86TWKzi5c)           |
+| **Fine Tuning**        | Fine-Tuning von Sprachmodellen visualisiert     | [Fine Tuning](https://editor.p5js.org/ralf.bendig.rb/full/7JG_6J21e)                 |
 | **Fine-Tuning LoRA**   | Low-Rank Adaptation für effizientes Fine-Tuning | [LoRA-Grundprinzip](https://editor.p5js.org/ralf.bendig.rb/full/bFNH-Ija5))          |
 
 
@@ -107,6 +109,7 @@ Audioverarbeitung und Visualisierung
 | Thema | Beschreibung | Link |
 |-------|--------------|------|
 | **Audio-Visualisierung** | Wellenformen und Spektrogramme | [Audio_Viz](https://editor.p5js.org/ralf.bendig.rb/full/_oMmtCprP) |
+| **Quantisierung Audio** | Quantisierung von Audiosignalen visualisiert | [Quantisierung Audio](https://editor.p5js.org/ralf.bendig.rb/full/cErtgts5B) |
 
 ---
 
@@ -154,6 +157,7 @@ Weitere interaktive Visualisierungen von externen Anbietern
 | Thema               | Beschreibung                                          | Link                                                  |
 | ------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
 | **Imaginary**       | Interaktive Mathematik-Programme und Visualisierungen | [Imaginary](https://www.imaginary.org/de/programs)    |
+| **DeepDive Audios GenAI** | Audio-Ressourcen zu Generativer KI | [DeepDive Audios GenAI](https://open.spotify.com/show/4nxwhKtK2tvNeDoHS91iY9?si=qLmrGhxmStu6NpZD6_DLZg&nd=1&dlsi=b1bfd4c659384aad) |
 
 
 
