@@ -39,7 +39,7 @@ Der Kurs richtet sich damit nicht nur an Personen, die "mehr über KI" lesen wol
 
 
 > [!Note] Hinweis<br>
->  Bei der Erstellung dieser Unterlagen wurden KI-gestützte Werkzeuge unterstützend eingesetzt. Alle Inhalte wurden fachlich geprüft und überarbeitet.
+>  Bei der Erstellung dieser Unterlagen kamen KI-Werkzeuge zum Einsatz. Die Inhalte wurden anschließend fachlich geprüft und überarbeitet.
 
 
 
