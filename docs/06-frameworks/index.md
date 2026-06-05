@@ -15,5 +15,6 @@ Dieser Bereich enthält Einstiegs-Guides und Best Practices für die im Kurs ein
 |---|---|
 | [LangChain](./langchain.html) | Einstieg und Best Practices für LangChain 1.0+ |
 | [LangGraph](./langgraph.html) | Einstieg und Best Practices für zustandsbasierte Workflows |
+| [LangChain und LangGraph State & Memory Cheatsheet](./langchain-langgraph-state-memory-cheatsheet.html) | Kompakte Referenz für State, Routing, Checkpointing und Memory |
 | [LangSmith](./langsmith.html) | Einstieg und Best Practices für Tracing und Evaluation |
 | [Weitere Tools](./weitere-tools.html) | ChromaDB, GenAI-Lib und Agent Builder |
