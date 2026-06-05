@@ -14,6 +14,14 @@ has_toc: true
 ---
 
 
+## Inhaltsverzeichnis
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
+---
+
 
 ## Schnellentscheidung
 
