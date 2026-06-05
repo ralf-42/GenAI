@@ -30,15 +30,15 @@ KI-generiertes Bild
 
 ## Schnellentscheidung
 
-| Frage | Empfehlung |
-|---|---|
-| Ein einzelner Modellaufruf, Prompt oder Parser? | LangChain |
-| Eine lineare Pipeline ohne Verzweigung? | LangChain LCEL |
-| Ein Agent mit wenigen Tools, aber ohne eigene Ablaufsteuerung? | LangChain `create_agent()` |
-| Mehrere Schritte mit Routing, Schleifen oder Qualitätsgates? | LangGraph |
-| Gesprächsverlauf über mehrere Turns in einer Session? | LangGraph Checkpointer |
-| Dauerhafte Nutzerpräferenzen, Fakten oder Profile? | Separates Memory-System |
-| Riskante Aktion mit Freigabe? | LangGraph `interrupt()` + `Command(resume=...)` |
+| Frage                                                          | Empfehlung                                      |
+| -------------------------------------------------------------- | ----------------------------------------------- |
+| Ein einzelner Modellaufruf, Prompt oder Parser?                | LangChain                                       |
+| Eine lineare Pipeline ohne Verzweigung?                        | LangChain LCEL                                  |
+| Ein Agent mit wenigen Tools, aber ohne eigene Ablaufsteuerung? | LangChain `create_agent()`                      |
+| Mehrere Schritte mit Routing, Schleifen oder Qualitätsgates?   | LangGraph                                       |
+| Gesprächsverlauf über mehrere Turns in einer Session?          | LangGraph Checkpointer                          |
+| Dauerhafte Nutzerpräferenzen, Fakten oder Profile?             | Separates Memory-System                         |
+| Riskante Aktion mit Freigabe?                                  | LangGraph `interrupt()` + `Command(resume=...)` |
 
 
 
