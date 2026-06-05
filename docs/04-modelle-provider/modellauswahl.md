@@ -48,10 +48,12 @@ Die folgende Tabelle zeigt die zentralen Modellrollen aus `model_config.py`. Die
 | `PLANNER_PREMIUM`          | `openai:gpt-5.5`         | hochkomplexe Planung und mehrstufige Aufgaben                    |
 | `VISION_FAST`              | `openai:gpt-5.4-mini`    | einfache Bildanalyse                                             |
 | `VISION_PREMIUM`           | `openai:gpt-5.4-mini`    | anspruchsvollere Bild- oder Frame-Analyse im Kurs                |
-| `IMAGE_GENERATION`         | `gpt-image-1`            | Bildgenerierung                                                  |
+| `IMAGE_GENERATION`         | `gpt-image-2`            | Bildgenerierung                                                  |
 | `IMAGE_GENERATION_PREMIUM` | `gpt-image-2`            | hochwertige Bildgenerierung                                      |
+| `IMAGE_GENERATION_LEGACY`  | `gpt-image-1`            | ältere Bildgenerierung, nur für Vergleich oder Altbeispiele      |
 | `VIDEO_GENERATION`         | `sora-2`                 | Videoerzeugung                                                   |
-| `TRANSCRIPTION`            | `whisper-1`              | Audio-Transkription                                              |
+| `TRANSCRIPTION`            | `gpt-4o-mini-transcribe` | Audio-Transkription                                              |
+| `TRANSCRIPTION_SEGMENTS`   | `whisper-1`              | Audio-Transkription mit `verbose_json` und Segment-Zeitstempeln  |
 | `EMBEDDINGS`               | `text-embedding-3-small` | Vektorsuche und RAG                                              |
 
 
@@ -85,6 +87,7 @@ Bei GPT-5.x-Rollen wird im Kurs kein `temperature`-Parameter gesetzt. Die Steuer
 | Bildgenerierung | `IMAGE_GENERATION` oder `IMAGE_GENERATION_PREMIUM` |
 | Videoerzeugung | `VIDEO_GENERATION` |
 | Audio-Transkription | `TRANSCRIPTION` |
+| Audio-Transkription mit Segment-Zeitstempeln | `TRANSCRIPTION_SEGMENTS` |
 | semantische Suche und RAG-Index | `EMBEDDINGS` |
 
 ## Entscheidungsbaum

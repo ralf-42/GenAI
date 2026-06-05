@@ -14,8 +14,8 @@ Import im Notebook:
         JUDGE, PLANNER, WORKER_PREMIUM,
         JUDGE_PREMIUM, PLANNER_PREMIUM,
         VISION_FAST, VISION_PREMIUM,
-        IMAGE_GENERATION, IMAGE_GENERATION_PREMIUM,
-        VIDEO_GENERATION, TRANSCRIPTION,
+        IMAGE_GENERATION, IMAGE_GENERATION_PREMIUM, IMAGE_GENERATION_LEGACY,
+        VIDEO_GENERATION, TRANSCRIPTION, TRANSCRIPTION_SEGMENTS,
         EMBEDDINGS,
     )
 
@@ -43,10 +43,12 @@ Rollen (Nano → Mini → Standard → Premium):
     PLANNER_PREMIUM    — Planner / maximale Qualität   (gpt-5.5)
     VISION_FAST        — Bildanalyse M16               (gpt-5.4-mini)
     VISION_PREMIUM     — Multimodale Analyse           (gpt-5.4-mini)
-    IMAGE_GENERATION   — Bildgenerierung               (gpt-image-1)
+    IMAGE_GENERATION   — Bildgenerierung               (gpt-image-2)
     IMAGE_GENERATION_PREMIUM — Bildgenerierung high     (gpt-image-2)
+    IMAGE_GENERATION_LEGACY — Bildgenerierung alt       (gpt-image-1)
     VIDEO_GENERATION   — Videoerzeugung                (sora-2)
-    TRANSCRIPTION      — Audio-Transkription           (whisper-1)
+    TRANSCRIPTION      — Audio-Transkription           (gpt-4o-mini-transcribe)
+    TRANSCRIPTION_SEGMENTS — Zeitstempel/Segmente      (whisper-1)
     EMBEDDINGS         — Embeddings                    (text-embedding-3-small)
 
 Hinweis: GPT-5.x-Reasoning-Modelle nicht pauschal mit temperature konfigurieren.
@@ -125,16 +127,24 @@ VISION_FAST = "openai:gpt-5.4-mini"
 VISION_PREMIUM = "openai:gpt-5.4-mini"
 
 # Bildgenerierung — direkte OpenAI Images API, daher ohne Provider-Präfix.
-IMAGE_GENERATION = "gpt-image-1"
+IMAGE_GENERATION = "gpt-image-2"
 
 # Bildgenerierung hochwertig — direkte OpenAI Images API.
 IMAGE_GENERATION_PREMIUM = "gpt-image-2"
+
+# Bildgenerierung Legacy — nur für alte Beispiele oder Vergleichszwecke.
+IMAGE_GENERATION_LEGACY = "gpt-image-1"
 
 # Videoerzeugung — direkte OpenAI Videos API.
 VIDEO_GENERATION = "sora-2"
 
 # Audio-Transkription — direkte OpenAI Audio API.
-TRANSCRIPTION = "whisper-1"
+# Für normale Transkription aktueller und genauer als whisper-1.
+TRANSCRIPTION = "gpt-4o-mini-transcribe"
+
+# Audio-Transkription mit Segmenten/Zeitstempeln.
+# whisper-1 unterstützt response_format="verbose_json" mit segments.
+TRANSCRIPTION_SEGMENTS = "whisper-1"
 
 # --- Embeddings ---
 
