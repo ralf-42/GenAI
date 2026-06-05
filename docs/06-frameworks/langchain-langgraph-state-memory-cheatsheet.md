@@ -13,6 +13,8 @@ has_toc: true
 
 ---
 
+
+
 ## Schnellentscheidung
 
 | Frage | Empfehlung |
@@ -25,7 +27,7 @@ has_toc: true
 | Dauerhafte Nutzerpräferenzen, Fakten oder Profile? | Separates Memory-System |
 | Riskante Aktion mit Freigabe? | LangGraph `interrupt()` + `Command(resume=...)` |
 
-Merksatz: **LangChain baut Bausteine. LangGraph steuert Ablauf und Zustand. Memory ist nicht automatisch dasselbe wie Checkpointing.**
+
 
 ---
 
