@@ -16,3 +16,4 @@ LangChain bildet die Grundlage für alle Chain- und Agent-Implementierungen im K
 |---|---|
 | [Einsteiger LangChain](./einsteiger-langchain.html) | Erste lauffähige Chain mit LCEL, Prompts und Output-Parsing |
 | [LangChain Best Practices](./langchain-best-practices.html) | Pflichtpatterns, verbotene Patterns und Konfigurationsregeln |
+| [LangChain und LangGraph State & Memory Cheatsheet](./langchain-langgraph-state-memory-cheatsheet.html) | Wann LangChain reicht und wann State, Routing oder Memory nach LangGraph gehören |
