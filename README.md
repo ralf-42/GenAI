@@ -1,10 +1,10 @@
 # Generative KI Kurs
 
-[![LangChain 1.3+](https://img.shields.io/badge/LangChain-1.3%2B-brightgreen)](./LangChain_Audit_Report_2025-12-17.md)
-[![LangGraph 1.2+](https://img.shields.io/badge/LangGraph-1.2%2B-brightgreen)](./LangChain_Audit_Report_2025-12-17.md)
+[![LangChain 1.3+](https://img.shields.io/badge/LangChain-1.3%2B-brightgreen)](../_docs/LangChain_Audit_Report_2026-06-05.md)
+[![LangGraph 1.2+](https://img.shields.io/badge/LangGraph-1.2%2B-brightgreen)](../_docs/LangChain_Audit_Report_2026-06-05.md)
 [![LangSmith SDK 0.8+](https://img.shields.io/badge/LangSmith_SDK-0.8%2B-blue)](https://smith.langchain.com)
-[![Compliance 100%](https://img.shields.io/badge/Compliance-100%25-success)](./LangChain_Compliance_Report.md)
-[![Audit Mai 2026](https://img.shields.io/badge/Audit-Mai_2026-success)](./LangChain_Compliance_Report.md)
+[![Compliance 100%](https://img.shields.io/badge/Compliance-100%25-success)](../_docs/LangChain_Audit_Report_2026-06-05.md)
+[![Audit Jun 2026](https://img.shields.io/badge/Audit-Jun_2026-success)](../_docs/LangChain_Audit_Report_2026-06-05.md)
 [![Python 3.11+](https://img.shields.io/badge/Python-3.11%2B-blue)](https://www.python.org/)
 
 Ein deutschsprachiger, praxisorientierter Einsteigerkurs zu Generative-AI-Technologien mit Fokus auf OpenAI GPT-Modelle, LangChain, RAG-Systeme, Agenten und multimodale Anwendungen.
@@ -111,7 +111,6 @@ Die Pflicht-/Optional-Orientierung ist im Kursintro und in der Kursprogression k
 | `M15_Multimodal_RAG.ipynb` | Multimodales RAG mit Text und Bild | Aufbau / Optional |
 | `M16_Multimodal_Audio.ipynb` | Audio, Speech-to-Text und Text-to-Speech | Optional |
 | `M17_Multimodal_Video.ipynb` | Videoanalyse und multimodale Workflows | Optional |
-| `M18_OpenAI_Agent_Builder.md` | Agent Builder als ergänzende No-/Low-Code-Perspektive | Optional |
 | `M19_Modellsteuerung.ipynb` | Prompting, Parameter, Modellverhalten, Context Engineering | Optional |
 | `M20_Codieren_mit_GenAI.ipynb` | KI-gestütztes Programmieren mit Colab und Gemini-Unterstützung | Optional |
 | `A00_snippets_genai.ipynb` | Wiederverwendbare Snippets und Referenzbausteine | Hilfsnotebook |
@@ -167,4 +166,4 @@ Die **Kursmaterialien** (z. B. Folien, Texte, Grafiken) sind unter der [CC BY 4.
 ---
 
 **Letzte Aktualisierung:** Juni 2026         
-**Version:** 2.9          
+**Version:** 3.0          

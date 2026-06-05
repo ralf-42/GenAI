@@ -23,7 +23,7 @@ has_toc: true
 ---
 
 
-<img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/cheatsheet.png" class="logo" width="950"/>
+<img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/cheatsheet.png" class="logo" width="750"/>
 <p><font color='black' size="2">
 KI-generiertes Bild
 </font></p>
@@ -69,9 +69,9 @@ from langgraph.types import interrupt, Command
 ```python
 llm = init_chat_model("openai:gpt-5.4-nano")
 
-prompt = ChatPromptTemplate.from_messages([
+prompt = ChatPromptTemplate([
     ("system", "Antworte kurz und konkret."),
-    ("user", "{frage}"),
+    ("human", "{frage}"),
 ])
 
 chain = prompt | llm | StrOutputParser()
@@ -140,7 +140,7 @@ builder.add_edge("chat", END)
 graph = builder.compile()
 
 result = graph.invoke({
-    "messages": [HumanMessage(content="Was ist LangGraph?")],
+    "messages": [("human", "Was ist LangGraph?")],
     "intent": None,
 })
 print(result["messages"][-1].content)
@@ -206,12 +206,12 @@ graph = builder.compile(checkpointer=checkpointer)
 config = {"configurable": {"thread_id": "kurs-demo-01"}}
 
 graph.invoke(
-    {"messages": [HumanMessage(content="Merke: Thema ist RAG.")]},
+    {"messages": [("human", "Merke: Thema ist RAG.")]},
     config=config,
 )
 
 result = graph.invoke(
-    {"messages": [HumanMessage(content="Was war das Thema?")]},
+    {"messages": [("human", "Was war das Thema?")]},
     config=config,
 )
 ```
@@ -282,9 +282,9 @@ def retrieve_node(state: RagState) -> dict:
 
 
 def answer_node(state: RagState) -> dict:
-    prompt = ChatPromptTemplate.from_messages([
+    prompt = ChatPromptTemplate([
         ("system", "Antworte nur mit dem Kontext:\n{context}"),
-        ("user", "{frage}"),
+        ("human", "{frage}"),
     ])
     chain = prompt | llm | StrOutputParser()
     answer = chain.invoke({

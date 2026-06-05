@@ -602,7 +602,7 @@ def rag_handler(message, history):
 def agent_handler(message, history):
     """Verarbeitet Agent-Anfragen (mit Middleware)"""
     response = agent_robust.invoke({
-        "messages": [{"role": "user", "content": message}]
+        "messages": [{"role": "human", "content": message}]
     })
     ...
 ```

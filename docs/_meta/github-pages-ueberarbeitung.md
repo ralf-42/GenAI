@@ -138,7 +138,7 @@ Hinweis: Kein `01-`-Verzeichnis. Die Nummern beginnen bei `02-orientierung/`, we
 | `06-frameworks/langchain.md` | LangChain | Orientierungsseite für LangChain-Dokumente |
 | `06-frameworks/langgraph.md` | LangGraph | Orientierungsseite für LangGraph-Dokumente |
 | `06-frameworks/langsmith.md` | LangSmith | Orientierungsseite für LangSmith-Dokumente |
-| `06-frameworks/weitere-tools.md` | Weitere Tools | Orientierungsseite für ChromaDB, GenAI-Lib, Agent Builder |
+| `06-frameworks/weitere-tools.md` | Weitere Tools | Orientierungsseite für ChromaDB, GenAI-Lib |
 
 **Inhaltsdateien:**
 
@@ -152,7 +152,7 @@ Hinweis: Kein `01-`-Verzeichnis. Die Nummern beginnen bei `02-orientierung/`, we
 | `frameworks/best-practices/langsmith-best-practices.md` | `06-frameworks/langsmith-best-practices.md` | LangSmith |
 | `frameworks/einsteiger/einsteiger-chromadb.md` | `06-frameworks/einsteiger-chromadb.md` | Weitere Tools |
 | `frameworks/einsteiger/einsteiger-genai-lib.md` | `06-frameworks/einsteiger-genai-lib.md` | Weitere Tools |
-| `frameworks/einsteiger/einsteiger-agent-builder.md` | `06-frameworks/einsteiger-agent-builder.md` | Weitere Tools |
+
 
 ### 07-qualitaet-sicherheit/
 
