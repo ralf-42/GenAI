@@ -141,7 +141,7 @@ flowchart LR
 ```python
 from langchain_core.messages import HumanMessage
 
-initial_state = {"messages": [HumanMessage(content="Was ist LangGraph?")], "step": 0}
+initial_state = {"messages": [("human", "Was ist LangGraph?")], "step": 0}
 result = graph.invoke(initial_state)
 result
 ```
@@ -258,7 +258,7 @@ Nodes sollten klein, fokussiert und möglichst gut nachvollziehbar sein.
 ```python
 def summarize_node(state: ChatState) -> ChatState:
     text = "\n".join([m.content for m in state["messages"]])
-    summary = llm.invoke([{"role": "user", "content": f"Fasse zusammen: {text}"}])
+    summary = llm.invoke([{"role": "human", "content": f"Fasse zusammen: {text}"}])
     return {"messages": [summary]}
 ```
 
@@ -437,8 +437,8 @@ Checkpointing macht mehrere Dinge möglich:
 - stabilere Interaktion über Zeit
 
 ```python
-from langgraph.checkpoint.memory import MemorySaver
-checkpointer = MemorySaver()
+from langgraph.checkpoint.memory import InMemorySaver
+checkpointer = InMemorySaver()
 graph = g.compile(checkpointer=checkpointer)
 
 config = {"configurable": {"thread_id": "session-01"}}
@@ -449,7 +449,7 @@ Später:
 
 ```python
 new_input = {
-    "messages": [HumanMessage(content="Fahre mit der nächsten Frage fort.")],
+    "messages": [("human", "Fahre mit der nächsten Frage fort.")],
     "step": 0,
 }
 result2 = graph.invoke(new_input, config)
@@ -468,14 +468,14 @@ stateDiagram-v2
     Session2 --> [*]: complete
 
     note right of Checkpoint
-        MemorySaver (Dev)
+        InMemorySaver (Dev)
         SQLite (Staging)
         Postgres (Production)
     end note
 ```
 
 Hinweise:
-- Für den Einstieg ist MemorySaver oft die beste Wahl.
+- Für den Einstieg ist InMemorySaver oft die beste Wahl.
 - Für produktive Systeme: SQLite/Postgres.
 - Änderungen am Graph können bestehende Sessions ungültig machen.
 

@@ -16,4 +16,3 @@ Dieser Bereich enthält Einstiegs-Guides für ergänzende Tools, die im Kurs neb
 |---|---|
 | [Einsteiger ChromaDB](./einsteiger-chromadb.html) | Vektordatenbank für RAG — Setup, Indexierung, Retrieval |
 | [Einsteiger GenAI-Lib](./einsteiger-genai-lib.html) | Kurs-eigene Hilfsbibliothek für Modellkonfiguration |
-| [Einsteiger Agent Builder](./einsteiger-agent-builder.html) | Agenten ohne Boilerplate mit dem Agent Builder |

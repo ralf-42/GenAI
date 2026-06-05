@@ -48,6 +48,8 @@ Interaktive Erklärungen und Kurse zum Verständnis von KI.
 | [Transformer Explainer](https://poloclub.github.io/transformer-explainer/) | LLM Transformer-Architektur visuell erklärt                         |
 | [Generative AI - FT](https://ig.ft.com/generative-ai/)                     | "Generative AI exists because of the transformer" - Financial Times |
 | [DeepLearning.AI Courses](https://www.deeplearning.ai/courses/)            | Kurse von Andrew Ng zu Deep Learning und KI                         |
+| [KV Cache (YouTube)](https://youtu.be/tGp6Ns9GtSU?si=vENFJCSD62RtF7vM)     | Erklärvideo zum Key-Value Cache bei Transformer-Modellen            |
+| [Prompt Cache (YouTube)](https://youtu.be/u57EnkQaUTY?si=5prPK8YpW7oAF8K7) | Erklärvideo zu Prompt Caching und wiederverwendeten Kontexten       |
 
 ---
 

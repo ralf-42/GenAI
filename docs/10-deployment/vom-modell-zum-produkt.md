@@ -79,7 +79,7 @@ result = agent.invoke(
     {
         "messages": [
             {
-                "role": "user",
+                "role": "human",
                 "content": "Wie ist der Status von Bestellung A-1024?",
             }
         ]
