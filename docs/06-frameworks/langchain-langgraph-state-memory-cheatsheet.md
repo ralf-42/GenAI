@@ -1,25 +1,19 @@
 ---
 layout: default
-title: "LangChain und LangGraph State & Memory Cheatsheet"
+title: Cheatsheet
 parent: Frameworks
 nav_order: 5
-description: "Kompakte Referenz für LangChain, LangGraph, State, Checkpointing und Memory im GenAI-Kurs"
+description: Kompakte Referenz für LangChain, LangGraph, State, Checkpointing und Memory im GenAI-Kurs
 has_toc: true
 ---
 
-# LangChain und LangGraph State & Memory Cheatsheet
+# Cheatsheet
 
 > **Kurzreferenz für Kursnotebooks: Wann reicht LangChain, wann braucht es LangGraph, und wo gehört Memory hin?**
 
 ---
 
-## Inhaltsverzeichnis
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
-
-## Entscheidung in 30 Sekunden
+## Schnellentscheidung
 
 | Frage | Empfehlung |
 |---|---|
@@ -188,7 +182,7 @@ graph = builder.compile()
 
 **Regel:** Die Routing-Funktion sollte nur entscheiden. Die eigentliche Arbeit gehört in Nodes.
 
-## Checkpointing ist Session-Gedaechtnis
+## Checkpointing ist Session-Gedächtnis
 
 ```python
 checkpointer = InMemorySaver()
