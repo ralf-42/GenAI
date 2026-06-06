@@ -16,4 +16,4 @@ LangGraph erweitert LangChain um explizite Zustandsverwaltung und Graphen-basier
 |---|---|
 | [Einsteiger LangGraph](./einsteiger-langgraph.html) | Erster Graph mit State, Nodes und Edges |
 | [LangGraph Best Practices](./langgraph-best-practices.html) | State-Design, Routing-Patterns und Fehlerquellen |
-| [Cheatsheet](./langchain-langgraph-state-memory-cheatsheet.html) | Kompakte Referenz für State, Checkpointing, Memory und HITL |
+| [Cheatsheet](./langchain-langgraph-cheatsheet.html) | Kompakte Referenz für State, Checkpointing, Memory und HITL |
