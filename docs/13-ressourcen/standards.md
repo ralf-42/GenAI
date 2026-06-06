@@ -186,7 +186,7 @@ middleware = [HumanInTheLoopMiddleware(tool_names=["delete_file"])]
 
 | Alt (0.x) | Neu (1.0+) | Status |
 |-----------|------------|--------|
-| `ChatOpenAI()` direkt | `init_chat_model()` | ⛔ Deprecated |
+| `ChatOpenAI()` direkt | `init_chat_model()` | Nicht Zielstil |
 | `PydanticOutputParser` | `with_structured_output()` | ⛔ Deprecated |
 | `Tool()` wrapper | `@tool` decorator | ⛔ Deprecated |
 | `initialize_agent()` | `create_agent()` | ⛔ Deprecated |
