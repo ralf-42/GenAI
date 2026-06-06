@@ -53,6 +53,8 @@ from typing_extensions import TypedDict
 from pydantic import BaseModel, Field
 
 from langchain.chat_models import init_chat_model
+from langchain_core.caches import InMemoryCache
+from langchain_core.globals import set_llm_cache
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.tools import tool
@@ -80,6 +82,20 @@ antwort = chain.invoke({"frage": "Was ist LangChain?"})
 print(antwort)
 ```
 
+## LLM-Caching
+
+```python
+from langchain_core.caches import InMemoryCache
+from langchain_core.globals import set_llm_cache
+
+set_llm_cache(InMemoryCache())
+
+antwort = llm.invoke("Erkläre RAG in einem Satz.")
+print(antwort.content)
+```
+
+**Regel:** Caching spart Kosten und Laufzeit bei identischen Modellaufrufen. Es ist kein Memory: Cache speichert Modellantworten zu gleichen Requests, Checkpointing speichert Session- oder Graph-Zustand. Sensitive Inhalte nicht unbedacht persistent cachen.
+
 **Was gehört hierher?**
 
 - Modellaufrufe
@@ -100,11 +116,11 @@ class AnfrageTyp(BaseModel):
 
 
 router_llm = llm.with_structured_output(AnfrageTyp)
-ergebnis = router_llm.invoke("Bitte erklaere RAG mit Quellen.")
+ergebnis = router_llm.invoke("Bitte erkläre RAG mit Quellen.")
 print(ergebnis.intent)
 ```
 
-**Regel:** Fuer verlässliche Klassifikation oder Extraktion nicht nur JSON im Prompt verlangen, sondern `with_structured_output()` mit Pydantic-Schema nutzen.
+**Regel:** Für verlässliche Klassifikation oder Extraktion nicht nur JSON im Prompt verlangen, sondern `with_structured_output()` mit Pydantic-Schema nutzen.
 
 ## Minimaler LangGraph-State
 
@@ -251,7 +267,7 @@ def approval_node(state: RouterState) -> dict:
         return {"intent": "code"}
 
     return {
-        "messages": [AIMessage(content="Aktion wurde nicht ausgefuehrt.")],
+        "messages": [AIMessage(content="Aktion wurde nicht ausgeführt.")],
         "intent": "chat",
     }
 
