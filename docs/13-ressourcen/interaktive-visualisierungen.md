@@ -23,6 +23,16 @@ has_toc: true
 
 ---
 
+## Grundlagen & Einordnung
+
+Einordnung von KI-Systemen, Lernparadigmen und Anwendungsbereichen
+
+| Thema                    | Beschreibung                                                                                          | Link                                                                              |
+| ------------------------ | ------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------- |
+| **Taxonomie AI-System**  | Mehrdimensionale Einordnung von KI-Systemen nach Lernparadigma, Funktion, Repräsentation und Anwendungsbereich | [Taxonomie AI-System](https://editor.p5js.org/ralf.bendig.rb/full/sgwVL8Ey9) |
+
+---
+
 ## Transformer & Architektur
 
 Transformer-Architektur, neuronale Netze und Modellvarianten
@@ -76,6 +86,7 @@ Steuerung, Parametrierung und Anpassung von Sprachmodellen
 | **Quantisierung LLM**  | Quantisierung von Sprachmodellen visualisiert   | [Quantisierung LLM](https://editor.p5js.org/ralf.bendig.rb/full/86TWKzi5c)           |
 | **Fine Tuning**        | Fine-Tuning von Sprachmodellen visualisiert     | [Fine Tuning](https://editor.p5js.org/ralf.bendig.rb/full/7JG_6J21e)                 |
 | **Fine-Tuning LoRA**   | Low-Rank Adaptation für effizientes Fine-Tuning | [LoRA-Grundprinzip](https://editor.p5js.org/ralf.bendig.rb/full/bFNH-Ija5))          |
+| **DSPy**               | Programmieren statt Prompten - DSPy als Kontrastfolie zu LangChain | [DSPy](https://editor.p5js.org/ralf.bendig.rb/full/Q_dUC2-lV)               |
 
 
 ---
@@ -151,6 +162,16 @@ Tools für KI-gestützte Prozessoptimierung und Entscheidungshilfen
 
 ---
 
+## Deployment & Produktion
+
+Containerisierung und Betrieb von GenAI-Anwendungen
+
+| Thema      | Beschreibung                                                              | Link                                                                |
+| ---------- | --------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| **Docker** | Containerisierung einer Anwendung für reproduzierbares Deployment visualisiert | [Docker](https://editor.p5js.org/ralf.bendig.rb/full/dbBJ9BhRP) |
+
+---
+
 ## Externe Bildungsressourcen
 
 Weitere interaktive Visualisierungen von externen Anbietern
@@ -171,6 +192,6 @@ Weitere interaktive Visualisierungen von externen Anbietern
 
 ---
 
-**Version:** 1.3<br>
+**Version:** 1.4<br>
 **Stand:** Juni 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

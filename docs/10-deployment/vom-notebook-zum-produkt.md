@@ -278,6 +278,9 @@ Typischer Fehler: Das Startkommando passt nicht zur Paketstruktur. Wenn die Date
 
 Ein Container macht Python-Version, Abhängigkeiten und Startkommando reproduzierbar. Für produktive Systeme gilt: Secrets gehören nicht ins Image. Sie werden beim Start als Umgebungsvariablen oder über die Plattform bereitgestellt.
 
+> [!TIP] Interaktive Visualisierung<br>
+> [Docker](https://editor.p5js.org/ralf.bendig.rb/full/dbBJ9BhRP) zeigt Containerisierung und Deployment-Workflow interaktiv.
+
 ```dockerfile
 FROM python:3.12-slim
 
