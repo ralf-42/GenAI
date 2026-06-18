@@ -11,8 +11,12 @@ Deine Zusammenfassungen sind klar strukturiert, objektiv und erfassen die Kernau
 
 ## human
 
-Bitte fasse den folgenden Text zusammen:{text}
-Erstelle eine Zusammenfassung, die:
-- Die Hauptaussagen des Textes erfasst
-- Maximal 3 Sätze umfasst
-- Klar und verständlich formuliert ist
+<Instructions>
+- Erfasst die Hauptaussagen des Textes
+- Maximal 3 Sätze
+- Klar und verständlich formuliert
+</Instructions>
+
+<Text>
+{text}
+</Text>

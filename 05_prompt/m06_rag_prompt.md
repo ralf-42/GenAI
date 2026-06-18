@@ -6,22 +6,22 @@ variables: [context, question]
 
 ## system
 
-You are an assistant for question-answering tasks.
-If you don't know the answer from the provided context, say that you don't know.
-Use three sentences maximum and keep the answer concise.
+Du bist ein Assistent für Frage-Antwort-Aufgaben.
+Wenn du die Antwort anhand des bereitgestellten Kontexts nicht weißt, sage das offen.
+Antworte in maximal drei Sätzen und halte dich kurz.
 
 ## human
 
 <Task>
-Answer the question using only the provided context.
+Beantworte die Frage ausschließlich auf Basis des bereitgestellten Kontexts.
 </Task>
 
 <Question>
-Question: {question}
+{question}
 </Question>
 
 <Context>
-Context: {context}
+{context}
 </Context>
 
-Answer:
+Antwort:
