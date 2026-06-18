@@ -381,11 +381,11 @@ flowchart TD
 
 | Typ | Datei | Modul |
 |---|---|---|
-| System-only | `m10_tool_agent_system.md` | M10 Agenten |
-| Template mit Variablen | `m08_rag_prompt.md` | M08 RAG |
-| Template mit Variablen | `m09_sql_prompt.md` | M09 SQL-RAG |
-| Few-Shot (One-Shot) | `m04_empfehlung_one_shot.md` | M04 Prompting |
-| Few-Shot (Zero-Shot) | `m04_empfehlung_zero_shot.md` | M04 Prompting |
+| System-only | `m08_tool_agent_system.md` | M08 Agenten |
+| Template mit Variablen | `m06_rag_prompt.md` | M06 RAG |
+| Template mit Variablen | `m07_sql_prompt.md` | M07 SQL-RAG |
+| Few-Shot (One-Shot) | `m03_empfehlung_one_shot.md` | M03 LLM |
+| Few-Shot (Zero-Shot) | `m03_empfehlung_zero_shot.md` | M03 LLM |
 
 > Alle Prompt-Dateien liegen in `GenAI/05_prompt/`.
 
