@@ -35,6 +35,7 @@ Vergleichsplattformen und Datenbanken für KI-Modelle.
 | [Anthropic Economic Index](https://www.anthropic.com/economic-index#job-explorer) | Wirtschaftliche Auswirkungen von KI auf Berufe                           |
 | [Anthropic Economic Index: US Usage](https://www.anthropic.com/economic-index#us-usage) | Nutzungsmuster von KI in den USA innerhalb des Economic Index            |
 | [Diffusion Model](https://chat.inceptionlabs.ai/)                                 | Chat-Interface für Mercury – Diffusion Language Model - inceptionlabs.ai |
+| [Artificial Analysis](https://artificialanalysis.ai/)                             | Unabhängiger Vergleich von KI-Modellen nach Leistung, Preis und Geschwindigkeit |
 
 ---
 
@@ -162,6 +163,6 @@ Ressourcen zur Anpassung von Sprachmodellen auf eigene Daten.
 
 ---
 
-**Version:** 1.2<br>
+**Version:** 1.3<br>
 **Stand:** Juni 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
