@@ -11,7 +11,7 @@ has_toc: true
 {: .no_toc }
 
 > **Tech-Doku Assistent bauen**
-> Schrittweise Entwicklung vom einfachen Chatbot zur intelligenten RAG-Anwendung mit Agent, Middleware und UI (Module M04–M13)
+> Schrittweise Entwicklung vom einfachen Chatbot zur intelligenten RAG-Anwendung mit Agent, Middleware und UI (Module M02–M11)
 
 ---
 
@@ -30,7 +30,7 @@ Diese Übungsaufgabe entwickelt schrittweise einen **Tech-Doku-Assistenten**, de
 **Lernziele:**
 - Aufbau einer GenAI-Anwendung von Grund auf
 - Schrittweise Integration von LangChain-Features
-- Praktische Anwendung der Module M04–M13
+- Praktische Anwendung der Module M02–M11
 - Best Practices für strukturierten Notebook-Code
 
 **Arbeitsumgebung:** Google Colab oder Jupyter Notebook
@@ -43,15 +43,15 @@ Vorgesehen ist **ein Notebook** mit **neun aufbauenden Kapiteln**. Alternativ ka
 
 ```
 📓 Tech_Doku_Assistent.ipynb
-   ├── 🎯 Kapitel 1: Basis-Chatbot (M04)
-   ├── 📊 Kapitel 2: Token-Optimierung (M05)
-   ├── 🔧 Kapitel 3: Strukturierte Ausgaben (M06)
-   ├── 💬 Kapitel 4: Chat-History & Memory (M07)
-   ├── 📚 Kapitel 5: RAG-Integration (M08)
-   ├── 🗄️ Kapitel 6: SQL RAG (M09)
-   ├── 🤖 Kapitel 7: Agent mit Tools (M10)
-   ├── 🛡️ Kapitel 8: Middleware (M11)
-   └── 🌐 Kapitel 9: Gradio-UI (M13)
+   ├── 🎯 Kapitel 1: Basis-Chatbot (M02)
+   ├── 📊 Kapitel 2: Token-Optimierung (M03)
+   ├── 🔧 Kapitel 3: Strukturierte Ausgaben (M04)
+   ├── 💬 Kapitel 4: Chat-History & Memory (M05)
+   ├── 📚 Kapitel 5: RAG-Integration (M06)
+   ├── 🗄️ Kapitel 6: SQL RAG (M07)
+   ├── 🤖 Kapitel 7: Agent mit Tools (M08)
+   ├── 🛡️ Kapitel 8: Middleware (M09)
+   └── 🌐 Kapitel 9: Gradio-UI (M11)
 ```
 
 **Empfehlung:** Für den Einstieg reicht ein gemeinsames Notebook. Eine klare Trennung per Markdown-Zelle hält den Verlauf nachvollziehbar.
@@ -97,7 +97,7 @@ os.environ["OPENAI_API_KEY"] = userdata.get('OPENAI_API_KEY')
 
 ---
 
-## Kapitel 1: Basis-Chatbot (Modul M04)
+## Kapitel 1: Basis-Chatbot (Modul M02)
 
 **Lernziel:** LangChain-Grundlagen, Prompt-Templates, einfache LLM-Interaktion
 
@@ -105,7 +105,7 @@ os.environ["OPENAI_API_KEY"] = userdata.get('OPENAI_API_KEY')
 
 ```python
 # ═══════════════════════════════════════════════════
-# 🎯 KAPITEL 1: BASIS-CHATBOT (M04)
+# 🎯 KAPITEL 1: BASIS-CHATBOT (M02)
 # ═══════════════════════════════════════════════════
 
 from langchain.chat_models import init_chat_model
@@ -134,7 +134,7 @@ def tech_chat():
 
 ---
 
-## Kapitel 2: Token-Optimierung (Modul M05)
+## Kapitel 2: Token-Optimierung (Modul M03)
 
 **Lernziel:** Transformer-Konzepte verstehen, Token-Zählung, Kontext-Management
 
@@ -142,7 +142,7 @@ def tech_chat():
 
 ```python
 # ═══════════════════════════════════════════════════
-# 📊 KAPITEL 2: TOKEN-OPTIMIERUNG (M05)
+# 📊 KAPITEL 2: TOKEN-OPTIMIERUNG (M03)
 # ═══════════════════════════════════════════════════
 
 import tiktoken
@@ -172,7 +172,7 @@ def tech_chat_mit_tokens():
 
 ---
 
-## Kapitel 3: Strukturierte Ausgaben (Modul M06)
+## Kapitel 3: Strukturierte Ausgaben (Modul M04)
 
 **Lernziel:** Pydantic-Modelle, `with_structured_output()`, JSON-Schema
 
@@ -180,7 +180,7 @@ def tech_chat_mit_tokens():
 
 ```python
 # ═══════════════════════════════════════════════════
-# 🔧 KAPITEL 3: STRUKTURIERTE AUSGABEN (M06)
+# 🔧 KAPITEL 3: STRUKTURIERTE AUSGABEN (M04)
 # ═══════════════════════════════════════════════════
 
 from pydantic import BaseModel, Field
@@ -213,7 +213,7 @@ def create_faq_database():
 
 ---
 
-## Kapitel 4: Chat-History & Memory (Modul M07)
+## Kapitel 4: Chat-History & Memory (Modul M05)
 
 **Lernziel:** Konversationskontext verwalten, Chat-History nutzen
 
@@ -221,7 +221,7 @@ def create_faq_database():
 
 ```python
 # ═══════════════════════════════════════════════════
-# 💬 KAPITEL 4: CHAT-HISTORY & MEMORY (M07)
+# 💬 KAPITEL 4: CHAT-HISTORY & MEMORY (M05)
 # ═══════════════════════════════════════════════════
 
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
@@ -255,7 +255,7 @@ def tech_chat_mit_memory():
 
 ---
 
-## Kapitel 5: RAG-Integration (Modul M08)
+## Kapitel 5: RAG-Integration (Modul M06)
 
 **Lernziel:** Retrieval-Augmented Generation, Vektordatenbank, Embeddings, einfache RAG-Evaluation
 
@@ -263,7 +263,7 @@ def tech_chat_mit_memory():
 
 ```python
 # ═══════════════════════════════════════════════════
-# 📚 KAPITEL 5: RAG-INTEGRATION (M08)
+# 📚 KAPITEL 5: RAG-INTEGRATION (M06)
 # ═══════════════════════════════════════════════════
 
 from google.colab import files
@@ -354,7 +354,7 @@ for fall in eval_set:
 
 ---
 
-## Kapitel 6: SQL RAG (Modul M09)
+## Kapitel 6: SQL RAG (Modul M07)
 
 **Lernziel:** Strukturierte Daten mit RAG abfragen, SQL-Generierung durch LLMs
 
@@ -362,7 +362,7 @@ for fall in eval_set:
 
 ```python
 # ═══════════════════════════════════════════════════
-# 🗄️ KAPITEL 6: SQL RAG (M09)
+# 🗄️ KAPITEL 6: SQL RAG (M07)
 # ═══════════════════════════════════════════════════
 
 import sqlite3
@@ -415,7 +415,7 @@ def hybrid_chat():
 
 ---
 
-## Kapitel 7: Agent mit Tools (Modul M10)
+## Kapitel 7: Agent mit Tools (Modul M08)
 
 **Lernziel:** LangChain Agents, Tool-Definition, Function Calling
 
@@ -423,7 +423,7 @@ def hybrid_chat():
 
 ```python
 # ═══════════════════════════════════════════════════
-# 🤖 KAPITEL 7: AGENT MIT TOOLS (M10)
+# 🤖 KAPITEL 7: AGENT MIT TOOLS (M08)
 # ═══════════════════════════════════════════════════
 
 from langchain_core.tools import tool
@@ -488,7 +488,7 @@ def agent_chat():
 
 ---
 
-## Kapitel 8: Middleware (Modul M11)
+## Kapitel 8: Middleware (Modul M09)
 
 **Lernziel:** Agent-Ausführung kontrollieren mit Middleware-Hooks und prebuilt Middleware
 
@@ -496,7 +496,7 @@ def agent_chat():
 
 ```python
 # ═══════════════════════════════════════════════════
-# 🛡️ KAPITEL 8: MIDDLEWARE (M11)
+# 🛡️ KAPITEL 8: MIDDLEWARE (M09)
 # ═══════════════════════════════════════════════════
 
 from langchain.agents import AgentState
@@ -575,7 +575,7 @@ agent_robust = create_agent(
 
 ---
 
-## Kapitel 9: Gradio-UI (Modul M13)
+## Kapitel 9: Gradio-UI (Modul M11)
 
 **Lernziel:** Web-Interface mit Gradio, State-Management, Event-Handling
 
@@ -583,7 +583,7 @@ agent_robust = create_agent(
 
 ```python
 # ═══════════════════════════════════════════════════
-# 🌐 KAPITEL 9: GRADIO-UI (M13)
+# 🌐 KAPITEL 9: GRADIO-UI (M11)
 # ═══════════════════════════════════════════════════
 
 import gradio as gr
@@ -642,7 +642,7 @@ with gr.Blocks(title="Tech-Doku Assistent") as demo:
 - Re-Ranking der Retrieval-Ergebnisse
 - Chunk-Overlap-Visualisierung
 
-### Bonus 3: MCP-Integration (M12)
+### Bonus 3: MCP-Integration (M10)
 - MCP-Server für die Tech-Dokumentation erstellen
 - Agent über MCP-Client mit externen Tools verbinden
 - Vergleich: Tools direkt vs. Tools via MCP
@@ -658,15 +658,15 @@ with gr.Blocks(title="Tech-Doku Assistent") as demo:
 
 | Kapitel | Punkte | Kriterien |
 |---------|--------|-----------|
-| 1: Basis-Chatbot (M04) | 10 | Funktionalität, Code-Qualität, LCEL-Nutzung |
-| 2: Token-Optimierung (M05) | 10 | Korrekte Zählung, Statistiken, Warnungen |
-| 3: Strukturierte Ausgaben (M06) | 10 | Pydantic-Modelle, Validierung |
-| 4: Chat-Memory (M07) | 10 | Context-Awareness, Memory-Management |
-| 5: RAG-Integration (M08) | 15 | Retrieval-Qualität, Quellenangaben, Mini-Evaluation |
-| 6: SQL RAG (M09) | 10 | SQL-Generierung, Hybrid-Modus |
-| 7: Agent mit Tools (M10) | 15 | Tool-Implementation, Agent-Logik |
-| 8: Middleware (M11) | 10 | Logging, HITL, Retry-Stack |
-| 9: Gradio-UI (M13) | 10 | Usability, Features, Design |
+| 1: Basis-Chatbot (M02) | 10 | Funktionalität, Code-Qualität, LCEL-Nutzung |
+| 2: Token-Optimierung (M03) | 10 | Korrekte Zählung, Statistiken, Warnungen |
+| 3: Strukturierte Ausgaben (M04) | 10 | Pydantic-Modelle, Validierung |
+| 4: Chat-Memory (M05) | 10 | Context-Awareness, Memory-Management |
+| 5: RAG-Integration (M06) | 15 | Retrieval-Qualität, Quellenangaben, Mini-Evaluation |
+| 6: SQL RAG (M07) | 10 | SQL-Generierung, Hybrid-Modus |
+| 7: Agent mit Tools (M08) | 15 | Tool-Implementation, Agent-Logik |
+| 8: Middleware (M09) | 10 | Logging, HITL, Retry-Stack |
+| 9: Gradio-UI (M11) | 10 | Usability, Features, Design |
 | **Gesamt** | **100** | |
 
 **Bestanden:** ≥ 60 Punkte
@@ -682,14 +682,17 @@ with gr.Blocks(title="Tech-Doku Assistent") as demo:
 
 
 **Kurs-Notebooks:**
-- `01_notebook/M04_LangChain101.ipynb`
-- `01_notebook/M06_OutputParser.ipynb`
-- `01_notebook/M07_Chat_Memory_Patterns.ipynb`
-- `01_notebook/M08_RAG_LangChain.ipynb`
-- `01_notebook/M09_SQL_RAG.ipynb`
-- `01_notebook/M10_Agenten_LangChain.ipynb`
-- `01_notebook/M11_Middleware.ipynb`
-- `01_notebook/M13_Gradio.ipynb`
+- `01_notebook/M02_LangChain101.ipynb`
+- `01_notebook/M03_Large_Language_Modell.ipynb`
+- `01_notebook/M04_OutputParser.ipynb`
+- `01_notebook/M05_Chat_Memory_Patterns_stategraph.ipynb`
+- `01_notebook/M05_Chat_Memory_Patterns_list_dict.ipynb`
+- `01_notebook/M06_RAG_LangChain.ipynb`
+- `01_notebook/M07_SQL_RAG.ipynb`
+- `01_notebook/M08_Agenten_LangChain.ipynb`
+- `01_notebook/M09_Middleware.ipynb`
+- `01_notebook/M10_MCP_LangChain_Agent.ipynb`
+- `01_notebook/M11_Gradio.ipynb`
 
 **Qualität & Observability:**
 - [Evaluation & Observability](../07-qualitaet-sicherheit/evaluation-observability.html)
