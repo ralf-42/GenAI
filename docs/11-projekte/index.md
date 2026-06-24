@@ -13,5 +13,5 @@ Dieser Bereich enthält die kursbegleitenden Praxisaufgaben, die Kursinhalte in 
 
 | Projekt | Inhalt |
 |---|---|
-| [RAG Workshop](./rag-workshop.html) | Schrittweiser Aufbau eines Tech-Doku-Assistenten — vom Chatbot zur RAG-Anwendung mit UI (M04–M13) |
+| [RAG Workshop](./rag-workshop.html) | Schrittweiser Aufbau eines Tech-Doku-Assistenten — vom Chatbot zur RAG-Anwendung mit UI (M02–M11) |
 | [KI-Challenge](./ki-challenge.html) | Abschlussprojekt: End-to-End-GenAI-Anwendung mit freier Aufgabenstellung |
