@@ -26,7 +26,6 @@ chromadb>=1.0.0
 
 # Multimodal & Image Processing
 sentence-transformers>=5.0.0
-pillow>=12.0.0
 markitdown[all]>=0.0.1
 
 # Utilities

@@ -198,12 +198,12 @@ LangSmith kennt 7 Run-Typen (Werte immer **lowercase**):
 
 | Run-Typ         | Bedeutung                                 | Typisches Beispiel                             |
 | --------------- | ----------------------------------------- | ---------------------------------------------- |
-| **`llm`**       | Direkte LLM-Aufrufe (Chat, Completion)    | `llm.invoke()`                                 |
 | **`chain`**     | Verkettungen, Workflows, Agenten-Schritte | `prompt` \| `llm` \| `parser`, LangGraph-Nodes |
+| **`llm`**       | Direkte LLM-Aufrufe (Chat, Completion)    | `llm.invoke()`                                 |
+| **`embedding`** | Embedding-Berechnungen                    | `embeddings.embed_query()`                     |
+| **`prompt`**    | Prompt-Template-Verarbeitung              | `ChatPromptTemplate()`                         |
 | **`tool`**      | Tool-/Funktionsaufrufe                    | `@tool` Decorator                              |
 | **`retriever`** | Dokumentenabruf aus Vektordatenbanken     | `vectorstore.as_retriever()`                   |
-| **`embedding`** | Embedding-Berechnungen                    | `embeddings.embed_query()`                     |
-| **`prompt`**    | Prompt-Template-Verarbeitung              | `ChatPromptTemplate.format_messages()`         |
 | **`parser`**    | Output-Parser                             | `StrOutputParser()`                            |
 
 **Wichtige Hinweise:**

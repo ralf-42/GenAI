@@ -100,6 +100,22 @@ Du kannst steuern, welche Felder in der Tracing-Tabelle angezeigt werden. Das is
 - Im LangSmith Dashboard: Settings → Trace Preview → Felder auswählen
 - Hilft bei verschachtelten Datenstrukturen und langen Texten
 
+**Run-Typen im Trace-Tree:**
+
+LangSmith unterscheidet 7 `run_type`-Werte. Diese Typen bestimmen, wie ein Schritt im Trace-Tree dargestellt und ausgewertet wird:
+
+| `run_type` | Bedeutung | Typisches Beispiel |
+|------------|-----------|--------------------|
+| `chain` | Sequenz, Workflow oder zusammengesetzter Schritt | LCEL-Chain, Agent, LangGraph-Node |
+| `llm` | Sprachmodell- oder Chatmodell-Aufruf | `llm.invoke(...)` |
+| `embedding` | Embedding-API-Aufruf | `embeddings.embed_query(...)` |
+| `prompt` | Prompt-Template-Verarbeitung | `ChatPromptTemplate.format_messages(...)` |
+| `tool` | Tool-, Funktions- oder externe Aktion | `@tool`-Funktion |
+| `retriever` | Abruf relevanter Dokumente oder Kontexte | `vectorstore.as_retriever()` |
+| `parser` | Umwandlung von Modelloutput in ein Zielformat | `StrOutputParser()` |
+
+> Hinweis: `agent` ist kein eigener `run_type`. Agenten erscheinen typischerweise als `chain` mit untergeordneten `llm`-, `tool`- oder `retriever`-Runs.
+
 **`.with_config()` – Traces benennen und taggen:**
 
 Mit `.with_config()` gibst du einzelnen Chains und Aufrufen einen klaren Namen in LangSmith. So erkennst du im Trace-Tree schneller, was zu welchem Teil gehört.

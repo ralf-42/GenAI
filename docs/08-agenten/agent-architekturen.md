@@ -160,7 +160,9 @@ Diese Struktur ist weniger flexibel als ReAct, dafür aber robuster, erklärbare
 
 ## Multi-Agent: wenn Arbeitsteilung einen Mehrwert bringt
 
-In Multi-Agent-Architekturen arbeiten mehrere spezialisierte Agenten zusammen. Ein Supervisor kann Aufgaben verteilen, oder die Agenten tauschen Ergebnisse direkt untereinander aus.
+In Multi-Agent-Architekturen arbeiten mehrere spezialisierte Agenten zusammen. Dabei gibt es nicht nur eine Topologie — wie die Agenten koordiniert werden, unterscheidet sich deutlich.
+
+Beim **Supervisor**-Muster verteilt ein zentraler Koordinator Aufgaben an spezialisierte Agenten und sammelt deren Ergebnisse wieder ein. Das ist die häufigste und am leichtesten zu kontrollierende Variante (genutzt z. B. in M08, Abschnitt 6).
 
 ```mermaid
 flowchart TD
@@ -173,6 +175,43 @@ flowchart TD
     C --> S
     S --> E[Finale Antwort]
 ```
+
+Bei **Network / Collaborative** gibt es keinen festen Dispatcher. Die Agenten teilen sich einen gemeinsamen State und entscheiden selbst, an wen sie als Nächstes übergeben (Handoff). Das passt zu Aufgaben, bei denen kein Agent von vornherein "übergeordnet" ist.
+
+```mermaid
+flowchart LR
+    subgraph Shared["Gemeinsamer State"]
+        S[(State / Scratchpad)]
+    end
+    A[Research-Agent] <--> S
+    B[Writer-Agent] <--> S
+    C[Reviewer-Agent] <--> S
+    A -. Handoff .-> B
+    B -. Handoff .-> C
+    C -. Handoff .-> A
+```
+
+**Hierarchical** verschachtelt das Supervisor-Muster: Ein Top-Level-Supervisor delegiert nicht an einzelne Agenten, sondern an Team-Supervisoren, die ihrerseits ihr eigenes Team koordinieren. Sinnvoll, wenn ein einzelner Supervisor zu viele Agenten gleichzeitig steuern müsste.
+
+```mermaid
+flowchart TD
+    A[Aufgabe] --> TOP[Top-Level Supervisor]
+    TOP --> ST1[Team: Research]
+    TOP --> ST2[Team: Writing]
+    ST1 --> R1[Search-Agent]
+    ST1 --> R2[Analyse-Agent]
+    ST2 --> W1[Draft-Agent]
+    ST2 --> W2[Edit-Agent]
+    R1 --> ST1
+    R2 --> ST1
+    W1 --> ST2
+    W2 --> ST2
+    ST1 --> TOP
+    ST2 --> TOP
+    TOP --> E[Finale Antwort]
+```
+
+Daneben gibt es weitere, seltener benötigte Muster — etwa **Sequential/Pipeline** (feste Reihenfolge ohne Dispatcher, z. B. Recherche → Analyse → Report ohne Rückfragen) oder **Reflection / Generator-Critic** (ein Agent erzeugt, ein zweiter prüft und gibt Feedback zurück).
 
 Multi-Agent-Systeme sind komplexer in der Orchestrierung und verursachen höheren Koordinationsaufwand. Sie lohnen sich erst, wenn die Teilaufgaben fachlich oder technisch wirklich eine Spezialisierung erfordern.
 
