@@ -36,6 +36,27 @@ Ein Support-System soll drei Arten von Anfragen bearbeiten: Lieferstatus nennen,
 
 Aus genau solchen Anforderungen ergibt sich die Architektur. Nicht jede Aufgabe braucht einen frei planenden Agenten. Häufig genügt ein klarer Workflow oder ein Tool-Calling-Muster mit wenigen kontrollierten Entscheidungen.
 
+## Überblick: vier Stufen von einfach bis komplex
+
+Die Architekturen in diesem Dokument bauen aufeinander auf. Jede Stufe erhöht die Flexibilität — und gleichzeitig den Koordinationsaufwand:
+
+```mermaid
+%%{init: {'theme':'forest'}}%%
+flowchart LR
+    A["1 · Tool-Calling\nein Werkzeug,\neine Entscheidung"] --> B["2 · Single-Agent\nmehrere Schritte,\nein Agent"]
+    B --> C["3 · Workflow\nfixer Ablauf,\nkontrolliert"]
+    C --> D["4 · Multi-Agent\nSpezialisierung,\nKoordination"]
+```
+
+| Stufe | Muster | Wann sinnvoll |
+| :---: | :--- | :--- |
+| 1 | Tool-Calling | Ein klares Ziel, ein Werkzeugaufruf |
+| 2 | Single-Agent (ReAct) | Offene Aufgabe, Zwischenschritte unbekannt |
+| 3 | Workflow | Kontrollierter Ablauf mit fixen Verzweigungen |
+| 4 | Multi-Agent | Spezialisierung nötig, Teilaufgaben klar trennbar |
+
+**Empfehlung:** Mit der einfachsten Stufe beginnen, die die Aufgabe löst — und nur dann eine Stufe höher gehen, wenn konkrete Grenzen erreicht werden.
+
 ## Zwei Blickrichtungen auf Agentische Systeme
 
 Systeme mit agentischen Fähigkeiten lassen sich aus zwei Blickrichtungen beschreiben. Die erste fragt, wie ein Modell grundsätzlich zu einer Entscheidung kommt. Die zweite fragt, wie diese Logik technisch organisiert wird.
@@ -49,16 +70,17 @@ Viele Probleme entstehen nicht, weil das Modell zu schwach ist, sondern weil die
 Harness Engineering bezeichnet die Praxis, die Kontroll- und Steuerungsschicht rund um ein LLM zu gestalten — also alles, was zwischen der Rohmodellausgabe und einer realen Aktion liegt.
 
 ```mermaid
+%%{init: {'theme':'forest'}}%%
 flowchart TB
-    subgraph Harness ["<b>Harness Engineering</b>"]
+    subgraph Harness["Harness Engineering"]
         direction TB
         H_Info["Gesamte Steuerungsinfrastruktur"]
         
-        subgraph Context ["<b>Context Engineering</b>"]
+        subgraph Context["Context Engineering"]
             direction TB
             C_Info["Kontextzusammenstellung & Retrieval"]
             
-            subgraph Prompt ["<b>Prompt Engineering</b>"]
+            subgraph Prompt["Prompt Engineering"]
                 P_Info["Instruktionen an das Modell"]
             end
             
@@ -94,6 +116,7 @@ Ein **zustandsbasierter Agent** berücksichtigt zusätzlich, was bereits bekannt
 ReAct kombiniert Nachdenken (*Reason*), Handeln (*Act*) und Beobachten (*Observe*) in einem wiederholten Zyklus. Der Agent prüft den aktuellen Stand, führt eine Aktion aus, liest das Ergebnis und entscheidet anschließend über den nächsten Schritt.
 
 ```mermaid
+%%{init: {'theme':'forest'}}%%
 flowchart LR
     A[Aufgabe] --> B[Denken]
     B --> C[Handeln]
@@ -112,8 +135,9 @@ In der Praxis relevant, wenn: Die Aufgabe offen ist, mehrere Zwischenschritte n�
 ReAct ist flexibel, aber oft schwer zu kontrollieren. Produktive Systeme unterteilen ihre Arbeit deshalb häufig in **drei klar getrennte Phasen**:
 
 ```mermaid
+%%{init: {'theme':'forest'}}%%
 flowchart LR
-    E["<b>Explore</b><br/>nur lesen"] --> P["<b>Plan</b><br/>nur lesen"] --> A["<b>Act</b><br/>voller Zugriff"]
+    E["Explore<br/>nur lesen"] --> P["Plan<br/>nur lesen"] --> A["Act<br/>voller Zugriff"]
 ```
 
 1. **Explore** — das System liest, sucht und sammelt Informationen (Dateien lesen, Suchen), ohne etwas zu verändern.
@@ -127,6 +151,7 @@ Diese Phasentrennung reduziert destruktive Fehler erheblich, weil ein Agent nich
 Beim Tool-Calling entscheidet das Modell, welches Werkzeug mit welchen Parametern aufgerufen werden soll. Dieses Muster ist oft der sinnvollste Einstieg, weil die Freiheitsgrade begrenzt bleiben und das System trotzdem handlungsfähig wird.
 
 ```mermaid
+%%{init: {'theme':'forest'}}%%
 flowchart TD
     A[Anfrage] --> B[LLM analysiert]
     B --> C{Tool nötig?}
@@ -144,6 +169,7 @@ Die Stärke liegt darin, dass das Modell flexibel formulieren kann, während die
 Workflow-basierte Architekturen modellieren einen klaren Ablauf aus Knoten und Verzweigungen. Das System entscheidet nicht in jeder Runde völlig frei, sondern bewegt sich entlang eines vorgegebenen Prozesses.
 
 ```mermaid
+%%{init: {'theme':'forest'}}%%
 flowchart TD
     START((Start)) --> A[Eingabe analysieren]
     A --> B{Kategorie?}
@@ -158,13 +184,29 @@ flowchart TD
 
 Diese Struktur ist weniger flexibel als ReAct, dafür aber robuster, erklärbarer und leichter abzusichern (z.B. durch Human-in-the-Loop-Schritte).
 
-## Multi-Agent: wenn Arbeitsteilung einen Mehrwert bringt
+## Single-Agent-Architektur (Ein-Agenten-Systeme)
 
-In Multi-Agent-Architekturen arbeiten mehrere spezialisierte Agenten zusammen. Dabei gibt es nicht nur eine Topologie — wie die Agenten koordiniert werden, unterscheidet sich deutlich.
+### Funktionsweise
+Ein einzelner Agent übernimmt die vollständige Ausführung einer Aufgabe. Er zerlegt Ziele in Einzelschritte, greift auf Werkzeuge (Tools) zu, führt diese aus und reflektiert das Ergebnis (z. B. durch ReAct oder Tool-Calling).
 
-Beim **Supervisor**-Muster verteilt ein zentraler Koordinator Aufgaben an spezialisierte Agenten und sammelt deren Ergebnisse wieder ein. Das ist die häufigste und am leichtesten zu kontrollierende Variante (genutzt z. B. in M08, Abschnitt 6).
+### Vorteile
+- **Einfachheit:** Sehr einfach umzusetzen, da keine Koordination zwischen verschiedenen Agenten nötig ist.
+- **Effizienz:** Ideal für geradlinige, mehrschrittige Aufgaben mit geringerem Overhead.
+- **Ressourcen:** Geringerer Token-Verbrauch und schnellere Latenzzeiten im Vergleich zu Multi-Agenten-Systemen.
+
+### Nachteile
+- **Komplexitätsgrenze:** Stößt bei zu hoher Komplexität an Grenzen, da ein einzelnes Modell alle Kontextdaten halten und alle Entscheidungen treffen muss.
+- **Fehleranfälligkeit:** Fehler im Pfad (z. B. falsche Tool-Auswahl) können nicht immer zuverlässig abgefangen werden.
+
+## Multi-Agenten-Architekturen (Systeme mit mehreren Agenten)
+
+Wenn Aufgaben für einen einzelnen Agenten zu komplex werden, kommen spezialisierte Agenten zum Einsatz, die die Arbeit unter sich aufteilen. Zu den wichtigsten Mustern gehören:
+
+### 1. Supervisor-Architektur (Hierarchisch)
+Ein zentraler Chef-Agent (Supervisor) koordiniert mehrere spezialisierte Unter-Agenten. Der Chef delegiert die Teilaufgaben, behält den Überblick und führt die Ergebnisse zusammen.
 
 ```mermaid
+%%{init: {'theme':'forest'}}%%
 flowchart TD
     A[Aufgabe] --> S[Supervisor]
     S --> R[Research-Agent]
@@ -176,24 +218,10 @@ flowchart TD
     S --> E[Finale Antwort]
 ```
 
-Bei **Network / Collaborative** gibt es keinen festen Dispatcher. Die Agenten teilen sich einen gemeinsamen State und entscheiden selbst, an wen sie als Nächstes übergeben (Handoff). Das passt zu Aufgaben, bei denen kein Agent von vornherein "übergeordnet" ist.
+Bei sehr großen Systemen kann diese Struktur auch **hierarchisch** verschachtelt werden (Hierarchical Supervisor), bei dem ein Top-Level-Supervisor an untergeordnete Team-Supervisoren delegiert, die wiederum ihre eigenen Teams koordinieren.
 
 ```mermaid
-flowchart LR
-    subgraph Shared["Gemeinsamer State"]
-        S[(State / Scratchpad)]
-    end
-    A[Research-Agent] <--> S
-    B[Writer-Agent] <--> S
-    C[Reviewer-Agent] <--> S
-    A -. Handoff .-> B
-    B -. Handoff .-> C
-    C -. Handoff .-> A
-```
-
-**Hierarchical** verschachtelt das Supervisor-Muster: Ein Top-Level-Supervisor delegiert nicht an einzelne Agenten, sondern an Team-Supervisoren, die ihrerseits ihr eigenes Team koordinieren. Sinnvoll, wenn ein einzelner Supervisor zu viele Agenten gleichzeitig steuern müsste.
-
-```mermaid
+%%{init: {'theme':'forest'}}%%
 flowchart TD
     A[Aufgabe] --> TOP[Top-Level Supervisor]
     TOP --> ST1[Team: Research]
@@ -210,6 +238,40 @@ flowchart TD
     ST2 --> TOP
     TOP --> E[Finale Antwort]
 ```
+
+### 2. Router-Architektur (Klassifikation)
+Ein Routing-Schritt klassifiziert die Benutzereingabe und leitet sie direkt an den am besten geeigneten Spezialagenten weiter, dessen Antwort anschließend synthetisiert wird. Dies schont das Kontextfenster und spart Latenz und Kosten, da nur der jeweils benötigte Agent aufgerufen wird.
+
+```mermaid
+%%{init: {'theme':'forest'}}%%
+flowchart TD
+    A[Benutzereingabe] --> B[Router / Klassifizierer]
+    B -->|Kategorie A| C[Spezialagent A]
+    B -->|Kategorie B| D[Spezialagent B]
+    C --> E[Antwort-Synthese]
+    D --> E
+    E --> F[Ausgabe]
+```
+
+### 3. Handoffs (Übergabe-Muster)
+Ein Agent arbeitet an einer Aufgabe und übergibt die Kontrolle bei Bedarf direkt an einen anderen Agenten weiter, inklusive des bisherigen Kontextes. Dies ist typisch für kollaborative Netzwerke (Network / Collaborative), in denen die Agenten sich einen gemeinsamen State teilen und dynamisch entscheiden, wer das Problem als Nächstes fortführt.
+
+```mermaid
+%%{init: {'theme':'forest'}}%%
+flowchart LR
+    subgraph Shared["Gemeinsamer State"]
+        S[(State / Scratchpad)]
+    end
+    A[Research-Agent] <--> S
+    B[Writer-Agent] <--> S
+    C[Reviewer-Agent] <--> S
+    A -. Handoff .-> B
+    B -. Handoff .-> C
+    C -. Handoff .-> A
+```
+
+### 4. Skills-Architektur
+Ein einziger Agent nutzt progressive Erweiterung. Er lädt bei Bedarf spezifisches Fachwissen (Skills) und spezialisierte System-Prompts, je nachdem, was die aktuelle Situation erfordert. Dies verbindet die Einfachheit eines Single-Agent-Systems mit der fachlichen Tiefe spezialisierter Agenten.
 
 Daneben gibt es weitere, seltener benötigte Muster — etwa **Sequential/Pipeline** (feste Reihenfolge ohne Dispatcher, z. B. Recherche → Analyse → Report ohne Rückfragen) oder **Reflection / Generator-Critic** (ein Agent erzeugt, ein zweiter prüft und gibt Feedback zurück).
 
