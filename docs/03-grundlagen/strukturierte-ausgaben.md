@@ -83,7 +83,7 @@ Ein sauberer Workflow extrahiert die Informationen, validiert sie gegen das Pyda
 |---|---|
 | [Prompt Engineering](../05-prompting-rag/prompt-engineering.html) | Wie formuliere ich Anweisungen, damit das Modell Aufgaben zuverlässig löst? |
 | [Einsteiger LangChain](../06-frameworks/einsteiger-langchain.html) | Wie nutze ich `with_structured_output()` im Code? |
-| [Transformer & LLMs](./transformer.html) | Wie generieren Modelle Token und warum entsteht dabei unstrukturierter Text? |
+| [Large Language Models](./large-language-models.html) | Wie generieren Modelle Token und warum entsteht dabei unstrukturierter Text? |
 
 ---
 

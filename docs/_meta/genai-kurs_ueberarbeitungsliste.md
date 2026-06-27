@@ -1,0 +1,84 @@
+---
+layout: default
+title: GenAI Kurs - Überarbeitungsliste
+nav_order: 99
+description: "Konkrete Abarbeitungsliste für die Nachpflege des kursversionierten GenAI-Materials"
+has_toc: true
+---
+
+# GenAI Kurs - Überarbeitungsliste
+{: .no_toc }
+
+> **Arbeitsliste für die Nachpflege der versionierten Kursunterlagen in `01_notebook`, `05_prompt` und `docs`.**
+
+---
+
+# Inhaltsverzeichnis
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
+---
+
+# Prio 1 - Navigation und Kurslogik glätten
+
+- [x] `README.md`, `docs/index.md`, `docs/zuerst-lesen.md`, `docs/lernpfade.md` und `docs/02-orientierung/kursueberblick.md` sprachlich und inhaltlich aufeinander abstimmen.
+- [x] `Kursüberblick` als zentralen Einstieg überall gleich führen.
+- [x] Die Startreihenfolge im Kurs klar machen: Kursüberblick -> Lohnt sich GenAI? -> Aufgabenklassen -> LLM-Grundlagen -> Umsetzung.
+- [x] Alle Navigationsseiten auf dieselbe Bezeichnung für den Kurszuschnitt bringen.
+
+# Prio 2 - Modulstruktur bereinigen
+
+- [x] `M17` und `M18` als freigehaltene Platzhalter in allen Modulübersichten konsistent markieren (M00, README.md).
+- [x] `M03_Large_Language_Modell.ipynb` in `M03_Textverarbeitung_mit_LangChain.ipynb` umbenannt; Abschnitts­nummern (1–6), Notebook-Titel und alle Übersichten (README.md, rag-workshop.md) angepasst.
+- [x] Alle Hinweise auf entfernte Kursnotebooks (M17, M18) aus den Übersichten entfernt (M00, README.md).
+- [ ] `M19` und `M20` überall einheitlich als `Praxis-Extra` führen (README.md: erledigt; M00-Tabelle: noch offen).
+- [ ] Prüfen, dass die Modulreihenfolge in `README.md` und `docs/02-orientierung/kursueberblick.md` exakt zusammenpasst.
+
+# Prio 3 - Begriffskonsistenz schärfen
+
+- [ ] In `docs/03-grundlagen/large-language-models.md` die Begriffe `LLM`, `Foundation Model`, `Transformer`, `Token`, `Prompt`, `Kontext` und `Memory` einheitlich verwenden.
+- [ ] Stellen mit `Wort für Wort` fachlich dort auf `Token für Token` umstellen, wo es die technische Aussage besser trifft.
+- [ ] Beispiele und Formulierungen so anpassen, dass dieselbe Idee nicht mehrfach unterschiedlich erklärt wird.
+- [ ] Die Einführung zu LLMs, Foundation Models und Transformer in sich geschlossen halten.
+
+# Prio 4 - Redundanzen reduzieren
+
+- [ ] Wiederholte Erklärungen in `docs/03-grundlagen/large-language-models.md` straffen.
+- [ ] Den Übergang von LLM -> Foundation Model -> Transformer -> Diffusion klarer und kürzer machen.
+- [ ] In Einsteigerseiten Wiederholungen nur dort behalten, wo sie didaktisch einen echten Mehrwert haben.
+- [ ] Überprüfen, ob einzelne Tabellen oder Abschnitte bereits an anderer Stelle ausreichend erklärt werden.
+
+# Prio 5 - Format vereinheitlichen
+
+- [ ] Alte HTML-Formatierung wie `<font>` und unnötige `<br>`-Zeilen in kursrelevanten Markdown-Dateien weiter abbauen.
+- [ ] Lose Links in Fließtext einbauen statt isoliert stehen lassen.
+- [ ] Bild- und Diagrammblöcke in den Markdown-Dateien einheitlich beschriften.
+- [ ] Tabellen- und Überschriftenstile in `docs` vereinheitlichen, soweit sie die Lesbarkeit verbessern.
+
+# Prio 6 - Schwierigkeitsgrad und Zusatzteile sichtbar halten
+
+- [ ] In den Notebook- und Übersichtsdateien die Rollen `Pflicht`, `Aufbau`, `Vertiefung`, `Optional` und `Praxis-Extra` konsistent verwenden.
+- [ ] Schwierigkeitsgrade in README und Kursüberblick sichtbar und einheitlich markieren.
+- [ ] Prüfen, dass Zusatzmodule klar als Zusatz erkennbar bleiben und nicht mit Pflichtinhalten vermischt werden.
+- [ ] Die Pfadlogik für den 5-Tage-Kurs so lassen, dass Teilnehmende schnell zwischen Pflicht- und Zusatzanteilen unterscheiden können.
+
+---
+
+## Arbeitsreihenfolge
+
+1. Prio 1 erledigen.
+2. Prio 2 erledigen.
+3. Prio 3 erledigen.
+4. Prio 4 erledigen.
+5. Prio 5 erledigen.
+6. Prio 6 erledigen.
+
+---
+
+## Bearbeitungsnotiz
+
+- Diese Liste ist als Arbeitsgrundlage gedacht.
+- Wenn ein Punkt erledigt ist, wird er direkt hier abgehakt.
+- Wenn sich beim Abarbeiten neue Regeln ergeben, werden sie in den betroffenen Kursdateien nachgezogen.

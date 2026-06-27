@@ -36,6 +36,19 @@ Ein Support-System soll drei Arten von Anfragen bearbeiten: Lieferstatus nennen,
 
 Aus genau solchen Anforderungen ergibt sich die Architektur. Nicht jede Aufgabe braucht einen frei planenden Agenten. Häufig genügt ein klarer Workflow oder ein Tool-Calling-Muster mit wenigen kontrollierten Entscheidungen.
 
+## Mini-Glossar für dieses Kapitel
+
+Einige Begriffe tauchen in Agenten-Architekturen immer wieder auf. Für dieses Dokument reichen diese Arbeitsdefinitionen:
+
+| Begriff | Einfache Bedeutung |
+| :--- | :--- |
+| **Agent** | Ein System, das mit einem Modell Entscheidungen trifft und bei Bedarf Werkzeuge nutzt. |
+| **Tool** | Eine klar beschriebene Funktion, die der Agent aufrufen darf, z.B. Datenbankabfrage oder E-Mail-Versand. |
+| **State** | Der aktuelle Arbeitsstand: Nachrichten, Zwischenergebnisse, Entscheidungen oder offene Schritte. |
+| **Workflow** | Ein vorgegebener Ablauf aus Schritten und Verzweigungen. |
+| **Tracing** | Protokollierung, was das Modell entschieden und welche Tools es aufgerufen hat. |
+| **Harness** | Die Steuerungsschicht um das Modell: Tools, Regeln, Speicher, Fehlerbehandlung und Freigaben. |
+
 ## Überblick: vier Stufen von einfach bis komplex
 
 Die Architekturen in diesem Dokument bauen aufeinander auf. Jede Stufe erhöht die Flexibilität — und gleichzeitig den Koordinationsaufwand:
@@ -51,11 +64,32 @@ flowchart LR
 | Stufe | Muster | Wann sinnvoll |
 | :---: | :--- | :--- |
 | 1 | Tool-Calling | Ein klares Ziel, ein Werkzeugaufruf |
-| 2 | Single-Agent (ReAct) | Offene Aufgabe, Zwischenschritte unbekannt |
+| 2 | Single-Agent, z.B. ReAct | Offene Aufgabe, Zwischenschritte unbekannt |
 | 3 | Workflow | Kontrollierter Ablauf mit fixen Verzweigungen |
 | 4 | Multi-Agent | Spezialisierung nötig, Teilaufgaben klar trennbar |
 
 **Empfehlung:** Mit der einfachsten Stufe beginnen, die die Aufgabe löst — und nur dann eine Stufe höher gehen, wenn konkrete Grenzen erreicht werden.
+
+## Schneller Entscheidungsleitfaden
+
+Diese Fragen helfen bei der Auswahl:
+
+1. **Gibt es nur eine klar begrenzte Aktion?**  
+   Dann reicht meist **Tool-Calling**.
+
+2. **Ist der Lösungsweg offen und muss das System selbst Zwischenschritte wählen?**  
+   Dann passt ein **Single-Agent**, häufig mit ReAct-artigem Ablauf.
+
+3. **Ist der Ablauf fachlich klar vorgegeben oder muss er auditierbar sein?**  
+   Dann ist ein **Workflow** besser als ein freier Agenten-Loop.
+
+4. **Sind die Teilaufgaben wirklich unterschiedlich genug, dass Spezialisierung hilft?**  
+   Erst dann lohnt sich **Multi-Agent**.
+
+5. **Gibt es schreibende oder riskante Aktionen?**  
+   Dann braucht jede Architektur zusätzliche Kontrolle: Validierung, Human-in-the-Loop oder feste Berechtigungen.
+
+Merksatz: **Erst Tool-Calling prüfen, dann Workflow, dann Single-Agent, erst zuletzt Multi-Agent.**
 
 ## Zwei Blickrichtungen auf Agentische Systeme
 
@@ -146,6 +180,16 @@ flowchart LR
 
 Diese Phasentrennung reduziert destruktive Fehler erheblich, weil ein Agent nicht im selben Schritt erkunden und gleichzeitig schreiben kann.
 
+Ein einfaches Beispiel: Ein Agent soll eine Kundendatei korrigieren.
+
+| Phase | Erlaubt | Nicht erlaubt |
+| :--- | :--- | :--- |
+| Explore | Datei lesen, Kundenstatus prüfen, relevante Regeln suchen | Datei ändern, Nachricht senden |
+| Plan | Änderungsvorschlag formulieren, Risiko benennen | Änderung direkt ausführen |
+| Act | Nach Freigabe Datei schreiben oder API aufrufen | Neue Entscheidung ohne erneute Prüfung treffen |
+
+Für Einsteiger ist wichtig: ReAct beschreibt den Denk- und Handlungszyklus. Explore → Plan → Act ist eine Sicherheitsstruktur, die diesen Zyklus in kontrollierbare Abschnitte zerlegt.
+
 ## Tool-Calling: wenn das Modell Werkzeuge steuern soll
 
 Beim Tool-Calling entscheidet das Modell, welches Werkzeug mit welchen Parametern aufgerufen werden soll. Dieses Muster ist oft der sinnvollste Einstieg, weil die Freiheitsgrade begrenzt bleiben und das System trotzdem handlungsfähig wird.
@@ -163,6 +207,10 @@ flowchart TD
 ```
 
 Die Stärke liegt darin, dass das Modell flexibel formulieren kann, während die eigentliche Aktion in deterministischem Code oder in einer externen API stattfindet.
+
+**Passt gut, wenn:** Die Aufgabe klar ist und das Modell nur entscheiden muss, ob und mit welchen Parametern ein Werkzeug aufgerufen wird.
+
+**Wird zu eng, wenn:** mehrere unsichere Zwischenschritte nötig sind oder der Ablauf stark vom Ergebnis vorheriger Tools abhängt.
 
 ## Workflow-basierte Architektur: wenn der Ablauf kontrolliert sein muss
 
@@ -184,10 +232,14 @@ flowchart TD
 
 Diese Struktur ist weniger flexibel als ReAct, dafür aber robuster, erklärbarer und leichter abzusichern (z.B. durch Human-in-the-Loop-Schritte).
 
+**Passt gut, wenn:** Reihenfolge, Freigaben oder Fehlerpfade fachlich klar sind.
+
+**Wird zu starr, wenn:** das System viele unvorhersehbare Recherche- oder Entscheidungsschritte selbst finden muss.
+
 ## Single-Agent-Architektur (Ein-Agenten-Systeme)
 
 ### Funktionsweise
-Ein einzelner Agent übernimmt die vollständige Ausführung einer Aufgabe. Er zerlegt Ziele in Einzelschritte, greift auf Werkzeuge (Tools) zu, führt diese aus und reflektiert das Ergebnis (z. B. durch ReAct oder Tool-Calling).
+Ein einzelner Agent übernimmt die vollständige Ausführung einer Aufgabe. Er zerlegt Ziele in Einzelschritte, greift auf Werkzeuge (Tools) zu, führt diese aus und reflektiert das Ergebnis. Das kann einfaches Tool-Calling sein oder ein ReAct-artiger Zyklus aus Denken, Handeln und Beobachten.
 
 ### Vorteile
 - **Einfachheit:** Sehr einfach umzusetzen, da keine Koordination zwischen verschiedenen Agenten nötig ist.
@@ -197,6 +249,10 @@ Ein einzelner Agent übernimmt die vollständige Ausführung einer Aufgabe. Er z
 ### Nachteile
 - **Komplexitätsgrenze:** Stößt bei zu hoher Komplexität an Grenzen, da ein einzelnes Modell alle Kontextdaten halten und alle Entscheidungen treffen muss.
 - **Fehleranfälligkeit:** Fehler im Pfad (z. B. falsche Tool-Auswahl) können nicht immer zuverlässig abgefangen werden.
+
+**Passt gut, wenn:** eine Aufgabe mehrere Schritte braucht, aber noch von einer einzigen Rolle sinnvoll bearbeitet werden kann.
+
+**Wird schwierig, wenn:** unterschiedliche Fachrollen, getrennte Kontexte oder unabhängige Qualitätsprüfungen nötig werden.
 
 ## Multi-Agenten-Architekturen (Systeme mit mehreren Agenten)
 
@@ -277,6 +333,10 @@ Daneben gibt es weitere, seltener benötigte Muster — etwa **Sequential/Pipeli
 
 Multi-Agent-Systeme sind komplexer in der Orchestrierung und verursachen höheren Koordinationsaufwand. Sie lohnen sich erst, wenn die Teilaufgaben fachlich oder technisch wirklich eine Spezialisierung erfordern.
 
+**Passt gut, wenn:** Recherche, Schreiben, Prüfung oder Code-Arbeit klar trennbare Aufgaben mit unterschiedlichen Anforderungen sind.
+
+**Wird zu teuer, wenn:** die Agenten nur künstlich getrennt werden und am Ende dieselben Informationen mehrfach lesen oder dieselben Entscheidungen wiederholen.
+
 ## Welche Architektur meist zuerst gewählt werden sollte
 
 Die Wahl der Architektur sollte der Komplexität der Aufgabe folgen:
@@ -287,6 +347,19 @@ Die Wahl der Architektur sollte der Komplexität der Aufgabe folgen:
 | Mehrstufiger Genehmigungsprozess | Workflow |
 | Offene Rechercheaufgabe | ReAct |
 | Arbeitsteilige Content-Erstellung | Multi-Agent |
+
+### Kurze Übung
+
+Ordne die passende Architektur zu:
+
+| Mini-Fall | Wahrscheinlich passende Architektur |
+| :--- | :--- |
+| Nutzer fragt nach dem Status einer Bestellung. Das System muss nur eine Datenbank abfragen. | Tool-Calling |
+| Ein Antrag muss geprüft, bei Grenzwerten freigegeben und danach dokumentiert werden. | Workflow |
+| Ein Agent soll zu einem neuen Thema recherchieren und erst unterwegs entscheiden, welche Quellen relevant sind. | Single-Agent / ReAct |
+| Ein Bericht braucht Recherche, Entwurf und unabhängige Qualitätsprüfung. | Multi-Agent oder Workflow mit Prüfschritt |
+
+Wenn mehrere Antworten plausibel wirken, ist das normal. Entscheidend ist nicht der Name des Musters, sondern ob Kontrolle, Kosten und Nachvollziehbarkeit zur Aufgabe passen.
 
 ## Welche Design-Prinzipien immer gelten
 

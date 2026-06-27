@@ -13,6 +13,7 @@ In diesem Bereich geht es darum, GenAI-Vorhaben sauber einzuordnen: Passt das Th
 
 | Frage | Dokument |
 |---|---|
+| Worum geht es im Kurs und was sollte vorbereitet werden? | [Kursüberblick](./kursueberblick.html) |
 | Lohnt sich der Einsatz von GenAI überhaupt? | [Lohnt es sich?](./lohnt-es-sich.html) |
 | Welche Lösungsklasse passt zur Aufgabe? | [Aufgaben & Lösungswege](./aufgabenklassen-und-loesungswege.html) |
 | Wie reif ist die Organisation für KI-Einsatz? | [KI-Reifegradmodell](./ki-reifegradmodell.html) |
