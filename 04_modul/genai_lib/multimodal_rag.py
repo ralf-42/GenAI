@@ -54,8 +54,8 @@ class RAGConfig:
     image_threshold: float = 0.8
     clip_model: str = 'clip-ViT-B-32'
     text_model: str = 'text-embedding-3-small'
-    llm_model: str = 'gpt-4o-mini'
-    vision_model: str = 'gpt-4o-mini'
+    llm_model: str = 'gpt-5.4-mini'
+    vision_model: str = 'gpt-5.4-mini'
     db_path: str = './multimodal_rag_db'
 
 
@@ -101,9 +101,10 @@ def init_rag_system(config=None):
     clip_model = SentenceTransformer(config.clip_model)
     print("✅ CLIP-Modell geladen")
 
-    # LangChain 1.0+ API: init_chat_model statt ChatOpenAI direkt
-    llm = init_chat_model(f"openai:{config.llm_model}", temperature=0.0)
-    vision_llm = init_chat_model(f"openai:{config.vision_model}", temperature=0.0)
+    # LangChain 1.0+ API: init_chat_model statt ChatOpenAI direkt.
+    # GPT-5.x-Modelle werden nicht pauschal mit temperature konfiguriert.
+    llm = init_chat_model(f"openai:{config.llm_model}")
+    vision_llm = init_chat_model(f"openai:{config.vision_model}")
     print("✅ LLMs initialisiert (Text + Vision)")
 
     # Text-Verarbeitung
@@ -268,7 +269,7 @@ def add_image_with_description(components, image_path, auto_describe=True):
     Args:
         components: RAG-System-Komponenten
         image_path: Pfad zum Bild
-        auto_describe: Automatische Beschreibung mit GPT-4o-mini
+        auto_describe: Automatische Beschreibung mit dem konfigurierten Vision-Modell
 
     Returns:
         Tuple (success: bool, text_doc_id: str oder None)

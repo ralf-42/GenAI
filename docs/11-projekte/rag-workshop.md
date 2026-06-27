@@ -416,6 +416,8 @@ cursor.execute("""
 
 ### Aufgabe 6.2: SQL-Chain mit LangChain
 
+Für die SQL-Generierung ist `gpt-5.4-mini` meist die stabilere Wahl als `gpt-5.4-nano`, besonders bei komplexeren Schemata oder wenn die Abfrage mehrere Tabellen und Bedingungen kombinieren muss. Wer hier sofort mit `gpt-5.4-nano` startet, spart zwar Kosten, verliert aber oft Zeit bei Fehlersuche und Korrekturschleifen.
+
 ```python
 from langchain_community.utilities import SQLDatabase
 from langchain.chains import create_sql_query_chain
@@ -768,7 +770,7 @@ A: Kapitel 1–5 sind Pflicht. Kapitel 6–9 sind optional für zusätzliche Pun
 A: Ja. Möglich sind neun separate Notebooks, etwa `Kapitel_1_Chat.ipynb` bis `Kapitel_9_Gradio.ipynb`. Wichtig ist dann, dass spätere Kapitel auf frühere Ergebnisse zugreifen können.
 
 **Q: Welches LLM-Modell soll ich verwenden?**
-A: `gpt-5.4-nano` ist ausreichend und kosteneffizient. Für Kapitel 7 (Agent) funktioniert `gpt-5.4-nano` ebenfalls, da es Function Calling unterstützt.
+A: Für Kapitel 6 (SQL RAG) ist `gpt-5.4-mini` oder größer die robustere Wahl. `gpt-5.4-nano` ist für einfache Demos okay, scheitert aber bei komplexeren Schemas und längeren SQL-Statements häufiger. Für Kapitel 7 (Agent) ist `gpt-5.4-nano` weiterhin für einfache Function-Calling-Beispiele brauchbar.
 
 **Q: Kann ich andere Vektordatenbanken nutzen?**
 A: Ja, FAISS ist in Colab sogar etwas schneller als ChromaDB. Qdrant ist ebenfalls möglich.

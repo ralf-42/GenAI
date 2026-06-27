@@ -170,9 +170,9 @@ from langchain.chat_models import init_chat_model
 llm = init_chat_model("openai:gpt-5-nano")
 
 # Weitere Beispiele:
-# llm = init_chat_model("anthropic:claude-sonnet-4-5", temperature=0.3)
-# llm = init_chat_model("groq:llama-3.3-70b-versatile", temperature=0.7)
-# llm = init_chat_model("google_genai:gemini-2.5-flash", temperature=0.5)
+# llm = init_chat_model("anthropic:claude-sonnet-4-5")
+# llm = init_chat_model("groq:llama-3.3-70b-versatile")
+# llm = init_chat_model("google_genai:gemini-2.5-flash")
 
 # Testaufruf
 response = llm.invoke("Nenne drei typische Einsatzgebiete von KI-Agenten.")

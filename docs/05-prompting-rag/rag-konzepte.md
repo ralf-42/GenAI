@@ -69,12 +69,12 @@ flowchart LR
     D --> E[Vektordatenbank]
 ```
 
-| Schritt       | Beschreibung                                 | Typische Tools                          |     |
-| ------------- | -------------------------------------------- | --------------------------------------- | --- |
-| **Laden**     | Dokumente aus verschiedenen Quellen einlesen | TextLoader, PyPDFLoader, WebBaseLoader  |     |
-| **Chunking**  | Große Dokumente in kleinere Teile zerlegen   | RecursiveCharacterTextSplitter          |     |
-| **Embedding** | Textchunks in Vektoren umwandeln             | OpenAIEmbeddings, HuggingFaceEmbeddings |     |
-| **Speichern** | Vektoren in Datenbank ablegen                | ChromaDB, FAISS, Pinecone               |     |
+| Schritt       | Beschreibung                                 | Typische Tools                          |
+| ------------- | -------------------------------------------- | --------------------------------------- |
+| **Laden**     | Dokumente aus verschiedenen Quellen einlesen | TextLoader, PyPDFLoader, WebBaseLoader  |
+| **Chunking**  | Große Dokumente in kleinere Teile zerlegen   | RecursiveCharacterTextSplitter          |
+| **Embedding** | Textchunks in Vektoren umwandeln             | OpenAIEmbeddings, HuggingFaceEmbeddings |
+| **Speichern** | Vektoren in Datenbank ablegen                | ChromaDB, FAISS, Pinecone               |
 
 ### Abruf & Erweiterung
 
@@ -712,7 +712,7 @@ RAG verbindet die Stärken von Retrieval-Systemen mit generativen LLMs:
 | **Embedding Model** | Text → Vektor | OpenAIEmbeddings |
 | **Vector Store** | Speicherung & Suche | ChromaDB, FAISS |
 | **Retriever** | Relevante Chunks finden | Retriever-Schnittstelle |
-| **LLM** | Antwort generieren | GPT-4o-mini |
+| **LLM** | Antwort generieren | `WORKER` (`gpt-5.4-mini`) |
 
 **Typischer Workflow:**
 

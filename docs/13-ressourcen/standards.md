@@ -66,7 +66,6 @@ Die 7 MUST-HAVE Features für LangChain 1.0+ sind vollständig dokumentiert in:
 ```python
 # ✅ GUT: Beschreibende Namen
 model_provider = "openai"
-temperature = 0.0
 max_retries = 3
 
 # ❌ SCHLECHT: Kryptische Namen
@@ -199,7 +198,7 @@ middleware = [HumanInTheLoopMiddleware(tool_names=["delete_file"])]
 from langchain.chat_models import ChatOpenAI
 from langchain.agents import initialize_agent, AgentType
 
-llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)  # Altbeispiel
+llm = ChatOpenAI(model="gpt-5.4-nano")  # Altbeispiel
 agent = initialize_agent(tools, llm, agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION)
 ```
 
