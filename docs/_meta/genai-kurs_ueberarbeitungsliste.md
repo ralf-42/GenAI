@@ -33,15 +33,15 @@ has_toc: true
 - [x] `M17` und `M18` als freigehaltene Platzhalter in allen Modulübersichten konsistent markieren (M00, README.md).
 - [x] `M03_Large_Language_Modell.ipynb` in `M03_Textverarbeitung_mit_LangChain.ipynb` umbenannt; Abschnitts­nummern (1–6), Notebook-Titel und alle Übersichten (README.md, rag-workshop.md) angepasst.
 - [x] Alle Hinweise auf entfernte Kursnotebooks (M17, M18) aus den Übersichten entfernt (M00, README.md).
-- [ ] `M19` und `M20` überall einheitlich als `Praxis-Extra` führen (README.md: erledigt; M00-Tabelle: noch offen).
-- [ ] Prüfen, dass die Modulreihenfolge in `README.md` und `docs/02-orientierung/kursueberblick.md` exakt zusammenpasst.
+- [x] `M19` und `M20` überall einheitlich als `Praxis-Extra` führen (README.md, M00-Tabelle, Block-Beschreibung: erledigt).
+- [x] Prüfen, dass die Modulreihenfolge in `README.md` und `docs/02-orientierung/kursueberblick.md` exakt zusammenpasst (M03-Titel und M17-Platzhalter in kursueberblick.md korrigiert).
 
 # Prio 3 - Begriffskonsistenz schärfen
 
-- [ ] In `docs/03-grundlagen/large-language-models.md` die Begriffe `LLM`, `Foundation Model`, `Transformer`, `Token`, `Prompt`, `Kontext` und `Memory` einheitlich verwenden.
-- [ ] Stellen mit `Wort für Wort` fachlich dort auf `Token für Token` umstellen, wo es die technische Aussage besser trifft.
-- [ ] Beispiele und Formulierungen so anpassen, dass dieselbe Idee nicht mehrfach unterschiedlich erklärt wird.
-- [ ] Die Einführung zu LLMs, Foundation Models und Transformer in sich geschlossen halten.
+- [x] In `docs/03-grundlagen/large-language-models.md` die Begriffe `LLM`, `Foundation Model`, `Transformer`, `Token`, `Prompt`, `Kontext` und `Memory` einheitlich verwenden (Memory in Schlüsselbegriffe aufgenommen, Memory-Brücke zu Kontextfenster ergänzt).
+- [x] Stellen mit `Wort für Wort` fachlich dort auf `Token für Token` umstellen — keine Treffer gefunden, bereits korrekt.
+- [x] Beispiele und Formulierungen so anpassen, dass dieselbe Idee nicht mehrfach unterschiedlich erklärt wird (Self-Attention-Quervereis in „Die Logik eines Transformers" Schritt 3 ergänzt).
+- [x] Die Einführung zu LLMs, Foundation Models und Transformer in sich geschlossen halten (Memory-Brücke ergänzt, direkte Ansprache entfernt).
 
 # Prio 4 - Redundanzen reduzieren
 

@@ -20,6 +20,7 @@
 # GitHub Pages (alle Dateien in /docs werden versioniert)
 !docs/
 !docs/**
+docs/_meta/
 
 # GitHub Actions Workflows
 !.github/

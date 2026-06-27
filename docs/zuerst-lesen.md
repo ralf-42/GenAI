@@ -18,16 +18,17 @@ Diese Seite ist der kürzeste Einstieg in die Dokumentation. Sie ersetzt nicht d
 
 ## Der schnelle Einstieg
 
-Wer neu in das Kursmaterial einsteigt, beginnt mit diesen sechs Dokumenten:
+Wer neu in das Kursmaterial einsteigt, beginnt mit diesen sieben Dokumenten:
 
 1. [Kursüberblick](./02-orientierung/kursueberblick.html)
 2. [Lohnt sich GenAI?](./02-orientierung/lohnt-es-sich.html)
 3. [Aufgabenklassen und Lösungswege](./02-orientierung/aufgabenklassen-und-loesungswege.html)
-4. [LangChain Einsteiger](./06-frameworks/einsteiger-langchain.html)  (Nur erste Abschnitte)
-5. [RAG-Konzepte](./05-prompting-rag/rag-konzepte.html) (Überblick & Architektur)
-6. [Evaluation & Observability](./07-qualitaet-sicherheit/evaluation-observability.html)  (Nur erste Abschnitte)
+4. [Large Language Models](./03-grundlagen/large-language-models.html)
+5. [LangChain Einsteiger](./06-frameworks/einsteiger-langchain.html)  (Nur erste Abschnitte)
+6. [RAG-Konzepte](./05-prompting-rag/rag-konzepte.html) (Überblick & Architektur)
+7. [Evaluation & Observability](./07-qualitaet-sicherheit/evaluation-observability.html)  (Nur erste Abschnitte)
 
-Diese Reihenfolge klärt zuerst Kursziel und Voraussetzungen, danach ob GenAI überhaupt sinnvoll ist und welcher Lösungsweg zur Aufgabe passt. Anschließend folgt die technische Umsetzung mit LangChain, das wichtigste Erweiterungsmuster für eigene Daten und zuletzt die Frage, wie Qualität überprüfbar wird.
+Diese Reihenfolge klärt zuerst Kursziel und Voraussetzungen, danach ob GenAI überhaupt sinnvoll ist und welcher Lösungsweg zur Aufgabe passt. Anschließend folgen das Grundverständnis für LLMs und Foundation Models, die technische Umsetzung mit LangChain, das wichtigste Erweiterungsmuster für eigene Daten und zuletzt die Frage, wie Qualität überprüfbar wird.
 
 Wenn echte Nutzer-, Kunden-, Mitarbeiter- oder interne Dokumentdaten verarbeitet werden, sollte zusätzlich früh [Datenschutz & DSGVO](./12-regulatorik-verantwortung/datenschutz-dsgvo.html) gelesen werden. Datenschutz entscheidet oft mit, ob Cloud-API, lokales Modell, RAG-Index oder Logging überhaupt passend sind.
 

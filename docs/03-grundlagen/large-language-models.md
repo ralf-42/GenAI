@@ -32,7 +32,7 @@ Der Name beschreibt drei Eigenschaften:
 - **Language**: Der wichtigste Datenraum ist Sprache, also Text, Code und zunehmend auch multimodale Inhalte wie Bilder oder Audio.
 - **Model**: Es ist kein Wörterbuch und keine Datenbank, sondern ein trainiertes neuronales Netz, das Muster in Sprache gelernt hat.
 
-Ein LLM sucht also nicht einfach eine fertige Antwort heraus. Es berechnet aus deiner Eingabe, dem bisherigen Gespräch und seinen gelernten Sprachmustern eine passende Fortsetzung. Einen anschaulichen Einstieg in die Bedeutung der Transformer-Architektur bietet die Financial Times mit [Generative AI exists because of the transformer](https://ig.ft.com/generative-ai/).
+Ein LLM sucht also nicht einfach eine fertige Antwort heraus. Es berechnet aus der Eingabe, dem bisherigen Gespräch und seinen gelernten Sprachmustern eine passende Fortsetzung. Einen anschaulichen Einstieg in die Bedeutung der Transformer-Architektur bietet die Financial Times mit [Generative AI exists because of the transformer](https://ig.ft.com/generative-ai/).
 
 ## Warum ist das mehr als Token für Token raten?
 
@@ -42,7 +42,7 @@ Moderne Sprachmodelle arbeiten mit **Tokens**. Ein Token kann ein Wort, ein Wort
 
 Ein Modell berücksichtigt beim Generieren zum Beispiel:
 
-- den Inhalt deiner Frage
+- den Inhalt der Eingabe
 - die bisherige Antwort
 - grammatische Zusammenhänge
 - Bedeutungsbeziehungen zwischen Begriffen
@@ -116,7 +116,7 @@ Bei Sprachmodellen muss man zwei Phasen unterscheiden:
 | Phase | Was passiert? | Ändert sich das Modell? | Beispiel |
 | ----- | ------------- | ----------------------- | -------- |
 | **Training** | Das Modell lernt aus großen Textmengen, welche Muster in Sprache vorkommen. Dabei werden die internen Gewichte angepasst. | Ja | Ein Modell lernt über Milliarden Beispiele, Texte fortzusetzen. |
-| **Inferenz** | Das fertige Modell wird benutzt, um auf eine Eingabe eine Ausgabe zu erzeugen. | Nein | Du stellst eine Frage, das Modell generiert eine Antwort. |
+| **Inferenz** | Das fertige Modell wird benutzt, um auf eine Eingabe eine Ausgabe zu erzeugen. | Nein | Eine Frage wird gestellt, das Modell generiert eine Antwort. |
 
 Beim **Training** sieht das Modell sehr viele Beispiele und korrigiert seine internen Parameter immer wieder. Dieser Prozess ist rechenintensiv und braucht große Datenmengen.
 
@@ -157,6 +157,7 @@ flowchart LR
 | **Attention** | Mechanismus, mit dem ein Modell relevante Teile des Kontexts stärker gewichtet |
 | **Prompt** | Eingabe oder Arbeitsauftrag an ein Modell |
 | **Kontextfenster** | Menge an Tokens, die das Modell gleichzeitig berücksichtigen kann |
+| **Memory** | Mechanismus, der Informationen über das aktuelle Kontextfenster hinaus speichert und abrufbar macht |
 | **Halluzination** | Plausibel klingende, aber falsche oder unbelegte Ausgabe |
 
 # Modellgröße, Kontextfenster und Steuerparameter
@@ -171,13 +172,13 @@ Neben der Architektur sind bei LLMs drei praktische Eigenschaften besonders wich
 
 Mehr Parameter können einem Modell helfen, feinere Muster zu lernen. Gleichzeitig steigen Kosten, Latenz und Hardwarebedarf. Ein kleineres, gut passendes Modell kann für eine konkrete Aufgabe besser sein als ein sehr großes Modell.
 
-Ein großes Kontextfenster hilft bei langen Dokumenten, Dialogverläufen und RAG-Anwendungen. Es löst aber nicht alle Probleme: Wenn zu viel irrelevanter Text im Kontext steht, kann die Antwort trotzdem schlechter werden.
+Ein großes Kontextfenster hilft bei langen Dokumenten, Dialogverläufen und RAG-Anwendungen. Es löst aber nicht alle Probleme: Wenn zu viel irrelevanter Text im Kontext steht, kann die Antwort trotzdem schlechter werden. Für Informationen, die über das Kontextfenster hinaus erhalten bleiben sollen, werden externe Memory-Systeme eingesetzt — mehr dazu im Abschnitt [Memory-Systeme](../03-grundlagen/memory-systeme.html).
 
 Sampling-Parameter gehören eher zur praktischen Modellsteuerung als zur Architektur. Sie werden im Prompting-Bereich genauer erklärt: [Sampling-Parameter](../05-prompting-rag/sampling-parameter.html).
 
 # Warum sind Transformer für LLMs so wichtig?
 
-Stell dir vor, du liest einen Text und willst wirklich verstehen, was gemeint ist. Dann reicht es nicht, nur Baustein für Baustein abzuarbeiten. Du schaust automatisch: Welche Wörter passen zusammen? Welche sind gerade entscheidend, und welche spielen eher eine Nebenrolle?
+Beim echten Textverstehen reicht es nicht, Bausteine sequenziell abzuarbeiten. Wörter müssen zueinander in Beziehung gesetzt werden: Welche passen zusammen? Welche sind gerade entscheidend, und welche spielen eher eine Nebenrolle?
 
 Genau dafür ist ein **Transformer** gebaut: Er verarbeitet Texte so, dass das Modell ausrechnen kann, welche Wörter in einem Kontext besonders wichtig sind.
 
@@ -288,7 +289,7 @@ Das Modell würde bei der Vorhersage von Token _n+1_ schon sehen, was bei _n+2_ 
 
 Das Modell wird gezwungen, **zukünftige Positionen auszublenden**. So darf es bei einer Vorhersage nur den bisherigen Kontext verwenden.
 
-**Masked Self-Attention** ist wichtig, damit ein Sprachmodell wirklich Schritt für Schritt Text erzeugt, ohne sich zukünftige Wörter vorweg „anzusehen“. Es entspricht damit eher dem echten Schreibprozess: Du kennst nur das, was bisher schon steht.
+**Masked Self-Attention** ist wichtig, damit ein Sprachmodell wirklich Schritt für Schritt Text erzeugt, ohne sich zukünftige Wörter vorweg „anzusehen“. Es entspricht damit eher dem echten Schreibprozess: Bekannt ist nur das, was bisher schon steht.
 
 Das gilt nicht nur bei der Inferenz, sondern auch beim Training autoregressiver Sprachmodelle: Das Modell übt, aus den bisherigen Tokens das nächste Token vorherzusagen. Die Maske verhindert dabei, dass es die Lösung aus späteren Positionen direkt sehen kann.
 
@@ -299,7 +300,7 @@ Das gilt nicht nur bei der Inferenz, sondern auch beim Training autoregressiver 
 
 # Drei Haupttypen von Transformern
 
-Eine interaktive Darstellung findest du hier: [Transformer](https://editor.p5js.org/ralf.bendig.rb/full/I1TTpJk-D).
+Eine interaktive Darstellung ist hier verfügbar: [Transformer](https://editor.p5js.org/ralf.bendig.rb/full/I1TTpJk-D).
 
 ## Verstehen - Encoder-Only (wie BERT)
 
@@ -367,7 +368,7 @@ Vereinfacht gesagt bekommt jedes Token eine mathematische Bedeutung.
 
 ## 3. Jedes Token schaut auf die anderen Tokens
 
-Jetzt kommt der zentrale Schritt: **Self-Attention**.
+Jetzt kommt der zentrale Schritt: **Self-Attention** (→ ausführliche Erklärung mit Query/Key/Value im Abschnitt [Die Grundidee](#die-grundidee)).
 
 Jedes Token prüft, welche anderen Tokens für seine Bedeutung wichtig sind. Im Satz „Der Hund bellt laut“ ist für „bellt“ zum Beispiel besonders wichtig:
 
@@ -502,6 +503,6 @@ Zwei Begriffe tauchen dabei besonders häufig auf:
 
 ---
 
-**Version:**    1.0<br>
+**Version:** 1.1<br>
 **Stand:** Juni 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
