@@ -45,24 +45,24 @@ has_toc: true
 
 # Prio 4 - Redundanzen reduzieren
 
-- [ ] Wiederholte Erklärungen in `docs/03-grundlagen/large-language-models.md` straffen.
-- [ ] Den Übergang von LLM -> Foundation Model -> Transformer -> Diffusion klarer und kürzer machen.
-- [ ] In Einsteigerseiten Wiederholungen nur dort behalten, wo sie didaktisch einen echten Mehrwert haben.
-- [ ] Überprüfen, ob einzelne Tabellen oder Abschnitte bereits an anderer Stelle ausreichend erklärt werden.
+- [x] Wiederholte Erklärungen in `docs/03-grundlagen/large-language-models.md` straffen (Datei von ~483 auf 459 Zeilen).
+- [x] Den Übergang von LLM -> Foundation Model -> Transformer -> Diffusion klarer und kürzer machen (Intro-Sektionen zusammengeführt).
+- [x] In Einsteigerseiten Wiederholungen nur dort behalten, wo sie didaktisch einen echten Mehrwert haben (Logik-Abschnitt auf 5-Punkte-Liste komprimiert; Kurz-gesagt-Duplikat entfernt).
+- [x] Überprüfen, ob einzelne Tabellen oder Abschnitte bereits an anderer Stelle ausreichend erklärt werden (ask-nano-Analyse: 18 Stellen geprüft, 5 bereinigt).
 
 # Prio 5 - Format vereinheitlichen
 
-- [ ] Alte HTML-Formatierung wie `<font>` und unnötige `<br>`-Zeilen in kursrelevanten Markdown-Dateien weiter abbauen.
-- [ ] Lose Links in Fließtext einbauen statt isoliert stehen lassen.
-- [ ] Bild- und Diagrammblöcke in den Markdown-Dateien einheitlich beschriften.
+- [x] Alte HTML-Formatierung wie `<font>` abgebaut: tokenizing-chunking.md, ethik-und-genai.md (×2), multimodal-bild.md (×3), langchain-langgraph-cheatsheet.md — alle auf `<p><small>...</small></p>` vereinheitlicht.
+- [x] Lose Links in Fließtext eingebettet: multimodal-bild.md (Quelle + 2 Demos als Sätze mit Einleitung formuliert).
+- [x] Bild-Alt-Text korrigiert: rag-konzepte.md (war "Raster aus Pixelwerten", jetzt "RAG-Prozess: Indexierung und Retrieval").
 - [ ] Tabellen- und Überschriftenstile in `docs` vereinheitlichen, soweit sie die Lesbarkeit verbessern.
 
 # Prio 6 - Schwierigkeitsgrad und Zusatzteile sichtbar halten
 
-- [ ] In den Notebook- und Übersichtsdateien die Rollen `Pflicht`, `Aufbau`, `Vertiefung`, `Optional` und `Praxis-Extra` konsistent verwenden.
-- [ ] Schwierigkeitsgrade in README und Kursüberblick sichtbar und einheitlich markieren.
-- [ ] Prüfen, dass Zusatzmodule klar als Zusatz erkennbar bleiben und nicht mit Pflichtinhalten vermischt werden.
-- [ ] Die Pfadlogik für den 5-Tage-Kurs so lassen, dass Teilnehmende schnell zwischen Pflicht- und Zusatzanteilen unterscheiden können.
+- [x] Rollen konsistent: `kursueberblick.md` erhielt neue Spalte „Rolle" (Pflicht/Ergänzend/Aufbau/Optional/Vertiefung/Praxis-Extra/Platzhalter) — aus `README.md` übertragen.
+- [x] Schwierigkeitsgrade sichtbar: README war bereits konsistent; kursueberblick.md jetzt ebenfalls mit Rolle-Spalte.
+- [x] Zusatzmodule klar erkennbar: M08–M10 als Aufbau, M12–M13 als Optional/Vertiefung, M19–M20 als Praxis-Extra, M17/M18 als Platzhalter.
+- [x] Pfadlogik 5-Tage-Kurs: keine separate lernpfade.md vorhanden — Unterscheidung Pflicht/Zusatz über Rolle-Spalte direkt in der Modulübersicht sichtbar.
 
 ---
 

@@ -68,28 +68,28 @@ Erweiterungsmodule vertiefen Spezialthemen wie SQL-RAG, multimodales RAG, Fine-T
 
 Die aktuelle Kursstruktur ist in thematische Blöcke gegliedert:
 
-| Modul | Block | Inhalt | Schwerpunkt |
-| :---: | ----- | ------ | ----------- |
-| 1 | Grundlagen | Einführung GenAI | Kursüberblick, OpenAI, Hugging Face und erste LangChain-Einordnung |
-| 2 | Framework & Patterns | LangChain 101 | Chains, Models, Prompts, Graph-Grundlagen und Best Practices |
-| 3 | Framework & Patterns | Textverarbeitung mit LangChain | Textgenerierung, Textklassifizierung, Textzusammenfassung und LangChain-Grundmuster |
-| 4 | Framework & Patterns | Structured Output | JSON, strukturierte Ausgaben und robuste Antwortformate |
-| 5 | Framework & Patterns | Chat und Memory | Kurzzeit-Memory, persistentes Memory und externe Speicher |
-| 6 | RAG | Retrieval Augmented Generation | ChromaDB, Embeddings, Dokument-Q&A und Vektordatenbanken |
-| 7 | RAG | SQL RAG | LLMs mit Datenbanken, SQL-Generierung und strukturierte Daten |
-| 8 | Agenten & Orchestrierung | Agenten | Tool Use, Agentenarchitekturen, Planung und Multi-Agentensysteme |
-| 9 | Agenten & Orchestrierung | Middleware | Kontrolle von Agent-Ausführungen, Freigaben, Retry und Summarization |
-| 10 | Agenten & Orchestrierung | MCP | Model Context Protocol und standardisierte Tool-Integration |
-| 11 | Deployment & Optimierung | Gradio | UI-Entwicklung, praktische Demos und Sharing |
-| 12 | Deployment & Optimierung | Lokale und Open Source Modelle | Ollama, lokale Modelle, Lizenzierung und Auswahlkriterien |
-| 13 | Deployment & Optimierung | Fine-Tuning | Anpassung von Modellen und Bewertung spezialisierter Varianten |
-| 14 | Multimodal | Bild | Bildgenerierung, Bildklassifikation, Objekterkennung und Bildbeschreibung |
-| 15 | Multimodal | Multimodal RAG | Dokumente mit Text- und Bildanteilen erschließen |
-| 16 | Multimodal | Audio | Speech-to-Text, Text-to-Speech, Audioanalyse und Podcast-Pipelines |
-| 17 | Platzhalter | derzeit nicht belegt | Modulnummer freigehalten |
-| 18 | Platzhalter | derzeit nicht belegt | Modulnummer freigehalten |
-| 19 | Praxis-Extras | Modellsteuerung | Sampling, Context Engineering und kontrollierte Ausgaben |
-| 20 | Praxis-Extras | Codieren mit GenAI | Codegenerierung, Debugging, Revisionsprompts und Entwicklungsworkflow |
+| Modul | Rolle | Block | Inhalt | Schwerpunkt |
+| :---: | ----- | ----- | ------ | ----------- |
+| 1  | Pflicht             | Grundlagen               | Einführung GenAI                | Kursüberblick, OpenAI, Hugging Face und erste LangChain-Einordnung |
+| 2  | Pflicht             | Framework & Patterns     | LangChain 101                   | Chains, Models, Prompts, Graph-Grundlagen und Best Practices |
+| 3  | Pflicht             | Framework & Patterns     | Textverarbeitung mit LangChain  | Textgenerierung, Textklassifizierung, Textzusammenfassung und LangChain-Grundmuster |
+| 4  | Pflicht             | Framework & Patterns     | Structured Output               | JSON, strukturierte Ausgaben und robuste Antwortformate |
+| 5  | Ergänzend           | Framework & Patterns     | Chat und Memory                 | Kurzzeit-Memory, persistentes Memory und externe Speicher |
+| 6  | Pflicht             | RAG                      | Retrieval Augmented Generation  | ChromaDB, Embeddings, Dokument-Q&A und Vektordatenbanken |
+| 7  | Ergänzend           | RAG                      | SQL RAG                         | LLMs mit Datenbanken, SQL-Generierung und strukturierte Daten |
+| 8  | Aufbau              | Agenten & Orchestrierung | Agenten                         | Tool Use, Agentenarchitekturen, Planung und Multi-Agentensysteme |
+| 9  | Aufbau              | Agenten & Orchestrierung | Middleware                      | Kontrolle von Agent-Ausführungen, Freigaben, Retry und Summarization |
+| 10 | Aufbau / Optional   | Agenten & Orchestrierung | MCP                             | Model Context Protocol und standardisierte Tool-Integration |
+| 11 | Ergänzend           | Deployment & Optimierung | Gradio                          | UI-Entwicklung, praktische Demos und Sharing |
+| 12 | Optional            | Deployment & Optimierung | Lokale und Open Source Modelle  | Ollama, lokale Modelle, Lizenzierung und Auswahlkriterien |
+| 13 | Optional/Vertiefung | Deployment & Optimierung | Fine-Tuning                     | Anpassung von Modellen und Bewertung spezialisierter Varianten |
+| 14 | Ergänzend           | Multimodal               | Bild                            | Bildgenerierung, Bildklassifikation, Objekterkennung und Bildbeschreibung |
+| 15 | Aufbau / Optional   | Multimodal               | Multimodal RAG                  | Dokumente mit Text- und Bildanteilen erschließen |
+| 16 | Optional            | Multimodal               | Audio                           | Speech-to-Text, Text-to-Speech, Audioanalyse und Podcast-Pipelines |
+| 17 | Platzhalter         | —                        | derzeit nicht belegt            | Modulnummer freigehalten |
+| 18 | Platzhalter         | —                        | derzeit nicht belegt            | Modulnummer freigehalten |
+| 19 | Praxis-Extra        | Praxis-Extras            | Modellsteuerung                 | Sampling, Context Engineering und kontrollierte Ausgaben |
+| 20 | Praxis-Extra        | Praxis-Extras            | Codieren mit GenAI              | Codegenerierung, Debugging, Revisionsprompts und Entwicklungsworkflow |
 
 Eine interaktive Orientierung zur Modellwahl ist hier hilfreich: [Modellauswahl](https://editor.p5js.org/ralf.bendig.rb/full/8BbTi8Ico).
 

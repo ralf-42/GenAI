@@ -70,9 +70,7 @@ Die Wahl einer geeigneten Chunking-Strategie hängt stark vom jeweiligen Anwendu
 
 
 <img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250310180654.png" alt="Tokenizing & Chunking Prozess" width="700">
-<p><font color='black' size="2">
-KI-generiertes Bild
-</font></p>
+<p><small>KI-generiertes Bild</small></p>
 
 + Tokenizing:
 	+ Zerlegt Text in kleinste Einheiten (Token)
@@ -349,5 +347,5 @@ Tokenizer, Chunk-Größe und Chunking-Strategie zusammen bestimmen, wie gut eine
 ---
 
 **Version:**    1.1<br>
-**Stand:** Mai 2026<br>
+**Stand:** Juni 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

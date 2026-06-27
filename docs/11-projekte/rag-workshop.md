@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: RAG-Workshop
 parent: Projekte
@@ -60,7 +60,7 @@ Vorgesehen ist **ein Notebook** mit **neun aufbauenden Kapiteln**. Alternativ ka
 
 ## Vorbereitung: Google Colab Setup
 
-Vor dem Start wird die Colab-Umgebung eingerichtet:
+Vor dem Start wird die Colab-Umgebung mit der Kursbibliothek (`genai_lib`) und den erforderlichen Abhängigkeiten eingerichtet.
 
 ### API-Key in Colab Secrets speichern
 
@@ -68,31 +68,62 @@ Vor dem Start wird die Colab-Umgebung eingerichtet:
 2. `OPENAI_API_KEY` anlegen
 3. "Notebook access" aktivieren
 
-### Basis-Pakete installieren
+### Kursbibliothek & Umgebung einrichten
 
-Zu Beginn des Notebooks wird ausgeführt:
+Zu Beginn des Notebooks wird die GenAI-Kursbibliothek installiert und die grundlegenden Hilfsfunktionen sowie der API-Key geladen:
 
 ```python
 # ═══════════════════════════════════════════════════
-# 📦 INSTALLATION (Einmalig ausführen)
+# 🔧 UMGEBUNG EINRICHTEN (Kurs-Utilities laden)
 # ═══════════════════════════════════════════════════
 
-!pip install -q langchain>=1.1.0 langchain-openai>=1.0.0 langchain-community
-!pip install -q chromadb tiktoken gradio
+# GenAI Kursbibliothek installieren
+!uv pip install --system -q git+https://github.com/ralf-42/GenAI.git#subdirectory=04_modul
+
+# Projekt-Utilities importieren
+from genai_lib.utilities import (
+    check_environment,
+    get_ipinfo,
+    setup_api_keys,
+    mprint,
+    install_packages,
+    mermaid,
+    get_model_profile,
+    extract_thinking,
+    load_prompt
+)
+
+# API-Key laden (sucht automatisch in Colab Secrets, Umgebungsvariablen oder fragt interaktiv)
+setup_api_keys(['OPENAI_API_KEY'], create_globals=False)
+
+print()
+check_environment()
+print()
+get_ipinfo()
+
+# Modell-Konfiguration (Rollen als Konstanten importieren)
+from genai_lib.model_config import BASELINE
 ```
 
-### API-Key laden
+### Zusätzliche Abhängigkeiten installieren
+
+Für den Workshop werden weitere Pakete wie `langchain-chroma` (die moderne Chroma-Integration für LangChain 1.0+), `markitdown` und `gradio` benötigt. Wir installieren diese sauber über das `install_packages`-Utility:
 
 ```python
 # ═══════════════════════════════════════════════════
-# 🔑 API-KEY SETUP
+# 🛠️ INSTALLATIONEN
 # ═══════════════════════════════════════════════════
 
-import os
-from google.colab import userdata
+# markitdown für Dokumentenkonvertierung installieren
+!uv pip install --system -q "markitdown[all]"
 
-# API-Key aus Colab Secrets laden
-os.environ["OPENAI_API_KEY"] = userdata.get('OPENAI_API_KEY')
+# Weitere Pakete über genai_lib installieren
+install_packages([
+    "langchain_openai",
+    "langchain_chroma",
+    "gradio",
+    ("langchain-text-splitters", "langchain_text_splitters"),
+])
 ```
 
 ---
@@ -280,7 +311,7 @@ os.makedirs('docs', exist_ok=True)
 from langchain_community.document_loaders import DirectoryLoader, TextLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_openai import OpenAIEmbeddings
-from langchain_community.vectorstores import Chroma
+from langchain_chroma import Chroma
 
 # Dokumente laden
 loader = DirectoryLoader('docs/', glob="**/*.md", loader_cls=TextLoader)
@@ -433,7 +464,7 @@ import ast
 def search_documentation(query: str) -> str:
     """Durchsucht die technische Dokumentation nach relevanten Informationen."""
     # Nutze Retriever aus Kapitel 5
-    docs = retriever.get_relevant_documents(query)
+    docs = retriever.invoke(query)
     ...
 
 @tool

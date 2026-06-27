@@ -37,7 +37,7 @@ Viele Organisationen sind nicht sauber auf einer Stufe. Häufig sieht man Mischf
 | **2: Explorativ** | Experimente zulassen, ohne Strukturen zu verändern | Einzelne Tools außerhalb offizieller IT-Landschaft | Informelle Vorreiter, stark personenabhängiges Wissen | Punktuelle Produktivität, reaktive Regeln, Schatten-IT-Risiko |
 | **3: Befähigt** | Grundlagen für kontrollierten KI-Einsatz schaffen | Cloud-fähige Architektur, APIs, geschützte KI-Umgebungen | Rollen wie Data Owner, Product Owner oder AI Champion entstehen | Use Cases werden bewertet, priorisiert und governance-seitig begleitet |
 | **4: Operativ** | KI als messbaren Prozessbestandteil skalieren | Integrierte Plattformen, Monitoring, Modellversionierung | Fachbereiche, IT, Data, Recht und Compliance arbeiten routiniert zusammen | End-to-End-Prozesse werden KI-unterstützt, Qualität und Nutzen werden gemessen |
-| **5: Transformativ** | KI als strategischen Kern nutzen | KI-native Architektur, domänenspezifische Modelle, Event-Verarbeitung | KI-Kompetenz prägt Führung, Einstellung und Innovationskultur | Adaptive Prozesse, neue Leistungen und Governance als Vertrauensmerkmal |
+| **5: Transformativ** | KI als strategischen Kern nutzen | KI-native Architektur, domänenspezifische Modelle, Event-Verarbeitung | KI-Kompetenz in Führungsentscheidungen, Einstellungen und Standards verankert | Adaptive Prozesse, neue Leistungen und Governance als Vertrauensmerkmal |
 
 ## Interpretation
 
@@ -49,7 +49,7 @@ Stufe 3 schafft die Basis für wiederholbare KI-Projekte. Technische Plattformen
 
 Stufe 4 bedeutet produktiven KI-Einsatz in Kernprozessen. Modelle, Datenpipelines, Monitoring, Incident-Prozesse und Business-KPIs sind etabliert. Eine Grenze bleibt, wenn der operative Einsatz zwar stark gemessen wird, aber keine klare organisatorische Entscheidung folgt, sobald Modellqualität, Fairness oder Kosten kippen.
 
-Stufe 5 ist erreicht, wenn KI nicht nur Prozesse effizienter macht, sondern Geschäftsmodelle, Produkte oder die Marktposition verändert. Governance wird dann nicht mehr als Bremse verstanden, sondern als Teil von Vertrauen, Reputation und Differenzierung.
+Stufe 5 ist erreicht, wenn KI Geschäftsmodelle, Produkte oder die Marktposition verändert — über reine Prozessoptimierung hinaus. Governance gilt dann als Teil von Vertrauen, Reputation und Differenzierung.
 
 ## Dimensionen im Überblick
 
@@ -78,5 +78,5 @@ Statt vor allem die Frage zu klären „Welche Stufe ist das Unternehmen?“, hi
 ---
 
 **Version:** 1.1<br>
-**Stand:** Mai 2026<br>
+**Stand:** Juni 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

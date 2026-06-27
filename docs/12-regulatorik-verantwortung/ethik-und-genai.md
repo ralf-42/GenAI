@@ -32,9 +32,7 @@ Analytische KI bewertet vorhandene Daten, zum Beispiel beim Kredit-Scoring oder 
 In der Praxis sind vor allem die Prinzipien Verantwortung, Fairness, Transparenz, Datenschutz, Autonomie und Sicherheit zentral. Verantwortung beantwortet die Frage, wer Fehlentscheidungen erkennt, korrigiert und die Folgen trägt. Fairness bezieht sich auf systematische Verzerrungen in Daten, im Modellverhalten oder im Nutzungskontext. Transparenz bedeutet dabei nicht zwingend vollständige Offenlegung des Modells. Sie heißt aber: Grenzen sichtbar machen, Ergebnisse kennzeichnen und Entscheidungen nachvollziehbar machen – soweit dies im Betrieb möglich ist.
 
 <img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250416161530.png" alt="Ethische Grundsätze generativer KI" width="600">
-<p><font color='black' size="2">
-KI-generiertes Bild
-</font></p>
+<p><small>KI-generiertes Bild</small></p>
 
 Ein häufiger Fehler ist, Ethik erst als separates Zusatzkapitel nach der technischen Umsetzung zu behandeln. In GenAI-Projekten entstehen ethische Risiken bereits früher: bei der Auswahl der Daten, beim Prompt-Design, bei der Rollenverteilung, bei der Wahl des Modells und bei der Evaluation.
 
@@ -53,9 +51,7 @@ Bildung und Forschung haben zudem einen besonderen Stellenwert. Dort werden ethi
 Die wichtigsten ethischen Risiken generativer KI entstehen durch plausible, aber falsche Inhalte, durch diskriminierende Muster in Trainings- oder Nutzungsdaten und durch missbräuchliche Verwendung. Halluzinationen können das Vertrauen in Informationen schwächen. Deepfakes können politische und wirtschaftliche Manipulation erleichtern. Prompt Injection kann Systeme zu unerwünschtem Verhalten bringen.
 
 <img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250416161648.png" alt="KI Risiken und Fehlerquellen" width="600">
-<p><font color='black' size="2">
-KI-generiertes Bild
-</font></p>
+<p><small>KI-generiertes Bild</small></p>
 
 Viele ethische Spannungsfelder lassen sich nicht vollständig auflösen. Mehr Transparenz kann Datenschutz oder geistiges Eigentum berühren. Mehr Automatisierung schafft zwar Effizienz, verändert aber auch Arbeitsrollen. Open Source kann Kontrolle und Nachvollziehbarkeit verbessern, kann zugleich aber Missbrauch erleichtern. Solche Zielkonflikte sollten dokumentiert und begründet werden – nicht durch Formulierungen geglättet werden.
 
@@ -92,5 +88,5 @@ In der Praxis relevant ist das vor allem dann, wenn ein GenAI-System Inhalte erz
 ---
 
 **Version:** 1.1<br>
-**Stand:** Mai 2026<br>
+**Stand:** Juni 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
