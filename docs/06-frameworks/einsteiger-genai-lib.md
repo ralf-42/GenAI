@@ -476,7 +476,7 @@ Das `multimodal_rag`-Modul stellt ein vollständiges RAG-System bereit – mit U
 multimodal_rag
 ├── Text-Pipeline: OpenAI Embeddings + ChromaDB
 ├── Bild-Pipeline: CLIP Embeddings + ChromaDB
-├── Vision-LLM: GPT-4o-mini für Bildbeschreibungen (via init_chat_model)
+├── Vision-LLM: gpt-5.4-mini für Bildbeschreibungen (via init_chat_model)
 └── Hybride Suche: Text ↔ Bild ↔ Bild
 ```
 
@@ -502,8 +502,8 @@ config = RAGConfig(
     chunk_size=300,
     chunk_overlap=50,
     clip_model='clip-ViT-B-32',
-    llm_model='gpt-4o-mini',
-    vision_model='gpt-4o-mini',
+    llm_model='gpt-5.4-mini',
+    vision_model='gpt-5.4-mini',
     db_path='./my_rag_db'
 )
 rag = init_rag_system(config)
@@ -512,7 +512,7 @@ rag = init_rag_system(config)
 **Was wird initialisiert:**
 - OpenAI Text-Embeddings
 - CLIP-Modell für Bild-Embeddings
-- GPT-4o-mini für Text und Vision (via `init_chat_model()` - LangChain 1.0+)
+- `gpt-5.4-mini` für Text und Vision (via `init_chat_model()` - LangChain 1.0+)
 - ChromaDB mit zwei Collections (texts, images)
 - MarkItDown für Dokumentenkonvertierung
 
@@ -549,7 +549,7 @@ process_directory(rag, './files', auto_describe_images=False)
 **Features:**
 - automatische Dokumentenkonvertierung mit MarkItDown
 - Text-Chunking mit RecursiveCharacterTextSplitter
-- automatische Bildbeschreibung mit GPT-4o-mini
+- automatische Bildbeschreibung mit `gpt-5.4-mini`
 - CLIP-Embeddings für Bilder
 - Fortschrittsanzeige
 

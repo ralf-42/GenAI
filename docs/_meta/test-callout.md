@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Callout Test
 nav_exclude: true

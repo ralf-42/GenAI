@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Anchor Test
 nav_exclude: true

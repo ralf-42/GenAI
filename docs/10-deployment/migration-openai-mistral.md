@@ -99,7 +99,6 @@ from langchain_mistralai import ChatMistralAI
 
 llm = ChatMistralAI(
     model="mistral-medium-3.5",
-    temperature=0,
     max_retries=2,
 )
 ```

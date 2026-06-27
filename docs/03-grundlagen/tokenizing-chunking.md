@@ -28,11 +28,11 @@ Die Textverarbeitung in LLM-Systemen steht und fällt häufig mit drei zentralen
 In der Praxis zeigt sich dabei ein typisches Muster: Wenn Antworten unpräzise, unvollständig oder instabil ausfallen, gerät zunächst das Modell selbst in Verdacht. Häufig liegt die eigentliche Ursache jedoch bereits früher in der Verarbeitungskette. Ein **Chunker** unterteilt längere Texte in Chunks, also in verarbeitbare Abschnitte für Suche, Embeddings oder weitere Verarbeitungsschritte. Sind diese Abschnitte zu klein, fallen die Grenzen ungünstig oder erzeugen Überlappungen unnötiges Rauschen, leidet die Qualität der Ergebnisse deutlich. **Tokenizing** und **Chunking** sind deshalb mehr als technische Vorverarbeitung.
 
 
-# Tokenizer-, Chunking- & Strategieauswahl
+## Tokenizer-, Chunking- & Strategieauswahl
 
 
 
-## Dokumenttypen
+### Dokumenttypen
 
 Nicht jeder Dokumenttyp stellt die gleichen Anforderungen an Tokenisierung und Chunking. Länge, Struktur und sprachliche Eigenschaften eines Dokuments beeinflussen maßgeblich, welche Tokenizer, Chunk-Größen und Strategien sinnvoll sind. Während lange Fließtexte vor allem vom Erhalt semantischer Zusammenhänge profitieren, erfordern kurze Texte oder technische Dokumente häufig stärker strukturorientierte Verfahren.
 
@@ -46,7 +46,7 @@ Nicht jeder Dokumenttyp stellt die gleichen Anforderungen an Tokenisierung und C
 <div style="page-break-after: always;"></div>
 
 
-## Anwendungsszenarien
+### Anwendungsszenarien
 
 
 Die Wahl einer geeigneten Chunking-Strategie hängt stark vom jeweiligen Anwendungsszenario ab. Unterschiedliche Aufgaben stellen unterschiedliche Anforderungen an Größe, Überlappung und semantische Struktur der Chunks. Während bei Frage-Antwort-Systemen möglichst viel Kontext erhalten bleiben muss, steht bei Zusammenfassungen eher die inhaltliche Verdichtung im Vordergrund.
@@ -66,7 +66,7 @@ Die Wahl einer geeigneten Chunking-Strategie hängt stark vom jeweiligen Anwendu
 > Vor einer konkreten Implementierung lohnt sich eine kurze Pilotphase mit echten Dokumenten. Häufig reichen schon zwei oder drei Varianten, um zu sehen, ob ein Setup eher Kontext erhält oder eher Rauschen produziert.
 
 
-# Beispiel Tokenizing & Chunking
+## Beispiel Tokenizing & Chunking
 
 
 <img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/Pasted image 20250310180654.png" alt="Tokenizing & Chunking Prozess" width="700">
@@ -87,13 +87,13 @@ Die Wahl einer geeigneten Chunking-Strategie hängt stark vom jeweiligen Anwendu
 	+ Chunks werden nacheinander verarbeitet
 	+ LLM behält Kontext zwischen Chunks durch Überlappungen
 
-# Token, Kontextfenster und Kosten
+## Token, Kontextfenster und Kosten
 
 In Large Language Models sind **Tokens** die grundlegenden Einheiten, mit denen Text verarbeitet wird. Ein Token kann ein vollständiges Wort, ein Wortbestandteil, ein Satzzeichen oder ein einzelnes Zeichen sein. Wie ein Text zerlegt wird, hängt vom jeweiligen Tokenizer ab.
 
 Beispiel: Das Wort *Hausboot* kann je nach Tokenizer als ein Token verarbeitet oder in Bestandteile wie *Haus* und *boot* zerlegt werden. Deshalb ist die Tokenanzahl nicht identisch mit der Wortanzahl.
 
-## Kontextfenster
+### Kontextfenster
 
 Die **Kontextfenstergröße** gibt an, wie viele Tokens ein Modell in einem Aufruf gleichzeitig berücksichtigen kann. Dazu zählen typischerweise:
 
@@ -105,7 +105,7 @@ Die **Kontextfenstergröße** gibt an, wie viele Tokens ein Modell in einem Aufr
 
 Ein größeres Kontextfenster erlaubt längere Dokumente, komplexere Dialoge und mehr Zusatzinformationen. Es garantiert aber keine bessere Antwort. Wenn der Kontext zu viel irrelevantes Material enthält, steigt das Risiko, dass wichtige Informationen untergehen.
 
-## Tokenverbrauch und Kosten
+### Tokenverbrauch und Kosten
 
 Viele LLM-Anbieter berechnen Nutzungskosten nach verarbeiteten Tokens. Dabei zählen meist sowohl Eingabetokens als auch Ausgabetokens. Tokenmanagement ist deshalb nicht nur eine technische Frage, sondern beeinflusst auch Kosten, Latenz und Stabilität.
 
@@ -123,7 +123,7 @@ Interaktive Hilfen:
 - [Kontextfenster](https://editor.p5js.org/ralf.bendig.rb/full/tLnUgyZRK)
 - [Token-Verbrauch & Caching](https://editor.p5js.org/ralf.bendig.rb/full/uAPjZBhtW)
 
-# Parameter- und Strategieauswahl
+## Parameter- und Strategieauswahl
 - **Tokenizer-Auswahl:**
     - SentencePiece/BPE sind ideal für lange, unstrukturierte Texte, da sie feine Subworteinheiten erzeugen und dabei semantische Bedeutung beibehalten.
     - WordPiece eignet sich für hybride Texte, in denen technische sowie allgemeine Sprache vorkommen.
@@ -148,56 +148,56 @@ Für Entwickler ist vor allem eine Erfahrung wichtig: Es gibt selten eine univer
 
 
 
-# Tokenizer-Typen im Vergleich
-## Byte-Pair Encoding (BPE)
+## Tokenizer-Typen im Vergleich
+### Byte-Pair Encoding (BPE)
 
 Byte-Pair Encoding fasst häufig auftretende Zeichenpaare iterativ zu einem Token zusammen. Das führt zu einem kompakten Vokabular und einem guten Umgang mit seltenen Wörtern — der Tokenizer kennt sie als Subwort-Kombination, auch wenn sie nie vollständig im Training vorkamen. Der Nachteil: BPE muss auf einem Korpus trainiert werden. Eingesetzt wird er vor allem in GPT-Modellen und anderen Transformer-Architekturen.
 
-## WordPiece
+### WordPiece
 
 WordPiece funktioniert ähnlich wie BPE, optimiert aber auf Wahrscheinlichkeitsmaximierung statt auf Häufigkeit. Das macht ihn besonders effizient für mehrsprachige Modelle, die auf unterschiedliche Sprachstrukturen generalisieren müssen. Die Implementierung ist etwas komplexer als bei BPE. Eingesetzt wird WordPiece vor allem in BERT und DistilBERT.
 
-## SentencePiece
+### SentencePiece
 
 SentencePiece behandelt Text als rohe Bytefolge — ohne Annahmen über Leerzeichen oder Wortgrenzen. Das macht ihn language-agnostic: Er funktioniert für alle Sprachen, braucht keine Vorverarbeitung und eignet sich damit gut für mehrsprachige Systeme. Ein kleiner Nachteil ist die etwas geringere Geschwindigkeit. Typische Einsatzgebiete sind T5 und XLNet.
 
-## Whitespace/Symbol-basierte Tokenizer
+### Whitespace/Symbol-basierte Tokenizer
 
 Das simpelste Verfahren trennt an Leerzeichen und Satzzeichen. Der Ansatz ist schnell, leicht verständlich und funktioniert besonders gut für Code, wo Struktur durch Symbole klar definiert ist. Als Schwäche ergibt sich ein großes Vokabular, und zusammengesetzte Wörter werden nicht aufgelöst. Typische Einsatzgebiete sind einfache Anwendungen und Code-Analyse.
 
 
-# Chunking-Strategien im Detail
+## Chunking-Strategien im Detail
 
 
-## Zeichenbasiertes Chunking
+### Zeichenbasiertes Chunking
 
 Der Text wird nach einer festen Zeichenanzahl geteilt — ohne Rücksicht auf Wort- oder Satzgrenzen. Das kann dazu führen, dass Wörter oder Sätze mitten durchgeschnitten werden. Empfohlen wird dieser Ansatz kaum; er kommt nur für sehr einfache Fälle infrage, in denen Präzision keine Rolle spielt.
 
-## Rekursives Zeichen-Chunking
+### Rekursives Zeichen-Chunking
 
 Rekursives Chunking versucht erst, an Absatzgrenzen zu trennen, dann an Sätzen, schließlich an einzelnen Wörtern — je nachdem, was die Zielgröße erlaubt. Das erhält deutlich mehr strukturelle Integrität als das einfache Zeichen-Chunking. Es ist der Standard-Ansatz für die meisten Texttypen.
 
-## Dokumentbasiertes Chunking
+### Dokumentbasiertes Chunking
 
 Hier nutzt der Chunker die dokumentspezifische Struktur — Markdown-Header, HTML-Tags oder ähnliche Marker — als natürliche Trennstellen. Die Grenzen sind semantisch sinnvoll und spiegeln den Aufbau des Dokuments wider. Besonders geeignet ist dieser Ansatz für strukturierte Dokumente und technische Dokumentation.
 
-## Semantisches Chunking
+### Semantisches Chunking
 
 Semantisches Chunking analysiert die inhaltliche Ähnlichkeit zwischen Sätzen und fasst zusammengehörige Passagen in einen Chunk zusammen. Das verhindert, dass thematisch zusammenhängende Inhalte auseinandergerissen werden. Der Nachteil ist der höhere Rechenaufwand; dieser Ansatz lohnt sich vor allem für hochwertige RAG-Systeme, in denen Retrieval-Qualität wichtiger ist als Geschwindigkeit.
 
-## Embeddingbasiertes Chunking
+### Embeddingbasiertes Chunking
 
 Ähnlich wie semantisches Chunking, aber explizit auf Basis von Embeddings: Abschnitte mit ähnlichen Vektorrepräsentationen werden zusammengefasst. Das ermöglicht sehr genaue semantische Gruppierungen, kostet aber mehr Rechenleistung. Der Ansatz ist besonders für retrieval-optimierte Systeme geeignet.
 
-## Agentisches Chunking
+### Agentisches Chunking
 
 Ein KI-Agent analysiert den Text und trifft eigenständig Entscheidungen über Chunk-Grenzen — adaptiv und kontextabhängig. Das ist der flexibelste Ansatz, aber auch der aufwendigste: komplex in der Umsetzung und teuer im Betrieb. Sinnvoll ist er für hochspezialisierte Anwendungen, vor allem bei Code-Analyse.
 
 
 <div style="page-break-after: always;"></div>
 
-# Best Practices
-## Chunk-Größe wählen
+## Best Practices
+### Chunk-Größe wählen
 
 1. **Kleine Chunks (128-256 Tokens):**
    - Präzises Retrieval
@@ -213,14 +213,14 @@ Ein KI-Agent analysiert den Text und trifft eigenständig Entscheidungen über C
    - Weniger Chunks
    - Risiko: Irrelevante Informationen
 
-## Überlappung optimieren
+### Überlappung optimieren
 
 - **Keine Überlappung (0%):** Nur wenn Chunks völlig unabhängig sind
 - **Kleine Überlappung (5-10%):** Strukturierte Dokumente
 - **Moderate Überlappung (10-20%):** Standard für RAG
 - **Hohe Überlappung (30-50%):** Wenn Kontext kritisch ist (Q&A)
 
-## Strategie-Auswahl
+### Strategie-Auswahl
 
 ```mermaid
 flowchart TD
@@ -247,15 +247,15 @@ flowchart TD
 ```
 
 
-# Evaluation & Monitoring
-## Metriken für Chunking-Qualität
+## Evaluation & Monitoring
+### Metriken für Chunking-Qualität
 
 - **Retrieval Precision:** Anteil relevanter Chunks in Top-K Ergebnissen
 - **Retrieval Recall:** Anteil gefundener relevanter Chunks
 - **Context Preservation:** Wird wichtiger Kontext über Chunk-Grenzen hinweg erhalten?
 - **Chunk Size Distribution:** Sind die Chunks gleichmäßig groß?
 
-## A/B Testing
+### A/B Testing
 
 Sinnvoll ist der Vergleich mehrerer Konfigurationen:
 - Chunk-Größe: 256 vs. 512 Tokens
@@ -268,7 +268,7 @@ Geeignete Messgrößen sind:
 - Kosten (API-Calls, Compute)
 
 
-# Implementierungs-Beispiel (Pseudo-Code)
+## Implementierungs-Beispiel (Pseudo-Code)
 
 Das konkrete Framework kann sich ändern. Stabil bleibt die Pipeline: Dokument laden, passende Strategie wählen, Grenzen bestimmen, Chunks prüfen und erst danach indexieren.
 
@@ -318,7 +318,7 @@ wenn zeichenbasiertes Chunking reicht:
 ```
 
 
-# Fazit
+## Fazit
 Tokenizer, Chunk-Größe und Chunking-Strategie zusammen bestimmen, wie gut eine NLP-Anwendung tatsächlich funktioniert:
 
 - **Dokumenttyp bestimmt Tokenizer:** Lange Texte → BPE/SentencePiece, Code → Whitespace/Symbol
