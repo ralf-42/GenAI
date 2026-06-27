@@ -72,7 +72,7 @@ Die aktuelle Kursstruktur ist in thematische Blöcke gegliedert:
 | :---: | ----- | ------ | ----------- |
 | 1 | Grundlagen | Einführung GenAI | Kursüberblick, OpenAI, Hugging Face und erste LangChain-Einordnung |
 | 2 | Framework & Patterns | LangChain 101 | Chains, Models, Prompts, Graph-Grundlagen und Best Practices |
-| 3 | Framework & Patterns | Large Language Models | Foundation Models, Transformer, Textgenerierung, Zusammenfassung und Klassifikation |
+| 3 | Framework & Patterns | Textverarbeitung mit LangChain | Textgenerierung, Textklassifizierung, Textzusammenfassung und LangChain-Grundmuster |
 | 4 | Framework & Patterns | Structured Output | JSON, strukturierte Ausgaben und robuste Antwortformate |
 | 5 | Framework & Patterns | Chat und Memory | Kurzzeit-Memory, persistentes Memory und externe Speicher |
 | 6 | RAG | Retrieval Augmented Generation | ChromaDB, Embeddings, Dokument-Q&A und Vektordatenbanken |
@@ -86,7 +86,7 @@ Die aktuelle Kursstruktur ist in thematische Blöcke gegliedert:
 | 14 | Multimodal | Bild | Bildgenerierung, Bildklassifikation, Objekterkennung und Bildbeschreibung |
 | 15 | Multimodal | Multimodal RAG | Dokumente mit Text- und Bildanteilen erschließen |
 | 16 | Multimodal | Audio | Speech-to-Text, Text-to-Speech, Audioanalyse und Podcast-Pipelines |
-| 17 | Multimodal | Video | Videoanalyse und Video-Generierung einordnen |
+| 17 | Platzhalter | derzeit nicht belegt | Modulnummer freigehalten |
 | 18 | Platzhalter | derzeit nicht belegt | Modulnummer freigehalten |
 | 19 | Praxis-Extras | Modellsteuerung | Sampling, Context Engineering und kontrollierte Ausgaben |
 | 20 | Praxis-Extras | Codieren mit GenAI | Codegenerierung, Debugging, Revisionsprompts und Entwicklungsworkflow |
@@ -140,6 +140,6 @@ GenAI-Werkzeuge können sehr überzeugend erklären und formulieren. Dadurch ent
 
 ---
 
-**Version:** 1.0<br>
+**Version:** 1.1<br>
 **Stand:** Juni 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

@@ -46,6 +46,8 @@ Empfohlener Einstieg:
 5. [Prompt Engineering](./05-prompting-rag/prompt-engineering.html)
 6. [Modellauswahl](./04-modelle-provider/modellauswahl.html)
 
+Für die technische Umsetzung im Anschluss: → [Erste eigene Chain](#erste-eigene-chain)
+
 ### Erste eigene Chain
 
 Ein erster lauffähiger LangChain-Workflow soll entstehen. Der Fokus liegt auf dem Handwerk: Modell einbinden, Prompt strukturieren, Output verarbeiten.
