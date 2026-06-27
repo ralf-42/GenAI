@@ -13,7 +13,7 @@ description: "Generative KI mit LangChain"
 ---
 
 > [!TIP]  Einstieg in die Dokumentation<br>
-> Für den kürzesten Start zuerst [Zuerst lesen](zuerst-lesen.html) öffnen. Die ausführlichen [Lernpfade](lernpfade.html) helfen danach bei der gezielten Vertiefung.
+> Für den kürzesten Start zuerst [Zuerst lesen](zuerst-lesen.html) öffnen. Dort führt der Einstieg über den [Kursüberblick](02-orientierung/kursueberblick.html) und die ausführlichen [Lernpfade](lernpfade.html) helfen danach bei der gezielten Vertiefung.
 
 ---
 
@@ -25,7 +25,7 @@ Generative KI lässt sich aus drei **Perspektiven** betrachten:
 
 ## Verstehen
 
-Zum Verständnis gehört mehr als ein Überblick über Begriffe. Behandelt werden Transformer-Grundlagen, Tokenisierung, Embeddings, Multimodalität und die Frage, warum Modelle an manchen Stellen erstaunlich gut und an anderen überraschend unzuverlässig arbeiten. Ebenso wichtig sind Grenzen: Halluzinationen, Datenbias, Kontextfehler und der Unterschied zwischen plausibel und belastbar.
+Zum Verständnis gehört mehr als ein Überblick über Begriffe. Behandelt werden Large Language Models, Tokenisierung, Embeddings, Multimodalität und die Frage, warum Modelle an manchen Stellen erstaunlich gut und an anderen überraschend unzuverlässig arbeiten. Ebenso wichtig sind Grenzen: Halluzinationen, Datenbias, Kontextfehler und der Unterschied zwischen plausibel und belastbar.
 
 ## Anwenden
 

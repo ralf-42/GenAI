@@ -39,10 +39,12 @@ Ein Gesamtbild fehlt noch, die Grundbegriffe sind unscharf oder der Unterschied 
 
 Empfohlener Einstieg:
 
-1. [Lohnt sich GenAI?](./02-orientierung/lohnt-es-sich.html)
-2. [Aufgabenklassen und Lösungswege](./02-orientierung/aufgabenklassen-und-loesungswege.html)
-3. [Prompt Engineering](./05-prompting-rag/prompt-engineering.html)
-4. [Modellauswahl](./04-modelle-provider/modellauswahl.html)
+1. [Kursüberblick](./02-orientierung/kursueberblick.html)
+2. [Lohnt sich GenAI?](./02-orientierung/lohnt-es-sich.html)
+3. [Aufgabenklassen und Lösungswege](./02-orientierung/aufgabenklassen-und-loesungswege.html)
+4. [Large Language Models](./03-grundlagen/large-language-models.html)
+5. [Prompt Engineering](./05-prompting-rag/prompt-engineering.html)
+6. [Modellauswahl](./04-modelle-provider/modellauswahl.html)
 
 ### Erste eigene Chain
 
@@ -52,8 +54,9 @@ Empfohlener Einstieg:
 
 1. [LangChain Einsteiger](./06-frameworks/einsteiger-langchain.html)
 2. [Prompt-Templates](./05-prompting-rag/prompt-template.html)
-3. [LangChain Best Practices](./06-frameworks/langchain-best-practices.html)
-4. [Modell-Auswahl Guide](./04-modelle-provider/modellauswahl.html)
+3. [Sampling-Parameter](./05-prompting-rag/sampling-parameter.html)
+4. [LangChain Best Practices](./06-frameworks/langchain-best-practices.html)
+5. [Modell-Auswahl Guide](./04-modelle-provider/modellauswahl.html)
 
 ### Notebooks vorbereiten
 
@@ -107,7 +110,7 @@ Text reicht nicht mehr aus. Bilder, Audio oder gemischte Inhalte sollen eingebun
 
 Empfohlener Einstieg:
 
-1. [Transformer-Grundlagen](./03-grundlagen/transformer.html)
+1. [Large Language Models](./03-grundlagen/large-language-models.html)
 2. [Multimodal: Bild](./09-multimodal/multimodal-bild.html)
 3. [Multimodal: Audio](./09-multimodal/multimodal-audio.html)
 4. [Context Engineering](./05-prompting-rag/context-engineering.html)
@@ -140,17 +143,19 @@ Empfohlener Einstieg:
 5. [KI-Reifegradmodell](./02-orientierung/ki-reifegradmodell.html)
 
 
-## Fünf Dokumente für *fast* jeden Start
+## Sieben Dokumente für *fast* jeden Start
 
-Wer nicht lange wählen will, kommt mit diesen fünf Dokumenten meist am schnellsten ins Thema:
+Wer nicht lange wählen will, kommt mit diesen sieben Dokumenten meist am schnellsten ins Thema:
 
-1. [Lohnt sich GenAI?](./02-orientierung/lohnt-es-sich.html)
-2. [Aufgabenklassen und Lösungswege](./02-orientierung/aufgabenklassen-und-loesungswege.html)
-3. [LangChain Einsteiger](./06-frameworks/einsteiger-langchain.html)
-4. [RAG-Konzepte](./05-prompting-rag/rag-konzepte.html)
-5. [Evaluation & Observability](./07-qualitaet-sicherheit/evaluation-observability.html)
+1. [Kursüberblick](./02-orientierung/kursueberblick.html)
+2. [Lohnt sich GenAI?](./02-orientierung/lohnt-es-sich.html)
+3. [Aufgabenklassen und Lösungswege](./02-orientierung/aufgabenklassen-und-loesungswege.html)
+4. [Large Language Models](./03-grundlagen/large-language-models.html)
+5. [LangChain Einsteiger](./06-frameworks/einsteiger-langchain.html)
+6. [RAG-Konzepte](./05-prompting-rag/rag-konzepte.html)
+7. [Evaluation & Observability](./07-qualitaet-sicherheit/evaluation-observability.html)
 
-Diese Kombination klärt erst die Einsatzfrage, dann die Lösungsklasse und Umsetzung, danach das wichtigste Erweiterungsmuster und zuletzt die Frage, wie Qualität sichtbar wird. Genau diese Reihenfolge verhindert viele frühe Fehlstarts.
+Diese Kombination klärt erst Kursrahmen und Einsatzfrage, dann Lösungsklasse, Modellgrundlagen und Umsetzung. Danach folgen das wichtigste Erweiterungsmuster und die Frage, wie Qualität sichtbar wird. Genau diese Reihenfolge verhindert viele frühe Fehlstarts.
 
 ## Wie die Bereiche zusammenhängen
 
@@ -188,5 +193,5 @@ Gerade bei GenAI-Projekten führt Vollständigkeit schnell in Sackgassen. Ein zu
 ---
 
 **Version:** 1.1<br>
-**Stand:** Mai 2026<br>
+**Stand:** Juni 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

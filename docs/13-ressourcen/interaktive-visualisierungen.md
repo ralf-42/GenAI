@@ -82,7 +82,7 @@ Steuerung, Parametrierung und Anpassung von Sprachmodellen
 | ---------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------ |
 | **Modellsteuerung**    | Möglichkeiten der Modellsteuerung               | [Modellsteuerung](https://editor.p5js.org/ralf.bendig.rb/full/um423ggnD)             |
 | **Entscheidungshilfe** | Entscheidungshilfe Modellsteuerung              | [Modellsteuerung](https://editor.p5js.org/ralf.bendig.rb/full/xb3zPgRSr)             |
-| **LLM-Parameter**      | Bedeutung und Einstellung LLM-Parameter         | [LLM_Parameter](https://editor.p5js.org/ralf.bendig.rb/full/LBc3t3yP4)               |
+| **LLM Sampling Simulator** | Temperature, Top-p und Top-k interaktiv nachvollziehen | [LLM Sampling Simulator](https://editor.p5js.org/ralf.bendig.rb/full/LBc3t3yP4)     |
 | **Quantisierung LLM**  | Quantisierung von Sprachmodellen visualisiert   | [Quantisierung LLM](https://editor.p5js.org/ralf.bendig.rb/full/86TWKzi5c)           |
 | **Fine Tuning**        | Fine-Tuning von Sprachmodellen visualisiert     | [Fine Tuning](https://editor.p5js.org/ralf.bendig.rb/full/7JG_6J21e)                 |
 | **Fine-Tuning LoRA**   | Low-Rank Adaptation für effizientes Fine-Tuning | [LoRA-Grundprinzip](https://editor.p5js.org/ralf.bendig.rb/full/bFNH-Ija5))          |

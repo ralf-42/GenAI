@@ -89,6 +89,42 @@ KI-generiertes Bild
 	+ Chunks werden nacheinander verarbeitet
 	+ LLM behält Kontext zwischen Chunks durch Überlappungen
 
+# Token, Kontextfenster und Kosten
+
+In Large Language Models sind **Tokens** die grundlegenden Einheiten, mit denen Text verarbeitet wird. Ein Token kann ein vollständiges Wort, ein Wortbestandteil, ein Satzzeichen oder ein einzelnes Zeichen sein. Wie ein Text zerlegt wird, hängt vom jeweiligen Tokenizer ab.
+
+Beispiel: Das Wort *Hausboot* kann je nach Tokenizer als ein Token verarbeitet oder in Bestandteile wie *Haus* und *boot* zerlegt werden. Deshalb ist die Tokenanzahl nicht identisch mit der Wortanzahl.
+
+## Kontextfenster
+
+Die **Kontextfenstergröße** gibt an, wie viele Tokens ein Modell in einem Aufruf gleichzeitig berücksichtigen kann. Dazu zählen typischerweise:
+
+- Systemprompt und Instruktionen
+- Nutzereingabe
+- bisheriger Gesprächsverlauf
+- eingefügte Dokumente oder RAG-Kontext
+- erzeugte Antwort
+
+Ein größeres Kontextfenster erlaubt längere Dokumente, komplexere Dialoge und mehr Zusatzinformationen. Es garantiert aber keine bessere Antwort. Wenn der Kontext zu viel irrelevantes Material enthält, steigt das Risiko, dass wichtige Informationen untergehen.
+
+## Tokenverbrauch und Kosten
+
+Viele LLM-Anbieter berechnen Nutzungskosten nach verarbeiteten Tokens. Dabei zählen meist sowohl Eingabetokens als auch Ausgabetokens. Tokenmanagement ist deshalb nicht nur eine technische Frage, sondern beeinflusst auch Kosten, Latenz und Stabilität.
+
+Praktische Konsequenzen:
+
+- lange Prompts erhöhen Kosten und Antwortzeit
+- zu große Chunks können relevante Informationen verdrängen
+- zu kleine Chunks können Zusammenhänge zerstören
+- wiederholte Kontextteile sollten vermieden oder gecacht werden
+
+Interaktive Hilfen:
+
+- [Tokenizer & Kontextfenster](https://gpt-tokenizer.dev/)
+- [OpenAI Tokenizer](https://platform.openai.com/tokenizer)
+- [Kontextfenster](https://editor.p5js.org/ralf.bendig.rb/full/tLnUgyZRK)
+- [Token-Verbrauch & Caching](https://editor.p5js.org/ralf.bendig.rb/full/uAPjZBhtW)
+
 # Parameter- und Strategieauswahl
 - **Tokenizer-Auswahl:**
     - SentencePiece/BPE sind ideal für lange, unstrukturierte Texte, da sie feine Subworteinheiten erzeugen und dabei semantische Bedeutung beibehalten.
@@ -308,7 +344,7 @@ Tokenizer, Chunk-Größe und Chunking-Strategie zusammen bestimmen, wie gut eine
 |---|---|
 | [Embeddings](./embeddings.html) | Wie werden die vorbereiteten Textstücke später semantisch repräsentiert? |
 | [RAG-Konzepte](../05-prompting-rag/rag-konzepte.html) | Wie wirken Chunking-Entscheidungen auf Retrieval und Antwortqualität? |
-| [Transformer-Architektur](./transformer.html) | Warum spielen Token überhaupt eine so zentrale Rolle für Sprachmodelle? |
+| [Large Language Models](./large-language-models.html) | Warum spielen Token überhaupt eine so zentrale Rolle für Sprachmodelle? |
 
 ---
 

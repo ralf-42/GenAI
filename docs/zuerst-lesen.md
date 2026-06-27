@@ -18,15 +18,16 @@ Diese Seite ist der kürzeste Einstieg in die Dokumentation. Sie ersetzt nicht d
 
 ## Der schnelle Einstieg
 
-Wer neu in das Kursmaterial einsteigt, beginnt mit diesen fünf Dokumenten:
+Wer neu in das Kursmaterial einsteigt, beginnt mit diesen sechs Dokumenten:
 
-1. [Lohnt sich GenAI?](./02-orientierung/lohnt-es-sich.html)
-2. [Aufgabenklassen und Lösungswege](./02-orientierung/aufgabenklassen-und-loesungswege.html)
-3. [LangChain Einsteiger](./06-frameworks/einsteiger-langchain.html)  (Nur erste Abschnitte)
-4. [RAG-Konzepte](./05-prompting-rag/rag-konzepte.html) (Überblick & Architektur)
-5. [Evaluation & Observability](./07-qualitaet-sicherheit/evaluation-observability.html)  (Nur erste Abschnitte)
+1. [Kursüberblick](./02-orientierung/kursueberblick.html)
+2. [Lohnt sich GenAI?](./02-orientierung/lohnt-es-sich.html)
+3. [Aufgabenklassen und Lösungswege](./02-orientierung/aufgabenklassen-und-loesungswege.html)
+4. [LangChain Einsteiger](./06-frameworks/einsteiger-langchain.html)  (Nur erste Abschnitte)
+5. [RAG-Konzepte](./05-prompting-rag/rag-konzepte.html) (Überblick & Architektur)
+6. [Evaluation & Observability](./07-qualitaet-sicherheit/evaluation-observability.html)  (Nur erste Abschnitte)
 
-Diese Reihenfolge klärt zuerst, ob GenAI überhaupt sinnvoll ist und welcher Lösungsweg zur Aufgabe passt. Danach folgt die technische Umsetzung mit LangChain, anschließend das wichtigste Erweiterungsmuster für eigene Daten und zuletzt die Frage, wie Qualität überprüfbar wird.
+Diese Reihenfolge klärt zuerst Kursziel und Voraussetzungen, danach ob GenAI überhaupt sinnvoll ist und welcher Lösungsweg zur Aufgabe passt. Anschließend folgt die technische Umsetzung mit LangChain, das wichtigste Erweiterungsmuster für eigene Daten und zuletzt die Frage, wie Qualität überprüfbar wird.
 
 Wenn echte Nutzer-, Kunden-, Mitarbeiter- oder interne Dokumentdaten verarbeitet werden, sollte zusätzlich früh [Datenschutz & DSGVO](./12-regulatorik-verantwortung/datenschutz-dsgvo.html) gelesen werden. Datenschutz entscheidet oft mit, ob Cloud-API, lokales Modell, RAG-Index oder Logging überhaupt passend sind.
 
@@ -34,8 +35,10 @@ Wenn echte Nutzer-, Kunden-, Mitarbeiter- oder interne Dokumentdaten verarbeitet
 
 | Ziel | Zuerst anschauen |
 |---|---|
+| Kursziel, Voraussetzungen und Vorbereitung verstehen | [Kursüberblick](./02-orientierung/kursueberblick.html) |
 | GenAI-Vorhaben einschätzen | [Lohnt sich GenAI?](./02-orientierung/lohnt-es-sich.html) |
 | Erstes Verständnis für GenAI-Anwendungen | [Aufgabenklassen und Lösungswege](./02-orientierung/aufgabenklassen-und-loesungswege.html) |
+| Grundverständnis für LLMs, Foundation Models und Transformer | [Large Language Models](./03-grundlagen/large-language-models.html) |
 | Erste eigene Chain bauen | [LangChain Einsteiger](./06-frameworks/einsteiger-langchain.html) |
 | Dokumente und Wissen einbinden | [RAG-Konzepte](./05-prompting-rag/rag-konzepte.html) |
 | Antworten messbar verbessern | [Evaluation & Observability](./07-qualitaet-sicherheit/evaluation-observability.html) |
@@ -61,5 +64,5 @@ Nach dem Einstieg führt die Seite [Lesepfade](./lernpfade.html) durch neun Them
 ---
 
 **Version:** 1.0<br>
-**Stand:** Mai 2026<br>
+**Stand:** Juni 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

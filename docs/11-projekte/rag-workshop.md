@@ -683,7 +683,7 @@ with gr.Blocks(title="Tech-Doku Assistent") as demo:
 
 **Kurs-Notebooks:**
 - `01_notebook/M02_LangChain101.ipynb`
-- `01_notebook/M03_Large_Language_Modell.ipynb`
+- `01_notebook/M03_Textverarbeitung_mit_LangChain.ipynb`
 - `01_notebook/M04_OutputParser.ipynb`
 - `01_notebook/M05_Chat_Memory_Patterns_stategraph.ipynb`
 - `01_notebook/M05_Chat_Memory_Patterns_list_dict.ipynb`
