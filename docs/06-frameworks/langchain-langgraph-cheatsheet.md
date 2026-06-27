@@ -24,9 +24,7 @@ has_toc: true
 
 
 <img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/cheatsheet.png" class="logo" width="750"/>
-<p><font color='black' size="2">
-KI-generiertes Bild
-</font></p>
+<p><small>KI-generiertes Bild</small></p>
 
 ## Schnellentscheidung
 

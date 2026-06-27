@@ -50,7 +50,7 @@ Frage → Suche relevante Dokumente → Füge Kontext zum Prompt → LLM generie
 
 Ein RAG-System lässt sich in zwei große Phasen aufteilen: **Datensammlung/Indexierung** sowie **Abruf & Erweiterung/Retrieval + Generation**. Diese Struktur ist nicht nur organisatorisch sinnvoll: Fehler in der ersten Phase zeigen sich später oft so, als wäre das Modell das Problem. Wenn Chunks unsauber geschnitten oder Metadaten schlecht gepflegt sind, hilft auch ein sehr starkes LLM nur begrenzt.
 
-<img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/rag_process.png" alt="Raster aus Pixelwerten" width="600">
+<img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/rag_process.png" alt="RAG-Prozess: Indexierung und Retrieval" width="600">
 
 
 
@@ -746,5 +746,5 @@ RAG macht es möglich, LLMs mit aktuellem und domänenspezifischem Wissen auszus
 ---
 
 **Version:**    1.1<br>
-**Stand:** Mai 2026<br>
+**Stand:** Juni 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

@@ -122,11 +122,6 @@ Beim **Training** sieht das Modell sehr viele Beispiele und korrigiert seine int
 
 Bei der **Inferenz** werden diese gelernten Parameter nur noch angewendet. Das Modell bekommt einen Prompt, verarbeitet den Kontext und erzeugt Token für Token eine Antwort. Die Gewichte des Modells bleiben dabei unverändert.
 
-Kurz gesagt:
-
-- **Training** = Lernen und Anpassen
-- **Inferenz** = Anwenden und Antworten erzeugen
-
 So sieht der Ablauf bei einer normalen Anfrage aus:
 
 ```mermaid
@@ -178,9 +173,7 @@ Sampling-Parameter gehören eher zur praktischen Modellsteuerung als zur Archite
 
 # Warum sind Transformer für LLMs so wichtig?
 
-Beim echten Textverstehen reicht es nicht, Bausteine sequenziell abzuarbeiten. Wörter müssen zueinander in Beziehung gesetzt werden: Welche passen zusammen? Welche sind gerade entscheidend, und welche spielen eher eine Nebenrolle?
-
-Genau dafür ist ein **Transformer** gebaut: Er verarbeitet Texte so, dass das Modell ausrechnen kann, welche Wörter in einem Kontext besonders wichtig sind.
+Transformer sind dafür gebaut, Beziehungen zwischen Wörtern zu berechnen — nicht sequenziell, sondern gleichzeitig und über beliebige Abstände. Warum das einen Unterschied macht, zeigt das folgende Beispiel.
 
 # Die Grundidee
 Nehmen wir den Satz: _„Der Hund bellt laut.“_
@@ -210,20 +203,20 @@ Der Transformer lernt diese Zusammenhänge nicht per Hand, sondern über **Aufme
 Self-Attention ist ein Mechanismus, bei dem jedes Wort in einem Satz mit allen anderen Wörtern (inklusive sich selbst) verglichen wird. Aus den Ähnlichkeiten entsteht ein Signal dafür, wie stark das jeweilige andere Wort in die Darstellung einfließen soll.
 
 **Beispiel:**
-Im Satz **„Der große Hund bellt laut“** wird das Wort **„bellt“** mit allen anderen Wörtern abgeglichen:
+Im Satz „Der große Hund bellt laut” wird das Wort „bellt” mit allen anderen Wörtern abgeglichen:
 
-- Mit **„Hund“** ist die Verbindung stark, weil der Hund die Handlung ausführt.
-- **„große“** beschreibt den Hund und ist dadurch indirekt mit „bellt“ verknüpft.
-- **„laut“** passt direkt zur Handlung und ist deshalb besonders relevant.
-- **„Der“** ist ein Artikel und trägt weniger inhaltliche Information zu „bellt“ bei.
+- Mit „Hund” ist die Verbindung stark, weil der Hund die Handlung ausführt.
+- „große” beschreibt den Hund und ist dadurch indirekt mit „bellt” verknüpft.
+- „laut” passt direkt zur Handlung und ist deshalb besonders relevant.
+- „Der” ist ein Artikel und trägt weniger inhaltliche Information zu „bellt” bei.
 
 So erkennt das Modell, welche Wörter bei „bellt“ wichtig sind, und baut daraus eine kontextabhängige Darstellung, die den Satz besser abbildet.
 
 Damit diese Aufmerksamkeit nicht nur „irgendwie“ berechnet wird, nutzt der Transformer pro Token drei gelernte Perspektiven: **Query**, **Key** und **Value**.
 
-- **„Was suche ich?“** → **Query**
-- **„Was biete ich an?“** → **Key**
-- **„Was ist mein Inhalt?“** → **Value**
+- „Was suche ich?” → **Query**
+- „Was biete ich an?” → **Key**
+- „Was ist mein Inhalt?” → **Value**
 
 Eine Suchmaschine ist eine hilfreiche Analogie: Eine Suchanfrage passt besonders gut zu bestimmten Dokumenten, weil deren Inhalte relevante Signale enthalten. Ähnlich vergleicht der Transformer eine Query mit vielen Keys. Wenn die Übereinstimmung hoch ist, fließt der zugehörige Value stärker in die neue Darstellung ein.
 
@@ -331,7 +324,7 @@ Eine weitere interaktive Erklärung bietet der [Transformer Explainer](https://p
 
 **Beispiel**: "Hello world" → "Hallo Welt"
 
-# Warum sind Transformer so revolutionär?
+# Was Transformer von früheren Methoden unterscheidet
 
 
 ## Vorher (alte Methoden):
@@ -348,55 +341,13 @@ Eine weitere interaktive Erklärung bietet der [Transformer Explainer](https://p
 
 # Die Logik eines Transformers in einfachen Schritten
 
-Ein Transformer ist im Kern ein sehr aufmerksamer Leser. Er erzeugt Text nicht, indem er feste Regeln abarbeitet, sondern indem er aus sehr vielen Beispielen gelernt hat, welche Wörter und Bedeutungen in welchem Kontext zusammenpassen.
+Ein Transformer erzeugt Text durch fünf aufeinander aufbauende Schritte:
 
-## 1. Text wird in Tokens zerlegt
-
-Der erste Schritt ist die Zerlegung des Textes in kleine Bausteine, sogenannte **Tokens**. Ein Token kann ein ganzes Wort sein, ein Wortteil oder auch ein Satzzeichen.
-
-Beispiel:
-
-> „Der Hund bellt laut.“
-
-Daraus werden mehrere Tokens, die das Modell einzeln verarbeiten kann.
-
-## 2. Tokens werden als Zahlen dargestellt
-
-Das Modell arbeitet nicht direkt mit Wörtern, sondern mit Zahlenvektoren. Diese Vektoren enthalten gelernte Informationen darüber, wie ein Token typischerweise verwendet wird.
-
-Vereinfacht gesagt bekommt jedes Token eine mathematische Bedeutung.
-
-## 3. Jedes Token schaut auf die anderen Tokens
-
-Jetzt kommt der zentrale Schritt: **Self-Attention** (→ ausführliche Erklärung mit Query/Key/Value im Abschnitt [Die Grundidee](#die-grundidee)).
-
-Jedes Token prüft, welche anderen Tokens für seine Bedeutung wichtig sind. Im Satz „Der Hund bellt laut“ ist für „bellt“ zum Beispiel besonders wichtig:
-
-- Wer führt die Handlung aus? → „Hund“
-- Wie wird die Handlung ausgeführt? → „laut“
-- Welche Wörter sind eher grammatische Begleiter? → „Der“
-
-Das Modell gewichtet diese Beziehungen. Nicht jedes Wort ist gleich wichtig.
-
-## 4. Mehrere Schichten verfeinern das Verständnis
-
-Dieses Verstehen passiert nicht nur einmal. Ein Transformer besteht aus mehreren Schichten. Jede Schicht verarbeitet die bisherigen Beziehungen weiter.
-
-Man kann sich das vorstellen wie mehrfaches Lesen:
-
-- Beim ersten Lesen erkennt man grobe Wortbeziehungen.
-- Beim zweiten Lesen erkennt man Grammatik und Rollen.
-- In späteren Schichten entstehen abstraktere Bedeutungen und Muster.
-
-## 5. Beim Generieren wird das nächste Token vorhergesagt
-
-Ein Sprachmodell nutzt diese berechneten Zusammenhänge, um das nächste passende Token vorherzusagen.
-
-Wenn bisher steht:
-
-> „Der Hund bellt ...“
-
-dann sind Tokens wie „laut“, „heftig“ oder „nachts“ wahrscheinlicher als ein unpassendes Wort. Danach wird das gewählte Token an den bisherigen Text angehängt, und der Prozess beginnt erneut.
+1. **Tokens** — Der Text wird in kleine Bausteine zerlegt: Wörter, Wortteile oder Satzzeichen.
+2. **Zahlen** — Jedes Token wird als Zahlenvektor dargestellt, der gelernte Bedeutung trägt (→ [Embedding](#wörter-werden-zu-zahlen--embedding)).
+3. **Attention** — Jedes Token prüft, welche anderen Tokens für seine Bedeutung wichtig sind (→ [Self-Attention im Detail](#die-grundidee)).
+4. **Schichten** — Mehrere Transformer-Schichten verfeinern die Beziehungen sukzessive: frühe Schichten erfassen grobe Zusammenhänge, spätere abstraktere Muster.
+5. **Generieren** — Das Modell sagt das nächste passende Token voraus, hängt es an und wiederholt den Prozess Token für Token.
 
 Kurz gesagt: Ein Transformer zerlegt Text, bildet Bedeutung als Zahlen ab, berechnet Beziehungen zwischen Tokens und sagt daraus Schritt für Schritt das nächste passende Token voraus.
 
@@ -456,7 +407,7 @@ Zwei Begriffe tauchen dabei besonders häufig auf:
 | **1** | **State Space Models (SSM)** | Ersetzen klassische Attention teilweise oder ganz durch Zustandsmodelle mit besserer Skalierung bei langen Sequenzen. | Echte Transformer-Alternative oder Hybrid | Mamba, Mamba-2, Jamba, BlackMamba; aktiv in Forschung und Prototypen |
 | **2** | **Hybride Attention-SSM-Modelle** | Kombinieren Attention mit SSM-Schichten, um lange Kontexte effizienter zu verarbeiten. | Hybrid | Jamba und verwandte Architekturen; relevant, aber noch nicht dominierend |
 | **3** | **Moderne rekurrente Modelle** | Greifen ältere RNN/LSTM-Ideen neu auf, aber mit moderner Skalierung und Parallelisierung. | Alternative Architektur | xLSTM, RWKV; interessant für lange Sequenzen und effiziente Inferenz |
-| **4** | **Neural Memory Architectures** | Ergänzen Modelle um explizitere Kurz- und Langzeitspeicher. | Hybrid / Forschung | Titans; vielversprechend für sehr lange Kontexte und Gedächtnisaufgaben |
+| **4** | **Neural Memory Architectures** | Ergänzen Modelle um explizitere Kurz- und Langzeitspeicher. | Hybrid / Forschung | Titans; Stärken bei sehr langen Kontexten und Gedächtnisaufgaben |
 | **5** | **Mixture-of-Experts (MoE)** | Viele Experten sind vorhanden, aber pro Token werden nur wenige aktiviert. | Transformer-Erweiterung | DeepSeek-V3, Mixtral, Llama 4; produktiv relevant |
 | **6** | **Reasoning- und Test-Time-Compute-Modelle** | Modelle nutzen zur Laufzeit mehr Rechenzeit für schwierige Aufgaben. | Inferenz- und Trainingsstrategie, meist Transformer-basiert | OpenAI o3/o4-mini, DeepSeek-R1; produktiv relevant |
 | **7** | **Diffusion Language Models** | Erzeugen Text nicht nur strikt links-nach-rechts, sondern über Rauschentfernung oder parallele Token-Vorhersage. | Alternative Generierungslogik, oft mit Transformer-Komponenten | Mercury Coder; frühe kommerzielle Nutzung, noch nicht Mainstream |
@@ -503,6 +454,6 @@ Zwei Begriffe tauchen dabei besonders häufig auf:
 
 ---
 
-**Version:** 1.1<br>
+**Version:** 1.3<br>
 **Stand:** Juni 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

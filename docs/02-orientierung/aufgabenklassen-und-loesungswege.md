@@ -312,7 +312,7 @@ Und für jeden Pfad gilt danach: **Datenschutzprüfung → Cloud, self-hosted od
 
 ## Praxisregeln
 
-1. **Start simple, scale later:** Fang mit der einfachsten tragfähigen Lösung an.
+1. **Einfach starten, dann skalieren:** Fang mit der einfachsten tragfähigen Lösung an.
 2. **3-Mal-Regel:** Wenn eine Aufgabe mindestens dreimal manuell gemacht wird, Automatisierung prüfen.
 3. **Architektur vor Toolnamen:** Erst das Muster finden, dann das passende Produkt wählen.
 4. **Betriebsfähigkeit mitdenken:** Logging, Monitoring und Verantwortlichkeiten früh klären.
@@ -357,6 +357,6 @@ So bleibt die Umsetzung fachlich passend, wirtschaftlich sinnvoll und langfristi
 
 ---
 
-**Version:**    4.0<br>
-**Stand:** Mai 2026<br>
+**Version:** 4.1<br>
+**Stand:** Juni 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
