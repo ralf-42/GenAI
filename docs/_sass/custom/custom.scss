@@ -194,6 +194,16 @@ figure.highlight {
   }
 }
 
+.callout[data-callout="important"] {
+  background-color: rgba(137, 87, 229, 0.1);
+  border-color: #8957e5;
+
+  .callout-title {
+    background-color: rgba(137, 87, 229, 0.15);
+    border-bottom-color: rgba(137, 87, 229, 0.2);
+  }
+}
+
 .callout[data-callout="example"] {
   background-color: rgba(156, 39, 176, 0.1);
   border-color: #9c27b0;
@@ -285,6 +295,14 @@ figure.highlight {
 
     .callout-title {
       background-color: rgba(76, 175, 80, 0.2);
+    }
+  }
+
+  .callout[data-callout="important"] {
+    background-color: rgba(137, 87, 229, 0.15);
+
+    .callout-title {
+      background-color: rgba(137, 87, 229, 0.2);
     }
   }
 

@@ -65,8 +65,10 @@ Die folgende Tabelle zeigt die zentralen Modellrollen aus `model_config.py`. Die
 
 ## Modelsteckbrief - Beispiel
 
+<br>
 
-<img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/modellsteckbrief_gpt_5.4_mini.png" class="logo" width="950"/>
+
+<img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/modellsteckbrief_gpt_5.4_mini.png" class="logo" width="750"/>
 <p><font color='black' size="2">
 KI-generiertes Bild
 </font></p>
