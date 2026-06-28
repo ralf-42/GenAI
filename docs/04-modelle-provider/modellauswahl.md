@@ -62,7 +62,8 @@ Die folgende Tabelle zeigt die zentralen Modellrollen aus `model_config.py`. Die
 > In Notebooks werden nach Möglichkeit Rollen aus `model_config.py` verwendet. Harte Modellnamen stehen nur dort direkt im Notebook, wo ein bestimmter Endpunkt oder ein bewusstes Vergleichsexperiment gezeigt wird.
 
 
-## Modelsteckbrief
+
+## Modelsteckbrief - Beispiel
 
 
 <img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/modellsteckbrief_gpt_5.4_mini.png" class="logo" width="950"/>
