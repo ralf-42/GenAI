@@ -40,14 +40,20 @@ Typische Vorteile sind:
 
 ## Zentrale Konzepte
 
-| Konzept | Bedeutung |
-|---|---|
-| State | Gemeinsamer Zustand, der durch den Workflow wandert |
-| Node | Ein einzelner Bearbeitungsschritt |
-| Edge | Verbindung zwischen Schritten |
-| Conditional Routing | Entscheidung, welcher Pfad als Nächstes läuft |
-| Checkpointing | Speichert Zustand für Resume und Debugging |
-| Interrupt | Technischer Halt für Human-in-the-Loop |
+| Konzept             | Bedeutung                                           |
+| ------------------- | --------------------------------------------------- |
+| State               | Gemeinsamer Zustand, der durch den Workflow wandert |
+| Node                | Ein einzelner Bearbeitungsschritt                   |
+| Edge                | Verbindung zwischen Schritten                       |
+| Conditional Routing | Entscheidung, welcher Pfad als Nächstes läuft       |
+| Checkpointing       | Speichert Zustand für Resume und Debugging          |
+| Interrupt           | Technischer Halt für Human-in-the-Loop              |
+|                     |                                                     |
+
+<img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/langgraph_konzepte.png" class="logo" width="950"/>
+<p><font color='black' size="2">
+KI-generiertes Bild
+</font></p>
 
 ---
 
