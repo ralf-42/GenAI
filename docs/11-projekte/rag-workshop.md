@@ -849,21 +849,20 @@ Ergänze im Notebook eine kurze Entscheidungsmatrix:
 
 ## Bewertungskriterien
 
-| Kapitel | Punkte | Kriterien |
-|---------|--------|-----------|
-| 1: Basis-Chatbot (M02) | 10 | Funktionalität, klare Grenzen, LCEL-Nutzung |
-| 2: Token-Optimierung (M03) | 10 | Korrekte Zählung, Statistiken, Kontextbewusstsein |
-| 3: Strukturierte Ausgaben (M04) | 10 | Pydantic-Modelle, Validierung, juristische Felder |
-| 4: Chat-Memory (M05) | 10 | Sachverhaltskontext, Memory-Management |
-| 5: Legal RAG (M06) | 15 | Retrieval-Qualität, Quellenangaben, Mini-Evaluation |
-| 6: SQL RAG (M07) | 10 | Rechtsmetadaten, SQL-Generierung, Hybrid-Modus |
-| 7: Agent mit Tools (M08) | 15 | Tool-Implementation, Agent-Logik, Zitierprüfung |
-| 8: Middleware (M09) | 10 | Logging, HITL, Retry-Stack, Kontrollpunkte |
-| 9: Gradio-UI (M11) | 10 | Usability, Quellenanzeige, sensible Veröffentlichung |
-| 10: Lokale Modelle (M12) | 10 | Vergleich API-Modell vs. lokales Modell, Betriebsentscheidung |
-| **Gesamt** | **110** | |
+| Kapitel                         | Punkte  | Kriterien                                                     |
+| ------------------------------- | ------- | ------------------------------------------------------------- |
+| 1: Basis-Chatbot (M02)          | 10      | Funktionalität, klare Grenzen, LCEL-Nutzung                   |
+| 2: Token-Optimierung (M03)      | 10      | Korrekte Zählung, Statistiken, Kontextbewusstsein             |
+| 3: Strukturierte Ausgaben (M04) | 10      | Pydantic-Modelle, Validierung, juristische Felder             |
+| 4: Chat-Memory (M05)            | 10      | Sachverhaltskontext, Memory-Management                        |
+| 5: Legal RAG (M06)              | 15      | Retrieval-Qualität, Quellenangaben, Mini-Evaluation           |
+| 6: SQL RAG (M07)                | 10      | Rechtsmetadaten, SQL-Generierung, Hybrid-Modus                |
+| 7: Agent mit Tools (M08)        | 15      | Tool-Implementation, Agent-Logik, Zitierprüfung               |
+| 8: Middleware (M09)             | 10      | Logging, HITL, Retry-Stack, Kontrollpunkte                    |
+| 9: Gradio-UI (M11)              | 10      | Usability, Quellenanzeige, sensible Veröffentlichung          |
+| 10: Lokale Modelle (M12)        | 10      | Vergleich API-Modell vs. lokales Modell, Betriebsentscheidung |
+| **Gesamt**                      | **110** |                                                               |
 
-**Bestanden:** >= 60 Punkte
 
 ---
 
@@ -875,20 +874,6 @@ Ergänze im Notebook eine kurze Entscheidungsmatrix:
 - [RAG Tutorial](https://python.langchain.com/docs/tutorials/rag/)
 - [Agents](https://python.langchain.com/docs/concepts/agents/)
 
-**Kurs-Notebooks:**
-
-- `01_notebook/M02_LangChain101.ipynb`
-- `01_notebook/M03_Textverarbeitung_mit_LangChain.ipynb`
-- `01_notebook/M04_OutputParser.ipynb`
-- `01_notebook/M05_Chat_Memory_Patterns_stategraph.ipynb`
-- `01_notebook/M05_Chat_Memory_Patterns_list_dict.ipynb`
-- `01_notebook/M06_RAG_LangChain.ipynb`
-- `01_notebook/M07_SQL_RAG.ipynb`
-- `01_notebook/M08_Agenten_LangChain.ipynb`
-- `01_notebook/M09_Middleware.ipynb`
-- `01_notebook/M10_MCP_LangChain_Agent.ipynb`
-- `01_notebook/M11_Gradio.ipynb`
-- `01_notebook/M12_Lokale_Open_Source_Modelle.ipynb`
 
 **Qualität & Observability:**
 
@@ -909,11 +894,6 @@ Ergänze im Notebook eine kurze Entscheidungsmatrix:
 - Eine **M12-Entscheidungsmatrix** zum Vergleich von API-Modell und lokalem Modell
 - Ein **Demo-Video** oder ein **Colab-Link**
 
-**Einreichung:**
-
-- Als **Colab-Link**
-- Oder als **ZIP-Archiv** mit `.ipynb`, `legal_docs/` und Datenbankdatei
-- Oder als **Git-Repository-Link**
 
 ### Checkliste Legal-RAG-Workshop
 
