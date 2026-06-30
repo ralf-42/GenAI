@@ -90,7 +90,7 @@ Die Notebooks sind nach Themen geordnet. Einzelne Aufgaben können je nach Kursv
 | ------------------------------------------- | -------------------------------------------------------------------------------- |
 | `M01_GenAI_Intro.ipynb`                     | Grundlagen Generative KI, OpenAI, Hugging Face, LangChain-Warm-up                |
 | `M02_LangChain101.ipynb`                    | LangChain-Grundlagen, Prompts, Chains, Tools                                     |
-| `M03_Textverarbeitung_mit_LangChain.ipynb`  | Textgenerierung, Textklassifizierung, Textzusammenfassung, LangChain-Grundmuster |
+| `M03_LLM_Text.ipynb`                        | Textgenerierung, Textklassifizierung, Textzusammenfassung, LangChain-Grundmuster |
 | `M04_OutputParser.ipynb`                    | Strukturierte Ausgaben und `with_structured_output()`                            |
 | `M05_Chat_Memory_Patterns_stategraph.ipynb` | Chat-Verläufe, Memory-Patterns (LangGraph/StateGraph)                            |
 | `M05_Chat_Memory_Patterns_list_dict.ipynb`  | Chat-Verläufe, Memory-Patterns (Python-Listen/Dict)                              |
