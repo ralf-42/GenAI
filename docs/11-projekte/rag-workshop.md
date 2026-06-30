@@ -25,7 +25,7 @@ has_toc: true
 
 ## Projektübersicht
 
-In dieser Übung entsteht ein **juristischer KI-Assistent**, der rechtliche Fragen strukturiert bearbeitet, passende Quellen findet und Antworten mit nachvollziehbaren Verweisen vorbereitet. Das System soll keine Rechtsberatung ersetzen. Es zeigt, wie ein KI-System für juristische Informationsarbeit technisch aufgebaut werden kann: Benutzeroberfläche, System-Prompt, Orchestrierung, Retrieval, Modellaufruf, Qualitätskontrolle und Präsentation.
+In diesem Projekt entsteht ein **juristischer KI-Assistent**, der rechtliche Fragen strukturiert bearbeitet, passende Quellen findet und Antworten mit nachvollziehbaren Verweisen vorbereitet. Das System soll keine Rechtsberatung ersetzen. Es zeigt, wie ein KI-System für juristische Informationsarbeit technisch aufgebaut werden kann: Benutzeroberfläche, System-Prompt, Orchestrierung, Retrieval, Modellaufruf, Qualitätskontrolle und Präsentation.
 
 Das Projekt orientiert sich an einer typischen Architektur für juristische KI-Systeme:
 
@@ -37,7 +37,7 @@ Das Projekt orientiert sich an einer typischen Architektur für juristische KI-S
 - **Output & Präsentation:** Strukturierung, Quellenangaben, Export und UI-Ausgabe
 
 
-<img src="https://raw.githubusercontent.com/ralf-42/Agenten/main/07_image/pia_2.png" class="logo" width="950"/>
+<img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/profil_legal.png" class="logo" width="950"/>
 <p><font color='black' size="2">
 KI-generiertes Bild
 </font></p>
