@@ -174,21 +174,12 @@ from langchain.chat_models import init_chat_model
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 
-# LLM initialisieren
-llm = init_chat_model("openai:gpt-5.4-mini")
-
-prompt = ChatPromptTemplate.from_messages([
-    ("system", """Du bist ein juristischer Lernassistent.
-Antworte präzise, verständlich und mit klaren Grenzen.
-Gib keine verbindliche Rechtsberatung.
-Wenn dir Normen, Urteile oder Sachverhaltsdetails fehlen, sage das offen."""),
-    ("human", "{frage}"),
-])
-
-chain = prompt | llm | StrOutputParser()
-
-antwort = chain.invoke({"frage": "Was ist der Unterschied zwischen Gesetz und Urteil?"})
-print(antwort)
+# TODO:
+# 1. LLM initialisieren
+# 2. System-Prompt mit juristischer Rolle und Grenzen formulieren
+# 3. ChatPromptTemplate erstellen
+# 4. LCEL-Chain mit StrOutputParser bauen
+# 5. Eine Testfrage ausführen
 ```
 
 ### Aufgabe 1.2: Interaktive Chat-Schleife
@@ -196,18 +187,12 @@ print(antwort)
 ```python
 def legal_chat():
     """Einfache Chat-Schleife für Jupyter/Colab."""
-    print("Juristischer KI-Assistent gestartet!")
-    print("Schreibe 'exit' zum Beenden.\n")
-
-    while True:
-        frage = input("Frage: ")
-        if frage.lower() == "exit":
-            break
-
-        antwort = chain.invoke({"frage": frage})
-        print("\nAntwort:")
-        print(antwort)
-        print()
+    # TODO:
+    # - Eingabe wiederholt abfragen
+    # - Abbruchbefehl definieren
+    # - Chain mit der Nutzerfrage aufrufen
+    # - Antwort ausgeben
+    pass
 ```
 
 **Erfolgskriterium:**
@@ -236,15 +221,11 @@ import tiktoken
 
 def count_tokens(text: str, model: str = "gpt-5.4-nano") -> int:
     """Zählt Tokens für ein gegebenes Modell."""
-    encoding = tiktoken.encoding_for_model(model)
-    return len(encoding.encode(text))
-
-beispieltext = """
-§ 823 BGB regelt die Schadensersatzpflicht bei vorsätzlicher oder fahrlässiger
-Verletzung bestimmter Rechte und Rechtsgüter.
-"""
-
-print("Tokens:", count_tokens(beispieltext))
+    # TODO:
+    # - Encoding für das Modell laden
+    # - Text encodieren
+    # - Anzahl der Tokens zurückgeben
+    pass
 ```
 
 ### Aufgabe 2.2: Chat mit Token-Tracking
@@ -252,27 +233,12 @@ print("Tokens:", count_tokens(beispieltext))
 ```python
 def legal_chat_mit_tokens():
     """Chat mit Token-Statistiken."""
-    print("Juristischer KI-Assistent (mit Token-Tracking)")
-    print("Schreibe 'exit' zum Beenden.\n")
-
-    total_tokens = 0
-
-    while True:
-        frage = input("Frage: ")
-        if frage.lower() == "exit":
-            break
-
-        antwort = chain.invoke({"frage": frage})
-        token_count = count_tokens(frage + antwort)
-        total_tokens += token_count
-
-        print("\nAntwort:")
-        print(antwort)
-        print(f"\nTokens für diese Runde: {token_count}")
-        print(f"Tokens gesamt: {total_tokens}\n")
-
-        if count_tokens(antwort) > 500:
-            print("Hinweis: Die Antwort ist lang. Prüfe, ob eine kürzere Struktur reicht.\n")
+    # TODO:
+    # - Chat-Schleife aus Kapitel 1 wiederverwenden
+    # - Tokens pro Frage/Antwort zählen
+    # - Session-Summe pflegen
+    # - Warnung bei langen Antworten ergänzen
+    pass
 ```
 
 **Erfolgskriterium:**
@@ -302,20 +268,18 @@ from typing import Literal
 
 class LegalAnswer(BaseModel):
     """Strukturierte juristische Antwort."""
-    frage: str = Field(description="Die ursprüngliche Frage")
-    kurzantwort: str = Field(description="Kurze, verständliche Antwort")
-    rechtsgebiet: Literal["Zivilrecht", "Strafrecht", "Öffentliches Recht", "Unklar"]
-    normen: list[str] = Field(description="Genannte Normen, z. B. § 823 BGB")
-    quellenbedarf: bool = Field(description="True, wenn belastbare Quellen fehlen")
-    hinweis: str = Field(description="Grenzen der Antwort oder nächster Prüfschritt")
+    # TODO:
+    # - Frage
+    # - Kurzantwort
+    # - Rechtsgebiet
+    # - einschlägige Normen
+    # - Quellenbedarf / Unsicherheit
+    # - nächster Prüfschritt
+    pass
 
-structured_llm = llm.with_structured_output(LegalAnswer)
-
-result = structured_llm.invoke(
-    "Welche Rolle spielt § 823 BGB bei Schadensersatzansprüchen?"
-)
-
-print(result)
+# TODO:
+# - LLM mit with_structured_output(LegalAnswer) konfigurieren
+# - Testfrage ausführen
 ```
 
 ### Aufgabe 3.2: Fallnotiz-Datenbank aufbauen
@@ -325,23 +289,12 @@ import json
 
 def create_case_notes():
     """Interaktive Sammlung strukturierter Fallnotizen."""
-    notes = []
-    print("Fallnotiz-Generator")
-    print("Schreibe 'exit' zum Beenden.\n")
-
-    while True:
-        frage = input("Juristische Frage: ")
-        if frage.lower() == "exit":
-            break
-
-        note = structured_llm.invoke(frage)
-        notes.append(note.model_dump())
-        print(note)
-
-    with open("legal_case_notes.json", "w", encoding="utf-8") as f:
-        json.dump(notes, f, ensure_ascii=False, indent=2)
-
-    return notes
+    # TODO:
+    # - Fragen interaktiv sammeln
+    # - strukturierte Antwort erzeugen
+    # - Ergebnisse als Liste speichern
+    # - JSON-Export ergänzen
+    pass
 ```
 
 **Erfolgskriterium:**
@@ -374,26 +327,15 @@ store = {}
 
 def get_session_history(session_id: str) -> InMemoryChatMessageHistory:
     """Holt oder erstellt Chat-History für eine Session."""
-    if session_id not in store:
-        store[session_id] = InMemoryChatMessageHistory()
-    return store[session_id]
+    # TODO:
+    # - Neue Session anlegen, falls sie noch nicht existiert
+    # - Bestehende Session zurückgeben
+    pass
 
-memory_prompt = ChatPromptTemplate.from_messages([
-    ("system", """Du bist ein juristischer Lernassistent.
-Nutze die bisherige Unterhaltung nur als Sachverhaltskontext.
-Unterscheide klar zwischen Angaben des Nutzers, Rechtsquellen und eigener Einschätzung."""),
-    MessagesPlaceholder(variable_name="history"),
-    ("human", "{frage}"),
-])
-
-memory_chain = memory_prompt | llm | StrOutputParser()
-
-chain_with_history = RunnableWithMessageHistory(
-    memory_chain,
-    get_session_history,
-    input_messages_key="frage",
-    history_messages_key="history",
-)
+# TODO:
+# - Prompt mit MessagesPlaceholder definieren
+# - Chain bauen
+# - RunnableWithMessageHistory konfigurieren
 ```
 
 ### Aufgabe 4.2: Chat mit Kontext-Bewusstsein
@@ -401,30 +343,12 @@ chain_with_history = RunnableWithMessageHistory(
 ```python
 def legal_chat_mit_memory():
     """Chat mit Konversationsgedächtnis."""
-    session_id = "legal_session_1"
-    print("Juristischer KI-Assistent (mit Memory)")
-    print("Schreibe 'reset' zum Löschen der History oder 'exit' zum Beenden.\n")
-
-    while True:
-        frage = input("Frage: ")
-
-        if frage.lower() == "exit":
-            break
-
-        if frage.lower() == "reset":
-            store[session_id] = InMemoryChatMessageHistory()
-            print("History gelöscht.\n")
-            continue
-
-        antwort = chain_with_history.invoke(
-            {"frage": frage},
-            config={"configurable": {"session_id": session_id}},
-        )
-
-        history_length = len(get_session_history(session_id).messages)
-        print("\nAntwort:")
-        print(antwort)
-        print(f"\nHistory-Nachrichten: {history_length}\n")
+    # TODO:
+    # - Session-ID festlegen
+    # - reset und exit behandeln
+    # - chain_with_history mit config aufrufen
+    # - Antwort und History-Länge anzeigen
+    pass
 ```
 
 **Erfolgskriterium:**
@@ -459,16 +383,11 @@ Die Dateien sollten nur frei nutzbare oder selbst erstellte Inhalte enthalten. K
 from google.colab import files
 import os
 
-os.makedirs("legal_docs", exist_ok=True)
-
-uploaded = files.upload()
-
-for filename, content in uploaded.items():
-    path = os.path.join("legal_docs", filename)
-    with open(path, "wb") as f:
-        f.write(content)
-
-print("Hochgeladene Dateien:", os.listdir("legal_docs"))
+# TODO:
+# - Zielverzeichnis für Rechtsquellen anlegen
+# - Dateien hochladen
+# - Uploads im Zielverzeichnis speichern
+# - Dateiliste zur Kontrolle ausgeben
 ```
 
 ### Aufgabe 5.2: Vektordatenbank erstellen
@@ -479,29 +398,13 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_openai import OpenAIEmbeddings
 from langchain_chroma import Chroma
 
-loader = DirectoryLoader("legal_docs/", glob="**/*.md", loader_cls=TextLoader)
-documents = loader.load()
-
-text_splitter = RecursiveCharacterTextSplitter(
-    chunk_size=900,
-    chunk_overlap=150,
-    separators=["\n## ", "\n### ", "\n\n", "\n", " "],
-)
-
-chunks = text_splitter.split_documents(documents)
-
-embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
-
-vectorstore = Chroma.from_documents(
-    documents=chunks,
-    embedding=embeddings,
-    collection_name="legal_sources",
-)
-
-retriever = vectorstore.as_retriever(search_kwargs={"k": 4})
-
-print(f"Dokumente: {len(documents)}")
-print(f"Chunks: {len(chunks)}")
+# TODO:
+# - Markdown-Dokumente laden
+# - sinnvolle Chunking-Parameter wählen
+# - Embedding-Modell initialisieren
+# - Chroma-Collection erstellen
+# - Retriever konfigurieren
+# - Anzahl Dokumente/Chunks prüfen
 ```
 
 ### Aufgabe 5.3: RAG-Chain implementieren
@@ -512,32 +415,17 @@ from langchain_core.output_parsers import StrOutputParser
 
 def format_docs(docs):
     """Formatiert gefundene Dokumente für den Prompt."""
-    return "\n\n".join([
-        f"Quelle: {doc.metadata.get('source', 'Unbekannt')}\n{doc.page_content}"
-        for doc in docs
-    ])
+    # TODO:
+    # - Quelle aus Metadaten übernehmen
+    # - Dokumentinhalt kompakt formatieren
+    # - mehrere Dokumente sauber trennen
+    pass
 
-rag_prompt = ChatPromptTemplate.from_messages([
-    ("system", """Du bist ein juristischer Recherche-Assistent.
-Beantworte die Frage nur auf Basis des bereitgestellten Kontexts.
-Nenne die verwendeten Quellen.
-Wenn der Kontext nicht reicht, sage klar, welche Information fehlt.
-Keine verbindliche Rechtsberatung."""),
-    ("human", "Kontext:\n{context}\n\nFrage:\n{frage}"),
-])
-
-rag_chain = (
-    {
-        "context": retriever | format_docs,
-        "frage": RunnablePassthrough(),
-    }
-    | rag_prompt
-    | llm
-    | StrOutputParser()
-)
-
-antwort = rag_chain.invoke("Welche Voraussetzungen nennt § 823 BGB?")
-print(antwort)
+# TODO:
+# - RAG-System-Prompt formulieren
+# - Kontext und Frage in den Prompt einbinden
+# - Retriever, Formatierung, Prompt, LLM und Parser als LCEL-Chain verbinden
+# - Testfrage ausführen
 ```
 
 ### Aufgabe 5.4: RAG-Chat mit Quellenangaben
@@ -545,23 +433,12 @@ print(antwort)
 ```python
 def legal_rag_chat():
     """RAG-Chat mit Quellenangaben."""
-    print("Juristischer KI-Assistent (RAG-Modus)")
-    print("Schreibe 'exit' zum Beenden.\n")
-
-    while True:
-        frage = input("Frage: ")
-        if frage.lower() == "exit":
-            break
-
-        docs = retriever.invoke(frage)
-        antwort = rag_chain.invoke(frage)
-
-        print("\nAntwort:")
-        print(antwort)
-        print("\nGefundene Quellen:")
-        for doc in docs:
-            print("-", doc.metadata.get("source", "Unbekannt"))
-        print()
+    # TODO:
+    # - Nutzerfrage abfragen
+    # - passende Dokumente abrufen
+    # - RAG-Antwort erzeugen
+    # - Quellen sichtbar ausgeben
+    pass
 ```
 
 ### Aufgabe 5.5: Mini-Evaluation für Legal RAG
@@ -571,31 +448,17 @@ Ein Legal-RAG-System ist nicht schon brauchbar, weil eine Antwort plausibel klin
 ```python
 eval_set = [
     {
-        "frage": "Welche Voraussetzungen nennt § 823 BGB?",
-        "erwartete_quelle": "bgb_auszug.md",
-        "erwartung": "Die Antwort nennt Rechtsgutsverletzung, Verschulden und Schaden nur, wenn diese Punkte im Kontext stehen.",
+        "frage": "...",
+        "erwartete_quelle": "...",
+        "erwartung": "...",
     },
-    {
-        "frage": "Welche Bedeutung hat Art. 5 GG für Meinungsfreiheit?",
-        "erwartete_quelle": "gg_auszug.md",
-        "erwartung": "Die Antwort verweist auf die Quelle und nennt Grenzen nur aus dem Kontext.",
-    },
-    {
-        "frage": "Gibt es ein Urteil zu diesem Sachverhalt?",
-        "erwartete_quelle": "urteile_beispiele.md",
-        "erwartung": "Die Antwort sagt klar, wenn der Sachverhalt oder eine passende Entscheidung fehlt.",
-    },
+    # TODO: mindestens zwei weitere Fälle ergänzen
 ]
 
-for fall in eval_set:
-    docs = retriever.invoke(fall["frage"])
-    antwort = rag_chain.invoke(fall["frage"])
-
-    print("\nFrage:", fall["frage"])
-    print("Erwartete Quelle:", fall["erwartete_quelle"])
-    print("Gefundene Quellen:", [doc.metadata.get("source") for doc in docs])
-    print("Antwort:", antwort)
-    print("Bewertung: korrekt / teilweise / falsch")
+# TODO:
+# - Für jeden Fall Retrieval und Antwort ausführen
+# - erwartete und gefundene Quellen vergleichen
+# - Antwort manuell bewerten und dokumentieren
 ```
 
 **Erfolgskriterium:**
@@ -624,34 +487,12 @@ Neben Volltextquellen braucht ein juristisches System strukturierte Metadaten: N
 
 import sqlite3
 
-conn = sqlite3.connect("legal_sources.db")
-cursor = conn.cursor()
-
-cursor.execute("""
-    CREATE TABLE IF NOT EXISTS rechtsquellen (
-        id INTEGER PRIMARY KEY,
-        titel TEXT,
-        dokumenttyp TEXT,
-        rechtsgebiet TEXT,
-        fundstelle TEXT,
-        datum TEXT,
-        quelle TEXT
-    )
-""")
-
-beispiele = [
-    ("§ 823 BGB", "Norm", "Zivilrecht", "BGB", None, "bgb_auszug.md"),
-    ("Art. 5 GG", "Norm", "Öffentliches Recht", "GG", None, "gg_auszug.md"),
-    ("Beispielurteil Meinungsfreiheit", "Urteil", "Öffentliches Recht", "BVerfG", "2020-01-01", "urteile_beispiele.md"),
-]
-
-cursor.executemany("""
-    INSERT INTO rechtsquellen (titel, dokumenttyp, rechtsgebiet, fundstelle, datum, quelle)
-    VALUES (?, ?, ?, ?, ?, ?)
-""", beispiele)
-
-conn.commit()
-conn.close()
+# TODO:
+# - SQLite-Verbindung öffnen
+# - Tabelle für Rechtsquellen-Metadaten entwerfen
+# - sinnvolle Spalten definieren, z. B. Titel, Dokumenttyp, Rechtsgebiet, Fundstelle, Datum, Quelle
+# - eigene Beispieldaten einfügen
+# - Verbindung schließen
 ```
 
 ### Aufgabe 6.2: SQL-Chain mit LangChain
@@ -662,15 +503,11 @@ Für die SQL-Generierung ist `gpt-5.4-mini` meist die stabilere Wahl als `gpt-5.
 from langchain_community.utilities import SQLDatabase
 from langchain.chains import create_sql_query_chain
 
-db = SQLDatabase.from_uri("sqlite:///legal_sources.db")
-
-sql_chain = create_sql_query_chain(llm, db)
-
-query = sql_chain.invoke({
-    "question": "Welche Quellen gehören zum Öffentlichen Recht?"
-})
-
-print(query)
+# TODO:
+# - SQLite-Datenbank über SQLDatabase anbinden
+# - SQL-Chain erstellen
+# - Testfrage formulieren
+# - generierte SQL-Abfrage prüfen, bevor sie ausgeführt wird
 ```
 
 ### Aufgabe 6.3: Kombination Vektor-RAG + SQL RAG
@@ -678,27 +515,12 @@ print(query)
 ```python
 def hybrid_legal_chat():
     """Chat mit Vektor-RAG und SQL RAG kombiniert."""
-    print("Juristischer KI-Assistent (Hybrid-Modus)")
-    print("Volltextquellen + Rechtsmetadaten")
-    print("Schreibe 'exit' zum Beenden.\n")
-
-    while True:
-        frage = input("Frage: ")
-        if frage.lower() == "exit":
-            break
-
-        docs = retriever.invoke(frage)
-        rag_antwort = rag_chain.invoke(frage)
-        sql_vorschlag = sql_chain.invoke({"question": frage})
-
-        print("\nRAG-Antwort:")
-        print(rag_antwort)
-        print("\nSQL-Vorschlag für Metadatenprüfung:")
-        print(sql_vorschlag)
-        print("\nQuellen:")
-        for doc in docs:
-            print("-", doc.metadata.get("source", "Unbekannt"))
-        print()
+    # TODO:
+    # - Frage entgegennehmen
+    # - Volltext-Retrieval ausführen
+    # - SQL-Metadatenprüfung vorbereiten
+    # - beide Ergebnisse nachvollziehbar ausgeben
+    pass
 ```
 
 **Erfolgskriterium:**
@@ -728,35 +550,28 @@ from langchain_core.tools import tool
 @tool
 def search_legal_sources(query: str) -> str:
     """Durchsucht die juristischen Volltextquellen nach relevanten Informationen."""
-    docs = retriever.invoke(query)
-    return format_docs(docs)
+    # TODO: Retriever nutzen und Treffer als Quellenkontext formatieren
+    pass
 
 @tool
 def query_legal_metadata(question: str) -> str:
     """Erzeugt eine SQL-Abfrage für die Rechtsquellen-Metadatenbank."""
-    return sql_chain.invoke({"question": question})
+    # TODO: Frage in eine SQL-Metadatenabfrage überführen
+    pass
 
 @tool
 def check_citations(answer: str) -> str:
     """Prüft, ob eine Antwort Quellenangaben enthält."""
-    has_source = "Quelle:" in answer or "Quellen:" in answer
-    if has_source:
-        return "Quellenangaben gefunden. Prüfe zusätzlich, ob sie wirklich zum Inhalt passen."
-    return "Keine Quellenangaben gefunden. Antwort vor Verwendung überarbeiten."
+    # TODO: einfache Prüfung auf Quellenangaben implementieren
+    pass
 
 @tool
 def classify_legal_question(question: str) -> str:
     """Ordnet eine Frage grob einem Rechtsgebiet zu."""
-    classifier = llm.with_structured_output(LegalAnswer)
-    result = classifier.invoke(question)
-    return result.rechtsgebiet
+    # TODO: strukturierte Ausgabe oder einfache Klassifikation nutzen
+    pass
 
-tools = [
-    search_legal_sources,
-    query_legal_metadata,
-    check_citations,
-    classify_legal_question,
-]
+# TODO: Tool-Liste zusammenstellen
 ```
 
 ### Aufgabe 7.2: Agent erstellen
@@ -764,13 +579,11 @@ tools = [
 ```python
 from langchain.agents import create_agent
 
-agent = create_agent(
-    model="openai:gpt-5.4-nano",
-    tools=tools,
-    system_prompt="""Du bist ein juristischer Recherche-Agent.
-Nutze Tools, wenn eine Frage Quellen, Rechtsgebiet oder Metadaten betrifft.
-Kennzeichne Unsicherheiten und gib keine verbindliche Rechtsberatung.""",
-)
+# TODO:
+# - create_agent() verwenden
+# - Modell auswählen
+# - Tool-Liste übergeben
+# - System-Prompt mit Rolle, Grenzen und Tool-Nutzung formulieren
 ```
 
 ### Aufgabe 7.3: Agent-Chat
@@ -778,22 +591,12 @@ Kennzeichne Unsicherheiten und gib keine verbindliche Rechtsberatung.""",
 ```python
 def legal_agent_chat():
     """Interaktiver Agent-Chat."""
-    print("Juristischer KI-Assistent (Agent-Modus)")
-    print("Tools: Quellen-Suche | Metadaten-Abfrage | Zitierprüfung | Rechtsgebiets-Klassifikation")
-    print("Schreibe 'exit' zum Beenden.\n")
-
-    while True:
-        frage = input("Frage: ")
-        if frage.lower() == "exit":
-            break
-
-        response = agent.invoke({
-            "messages": [{"role": "human", "content": frage}]
-        })
-
-        print("\nAntwort:")
-        print(response["messages"][-1].content)
-        print()
+    # TODO:
+    # - Nutzerfrage entgegennehmen
+    # - Agent mit Messages-Format aufrufen
+    # - finale Antwort ausgeben
+    # - Tool-Aufrufe bei Bedarf sichtbar machen
+    pass
 ```
 
 **Erfolgskriterium:**
@@ -825,26 +628,23 @@ from langchain.tools.tool_node import ToolCallRequest
 @before_model
 def log_before(state: AgentState, runtime):
     """Loggt jede Modell-Anfrage."""
-    print(f"Model wird aufgerufen mit {len(state['messages'])} Nachrichten")
+    # TODO: relevante Informationen vor dem Modellaufruf loggen
     return None
 
 @after_model
 def log_after(state: AgentState, runtime):
     """Loggt jede Modell-Antwort."""
-    msg = state["messages"][-1]
-    if hasattr(msg, "tool_calls") and msg.tool_calls:
-        print(f"Tool-Aufruf: {[tc['name'] for tc in msg.tool_calls]}")
-    else:
-        print("Antwort generiert")
+    # TODO: Tool-Aufrufe oder finale Antwort erkennen und loggen
     return None
 
 @wrap_tool_call
 def log_tool(request: ToolCallRequest, handler):
     """Loggt jede Tool-Ausführung."""
-    print(f"Führe aus: {request.tool_call['name']}")
-    result = handler(request)
-    print(f"Ergebnis: {str(result.content)[:120]}")
-    return result
+    # TODO:
+    # - Tool-Namen loggen
+    # - Handler aufrufen
+    # - gekürztes Ergebnis loggen
+    pass
 ```
 
 ### Aufgabe 8.2: Human-in-the-loop für sensible Tools
@@ -854,18 +654,13 @@ from langchain.agents.middleware import HumanInTheLoopMiddleware
 from langgraph.checkpoint.memory import MemorySaver
 
 hitl = HumanInTheLoopMiddleware(
-    interrupt_on={
-        "query_legal_metadata": True,
-        "check_citations": True,
-    }
+    # TODO: sensible Tools für Unterbrechung eintragen
+    interrupt_on={}
 )
 
-agent_safe = create_agent(
-    model="openai:gpt-5.4-nano",
-    tools=tools,
-    middleware=[log_before, log_after, log_tool, hitl],
-    checkpointer=MemorySaver(),
-)
+# TODO:
+# - Agent mit Middleware und Checkpointer erstellen
+# - HITL-Unterbrechung testen
 ```
 
 ### Aufgabe 8.3: Retry-Middleware für Robustheit
@@ -873,19 +668,10 @@ agent_safe = create_agent(
 ```python
 from langchain.agents.middleware import ModelRetryMiddleware, ToolRetryMiddleware
 
-agent_robust = create_agent(
-    model="openai:gpt-5.4-nano",
-    tools=tools,
-    middleware=[
-        log_before,
-        log_after,
-        log_tool,
-        ModelRetryMiddleware(max_retries=3, backoff_factor=2.0, jitter=True),
-        ToolRetryMiddleware(max_retries=2, jitter=True),
-        hitl,
-    ],
-    checkpointer=MemorySaver(),
-)
+# TODO:
+# - Retry-Middleware für Modell und Tools ergänzen
+# - Reihenfolge der Middleware bewusst wählen
+# - robusten Agenten erstellen und testen
 ```
 
 **Erfolgskriterium:**
@@ -915,44 +701,34 @@ import gradio as gr
 
 def chat_handler(message, history):
     """Verarbeitet normale Chat-Anfragen."""
-    antwort = chain.invoke({"frage": message})
-    return antwort
+    # TODO: Basis-Chain aufrufen und Antwort zurückgeben
+    pass
 
 def rag_handler(message, history):
     """Verarbeitet RAG-basierte Anfragen."""
-    docs = retriever.invoke(message)
-    antwort = rag_chain.invoke(message)
-    quellen = "\n".join([
-        f"- {doc.metadata.get('source', 'Unbekannt')}"
-        for doc in docs
-    ])
-    return f"{antwort}\n\nQuellen:\n{quellen}"
+    # TODO:
+    # - Retrieval ausführen
+    # - RAG-Antwort erzeugen
+    # - Quellen für die UI formatieren
+    pass
 
 def agent_handler(message, history):
     """Verarbeitet Agent-Anfragen mit Middleware."""
-    response = agent_robust.invoke({
-        "messages": [{"role": "human", "content": message}]
-    })
-    return response["messages"][-1].content
+    # TODO: Agent aufrufen und finale Antwort extrahieren
+    pass
 ```
 
 ### Aufgabe 9.2: Gradio-App implementieren
 
 ```python
 with gr.Blocks(title="Juristischer KI-Assistent") as demo:
-    gr.Markdown("# Juristischer KI-Assistent")
-    gr.Markdown("Recherche, RAG und Agent-Workflow mit kontrollierter Quellenbasis.")
+    # TODO:
+    # - Titel und kurze Beschreibung ergänzen
+    # - Tabs für Chat, Legal RAG und Agent anlegen
+    # - passende Handler verbinden
+    pass
 
-    with gr.Tab("Chat"):
-        gr.ChatInterface(fn=chat_handler)
-
-    with gr.Tab("Legal RAG"):
-        gr.ChatInterface(fn=rag_handler)
-
-    with gr.Tab("Agent"):
-        gr.ChatInterface(fn=agent_handler)
-
-demo.launch(share=True)
+# TODO: App starten
 ```
 
 **Colab-spezifische Hinweise:**
@@ -989,47 +765,26 @@ Für lokale Tests eignet sich zum Beispiel Ollama. Das Modell muss bereits lokal
 
 from langchain.chat_models import init_chat_model
 
-# Beispiel: lokales Modell über Ollama
-local_llm = init_chat_model("ollama:llama3.1")
-
-local_prompt = ChatPromptTemplate.from_messages([
-    ("system", """Du bist ein juristischer Recherche-Assistent.
-Beantworte die Frage nur auf Basis des bereitgestellten Kontexts.
-Nenne die verwendeten Quellen.
-Wenn der Kontext nicht reicht, sage klar, welche Information fehlt."""),
-    ("human", "Kontext:\n{context}\n\nFrage:\n{frage}"),
-])
-
-local_rag_chain = (
-    {
-        "context": retriever | format_docs,
-        "frage": RunnablePassthrough(),
-    }
-    | local_prompt
-    | local_llm
-    | StrOutputParser()
-)
+# TODO:
+# - lokales Modell auswählen und starten
+# - init_chat_model("ollama:<modellname>") verwenden
+# - RAG-Prompt aus Kapitel 5 wiederverwenden oder anpassen
+# - lokale RAG-Chain analog zur API-Chain aufbauen
 ```
 
 ### Aufgabe 10.2: API-Modell und lokales Modell vergleichen
 
 ```python
 vergleichsfragen = [
-    "Welche Voraussetzungen nennt § 823 BGB?",
-    "Welche Quelle ist für Art. 5 GG relevant?",
-    "Was fehlt, wenn keine passende Entscheidung im Kontext steht?",
+    "...",
+    "...",
+    "...",
 ]
 
-for frage in vergleichsfragen:
-    api_antwort = rag_chain.invoke(frage)
-    lokale_antwort = local_rag_chain.invoke(frage)
-
-    print("\nFrage:", frage)
-    print("\nAPI-Modell:")
-    print(api_antwort)
-    print("\nLokales Modell:")
-    print(lokale_antwort)
-    print("\nBewertung: Quellenbezug / Vollständigkeit / Kürze / Fehlende-Kontext-Erkennung")
+# TODO:
+# - dieselben Fragen an API- und lokales Modell stellen
+# - Antworten nebeneinander dokumentieren
+# - Quellenbezug, Vollständigkeit, Kürze und Umgang mit fehlendem Kontext bewerten
 ```
 
 ### Aufgabe 10.3: Betriebsentscheidung dokumentieren
