@@ -30,11 +30,11 @@ has_toc: true
 
 # Prio 2 - Modulstruktur bereinigen
 
-- [x] `M17` und `M18` als freigehaltene Platzhalter in allen Modulübersichten konsistent markieren (M00, README.md).
+- [x] `M17` und `M18` aus den sichtbaren Modulübersichten entfernt.
 - [x] `M03_Large_Language_Modell.ipynb` in `M03_Textverarbeitung_mit_LangChain.ipynb` umbenannt; Abschnitts­nummern (1–6), Notebook-Titel und alle Übersichten (README.md, rag-workshop.md) angepasst.
 - [x] Alle Hinweise auf entfernte Kursnotebooks (M17, M18) aus den Übersichten entfernt (M00, README.md).
-- [x] `M19` und `M20` überall einheitlich als `Praxis-Extra` führen (README.md, M00-Tabelle, Block-Beschreibung: erledigt).
-- [x] Prüfen, dass die Modulreihenfolge in `README.md` und `docs/02-orientierung/kursueberblick.md` exakt zusammenpasst (M03-Titel und M17-Platzhalter in kursueberblick.md korrigiert).
+- [x] `M19` und `M20` in der Modulübersicht neutral ohne Kursrollen führen.
+- [x] Prüfen, dass die Modulreihenfolge in `README.md` und `docs/02-orientierung/kursueberblick.md` exakt zusammenpasst.
 
 # Prio 3 - Begriffskonsistenz schärfen
 
@@ -57,12 +57,12 @@ has_toc: true
 - [x] Bild-Alt-Text korrigiert: rag-konzepte.md (war "Raster aus Pixelwerten", jetzt "RAG-Prozess: Indexierung und Retrieval").
 - [ ] Tabellen- und Überschriftenstile in `docs` vereinheitlichen, soweit sie die Lesbarkeit verbessern.
 
-# Prio 6 - Schwierigkeitsgrad und Zusatzteile sichtbar halten
+# Prio 6 - Modulrollen entfernen
 
-- [x] Rollen konsistent: `kursueberblick.md` erhielt neue Spalte „Rolle" (Pflicht/Ergänzend/Aufbau/Optional/Vertiefung/Praxis-Extra/Platzhalter) — aus `README.md` übertragen.
-- [x] Schwierigkeitsgrade sichtbar: README war bereits konsistent; kursueberblick.md jetzt ebenfalls mit Rolle-Spalte.
-- [x] Zusatzmodule klar erkennbar: M08–M10 als Aufbau, M12–M13 als Optional/Vertiefung, M19–M20 als Praxis-Extra, M17/M18 als Platzhalter.
-- [x] Pfadlogik 5-Tage-Kurs: keine separate lernpfade.md vorhanden — Unterscheidung Pflicht/Zusatz über Rolle-Spalte direkt in der Modulübersicht sichtbar.
+- [x] Rolle-Spalte aus `docs/02-orientierung/kursueberblick.md` entfernt.
+- [x] Modulstatus wie Pflicht, Ergänzend, Aufbau, Optional, Vertiefung, Praxis-Extra und Platzhalter aus den Kursübersichten entfernt.
+- [x] Projektseiten auf neutrale Modulbeschreibung ohne Pflicht-/Optional-Logik umgestellt.
+- [x] M17/M18 aus der sichtbaren Modulübersicht entfernt, da sie kein Kursmaterial sind.
 
 ---
 
