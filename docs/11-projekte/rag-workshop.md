@@ -1,17 +1,17 @@
 ---
 layout: default
-title: RAG-Workshop
+title: Legal-RAG-Workshop
 parent: Projekte
 nav_order: 1
-description: "Schrittweise Workshop: Tech-Doku Assistent - vom einfachen Chatbot zur RAG-basierten Anwendung mit UI"
+description: "Schrittweiser Workshop: Juristischer KI-Assistent - vom einfachen Chatbot zum RAG-basierten Rechtssystem mit Quellen, Agent, Qualitätssicherung und UI"
 has_toc: true
 ---
 
-# RAG Workshop
+# Legal-RAG Workshop
 {: .no_toc }
 
-> **Tech-Doku Assistent bauen**
-> Schrittweise Entwicklung vom einfachen Chatbot zur intelligenten RAG-Anwendung mit Agent, Middleware und UI (Module M02–M11)
+> **Juristischen KI-Assistenten bauen**
+> Schrittweise Entwicklung vom einfachen Chatbot zu einem RAG-basierten Rechtssystem mit kontrolliertem Kontext, Quellenangaben, Agent, Middleware und UI (Module M02-M11)
 
 ---
 
@@ -25,15 +25,38 @@ has_toc: true
 
 ## Projektübersicht
 
-Diese Übungsaufgabe entwickelt schrittweise einen **Tech-Doku-Assistenten**, der technische Fragen beantwortet und mit jedem Abschnitt systematischer aufgebaut wird.
+In dieser Übung entsteht ein **juristischer KI-Assistent**, der rechtliche Fragen strukturiert bearbeitet, passende Quellen findet und Antworten mit nachvollziehbaren Verweisen vorbereitet. Das System soll keine Rechtsberatung ersetzen. Es zeigt, wie ein KI-System für juristische Informationsarbeit technisch aufgebaut werden kann: Benutzeroberfläche, System-Prompt, Orchestrierung, Retrieval, Modellaufruf, Qualitätskontrolle und Präsentation.
+
+Das Projekt orientiert sich an einer typischen Architektur für juristische KI-Systeme:
+
+- **Benutzeroberfläche:** Chat, Dokumenten-Upload, Recherche, Arbeitsbereiche und Verlauf
+- **System-Prompt:** Rolle, Tonfall, Grenzen und Zitierpflicht
+- **Orchestrierung & Tools:** Aufgabenplanung, Tool-Auswahl, Output-Filter und Qualitätskontrolle
+- **Kontext-Injektion:** Retrieval aus Gesetzen, Urteilen und weiteren Quellen
+- **KI-Modell:** Antwortgenerierung auf Basis von Prompt und kontrolliertem Kontext
+- **Output & Präsentation:** Strukturierung, Quellenangaben, Export und UI-Ausgabe
+
+
+<img src="https://raw.githubusercontent.com/ralf-42/Agenten/main/07_image/pia_2.png" class="logo" width="950"/>
+<p><font color='black' size="2">
+KI-generiertes Bild
+</font></p>
 
 **Lernziele:**
-- Aufbau einer GenAI-Anwendung von Grund auf
+
+- Aufbau einer GenAI-Anwendung für juristische Recherche von Grund auf
 - Schrittweise Integration von LangChain-Features
-- Praktische Anwendung der Module M02–M11
-- Best Practices für strukturierten Notebook-Code
+- Umsetzung eines RAG-Systems mit kontrollierter Quellenbasis
+- Praktische Anwendung der Module M02-M11
+- Best Practices für strukturierten Notebook-Code, Quellenangaben und Qualitätssicherung
 
 **Arbeitsumgebung:** Google Colab oder Jupyter Notebook
+
+
+<img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/legal_system.png" class="logo" width="950"/>
+<p><font color='black' size="2">
+KI-generiertes Bild
+</font></p>
 
 ---
 
@@ -41,17 +64,17 @@ Diese Übungsaufgabe entwickelt schrittweise einen **Tech-Doku-Assistenten**, de
 
 Vorgesehen ist **ein Notebook** mit **neun aufbauenden Kapiteln**. Alternativ kann jedes Kapitel als eigenes Notebook geführt werden:
 
-```
-📓 Tech_Doku_Assistent.ipynb
-   ├── 🎯 Kapitel 1: Basis-Chatbot (M02)
-   ├── 📊 Kapitel 2: Token-Optimierung (M03)
-   ├── 🔧 Kapitel 3: Strukturierte Ausgaben (M04)
-   ├── 💬 Kapitel 4: Chat-History & Memory (M05)
-   ├── 📚 Kapitel 5: RAG-Integration (M06)
-   ├── 🗄️ Kapitel 6: SQL RAG (M07)
-   ├── 🤖 Kapitel 7: Agent mit Tools (M08)
-   ├── 🛡️ Kapitel 8: Middleware (M09)
-   └── 🌐 Kapitel 9: Gradio-UI (M11)
+```text
+Legal_Assistant.ipynb
+   ├── Kapitel 1: Basis-Chatbot (M02)
+   ├── Kapitel 2: Token-Optimierung (M03)
+   ├── Kapitel 3: Strukturierte Ausgaben (M04)
+   ├── Kapitel 4: Chat-History & Memory (M05)
+   ├── Kapitel 5: Legal RAG (M06)
+   ├── Kapitel 6: SQL RAG für Rechtsmetadaten (M07)
+   ├── Kapitel 7: Agent mit juristischen Tools (M08)
+   ├── Kapitel 8: Middleware, Sicherheit & Freigabe (M09)
+   └── Kapitel 9: Gradio-UI (M11)
 ```
 
 **Empfehlung:** Für den Einstieg reicht ein gemeinsames Notebook. Eine klare Trennung per Markdown-Zelle hält den Verlauf nachvollziehbar.
@@ -64,17 +87,17 @@ Vor dem Start wird die Colab-Umgebung mit der Kursbibliothek (`genai_lib`) und d
 
 ### API-Key in Colab Secrets speichern
 
-1. In Colab das Schlüssel-Symbol 🔑 in der linken Sidebar öffnen
+1. In Colab das Schlüssel-Symbol in der linken Sidebar öffnen
 2. `OPENAI_API_KEY` anlegen
 3. "Notebook access" aktivieren
 
 ### Kursbibliothek & Umgebung einrichten
 
-Zu Beginn des Notebooks wird die GenAI-Kursbibliothek installiert und die grundlegenden Hilfsfunktionen sowie der API-Key geladen:
+Zu Beginn des Notebooks wird die GenAI-Kursbibliothek installiert. Danach werden die grundlegenden Hilfsfunktionen und der API-Key geladen:
 
 ```python
 # ═══════════════════════════════════════════════════
-# 🔧 UMGEBUNG EINRICHTEN (Kurs-Utilities laden)
+# UMGEBUNG EINRICHTEN (Kurs-Utilities laden)
 # ═══════════════════════════════════════════════════
 
 # GenAI Kursbibliothek installieren
@@ -107,11 +130,11 @@ from genai_lib.model_config import BASELINE
 
 ### Zusätzliche Abhängigkeiten installieren
 
-Für den Workshop werden weitere Pakete wie `langchain-chroma` (die moderne Chroma-Integration für LangChain 1.0+), `markitdown` und `gradio` benötigt. Wir installieren diese sauber über das `install_packages`-Utility:
+Für den Workshop werden weitere Pakete wie `langchain-chroma`, `markitdown` und `gradio` benötigt. `markitdown` ist praktisch, wenn Gesetzestexte, Urteile oder Arbeitsmaterialien aus PDF-, DOCX- oder HTML-Dateien in Markdown umgewandelt werden sollen.
 
 ```python
 # ═══════════════════════════════════════════════════
-# 🛠️ INSTALLATIONEN
+# INSTALLATIONEN
 # ═══════════════════════════════════════════════════
 
 # markitdown für Dokumentenkonvertierung installieren
@@ -132,11 +155,13 @@ install_packages([
 
 **Lernziel:** LangChain-Grundlagen, Prompt-Templates, einfache LLM-Interaktion
 
+In diesem Kapitel entsteht ein erster juristischer Assistent ohne externe Quellen. Er darf allgemeine Erklärungen geben, muss aber transparent machen, wenn ihm der konkrete Norm- oder Entscheidungskontext fehlt.
+
 ### Aufgabe 1.1: LLM initialisieren
 
 ```python
 # ═══════════════════════════════════════════════════
-# 🎯 KAPITEL 1: BASIS-CHATBOT (M02)
+# KAPITEL 1: BASIS-CHATBOT (M02)
 # ═══════════════════════════════════════════════════
 
 from langchain.chat_models import init_chat_model
@@ -145,23 +170,46 @@ from langchain_core.output_parsers import StrOutputParser
 
 # LLM initialisieren
 llm = init_chat_model("openai:gpt-5.4-mini")
-...
+
+prompt = ChatPromptTemplate.from_messages([
+    ("system", """Du bist ein juristischer Lernassistent.
+Antworte präzise, verständlich und mit klaren Grenzen.
+Gib keine verbindliche Rechtsberatung.
+Wenn dir Normen, Urteile oder Sachverhaltsdetails fehlen, sage das offen."""),
+    ("human", "{frage}"),
+])
+
+chain = prompt | llm | StrOutputParser()
+
+antwort = chain.invoke({"frage": "Was ist der Unterschied zwischen Gesetz und Urteil?"})
+print(antwort)
 ```
 
 ### Aufgabe 1.2: Interaktive Chat-Schleife
 
 ```python
-# Chat-Funktion für Notebook
-def tech_chat():
-    """Einfache Chat-Schleife für Jupyter/Colab"""
-    print("🤖 Tech-Doku Assistent gestartet!")
-    ...
+def legal_chat():
+    """Einfache Chat-Schleife für Jupyter/Colab."""
+    print("Juristischer KI-Assistent gestartet!")
+    print("Schreibe 'exit' zum Beenden.\n")
+
+    while True:
+        frage = input("Frage: ")
+        if frage.lower() == "exit":
+            break
+
+        antwort = chain.invoke({"frage": frage})
+        print("\nAntwort:")
+        print(antwort)
+        print()
 ```
 
 **Erfolgskriterium:**
-- ✅ Der Bot beantwortet technische Fragen korrekt
-- ✅ Der Chat läuft in einer Schleife (bis "exit")
-- ✅ LCEL-Syntax (`|`) wird verwendet
+
+- Der Bot beantwortet allgemeine juristische Verständnisfragen nachvollziehbar
+- Der Bot weist auf fehlende Quellen oder Sachverhaltsdetails hin
+- Der Chat läuft in einer Schleife bis `exit`
+- LCEL-Syntax (`|`) wird verwendet
 
 ---
 
@@ -169,37 +217,64 @@ def tech_chat():
 
 **Lernziel:** Transformer-Konzepte verstehen, Token-Zählung, Kontext-Management
 
+Juristische Texte sind oft lang: Gesetze, Urteile, Kommentare und Schriftsätze enthalten viele Verweise und Wiederholungen. In diesem Kapitel wird sichtbar, warum Kontextfenster, Chunking und kurze Prompts für Legal RAG entscheidend sind.
+
 ### Aufgabe 2.1: Token-Zählung implementieren
 
 ```python
 # ═══════════════════════════════════════════════════
-# 📊 KAPITEL 2: TOKEN-OPTIMIERUNG (M03)
+# KAPITEL 2: TOKEN-OPTIMIERUNG (M03)
 # ═══════════════════════════════════════════════════
 
 import tiktoken
 
-# Token-Counter Funktion
 def count_tokens(text: str, model: str = "gpt-5.4-nano") -> int:
-    """Zählt Tokens für ein gegebenes Modell"""
+    """Zählt Tokens für ein gegebenes Modell."""
     encoding = tiktoken.encoding_for_model(model)
-    ...
+    return len(encoding.encode(text))
+
+beispieltext = """
+§ 823 BGB regelt die Schadensersatzpflicht bei vorsätzlicher oder fahrlässiger
+Verletzung bestimmter Rechte und Rechtsgüter.
+"""
+
+print("Tokens:", count_tokens(beispieltext))
 ```
 
 ### Aufgabe 2.2: Chat mit Token-Tracking
 
 ```python
-def tech_chat_mit_tokens():
-    """Chat mit Token-Statistiken"""
-    print("🤖 Tech-Doku Assistent (mit Token-Tracking)")
-    print("   (Schreibe 'exit' zum Beenden)\n")
-    ...
+def legal_chat_mit_tokens():
+    """Chat mit Token-Statistiken."""
+    print("Juristischer KI-Assistent (mit Token-Tracking)")
+    print("Schreibe 'exit' zum Beenden.\n")
+
+    total_tokens = 0
+
+    while True:
+        frage = input("Frage: ")
+        if frage.lower() == "exit":
+            break
+
+        antwort = chain.invoke({"frage": frage})
+        token_count = count_tokens(frage + antwort)
+        total_tokens += token_count
+
+        print("\nAntwort:")
+        print(antwort)
+        print(f"\nTokens für diese Runde: {token_count}")
+        print(f"Tokens gesamt: {total_tokens}\n")
+
+        if count_tokens(antwort) > 500:
+            print("Hinweis: Die Antwort ist lang. Prüfe, ob eine kürzere Struktur reicht.\n")
 ```
 
 **Erfolgskriterium:**
-- ✅ Token-Zählung funktioniert korrekt
-- ✅ Statistiken werden nach jeder Frage angezeigt
-- ✅ Warnung bei langen Antworten (>500 Tokens)
-- ✅ Session-Gesamtstatistik am Ende
+
+- Token-Zählung funktioniert korrekt
+- Statistiken werden nach jeder Frage angezeigt
+- Lange Antworten werden sichtbar
+- Die Teilnehmenden erkennen, warum juristische Quellen vor dem Modellaufruf verdichtet werden müssen
 
 ---
 
@@ -207,40 +282,68 @@ def tech_chat_mit_tokens():
 
 **Lernziel:** Pydantic-Modelle, `with_structured_output()`, JSON-Schema
 
+Juristische Antworten sollen nicht nur frei formuliert sein. Häufig braucht die Anwendung eine feste Struktur: Frage, Kurzantwort, einschlägige Normen, Fundstellen, Unsicherheiten und nächste Prüfschritte.
+
 ### Aufgabe 3.1: Pydantic-Modell definieren
 
 ```python
 # ═══════════════════════════════════════════════════
-# 🔧 KAPITEL 3: STRUKTURIERTE AUSGABEN (M04)
+# KAPITEL 3: STRUKTURIERTE AUSGABEN (M04)
 # ═══════════════════════════════════════════════════
 
 from pydantic import BaseModel, Field
 from typing import Literal
 
-class FAQEntry(BaseModel):
-    """Strukturierte FAQ-Eingabe"""
+class LegalAnswer(BaseModel):
+    """Strukturierte juristische Antwort."""
     frage: str = Field(description="Die ursprüngliche Frage")
-    antwort: str = Field(description="Die Antwort (max 200 Zeichen)")
-    ...
+    kurzantwort: str = Field(description="Kurze, verständliche Antwort")
+    rechtsgebiet: Literal["Zivilrecht", "Strafrecht", "Öffentliches Recht", "Unklar"]
+    normen: list[str] = Field(description="Genannte Normen, z. B. § 823 BGB")
+    quellenbedarf: bool = Field(description="True, wenn belastbare Quellen fehlen")
+    hinweis: str = Field(description="Grenzen der Antwort oder nächster Prüfschritt")
+
+structured_llm = llm.with_structured_output(LegalAnswer)
+
+result = structured_llm.invoke(
+    "Welche Rolle spielt § 823 BGB bei Schadensersatzansprüchen?"
+)
+
+print(result)
 ```
 
-### Aufgabe 3.2: FAQ-Datenbank aufbauen
+### Aufgabe 3.2: Fallnotiz-Datenbank aufbauen
 
 ```python
 import json
 
-def create_faq_database():
-    """Interaktive FAQ-Erstellung"""
-    faq_list = []
-    print("🔧 FAQ-Generator")
-    ...
+def create_case_notes():
+    """Interaktive Sammlung strukturierter Fallnotizen."""
+    notes = []
+    print("Fallnotiz-Generator")
+    print("Schreibe 'exit' zum Beenden.\n")
+
+    while True:
+        frage = input("Juristische Frage: ")
+        if frage.lower() == "exit":
+            break
+
+        note = structured_llm.invoke(frage)
+        notes.append(note.model_dump())
+        print(note)
+
+    with open("legal_case_notes.json", "w", encoding="utf-8") as f:
+        json.dump(notes, f, ensure_ascii=False, indent=2)
+
+    return notes
 ```
 
 **Erfolgskriterium:**
-- ✅ Strukturierte JSON-Ausgabe
-- ✅ Schema-Validierung funktioniert
-- ✅ Alle Felder korrekt befüllt
-- ✅ Export in JSON-Datei
+
+- Strukturierte Ausgabe wird als Pydantic-Objekt erzeugt
+- Normen, Rechtsgebiet und Unsicherheiten werden getrennt erfasst
+- Export in JSON-Datei funktioniert
+- Die Struktur ist später für UI, Evaluation und Qualitätssicherung nutzbar
 
 ---
 
@@ -248,61 +351,118 @@ def create_faq_database():
 
 **Lernziel:** Konversationskontext verwalten, Chat-History nutzen
 
+Juristische Rückfragen beziehen sich oft auf denselben Sachverhalt. Der Assistent soll deshalb frühere Angaben berücksichtigen, ohne daraus unbelegte Tatsachen zu machen.
+
 ### Aufgabe 4.1: Memory implementieren
 
 ```python
 # ═══════════════════════════════════════════════════
-# 💬 KAPITEL 4: CHAT-HISTORY & MEMORY (M05)
+# KAPITEL 4: CHAT-HISTORY & MEMORY (M05)
 # ═══════════════════════════════════════════════════
 
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.chat_history import InMemoryChatMessageHistory
 from langchain_core.runnables.history import RunnableWithMessageHistory
 
-# Memory-Store (speichert alle Sessions)
 store = {}
 
 def get_session_history(session_id: str) -> InMemoryChatMessageHistory:
-    """Holt oder erstellt Chat-History für Session"""
+    """Holt oder erstellt Chat-History für eine Session."""
     if session_id not in store:
-        ...
+        store[session_id] = InMemoryChatMessageHistory()
+    return store[session_id]
+
+memory_prompt = ChatPromptTemplate.from_messages([
+    ("system", """Du bist ein juristischer Lernassistent.
+Nutze die bisherige Unterhaltung nur als Sachverhaltskontext.
+Unterscheide klar zwischen Angaben des Nutzers, Rechtsquellen und eigener Einschätzung."""),
+    MessagesPlaceholder(variable_name="history"),
+    ("human", "{frage}"),
+])
+
+memory_chain = memory_prompt | llm | StrOutputParser()
+
+chain_with_history = RunnableWithMessageHistory(
+    memory_chain,
+    get_session_history,
+    input_messages_key="frage",
+    history_messages_key="history",
+)
 ```
 
 ### Aufgabe 4.2: Chat mit Kontext-Bewusstsein
 
 ```python
-def tech_chat_mit_memory():
-    """Chat mit Konversationsgedächtnis"""
-    session_id = "user_session_1"
-    print("🤖 Tech-Doku Assistent (mit Memory)")
-    ...
+def legal_chat_mit_memory():
+    """Chat mit Konversationsgedächtnis."""
+    session_id = "legal_session_1"
+    print("Juristischer KI-Assistent (mit Memory)")
+    print("Schreibe 'reset' zum Löschen der History oder 'exit' zum Beenden.\n")
+
+    while True:
+        frage = input("Frage: ")
+
+        if frage.lower() == "exit":
+            break
+
+        if frage.lower() == "reset":
+            store[session_id] = InMemoryChatMessageHistory()
+            print("History gelöscht.\n")
+            continue
+
+        antwort = chain_with_history.invoke(
+            {"frage": frage},
+            config={"configurable": {"session_id": session_id}},
+        )
+
+        history_length = len(get_session_history(session_id).messages)
+        print("\nAntwort:")
+        print(antwort)
+        print(f"\nHistory-Nachrichten: {history_length}\n")
 ```
 
 **Erfolgskriterium:**
-- ✅ Bot erinnert sich an vorherige Fragen
-- ✅ Antworten beziehen sich auf Kontext
-- ✅ 'reset' Befehl löscht History
-- ✅ History-Länge wird angezeigt
+
+- Der Bot berücksichtigt vorherige Sachverhaltsangaben
+- Der Bot trennt Nutzerangaben von Rechtsquellen
+- `reset` löscht die History
+- Die History-Länge wird angezeigt
 
 ---
 
-## Kapitel 5: RAG-Integration (Modul M06)
+## Kapitel 5: Legal RAG (Modul M06)
 
-**Lernziel:** Retrieval-Augmented Generation, Vektordatenbank, Embeddings, einfache RAG-Evaluation
+**Lernziel:** Retrieval-Augmented Generation, Vektordatenbank, Embeddings, kontrollierter Kontext, einfache RAG-Evaluation
+
+Jetzt erhält der Assistent eine Quellenbasis. Für den Workshop reichen drei bis fünf Markdown-Dateien, zum Beispiel:
+
+- `bgb_auszug.md` mit ausgewählten Normen
+- `gg_auszug.md` mit Grundrechten
+- `urteile_beispiele.md` mit kurzen Entscheidungszusammenfassungen
+- `faq_rechtsquellen.md` mit Erläuterungen zu Normen, Urteilen und Kommentaren
+
+Die Dateien sollten nur frei nutzbare oder selbst erstellte Inhalte enthalten. Kommerzielle Kommentare, Handbücher und Fachdatenbanken dürfen nicht ohne passende Nutzungsrechte übernommen werden.
 
 ### Aufgabe 5.1: Dokumente hochladen (Colab File Upload)
 
 ```python
 # ═══════════════════════════════════════════════════
-# 📚 KAPITEL 5: RAG-INTEGRATION (M06)
+# KAPITEL 5: LEGAL RAG (M06)
 # ═══════════════════════════════════════════════════
 
 from google.colab import files
 import os
 
-# Verzeichnis für Dokumente erstellen
-os.makedirs('docs', exist_ok=True)
-...
+os.makedirs("legal_docs", exist_ok=True)
+
+uploaded = files.upload()
+
+for filename, content in uploaded.items():
+    path = os.path.join("legal_docs", filename)
+    with open(path, "wb") as f:
+        f.write(content)
+
+print("Hochgeladene Dateien:", os.listdir("legal_docs"))
 ```
 
 ### Aufgabe 5.2: Vektordatenbank erstellen
@@ -313,10 +473,29 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_openai import OpenAIEmbeddings
 from langchain_chroma import Chroma
 
-# Dokumente laden
-loader = DirectoryLoader('docs/', glob="**/*.md", loader_cls=TextLoader)
+loader = DirectoryLoader("legal_docs/", glob="**/*.md", loader_cls=TextLoader)
 documents = loader.load()
-...
+
+text_splitter = RecursiveCharacterTextSplitter(
+    chunk_size=900,
+    chunk_overlap=150,
+    separators=["\n## ", "\n### ", "\n\n", "\n", " "],
+)
+
+chunks = text_splitter.split_documents(documents)
+
+embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
+
+vectorstore = Chroma.from_documents(
+    documents=chunks,
+    embedding=embeddings,
+    collection_name="legal_sources",
+)
+
+retriever = vectorstore.as_retriever(search_kwargs={"k": 4})
+
+print(f"Dokumente: {len(documents)}")
+print(f"Chunks: {len(chunks)}")
 ```
 
 ### Aufgabe 5.3: RAG-Chain implementieren
@@ -325,43 +504,80 @@ documents = loader.load()
 from langchain_core.runnables import RunnablePassthrough
 from langchain_core.output_parsers import StrOutputParser
 
-# Hilfsfunktion: Dokumente formatieren
 def format_docs(docs):
-    """Formatiert Retrieved Docs für Prompt"""
-    return "\n\n".join([f"Quelle: {doc.metadata.get('source', 'Unbekannt')}\n{doc.page_content}" for doc in docs])
-...
+    """Formatiert gefundene Dokumente für den Prompt."""
+    return "\n\n".join([
+        f"Quelle: {doc.metadata.get('source', 'Unbekannt')}\n{doc.page_content}"
+        for doc in docs
+    ])
+
+rag_prompt = ChatPromptTemplate.from_messages([
+    ("system", """Du bist ein juristischer Recherche-Assistent.
+Beantworte die Frage nur auf Basis des bereitgestellten Kontexts.
+Nenne die verwendeten Quellen.
+Wenn der Kontext nicht reicht, sage klar, welche Information fehlt.
+Keine verbindliche Rechtsberatung."""),
+    ("human", "Kontext:\n{context}\n\nFrage:\n{frage}"),
+])
+
+rag_chain = (
+    {
+        "context": retriever | format_docs,
+        "frage": RunnablePassthrough(),
+    }
+    | rag_prompt
+    | llm
+    | StrOutputParser()
+)
+
+antwort = rag_chain.invoke("Welche Voraussetzungen nennt § 823 BGB?")
+print(antwort)
 ```
 
 ### Aufgabe 5.4: RAG-Chat mit Quellenangaben
 
 ```python
-def rag_chat():
-    """RAG-Chat mit Quellenangaben"""
-    print("🤖 Tech-Doku Assistent (RAG-Modus)")
-    print("   (Schreibe 'exit' zum Beenden)\n")
-    ...
+def legal_rag_chat():
+    """RAG-Chat mit Quellenangaben."""
+    print("Juristischer KI-Assistent (RAG-Modus)")
+    print("Schreibe 'exit' zum Beenden.\n")
+
+    while True:
+        frage = input("Frage: ")
+        if frage.lower() == "exit":
+            break
+
+        docs = retriever.invoke(frage)
+        antwort = rag_chain.invoke(frage)
+
+        print("\nAntwort:")
+        print(antwort)
+        print("\nGefundene Quellen:")
+        for doc in docs:
+            print("-", doc.metadata.get("source", "Unbekannt"))
+        print()
 ```
 
-### Aufgabe 5.5: Mini-Evaluation für RAG
+### Aufgabe 5.5: Mini-Evaluation für Legal RAG
 
-Ein RAG-System gilt nicht schon deshalb als brauchbar, weil eine Beispielantwort gut klingt. Nach der ersten RAG-Chain wird ein kleines Testset angelegt, das dieselben Fragen nach jeder Änderung erneut prüft.
+Ein Legal-RAG-System ist nicht schon brauchbar, weil eine Antwort plausibel klingt. Nach der ersten RAG-Chain wird ein kleines Testset angelegt, das Retrieval, Quellenbezug und Antwortgrenzen prüft.
 
 ```python
 eval_set = [
     {
-        "frage": "Wie wird ein API-Key sicher gespeichert?",
-        "erwartete_quelle": "setup.md",
-        "erwartung": "API-Keys werden über Secrets oder Umgebungsvariablen geladen.",
+        "frage": "Welche Voraussetzungen nennt § 823 BGB?",
+        "erwartete_quelle": "bgb_auszug.md",
+        "erwartung": "Die Antwort nennt Rechtsgutsverletzung, Verschulden und Schaden nur, wenn diese Punkte im Kontext stehen.",
     },
     {
-        "frage": "Was tun, wenn die Anwendung keine Quellen findet?",
-        "erwartete_quelle": "troubleshooting.md",
-        "erwartung": "Dokumente, Chunking, Embedding-Modell und k-Wert prüfen.",
+        "frage": "Welche Bedeutung hat Art. 5 GG für Meinungsfreiheit?",
+        "erwartete_quelle": "gg_auszug.md",
+        "erwartung": "Die Antwort verweist auf die Quelle und nennt Grenzen nur aus dem Kontext.",
     },
     {
-        "frage": "Welche Rolle spielt ChromaDB im Projekt?",
-        "erwartete_quelle": "rag.md",
-        "erwartung": "ChromaDB speichert Embeddings und liefert relevante Chunks.",
+        "frage": "Gibt es ein Urteil zu diesem Sachverhalt?",
+        "erwartete_quelle": "urteile_beispiele.md",
+        "erwartung": "Die Antwort sagt klar, wenn der Sachverhalt oder eine passende Entscheidung fehlt.",
     },
 ]
 
@@ -377,117 +593,164 @@ for fall in eval_set:
 ```
 
 **Erfolgskriterium:**
-- ✅ Dokumente werden hochgeladen und indiziert
-- ✅ Retrieval findet relevante Chunks
-- ✅ Antworten basieren auf Dokumenten
-- ✅ Quellenangaben werden angezeigt
-- ✅ Mindestens drei RAG-Testfragen werden dokumentiert und bewertet
+
+- Dokumente werden hochgeladen und indiziert
+- Retrieval findet relevante Chunks
+- Antworten basieren auf kontrolliertem Kontext
+- Quellenangaben werden angezeigt
+- Mindestens drei RAG-Testfragen werden dokumentiert und bewertet
+- Der Bot sagt klar, wenn der Kontext nicht ausreicht
 
 ---
 
-## Kapitel 6: SQL RAG (Modul M07)
+## Kapitel 6: SQL RAG für Rechtsmetadaten (Modul M07)
 
 **Lernziel:** Strukturierte Daten mit RAG abfragen, SQL-Generierung durch LLMs
+
+Neben Volltextquellen braucht ein juristisches System strukturierte Metadaten: Norm, Gericht, Datum, Aktenzeichen, Rechtsgebiet, Quelle und Dokumenttyp. Diese Informationen lassen sich gut in einer SQLite-Datenbank ablegen.
 
 ### Aufgabe 6.1: SQLite-Datenbank erstellen
 
 ```python
 # ═══════════════════════════════════════════════════
-# 🗄️ KAPITEL 6: SQL RAG (M07)
+# KAPITEL 6: SQL RAG FÜR RECHTSMETADATEN (M07)
 # ═══════════════════════════════════════════════════
 
 import sqlite3
 
-# Beispiel-Datenbank für Tech-Dokumentation
-conn = sqlite3.connect("tech_docs.db")
+conn = sqlite3.connect("legal_sources.db")
 cursor = conn.cursor()
 
 cursor.execute("""
-    CREATE TABLE IF NOT EXISTS dokumentation (
+    CREATE TABLE IF NOT EXISTS rechtsquellen (
         id INTEGER PRIMARY KEY,
         titel TEXT,
-        kategorie TEXT,
-        inhalt TEXT,
-        version TEXT
+        dokumenttyp TEXT,
+        rechtsgebiet TEXT,
+        fundstelle TEXT,
+        datum TEXT,
+        quelle TEXT
     )
 """)
-...
+
+beispiele = [
+    ("§ 823 BGB", "Norm", "Zivilrecht", "BGB", None, "bgb_auszug.md"),
+    ("Art. 5 GG", "Norm", "Öffentliches Recht", "GG", None, "gg_auszug.md"),
+    ("Beispielurteil Meinungsfreiheit", "Urteil", "Öffentliches Recht", "BVerfG", "2020-01-01", "urteile_beispiele.md"),
+]
+
+cursor.executemany("""
+    INSERT INTO rechtsquellen (titel, dokumenttyp, rechtsgebiet, fundstelle, datum, quelle)
+    VALUES (?, ?, ?, ?, ?, ?)
+""", beispiele)
+
+conn.commit()
+conn.close()
 ```
 
 ### Aufgabe 6.2: SQL-Chain mit LangChain
 
-Für die SQL-Generierung ist `gpt-5.4-mini` meist die stabilere Wahl als `gpt-5.4-nano`, besonders bei komplexeren Schemata oder wenn die Abfrage mehrere Tabellen und Bedingungen kombinieren muss. Wer hier sofort mit `gpt-5.4-nano` startet, spart zwar Kosten, verliert aber oft Zeit bei Fehlersuche und Korrekturschleifen.
+Für die SQL-Generierung ist `gpt-5.4-mini` meist die stabilere Wahl als `gpt-5.4-nano`, besonders bei komplexeren Schemata oder wenn die Abfrage mehrere Bedingungen kombinieren muss.
 
 ```python
 from langchain_community.utilities import SQLDatabase
 from langchain.chains import create_sql_query_chain
 
-# Datenbank anbinden
-db = SQLDatabase.from_uri("sqlite:///tech_docs.db")
+db = SQLDatabase.from_uri("sqlite:///legal_sources.db")
 
-# SQL-Chain erstellen
 sql_chain = create_sql_query_chain(llm, db)
-...
+
+query = sql_chain.invoke({
+    "question": "Welche Quellen gehören zum Öffentlichen Recht?"
+})
+
+print(query)
 ```
 
 ### Aufgabe 6.3: Kombination Vektor-RAG + SQL RAG
 
 ```python
-def hybrid_chat():
-    """Chat mit Vektor-RAG und SQL RAG kombiniert"""
-    print("🤖 Tech-Doku Assistent (Hybrid-Modus)")
-    print("   📚 Dokumente + 🗄️ Datenbank")
-    ...
+def hybrid_legal_chat():
+    """Chat mit Vektor-RAG und SQL RAG kombiniert."""
+    print("Juristischer KI-Assistent (Hybrid-Modus)")
+    print("Volltextquellen + Rechtsmetadaten")
+    print("Schreibe 'exit' zum Beenden.\n")
+
+    while True:
+        frage = input("Frage: ")
+        if frage.lower() == "exit":
+            break
+
+        docs = retriever.invoke(frage)
+        rag_antwort = rag_chain.invoke(frage)
+        sql_vorschlag = sql_chain.invoke({"question": frage})
+
+        print("\nRAG-Antwort:")
+        print(rag_antwort)
+        print("\nSQL-Vorschlag für Metadatenprüfung:")
+        print(sql_vorschlag)
+        print("\nQuellen:")
+        for doc in docs:
+            print("-", doc.metadata.get("source", "Unbekannt"))
+        print()
 ```
 
 **Erfolgskriterium:**
-- ✅ SQLite-Datenbank mit Beispieldaten erstellt
-- ✅ Natürlichsprachliche Fragen werden in SQL übersetzt
-- ✅ Ergebnisse werden verständlich aufbereitet
-- ✅ Kombination mit Vektor-RAG funktioniert
+
+- SQLite-Datenbank mit Rechtsquellen-Metadaten wird erstellt
+- Natürlichsprachliche Fragen werden in SQL übersetzt
+- Ergebnisse unterstützen die Quellenprüfung
+- Kombination mit Vektor-RAG funktioniert
 
 ---
 
-## Kapitel 7: Agent mit Tools (Modul M08)
+## Kapitel 7: Agent mit juristischen Tools (Modul M08)
 
 **Lernziel:** LangChain Agents, Tool-Definition, Function Calling
+
+Der Agent entscheidet, wann er Retrieval, Metadatensuche oder Qualitätsprüfung nutzt. Das Toolset bleibt bewusst klein, damit die Entscheidungslogik nachvollziehbar bleibt.
 
 ### Aufgabe 7.1: Tools definieren
 
 ```python
 # ═══════════════════════════════════════════════════
-# 🤖 KAPITEL 7: AGENT MIT TOOLS (M08)
+# KAPITEL 7: AGENT MIT JURISTISCHEN TOOLS (M08)
 # ═══════════════════════════════════════════════════
 
 from langchain_core.tools import tool
-import ast
 
 @tool
-def search_documentation(query: str) -> str:
-    """Durchsucht die technische Dokumentation nach relevanten Informationen."""
-    # Nutze Retriever aus Kapitel 5
+def search_legal_sources(query: str) -> str:
+    """Durchsucht die juristischen Volltextquellen nach relevanten Informationen."""
     docs = retriever.invoke(query)
-    ...
+    return format_docs(docs)
 
 @tool
-def query_database(question: str) -> str:
-    """Beantwortet Fragen über die Tech-Doku Datenbank mittels SQL."""
-    # Nutze SQL-Chain aus Kapitel 6
-    result = sql_chain.invoke({"question": question})
-    ...
+def query_legal_metadata(question: str) -> str:
+    """Erzeugt eine SQL-Abfrage für die Rechtsquellen-Metadatenbank."""
+    return sql_chain.invoke({"question": question})
 
 @tool
-def calculate_token_cost(text: str, model: str = "gpt-5.4-nano") -> str:
-    """Berechnet Token-Anzahl und geschätzte Kosten für einen Text."""
-    tokens = count_tokens(text, model)
-    ...
+def check_citations(answer: str) -> str:
+    """Prüft, ob eine Antwort Quellenangaben enthält."""
+    has_source = "Quelle:" in answer or "Quellen:" in answer
+    if has_source:
+        return "Quellenangaben gefunden. Prüfe zusätzlich, ob sie wirklich zum Inhalt passen."
+    return "Keine Quellenangaben gefunden. Antwort vor Verwendung überarbeiten."
 
 @tool
-def validate_python_code(code: str) -> str:
-    """Validiert Python-Code auf Syntax-Fehler."""
-    try:
-        ast.parse(code)
-        ...
+def classify_legal_question(question: str) -> str:
+    """Ordnet eine Frage grob einem Rechtsgebiet zu."""
+    classifier = llm.with_structured_output(LegalAnswer)
+    result = classifier.invoke(question)
+    return result.rechtsgebiet
+
+tools = [
+    search_legal_sources,
+    query_legal_metadata,
+    check_citations,
+    classify_legal_question,
+]
 ```
 
 ### Aufgabe 7.2: Agent erstellen
@@ -495,41 +758,58 @@ def validate_python_code(code: str) -> str:
 ```python
 from langchain.agents import create_agent
 
-# Agent erstellen
 agent = create_agent(
     model="openai:gpt-5.4-nano",
     tools=tools,
-    ...
+    system_prompt="""Du bist ein juristischer Recherche-Agent.
+Nutze Tools, wenn eine Frage Quellen, Rechtsgebiet oder Metadaten betrifft.
+Kennzeichne Unsicherheiten und gib keine verbindliche Rechtsberatung.""",
 )
 ```
 
 ### Aufgabe 7.3: Agent-Chat
 
 ```python
-def agent_chat():
-    """Interactive Agent Chat"""
-    print("🤖 Tech-Doku Assistent (Agent-Modus)")
-    print("   Tools: 📚 Doku-Suche | 🗄️ DB-Abfrage | 📊 Token-Rechner | ✅ Code-Validator")
-    ...
+def legal_agent_chat():
+    """Interaktiver Agent-Chat."""
+    print("Juristischer KI-Assistent (Agent-Modus)")
+    print("Tools: Quellen-Suche | Metadaten-Abfrage | Zitierprüfung | Rechtsgebiets-Klassifikation")
+    print("Schreibe 'exit' zum Beenden.\n")
+
+    while True:
+        frage = input("Frage: ")
+        if frage.lower() == "exit":
+            break
+
+        response = agent.invoke({
+            "messages": [{"role": "human", "content": frage}]
+        })
+
+        print("\nAntwort:")
+        print(response["messages"][-1].content)
+        print()
 ```
 
 **Erfolgskriterium:**
-- ✅ Alle 4 Tools funktionieren einzeln
-- ✅ Agent nutzt Tools korrekt
-- ✅ Entscheidungslogik ist nachvollziehbar
-- ✅ Debug-Modus zeigt Tool-Aufrufe
+
+- Alle vier Tools funktionieren einzeln
+- Agent nutzt Tools nachvollziehbar
+- Antworten enthalten Quellen oder klare Hinweise auf fehlende Quellen
+- Debug-Ausgaben oder Zwischenstände machen Tool-Aufrufe prüfbar
 
 ---
 
-## Kapitel 8: Middleware (Modul M09)
+## Kapitel 8: Middleware, Sicherheit & Freigabe (Modul M09)
 
-**Lernziel:** Agent-Ausführung kontrollieren mit Middleware-Hooks und prebuilt Middleware
+**Lernziel:** Agent-Ausführung kontrollieren mit Middleware und Human-in-the-loop
 
-### Aufgabe 8.1: Logging-Middleware mit Decorator-Hooks
+Juristische KI-Systeme brauchen klare Kontrollpunkte. Logging, Retry-Logik und menschliche Freigabe helfen, Tool-Aufrufe und Antworten nachvollziehbar zu machen.
+
+### Aufgabe 8.1: Logging-Middleware
 
 ```python
 # ═══════════════════════════════════════════════════
-# 🛡️ KAPITEL 8: MIDDLEWARE (M09)
+# KAPITEL 8: MIDDLEWARE, SICHERHEIT & FREIGABE (M09)
 # ═══════════════════════════════════════════════════
 
 from langchain.agents import AgentState
@@ -538,47 +818,48 @@ from langchain.tools.tool_node import ToolCallRequest
 
 @before_model
 def log_before(state: AgentState, runtime):
-    """Loggt jede Modell-Anfrage"""
-    print(f"🧠 Model wird aufgerufen mit {len(state['messages'])} Nachrichten")
+    """Loggt jede Modell-Anfrage."""
+    print(f"Model wird aufgerufen mit {len(state['messages'])} Nachrichten")
     return None
 
 @after_model
 def log_after(state: AgentState, runtime):
-    """Loggt jede Modell-Antwort"""
+    """Loggt jede Modell-Antwort."""
     msg = state["messages"][-1]
     if hasattr(msg, "tool_calls") and msg.tool_calls:
-        print(f"⚡ Tool-Aufruf: {[tc['name'] for tc in msg.tool_calls]}")
+        print(f"Tool-Aufruf: {[tc['name'] for tc in msg.tool_calls]}")
     else:
-        print(f"💬 Antwort generiert")
+        print("Antwort generiert")
     return None
 
 @wrap_tool_call
 def log_tool(request: ToolCallRequest, handler):
-    """Loggt jede Tool-Ausführung"""
-    print(f"🔧 Führe aus: {request.tool_call['name']}")
+    """Loggt jede Tool-Ausführung."""
+    print(f"Führe aus: {request.tool_call['name']}")
     result = handler(request)
-    print(f"✅ Ergebnis: {str(result.content)[:100]}")
+    print(f"Ergebnis: {str(result.content)[:120]}")
     return result
 ```
 
-### Aufgabe 8.2: Human-in-the-Loop für sensible Tools
+### Aufgabe 8.2: Human-in-the-loop für sensible Tools
 
 ```python
 from langchain.agents.middleware import HumanInTheLoopMiddleware
 from langgraph.checkpoint.memory import MemorySaver
 
-# HITL für sensible Tools aktivieren
 hitl = HumanInTheLoopMiddleware(
-    interrupt_on={"query_database": True}
+    interrupt_on={
+        "query_legal_metadata": True,
+        "check_citations": True,
+    }
 )
 
 agent_safe = create_agent(
     model="openai:gpt-5.4-nano",
     tools=tools,
     middleware=[log_before, log_after, log_tool, hitl],
-    checkpointer=MemorySaver()
+    checkpointer=MemorySaver(),
 )
-...
 ```
 
 ### Aufgabe 8.3: Retry-Middleware für Robustheit
@@ -590,21 +871,24 @@ agent_robust = create_agent(
     model="openai:gpt-5.4-nano",
     tools=tools,
     middleware=[
-        log_before, log_after, log_tool,
+        log_before,
+        log_after,
+        log_tool,
         ModelRetryMiddleware(max_retries=3, backoff_factor=2.0, jitter=True),
         ToolRetryMiddleware(max_retries=2, jitter=True),
         hitl,
     ],
-    checkpointer=MemorySaver()
+    checkpointer=MemorySaver(),
 )
-...
 ```
 
 **Erfolgskriterium:**
-- ✅ Logging zeigt Modell- und Tool-Aufrufe
-- ✅ HITL unterbricht bei Datenbank-Queries und wartet auf Bestätigung
-- ✅ Retry-Middleware fängt transiente Fehler ab
-- ✅ Middleware-Stack ist korrekt kombiniert
+
+- Logging zeigt Modell- und Tool-Aufrufe
+- HITL unterbricht bei sensiblen Tools
+- Retry-Middleware fängt transiente Fehler ab
+- Der Middleware-Stack bleibt verständlich und prüfbar
+- Die Ausgabe macht Unsicherheiten und fehlende Quellen sichtbar
 
 ---
 
@@ -612,78 +896,104 @@ agent_robust = create_agent(
 
 **Lernziel:** Web-Interface mit Gradio, State-Management, Event-Handling
 
+Die UI bildet die Schichten des Systems ab: Chat, Dokumenten-Upload, Recherchemodus, Agent-Modus und Quellenanzeige. Für den Workshop reicht eine einfache Oberfläche mit Tabs.
+
 ### Aufgabe 9.1: Basis-UI erstellen
 
 ```python
 # ═══════════════════════════════════════════════════
-# 🌐 KAPITEL 9: GRADIO-UI (M11)
+# KAPITEL 9: GRADIO-UI (M11)
 # ═══════════════════════════════════════════════════
 
 import gradio as gr
 
-# Chat-Handler-Funktionen
 def chat_handler(message, history):
-    """Verarbeitet normale Chat-Anfragen"""
+    """Verarbeitet normale Chat-Anfragen."""
     antwort = chain.invoke({"frage": message})
-    ...
+    return antwort
 
 def rag_handler(message, history):
-    """Verarbeitet RAG-basierte Anfragen"""
+    """Verarbeitet RAG-basierte Anfragen."""
+    docs = retriever.invoke(message)
     antwort = rag_chain.invoke(message)
-    ...
+    quellen = "\n".join([
+        f"- {doc.metadata.get('source', 'Unbekannt')}"
+        for doc in docs
+    ])
+    return f"{antwort}\n\nQuellen:\n{quellen}"
 
 def agent_handler(message, history):
-    """Verarbeitet Agent-Anfragen (mit Middleware)"""
+    """Verarbeitet Agent-Anfragen mit Middleware."""
     response = agent_robust.invoke({
         "messages": [{"role": "human", "content": message}]
     })
-    ...
+    return response["messages"][-1].content
 ```
 
 ### Aufgabe 9.2: Gradio-App implementieren
 
 ```python
-# Gradio Interface
-with gr.Blocks(title="Tech-Doku Assistent") as demo:
-    gr.Markdown("# 🤖 Tech-Doku Assistent")
-    gr.Markdown("*Powered by LangChain & OpenAI*")
-    ...
+with gr.Blocks(title="Juristischer KI-Assistent") as demo:
+    gr.Markdown("# Juristischer KI-Assistent")
+    gr.Markdown("Recherche, RAG und Agent-Workflow mit kontrollierter Quellenbasis.")
+
+    with gr.Tab("Chat"):
+        gr.ChatInterface(fn=chat_handler)
+
+    with gr.Tab("Legal RAG"):
+        gr.ChatInterface(fn=rag_handler)
+
+    with gr.Tab("Agent"):
+        gr.ChatInterface(fn=agent_handler)
+
+demo.launch(share=True)
 ```
 
 **Colab-spezifische Hinweise:**
-- `share=True` erstellt einen öffentlichen Link (für 72h gültig)
+
+- `share=True` erstellt einen öffentlichen Link
 - Der Link kann mit anderen geteilt werden
 - Gradio läuft direkt in Colab ohne separaten Server
+- Für sensible oder echte juristische Inhalte sollte kein öffentlicher Share-Link verwendet werden
 
 **Erfolgskriterium:**
-- ✅ UI läuft in Colab mit öffentlichem Link
-- ✅ Alle Tabs funktionieren (Chat, RAG, Agent)
-- ✅ Token-Tracking wird live aktualisiert
-- ✅ "Chat löschen" Button funktioniert
+
+- UI läuft in Colab
+- Chat, RAG und Agent funktionieren
+- Quellen werden sichtbar angezeigt
+- "Chat löschen" oder Session-Reset ist ergänzt
+- Sensible Inhalte werden nicht öffentlich geteilt
 
 ---
 
 ## Bonusaufgaben
 
 ### Bonus 1: Persistenz
+
 - Chat-History in JSON speichern
 - Vorherige Sessions beim Start laden
-- Session-Management ergänzen
+- Arbeitsbereiche für unterschiedliche Fälle ergänzen
 
-### Bonus 2: Erweiterte RAG-Features
+### Bonus 2: Erweiterte Legal-RAG-Features
+
 - Hybrid-Search (Keyword + Semantic)
 - Re-Ranking der Retrieval-Ergebnisse
 - Chunk-Overlap-Visualisierung
+- Quellengewichtung nach Dokumenttyp
+- Trennung von Normtext, Urteil und eigener Zusammenfassung
 
 ### Bonus 3: MCP-Integration (M10)
-- MCP-Server für die Tech-Dokumentation erstellen
+
+- MCP-Server für eine kleine Rechtsquellen-Sammlung erstellen
 - Agent über MCP-Client mit externen Tools verbinden
 - Vergleich: Tools direkt vs. Tools via MCP
 
-### Bonus 4: Notebook dokumentieren
-- Ein Inhaltsverzeichnis mit Markdown-Zellen anlegen
-- Emoji-Header für jedes Kapitel ergänzen
-- Lernziele und Erfolgskriterien dokumentieren
+### Bonus 4: Qualitätssicherung
+
+- Zitierprüfung als eigene Funktion ergänzen
+- Testfälle für falsche oder fehlende Quellen anlegen
+- Halluzinations-Check vor der UI-Ausgabe ausführen
+- Antwort als PDF oder Markdown exportieren
 
 ---
 
@@ -691,30 +1001,31 @@ with gr.Blocks(title="Tech-Doku Assistent") as demo:
 
 | Kapitel | Punkte | Kriterien |
 |---------|--------|-----------|
-| 1: Basis-Chatbot (M02) | 10 | Funktionalität, Code-Qualität, LCEL-Nutzung |
-| 2: Token-Optimierung (M03) | 10 | Korrekte Zählung, Statistiken, Warnungen |
-| 3: Strukturierte Ausgaben (M04) | 10 | Pydantic-Modelle, Validierung |
-| 4: Chat-Memory (M05) | 10 | Context-Awareness, Memory-Management |
-| 5: RAG-Integration (M06) | 15 | Retrieval-Qualität, Quellenangaben, Mini-Evaluation |
-| 6: SQL RAG (M07) | 10 | SQL-Generierung, Hybrid-Modus |
-| 7: Agent mit Tools (M08) | 15 | Tool-Implementation, Agent-Logik |
-| 8: Middleware (M09) | 10 | Logging, HITL, Retry-Stack |
-| 9: Gradio-UI (M11) | 10 | Usability, Features, Design |
+| 1: Basis-Chatbot (M02) | 10 | Funktionalität, klare Grenzen, LCEL-Nutzung |
+| 2: Token-Optimierung (M03) | 10 | Korrekte Zählung, Statistiken, Kontextbewusstsein |
+| 3: Strukturierte Ausgaben (M04) | 10 | Pydantic-Modelle, Validierung, juristische Felder |
+| 4: Chat-Memory (M05) | 10 | Sachverhaltskontext, Memory-Management |
+| 5: Legal RAG (M06) | 15 | Retrieval-Qualität, Quellenangaben, Mini-Evaluation |
+| 6: SQL RAG (M07) | 10 | Rechtsmetadaten, SQL-Generierung, Hybrid-Modus |
+| 7: Agent mit Tools (M08) | 15 | Tool-Implementation, Agent-Logik, Zitierprüfung |
+| 8: Middleware (M09) | 10 | Logging, HITL, Retry-Stack, Kontrollpunkte |
+| 9: Gradio-UI (M11) | 10 | Usability, Quellenanzeige, sensible Veröffentlichung |
 | **Gesamt** | **100** | |
 
-**Bestanden:** ≥ 60 Punkte
+**Bestanden:** >= 60 Punkte
 
 ---
 
 ## Hilfreiche Ressourcen
 
 **LangChain Dokumentation:**
+
 - [init_chat_model()](https://python.langchain.com/docs/concepts/chat_models/)
 - [RAG Tutorial](https://python.langchain.com/docs/tutorials/rag/)
 - [Agents](https://python.langchain.com/docs/concepts/agents/)
 
-
 **Kurs-Notebooks:**
+
 - `01_notebook/M02_LangChain101.ipynb`
 - `01_notebook/M03_Textverarbeitung_mit_LangChain.ipynb`
 - `01_notebook/M04_OutputParser.ipynb`
@@ -728,6 +1039,7 @@ with gr.Blocks(title="Tech-Doku Assistent") as demo:
 - `01_notebook/M11_Gradio.ipynb`
 
 **Qualität & Observability:**
+
 - [Evaluation & Observability](../07-qualitaet-sicherheit/evaluation-observability.html)
 - [RAG-Konzepte](../05-prompting-rag/rag-konzepte.html)
 - [LangSmith Best Practices](../06-frameworks/langsmith-best-practices.html)
@@ -737,62 +1049,75 @@ with gr.Blocks(title="Tech-Doku Assistent") as demo:
 ## Erwartete Ergebnisse
 
 **Format:**
-- **Jupyter Notebook** (`Tech_Doku_Assistent.ipynb`) mit allen neun Kapiteln, sauberer Markdown-Struktur und nachvollziehbaren Code-Zellen
-- **Dokumentations-Dateien** mit drei bis fünf `.md`-Dateien für den RAG-Teil
-- **README.md** mit Kurzbeschreibung, Setup-Hinweisen und einem Screenshot der Gradio-Oberfläche
+
+- **Jupyter Notebook** (`Legal_Assistant.ipynb`) mit allen neun Kapiteln, sauberer Markdown-Struktur und nachvollziehbaren Code-Zellen
+- **Rechtsquellen-Dateien** mit drei bis fünf `.md`-Dateien für den RAG-Teil
+- **SQLite-Datenbank** mit Metadaten zu Normen, Urteilen oder Beispielquellen
+- **README.md** mit Kurzbeschreibung, Setup-Hinweisen, Quellenbasis und Screenshot der Gradio-Oberfläche
 - Optional ein **Demo-Video** oder ein **Colab-Link**
 
 **Einreichung:**
+
 - Als **Colab-Link**
-- Oder als **ZIP-Archiv** mit `.ipynb` und `docs/`
+- Oder als **ZIP-Archiv** mit `.ipynb`, `legal_docs/` und Datenbankdatei
 - Oder als **Git-Repository-Link**
 
-### Checkliste RAG-Workshop
+### Checkliste Legal-RAG-Workshop
+
 - [ ] Notebook läuft von oben bis unten fehlerfrei durch
-- [ ] Alle API-Keys sind über Colab Secrets eingebunden (nicht hardcodiert!)
+- [ ] Alle API-Keys sind über Colab Secrets eingebunden und nicht hardcodiert
 - [ ] Alle 9 Kapitel sind implementiert
-- [ ] Mindestens 3 Markdown-Dateien für RAG vorhanden
-- [ ] Mindestens 3 RAG-Testfragen mit Bewertung dokumentiert
-- [ ] SQLite-Datenbank für SQL RAG erstellt
-- [ ] Middleware-Stack (Logging + HITL + Retry) funktioniert
-- [ ] Gradio-UI läuft und erstellt share-Link
-- [ ] Erfolgskriterien aus allen Kapiteln erfüllt
-- [ ] README.md erklärt das Projekt
+- [ ] Mindestens 3 Markdown-Dateien mit frei nutzbaren oder selbst erstellten Rechtsquellen sind vorhanden
+- [ ] Mindestens 3 RAG-Testfragen mit Bewertung sind dokumentiert
+- [ ] SQLite-Datenbank für Rechtsmetadaten ist erstellt
+- [ ] Antworten enthalten Quellenangaben oder klare Hinweise auf fehlenden Kontext
+- [ ] Middleware-Stack mit Logging, HITL und Retry funktioniert
+- [ ] Gradio-UI läuft und zeigt Quellen sichtbar an
+- [ ] README.md erklärt Projekt, Setup, Quellenbasis und Grenzen
 
 ---
 
 ## FAQ
 
-**Q: Muss ich alle Kapitel implementieren?**
-A: Kapitel 1–5 sind Pflicht. Kapitel 6–9 sind optional für zusätzliche Punkte.
+**Q: Muss ich alle Kapitel implementieren?**  
+A: Kapitel 1-5 sind Pflicht. Kapitel 6-9 sind optional für zusätzliche Punkte.
 
-**Q: Kann ich separate Notebooks erstellen statt einem großen?**
-A: Ja. Möglich sind neun separate Notebooks, etwa `Kapitel_1_Chat.ipynb` bis `Kapitel_9_Gradio.ipynb`. Wichtig ist dann, dass spätere Kapitel auf frühere Ergebnisse zugreifen können.
+**Q: Kann ich separate Notebooks erstellen statt einem großen?**  
+A: Ja. Möglich sind neun separate Notebooks, etwa `Kapitel_1_Chat.ipynb` bis `Kapitel_9_UI.ipynb`. Wichtig ist dann, dass spätere Kapitel auf frühere Ergebnisse zugreifen können.
 
-**Q: Welches LLM-Modell soll ich verwenden?**
-A: Für Kapitel 6 (SQL RAG) ist `gpt-5.4-mini` oder größer die robustere Wahl. `gpt-5.4-nano` ist für einfache Demos okay, scheitert aber bei komplexeren Schemas und längeren SQL-Statements häufiger. Für Kapitel 7 (Agent) ist `gpt-5.4-nano` weiterhin für einfache Function-Calling-Beispiele brauchbar.
+**Q: Ist das eine Rechtsberatung?**  
+A: Nein. Das Projekt ist eine technische Übung. Der Assistent arbeitet mit Beispielquellen und soll zeigen, wie RAG, Agenten und Qualitätssicherung in einem juristischen Kontext zusammenspielen.
 
-**Q: Kann ich andere Vektordatenbanken nutzen?**
-A: Ja, FAISS ist in Colab sogar etwas schneller als ChromaDB. Qdrant ist ebenfalls möglich.
+**Q: Welche Quellen darf ich verwenden?**  
+A: Nutze selbst erstellte Texte, frei verfügbare Gesetzestexte oder kurze didaktische Auszüge. Kommerzielle Kommentare, Handbücher und Fachdatenbanken dürfen nur verwendet werden, wenn die Nutzungsrechte das erlauben.
 
-**Q: Wo bekomme ich Markdown-Dateien für RAG?**
+**Q: Welches LLM-Modell soll ich verwenden?**  
+A: Für Kapitel 6 (SQL RAG) ist `gpt-5.4-mini` oder größer die robustere Wahl. `gpt-5.4-nano` ist für einfache Demos okay, scheitert aber bei komplexeren Schemata und längeren SQL-Statements häufiger. Für Kapitel 7 (Agent) ist `gpt-5.4-nano` weiterhin für einfache Function-Calling-Beispiele brauchbar.
+
+**Q: Kann ich andere Vektordatenbanken nutzen?**  
+A: Ja, FAISS ist in Colab oft etwas schneller als ChromaDB. Qdrant ist ebenfalls möglich.
+
+**Q: Wo bekomme ich Markdown-Dateien für Legal RAG?**  
 A: Optionen:
-  - Eigene `.md`-Dateien mit technischen Informationen erstellen
-  - Offizielle Dokumentation herunterladen, etwa zu Docker oder Kubernetes
-  - `markitdown` für PDF-zu-Markdown-Konvertierung nutzen
-  - Wikipedia-Artikel als Markdown übernehmen
 
-**Q: Mein Colab-Notebook stürzt beim Gradio-Launch ab**
-A: Häufigste Ursachen:
-  - RAM-Limit erreicht → Runtime → Factory reset runtime
-  - Firewall blockiert share-Link → `share=False` für lokalen Zugriff testen
-  - Alte Gradio-Version → `!pip install --upgrade gradio`
+- Eigene `.md`-Dateien mit kurzen Normauszügen oder didaktischen Fallbeispielen erstellen
+- Frei zugängliche Gesetzestexte in kleine Auszüge übertragen
+- Eigene Zusammenfassungen öffentlich verfügbarer Entscheidungen schreiben
+- `markitdown` für die Konvertierung eigener PDF- oder DOCX-Materialien nutzen
 
-**Q: Kann ich die Übung auch lokal (ohne Colab) machen?**
+**Q: Mein Colab-Notebook stürzt beim Gradio-Launch ab**  
+A: Häufige Ursachen:
+
+- RAM-Limit erreicht -> Runtime -> Factory reset runtime
+- Firewall blockiert Share-Link -> `share=False` für lokalen Zugriff testen
+- Alte Gradio-Version -> `!pip install --upgrade gradio`
+
+**Q: Kann ich die Übung auch lokal ohne Colab machen?**  
 A: Ja. Dann lokal mit Jupyter Notebook oder JupyterLab arbeiten und Folgendes ersetzen:
-  - `from google.colab import userdata` → `from dotenv import load_dotenv`
-  - `files.upload()` → Lokale File-Pfade
-  - `share=True` → Optional für Gradio
+
+- `from google.colab import userdata` -> `from dotenv import load_dotenv`
+- `files.upload()` -> lokale File-Pfade
+- `share=True` -> optional für Gradio
 
 ---
 
@@ -806,6 +1131,6 @@ A: Ja. Dann lokal mit Jupyter Notebook oder JupyterLab arbeiten und Folgendes er
 
 ---
 
-**Version:**    2.1<br>
-**Stand:** Mai 2026<br>
+**Version:** 3.0<br>
+**Stand:** Juni 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
