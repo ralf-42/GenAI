@@ -37,12 +37,15 @@ Das Projekt orientiert sich an einer typischen Architektur für juristische KI-S
 - **Output & Präsentation:** Strukturierung, Quellenangaben, Export und UI-Ausgabe
 
 
+### Persona
+
+
 <img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/profil_legal.png" class="logo" width="950"/>
 <p><font color='black' size="2">
 KI-generiertes Bild
 </font></p>
 
-**Lernziele:**
+### Lernziele:
 
 - Aufbau einer GenAI-Anwendung für juristische Recherche von Grund auf
 - Schrittweise Integration von LangChain-Features
@@ -51,6 +54,8 @@ KI-generiertes Bild
 - Best Practices für strukturierten Notebook-Code, Quellenangaben und Qualitätssicherung
 
 **Arbeitsumgebung:** Google Colab oder Jupyter Notebook
+
+### Potenzielle Architektur:
 
 
 <img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/legal_system.png" class="logo" width="950"/>
