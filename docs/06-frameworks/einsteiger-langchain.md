@@ -44,27 +44,14 @@ Genau dafür ist LangChain gemacht:
 **Kernprinzip:** LangChain versteckt die ganzen Integrationsdetails und stellt wieder verwendbare Bausteine bereit – vom einfachen Prompt bis zum Agenten, der Tools verwendet.
 
 
-<img src="https://raw.githubusercontent.com/ralf-42/Agenten/main/07_image/pia_2.png" class="logo" width="950"/>
+<img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/langchain_konzepte.png" class="logo" width="950"/>
 <p><font color='black' size="2">
 KI-generiertes Bild
 </font></p>
 
 ---
 
-## Zentrale Konzepte
 
-| Konzept               | Rolle im LangChain-Workflow                                     |
-| --------------------- | --------------------------------------------------------------- |
-| Prompt                | Formuliert Aufgabe, Rolle und Kontext für das Modell            |
-| Modell                | Liefert Antworten über eine einheitliche Provider-Schnittstelle |
-| Strukturierte Ausgabe | Erzeugt verlässliche Objekte statt Freitext                     |
-| Tool                  | Erweitert das Modell um externe Funktionen                      |
-| Chain                 | Verbindet mehrere Schritte mit LCEL                             |
-| Agent                 | Wählt dynamisch Tools und Schritte aus                          |
-| RAG                   | Verbindet Modellantworten mit eigenen Wissensquellen            |
-
-
----
 
 ## Quickstart
 
