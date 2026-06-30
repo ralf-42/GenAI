@@ -452,7 +452,7 @@ Diese Ressourcen helfen euch beim Entwickeln des Abschlussprojekts:
 
 | Dokument | Frage |
 |---|---|
-| [RAG Workshop](./rag-workshop.html) | Wie entsteht schrittweise eine RAG-Anwendung mit Agent, Middleware und UI? |
+| [Legal-RAG Workshop](./rag-workshop.html) | Wie entsteht schrittweise ein juristisches RAG-System mit Quellen, Agent, Middleware und UI? |
 | [Vom Notebook zum Produkt](../10-deployment/vom-notebook-zum-produkt.html) | Welche Schritte sind nötig, damit ein Kursprojekt deploybar wird? |
 | [Evaluation & Observability](../07-qualitaet-sicherheit/evaluation-observability.html) | Wie werden Qualität und Fehlerverhalten einer GenAI-Anwendung sichtbar? |
 
