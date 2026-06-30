@@ -41,54 +41,28 @@ Genau dafür ist LangChain gemacht:
 - **Verkettung von Schritten**: Komplexe Workflows werden als klare Pipelines gebaut
 - **RAG-Unterstützung**: Wissen aus Vektordatenbanken wird direkt eingebunden
 
-**Kernprinzip:** LangChain versteckt die ganzen Integrationsdetails und stellt wiederverwendbare Bausteine bereit – vom einfachen Prompt bis zum Agenten, der Tools verwendet.
+**Kernprinzip:** LangChain versteckt die ganzen Integrationsdetails und stellt wieder verwendbare Bausteine bereit – vom einfachen Prompt bis zum Agenten, der Tools verwendet.
 
-### LangChain Architektur-Überblick
 
-```mermaid
-graph TB
-    subgraph "LangChain Core Components"
-        MODELS[Models<br/>init_chat_model]
-        PROMPTS[Prompts<br/>ChatPromptTemplate]
-        TOOLS[Tools<br/>@tool decorator]
-        CHAINS[Chains<br/>LCEL with pipe]
-        AGENTS[Agents<br/>create_agent]
-    end
-
-    subgraph "External Systems"
-        LLM_PROVIDERS[LLM Providers<br/>OpenAI, Anthropic, Google]
-        VECTOR_DB[Vector Databases<br/>Chroma, FAISS]
-        APIS[External APIs<br/>Web, Databases]
-    end
-
-    MODELS -->|unified interface| LLM_PROVIDERS
-    PROMPTS --> CHAINS
-    MODELS --> CHAINS
-    TOOLS --> AGENTS
-    MODELS --> AGENTS
-    CHAINS -->|RAG| VECTOR_DB
-    TOOLS -->|integrate| APIS
-
-    style MODELS fill:#e1f5ff
-    style PROMPTS fill:#e1f5ff
-    style TOOLS fill:#e1f5ff
-    style CHAINS fill:#e1f5ff
-    style AGENTS fill:#e1f5ff
-```
+<img src="https://raw.githubusercontent.com/ralf-42/Agenten/main/07_image/pia_2.png" class="logo" width="950"/>
+<p><font color='black' size="2">
+KI-generiertes Bild
+</font></p>
 
 ---
 
 ## Zentrale Konzepte
 
-| Konzept | Rolle im LangChain-Workflow |
-|---|---|
-| Prompt | Formuliert Aufgabe, Rolle und Kontext für das Modell |
-| Modell | Liefert Antworten über eine einheitliche Provider-Schnittstelle |
-| Strukturierte Ausgabe | Erzeugt verlässliche Objekte statt Freitext |
-| Tool | Erweitert das Modell um externe Funktionen |
-| Chain | Verbindet mehrere Schritte mit LCEL |
-| Agent | Wählt dynamisch Tools und Schritte aus |
-| RAG | Verbindet Modellantworten mit eigenen Wissensquellen |
+| Konzept               | Rolle im LangChain-Workflow                                     |
+| --------------------- | --------------------------------------------------------------- |
+| Prompt                | Formuliert Aufgabe, Rolle und Kontext für das Modell            |
+| Modell                | Liefert Antworten über eine einheitliche Provider-Schnittstelle |
+| Strukturierte Ausgabe | Erzeugt verlässliche Objekte statt Freitext                     |
+| Tool                  | Erweitert das Modell um externe Funktionen                      |
+| Chain                 | Verbindet mehrere Schritte mit LCEL                             |
+| Agent                 | Wählt dynamisch Tools und Schritte aus                          |
+| RAG                   | Verbindet Modellantworten mit eigenen Wissensquellen            |
+
 
 ---
 
