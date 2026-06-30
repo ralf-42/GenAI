@@ -87,7 +87,7 @@ def ask(thread_id: str, user_input: str) -> str:
 
 **Lesart:** `ask(...)` übergibt nur noch neue Nachrichten an den Graphen. Der Node beschreibt den LLM-Schritt. `MessagesState` und Checkpointer übernehmen das Fortschreiben des Verlaufs.
 
-## Didaktischer Merksatz
+## Merksatz
 
 Bei `list` + `dict` verwaltet die Chat-Funktion den Verlauf selbst. Bei LangGraph beschreibt der Node nur noch, wie aus bisherigen Nachrichten eine neue Antwort entsteht; der Graph verwaltet den Verlauf.
 
