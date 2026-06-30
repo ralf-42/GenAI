@@ -72,7 +72,7 @@ Die aktuelle Kursstruktur ist in thematische Blöcke gegliedert:
 | :---: | ------------------------ | ------------------------------ | ----------------------------------------------------------------------------------- |
 |   1   | Grundlagen               | Einführung GenAI               | Kursüberblick, OpenAI, Hugging Face und erste LangChain-Einordnung                  |
 |   2   | Framework & Patterns     | LangChain 101                  | Chains, Models, Prompts, Graph-Grundlagen und Best Practices                        |
-|   3   | Framework & Patterns     | Textverarbeitung mit LangChain | Textgenerierung, Textklassifizierung, Textzusammenfassung und LangChain-Grundmuster |
+|   3   | Framework & Patterns     | LLM Text                       | Textgenerierung, Textklassifizierung, Textzusammenfassung und LangChain-Grundmuster |
 |   4   | Framework & Patterns     | Structured Output              | JSON, strukturierte Ausgaben und robuste Antwortformate                             |
 |   5   | Framework & Patterns     | Chat und Memory                | Kurzzeit-Memory, persistentes Memory und externe Speicher                           |
 |   6   | RAG                      | Retrieval Augmented Generation | ChromaDB, Embeddings, Dokument-Q&A und Vektordatenbanken                            |
