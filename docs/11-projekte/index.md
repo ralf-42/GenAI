@@ -13,5 +13,5 @@ Dieser Bereich enthält die kursbegleitenden Praxisaufgaben, die Kursinhalte in 
 
 | Projekt | Inhalt |
 |---|---|
-| [Legal-RAG Workshop](./rag-workshop.html) | Schrittweiser Aufbau eines juristischen KI-Assistenten - vom Chatbot zum RAG-System mit Quellen, Agent, Qualitätssicherung und UI (M02-M11) |
+| [Legal-RAG Workshop](./rag-workshop.html) | Schrittweiser Aufbau eines juristischen KI-Assistenten - vom Chatbot zum RAG-System mit Quellen, Agent, Qualitätssicherung, UI und lokalem Modellbetrieb (M02-M12) |
 | [KI-Challenge](./ki-challenge.html) | Abschlussprojekt: End-to-End-GenAI-Anwendung mit freier Aufgabenstellung |

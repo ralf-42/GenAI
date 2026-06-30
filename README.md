@@ -17,7 +17,7 @@ Die primäre Entwicklungsumgebung ist **Google Colab**; dort steht **Gemini** al
 - Einsteiger:innen mit guten Python-Grundkenntnissen
 - IT-Fachkräfte, die Generative KI praktisch einordnen und integrieren möchten
 - Technikinteressierte, die mit Unterstützung eines Dozenten und Google Colab eigene KI-Beispiele umsetzen möchten
-- Fortgeschrittene Teilnehmende, die optionale Aufbau- und Vertiefungsaufgaben bearbeiten möchten
+- Teilnehmende, die einzelne Themen vertiefen oder eigene Varianten bearbeiten möchten
 
 
 ## 📁 Projektstruktur
@@ -84,37 +84,31 @@ Die Modellwahl richtet sich nach der Rolle im Workflow:
 
 ## 📚 Kursmodule
 
-Die Pflicht-/Praxis-Extra-Orientierung ist im Kursüberblick und in der Kursprogression klar markiert. Zusätzlich sind die Aufgaben in den Notebooks differenziert:
+Die Notebooks sind nach Themen geordnet. Einzelne Aufgaben können je nach Kursverlauf, Zeitbudget und Vorwissen unterschiedlich tief bearbeitet werden.
 
-- **Grundlagen:** Kernaufgaben für alle Teilnehmenden
-- **Aufbau / Fortgeschritten:** zusätzliche Aufgaben für schnellere oder erfahrenere Teilnehmende
-- **Vertiefung / Optional:** anspruchsvollere Erweiterungen, Transfer oder Bonus-Challenges
-
-| Datei                                       | Thema                                                                            | Rolle im Kurs             |
-| ------------------------------------------- | -------------------------------------------------------------------------------- | ------------------------- |
-| `M01_GenAI_Intro.ipynb`                     | Grundlagen Generative KI, OpenAI, Hugging Face, LangChain-Warm-up                | Pflicht                   |
-| `M02_LangChain101.ipynb`                    | LangChain-Grundlagen, Prompts, Chains, Tools                                     | Pflicht                   |
-| `M03_Textverarbeitung_mit_LangChain.ipynb`  | Textgenerierung, Textklassifizierung, Textzusammenfassung, LangChain-Grundmuster | Pflicht                   |
-| `M04_OutputParser.ipynb`                    | Strukturierte Ausgaben und `with_structured_output()`                            | Pflicht                   |
-| `M05_Chat_Memory_Patterns_stategraph.ipynb` | Chat-Verläufe, Memory-Patterns (LangGraph/StateGraph)                            | Ergänzend                 |
-| `M05_Chat_Memory_Patterns_list_dict.ipynb`  | Chat-Verläufe, Memory-Patterns (Python-Listen/Dict)                              | Ergänzend                 |
-| `M06_RAG_LangChain.ipynb`                   | Retrieval Augmented Generation mit LangChain                                     | Pflicht                   |
-| `M07_SQL_RAG.ipynb`                         | SQL-RAG und Datenbankintegration                                                 | Ergänzend                 |
-| `M08_Agenten_LangChain.ipynb`               | Agenten mit LangChain                                                            | Aufbau                    |
-| `M09_Middleware.ipynb`                      | Middleware, Guardrails, Human-in-the-Loop                                        | Aufbau                    |
-| `M10_MCP_LangChain_Agent.ipynb`             | Model Context Protocol und Agent-Tools                                           | Aufbau / Optional         |
-| `M11_Gradio.ipynb`                          | Gradio-Oberflächen für KI-Anwendungen                                            | Ergänzend                 |
-| `M12_Lokale_Open_Source_Modelle.ipynb`      | Lokale und Open-Source-Modelle, Ollama                                           | Optional                  |
-| `M13_Fine_Tuning_Unsloth.ipynb`             | Fine-Tuning und Modellanpassung                                                  | Optional / Vertiefung     |
-| `M14_Multimodal_Bild.ipynb`                 | Multimodale Bildverarbeitung                                                     | Ergänzend                 |
-| `M15_Multimodal_RAG.ipynb`                  | Multimodales RAG mit Text und Bild                                               | Aufbau / Optional         |
-| `M16_Multimodal_Audio.ipynb`                | Audio, Speech-to-Text und Text-to-Speech                                         | Optional                  |
-| `M17`                                       | Platzhalter, derzeit nicht belegt                                                | Modulnummer freigehalten  |
-| `M18`                                       | Platzhalter, derzeit nicht belegt                                                | Modulnummer freigehalten  |
-| `M19_Modellsteuerung.ipynb`                 | Prompting, Parameter, Modellverhalten, Context Engineering                       | Praxis-Extra              |
-| `M20_Codieren_mit_GenAI.ipynb`              | KI-gestütztes Programmieren mit Colab und Gemini-Unterstützung                   | Praxis-Extra              |
-| `A00_snippets_genai.ipynb`                  | Wiederverwendbare Snippets und Referenzbausteine                                 | Hilfsnotebook             |
-| `quick_template.ipynb`                      | Vorlage für Aufgaben und neue Notebook-Bausteine                                 | Hilfsnotebook             |
+| Datei                                       | Thema                                                                            |
+| ------------------------------------------- | -------------------------------------------------------------------------------- |
+| `M01_GenAI_Intro.ipynb`                     | Grundlagen Generative KI, OpenAI, Hugging Face, LangChain-Warm-up                |
+| `M02_LangChain101.ipynb`                    | LangChain-Grundlagen, Prompts, Chains, Tools                                     |
+| `M03_Textverarbeitung_mit_LangChain.ipynb`  | Textgenerierung, Textklassifizierung, Textzusammenfassung, LangChain-Grundmuster |
+| `M04_OutputParser.ipynb`                    | Strukturierte Ausgaben und `with_structured_output()`                            |
+| `M05_Chat_Memory_Patterns_stategraph.ipynb` | Chat-Verläufe, Memory-Patterns (LangGraph/StateGraph)                            |
+| `M05_Chat_Memory_Patterns_list_dict.ipynb`  | Chat-Verläufe, Memory-Patterns (Python-Listen/Dict)                              |
+| `M06_RAG_LangChain.ipynb`                   | Retrieval Augmented Generation mit LangChain                                     |
+| `M07_SQL_RAG.ipynb`                         | SQL-RAG und Datenbankintegration                                                 |
+| `M08_Agenten_LangChain.ipynb`               | Agenten mit LangChain                                                            |
+| `M09_Middleware.ipynb`                      | Middleware, Guardrails, Human-in-the-Loop                                        |
+| `M10_MCP_LangChain_Agent.ipynb`             | Model Context Protocol und Agent-Tools                                           |
+| `M11_Gradio.ipynb`                          | Gradio-Oberflächen für KI-Anwendungen                                            |
+| `M12_Lokale_Open_Source_Modelle.ipynb`      | Lokale und Open-Source-Modelle, Ollama                                           |
+| `M13_Fine_Tuning_Unsloth.ipynb`             | Fine-Tuning und Modellanpassung                                                  |
+| `M14_Multimodal_Bild.ipynb`                 | Multimodale Bildverarbeitung                                                     |
+| `M15_Multimodal_RAG.ipynb`                  | Multimodales RAG mit Text und Bild                                               |
+| `M16_Multimodal_Audio.ipynb`                | Audio, Speech-to-Text und Text-to-Speech                                         |
+| `M19_Modellsteuerung.ipynb`                 | Prompting, Parameter, Modellverhalten, Context Engineering                       |
+| `M20_Codieren_mit_GenAI.ipynb`              | KI-gestütztes Programmieren mit Colab und Gemini-Unterstützung                   |
+| `A00_snippets_genai.ipynb`                  | Wiederverwendbare Snippets und Referenzbausteine                                 |
+| `quick_template.ipynb`                      | Vorlage für Aufgaben und neue Notebook-Bausteine                                 |
 
 ## 🔑 Voraussetzungen
 
