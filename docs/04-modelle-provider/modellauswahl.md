@@ -73,6 +73,10 @@ Die folgende Tabelle zeigt die zentralen Modellrollen aus `model_config.py`. Die
 KI-generiertes Bild
 </font></p>
 
+**Modellübersichten:**      
++ [Models.dev]([Models.dev — An open-source database of AI models](https://models.dev/))
++ [LiteLLM Modelle]([LiteLLM-Anbieter & Modelle](https://models.litellm.ai/))      
+
 ## Entscheidungsregeln
 
 Für Grundlagen, kurze Demos und erste Chains reicht die Baseline-Rolle. In diesen Modulen zählt, ob das Konzept sichtbar wird, nicht ob die Ausgabe maximal elegant formuliert ist. Erst wenn die Ausgabequalität fachlich relevant wird, etwa bei RAG-Synthese oder strukturierten Berichten, wird auf eine Worker-Rolle gewechselt.
