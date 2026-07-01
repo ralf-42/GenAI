@@ -43,7 +43,7 @@ has_toc: true
 Ein Sprachmodell bringt kein dauerhaftes Gedächtnis mit. Ohne zusätzliche Mechanismen beginnt jede Konversation praktisch von vorn. Nutzerpräferenzen gehen verloren, frühere Entscheidungen verschwinden, und wichtige Fakten müssen immer wieder neu genannt werden. Für einfache Einmalanfragen ist das oft egal. Für Chatbots, Agenten oder persönliche Assistenten wird es schnell zum Problem.
 
 
-Memory-Systeme lösen genau diese Lücke. Sie speichern nicht nur den Gesprächsverlauf, sondern je nach Bedarf auch verdichtete Zusammenfassungen, strukturierte Entitäten oder dauerhaftes Wissen über Sitzungen hinweg. Damit entsteht ein entscheidender Unterschied zwischen einem Modellaufruf und einem wieder verwendbaren KI-System.
+Memory-Systeme lösen genau diese Lücke. Je nach Bedarf speichern sie Gesprächsverläufe, verdichtete Zusammenfassungen, strukturierte Entitäten oder dauerhaftes Wissen über Sitzungen hinweg. Der Unterschied zu einem einfachen Modellaufruf: Das System erinnert sich.
 
 
 | **Frage** | **Praxisregel** |
@@ -145,11 +145,11 @@ Für **persistentes Memory** haben sich drei Hauptkategorien etabliert: **Prozed
 
 | Memory-Form | Zweck | Typischer Speicherort | Hauptrisiko |
 | :--- | :--- | :--- | :--- |
-| Conversation Buffer | letzte Nachrichten vollständig halten | Graph-State / Checkpoint | wächst unkontrolliert |
+| Conversation Buffer | letzte Nachrichten vollständig halten | Python-Liste | wächst unkontrolliert |
 | Sliding Window | nur jüngste Nachrichten nutzen | aktiver Modellkontext | frühe wichtige Fakten gehen verloren |
-| Summarization | ältere Inhalte verdichten | State oder separater Summary-Eintrag | Informationsverlust |
-| Semantic Memory | Fakten semantisch wiederfinden | Store oder Vektordatenbank | irrelevante oder sensible Fakten werden gespeichert |
-| Workflow Memory | wiederholbare Schrittfolgen bewahren | strukturierter Store | alte Workflows werden unkritisch wiederverwendet |
+| Summarization | ältere Inhalte verdichten | zwei Python-Dictionaries | Informationsverlust |
+| Semantic Memory | Fakten semantisch wiederfinden | Python-Dictionary | irrelevante oder sensible Fakten werden gespeichert |
+| Workflow Memory | wiederholbare Schrittfolgen bewahren | strukturiertes Dictionary | alte Workflows werden unkritisch wiederverwendet |
 
 
 ### LangGraph-Begriffe in den Notebooks einordnen
@@ -160,10 +160,10 @@ Das Notebook **Chat Memory Patterns** zeigt diese Konzepte mit konkreten LangGra
 
 
 
-| Konzept in diesem Dokument | Typischer Begriff in  LangGraph | Einordnung                                                        |
+| Konzept in diesem Dokument | Typischer Begriff in LangGraph | Einordnung                                                        |
 | :------------------------- | :------------------------------ | :---------------------------------------------------------------- |
 | Conversation Buffer        | `MessagesState`                 | speichert den Nachrichtenverlauf im Graph-State                   |
-| Flüchtiger Checkpoint      | `MemorySaver`                   | hält Thread-State im Arbeitsspeicher, geht beim Neustart verloren |
+| Flüchtiger Checkpoint      | `InMemorySaver`                 | hält Thread-State im Arbeitsspeicher, geht beim Neustart verloren |
 | Persistenter Checkpoint    | `SqliteSaver`                   | speichert Thread-State in SQLite und kann ihn nach Neustart laden |
 | Session-Trennung           | `thread_id` in `configurable`   | trennt Konversationen bzw. Threads voneinander                    |
 | State physisch kürzen      | `RemoveMessage`                 | entfernt alte Nachrichten aus dem gespeicherten State             |
@@ -178,26 +178,29 @@ Wichtig ist die Abgrenzung: Checkpointer speichern den **Zustand eines Threads**
 
 
 
-Der einfachste Ansatz besteht darin, alle Nachrichten im State zu behalten. In LangGraph ist das besonders naheliegend, weil der Verlauf direkt Teil des States sein kann. Für kurze Konversationen ist dieser Ansatz didaktisch ideal, weil er kaum zusätzliche Infrastruktur braucht.
+Der einfachste Ansatz besteht darin, alle Nachrichten in einer Python-Liste zu halten. Für kurze Konversationen ist dieser Ansatz ideal, weil er keine zusätzliche Infrastruktur braucht.
 
 
 
-```text
+```python
+from langchain.chat_models import init_chat_model
+from langchain_core.messages import BaseMessage, HumanMessage, SystemMessage
+from genai_lib.model_config import BASELINE
 
-Pseudo-Code, nicht als Python ausführen:
+llm = init_chat_model(BASELINE)
+system_prompt = "Du bist ein hilfreicher Assistent."
 
+def chat(history: list[BaseMessage], user_input: str) -> list[BaseMessage]:
+    """Verlauf als Liste aufbauen und vollständig an das Modell übergeben."""
+    context = [SystemMessage(content=system_prompt)] + history + [HumanMessage(content=user_input)]
+    response = llm.invoke(context)
+    history.extend([HumanMessage(content=user_input), response])
+    return history
 
-
-bei neuer Nutzernachricht:
-
-    Nachricht an Sitzungsverlauf anhängen
-
-    bisherigen Verlauf an das Modell geben
-
-    Modellantwort an Sitzungsverlauf anhängen
-
-    aktualisierten Verlauf speichern
-
+# Neue Nachricht → Verlauf wächst mit jeder Runde
+chat_history = []
+chat_history = chat(chat_history, "Hallo! Ich bin Max.")
+chat_history = chat(chat_history, "Was weißt du noch über mich?")
 ```
 
 
@@ -223,32 +226,36 @@ Beim Sliding Window werden nur die letzten Nachrichten im aktiven Kontext behalt
 
 
 
-```text
+```python
+from langchain.chat_models import init_chat_model
+from langchain_core.messages import BaseMessage, HumanMessage, SystemMessage
+from genai_lib.model_config import BASELINE
 
-Pseudo-Code, nicht als Python ausführen:
+llm = init_chat_model(BASELINE)
+system_prompt = "Du bist ein hilfreicher Assistent."
+MAX_MESSAGES = 10
+sessions: dict[str, list[BaseMessage]] = {}  # thread_id → vollständige Nachrichtenliste
 
+def ask(thread_id: str, user_input: str) -> str:
+    if thread_id not in sessions:
+        sessions[thread_id] = []
+    sessions[thread_id].append(HumanMessage(content=user_input))
 
-
-bei neuer Anfrage:
-
-    vollständigen Verlauf im Speicher behalten
-
-    für den Modellaufruf nur die letzten relevanten Nachrichten auswählen
-
-    Antwort erzeugen
-
-    neue Nachricht und Antwort wieder im Verlauf speichern
-
+    # Vollständigen Verlauf behalten, für den Aufruf nur die letzten N senden
+    window = sessions[thread_id][-MAX_MESSAGES:]
+    response = llm.invoke([SystemMessage(content=system_prompt)] + window)
+    sessions[thread_id].append(response)
+    return response.content
 ```
 
 
 
-| Aspekt | Einordnung |
-| :--- | :--- |
-| Zweck | Tokenverbrauch begrenzen |
-| Geeignet für | Support-Dialoge, kurze Frage-Antwort-Folgen, zustandsarme Chats |
-| Nicht geeignet für | langfristige Präferenzen, Projektziele, offene Aufgaben |
-| Praxisregel | nur verwenden, wenn ältere Nachrichten wirklich entbehrlich sind |
+| Aspekt             | Einordnung                                                       |
+| :----------------- | :--------------------------------------------------------------- |
+| Zweck              | Tokenverbrauch begrenzen                                         |
+| Geeignet für       | Support-Dialoge, kurze Frage-Antwort-Folgen, zustandsarme Chats  |
+| Nicht geeignet für | langfristige Präferenzen, Projektziele, offene Aufgaben          |
+| Praxisregel        | nur verwenden, wenn ältere Nachrichten wirklich entbehrlich sind |
 
 
 
@@ -260,28 +267,47 @@ Nicht geeignet, wenn frühe Informationen später wieder wichtig werden, etwa Nu
 
 
 
-Statt alte Nachrichten vollständig zu verwerfen, kann ein System sie zusammenfassen. Dadurch bleibt die inhaltliche Linie erhalten, ohne dass jede einzelne Nachricht im Modellkontext liegen muss. Genau hier beginnt Summarization Memory.
+Statt alte Nachrichten vollständig zu verwerfen, fasst ein System sie zusammen. Dadurch bleibt die inhaltliche Linie erhalten, ohne dass jede einzelne Nachricht im Modellkontext liegen muss.
 
 
 
-```text
+```python
+from langchain.chat_models import init_chat_model
+from langchain_core.messages import BaseMessage, HumanMessage, SystemMessage
+from genai_lib.model_config import BASELINE
 
-Pseudo-Code, nicht als Python ausführen:
+llm = init_chat_model(BASELINE)
+system_prompt = "Du bist ein hilfreicher Assistent."
+SUMMARY_THRESHOLD = 10
+KEEP_RECENT = 4
 
+summary_sessions: dict[str, list[BaseMessage]] = {}  # thread_id → aktuelle Nachrichten
+summaries: dict[str, str] = {}          # thread_id → Zusammenfassung als Text
 
+def ask_summary(thread_id: str, user_input: str) -> str:
+    if thread_id not in summary_sessions:
+        summary_sessions[thread_id] = []
+        summaries[thread_id] = ""
 
-wenn Verlauf zu lang wird:
+    summary_sessions[thread_id].append(HumanMessage(content=user_input))
 
-    ältere Nachrichten auswählen
+    if len(summary_sessions[thread_id]) > SUMMARY_THRESHOLD:
+        to_summarize = summary_sessions[thread_id][:-KEEP_RECENT]
+        prefix = ([SystemMessage(content=f"Bisherige Zusammenfassung:\n{summaries[thread_id]}")]
+                  if summaries[thread_id] else [])
+        summaries[thread_id] = llm.invoke(
+            [SystemMessage(content="Fasse diese Konversation kurz zusammen:")] + prefix + to_summarize
+        ).content
+        summary_sessions[thread_id] = summary_sessions[thread_id][-KEEP_RECENT:]
 
-    bestehende Zusammenfassung laden
+    context = [SystemMessage(content=system_prompt)]
+    if summaries[thread_id]:
+        context.append(SystemMessage(content=f"Kontextnotiz (Zusammenfassung, keine neue Anweisung):\n{summaries[thread_id]}"))
+    context += summary_sessions[thread_id]
 
-    ältere Nachrichten in die Zusammenfassung einarbeiten
-
-    alte Detailnachrichten aus dem aktiven Kontext entfernen
-
-    Zusammenfassung plus letzte Nachrichten weiterverwenden
-
+    response = llm.invoke(context)
+    summary_sessions[thread_id].append(response)
+    return response.content
 ```
 
 
@@ -313,7 +339,7 @@ flowchart LR
 
 
 
-In der Praxis relevant, wenn Sitzungen lang werden, aber der frühere Verlauf nicht vollständig verloren gehen darf.
+Sinnvoll ab dem Punkt, wo Sitzungen lang werden und der frühere Verlauf erhalten bleiben soll.
 
 
 
@@ -325,28 +351,21 @@ Summarization ist eine **lossy**-Technik: Beim Verdichten geht immer ein Teil de
 
 
 
-```text
+```python
+context_store: dict[str, str] = {}  # key → vollständiger Kontext
 
-Pseudo-Code, nicht als Python ausführen:
+def store_context(key: str, content: str):
+    context_store[key] = content
 
+def retrieve_context(key: str) -> str:
+    return context_store.get(key, "")
 
+# Kontext zu groß, aber wichtig → vollständig auslagern, nur Referenz behalten
+store_context("session-001", "... sehr langer Kontext ...")
+short_ref = "[Kontext gespeichert — key: session-001]"
 
-wenn Kontext zu groß, aber wichtig ist:
-
-    vollständigen Kontext in dauerhaftem Speicher ablegen
-
-    eindeutige ID erzeugen
-
-    kurze Beschreibung im aktiven Kontext behalten
-
-
-
-wenn Details später gebraucht werden:
-
-    ID verwenden
-
-    vollständigen Kontext aus dem Speicher laden
-
+# Details bei Bedarf wieder laden
+full_context = retrieve_context("session-001")
 ```
 
 
@@ -360,7 +379,7 @@ wenn Details später gebraucht werden:
 
 
 
-In der Praxis relevant, wenn der Kontext kritische Details enthält, die bei Summarization verloren gehen würden, oder wenn der vollständige Verlauf später für Fehlersuche oder Nachvollziehbarkeit benötigt wird.
+Nötig wird das, wenn der Kontext kritische Details enthält, die eine Zusammenfassung weglässt, oder wenn der vollständige Verlauf später für Fehlersuche oder Nachvollziehbarkeit gebraucht wird.
 
 
 
@@ -371,38 +390,32 @@ In der Praxis relevant, wenn der Kontext kritische Details enthält, die bei Sum
 Persistentes Memory wird nötig, sobald relevante Informationen nach Ende einer Sitzung noch verfügbar sein sollen. Dazu gehören Nutzerpräferenzen, Ziele, wichtige Fakten oder Wissen, das später semantisch wiedergefunden werden soll.
 
 
-Ein persistenter Checkpointer wie `SqliteSaver` kann einen Chat-Thread über einen Neustart hinweg erhalten. Das ist nützlich, aber noch kein vollständiges persistentes Memory im engeren Sinn. Er speichert zunächst den Verlauf bzw. Graph-State eines Threads. Für echtes persistentes Memory braucht es zusätzlich Regeln, welche Informationen gespeichert werden, wie sie aktualisiert oder gelöscht werden und über welchen Schlüssel sie später wiedergefunden werden.
+Persistentes Memory braucht mehr als einen langen Gesprächsverlauf. Es braucht Regeln: Welche Informationen werden gespeichert, wie werden sie aktualisiert oder gelöscht, und über welchen Schlüssel lassen sie sich später wiederfinden.
 
 
 
-Ein typischer technischer Weg ist semantisches Memory über einen Store oder eine Vektordatenbank. Gespeicherte Fakten werden eingebettet und bei Bedarf per Ähnlichkeitssuche wieder abgerufen.
+Ein einfacher Ansatz ist die Speicherung von Fakten als Python-Dictionary. Für echtes semantisches Retrieval wäre eine Vektordatenbank nötig — hier genügt eine Keyword-Suche über gespeicherte Strings.
 
 
 
-```text
+```python
+memory_store: dict[str, list[str]] = {}  # user_id → Liste von Fakten
 
-Pseudo-Code, nicht als Python ausführen:
+def save_memory(user_id: str, fact: str):
+    if user_id not in memory_store:
+        memory_store[user_id] = []
+    memory_store[user_id].append(fact)
 
+def search_memory(user_id: str, query: str) -> list[str]:
+    facts = memory_store.get(user_id, [])
+    query_words = query.lower().split()
+    return [f for f in facts if any(w in f.lower() for w in query_words)][:3]
 
+# Neue relevante Information speichern — nur wenn freigegeben
+save_memory("user_42", "Bevorzugt Python für Datenanalyse")
 
-bei neuer Information:
-
-    prüfen, ob sie langfristig relevant ist
-
-    prüfen, ob sie gespeichert werden darf
-
-    Information mit Nutzer-, Projekt- oder Organisationsbezug speichern
-
-
-
-bei neuer Anfrage:
-
-    passende Memory-Einträge suchen
-
-    relevante Treffer in den Kontext einfügen
-
-    irrelevante Treffer verwerfen
-
+# Bei Anfrage: passende Treffer laden, irrelevante verwerfen
+facts = search_memory("user_42", "Programmiersprachen")
 ```
 
 
@@ -416,7 +429,7 @@ bei neuer Anfrage:
 
 
 
-Der Vorteil liegt darin, dass nicht nur exakte Schlüssel gesucht werden, sondern inhaltlich ähnliche Informationen wieder auftauchen können. Das passt gut zu Präferenzen, Erfahrungswissen oder thematischen Fakten.
+Die Keyword-Suche liefert Treffer aus dem Dictionary, sobald ein Suchwort im gespeicherten Fakt vorkommt. Das passt gut zu Präferenzen, Erfahrungswissen oder thematischen Fakten.
 
 
 
@@ -424,26 +437,27 @@ Der Vorteil liegt darin, dass nicht nur exakte Schlüssel gesucht werden, sonder
 
 
 
-Manche Informationen sollen nicht nur auffindbar, sondern geordnet gespeichert werden. Genau dafür eignet sich Entity Memory. Personen, Projekte oder Orte werden als benannte Entitäten im State oder in einem Store abgelegt. Das ist besonders nützlich, wenn ein System mit Kundendaten, Projektnamen oder festen Objekten arbeitet.
+Manche Informationen sollen strukturiert gespeichert werden — abrufbar nicht über eine Suche, sondern direkt über ihren Namen. Personen, Projekte oder Orte werden als benannte Entitäten in einem Python-Dictionary abgelegt. Das ist praktisch, wenn ein System mit Kundendaten, Projektnamen oder festen Objekten arbeitet.
 
 
 
-```text
+```python
+from datetime import datetime
 
-Pseudo-Code, nicht als Python ausführen:
+entities: dict[str, dict] = {}  # entity_id → Eigenschaften
 
+def upsert_entity(entity_id: str, properties: dict, source: str):
+    if entity_id not in entities:
+        entities[entity_id] = {}
+    entities[entity_id].update(properties)
+    entities[entity_id]["_source"] = source
+    entities[entity_id]["_updated"] = datetime.utcnow().isoformat()
 
+# Neue Aussage: Entitäten erkennen, Eigenschaften ergänzen oder ersetzen
+upsert_entity("projekt_alpha", {"status": "aktiv", "owner": "Anna"}, source="Gespräch")
+upsert_entity("projekt_alpha", {"deadline": "2025-12-31"}, source="E-Mail")
 
-bei neuer Aussage:
-
-    wichtige Entitäten erkennen
-
-    bestehende Einträge zu diesen Entitäten laden
-
-    neue Eigenschaften ergänzen oder veraltete ersetzen
-
-    Quelle und Zeitpunkt speichern
-
+print(entities["projekt_alpha"])
 ```
 
 
@@ -465,7 +479,7 @@ Typischer Fehler: Alle Fakten unstrukturiert in eine Vektordatenbank zu schreibe
 
 
 
-Workflow Memory speichert die geordnete Sequenz von Schritten, die ein System zur Lösung einer Aufgabe durchgeführt hat, inklusive Werkzeugaufrufe, Parameter und Zwischenergebnisse. Bei ähnlichen Aufgaben kann die Anwendung diese Sequenz per Suche wiederfinden und als Vorlage nutzen, statt den Lösungsweg neu zu planen.
+Workflow Memory speichert die geordnete Sequenz von Schritten, die ein System zur Lösung einer Aufgabe durchgeführt hat, inklusive Werkzeugaufrufe, Parameter und Zwischenergebnisse. Bei ähnlichen Aufgaben kann die Anwendung diese Sequenz per Suche wiederfinden und als Vorlage nutzen, statt den Lösungsweg neu zu planen. Für semantische Suche wird der Workflow meist als kurzer Text aus Ziel, Schritten, Parametern und Ergebnisstatus serialisiert und dann indexiert.
 
 
 
@@ -506,26 +520,29 @@ Typischer Fehler: Nur Konversationen zu speichern, aber ausgeführte Prozessschr
 
 
 
-Sobald ein System von mehreren Nutzern verwendet wird, reicht ein globales Gedächtnis nicht mehr aus. Sitzungen und langfristige Fakten müssen nutzerspezifisch getrennt bleiben. Checkpointing mit Thread-IDs ist dafür nur ein Teil der Lösung: Es trennt Sitzungen, ersetzt aber keinen dauerhaften Store für nutzerspezifische Fakten.
+Sobald ein System von mehreren Nutzern verwendet wird, reicht ein globales Gedächtnis nicht mehr aus. Sitzungen und langfristige Fakten müssen nutzerspezifisch getrennt bleiben. Sitzungs-IDs allein sind dafür nur ein Teil der Lösung: Sie trennen Konversationen, ersetzen aber kein dauerhaftes Dictionary für nutzerspezifische Fakten.
 
 
 
-```text
+```python
+sessions: dict[str, list] = {}          # thread_id  → Nachrichtenliste
+user_memory: dict[str, list[str]] = {}  # user_id    → Faktenliste
+project_ctx: dict[str, list[str]] = {}  # project_id → Kontextliste
 
-Pseudo-Code, nicht als Python ausführen:
+def get_or_create(store: dict, key: str) -> list:
+    if key not in store:
+        store[key] = []
+    return store[key]
 
+# Für jede Anfrage: alle drei IDs bestimmen
+thread_id  = "sitzung-2025-001"
+user_id    = "user_42"
+project_id = "projekt_alpha"
 
-
-bei jeder Anfrage:
-
-    thread_id für die aktuelle Sitzung bestimmen
-
-    user_id für nutzerspezifische Fakten bestimmen
-
-    project_id für projektbezogenes Wissen bestimmen
-
-    nur Memory laden, das zu diesen IDs passt
-
+# Nur Memory laden, das zu den jeweiligen IDs passt
+current_session = get_or_create(sessions, thread_id)
+user_facts      = get_or_create(user_memory, user_id)
+project_info    = get_or_create(project_ctx, project_id)
 ```
 
 
@@ -539,7 +556,7 @@ bei jeder Anfrage:
 
 
 
-Wenn ein Nutzer über mehrere Sitzungen hinweg erinnert werden soll, reicht eine Thread-ID allein nicht aus. Dann braucht es zusätzlich einen Store für nutzerspezifische Fakten, der unabhängig von einzelnen Sessions existiert.
+Wenn ein Nutzer über mehrere Sitzungen hinweg erinnert werden soll, reicht eine Thread-ID allein nicht aus. Dann braucht es zusätzlich ein eigenes Dictionary für nutzerspezifische Fakten, das unabhängig von einzelnen Sitzungen existiert.
 
 
 
@@ -547,7 +564,7 @@ Wenn ein Nutzer über mehrere Sitzungen hinweg erinnert werden soll, reicht eine
 
 
 
-In realen Anwendungen wird Memory selten nur in einer Form eingesetzt. Ein System kann die letzten Nachrichten im State halten, ältere Teile zusammenfassen, Nutzerfakten in einem Store speichern und zusätzlich strukturierte Entitäten pflegen.
+In realen Anwendungen wird Memory selten nur in einer Form eingesetzt. Ein System hält die letzten Nachrichten in einer Liste, fasst ältere Teile zusammen, speichert Nutzerfakten in einem Dictionary und pflegt strukturierte Entitäten.
 
 
 
@@ -614,7 +631,7 @@ Der entscheidende Vorteil: Statt sehr viele Token auf einmal zu laden, ruft das 
 
 
 
-In der Praxis relevant, wenn Sitzungen viele Iterationen umfassen, das System mit mehreren Projekten arbeitet oder Wissen über lange Zeiträume erhalten bleiben soll.
+Entscheidend wird das für Systeme, die über viele Iterationen laufen, mehrere Projekte begleiten oder Wissen über längere Zeiträume aufbauen.
 
 
 
@@ -644,11 +661,11 @@ Typischer Fehler: Aktiver Aufgabenstatus und Gesprächsverlauf werden im selben 
 
 
 
-Für ein erstes System reicht meist ein einfaches Schema: Kurzzeit-Memory im State, bei längeren Gesprächen optional eine Zusammenfassung und nur dann persistentes Memory, wenn echte Personalisierung oder sitzungsübergreifendes Erinnern gebraucht wird. Damit bleibt die Architektur verständlich und trotzdem praxisnah.
+Für ein erstes System reicht meist ein einfaches Schema: Kurzzeit-Memory als Python-Liste, bei längeren Gesprächen optional eine Zusammenfassung und nur dann persistentes Memory, wenn echte Personalisierung oder sitzungsübergreifendes Erinnern gebraucht wird. Damit bleibt die Architektur verständlich.
 
 
 
-Developer unterschätzen oft, dass Memory nicht nur eine Komfortfunktion ist. Ohne Gedächtnis werden viele scheinbar intelligente Anwendungen schon nach wenigen Nachrichten brüchig oder müssen dieselben Informationen immer wieder neu erfragen.
+Entwickler unterschätzen oft, dass Memory nicht nur eine Komfortfunktion ist. Ohne Gedächtnis werden viele scheinbar intelligente Anwendungen schon nach wenigen Nachrichten brüchig oder müssen dieselben Informationen immer wieder neu erfragen.
 
 
 
