@@ -350,7 +350,7 @@ react_agent = create_agent(
 > Die Ausführungslogik kannst du auf zwei Arten festlegen:  
 > entweder 
 > + implizit über `create_agent()` zusammen mit dem `system_prompt`, oder 
-> + explizit mit LangGraph über Nodes, Edges und bedingte Übergänge.  
+> + explizit mit `LangGraph` über Nodes, Edges und bedingte Übergänge.  
 >  
 > Der Prompt beschreibt das gewünschte Verhalten; die Agenten-Logik setzt es um.
 
