@@ -83,7 +83,6 @@ Für Grundlagen, kurze Demos und erste Chains reicht die Baseline-Rolle. In dies
 
 Multimodale Aufgaben sind eine eigene Entscheidung. Ein Textmodell darf nicht pauschal für Bild-, Audio- oder Videoaufgaben verwendet werden, nur weil es in Textbeispielen gut funktioniert. Bildanalyse, Bildgenerierung, Videoerzeugung, Transkription und Embeddings folgen eigenen Endpunkten oder Modellklassen.
 
-Bei GPT-5.x-Rollen wird im Kurs kein `temperature`-Parameter gesetzt. Die Steuerung erfolgt über präzise Prompts, Rollenwahl und bei Bedarf Reasoning-Parameter. Typischer Fehler: Ein altes LangChain-Beispiel mit `temperature=0` unverändert auf GPT-5.x-Modelle übertragen.
 
 ## Schnelle Auswahl
 
