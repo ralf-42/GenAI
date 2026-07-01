@@ -268,53 +268,55 @@ Geeignete Messgrößen sind:
 - Kosten (API-Calls, Compute)
 
 
-## Implementierungs-Beispiel (Pseudo-Code)
+## Implementierungs-Beispiel
 
 Das konkrete Framework kann sich ändern. Stabil bleibt die Pipeline: Dokument laden, passende Strategie wählen, Grenzen bestimmen, Chunks prüfen und erst danach indexieren.
 
-```text
-Pseudo-Code, nicht als Python ausführen:
+```python
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 
-Eingabe:
-    dokument_text
-    ziel: z. B. Q&A, Zusammenfassung oder Klassifikation
-    dokumenttyp: z. B. Fließtext, Markdown, Code oder Tabelle
+dokument_text = "..."  # Eingabe-Text
 
-Chunking vorbereiten:
-    passende Strategie wählen
-    Zielgröße festlegen
-    Überlappung festlegen
-    Trennzeichen oder Strukturgrenzen festlegen
+# Rekursives Chunking — geeignet für Fließtext und Markdown
+splitter = RecursiveCharacterTextSplitter(
+    chunk_size=512,        # Zielgröße in Zeichen
+    chunk_overlap=50,      # Überlappung zwischen benachbarten Chunks
+    separators=["\n\n", "\n", ". ", " ", ""],  # Trennzeichen grob → fein
+)
 
-Chunking ausführen:
-    Text entlang stabiler Grenzen teilen
-    wenn Abschnitt zu groß:
-        nächstfeinere Grenze verwenden
-    wenn Abschnitt zu klein:
-        mit benachbartem Abschnitt zusammenführen
-    Überlappung zwischen benachbarten Chunks ergänzen
+chunks = splitter.create_documents(
+    texts=[dokument_text],
+    metadatas=[{"source": "beispiel.pdf", "abschnitt": "Einleitung"}],
+)
 
-Qualität prüfen:
-    keine wichtigen Sätze mitten trennen
-    Chunk-Größen verteilen sich plausibel
-    Metadaten wie Quelle, Abschnitt und Position speichern
+# Qualität prüfen: Chunk-Größen und Metadaten kontrollieren
+for i, chunk in enumerate(chunks):
+    print(f"Chunk {i}: {len(chunk.page_content)} Zeichen | {chunk.metadata}")
 ```
 
 **Wichtig:** Die Einheit der Größe muss explizit sein. Manche Verfahren zählen Zeichen, andere Tokens. Für RAG ist entscheidend, dass die gewählte Einheit zur späteren Modell- und Embedding-Pipeline passt.
 
-```text
-Pseudo-Code, nicht als Python ausführen:
+```python
+from langchain_text_splitters import TokenTextSplitter, RecursiveCharacterTextSplitter
 
-wenn tokenbasiertes Chunking nötig ist:
-    Tokenizer des Zielmodells verwenden
-    Text in Tokens zählen
-    Chunks nach Tokenlimit bilden
-    Überlappung ebenfalls in Tokens berechnen
+dokument_text = "..."  # Eingabe-Text
 
-wenn zeichenbasiertes Chunking reicht:
-    Zeichen oder Absätze zählen
-    Chunks nach Strukturgrenzen bilden
-    Ergebnis mit echten Retrieval-Fragen testen
+# Tokenbasiertes Chunking: Tokenizer des Zielmodells verwenden
+token_splitter = TokenTextSplitter(
+    chunk_size=256,                 # Limit in Tokens
+    chunk_overlap=20,               # Überlappung in Tokens
+    encoding_name="cl100k_base",    # GPT-4o-kompatibler Tokenizer
+)
+token_chunks = token_splitter.create_documents([dokument_text])
+
+# Zeichenbasiertes Chunking: schneller, keine Abhängigkeit vom Tokenizer
+char_splitter = RecursiveCharacterTextSplitter(
+    chunk_size=1000,
+    chunk_overlap=100,
+)
+char_chunks = char_splitter.create_documents([dokument_text])
+
+print(f"Token-Chunks: {len(token_chunks)}, Char-Chunks: {len(char_chunks)}")
 ```
 
 

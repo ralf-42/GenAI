@@ -79,34 +79,31 @@ Function Calling ist der Mechanismen, mit dem ein Modell strukturiert angibt, we
 
 
 
-```text
+```python
+from langchain.chat_models import init_chat_model
+from langchain_core.tools import tool
+from pydantic import BaseModel, Field
 
-Pseudo-Code, nicht als Python ausführen:
+llm = init_chat_model("openai:gpt-5.4-nano")
 
+class MultiplyInput(BaseModel):
+    a: int = Field(description="Erster Faktor")
+    b: int = Field(description="Zweiter Faktor")
 
+@tool(args_schema=MultiplyInput)
+def multiply(a: int, b: int) -> int:
+    """Multipliziert zwei ganze Zahlen."""
+    return a * b
 
-Nutzer stellt Anfrage
+# Modell prüft: direkte Antwort oder Tool nötig?
+llm_with_tools = llm.bind_tools([multiply])
+response = llm_with_tools.invoke("Multipliziere 7 mit 8")
 
-Modell prüft:
-
-    kann ich direkt antworten?
-
-    brauche ich ein Werkzeug?
-
-
-
-wenn Werkzeug nötig:
-
-    Tool auswählen
-
-    Parameter vorschlagen
-
-    Anwendung validiert Parameter
-
-    Anwendung führt Tool aus
-
-    Modell formuliert Antwort aus Tool-Ergebnis
-
+if response.tool_calls:
+    tool_call = response.tool_calls[0]
+    # Anwendung validiert Parameter und führt Tool aus
+    result = multiply.invoke(tool_call["args"])
+    print(result)  # 56
 ```
 
 
@@ -164,22 +161,19 @@ Ein Tool ist mehr als eine technische Funktion. Für das Modell ist vor allem da
 
 
 
-```text
+```python
+from langchain_core.tools import tool
+from pydantic import BaseModel, Field
 
-Pseudo-Code, nicht als Python ausführen:
+class SearchInput(BaseModel):
+    query: str = Field(description="Suchanfrage in natürlicher Sprache")
+    max_results: int = Field(default=5, ge=1, le=10, description="Maximale Trefferzahl")
 
-
-
-Tool definieren:
-
-    Name: eindeutig und handlungsnah
-
-    Beschreibung: Zweck und Grenzen
-
-    Parameter: Pflichtfelder, Typen, erlaubte Werte
-
-    Rückgabe: kurz, relevant, weiterverarbeitbar
-
+@tool(args_schema=SearchInput)
+def search_documents(query: str, max_results: int = 5) -> str:
+    """Durchsucht interne Unternehmensdokumente nach Richtlinien und Handbüchern.
+    Nur für interne Quellen verwenden — kein Web, keine externen Daten."""
+    return f"{max_results} Treffer für '{query}'"
 ```
 
 
@@ -291,30 +285,23 @@ Ein Tool kann fehlschlagen: Datei nicht gefunden, Datenbank nicht erreichbar, Ei
 
 
 
-```text
+```python
+from langchain_core.tools import tool
 
-Pseudo-Code, nicht als Python ausführen:
-
-
-
-Tool ausführen:
-
-    wenn Eingabe ungültig:
-
-        verständlichen Validierungsfehler zurückgeben
-
-    wenn externe Quelle nicht erreichbar:
-
-        temporären Fehler melden
-
-    wenn keine Treffer:
-
-        leeres Ergebnis sauber erklären
-
-    sonst:
-
-        gefiltertes Ergebnis zurückgeben
-
+@tool
+def search_database(query: str) -> str:
+    """Durchsucht die interne Datenbank nach Einträgen zum Stichwort."""
+    if not query or len(query.strip()) < 2:
+        return "Fehler: Suchanfrage muss mindestens 2 Zeichen enthalten."
+    try:
+        results: list[str] = []  # Platzhalter für echte DB-Abfrage
+        if not results:
+            return f"Keine Treffer für '{query}'. Suchbegriff präzisieren oder anders formulieren."
+        return "\n".join(results)
+    except ConnectionError:
+        return "Datenbank momentan nicht erreichbar. Bitte später erneut versuchen."
+    except Exception as e:
+        return f"Unerwarteter Fehler ({type(e).__name__}). Bitte Nutzer informieren."
 ```
 
 
@@ -340,24 +327,31 @@ Was ein Werkzeug zurückgibt, ist nicht automatisch das, was in den Agenten-Kont
 
 
 
-```text
+```python
+from langchain_core.tools import tool
 
-Pseudo-Code, nicht als Python ausführen:
+@tool
+def search_web(query: str) -> str:
+    """Sucht aktuelle externe Informationen im Web. Nicht für interne Dokumente verwenden."""
+    # Simulierte rohe API-Antwort
+    raw_results = [
+        {"title": "Beispiel", "snippet": "Relevanter Inhalt...",
+         "url": "https://example.com", "status_code": 200, "raw_score": 0.87},
+    ]
 
+    # Irrelevante und sensible Felder entfernen, auf das Wesentliche reduzieren
+    filtered = [
+        {
+            "title": r["title"],
+            "snippet": r.get("snippet", "")[:300],
+            "url": r.get("url", ""),
+        }
+        for r in raw_results[:5]
+    ]
 
-
-nach Tool-Aufruf:
-
-    rohe Antwort entgegennehmen
-
-    irrelevante Felder entfernen
-
-    sensible Felder entfernen oder maskieren
-
-    Ergebnis auf notwendige Passagen reduzieren
-
-    Quelle oder Fundstelle beilegen
-
+    if not filtered:
+        return "Keine Treffer gefunden."
+    return "\n\n".join(f"{r['title']}\n{r['snippet']}\n{r['url']}" for r in filtered)
 ```
 
 
@@ -405,26 +399,30 @@ Sobald Werkzeuge definiert sind, können sie an ein Modell oder einen Agenten ge
 
 
 
-```text
+```python
+from langchain.chat_models import init_chat_model
+from langchain.agents import create_agent
+from langchain_core.tools import tool
+from datetime import date
 
-Pseudo-Code, nicht als Python ausführen:
+llm = init_chat_model("openai:gpt-5.4-nano")
 
+@tool
+def get_current_date() -> str:
+    """Gibt das heutige Datum zurück."""
+    return str(date.today())
 
+# Modell sieht Tool-Schemata — Runtime prüft Berechtigung und führt aus
+agent = create_agent(
+    model=llm,
+    tools=[get_current_date],
+    system_prompt="Du bist ein hilfreicher Assistent.",
+)
 
-Agentenlauf:
-
-    Modell sieht verfügbare Tool-Schemata
-
-    Modell schlägt Tool-Aufruf vor
-
-    Runtime prüft Berechtigung und Parameter
-
-    Runtime führt Tool kontrolliert aus
-
-    Runtime gibt gefiltertes Ergebnis zurück
-
-    Modell erzeugt Antwort oder nächsten Schritt
-
+response = agent.invoke(
+    {"messages": [{"role": "user", "content": "Welches Datum ist heute?"}]},
+    config={"recursion_limit": 10},
+)
 ```
 
 
@@ -474,24 +472,26 @@ Bei Operationen mit realen Folgen, etwa Rückerstattung, Löschung oder Zahlung,
 
 
 
-```text
+```python
+from langchain_core.tools import tool
 
-Pseudo-Code, nicht als Python ausführen:
+AMOUNT_LIMIT_EUR = 500
 
+@tool
+def process_refund(order_id: str, amount_eur: float) -> str:
+    """Veranlasst eine Rückerstattung. Erfordert Policy-Prüfung und explizite Freigabe."""
+    # Policy prüfen
+    if amount_eur > AMOUNT_LIMIT_EUR:
+        return f"Freigabe erforderlich: {amount_eur} EUR übersteigt Limit {AMOUNT_LIMIT_EUR} EUR."
 
+    # Geplante Aktion anzeigen — Freigabe in der aufrufenden Schicht einholen
+    preview = f"Rückerstattung {amount_eur} EUR für Bestellung {order_id}"
 
-wenn Tool hohe Außenwirkung hat:
+    # Aktion ausführen und Entscheidung auditieren
+    audit_entry = {"action": "refund", "order_id": order_id, "amount_eur": amount_eur}
+    # logger.info(audit_entry)
 
-    Policy prüfen
-
-    geplante Aktion verständlich anzeigen
-
-    explizite Freigabe einholen
-
-    Aktion ausführen
-
-    Ergebnis und Entscheidung auditieren
-
+    return f"Ausgeführt: {preview}"
 ```
 
 
@@ -521,26 +521,37 @@ In der Praxis relevant, wenn ein Agent auf viele Werkzeuge zugreifen soll, diese
 
 
 
-```text
+```python
+from langchain.chat_models import init_chat_model
+from langchain.agents import create_agent
+from langchain_core.tools import tool
 
-Pseudo-Code, nicht als Python ausführen:
+llm = init_chat_model("openai:gpt-5.4-nano")
 
+@tool
+def choose_domain(domain: str) -> str:
+    """Wählt den Arbeitsbereich: 'suche', 'analyse' oder 'export'."""
+    return f"Bereich '{domain}' aktiviert."
 
+@tool
+def search_documents(query: str) -> str:
+    """Durchsucht interne Dokumente nach der Anfrage."""
+    return f"Treffer für '{query}'"
 
-Start:
+@tool
+def export_csv(data_id: str) -> str:
+    """Exportiert einen Datensatz als CSV."""
+    return f"Export gestartet für {data_id}"
 
-    nur grobe Einstiegs-Tools anbieten
+# Start: nur grobe Einstiegs-Tools anbieten
+entry_agent = create_agent(
+    model=llm,
+    tools=[choose_domain],
+    system_prompt="Frage zuerst, welchen Bereich der Nutzer meint.",
+)
 
-
-
-wenn Agent eine Richtung wählt:
-
-    passende spezialisierte Tools nachladen
-
-    unnötige Tools weiterhin ausblenden
-
-    Entscheidung mit kleinerem Toolset fortsetzen
-
+# Nach Domainwahl: passende spezialisierte Tools nachladen, unnötige ausblenden
+domain_tools: dict[str, list] = {"suche": [search_documents], "export": [export_csv]}
 ```
 
 
