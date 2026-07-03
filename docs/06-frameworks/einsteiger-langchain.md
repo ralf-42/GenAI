@@ -223,6 +223,32 @@ Gute Docstrings und Grenzen helfen dem Modell: „nur bei Bestellnummer“, „n
 
 ---
 
+### Wichtige `@tool`-Parameter
+
+Für die meisten Einsteigerbeispiele reichen `@tool`, Type Hints und ein klarer Docstring. Zusätzliche Parameter setzt du nur, wenn du bewusst vom Standard abweichen willst:
+
+| Parameter | Wann sinnvoll? |
+|---|---|
+| `@tool("name")` | Wenn der Tool-Name explizit anders heißen soll als die Python-Funktion. |
+| `description=` | Wenn die Beschreibung nicht aus dem Docstring kommen soll oder präziser für den Agenten formuliert werden muss. |
+| `args_schema=` | Wenn Eingaben explizit über ein Pydantic-Schema validiert werden sollen. |
+| `return_direct=True` | Wenn das Tool-Ergebnis direkt an den Nutzer zurückgehen soll, ohne dass der Agent danach weiterformuliert. |
+| `infer_schema=False` | Wenn LangChain das Eingabeschema nicht automatisch aus Type Hints ableiten soll. |
+
+```python
+from langchain_core.tools import tool
+
+@tool(
+    "weather_lookup",
+    description="Gibt eine kurze Wetterauskunft für eine Stadt zurück.",
+    return_direct=False,
+)
+def weather_lookup(city: str) -> str:
+    return f"Wetter für {city}: Beispielausgabe"
+```
+
+---
+
 ### Tool Extras für Provider-spezifische Features (NEU v1.2.0)
 
 Mit dem `extras`‑Parameter beim `@tool`‑Decorator kannst du provider‑spezifische Features und Flags an ein Tool übergeben. Standardmäßig werden solche Optionen nicht über die normale Tool-API abgedeckt. Diese Extras werden nur dann wirksam, wenn der jeweilige Provider-Adapter sie auch wirklich auswertet; ansonsten bleibt es ohne Effekt.
@@ -799,6 +825,19 @@ Checke zuerst Chunk-Größe, Overlap, Embedding-Modell und Retriever-Parameter. 
 ---
 
 ## Erweiterungen / Fortgeschrittene Themen
+
+### Ausblick auf Best Practices
+
+Diese Begriffe musst du für die ersten Beispiele nicht aktiv verwenden, sie erklären aber einige Muster aus den Best-Practice-Seiten:
+
+| Konzept | Kurz erklärt |
+|---|---|
+| `llm.profile` / Model Profiles | Modelle stellen Fähigkeiten wie strukturierte Ausgabe, Tool Calling, Bild-Eingaben und Kontextgröße maschinenlesbar bereit. So muss Code weniger provider-spezifisch entscheiden. |
+| `ProviderStrategy` | Bei `with_structured_output()` wählt LangChain möglichst automatisch die passende Strategie: native strukturierte Ausgabe, wenn der Provider sie unterstützt, sonst ein Fallback. |
+| `.with_retry()` / `.with_fallbacks()` | Runnables können bei transienten Fehlern erneut ausgeführt oder auf ein alternatives Modell umgeleitet werden. Das ist vor allem für produktionsnähere Chains relevant. |
+| `ContextOverflowError` | Wenn ein Modellaufruf das Kontextfenster überschreitet, kann dieser Fehler entstehen. Context-Management oder `SummarizationMiddleware` verhindert, dass lange Sessions daran scheitern. |
+
+---
 
 - Middleware zur Agentensteuerung
 - Multimodale Content-Blöcke

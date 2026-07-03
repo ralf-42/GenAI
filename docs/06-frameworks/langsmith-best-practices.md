@@ -93,13 +93,6 @@ os.environ["LANGSMITH_TRACING"] = "true"
 - Suche nach Fehlern
 - Zeitbasierte Filterung
 
-**Trace Previews anpassen** *(neu: Feb 2026, v0.13.10)*
-
-Du kannst steuern, welche Felder in der Tracing-Tabelle angezeigt werden. Das ist besonders hilfreich, wenn du mit **Custom Data Structures** arbeitest oder wenn Inputs/Outputs sehr lang sind:
-
-- Im LangSmith Dashboard: Settings → Trace Preview → Felder auswählen
-- Hilft bei verschachtelten Datenstrukturen und langen Texten
-
 **Run-Typen im Trace-Tree:**
 
 LangSmith unterscheidet 7 `run_type`-Werte. Diese Typen bestimmen, wie ein Schritt im Trace-Tree dargestellt und ausgewertet wird:
@@ -133,6 +126,35 @@ run_cfg = {
 chain = (prompt | llm | parser).with_config(**run_cfg)
 result = chain.invoke({"input": "..."})
 ```
+
+**`invoke(..., config=...)` vs. `.with_config(...)`:**
+
+| Variante | Scope | Best Practice |
+|---|---|---|
+| `chain.invoke(input, config=run_cfg)` | Nur dieser eine Run. Das Runnable bleibt unverändert. | Für Experimente, Einzeltests, Ad-hoc-Metadaten und Vergleichsläufe. |
+| `chain.with_config(**run_cfg)` | Neue konfigurierte Runnable-Instanz. Spätere Aufrufe übernehmen diese Basis-Konfiguration. | Für wiederverwendbare Chains, feste Pipeline-Namen und stabile Tags. |
+
+```python
+# Runtime-Konfiguration: nur dieser Invoke-Aufruf.
+result = chain.invoke(
+    {"input": "..."},
+    config={
+        "run_name": "M05_Kap6_Einzelrun",
+        "tags": ["M05", "experiment"],
+        "metadata": {"variante": "A"},
+    },
+)
+
+# Runnable-Konfiguration: diese Chain-Variante bleibt benannt.
+traced_chain = chain.with_config(
+    run_name="M05_Kap6_BasicChain",
+    tags=["M05", "lcel", "chain"],
+    metadata={"komponente": "prompt-llm-parser"},
+)
+result = traced_chain.invoke({"input": "..."})
+```
+
+Beide Wege sind komplementär: `.with_config(...)` setzt die Basis-Konfiguration einer Chain-Variante, `invoke(..., config=...)` eignet sich für laufzeitspezifische Angaben pro Aufruf.
 
 **Wann `.with_config()` einsetzen:**
 - ✅ Wenn in einem Projekt viele Chains parallel laufen und du sie unterscheiden musst
@@ -249,16 +271,6 @@ results_v2 = evaluate(
 )
 ```
 
-**Pairwise Annotation Queues** *(neu: Dez 2025, v0.12.61)*
-
-Wenn du zwei Agent-Outputs direkt nebeneinander bewerten lassen willst (z. B. für Stil, Ton oder Kreativität), sind Pairwise Queues praktisch:
-
-- Im LangSmith Dashboard: Annotation Queues → Pairwise Queue erstellen
-- Zeigt zwei Antworten side-by-side zur manuellen Bewertung
-- Besonders sinnvoll, wenn sich subjektive Qualität nicht gut automatisch messen lässt
-
----
-
 ### 3. Monitoring & Observability
 
 **Was es macht:**
@@ -361,24 +373,6 @@ agent = create_agent(
 
 # Prompt im Hub updaten → automatisch neue Version
 ```
-
----
-
-## Aktuelle Änderungen
-
-### Agent Builder → LangSmith Fleet
-
-Die „Agent Builder“-Sektion in der LangSmith-UI heißt jetzt „LangSmith Fleet“.
-
-> LangSmith Dashboard → **Fleet** (linke Navigation)
-
-Die Funktionen sind weiterhin da — nur der Name wurde angepasst.
-
-**Notebooks:** Verweise auf „LangSmith Agent Builder“ auf „LangSmith Fleet“ aktualisieren.
-
-### Terminal-basiertes Trace-Debugging
-
-In der Praxis relevant, wenn du z. B. in Google Colab oder in SSH-Umgebungen arbeitest und keinen Browser zur Verfügung hast.
 
 ---
 
@@ -697,10 +691,10 @@ if os.getenv("ENVIRONMENT") == "development":
 
 **Lösung:**
 ```python
-# Anonymisierung aktivieren
-from langchain.callbacks import LangSmithCallback
+# Anonymisierung aktivieren – direkt am LangSmith-Client
+from langsmith import Client
 
-callback = LangSmithCallback(
+client = Client(
     hide_inputs=True,  # Input verstecken
     hide_outputs=True  # Output verstecken
 )
@@ -738,9 +732,7 @@ callback = LangSmithCallback(
 ### Version 1.9 (2026-03-04)
 - ✅ BREAKING: Alle `LANGCHAIN_*` Env-Vars → `LANGSMITH_*` (LANGSMITH_TRACING, LANGSMITH_API_KEY, LANGSMITH_PROJECT, LANGSMITH_ENDPOINT, LANGSMITH_SAMPLING_RATE)
 - ✅ NEU: Baseline-Experiment fixieren (Feb 2026) in Datasets & Evaluation
-- ✅ NEU: Pairwise Annotation Queues (Dez 2025) in Datasets & Evaluation
 - ✅ NEU: Track Costs Across Agent Stack (Feb 2026) in Cost Tracking
-- ✅ NEU: Trace Previews konfigurieren (Feb 2026, v0.13.10) in Tracing
 
 ### Version 1.8 (2026-03-03)
 - ✅ VEREINFACHT: Modulnamen direkt in Setup-Cell setzen – kein `tracing_context` nötig
@@ -753,8 +745,7 @@ callback = LangSmithCallback(
 - ✅ Troubleshooting: Neuer Eintrag "Projektnamen-Wechsel wird ignoriert" mit Workaround via `cache_clear()`
 
 ### Version 2.0 (2026-05-01)
-- 🆕 **Fleet-Rename**: „Agent Builder“ → „LangSmith Fleet“ in der UI
-- 🆕 ** CLI** — Terminal-Trace-Debugging
+- ✅ Aktualisierung der produktionsnahen LangSmith-Hinweise
 
 ### Version 1.6 (2026-03-03)
 - ✅ Tracing & Debugging: `.with_config()` – Zwei-Schritt-Pattern dokumentiert (`run_cfg = {...}` → `.with_config(**run_cfg)`)
