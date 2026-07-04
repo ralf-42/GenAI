@@ -77,10 +77,10 @@ Hauptpunkt: Weitere Aspekte:
     Welche Punkte könnten noch interessant sein, an die ich nicht gedacht habe?
 </Instructions>
 
-<Hard Limits>
+<HardLimits>
 Vermeide unscharfe Formulierungen wie wahrscheinlich, möglicherweise, scheint, könnte oder sollte.
 Nimm konkret Stellung.
-</Hard Limits>
+</HardLimits>
 
 <Output>
 Stelle bei der Ausgabe der Ergebnisse nur bei den Hauptpunkten zur besseren Unterscheidung ein "🔹" voran.

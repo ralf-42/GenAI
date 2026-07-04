@@ -132,9 +132,9 @@ Recherchiere Fakten zum angefragten Thema.
 3. Antworte auf Deutsch
 </Instructions>
 
-<Hard Limits>
+<HardLimits>
 Maximal 3 Suchen. Stoppe sobald die Anfrage beantwortbar ist.
-</Hard Limits>
+</HardLimits>
 
 <Output>
 Mindestens 3 Kernfakten als Stichpunkte. Maximal 200 Wörter.
@@ -162,10 +162,12 @@ Mindestens 3 Kernfakten als Stichpunkte. Maximal 200 Wörter.
 |---|---|
 | `<Task>` | Was das Modell / der Agent tun soll |
 | `<Instructions>` | Schritt-für-Schritt-Anweisungen |
-| `<Hard Limits>` | Absolute Grenzen (Tool-Budget, Abbruchbedingungen) |
+| `<HardLimits>` | Absolute Grenzen (Tool-Budget, Abbruchbedingungen) |
 | `<Output>` | Gewünschtes Format und Struktur der Antwort |
 | `<Context>` | Hintergrundinformationen |
 | `<Example>` | Few-Shot-Beispiele |
+
+Tag-Namen enthalten keine Leerzeichen. Deshalb wird im Kurs `<HardLimits>` verwendet, nicht `<Hard Limits>`.
 
 ---
 
