@@ -23,6 +23,11 @@ has_toc: true
 
 ---
 
+<img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/python_no_code.png" class="logo" width="950"/>
+<p><font color='black' size="2">
+KI-generiertes Bild
+</font></p>
+
 ## Die eigentliche Entscheidungsfrage
 
 Die Entscheidung zwischen Python und einer No-Code-Plattform ist keine Geschmacksfrage. Es geht um Kontrolle. Wenn ein bekannter Prozess aus bestehenden Diensten verbunden wird, kann No-Code schneller sein. Wenn ein GenAI-System verstanden, geprüft, erweitert oder in eigene Daten- und Bewertungslogik eingebettet werden soll, spricht vieles für Python.
