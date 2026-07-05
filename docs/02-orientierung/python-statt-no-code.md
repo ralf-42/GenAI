@@ -30,7 +30,7 @@ KI-generiertes Bild
 
 ## Die eigentliche Entscheidungsfrage
 
-Die Entscheidung zwischen Python und einer No-Code-Plattform ist keine Geschmacksfrage. Es geht um Kontrolle. Wenn ein bekannter Prozess aus bestehenden Diensten verbunden wird, kann No-Code schneller sein. Wenn ein GenAI-System verstanden, geprüft, erweitert oder in eigene Daten- und Bewertungslogik eingebettet werden soll, spricht vieles für Python.
+Die Entscheidung zwischen Python und einer No-Code-Plattform ist keine Geschmacksfrage. Es geht um Kontrolle. Wenn ein bekannter Prozess aus bestehenden Diensten verbunden wird, kann No-Code schneller sein. Wenn ein GenAI-System verstanden, geprüft, erweitert oder in eigene Daten- und Bewertungslogik eingebettet werden soll, spricht vieles für Python.   
 
 Python zeigt bei GenAI mehr als die Bedienoberfläche. Ein API-Call macht sichtbar, welche Eingabe das Modell bekommt, welche Antwortstruktur erwartet wird und wo Fehler entstehen können. Beim Parsen einer JSON-Antwort wird schnell klar: Eine Modellantwort ist noch kein verlässliches Datenobjekt. Das gewünschte Format muss angefordert, geprüft und manchmal erneut erzeugt werden.
 
