@@ -97,4 +97,4 @@ Grenze: Für reine Büroautomatisierung ohne Lernziel zur Systemarchitektur kann
 
 **Version:** 1.0<br>
 **Stand:** Juli 2026<br>
-**Kurs:** GenAI
+**Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
