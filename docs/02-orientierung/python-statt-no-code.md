@@ -10,7 +10,8 @@ has_toc: true
 # Python oder No-Code
 {: .no_toc }
 
-> **Python ist nicht automatisch die bessere Wahl. Entscheidend ist, ob ein Ablauf nur zusammengesteckt wird oder ob sichtbar bleiben muss, was das Modell bekommt, was es zurückgibt und wie die Qualität geprüft wird.**
+> **Python oder No-Code ist nicht automatisch die bessere Wahl.**      
+> Entscheidend ist, ob ein Ablauf nur zusammengesteckt wird oder ob sichtbar bleiben muss, was das Modell bekommt, was es zurückgibt und wie die Qualität geprüft wird.
 
 ---
 
@@ -32,9 +33,9 @@ Typischer Fehler: No-Code und Python als Entweder-oder behandeln. Sinnvoller ist
 
 ## Wann No-Code die bessere erste Wahl ist
 
-No-Code-Tools wie Make oder Zapier sind stark, wenn vorhandene Dienste verbunden werden und der Ablauf vor allem aus klaren Auslösern und Aktionen besteht. Ein Formular löst eine E-Mail aus, ein CRM-Eintrag erzeugt eine Aufgabe, ein Dokument wird an ein Modell geschickt und anschließend abgelegt. Für solche Fälle ist ein grafischer Workflow oft schneller als eigener Code.
+No-Code-Tools wie Make oder Zapier sind stark, wenn **vorhandene Dienste** verbunden werden und der Ablauf vor allem aus **klaren Auslösern und Aktionen** besteht. Ein Formular löst eine E-Mail aus, ein CRM-Eintrag erzeugt eine Aufgabe, ein Dokument wird an ein Modell geschickt und anschließend abgelegt. Für solche Fälle ist ein grafischer Workflow oft schneller als eigener Code.
 
-No-Code passt gut, wenn die fachliche Logik einfach bleibt, die Plattform die nötigen Bausteine bereits anbietet und ein schneller Prototyp wichtiger ist als langfristige Anpassbarkeit. Auch für Prozessklärung kann ein grafischer Ablauf hilfreich sein. Er zeigt, welche Schritte vorkommen, welche Daten fließen und wo noch manuelle Entscheidungen liegen.
+No-Code passt gut, wenn die **fachliche Logik einfach** bleibt, die Plattform die nötigen Bausteine bereits anbietet und ein schneller Prototyp wichtiger ist als langfristige Anpassbarkeit. Auch für **Prozessklärung** kann ein grafischer Ablauf hilfreich sein. Er zeigt, welche Schritte vorkommen, welche Daten fließen und wo noch manuelle Entscheidungen liegen.
 
 Die Grenze zeigt sich bei Sonderfällen. Sobald ein Schritt nicht als fertiger Baustein existiert, entstehen Umwege: Hilfsfelder, Workarounds, unübersichtliche Verzweigungen oder mehrere Tools für eine Aufgabe, die in Python zehn Zeilen klarer wäre. Noch schwieriger wird Evaluation. Ob eine Antwort gut genug ist, lässt sich selten durch einen grünen Haken im Workflow beurteilen.
 
