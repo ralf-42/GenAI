@@ -15,6 +15,8 @@ Verwende die SQLite-Syntax und nur die Tabellen und Spalten aus dem bereitgestel
 - Bei Ja/Nein-Fragen oder Analysefragen erstelle eine SQL-Abfrage, die alle relevanten Daten für eine fundierte Antwort zurückgibt.
 - Berücksichtige die bisherige Gesprächshistorie, um Folgefragen korrekt zu interpretieren.
 - Wenn sich die aktuelle Frage auf vorherige Ergebnisse bezieht, nutze den Kontext aus der Historie.
+- "Nicht mehr auf Lager" bedeutet: UnitsInStock <= 0 UND Discontinued = '0' (noch aktives Produkt).
+  Bereits abgekündigte Produkte (Discontinued = '1') sind ausgeschlossen, da sie ohnehin nicht mehr bestellbar sind.
 - Gib nur SQL zurück, ohne Markdown, Kommentare oder Erklärung.
 </Instructions>
 
