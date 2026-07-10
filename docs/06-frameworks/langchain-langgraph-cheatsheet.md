@@ -220,12 +220,12 @@ graph = builder.compile(checkpointer=checkpointer)
 config = {"configurable": {"thread_id": "kurs-demo-01"}}
 
 graph.invoke(
-    {"messages": [("human", "Merke: Thema ist RAG.")]},
+    {"messages": [HumanMessage(content="Merke: Thema ist RAG.")]},
     config=config,
 )
 
 result = graph.invoke(
-    {"messages": [("human", "Was war das Thema?")]},
+    {"messages": [HumanMessage(content="Was war das Thema?")]},
     config=config,
 )
 ```
@@ -352,3 +352,4 @@ def answer_node(state: RagState) -> dict:
 **Version:** 1.0<br>
 **Stand:** Juni 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
+
