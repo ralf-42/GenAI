@@ -82,6 +82,7 @@ Function Calling ist der Mechanismen, mit dem ein Modell strukturiert angibt, we
 ```python
 from langchain.chat_models import init_chat_model
 from langchain_core.tools import tool
+from langchain_core.messages import HumanMessage
 from pydantic import BaseModel, Field
 
 llm = init_chat_model("openai:gpt-5.4-nano")
@@ -163,6 +164,7 @@ Ein Tool ist mehr als eine technische Funktion. Für das Modell ist vor allem da
 
 ```python
 from langchain_core.tools import tool
+from langchain_core.messages import HumanMessage
 from pydantic import BaseModel, Field
 
 class SearchInput(BaseModel):
@@ -288,6 +290,7 @@ Ein Tool kann fehlschlagen: Datei nicht gefunden, Datenbank nicht erreichbar, Ei
 ```python
 from langchain_core.tools import tool
 
+from langchain_core.messages import HumanMessage
 @tool
 def search_database(query: str) -> str:
     """Durchsucht die interne Datenbank nach Einträgen zum Stichwort."""
@@ -330,6 +333,7 @@ Was ein Werkzeug zurückgibt, ist nicht automatisch das, was in den Agenten-Kont
 ```python
 from langchain_core.tools import tool
 
+from langchain_core.messages import HumanMessage
 @tool
 def search_web(query: str) -> str:
     """Sucht aktuelle externe Informationen im Web. Nicht für interne Dokumente verwenden."""
@@ -403,6 +407,7 @@ Sobald Werkzeuge definiert sind, können sie an ein Modell oder einen Agenten ge
 from langchain.chat_models import init_chat_model
 from langchain.agents import create_agent
 from langchain_core.tools import tool
+from langchain_core.messages import HumanMessage
 from datetime import date
 
 llm = init_chat_model("openai:gpt-5.4-nano")
@@ -420,7 +425,7 @@ agent = create_agent(
 )
 
 response = agent.invoke(
-    {"messages": [{"role": "user", "content": "Welches Datum ist heute?"}]},
+    {"messages": [HumanMessage(content="Welches Datum ist heute?")]},
     config={"recursion_limit": 10},
 )
 ```
@@ -475,6 +480,7 @@ Bei Operationen mit realen Folgen, etwa Rückerstattung, Löschung oder Zahlung,
 ```python
 from langchain_core.tools import tool
 
+from langchain_core.messages import HumanMessage
 AMOUNT_LIMIT_EUR = 500
 
 @tool
@@ -526,6 +532,7 @@ from langchain.chat_models import init_chat_model
 from langchain.agents import create_agent
 from langchain_core.tools import tool
 
+from langchain_core.messages import HumanMessage
 llm = init_chat_model("openai:gpt-5.4-nano")
 
 @tool
@@ -613,3 +620,4 @@ Entwickler unterschätzen oft, dass Tool Use nicht nur neue Fähigkeiten bringt,
 **Stand:** Mai 2026<br>
 
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
+

@@ -522,6 +522,8 @@ rag = init_rag_system(config)
 llm = init_chat_model(f"openai:{config.llm_model}")
 vision_llm = init_chat_model(f"openai:{config.vision_model}")
 
+from langchain_core.messages import HumanMessage
+
 # Vision-Analyse mit Standard Content Blocks
 message = HumanMessage(content=[
     {"type": "text", "text": "Beschreibe dieses Bild"},
@@ -846,3 +848,4 @@ Die Module stehen unter der MIT-Lizenz und können frei für eigene Projekte ver
 **Version:** 3.3<br>
 **Stand:** Mai 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
+

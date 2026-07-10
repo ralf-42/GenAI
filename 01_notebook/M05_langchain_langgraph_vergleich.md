@@ -19,7 +19,7 @@ Ziel: GenAI-Einsteiger sollen sehen, welcher Teil des manuellen Session-Codes in
 |---|---|---|
 | `sessions = {}` | `builder.compile(checkpointer=InMemorySaver())` | Speicher vorbereiten |
 | `sessions[thread_id]` | `configurable.thread_id` | Session auswählen |
-| `append(HumanMessage(...))` | `app.invoke({"messages": [HumanMessage(...)]}, config=config)` | User-Nachricht übergeben |
+| `append(HumanMessage(content=...))` | `app.invoke({"messages": [HumanMessage(content=...)]}, config=config)` | User-Nachricht übergeben |
 | `[SystemMessage(...)] + sessions[thread_id]` | `[SystemMessage(...)] + state["messages"]` | Kontext bauen |
 | `append(response)` | `return {"messages": [response]}` | AI-Antwort als State-Update zurückgeben |
 | `response.content` | `result["messages"][-1].content` | Letzte Antwort ausgeben |
@@ -95,3 +95,4 @@ Bei `list` + `dict` verwaltet die Chat-Funktion den Verlauf selbst. Bei LangGrap
 
 - **Persistenz:** `InMemorySaver()` kann später durch einen persistenten Checkpointer ersetzt werden, z. B. SQLite.
 - **Streaming:** Für flüssige UI-Ausgaben kann statt `app.invoke(...)` später `app.stream(...)` verwendet werden.
+
