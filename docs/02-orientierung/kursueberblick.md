@@ -64,6 +64,44 @@ Die Module führen von Grundbegriffen über Frameworks bis zu RAG, Multimodalit�
 
 Weitere Themen sind SQL-RAG, multimodales RAG, Fine-Tuning, Modellauswahl, Evaluation, Model Context Protocol und Context Engineering.
 
+## Kursprogression
+
+```mermaid
+%%{init: {
+  'theme': 'base',
+  'themeVariables': {
+    'timelineLineColor': '#2e7d32',
+    'sectionBkgColor': '#c8e6c9',
+    'sectionTextColor': '#1b5e20',
+    'containerBkgColor': '#f9f9f9',
+    'taskBkgColor': '#e8f5e9',
+    'taskTextColor': '#1b5e20'
+  }
+}}%%
+timeline
+    title GenAI-Progression im Kursverlauf
+    section Grundlagen
+        Erste GenAI-Anwendung : Prompting, Chains, erste Workflows
+                              : M01-M02
+    section Strukturierte Ausgaben
+        Robuste Workflows     : Parser, Memory, Ausgabesteuerung
+                              : M03-M05
+    section Wissensbasierte GenAI
+        RAG und SQL-RAG       : Retrieval, Datenbanken, Fragen beantworten
+                              : M06-M07
+    section Handlungsfähige GenAI
+        Agenten und UI        : Tools, Middleware, MCP, Gradio
+                              : M08-M11
+    section Erweiterte GenAI
+        Lokal und Multimodal  : Ollama, Bild, Audio
+                              : M12-M16
+    section Optionale Themen
+        Modell-Routing        : Provider-Failover und LLM-Routing
+                              : M17
+        Modell- und Coding-Basics : Modellsteuerung, Codieren mit GenAI
+                                  : M19-M20
+```
+
 ## Modulübersicht
 
 Die aktuelle Kursstruktur ist in thematische Blöcke gegliedert:
@@ -86,6 +124,7 @@ Die aktuelle Kursstruktur ist in thematische Blöcke gegliedert:
 |  14   | Multimodal               | Bild                           | Bildgenerierung, Bildklassifikation, Objekterkennung und Bildbeschreibung           |
 |  15   | Multimodal               | Multimodal RAG                 | Dokumente mit Text- und Bildanteilen erschließen                                    |
 |  16   | Multimodal               | Audio                          | Speech-to-Text, Text-to-Speech, Audioanalyse und Podcast-Pipelines                  |
+|  17   | Optionale Vertiefung     | Modell-Routing                 | Provider-Failover, LLM-Routing und Circuit Breaker                                   |
 |  19   | Modellsteuerung & Coding | Modellsteuerung                | Sampling, Context Engineering und kontrollierte Ausgaben                            |
 |  20   | Modellsteuerung & Coding | Codieren mit GenAI             | Codegenerierung, Debugging, Revisionsprompts und Entwicklungsworkflow               |
 
