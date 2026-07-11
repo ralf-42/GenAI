@@ -24,7 +24,7 @@ has_toc: true
 
 ## Grundidee
 
-Modellauswahl ist keine Rangliste. Ein Modell ist passend, wenn Qualität, Latenz, Kosten, Kontextfenster, Tool-Unterstützung und Modalität zur Aufgabe passen. Im Kurs wird deshalb nicht überall ein einzelnes Modell fest eingetragen, sondern eine Rolle verwendet: Demo, Worker, Judge, Planner, Vision, Medienerzeugung oder Embedding.
+Modellauswahl ist keine Rangliste. Ein Modell ist passend, wenn Qualität, Latenz, Kosten, Kontextfenster, Tool-Unterstützung und Modalität zur Aufgabe passen. Im Kurs wird deshalb nicht überall ein einzelnes Modell fest eingetragen, sondern eine Rolle verwendet: Demo, Worker, Judge, Planner, Medienerzeugung oder Embedding.
 
 Diese Rollen stehen in `04_modul/genai_lib/model_config.py`. Die Datei ist der technische Kursstandard. Wer ein Notebook liest, soll nicht zuerst konkrete Produktnamen interpretieren müssen, sondern erkennen, welche Aufgabe ein Modell im System übernimmt.
 
@@ -36,22 +36,12 @@ Die folgende Tabelle zeigt die zentralen Modellrollen aus `model_config.py`. Die
 | -------------------------- | ------------------------ | ---------------------------------------------------------------- |
 | `BASELINE`                 | `openai:gpt-5.4-nano`    | Grundlagen, Demos, kurze Antworten, kostengünstige Experimente   |
 | `ROUTER`                   | `openai:gpt-5.4-nano`    | einfache Routing- und Auswahlentscheidungen                      |
-| `TRANSLATOR_FAST`          | `openai:gpt-5.4-nano`    | schnelle Rohübersetzungen                                        |
-| `TRANSLATOR`               | `openai:gpt-5.4-mini`    | Kursmaterial, Markdown, Dokumentation                            |
 | `WORKER`                   | `openai:gpt-5.4-mini`    | RAG-Synthese, strukturierte Ausgaben, Standardaufgaben           |
 | `CODING`                   | `openai:gpt-5.4-mini`    | Codegenerierung, Refactoring, technische Assistenz               |
 | `JUDGE`                    | `openai:gpt-5.4`         | Evaluation, Compliance, Sicherheits- und Qualitätsentscheidungen |
 | `PLANNER`                  | `openai:gpt-5.4`         | Aufgabenzerlegung, Agentenplanung, komplexe Workflows            |
 | `WORKER_PREMIUM`           | `openai:gpt-5.4`         | hochwertige Synthese, komplexe RAG-Aufgaben, finale Reports      |
-| `TRANSLATOR_PREMIUM`       | `openai:gpt-5.5`         | hochwertige finale Übersetzungen                                 |
-| `JUDGE_PREMIUM`            | `openai:gpt-5.5`         | kritische Evaluation und maximale Qualität                       |
-| `PLANNER_PREMIUM`          | `openai:gpt-5.5`         | hochkomplexe Planung und mehrstufige Aufgaben                    |
-| `VISION_FAST`              | `openai:gpt-5.4-mini`    | einfache Bildanalyse                                             |
-| `VISION_PREMIUM`           | `openai:gpt-5.4-mini`    | anspruchsvollere Bild- oder Frame-Analyse im Kurs                |
 | `IMAGE_GENERATION`         | `gpt-image-2`            | Bildgenerierung                                                  |
-| `IMAGE_GENERATION_PREMIUM` | `gpt-image-2`            | hochwertige Bildgenerierung                                      |
-| `IMAGE_GENERATION_LEGACY`  | `gpt-image-1`            | ältere Bildgenerierung, nur für Vergleich oder Altbeispiele      |
-| `VIDEO_GENERATION`         | `sora-2`                 | Videoerzeugung                                                   |
 | `TRANSCRIPTION`            | `gpt-4o-mini-transcribe` | Audio-Transkription                                              |
 | `TRANSCRIPTION_SEGMENTS`   | `whisper-1`              | Audio-Transkription mit `verbose_json` und Segment-Zeitstempeln  |
 | `EMBEDDINGS`               | `text-embedding-3-small` | Vektorsuche und RAG                                              |
@@ -81,7 +71,7 @@ KI-generiertes Bild
 
 Für Grundlagen, kurze Demos und erste Chains reicht die Baseline-Rolle. In diesen Modulen zählt, ob das Konzept sichtbar wird, nicht ob die Ausgabe maximal elegant formuliert ist. Erst wenn die Ausgabequalität fachlich relevant wird, etwa bei RAG-Synthese oder strukturierten Berichten, wird auf eine Worker-Rolle gewechselt.
 
-Multimodale Aufgaben sind eine eigene Entscheidung. Ein Textmodell darf nicht pauschal für Bild-, Audio- oder Videoaufgaben verwendet werden, nur weil es in Textbeispielen gut funktioniert. Bildanalyse, Bildgenerierung, Videoerzeugung, Transkription und Embeddings folgen eigenen Endpunkten oder Modellklassen.
+Multimodale Aufgaben sind eine eigene Entscheidung. Ein Textmodell darf nicht pauschal für Bild- oder Audioaufgaben verwendet werden, nur weil es in Textbeispielen gut funktioniert. Bildgenerierung, Transkription und Embeddings folgen eigenen Endpunkten oder Modellklassen.
 
 
 ## Schnelle Auswahl
@@ -95,10 +85,7 @@ Multimodale Aufgaben sind eine eigene Entscheidung. Ein Textmodell darf nicht pa
 | Aufgabenplanung oder mehrstufige Zerlegung | `PLANNER` |
 | Bewertung, Korrektur, Compliance, Sicherheitscheck | `JUDGE` |
 | hochwertige Synthese, komplexe RAG-Aufgaben | `WORKER_PREMIUM` |
-| finale Qualität bei kritischen Aufgaben | `JUDGE_PREMIUM` oder `PLANNER_PREMIUM` |
-| Bildanalyse | `VISION_FAST` oder `VISION_PREMIUM` |
-| Bildgenerierung | `IMAGE_GENERATION` oder `IMAGE_GENERATION_PREMIUM` |
-| Videoerzeugung | `VIDEO_GENERATION` |
+| Bildgenerierung | `IMAGE_GENERATION` |
 | Audio-Transkription | `TRANSCRIPTION` |
 | Audio-Transkription mit Segment-Zeitstempeln | `TRANSCRIPTION_SEGMENTS` |
 | semantische Suche und RAG-Index | `EMBEDDINGS` |
@@ -112,13 +99,13 @@ flowchart TD
 
     START --> D{"Demo, Grundlagen oder Konzept im Fokus?"}
     START --> R{"RAG-Synthese oder komplexe Textausgabe?"}
-    START --> M{"Bild, Audio, Video oder Embeddings?"}
+    START --> M{"Bild, Audio oder Embeddings?"}
     START --> E{"Bewertung, Prüfung oder Planung?"}
     START --> U{"Unklarer neuer Notebook-Schritt?"}
 
     D -->|Ja| BASE["BASELINE"]
     R -->|Ja| WORKER["WORKER"]
-    M -->|Ja| MEDIA["passende Vision-, Medien- oder Embedding-Rolle"]
+    M -->|Ja| MEDIA["passende Medien- oder Embedding-Rolle"]
     E -->|Ja| JUDGE["JUDGE oder PLANNER"]
     U -->|Ja| STARTBASE["mit BASELINE starten und Bedarf messen"]
 ```
@@ -152,24 +139,6 @@ from genai_lib.model_config import WORKER
 rag_llm = init_chat_model(WORKER)
 ```
 
-### Bildanalyse
-
-```python
-from langchain.chat_models import init_chat_model
-from langchain_core.messages import HumanMessage
-
-from genai_lib.model_config import VISION_FAST
-
-multimodal_llm = init_chat_model(VISION_FAST)
-
-message = HumanMessage(content=[
-    {"type": "text", "text": "Was zeigt dieses Bild?"},
-    {"type": "image_url", "image_url": {"url": bild_url}},
-])
-
-antwort = multimodal_llm.invoke([message])
-```
-
 ## Kosten und Qualität
 
 Kostenoptimierung bedeutet im Kurs nicht, immer das billigste Modell zu verwenden. Entscheidend ist die Kosten pro brauchbarem Ergebnis. Ein günstiges Modell ist teuer, wenn es oft wiederholt werden muss, falsche Tools auswählt oder schlechte RAG-Antworten erzeugt.
@@ -179,7 +148,7 @@ Kostenoptimierung bedeutet im Kurs nicht, immer das billigste Modell zu verwende
 | Konzept sichtbar machen | mit `BASELINE` starten |
 | Antwortqualität entscheidet | `WORKER` testen und gegen `BASELINE` vergleichen |
 | Bewertung oder Sicherheitsprüfung | `JUDGE` einsetzen |
-| Bild, Audio, Video, Embeddings | dedizierte Rolle verwenden |
+| Bild, Audio, Embeddings | dedizierte Rolle verwenden |
 | Premium-Rollen | nur bei messbarem Qualitätsgewinn oder hohem Risiko |
 
 In Trainings zeigt sich häufig, dass zu früh auf ein großes Modell gewechselt wird. Besser ist ein kleines Evaluationsset mit typischen Kursaufgaben: eine einfache Demo, ein RAG-Fall, ein Fehlerfall und ein Beispiel mit strukturiertem Output. Erst wenn der Unterschied sichtbar wird, rechtfertigt sich ein Upgrade.
@@ -194,7 +163,7 @@ Benchmarks helfen bei der Vorauswahl, ersetzen aber keine Tests mit eigenen Aufg
 | Braucht die Aufgabe Synthesequalität? | `WORKER` gegen RAG- und Zusammenfassungsaufgaben prüfen |
 | Braucht die Aufgabe Planung? | `PLANNER` gegen mehrstufige Aufgaben testen |
 | Braucht die Aufgabe Kontrolle? | `JUDGE` gegen Fehlerfälle und Grenzfälle prüfen |
-| Ist eine Medienrolle nötig? | Bild, Audio, Video oder Embeddings getrennt vom Textmodell prüfen |
+| Ist eine Medienrolle nötig? | Bild, Audio oder Embeddings getrennt vom Textmodell prüfen |
 
 Typischer Fehler: Benchmarkwerte als endgültige Entscheidung lesen. Ein Modell mit starkem allgemeinen Benchmark kann bei einem kleinen, klar strukturierten Kursworkflow schlechter abschneiden als ein günstigeres Modell mit besser passender Rolle.
 
@@ -211,7 +180,6 @@ Grenze: Kaskaden erhöhen die Komplexität. Jede zusätzliche Modellrolle brauch
 | Fehler | Folge | Bessere Entscheidung |
 |---|---|---|
 | stärkstes Modell ohne Test einsetzen | unnötige Kosten und langsame Demos | erst `BASELINE`, dann gezielt upgraden |
-| Textmodell für Bildinput verwenden | fehlerhafte oder nicht lauffähige Beispiele | `VISION_FAST` oder `VISION_PREMIUM` nutzen |
 | `temperature` aus alten Beispielen übernehmen | API-Fehler oder inkonsistentes Verhalten | GPT-5.x-Rollen ohne `temperature` initialisieren |
 | Chat-Modell und Embedding-Modell vermischen | defekte RAG-Indizes oder Dimensionskonflikte | `EMBEDDINGS` separat behandeln |
 | Benchmarks statt Kursaufgaben bewerten | falsche Entscheidung für den konkreten Workflow | kleines kursnahes Testset verwenden |
@@ -227,6 +195,6 @@ Grenze: Kaskaden erhöhen die Komplexität. Jede zusätzliche Modellrolle brauch
 
 ---
 
-**Version:** 1.3<br>
-**Stand:** Mai 2026<br>
+**Version:** 1.4<br>
+**Stand:** Juli 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
