@@ -1,4 +1,4 @@
-#@title 🛠️ Code M14_Modul { display-mode: "form" }
+#@title 🛠️ Code M16_Modul { display-mode: "form" }
 """
 Multimodales RAG Modul mit Bildbeschreibungen (Version 3.1 - LangChain 1.0+)
 

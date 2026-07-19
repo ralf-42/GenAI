@@ -93,11 +93,11 @@ timeline
         Agenten und UI        : Tools, Middleware, MCP, Gradio
                               : M08-M11
     section Erweiterte GenAI
-        Lokal und Multimodal  : Ollama, Bild, Audio
-                              : M12-M16
-    section Optionale Themen
-        Modell-Routing        : Provider-Failover und LLM-Routing
-                              : M17
+        Lokal und Modellsteuerung : Ollama, Fine-Tuning, Routing und Kostenermittlung
+                              : M12-M15
+    section Multimodale GenAI
+        Bild, RAG und Audio   : Bildverarbeitung, multimodales RAG, Audio
+                              : M16-M18
 ```
 
 ## Modulübersicht
@@ -119,10 +119,11 @@ Die aktuelle Kursstruktur ist in thematische Blöcke gegliedert:
 |  11   | Deployment & Optimierung | Gradio                         | UI-Entwicklung, praktische Demos und Sharing                                        |
 |  12   | Deployment & Optimierung | Lokale und Open Source Modelle | Ollama, lokale Modelle, Lizenzierung und Auswahlkriterien                           |
 |  13   | Deployment & Optimierung | Fine-Tuning                    | Anpassung von Modellen und Bewertung spezialisierter Varianten                      |
-|  14   | Multimodal               | Bild                           | Bildgenerierung, Bildklassifikation, Objekterkennung und Bildbeschreibung           |
-|  15   | Multimodal               | Multimodal RAG                 | Dokumente mit Text- und Bildanteilen erschließen                                    |
-|  16   | Multimodal               | Audio                          | Speech-to-Text, Text-to-Speech, Audioanalyse und Podcast-Pipelines                  |
-|  17   | Optionale Vertiefung     | Modell-Routing                 | Provider-Failover, LLM-Routing und Circuit Breaker                                   |
+|  14   | Deployment & Optimierung | Modell-Router                  | Provider-Failover, LLM-Routing und Circuit Breaker                                   |
+|  15   | Deployment & Optimierung | Modell-Kosten                  | Tokens, Preistabellen und Kostenauswertung über LangSmith                           |
+|  16   | Multimodal               | Bild                           | Bildgenerierung, Bildklassifikation, Objekterkennung und Bildbeschreibung           |
+|  17   | Multimodal               | Multimodal RAG                 | Dokumente mit Text- und Bildanteilen erschließen                                    |
+|  18   | Multimodal               | Audio                          | Speech-to-Text, Text-to-Speech, Audioanalyse und Podcast-Pipelines                  |
 
 Eine interaktive Orientierung zur Modellwahl ist hier hilfreich: [Modellauswahl](https://editor.p5js.org/ralf.bendig.rb/full/8BbTi8Ico).
 
