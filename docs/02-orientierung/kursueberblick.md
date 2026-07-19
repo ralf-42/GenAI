@@ -98,8 +98,6 @@ timeline
     section Optionale Themen
         Modell-Routing        : Provider-Failover und LLM-Routing
                               : M17
-        Modell- und Coding-Basics : Modellsteuerung, Codieren mit GenAI
-                                  : M19-M20
 ```
 
 ## Modulübersicht
@@ -125,8 +123,6 @@ Die aktuelle Kursstruktur ist in thematische Blöcke gegliedert:
 |  15   | Multimodal               | Multimodal RAG                 | Dokumente mit Text- und Bildanteilen erschließen                                    |
 |  16   | Multimodal               | Audio                          | Speech-to-Text, Text-to-Speech, Audioanalyse und Podcast-Pipelines                  |
 |  17   | Optionale Vertiefung     | Modell-Routing                 | Provider-Failover, LLM-Routing und Circuit Breaker                                   |
-|  19   | Modellsteuerung & Coding | Modellsteuerung                | Sampling, Context Engineering und kontrollierte Ausgaben                            |
-|  20   | Modellsteuerung & Coding | Codieren mit GenAI             | Codegenerierung, Debugging, Revisionsprompts und Entwicklungsworkflow               |
 
 Eine interaktive Orientierung zur Modellwahl ist hier hilfreich: [Modellauswahl](https://editor.p5js.org/ralf.bendig.rb/full/8BbTi8Ico).
 

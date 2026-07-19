@@ -293,7 +293,7 @@ def research_node(state: ChatState) -> ChatState:
     return {"messages": result["messages"]}
 ```
 
-> **Hinweis:** Der Agent-Node ist das Muster hinter Supervisor-Architekturen (M20, M21). Der Supervisor ruft `research_node`, `writer_node` etc. auf – und jeder Node kapselt intern einen vollständigen Agenten.
+> **Hinweis:** Der Agent-Node ist das Muster hinter Supervisor-Architekturen. Der Supervisor ruft `research_node`, `writer_node` etc. auf – und jeder Node kapselt intern einen vollständigen Agenten.
 
 ---
 
