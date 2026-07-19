@@ -78,7 +78,7 @@ Die Modellwahl richtet sich nach der Rolle im Workflow:
 | Worker, Content, RAG-Synthese, Code | `gpt-5.4-mini` | kein `temperature`; Qualität/Synthese |
 | Judge, Evaluator, Supervisor | `gpt-5.4` | kein `temperature`; `reasoning.effort` nutzen |
 | Judge / Planner (Premium) | `gpt-5.5` | maximale Reasoning-Qualität; nur wenn Standard nicht reicht |
-| Multimodale Analyse | `gpt-5.4-mini` | Vision-/Audio-/Frame-Input, M16 und M19 |
+| Multimodale Analyse | `gpt-5.4-mini` | Vision-/Audio-/Frame-Input, M16 |
 | Mediengenerierung und Transkription | `gpt-image-2`, `sora-2`, `gpt-4o-mini-transcribe`, `whisper-1` für Segmente | direkte OpenAI-API, nicht LangChain-Rollenmodell |
 | Embeddings | `text-embedding-3-small` | RAG, ChromaDB, Vektorindizes |
 
@@ -107,8 +107,6 @@ Die Notebooks sind nach Themen geordnet. Einzelne Aufgaben können je nach Kursv
 | `M15_Multimodal_RAG.ipynb`                  | Multimodales RAG mit Text und Bild                                               |
 | `M16_Multimodal_Audio.ipynb`                | Audio, Speech-to-Text und Text-to-Speech                                         |
 | `M17_Routing_Provider.ipynb`                | LLM-Routing, Provider-Failover und Circuit Breaker                               |
-| `M19_Modellsteuerung.ipynb`                 | Prompting, Parameter, Modellverhalten, Context Engineering                       |
-| `M20_Codieren_mit_GenAI.ipynb`              | KI-gestütztes Programmieren mit Colab und Gemini-Unterstützung                   |
 | `A00_snippets_genai.ipynb`                  | Wiederverwendbare Snippets und Referenzbausteine                                 |
 | `quick_template.ipynb`                      | Vorlage für Aufgaben und neue Notebook-Bausteine                                 |
 
