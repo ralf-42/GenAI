@@ -71,16 +71,19 @@ Für einfache Agenten reicht `create_agent()`. Ein eigener `StateGraph` wird gen
 
 Die Modellwahl richtet sich nach der Rolle im Workflow:
 
-| Rolle | Standardmodell | Hinweis |
+| Rolle (Konstante in `model_config.py`) | Modell | Hinweis |
 |-------|----------------|---------|
-| Grundlagen-Demo, einfache Chain | `gpt-5.4-nano` | kein `temperature`; Konzept vor Ausgabequalität |
-| Router, leichte Auswahlentscheidungen | `gpt-5.4-nano` | `reasoning.effort="low"` bei Bedarf |
-| Worker, Content, RAG-Synthese, Code | `gpt-5.4-mini` | kein `temperature`; Qualität/Synthese |
-| Judge, Evaluator, Supervisor | `gpt-5.4` | kein `temperature`; `reasoning.effort` nutzen |
-| Judge / Planner (Premium) | `gpt-5.5` | maximale Reasoning-Qualität; nur wenn Standard nicht reicht |
-| Multimodale Analyse | `gpt-5.4-mini` | Vision-/Audio-/Frame-Input, M16 |
-| Mediengenerierung und Transkription | `gpt-image-2`, `sora-2`, `gpt-4o-mini-transcribe`, `whisper-1` für Segmente | direkte OpenAI-API, nicht LangChain-Rollenmodell |
-| Embeddings | `text-embedding-3-small` | RAG, ChromaDB, Vektorindizes |
+| Baseline / Demo (`BASELINE`) | `gpt-5.4-nano` | kein `temperature`; Konzept vor Ausgabequalität |
+| Router (`ROUTER`) | `gpt-5.4-nano` | `reasoning.effort="low"` bei einfachen Routing-Entscheidungen |
+| Worker / Synthese (`WORKER`) | `gpt-5.4-mini` | RAG-Synthese, strukturierte Ausgaben; `reasoning.effort` low–medium |
+| Coding-Worker (`CODING`) | `gpt-5.4-mini` | Code-Generierung, Refactoring; `reasoning.effort` medium–high |
+| Judge / starker Reasoner (`JUDGE`) | `gpt-5.4` | Supervisor, Security, Evaluation; `reasoning.effort="high"` |
+| Planner (`PLANNER`) | `gpt-5.4` | Aufgabenzerlegung, Schritt-Planung, Agentic RAG |
+| Worker Premium (`WORKER_PREMIUM`) | `gpt-5.4` | komplexe RAG, finale Reports |
+| Bildgenerierung (`IMAGE_GENERATION`) | `gpt-image-2` | direkte OpenAI Images API, ohne Provider-Präfix |
+| Transkription (`TRANSCRIPTION`) | `gpt-4o-mini-transcribe` | Standard-Audiotranskription |
+| Transkription mit Segmenten (`TRANSCRIPTION_SEGMENTS`) | `whisper-1` | Zeitstempel/Segmente über `verbose_json` |
+| Embeddings (`EMBEDDINGS`) | `text-embedding-3-small` | RAG, ChromaDB, Vektorindizes |
 
 
 ## 📚 Kursmodule
@@ -103,10 +106,11 @@ Die Notebooks sind nach Themen geordnet. Einzelne Aufgaben können je nach Kursv
 | `M11_Gradio.ipynb`                          | Gradio-Oberflächen für KI-Anwendungen                                            |
 | `M12_Lokale_Open_Source_Modelle.ipynb`      | Lokale und Open-Source-Modelle, Ollama                                           |
 | `M13_Fine_Tuning_Unsloth.ipynb`             | Fine-Tuning und Modellanpassung                                                  |
-| `M14_Multimodal_Bild.ipynb`                 | Multimodale Bildverarbeitung                                                     |
-| `M15_Multimodal_RAG.ipynb`                  | Multimodales RAG mit Text und Bild                                               |
-| `M16_Multimodal_Audio.ipynb`                | Audio, Speech-to-Text und Text-to-Speech                                         |
-| `M17_Routing_Provider.ipynb`                | LLM-Routing, Provider-Failover und Circuit Breaker                               |
+| `M14_Modell_Router.ipynb`                   | LLM-Routing, Provider-Failover und Circuit Breaker                               |
+| `M15_Modell_Kosten.ipynb`                   | Kostenermittlung: Tokens, Preise und LangSmith                                   |
+| `M16_Multimodal_Bild.ipynb`                 | Multimodale Bildverarbeitung                                                     |
+| `M17_Multimodal_RAG.ipynb`                  | Multimodales RAG mit Text und Bild                                               |
+| `M18_Multimodal_Audio.ipynb`                | Audio, Speech-to-Text und Text-to-Speech                                         |
 | `A00_snippets_genai.ipynb`                  | Wiederverwendbare Snippets und Referenzbausteine                                 |
 | `quick_template.ipynb`                      | Vorlage für Aufgaben und neue Notebook-Bausteine                                 |
 
