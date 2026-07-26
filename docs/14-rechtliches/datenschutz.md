@@ -162,10 +162,10 @@ Bitte schützen Sie eigene Zugangsdaten, API-Keys und Kursdateien sorgfältig. V
 
 ## 11. Aktualität und Änderung dieser Datenschutzerklärung
 
-Diese Datenschutzerklärung ist aktuell gültig und hat den Stand Mai 2026.
+Diese Datenschutzerklärung ist aktuell gültig und hat den Stand Juli 2026.
 
-Durch die Weiterentwicklung der Website, der Kursmaterialien oder aufgrund geänderter gesetzlicher beziehungsweise behördlicher Vorgaben kann es notwendig werden, diese Datenschutzerklärung zu ändern. Die jeweils aktuelle Datenschutzerklärung kann jederzeit auf dieser Website unter `14-rechtliches/datenschutz.html` abgerufen werden.
+Durch die Weiterentwicklung der Website, der Kursmaterialien oder aufgrund geänderter gesetzlicher beziehungsweise behördlicher Vorgaben kann es notwendig werden, diese Datenschutzerklärung zu ändern. Die jeweils aktuelle Datenschutzerklärung kann jederzeit auf dieser Website unter `./datenschutz.html` abgerufen werden.
 
 ---
 
-**Letzte Aktualisierung:** Mai 2026
+**Stand:** Juli 2026
