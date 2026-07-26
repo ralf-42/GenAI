@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Haftungsausschluss
 parent: Rechtliches
@@ -93,4 +93,4 @@ Sollten einzelne Formulierungen dieses Hinweises unwirksam sein oder werden, ble
 
 ---
 
-**Letzte Aktualisierung:** Mai 2026
+**Stand:** Juli 2026

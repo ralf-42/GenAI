@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Rechtliches
-nav_order: 16
+nav_order: 14
 has_children: true
 has_toc: false
 description: "Impressum, Datenschutzerklärung und Haftungsausschluss"
@@ -9,8 +9,14 @@ description: "Impressum, Datenschutzerklärung und Haftungsausschluss"
 
 # Rechtliches
 
-Diese Seite verweist auf die gesetzlich vorgeschriebenen Pflichtseiten der Website.
+Diese Orientierungsseite enthält die formalen rechtlichen Hinweise zur Website und zu den bereitgestellten Kursmaterialien.
 
-- [Impressum](./impressum.html)
-- [Datenschutzerklärung](./datenschutz.html)
-- [Haftungsausschluss](./haftungsausschluss.html)
+| Dokument | Inhalt |
+|---|---|
+| [Impressum](./impressum.html) | Anbieterkennzeichnung gemäß § 5 DDG |
+| [Datenschutzerklärung](./datenschutz.html) | Datenschutzhinweise gemäß DSGVO |
+| [Haftungsausschluss](./haftungsausschluss.html) | Hinweise zu KI-Inhalten, Links und Nutzung |
+
+---
+
+**Stand:** Juli 2026
