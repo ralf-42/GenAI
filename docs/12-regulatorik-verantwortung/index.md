@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Regulatorik & Verantwortung
-nav_order: 14
+nav_order: 13
 has_children: true
 has_toc: false
 description: "EU AI Act, DSGVO, Ethik und digitale Souveränität im GenAI-Kontext"

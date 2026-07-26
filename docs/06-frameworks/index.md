@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Frameworks
-nav_order: 8
+nav_order: 14
 has_children: true
 has_toc: false
 description: "LangChain, LangGraph, LangSmith und weitere Tools für GenAI-Anwendungen"

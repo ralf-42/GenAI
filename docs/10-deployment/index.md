@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Deployment
-nav_order: 12
+nav_order: 11
 has_children: true
 has_toc: false
 description: "Vom Notebook zur produktionsnahen GenAI-Anwendung — Stack, Migration und Betrieb"

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Qualität & Sicherheit
-nav_order: 9
+nav_order: 8
 has_children: true
 has_toc: false
 description: "Evaluation, Observability, Sicherheit und Qualitätssicherung für GenAI-Anwendungen"

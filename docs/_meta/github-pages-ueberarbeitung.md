@@ -60,24 +60,10 @@ Probleme:
 
 ```
 GenAI/docs/
-├── index.md                             nav_order: 1   (Start)
-├── zuerst-lesen.md                      nav_order: 2
-├── lesepfade.md                         nav_order: 3   (Dateiname bleibt)
+├── index.md                                (Start)
+├── zuerst-lesen.md                      ├── lesepfade.md                            (Dateiname bleibt)
 │
-├── 02-orientierung/                     nav_order: 4
-├── 03-grundlagen/                       nav_order: 5
-├── 04-modelle-provider/                 nav_order: 6
-├── 05-prompting-rag/                    nav_order: 7
-├── 06-frameworks/                       nav_order: 8
-├── 07-qualitaet-sicherheit/             nav_order: 9
-├── 08-multimodal/                       nav_order: 10
-├── 08-agenten/                          nav_order: 10
-├── 10-deployment/                       nav_order: 12
-├── 11-projekte/                         nav_order: 13
-├── 12-regulatorik-verantwortung/        nav_order: 14
-├── 13-ressourcen/                       nav_order: 15
-├── 14-rechtliches/                      nav_order: 16
-└── _meta/                               nav_exclude: true
+├── 02-orientierung/                     ├── 03-grundlagen/                       ├── 04-modelle-provider/                 ├── 05-prompting-rag/                    ├── 06-frameworks/                       ├── 07-qualitaet-sicherheit/             ├── 08-multimodal/                       ├── 08-agenten/                          ├── 10-deployment/                       ├── 11-projekte/                         ├── 12-regulatorik-verantwortung/        ├── 13-ressourcen/                       ├── 14-rechtliches/                      └── _meta/                               nav_exclude: true
 ```
 
 Hinweis: Kein `01-`-Verzeichnis. Die Nummern beginnen bei `02-orientierung/`, weil `01-start-navigation/` bewusst nicht vorgesehen ist. `zuerst-lesen.md` und `lesepfade.md` erscheinen direkt auf der obersten Navigationsebene (Root).
@@ -90,9 +76,9 @@ Hinweis: Kein `01-`-Verzeichnis. Die Nummern beginnen bei `02-orientierung/`, we
 
 | Datei | Änderung |
 |---|---|
-| `index.md` | `nav_order: 1`, Frontmatter prüfen |
-| `zuerst-lesen.md` | `nav_order: 2`, `parent` entfernen, Links aktualisieren |
-| `lesepfade.md` | `nav_order: 3`, `parent` entfernen, Links aktualisieren |
+| `index.md` | ``, Frontmatter prüfen |
+| `zuerst-lesen.md` | ``, `parent` entfernen, Links aktualisieren |
+| `lesepfade.md` | ``, `parent` entfernen, Links aktualisieren |
 
 ### 02-orientierung/
 
@@ -335,18 +321,18 @@ Entscheidung je Seite:
 
 ### Phase 5 — Frontmatter aktualisieren
 
-- [x] `index.md` (Root): `nav_order: 1`, Frontmatter geprüft
-- [x] `zuerst-lesen.md`: `nav_order: 2`, `parent` entfernt
-- [x] `lesepfade.md`: `nav_order: 3`, `parent` entfernt
-- [x] `02-orientierung/index.md`: `nav_order: 4`, `has_children: true`, `title: "Orientierung"`
+- [x] `index.md` (Root): ``, Frontmatter geprüft
+- [x] `zuerst-lesen.md`: ``, `parent` entfernt
+- [x] `lesepfade.md`: ``, `parent` entfernt
+- [x] `02-orientierung/index.md`: ``, `has_children: true`, `title: "Orientierung"`
 - [x] Alle `02-orientierung/`-Dateien: `parent: "Orientierung"`, `nav_order` setzen
-- [x] `03-grundlagen/index.md`: `nav_order: 5`, `has_children: true`, `title: "Grundlagen"`
+- [x] `03-grundlagen/index.md`: ``, `has_children: true`, `title: "Grundlagen"`
 - [x] Alle `03-grundlagen/`-Dateien: `parent: "Grundlagen"`, `nav_order` setzen
-- [x] `04-modelle-provider/index.md`: `nav_order: 6`, `has_children: true`, `title: "Modelle & Provider"`
+- [x] `04-modelle-provider/index.md`: ``, `has_children: true`, `title: "Modelle & Provider"`
 - [x] Alle `04-modelle-provider/`-Dateien: `parent: "Modelle & Provider"`, `nav_order` setzen
-- [x] `05-prompting-rag/index.md`: `nav_order: 7`, `has_children: true`, `title: "Prompting & RAG"`
+- [x] `05-prompting-rag/index.md`: ``, `has_children: true`, `title: "Prompting & RAG"`
 - [x] Alle `05-prompting-rag/`-Dateien: `parent: "Prompting & RAG"`, `nav_order` setzen
-- [x] `06-frameworks/index.md`: `nav_order: 8`, `has_children: true`, `title: "Frameworks"`
+- [x] `06-frameworks/index.md`: ``, `has_children: true`, `title: "Frameworks"`
 - [x] Gruppenseiten: `parent: "Frameworks"`, `has_children: true`, `nav_order` setzen
   - `langchain.md` → `title: "LangChain"`
   - `langgraph.md` → `title: "LangGraph"`
@@ -356,21 +342,21 @@ Entscheidung je Seite:
 - [x] Inhaltsdateien LangGraph: `parent: "LangGraph"`, `grand_parent: "Frameworks"`, `nav_order` setzen
 - [x] Inhaltsdateien LangSmith: `parent: "LangSmith"`, `grand_parent: "Frameworks"`, `nav_order` setzen
 - [x] Inhaltsdateien Weitere Tools: `parent: "Weitere Tools"`, `grand_parent: "Frameworks"`, `nav_order` setzen
-- [x] `07-qualitaet-sicherheit/index.md`: `nav_order: 9`, `has_children: true`, `title: "Qualität & Sicherheit"`
+- [x] `07-qualitaet-sicherheit/index.md`: ``, `has_children: true`, `title: "Qualität & Sicherheit"`
 - [x] Alle `07-qualitaet-sicherheit/`-Dateien: `parent: "Qualität & Sicherheit"`, `nav_order` setzen
-- [x] `08-multimodal/index.md`: `nav_order: 10`, `has_children: true`, `title: "Multimodal"`
+- [x] `08-multimodal/index.md`: ``, `has_children: true`, `title: "Multimodal"`
 - [x] Alle `08-multimodal/`-Dateien: `parent: "Multimodal"`, `nav_order` setzen
-- [x] `08-agenten/index.md`: `nav_order: 10`, `has_children: true`, `title: "Agenten"`
+- [x] `08-agenten/index.md`: ``, `has_children: true`, `title: "Agenten"`
 - [x] Detailseiten in `08-agenten/`: `parent: "Agenten"`, `nav_order` setzen
-- [x] `10-deployment/index.md`: `nav_order: 12`, `has_children: true`, `title: "Deployment"`
+- [x] `10-deployment/index.md`: ``, `has_children: true`, `title: "Deployment"`
 - [x] Alle `10-deployment/`-Dateien: `parent: "Deployment"`, `nav_order` setzen
-- [x] `11-projekte/index.md`: `nav_order: 13`, `has_children: true`, `title: "Projekte"`
+- [x] `11-projekte/index.md`: ``, `has_children: true`, `title: "Projekte"`
 - [x] Alle `11-projekte/`-Dateien: `parent: "Projekte"`, `nav_order` setzen
-- [x] `12-regulatorik-verantwortung/index.md`: `nav_order: 14`, `has_children: true`, `title: "Regulatorik & Verantwortung"`
+- [x] `12-regulatorik-verantwortung/index.md`: ``, `has_children: true`, `title: "Regulatorik & Verantwortung"`
 - [x] Alle `12-regulatorik-verantwortung/`-Dateien: `parent: "Regulatorik & Verantwortung"`, `nav_order` setzen
-- [x] `13-ressourcen/index.md`: `nav_order: 15`, `has_children: true`, `title: "Ressourcen"`
+- [x] `13-ressourcen/index.md`: ``, `has_children: true`, `title: "Ressourcen"`
 - [x] Alle `13-ressourcen/`-Dateien: `parent: "Ressourcen"`, `nav_order` setzen
-- [x] `14-rechtliches/index.md`: `nav_order: 16`, `has_children: true`, `title: "Rechtliches"`
+- [x] `14-rechtliches/index.md`: ``, `has_children: true`, `title: "Rechtliches"`
 - [x] Alle `14-rechtliches/`-Dateien: `parent: "Rechtliches"`, `nav_order` setzen
 - [x] `_meta/`-Dateien: `nav_exclude: true`
 

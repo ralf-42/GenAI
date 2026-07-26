@@ -48,7 +48,6 @@ Diese Vorlage gilt für inhaltliche Dokumente in den nummerierten Bereichen `02-
 layout: default
 title: Titel des Dokuments
 parent: Übergeordnete Seite
-nav_order: 1
 description: Prägnanter Beschreibungstext für Navigation und SEO
 has_toc: true
 ---

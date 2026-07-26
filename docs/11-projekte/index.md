@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Projekte
-nav_order: 13
+nav_order: 12
 has_children: true
 has_toc: false
 description: "Kursbegleitende Aufgaben und Abschlussprojekte"

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Rechtliches
-nav_order: 14
+nav_order: 16
 has_children: true
 has_toc: false
 description: "Impressum, Datenschutzerklärung und Haftungsausschluss"
