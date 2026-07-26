@@ -1,7 +1,7 @@
 ---
+nav_exclude: true
 layout: default
 title: GenAI Kurs - Überarbeitungsliste
-nav_order: 99
 description: "Konkrete Abarbeitungsliste für die Nachpflege des kursversionierten GenAI-Materials"
 has_toc: true
 ---
