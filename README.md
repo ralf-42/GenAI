@@ -1,12 +1,6 @@
 # Generative KI Kurs
 
-[![LangChain >=1.3.13](https://img.shields.io/badge/LangChain-%3E%3D1.3.13-brightgreen)](./.claude/config/langchain-patterns.yaml)
-[![LangGraph >=1.2.4](https://img.shields.io/badge/LangGraph-%3E%3D1.2.4-brightgreen)](./04_modul/requirements.txt)
-[![LangSmith SDK 0.8+](https://img.shields.io/badge/LangSmith_SDK-0.8%2B-blue)](https://smith.langchain.com)
-[![Compliance 100%](https://img.shields.io/badge/Compliance-100%25-success)](../_docs/_archive/LangChain_Audit_Report_2026-06-05.md)
-[![Audit Jun 2026](https://img.shields.io/badge/Audit-Jun_2026-success)](../_docs/_archive/LangChain_Audit_Report_2026-06-05.md)
-[![Patterns Jul 2026](https://img.shields.io/badge/Patterns-Jul_2026-success)](./.claude/config/langchain-patterns.yaml)
-[![Python 3.11+](https://img.shields.io/badge/Python-3.11%2B-blue)](https://www.python.org/)
+[![LangChain >=1.3.13](https://img.shields.io/badge/LangChain-%3E%3D1.3.13-brightgreen)](./.claude/config/langchain-patterns.yaml) [![LangGraph >=1.2.4](https://img.shields.io/badge/LangGraph-%3E%3D1.2.4-brightgreen)](./04_modul/requirements.txt) [![LangSmith SDK 0.8+](https://img.shields.io/badge/LangSmith_SDK-0.8%2B-blue)](https://smith.langchain.com) [![Compliance 100%](https://img.shields.io/badge/Compliance-100%25-success)](../_docs/_archive/LangChain_Audit_Report_2026-06-05.md) [![Audit Jun 2026](https://img.shields.io/badge/Audit-Jun_2026-success)](../_docs/_archive/LangChain_Audit_Report_2026-06-05.md) [![Patterns Jul 2026](https://img.shields.io/badge/Patterns-Jul_2026-success)](./.claude/config/langchain-patterns.yaml) [![Python 3.11+](https://img.shields.io/badge/Python-3.11%2B-blue)](https://www.python.org/)
 
 Ein deutschsprachiger, praxisorientierter Einsteigerkurs zu Generative-AI-Technologien mit Fokus auf OpenAI GPT-Modelle, LangChain, RAG-Systeme, Agenten und multimodale Anwendungen.
 
