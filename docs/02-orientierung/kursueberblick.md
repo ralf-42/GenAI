@@ -28,6 +28,8 @@ Der Kurs richtet sich an Einsteigerinnen und Einsteiger, die Generative KI nicht
 
 Der Fokus liegt auf praktischer Umsetzung mit Python. Theoretische Konzepte werden so weit erklärt, wie sie für Verständnis, Auswahl und Anwendung nötig sind.
 
+Als durchgehender Praxisbezug dient die [Legal-RAG Leitaufgabe](./legal-rag-leitaufgabe.html): Ausgehend von rechtlichen oder regelbasierten Dokumenten wird schrittweise sichtbar, wann Prompting reicht, wann Retrieval nötig wird und wie Quellen, Unsicherheit und Human Review in eine GenAI-Anwendung gehören.
+
 # Zielgruppe
 
 Der Kurs passt besonders für:
@@ -169,6 +171,7 @@ GenAI-Werkzeuge können sehr überzeugend erklären und formulieren. Dadurch ent
 | -------- | ----- |
 | [Lohnt sich GenAI?](./lohnt-es-sich.html) | Wann ist GenAI überhaupt der passende Ansatz? |
 | [Aufgaben & Lösungswege](./aufgabenklassen-und-loesungswege.html) | Welche Umsetzung passt zu welcher Aufgabe? |
+| [Legal-RAG Leitaufgabe](./legal-rag-leitaufgabe.html) | Welcher Praxis-Use-Case verbindet die GenAI-Module? |
 | [Large Language Models](../03-grundlagen/large-language-models.html) | Wie funktionieren LLMs, Foundation Models und Transformer? |
 | [Prompt Engineering](../05-prompting-rag/prompt-engineering.html) | Wie werden Modellantworten gezielt gesteuert? |
 

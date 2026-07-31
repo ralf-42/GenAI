@@ -36,6 +36,8 @@ Das Projekt orientiert sich an einer typischen Architektur für juristische KI-S
 - **KI-Modell:** Antwortgenerierung auf Basis von Prompt und kontrolliertem Kontext
 - **Output & Präsentation:** Strukturierung, Quellenangaben, Export und UI-Ausgabe
 
+Die fachliche Einordnung als roter Faden des GenAI-Kurses steht in der [Legal-RAG Leitaufgabe](../02-orientierung/legal-rag-leitaufgabe.html).
+
 
 ### Persona
 
@@ -959,6 +961,7 @@ A: Ja. Dann lokal mit Jupyter Notebook oder JupyterLab arbeiten und Folgendes er
 
 | Dokument | Frage |
 |---|---|
+| [Legal-RAG Leitaufgabe](../02-orientierung/legal-rag-leitaufgabe.html) | Welcher Praxis-Use-Case verbindet die GenAI-Module? |
 | [KI-Challenge](./ki-challenge.html) | Wie wird aus einem offenen Kursprojekt ein bewertbares End-to-End-System? |
 | [RAG-Konzepte](../05-prompting-rag/rag-konzepte.html) | Welche Retrieval-Entscheidungen liegen unter dem Workshop? |
 | [Evaluation & Observability](../07-qualitaet-sicherheit/evaluation-observability.html) | Wie wird die Qualität einer RAG-Anwendung überprüfbar? |

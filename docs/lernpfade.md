@@ -42,9 +42,10 @@ Empfohlener Einstieg:
 1. [Kursüberblick](./02-orientierung/kursueberblick.html)
 2. [Lohnt sich GenAI?](./02-orientierung/lohnt-es-sich.html)
 3. [Aufgabenklassen und Lösungswege](./02-orientierung/aufgabenklassen-und-loesungswege.html)
-4. [Large Language Models](./03-grundlagen/large-language-models.html)
-5. [Prompt Engineering](./05-prompting-rag/prompt-engineering.html)
-6. [Modellauswahl](./04-modelle-provider/modellauswahl.html)
+4. [Legal-RAG Leitaufgabe](./02-orientierung/legal-rag-leitaufgabe.html)
+5. [Large Language Models](./03-grundlagen/large-language-models.html)
+6. [Prompt Engineering](./05-prompting-rag/prompt-engineering.html)
+7. [Modellauswahl](./04-modelle-provider/modellauswahl.html)
 
 Für die technische Umsetzung im Anschluss: → [Erste eigene Chain](#erste-eigene-chain)
 
@@ -145,19 +146,20 @@ Empfohlener Einstieg:
 5. [KI-Reifegradmodell](./02-orientierung/ki-reifegradmodell.html)
 
 
-## Sieben Dokumente für *fast* jeden Start
+## Acht Dokumente für *fast* jeden Start
 
-Wer nicht lange wählen will, kommt mit diesen sieben Dokumenten meist am schnellsten ins Thema:
+Wer nicht lange wählen will, kommt mit diesen acht Dokumenten meist am schnellsten ins Thema:
 
 1. [Kursüberblick](./02-orientierung/kursueberblick.html)
 2. [Lohnt sich GenAI?](./02-orientierung/lohnt-es-sich.html)
 3. [Aufgabenklassen und Lösungswege](./02-orientierung/aufgabenklassen-und-loesungswege.html)
-4. [Large Language Models](./03-grundlagen/large-language-models.html)
-5. [LangChain Einsteiger](./06-frameworks/einsteiger-langchain.html)
-6. [RAG-Konzepte](./05-prompting-rag/rag-konzepte.html)
-7. [Evaluation & Observability](./07-qualitaet-sicherheit/evaluation-observability.html)
+4. [Legal-RAG Leitaufgabe](./02-orientierung/legal-rag-leitaufgabe.html)
+5. [Large Language Models](./03-grundlagen/large-language-models.html)
+6. [LangChain Einsteiger](./06-frameworks/einsteiger-langchain.html)
+7. [RAG-Konzepte](./05-prompting-rag/rag-konzepte.html)
+8. [Evaluation & Observability](./07-qualitaet-sicherheit/evaluation-observability.html)
 
-Diese Kombination klärt erst Kursrahmen und Einsatzfrage, dann Lösungsklasse, Modellgrundlagen und Umsetzung. Danach folgen das wichtigste Erweiterungsmuster und die Frage, wie Qualität sichtbar wird. Genau diese Reihenfolge verhindert viele frühe Fehlstarts.
+Diese Kombination klärt erst Kursrahmen, Einsatzfrage, Lösungsklasse und Praxis-Use-Case, dann Modellgrundlagen und Umsetzung. Danach folgen das wichtigste Erweiterungsmuster und die Frage, wie Qualität sichtbar wird. Genau diese Reihenfolge verhindert viele frühe Fehlstarts.
 
 ## Wie die Bereiche zusammenhängen
 
