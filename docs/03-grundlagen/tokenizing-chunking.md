@@ -305,7 +305,7 @@ dokument_text = "..."  # Eingabe-Text
 token_splitter = TokenTextSplitter(
     chunk_size=256,                 # Limit in Tokens
     chunk_overlap=20,               # Überlappung in Tokens
-    encoding_name="cl100k_base",    # GPT-4o-kompatibler Tokenizer
+    encoding_name="cl100k_base",    # OpenAI-kompatibler Tokenizer
 )
 token_chunks = token_splitter.create_documents([dokument_text])
 

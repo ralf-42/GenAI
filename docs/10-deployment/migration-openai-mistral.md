@@ -58,7 +58,7 @@ Für den Kurs ist es besser, nicht einfach „irgendeinen“ OpenAI-Modellnamen 
 
 | Rolle | OpenAI-Beispiel | Mistral-Beispiel | Prüfung |
 |---|---|---|---|
-| Baseline | `openai:gpt-5.4-nano` | `mistral-small-2603` | kurze Antworten, Kosten, Latenz |
+| Baseline | `openai:gpt-5.6-luna` | `mistral-small-2603` | kurze Antworten, Kosten, Latenz |
 | Standard | `openai:gpt-5.4-mini` | `mistral-medium-3.5` | RAG-Synthese, Tool-Nutzung, strukturierte Ausgabe |
 | Starkes Modell | `openai:gpt-5.4` | `mistral-large-2512` | komplexe Aufgaben, längere Kontexte |
 | Code | `openai:gpt-5.4-mini` | Devstral- oder Codestral-Modell nach aktueller Modellliste | Codeaufgaben und Repository-Kontext |
@@ -77,7 +77,7 @@ from langchain.chat_models import init_chat_model
 
 MODEL_CONFIG = {
     "openai": {
-        "baseline": "openai:gpt-5.4-nano",
+        "baseline": "openai:gpt-5.6-luna",
         "standard": "openai:gpt-5.4-mini",
     },
     "mistral": {

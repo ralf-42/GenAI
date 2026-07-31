@@ -83,7 +83,7 @@ profile = get_model_profile(BASELINE)
 ```
 
 - `get_model_profile(model, print_profile=True, **kwargs)` - Ruft Model-Capabilities von models.dev ab (Structured Output, Vision, Token-Limits, etc.)
-- `genai_lib.model_config` - Zentrale Modellrollen wie `BASELINE`, `WORKER`, `JUDGE`, `IMAGE_GENERATION` und `TRANSCRIPTION`
+- `genai_lib.model_config` - Zentrale Modellrollen wie `BASELINE`, `ROUTER`, `WORKER`, `CODING`, `JUDGE`, `PLANNER`, `WORKER_PREMIUM`, `FRONTIER`, `IMAGE_GENERATION` und `TRANSCRIPTION`
 
 ### Thinking-Parser
 

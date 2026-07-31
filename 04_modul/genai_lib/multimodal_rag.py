@@ -54,8 +54,8 @@ class RAGConfig:
     image_threshold: float = 0.8
     clip_model: str = 'clip-ViT-B-32'
     text_model: str = 'text-embedding-3-small'
-    llm_model: str = 'gpt-5.4-mini'
-    vision_model: str = 'gpt-5.4-mini'
+    llm_model: str = 'gpt-5.6-terra'
+    vision_model: str = 'gpt-5.6-terra'
     db_path: str = './multimodal_rag_db'
 
 

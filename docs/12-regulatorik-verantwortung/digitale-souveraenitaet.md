@@ -135,7 +135,7 @@ Hier werden auf der Hardware die Software und die Mechanismen bereitgestellt, di
 Daten sind der Rohstoff, Algorithmen das Werkzeug, um daraus Wert zu schaffen.
 
 * **Datensouveränität:** Darunter wird die Kontrolle über Erzeugung, Speicherung, Zugriff und Löschung von Daten verstanden. In diesem Bereich greifen sowohl Regulierungen wie die DSGVO als auch technische Konzepte wie Gaia-X.14
-* **Algorithmen-Souveränität:** Mit dem Aufstieg der Generativen KI (LLMs) wird diese Sub-Schicht besonders relevant. Wenn europäische Unternehmen US-Modelle (etwa GPT-4) einsetzen, fließen Daten ab, und zugleich geht ein Teil des Wissens über Modellarchitektur und Funktionsweise verloren. Die Forderung nach „Sovereign AI“ umfasst deshalb eigene Foundation Models sowie Trainingsinfrastrukturen.15
+* **Algorithmen-Souveränität:** Mit dem Aufstieg der Generativen KI (LLMs) wird diese Sub-Schicht besonders relevant. Wenn europäische Unternehmen US-Modelle (etwa GPT-5.x) einsetzen, fließen Daten ab, und zugleich geht ein Teil des Wissens über Modellarchitektur und Funktionsweise verloren. Die Forderung nach „Sovereign AI“ umfasst deshalb eigene Foundation Models sowie Trainingsinfrastrukturen.15
 
 ### Die Akteurs-Dimensionen (Subjekt-Perspektive)
 

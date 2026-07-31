@@ -45,7 +45,7 @@ Die Bibliothek besteht aus drei Hauptmodulen:
 |---|---|---|
 | **utilities.py** | Hilfsfunktionen für Environment-Setup | Environment-Checks, Paket-Installation, API-Keys, Prompt-Templates, LLM-Response-Parsing, Model-Profile, GitHub-Datei-Download |
 | **multimodal_rag.py** | Multimodales RAG-System (v3.1) | Text- und Bildsuche, Bild-zu-Bild-Suche, Cross-Modal-Retrieval, System-Status |
-| **model_config.py** | Rollenbasierte Modell-Konfiguration | BASELINE, WORKER, JUDGE, PLANNER, ROUTER, CODING, WORKER_PREMIUM, Medien-Rollen, EMBEDDINGS |
+| **model_config.py** | Rollenbasierte Modell-Konfiguration | BASELINE, WORKER, JUDGE, PLANNER, ROUTER, CODING, WORKER_PREMIUM, FRONTIER, Medien-Rollen, EMBEDDINGS |
 
 ---
 
@@ -277,10 +277,10 @@ Ruft Model-Profile von models.dev ab und zeigt die wichtigsten Capabilities eine
 from genai_lib.utilities import get_model_profile
 
 # Formatierte Ausgabe aller wichtigen Capabilities
-profile = get_model_profile("openai:gpt-5.4-nano")
+profile = get_model_profile("openai:gpt-5.6-luna")
 
 # Output:
-# 🔍 Model Profile: openai:gpt-5.4-nano
+# 🔍 Model Profile: openai:gpt-5.6-luna
 # ============================================================
 #
 # 📋 Core Capabilities:
@@ -310,7 +310,7 @@ profile = get_model_profile("openai:gpt-5.4-nano")
 profile = get_model_profile("openai:gpt-5.4-mini", print_profile=False)
 
 # Verschiedene Models vergleichen (mit Fehlerbehandlung)
-for model in ["openai:gpt-5.4-nano", "openai:gpt-5.4-mini", "openai:gpt-5.4"]:
+for model in ["openai:gpt-5.6-luna", "openai:gpt-5.4-mini", "openai:gpt-5.4", "openai:gpt-5.6-terra", "openai:gpt-5.6-sol"]:
     print(f"\n{model}:")
     profile = get_model_profile(model, print_profile=False)
 
@@ -776,20 +776,21 @@ langsmith>=0.1.0
 > Das `model_config`-Modul legt Modell-IDs als benannte Konstanten fest, aufgeteilt nach Rolle. Die Instanziierung machst du dann im Notebook mit `init_chat_model()`, damit die API-Keys bereits gesetzt sind.
 
 ```python
-from genai_lib.model_config import BASELINE, WORKER, JUDGE
+from genai_lib.model_config import BASELINE, WORKER, JUDGE, FRONTIER
 ```
 
 ### Konstanten
 
 | Konstante | Modell | Typischer Einsatz |
 |---|---|---|
-| `BASELINE` | `gpt-5.4-nano` | Grundlagen, günstige Demos, kurze Modellaufrufe |
-| `ROUTER` | `gpt-5.4-nano` | Einfache Routing- und Auswahlentscheidungen |
+| `BASELINE` | `gpt-5.6-luna` | Grundlagen, günstige Demos, kurze Modellaufrufe |
+| `ROUTER` | `gpt-5.6-luna` | Einfache Routing- und Auswahlentscheidungen |
 | `WORKER` | `gpt-5.4-mini` | RAG-Synthese, strukturierte Ausgaben, Tool-Agenten |
 | `CODING` | `gpt-5.4-mini` | Code-Generierung, Refactoring, technische Agenten |
 | `JUDGE` | `gpt-5.4` | Evaluation, Bewertung, LLM-as-Judge |
 | `PLANNER` | `gpt-5.4` | Aufgabenzerlegung, Supervisor-Logik, Agentic RAG |
-| `WORKER_PREMIUM` | `gpt-5.4` | Komplexe RAG, finale Reports |
+| `WORKER_PREMIUM` | `gpt-5.6-terra` | Komplexe RAG, finale Reports |
+| `FRONTIER` | `gpt-5.6-sol` | Schwierige Coding-, Judge- und Agenten-Aufgaben |
 | `IMAGE_GENERATION` | `gpt-image-2` | Bildgenerierung |
 | `TRANSCRIPTION` | `gpt-4o-mini-transcribe` | Audio-Transkription |
 | `TRANSCRIPTION_SEGMENTS` | `whisper-1` | Audio-Transkription mit `verbose_json` und Segment-Zeitstempeln |
@@ -801,7 +802,7 @@ from genai_lib.model_config import BASELINE, WORKER, JUDGE
 
 ```python
 from langchain.chat_models import init_chat_model
-from genai_lib.model_config import BASELINE, WORKER, JUDGE
+from genai_lib.model_config import BASELINE, WORKER, JUDGE, FRONTIER
 
 # Demo / Grundlagen
 llm = init_chat_model(BASELINE)
@@ -811,10 +812,13 @@ worker_llm = init_chat_model(WORKER)
 
 # Evaluation
 judge_llm = init_chat_model(JUDGE)
+
+# Frontier-Aufgaben
+frontier_llm = init_chat_model(FRONTIER)
 ```
 
 > [!DANGER] Kein temperature bei GPT-5.x<br>
-> `BASELINE`, `WORKER`, `JUDGE`, `PLANNER`, `ROUTER`, `CODING` und `WORKER_PREMIUM` basieren auf GPT-5.x-Modellen. `temperature` wird für diese Rollen nicht gesetzt. Das gilt nicht automatisch für Medienmodelle wie `IMAGE_GENERATION` oder `TRANSCRIPTION`.
+> `BASELINE`, `WORKER`, `JUDGE`, `PLANNER`, `ROUTER`, `CODING`, `WORKER_PREMIUM` und `FRONTIER` basieren auf GPT-5.x-Modellen. `temperature` wird für diese Rollen nicht gesetzt. Das gilt nicht automatisch für Medienmodelle wie `IMAGE_GENERATION` oder `TRANSCRIPTION`.
 
 ---
 
@@ -838,4 +842,3 @@ Die Module stehen unter der MIT-Lizenz und können frei für eigene Projekte ver
 **Version:** 3.3<br>
 **Stand:** Mai 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
-

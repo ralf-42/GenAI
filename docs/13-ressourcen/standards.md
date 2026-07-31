@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Code Standards
 parent: Ressourcen
@@ -198,7 +198,7 @@ middleware = [HumanInTheLoopMiddleware(tool_names=["delete_file"])]
 from langchain.chat_models import ChatOpenAI
 from langchain.agents import initialize_agent, AgentType
 
-llm = ChatOpenAI(model="gpt-5.4-nano")  # Altbeispiel
+llm = ChatOpenAI(model="gpt-5.6-luna")  # Altbeispiel
 agent = initialize_agent(tools, llm, agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION)
 ```
 
@@ -207,7 +207,7 @@ agent = initialize_agent(tools, llm, agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION
 from langchain.chat_models import init_chat_model
 from langchain.agents import create_agent
 
-llm = init_chat_model("openai:gpt-5.4-nano")
+llm = init_chat_model("openai:gpt-5.6-luna")
 agent = create_agent(model=llm, tools=tools, debug=True)
 ```
 
@@ -279,7 +279,7 @@ def test_calculator_tool():
 
 ```python
 def test_agent_with_tools():
-    llm = init_chat_model("openai:gpt-5.4-nano")
+    llm = init_chat_model("openai:gpt-5.6-luna")
 
     @tool
     def get_weather(location: str) -> str:
