@@ -219,7 +219,7 @@ Juristische Texte sind oft lang: Gesetze, Urteile, Kommentare und Schriftsätze 
 
 import tiktoken
 
-def count_tokens(text: str, model: str = "gpt-5.4-nano") -> int:
+def count_tokens(text: str, model: str = "gpt-5.6-luna") -> int:
     """Zählt Tokens für ein gegebenes Modell."""
     # TODO:
     # - Encoding für das Modell laden
@@ -497,7 +497,7 @@ import sqlite3
 
 ### Aufgabe 6.2: SQL-Chain mit LangChain
 
-Für die SQL-Generierung ist `gpt-5.4-mini` meist die stabilere Wahl als `gpt-5.4-nano`, besonders bei komplexeren Schemata oder wenn die Abfrage mehrere Bedingungen kombinieren muss.
+Für die SQL-Generierung ist `gpt-5.4-mini` meist die stabilere Wahl als `gpt-5.6-luna`, besonders bei komplexeren Schemata oder wenn die Abfrage mehrere Bedingungen kombinieren muss.
 
 ```python
 from langchain_community.utilities import SQLDatabase
@@ -923,7 +923,7 @@ A: Nein. Das Projekt ist eine technische Übung. Der Assistent arbeitet mit Beis
 A: Nutze selbst erstellte Texte, frei verfügbare Gesetzestexte oder kurze didaktische Auszüge. Kommerzielle Kommentare, Handbücher und Fachdatenbanken dürfen nur verwendet werden, wenn die Nutzungsrechte das erlauben.
 
 **Q: Welches LLM-Modell soll ich verwenden?**  
-A: Für Kapitel 6 (SQL RAG) ist `gpt-5.4-mini` oder größer die robustere Wahl. `gpt-5.4-nano` ist für einfache Demos okay, scheitert aber bei komplexeren Schemata und längeren SQL-Statements häufiger. Für Kapitel 7 (Agent) ist `gpt-5.4-nano` weiterhin für einfache Function-Calling-Beispiele brauchbar.
+A: Für Kapitel 6 (SQL RAG) ist `gpt-5.4-mini` oder größer die robustere Wahl. `gpt-5.6-luna` ist für einfache Demos okay, scheitert aber bei komplexeren Schemata und längeren SQL-Statements häufiger. Für Kapitel 7 (Agent) ist `gpt-5.6-luna` weiterhin für einfache Function-Calling-Beispiele brauchbar.
 
 **Q: Muss ich für M12 ein lokales Modell installieren?**  
 A: Wer lokal arbeiten kann, vergleicht ein Open-Source-Modell mit dem API-basierten RAG-System. Wer in Colab oder auf schwacher Hardware arbeitet, dokumentiert stattdessen, warum lokaler Betrieb für diesen Prototyp nicht sinnvoll ist.

@@ -131,7 +131,7 @@ Der schnellste Weg zum Verständnis: Ein einfacher LLM-Call mit automatischem Tr
 from langchain.chat_models import init_chat_model
 
 # Normaler LLM-Setup (wie gewohnt)
-llm = init_chat_model("openai:gpt-5.4-nano")
+llm = init_chat_model("openai:gpt-5.6-luna")
 
 # Einfacher Call - wird automatisch getrackt!
 response = llm.invoke("Erkläre LangSmith in einem Satz.")

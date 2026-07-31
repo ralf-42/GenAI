@@ -34,13 +34,14 @@ Die folgende Tabelle zeigt die zentralen Modellrollen aus `model_config.py`. Die
 
 | Rolle in `model_config.py` | Kursmodell               | Einsatz im Kurs                                                  |
 | -------------------------- | ------------------------ | ---------------------------------------------------------------- |
-| `BASELINE`                 | `openai:gpt-5.4-nano`    | Grundlagen, Demos, kurze Antworten, kostengünstige Experimente   |
-| `ROUTER`                   | `openai:gpt-5.4-nano`    | einfache Routing- und Auswahlentscheidungen                      |
+| `BASELINE`                 | `openai:gpt-5.6-luna`    | Grundlagen, Demos, kurze Antworten, kostengünstige Experimente   |
+| `ROUTER`                   | `openai:gpt-5.6-luna`    | einfache Routing- und Auswahlentscheidungen                      |
 | `WORKER`                   | `openai:gpt-5.4-mini`    | RAG-Synthese, strukturierte Ausgaben, Standardaufgaben           |
 | `CODING`                   | `openai:gpt-5.4-mini`    | Codegenerierung, Refactoring, technische Assistenz               |
 | `JUDGE`                    | `openai:gpt-5.4`         | Evaluation, Compliance, Sicherheits- und Qualitätsentscheidungen |
 | `PLANNER`                  | `openai:gpt-5.4`         | Aufgabenzerlegung, Agentenplanung, komplexe Workflows            |
-| `WORKER_PREMIUM`           | `openai:gpt-5.4`         | hochwertige Synthese, komplexe RAG-Aufgaben, finale Reports      |
+| `WORKER_PREMIUM`           | `openai:gpt-5.6-terra`   | hochwertige Synthese, komplexe RAG-Aufgaben, finale Reports      |
+| `FRONTIER`                 | `openai:gpt-5.6-sol`     | maximale Qualität für schwierige Coding-, Judge- und Agenten-Aufgaben |
 | `IMAGE_GENERATION`         | `gpt-image-2`            | Bildgenerierung                                                  |
 | `TRANSCRIPTION`            | `gpt-4o-mini-transcribe` | Audio-Transkription                                              |
 | `TRANSCRIPTION_SEGMENTS`   | `whisper-1`              | Audio-Transkription mit `verbose_json` und Segment-Zeitstempeln  |
@@ -85,6 +86,7 @@ Multimodale Aufgaben sind eine eigene Entscheidung. Ein Textmodell darf nicht pa
 | Aufgabenplanung oder mehrstufige Zerlegung | `PLANNER` |
 | Bewertung, Korrektur, Compliance, Sicherheitscheck | `JUDGE` |
 | hochwertige Synthese, komplexe RAG-Aufgaben | `WORKER_PREMIUM` |
+| schwierige Coding-, Judge- oder Agenten-Aufgaben mit hohem Qualitätsanspruch | `FRONTIER` |
 | Bildgenerierung | `IMAGE_GENERATION` |
 | Audio-Transkription | `TRANSCRIPTION` |
 | Audio-Transkription mit Segment-Zeitstempeln | `TRANSCRIPTION_SEGMENTS` |
@@ -148,6 +150,7 @@ Kostenoptimierung bedeutet im Kurs nicht, immer das billigste Modell zu verwende
 | Konzept sichtbar machen | mit `BASELINE` starten |
 | Antwortqualität entscheidet | `WORKER` testen und gegen `BASELINE` vergleichen |
 | Bewertung oder Sicherheitsprüfung | `JUDGE` einsetzen |
+| maximale Qualität bei schwierigen Agenten- oder Coding-Aufgaben | `FRONTIER` bewusst einsetzen |
 | Bild, Audio, Embeddings | dedizierte Rolle verwenden |
 | Premium-Rollen | nur bei messbarem Qualitätsgewinn oder hohem Risiko |
 
