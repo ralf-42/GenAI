@@ -36,6 +36,16 @@ Legal-RAG ist ein geeigneter roter Faden für den GenAI-Kurs, weil er typische G
 
 Der Use Case bleibt bewusst eine technische Lernaufgabe. Er ersetzt keine Rechtsberatung. Im Kurs geht es darum, eine nachvollziehbare RAG-Anwendung aufzubauen und ihre Grenzen zu verstehen.
 
+
+### Persona
+
+
+<img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/profil_legal.png" class="logo" width="950"/>
+<p><font color='black' size="2">
+KI-generiertes Bild
+</font></p>
+
+
 ## Arbeitsfrage
 
 Die Leitfrage lautet:
@@ -82,20 +92,19 @@ Nicht Ziel ist:
 
 ## Praxistransfer in Notebooks
 
-In passenden Notebooks wird der Praxisbezug als Aufgabenblock geführt. Der Block steht unter `# A | Aufgaben` auf derselben Layout-Ebene wie `**Grundlagen**`, `**Aufbau**` und `**Vertiefung**`.
+In passenden Notebooks wird der Praxisbezug als Aufgabenblock geführt. Der Block steht unter dem Abschnitt **A | Aufgaben** auf derselben Layout-Ebene wie **Grundlagen**, **Aufbau** und **Vertiefung**.
 
 Beispiel:
 
-```markdown
 **Praxis-Transfer: Legal-RAG Workshop**
 
-1. Welche reale Arbeitsfrage löst dieser Notebook-Baustein im Legal-RAG Workshop?
+1. Welche reale Arbeitsfrage löst **dieser** Notebook-Baustein im Legal-RAG Workshop?
 2. Welche Eingabedaten oder Dokumente braucht er?
 3. Welche Ausgabe sollte er liefern?
 4. Welche Risiken oder Grenzen bleiben?
 5. Wann wäre Human Review nötig?
 6. Ist der passende Lösungsweg hier Prompt, strukturierte Ausgabe, RAG, Tool, Agent oder Workflow?
-```
+
 
 ## Vom Leitbild zum Workshop
 
