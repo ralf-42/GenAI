@@ -9,7 +9,7 @@ description: "Kursbegleitende Aufgaben und Abschlussprojekte"
 
 # Projekte
 
-Dieser Bereich enthält die kursbegleitenden Praxisaufgaben, die Kursinhalte in vollständigen Anwendungen zusammenführen.
+Dieser Bereich enthält die kursbegleitenden Praxisaufgaben, die Kursinhalte in vollständigen Anwendungen zusammenführen. Die Einordnung des zentralen Praxis-Use-Cases steht in der [Legal-RAG Leitaufgabe](../02-orientierung/legal-rag-leitaufgabe.html).
 
 | Projekt | Inhalt |
 |---|---|
