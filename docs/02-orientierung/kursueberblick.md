@@ -165,6 +165,26 @@ GenAI-Werkzeuge können sehr überzeugend erklären und formulieren. Dadurch ent
 <img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/kompetenzillusion.png" alt="Kompetenzillusion beim Lernen mit KI" width="700">
 <p><small>KI-generiertes Bild</small></p>
 
+Deshalb gehören im Kurs immer drei Prüfbewegungen dazu:
+
+- Tool-Aufrufe und Zwischenschritte sichtbar machen,
+- Quellen, State und Entscheidungen nachvollziehen,
+- Ergebnisse mit Tests, Human-in-the-Loop oder Evaluation prüfen.
+
+## Aufgaben nach Vorkenntnissen und Lerntempo bearbeiten
+
+Die Aufgaben je Modul sind in **Grundlagen**, **Aufbau** und **Vertiefung** unterteilt. Bearbeiten Sie die Aufgaben entsprechend Ihren **Vorkenntnissen** und Ihrem **Lerntempo**: Grundlagen sichern das zentrale Kursverständnis, Aufbau-Aufgaben vertiefen die Anwendung, und Vertiefungsaufgaben sind für zusätzliche Übung, eigene Varianten oder fortgeschrittene Transferfragen gedacht.
+
+Einige Module enthalten außerdem den Unterabschnitt **Praxis-Transfer**. Diesen Abschnitt sollten sich möglichst alle ansehen, weil er die jeweilige Technik mit dem durchgehenden Kursprojekt verbindet.
+
+## Zeitfenster für Aufgaben
+
+Für Übungsaufgaben hat sich ein kurzer Arbeitsrhythmus bewährt: etwa **10 Minuten Bearbeitungszeit**, dann ein kurzer **Zwischenstopp**, anschließend bei Bedarf nochmals etwa **10+x Minuten**. Die erste Phase ist lang genug, um in die Aufgabe hineinzukommen, aber kurz genug, damit Blockaden nicht erst am Ende sichtbar werden.
+
+Der Zwischenstopp sollte niedrigschwellig sein. Statt nur zu fragen „Gibt es Fragen?“, hilft ein aktiver Check: zum Beispiel Daumen hoch/seitlich/runter oder eine kurze Zahl im Chat für den eigenen Fortschritt.
+
+Wichtig ist, der Check ist **nicht** als harte Pflicht-Unterbrechung für alle gedacht. Wer gut im Flow ist, kann **weiterarbeiten**; wer festhängt, bekommt früh eine Gelegenheit für Klärung. Bei sehr unterschiedlichem Tempo bleibt der Takt flexibel: schnellere Teilnehmende können Aufbau- oder Vertiefungsaufgaben weiterbearbeiten, langsamere sichern zunächst die Grundlagen.
+
 # Nächste Schritte
 
 | Dokument | Frage |
@@ -178,5 +198,5 @@ GenAI-Werkzeuge können sehr überzeugend erklären und formulieren. Dadurch ent
 ---
 
 **Version:** 1.1<br>
-**Stand:** Juni 2026<br>
+**Stand:** August 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
