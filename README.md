@@ -1,4 +1,4 @@
-# Generative KI Kurs
+# Generative KI 
 
 <table>
   <tr>
@@ -12,7 +12,7 @@
   </tr>
 </table>
 
-Ein deutschsprachiger, praxisorientierter Einsteigerkurs zu Generative-AI-Technologien mit Fokus auf OpenAI GPT-Modelle, LangChain, RAG-Systeme, Agenten und multimodale Anwendungen.
+Ein deutschsprachiger, praxisorientierter Einsteigerkurs zu Generative-KI-Technologien mit Fokus auf OpenAI GPT-Modelle, LangChain, RAG-Systeme, Agenten und multimodale Anwendungen.
 
 Die primäre Entwicklungsumgebung ist **Google Colab**; dort steht **Gemini** als integrierte Unterstützung für Verständnisfragen, Code-Erklärungen, Debugging und Variantenbildung zur Verfügung. Gemini ist als Lern- und Arbeitsassistenz vorgesehen, ersetzt aber nicht die gemeinsame Einordnung, Diskussion und Reflexion im Kurs.  
 
