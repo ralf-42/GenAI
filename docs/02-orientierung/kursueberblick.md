@@ -14,7 +14,7 @@ has_toc: true
 
 ---
 
-# Inhaltsverzeichnis
+## Inhaltsverzeichnis
 {: .no_toc .text-delta }
 
 1. TOC
@@ -22,15 +22,15 @@ has_toc: true
 
 ---
 
-# Worum es in diesem Kurs geht
+## Worum es in diesem Kurs geht
 
-Der Kurs richtet sich an Einsteigerinnen und Einsteiger, die Generative KI nicht nur ausprobieren, sondern in praktischen Anwendungen nachvollziehbar einsetzen möchten. Im Mittelpunkt stehen moderne Sprach- und Multimodalmodelle, Prompting, LangChain, RAG, Agenten, lokale Modelle und die Frage, wann welcher Lösungsweg sinnvoll ist.
+Der Kurs richtet sich an Einsteigerinnen und Einsteiger, die Generative KI nicht nur ausprobieren, sondern nachvollziehbar einsetzen möchten. Im Mittelpunkt stehen Sprach- und Multimodalmodelle, Prompting, LangChain, RAG, Agenten, lokale Modelle und die Frage, wann welcher Lösungsweg sinnvoll ist.
 
-Der Fokus liegt auf praktischer Umsetzung mit Python. Theoretische Konzepte werden so weit erklärt, wie sie für Verständnis, Auswahl und Anwendung nötig sind.
+Der Fokus liegt auf praktischer Umsetzung mit Python. Theorie wird so weit erklärt, wie sie für Verständnis, Auswahl und Anwendung nötig ist.
 
-Als durchgehender Praxisbezug dient die [Legal-RAG Leitaufgabe](./legal-rag-leitaufgabe.html): Ausgehend von rechtlichen oder regelbasierten Dokumenten wird schrittweise sichtbar, wann Prompting reicht, wann Retrieval nötig wird und wie Quellen, Unsicherheit und Human Review in eine GenAI-Anwendung gehören.
+Als durchgehender Praxisbezug dient die [Legal-RAG Leitaufgabe](./legal-rag-leitaufgabe.html). Sie zeigt schrittweise, wann Prompting reicht, wann Retrieval nötig wird und wie Quellen, Unsicherheit und Human Review in eine GenAI-Anwendung gehören.
 
-# Zielgruppe
+## Zielgruppe
 
 Der Kurs passt besonders für:
 
@@ -38,9 +38,9 @@ Der Kurs passt besonders für:
 - IT-Fachkräfte, die KI-Funktionen in bestehende Projekte integrieren wollen
 - technikaffine Quereinsteigerinnen und Quereinsteiger mit guten Python-Grundlagen
 
-Hilfreich sind Kenntnisse zu Datentypen, Listen, Dictionaries, Kontrollstrukturen, Funktionen und dem Umgang mit Bibliotheken.
+Hilfreich sind Grundlagen zu Datentypen, Listen, Dictionaries, Kontrollstrukturen, Funktionen und Bibliotheken.
 
-# Was Sie mitnehmen
+## Was Sie mitnehmen
 
 Nach dem Kurs sollten Sie in der Lage sein:
 
@@ -51,7 +51,7 @@ Nach dem Kurs sollten Sie in der Lage sein:
 - multimodale Aufgaben mit Text, Bild oder Audio einzuordnen
 - Modellwahl, Kosten, Datenschutz und Qualität bewusster zu bewerten
 
-# Kursstruktur
+## Kursstruktur
 
 Die Module führen von Grundbegriffen über Frameworks bis zu RAG, Multimodalität, Agenten und lokalen Modellen.
 
@@ -64,7 +64,7 @@ Die Module führen von Grundbegriffen über Frameworks bis zu RAG, Multimodalit�
 | **Agenten** | Tool Use, Function Calling, Agentenarchitekturen und Workflows |
 | **Betrieb & Verantwortung** | Evaluation, Sicherheit, Deployment, Datenschutz und Governance |
 
-Weitere Themen sind SQL-RAG, multimodales RAG, Fine-Tuning, Modellauswahl, Evaluation, Model Context Protocol und Context Engineering.
+Ergänzend geht es um SQL-RAG, multimodales RAG, Fine-Tuning, Modellauswahl, Evaluation, Model Context Protocol und Context Engineering.
 
 ## Kursprogression
 
@@ -104,7 +104,7 @@ timeline
 
 ## Modulübersicht
 
-Die aktuelle Kursstruktur ist in thematische Blöcke gegliedert:
+Die Module sind in thematische Blöcke gegliedert:
 
 | Modul | Block                    | Inhalt                         | Schwerpunkt                                                                         |
 | :---: | ------------------------ | ------------------------------ | ----------------------------------------------------------------------------------- |
@@ -129,7 +129,7 @@ Die aktuelle Kursstruktur ist in thematische Blöcke gegliedert:
 
 Eine interaktive Orientierung zur Modellwahl ist hier hilfreich: [Modellauswahl](https://editor.p5js.org/ralf.bendig.rb/full/8BbTi8Ico).
 
-# Vorbereitung
+## Vorbereitung
 
 Für die praktischen Übungen werden typischerweise benötigt:
 
@@ -146,7 +146,7 @@ Nützliche Einstiege:
 - [OpenAI Platform](https://platform.openai.com/settings/organization/general)
 - [Hugging Face](https://huggingface.co/)
 
-# Arbeitsweise
+## Arbeitsweise
 
 Der Kurs lebt vom Ausprobieren. Generative KI darf und soll während der Aufgaben genutzt werden. Entscheidend ist der reflektierte Einsatz: Ergebnisse werden geprüft, verbessert und mit den technischen Grenzen der Modelle abgeglichen.
 
@@ -154,13 +154,13 @@ Sinnvoll ist es, eigene Fragestellungen oder Arbeitsaufgaben mitzubringen. Dadur
 
 ## Lernen mit GenAI
 
-Generative KI darf im Kurs als Lern- und Entwicklungshilfe eingesetzt werden. Wenn eine Aufgabe festhängt, kann ein Modell helfen, Fehlermeldungen zu erklären, Teilschritte vorzuschlagen oder Codevarianten zu vergleichen.
+Generative KI darf im Kurs als Lern- und Entwicklungshilfe eingesetzt werden. Wenn eine Aufgabe festhängt, kann ein Modell Fehlermeldungen erklären, Teilschritte vorschlagen oder Codevarianten vergleichen.
 
-Wichtig ist die Grenze: Die KI ersetzt nicht das eigene Verständnis. Der Schwerpunkt bleibt darauf, GenAI-Systeme selbst zu verstehen, aufzubauen, zu prüfen und gezielt weiterzuentwickeln.
+Wichtig ist die Grenze: KI ersetzt nicht das eigene Verständnis. Der Schwerpunkt bleibt darauf, GenAI-Systeme selbst zu verstehen, aufzubauen, zu prüfen und weiterzuentwickeln.
 
 ## Kompetenzillusion vermeiden
 
-GenAI-Werkzeuge können sehr überzeugend erklären und formulieren. Dadurch entsteht leicht der Eindruck, ein Thema sei verstanden, obwohl nur die Antwort plausibel klingt. Deshalb gehören Nachvollziehen, Testen, Vergleichen und eigenes Umsetzen zum Kurs.
+GenAI-Werkzeuge können überzeugend erklären und formulieren. Dadurch entsteht leicht der Eindruck, ein Thema sei verstanden, obwohl nur die Antwort plausibel klingt. Nachvollziehen, Testen, Vergleichen und eigenes Umsetzen gehören deshalb fest zum Kurs.
 
 <img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/kompetenzillusion.png" alt="Kompetenzillusion beim Lernen mit KI" width="700">
 <p><small>KI-generiertes Bild</small></p>
@@ -173,19 +173,19 @@ Deshalb gehören im Kurs immer drei Prüfbewegungen dazu:
 
 ## Aufgaben nach Vorkenntnissen und Lerntempo bearbeiten
 
-Die Aufgaben je Modul sind in **Grundlagen**, **Aufbau** und **Vertiefung** unterteilt. Bearbeiten Sie die Aufgaben entsprechend Ihren **Vorkenntnissen** und Ihrem **Lerntempo**: Grundlagen sichern das zentrale Kursverständnis, Aufbau-Aufgaben vertiefen die Anwendung, und Vertiefungsaufgaben sind für zusätzliche Übung, eigene Varianten oder fortgeschrittene Transferfragen gedacht.
+Die Aufgaben je Modul sind in **Grundlagen**, **Aufbau** und **Vertiefung** unterteilt. Bearbeiten Sie sie entsprechend Ihren **Vorkenntnissen** und Ihrem **Lerntempo**: Grundlagen sichern das zentrale Verständnis, Aufbau-Aufgaben vertiefen die Anwendung, und Vertiefungsaufgaben bieten zusätzliche Übung, Varianten oder Transferfragen.
 
-Einige Module enthalten außerdem den Unterabschnitt **Praxis-Transfer**. Diesen Abschnitt sollten sich möglichst alle ansehen, weil er die jeweilige Technik mit dem durchgehenden Kursprojekt verbindet.
+Einige Module enthalten außerdem den Unterabschnitt **Praxis-Transfer: Legal-RAG**. Diesen Abschnitt sollten sich möglichst alle ansehen, weil er die jeweilige Technik mit dem durchgehenden Kursprojekt verbindet.
 
 ## Zeitfenster für Aufgaben
 
-Für Übungsaufgaben hat sich ein kurzer Arbeitsrhythmus bewährt: etwa **10 Minuten Bearbeitungszeit**, dann ein kurzer **Zwischenstopp**, anschließend bei Bedarf nochmals etwa **10+x Minuten**. Die erste Phase ist lang genug, um in die Aufgabe hineinzukommen, aber kurz genug, damit Blockaden nicht erst am Ende sichtbar werden.
+Für Übungsaufgaben hat sich ein kurzer Arbeitsrhythmus bewährt: etwa **10 Minuten Bearbeitungszeit**, ein kurzer **Zwischenstopp** und anschließend weitere **10 Minuten oder mehr**. Die erste Phase ist lang genug für den Einstieg und kurz genug, damit Blockaden früh sichtbar werden.
 
 Der Zwischenstopp sollte niedrigschwellig sein. Statt nur zu fragen „Gibt es Fragen?“, hilft ein aktiver Check: zum Beispiel Daumen hoch/seitlich/runter oder eine kurze Zahl im Chat für den eigenen Fortschritt.
 
-Wichtig ist, der Check ist **nicht** als harte Pflicht-Unterbrechung für alle gedacht. Wer gut im Flow ist, kann **weiterarbeiten**; wer festhängt, bekommt früh eine Gelegenheit für Klärung. Bei sehr unterschiedlichem Tempo bleibt der Takt flexibel: schnellere Teilnehmende können Aufbau- oder Vertiefungsaufgaben weiterbearbeiten, langsamere sichern zunächst die Grundlagen.
+Der Check ist **keine** harte Pflicht-Unterbrechung für alle. Wer gut im Flow ist, kann **weiterarbeiten**; wer festhängt, bekommt früh Gelegenheit zur Klärung. Bei unterschiedlichem Tempo bleibt der Takt flexibel: Schnellere bearbeiten Aufbau- oder Vertiefungsaufgaben, langsamere sichern zunächst die Grundlagen.
 
-# Nächste Schritte
+## Nächste Schritte
 
 | Dokument | Frage |
 | -------- | ----- |
