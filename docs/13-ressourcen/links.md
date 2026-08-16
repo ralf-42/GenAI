@@ -152,6 +152,7 @@ Ressourcen zur Anpassung von Sprachmodellen auf eigene Daten.
 | Ressource | Beschreibung |
 |-----------|--------------|
 | [OpenCode](https://opencode.de/de) | Open-Source KI-Coding-Assistent für das Terminal – Alternative zu Claude Code |
+| [Google Colab CLI](https://github.com/googlecolab/google-colab-cli) | Kommandozeilen-Tool für den Zugriff auf Google Colab-Notebooks vom Terminal aus |
 | [Loriot - Pneumatische Plastologie](https://www.youtube.com/watch?v=7WhL5Kw2MKE) | Klassiker: "Körperteile vergrößern durch Atmung" |
 
 
