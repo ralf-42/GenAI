@@ -359,10 +359,12 @@ client.update_run(
 
 **Best Practice:**
 ```python
-from langchain import hub
+from langsmith import Client
+
+client = Client()
 
 # Prompt aus Hub laden
-prompt = hub.pull("owner/my-prompt")
+prompt = client.pull_prompt("owner/my-prompt")
 
 # Mit Agent verwenden
 agent = create_agent(
@@ -371,8 +373,11 @@ agent = create_agent(
     system_prompt=prompt
 )
 
-# Prompt im Hub updaten → automatisch neue Version
+# Prompt im Hub aktualisieren
+client.push_prompt("owner/my-prompt", object=prompt)
 ```
+
+> ⚠️ **Korrektur:** `from langchain import hub` schlägt unter LangChain 1.0+ mit `ImportError` fehl. Immer `Client().pull_prompt()` / `Client().push_prompt()` verwenden.
 
 ---
 
@@ -723,6 +728,10 @@ client = Client(
 
 ## Changelog
 
+### Version 2.3 (2026-09-29)
+- 🐛 **KORREKTUR:** Prompt-Hub-Beispiel (`from langchain import hub`) korrigiert auf `Client().pull_prompt()`/`push_prompt()` — alter Import schlägt unter LangChain 1.0+ mit `ImportError` fehl
+- ✅ Sync mit `_docs/LangSmith_Best_Practices.md` v2.3
+
 ### Version 2.1 (2026-05-13)
 - 🆕 **APAC Region** — Endpoint `https://ap.api.smith.langchain.com` für Asia-Pacific-Accounts dokumentiert
 - 🆕 **SDK 0.8.3 Breaking Change**: `ttl_seconds` → `idle_ttl_seconds` + `delete_after_stop_seconds`
@@ -786,6 +795,6 @@ client = Client(
 
 ---
 
-**Version:** 2.1<br>
-**Stand:** Mai 2026<br>
+**Version:** 2.3<br>
+**Stand:** 2026-09-29<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
