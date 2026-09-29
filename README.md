@@ -5,9 +5,9 @@
     <td><a href="./.claude/config/langchain-patterns.yaml"><img src="https://img.shields.io/badge/LangChain-%3E%3D1.3.13-brightgreen" alt="LangChain &gt;=1.3.13"></a></td>
     <td><a href="./04_modul/requirements.txt"><img src="https://img.shields.io/badge/LangGraph-%3E%3D1.2.4-brightgreen" alt="LangGraph &gt;=1.2.4"></a></td>
     <td><a href="https://smith.langchain.com"><img src="https://img.shields.io/badge/LangSmith_SDK-0.8%2B-blue" alt="LangSmith SDK 0.8+"></a></td>
-    <td><a href="../_docs/_archive/LangChain_Audit_Report_2026-06-05.md"><img src="https://img.shields.io/badge/Compliance-100%25-success" alt="Compliance 100%"></a></td>
-    <td><a href="../_docs/_archive/LangChain_Audit_Report_2026-06-05.md"><img src="https://img.shields.io/badge/Audit-Jun_2026-success" alt="Audit Jun 2026"></a></td>
-    <td><a href="./.claude/config/langchain-patterns.yaml"><img src="https://img.shields.io/badge/Patterns-Jul_2026-success" alt="Patterns Jul 2026"></a></td>
+    <td><a href="../_docs/LangChain_Audit_Report_2026-09-29.md"><img src="https://img.shields.io/badge/Compliance-100%25-success" alt="Compliance 100%"></a></td>
+    <td><a href="../_docs/LangChain_Audit_Report_2026-09-29.md"><img src="https://img.shields.io/badge/Audit-Sep_2026-success" alt="Audit Sep 2026"></a></td>
+    <td><a href="./.claude/config/langchain-patterns.yaml"><img src="https://img.shields.io/badge/Patterns-Sep_2026-success" alt="Patterns Sep 2026"></a></td>
     <td><a href="https://www.python.org/"><img src="https://img.shields.io/badge/Python-3.11%2B-blue" alt="Python 3.11+"></a></td>
   </tr>
 </table>

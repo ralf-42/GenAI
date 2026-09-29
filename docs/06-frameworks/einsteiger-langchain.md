@@ -544,7 +544,7 @@ sensitive_tools = [safe_divide]  # hier exemplarisch
 
 middleware = [
     HumanInTheLoopMiddleware(
-        tool_names=[t.name for t in sensitive_tools]
+        interrupt_on={t.name: True for t in sensitive_tools}
     )
 ]
 
@@ -577,7 +577,7 @@ agent_summarize = create_agent(
     middleware=[
         SummarizationMiddleware(
             model=llm,
-            max_tokens_before_summary=4000,
+            trigger=("messages", 20),  # Ab 20 Nachrichten automatisch zusammenfassen
         )
     ]
     # Fasst Konversation automatisch zusammen, wenn Token-Limit überschritten
