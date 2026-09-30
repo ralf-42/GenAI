@@ -38,8 +38,8 @@ Der Gestaltungsteil beginnt dort, wo aus Einzelfunktionen ein System wird. Dann 
 Der Kurs richtet sich damit nicht nur an Personen, die "mehr über KI" lesen wollen, sondern an alle, die einschätzen möchten, wo die Technik trägt, wo sie überfordert ist und wie aus einem Notebook eine Anwendung wird, die sich vorführen, prüfen und verbessern lässt.
 
 
-> [!Note] Hinweis<br>
->  Bei der Erstellung dieser Unterlagen kamen KI-Werkzeuge zum Einsatz. Die Inhalte wurden anschließend fachlich geprüft und überarbeitet.
+> [!Note] Hinweis zur Entstehung<br>
+> Bei der Erstellung dieser Unterlagen wurden KI-Werkzeuge unterstützend eingesetzt, unter anderem für Recherche, Strukturierung, Formulierung und einzelne Medien. Die Inhalte wurden anschließend fachlich geprüft, eingeordnet und redaktionell überarbeitet.
 
 
 
