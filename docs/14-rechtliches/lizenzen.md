@@ -26,7 +26,7 @@ Empfohlene Attribution:
 
 Nicht vom Seitenbetreiber erstellte Inhalte, Datenbanken, Bilder, Videos, Bibliotheken, Marken und externe Materialien können eigenen Lizenz- oder Nutzungsbedingungen unterliegen. Für solche Bestandteile gilt nicht automatisch die MIT- oder CC-BY-4.0-Lizenz dieses Projekts. Maßgeblich sind die Kennzeichnungen am jeweiligen Inhalt und die Bedingungen des jeweiligen Rechteinhabers.
 
-Für besondere Drittinhalte siehe zusätzlich die Hinweise im [README des Repositories](../../README.md), insbesondere zu Northwind, Chinook und Hedra-Medien.
+Für besondere Drittinhalte siehe zusätzlich die Hinweise im [README des Repositories](https://github.com/ralf-42/GenAI#readme), insbesondere zu Northwind, Chinook und Hedra-Medien.
 
 Bei Unsicherheit ist die jeweilige Originalquelle und Lizenz zu prüfen.
 
