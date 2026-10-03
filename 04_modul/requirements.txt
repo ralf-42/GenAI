@@ -31,3 +31,6 @@ markitdown[all]>=0.0.1
 
 # Utilities
 requests>=2.32.0
+
+# Notebook tooling
+nbformat>=5.10.0
