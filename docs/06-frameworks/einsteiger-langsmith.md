@@ -599,7 +599,17 @@ result = llm.with_structured_output(MyModel).with_config(**run_cfg).invoke("..."
 | Produktion | `"chatbot-production"`                       |
 | Experiment | `"rag-experiment-2026-03"`                   |
 
-> 💡 **Edge Case:** Falls ein Projekt-Wechsel nach Notebook-Start nötig ist (z.B. kein Kernel-Neustart möglich), kann `ls.tracing_context(project_name=...)` als Workaround verwendet werden.
+> 💡 **Selektives Tracing:** Wenn mehrere `invoke()`-Aufrufe im Notebook nicht alle erfasst werden sollen, `LANGSMITH_TRACING` in der Setup-Cell zunächst auf `"false"` setzen und den gewünschten Referenzlauf mit `tracing_v2_enabled(...)` umschließen. Das vollständige Muster steht in [LangSmith Best Practices](langsmith-best-practices.html#selektives-tracing-in-kurs-notebooks). Das Umschalten der Env-Variable nach der Agent-Erstellung ist unzuverlässig.
+
+```python
+from langchain_core.tracers.context import tracing_v2_enabled
+
+with tracing_v2_enabled(project_name="M05-Structured-Output", tags=["M05", "langsmith"]):
+    result = chain.with_config(
+        run_name="M05_Kap6_StructuredTrace",
+        tags=["M05", "structured-output", "langsmith"],
+    ).invoke("...")
+```
 
 ### Tags für bessere Organisation
 
@@ -935,7 +945,8 @@ client.create_example_from_run(run_id=run_id, dataset_name="wichtige-runs")
 ### "Wie deaktiviere ich Tracing?"
 
 ```python
-# Temporär deaktivieren
+# Global für das Notebook deaktivieren; für einzelne Referenzläufe
+# anschließend tracing_v2_enabled(...) verwenden.
 os.environ["LANGSMITH_TRACING"] = "false"
 
 # Für einzelne Funktionen
@@ -984,6 +995,6 @@ setup_api_keys(['OPENAI_API_KEY', 'LANGSMITH_API_KEY'], create_globals=False)
 
 ---
 
-**Version:** 1.0<br>
-**Stand:** Mai 2026<br>
+**Version:** 1.1<br>
+**Stand:** Oktober 2026<br>
 **Kurs:** Generative KI mit LangChain 1.1+
