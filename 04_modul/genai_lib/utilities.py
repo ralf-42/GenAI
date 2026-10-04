@@ -612,8 +612,16 @@ def show_trace(project_name: str, limit: int = 5, show_steps: bool = False) -> N
             f"{(run.end_time - run.start_time).total_seconds():.1f}s"
             if run.end_time and run.start_time else "—"
         )
-        children = len(run.child_run_ids) if run.child_run_ids else 0
-        status = "✅" if run.status == "success" else "❌"
+        # child_run_ids ist in list_runs nicht enthalten (deprecated) → per parent_run_id zählen
+        try:
+            children = sum(1 for _ in client.list_runs(
+                project_name=project_name,
+                filter=f'eq(parent_run_id, "{str(run.id)}")',
+                select=["id"],
+            ))
+        except Exception:
+            children = "—"
+        status = "✅" if run.status == "success" else ("⏳" if run.status == "pending" else "❌")
         zeilen.append(f"| `{run.name or '—'}` | {status} {run.status} | {dauer} | {children} |")
 
     mprint("\n".join(zeilen))
@@ -626,6 +634,7 @@ def show_trace(project_name: str, limit: int = 5, show_steps: bool = False) -> N
                 project_name=project_name,
                 filter=f'eq(parent_run_id, "{str(last_run.id)}")',
             ))
+            children.sort(key=lambda r: r.start_time)  # chronologisch (LangSmith liefert neueste zuerst)
         except Exception as e:
             mprint(f"> ❌ Child-Runs konnten nicht abgerufen werden: `{e}`")
             return
@@ -644,7 +653,7 @@ def show_trace(project_name: str, limit: int = 5, show_steps: bool = False) -> N
                 f"{(child.end_time - child.start_time).total_seconds():.1f}s"
                 if child.end_time and child.start_time else "—"
             )
-            status = "✅" if child.status == "success" else "❌"
+            status = "✅" if child.status == "success" else ("⏳" if child.status == "pending" else "❌")
             step_zeilen.append(
                 f"| {i} | `{child.run_type}` | `{child.name}` | {status} | {dauer} |"
             )
