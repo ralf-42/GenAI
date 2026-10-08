@@ -36,7 +36,7 @@ Die Bibliothek besteht aus modularen Hilfsdateien im `genai_lib/` Verzeichnis:
 
 Vollständige Liste in `requirements.txt`. Wichtigste Pakete:
 
-- `langchain` (>=1.3.0), `langchain-openai`, `langchain-community`
+- `langchain` (>=1.3.0), `langchain-openai`, `langchain-chroma`, `pypdf`
 - `langgraph` (>=1.2.0)
 - `langsmith` (>=0.8.0)
 - `chromadb`
