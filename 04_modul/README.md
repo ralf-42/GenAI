@@ -56,7 +56,7 @@ flowchart LR
 ''')                                               # Mermaid-Diagramm rendern
 ```
 
-- `mprint(text)` - Rendert Markdown in Jupyter/Colab
+- `mprint(text="")` - Rendert Markdown in Jupyter/Colab; ohne Argument und außerhalb von Jupyter sicher mit Text-Fallback
 - `mermaid(code, width=None, height=None)` - Rendert Mermaid-Diagramme via CDN
 
 ### Umgebung und API-Keys
