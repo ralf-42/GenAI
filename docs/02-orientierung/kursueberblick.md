@@ -142,7 +142,7 @@ M05 liegt im Kursmaterial in zwei Varianten vor: eine einfachere Umsetzung mit L
 
 Einige Begriffe sind bewusst knapp gehalten. **Structured Output** meint maschinenlesbare Antwortformate wie JSON. **SQL-RAG** verbindet Modellantworten mit strukturierten Datenbankabfragen. **MCP** steht für Model Context Protocol und beschreibt eine standardisierte Tool-Integration. **Circuit Breaker** bezeichnet eine Schutzschaltung, die Abläufe bei Fehlern, Kosten- oder Qualitätsgrenzen stoppt.
 
-Eine interaktive Orientierung zur Modellwahl ist hier hilfreich: [Modellauswahl](https://editor.p5js.org/ralf.bendig.rb/full/8BbTi8Ico).
+Eine interaktive Orientierung zur Modellwahl ist hier hilfreich: [Modellauswahl]({{ '/visualisierungen/llm_selector/' | relative_url }}){:target="_blank" rel="noopener"}.
 
 ## Vorbereitung
 

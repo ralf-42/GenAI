@@ -293,7 +293,7 @@ Das gilt nicht nur bei der Inferenz, sondern auch beim Training autoregressiver 
 
 # Drei Haupttypen von Transformern
 
-Eine interaktive Darstellung ist hier verfügbar: [Transformer](https://editor.p5js.org/ralf.bendig.rb/full/I1TTpJk-D).
+Eine interaktive Darstellung ist hier verfügbar: [Transformer]({{ '/visualisierungen/transformer/' | relative_url }}){:target="_blank" rel="noopener"}.
 
 ## Verstehen - Encoder-Only (wie BERT)
 

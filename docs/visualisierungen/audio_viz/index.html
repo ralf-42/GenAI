@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Visualisierer</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; background-color: #f5f5f5; color: black; }
+        canvas { display: block; margin: 10px auto; background: white; border: 1px solid black; }
+        input, button { margin: 10px; padding: 10px; font-size: 16px; }
+    </style>
+</head>
+<body>
+    <h1>Audio Visualisierer</h1>
+    <input type="file" id="audioFile" accept="audio/*">
+    <button id="togglePlayback">Start</button>
+    
+    <h2>Wellenform</h2>
+    <canvas id="waveform" width="800" height="200"></canvas>
+    
+    <h2>Spektrogramm</h2>
+    <canvas id="spectrogram" width="800" height="300"></canvas>
+    
+    <p><strong>Wellenform:</strong> Die Wellenform zeigt die Schwingungen des Audiosignals über die Zeit. Sie gibt Informationen über die Amplitude des Tons und zeigt, wie laut oder leise ein Signal ist.</p>
+    <p><strong>Spektrogramm:</strong> Das Spektrogramm zeigt die Frequenzverteilung des Audios über die Zeit. Höhere Frequenzen erscheinen weiter oben, während die Intensität der Farben die Lautstärke in diesen Frequenzbereichen repräsentiert.</p>
+    
+    <script>
+        const audioFileInput = document.getElementById('audioFile');
+        const toggleButton = document.getElementById('togglePlayback');
+        const waveformCanvas = document.getElementById('waveform');
+        const spectrogramCanvas = document.getElementById('spectrogram');
+        const waveformCtx = waveformCanvas.getContext('2d');
+        const spectrogramCtx = spectrogramCanvas.getContext('2d');
+        
+        let audioContext, analyser, dataArray, source, audioBuffer;
+        let isPlaying = false;
+        
+        audioFileInput.addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                loadAudio(e.target.result);
+            };
+            reader.readAsArrayBuffer(file);
+        });
+        
+        function loadAudio(audioData) {
+            if (audioContext) audioContext.close();
+            audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            
+            audioContext.decodeAudioData(audioData, function(buffer) {
+                audioBuffer = buffer;
+                toggleButton.disabled = false;
+            });
+        }
+        
+        function togglePlayback() {
+            if (isPlaying) {
+                stopAudio();
+            } else {
+                playAudio();
+            }
+        }
+        
+        function playAudio() {
+            if (!audioBuffer) return;
+            if (source) source.disconnect();
+            
+            source = audioContext.createBufferSource();
+            source.buffer = audioBuffer;
+            
+            analyser = audioContext.createAnalyser();
+            analyser.fftSize = 1024;
+            dataArray = new Uint8Array(analyser.frequencyBinCount);
+            
+            source.connect(analyser);
+            analyser.connect(audioContext.destination);
+            source.start();
+            
+            isPlaying = true;
+            toggleButton.textContent = "Stop";
+            
+            drawWaveform();
+            drawSpectrogram();
+            
+            source.onended = () => {
+                isPlaying = false;
+                toggleButton.textContent = "Start";
+            };
+        }
+        
+        function stopAudio() {
+            if (source) {
+                source.stop();
+                source.disconnect();
+            }
+            isPlaying = false;
+            toggleButton.textContent = "Start";
+        }
+        
+        function drawWaveform() {
+            requestAnimationFrame(drawWaveform);
+            if (!analyser) return;
+            analyser.getByteTimeDomainData(dataArray);
+            waveformCtx.clearRect(0, 0, waveformCanvas.width, waveformCanvas.height);
+            waveformCtx.beginPath();
+            waveformCtx.strokeStyle = 'blue';
+            
+            let sliceWidth = waveformCanvas.width / dataArray.length;
+            let x = 0;
+            
+            for (let i = 0; i < dataArray.length; i++) {
+                let v = dataArray[i] / 128.0;
+                let y = v * waveformCanvas.height / 2;
+                if (i === 0) {
+                    waveformCtx.moveTo(x, y);
+                } else {
+                    waveformCtx.lineTo(x, y);
+                }
+                x += sliceWidth;
+            }
+            
+            waveformCtx.stroke();
+        }
+        
+        function drawSpectrogram() {
+            requestAnimationFrame(drawSpectrogram);
+            if (!analyser) return;
+            analyser.getByteFrequencyData(dataArray);
+            let imageData = spectrogramCtx.getImageData(1, 0, spectrogramCanvas.width - 1, spectrogramCanvas.height);
+            spectrogramCtx.putImageData(imageData, 0, 0);
+            
+            let column = spectrogramCtx.createImageData(1, spectrogramCanvas.height);
+            for (let i = 0; i < spectrogramCanvas.height; i++) {
+                let value = dataArray[i] || 0;
+                column.data[i * 4] = value;
+                column.data[i * 4 + 1] = 255 - value;
+                column.data[i * 4 + 2] = 128;
+                column.data[i * 4 + 3] = 255;
+            }
+            spectrogramCtx.putImageData(column, spectrogramCanvas.width - 1, 0);
+        }
+        
+        drawWaveform();
+        drawSpectrogram();
+        toggleButton.addEventListener('click', togglePlayback);
+    </script>
+</body>
+</html>

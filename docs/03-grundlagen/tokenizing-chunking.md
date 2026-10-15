@@ -120,8 +120,8 @@ Interaktive Hilfen:
 
 - [Tokenizer & Kontextfenster](https://gpt-tokenizer.dev/)
 - [OpenAI Tokenizer](https://platform.openai.com/tokenizer)
-- [Kontextfenster](https://editor.p5js.org/ralf.bendig.rb/full/tLnUgyZRK)
-- [Token-Verbrauch & Caching](https://editor.p5js.org/ralf.bendig.rb/full/uAPjZBhtW)
+- [Kontextfenster]({{ '/visualisierungen/kontextfenster/' | relative_url }}){:target="_blank" rel="noopener"}
+- [Token-Verbrauch & Caching]({{ '/visualisierungen/token_verbrauch_caching/' | relative_url }}){:target="_blank" rel="noopener"}
 
 ## Parameter- und Strategieauswahl
 - **Tokenizer-Auswahl:**

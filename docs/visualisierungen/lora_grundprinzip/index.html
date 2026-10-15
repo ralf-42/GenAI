@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>LoRA Grundprinzip</title>
+    <style>
+        body { font-family: sans-serif; background: #0a0e17; color: #fff; text-align: center; padding: 20px; }
+        .container { max-width: 800px; margin: auto; background: #111827; padding: 20px; border-radius: 15px; }
+        
+        .matrix-flow { display: flex; align-items: center; justify-content: center; gap: 20px; margin: 30px 0; }
+        .matrix { border: 2px solid; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+        
+        .frozen { border-color: #3b82f6; width: 120px; height: 120px; background: rgba(59, 130, 246, 0.1); }
+        .lora-a { border-color: #10b981; width: 30px; height: 120px; background: rgba(16, 185, 129, 0.2); }
+        .lora-b { border-color: #10b981; width: 120px; height: 30px; background: rgba(16, 185, 129, 0.2); }
+        
+        .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; font-family: monospace; }
+        .stat-box { background: #1a2332; padding: 15px; border-radius: 8px; }
+        .highlight { color: #10b981; font-size: 1.2rem; }
+        input { width: 100%; cursor: pointer; }
+        
+        .math { font-style: italic; font-family: "Times New Roman", Times, serif; }
+
+        /* Kurzfassung Styling */
+        .info-section { 
+            text-align: left; 
+            background: rgba(255,255,255,0.05); 
+            padding: 15px; 
+            border-radius: 8px; 
+            margin-top: 20px; 
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        .info-section h3 { margin-top: 0; color: #f59e0b; font-size: 1rem; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .info-grid strong { color: #10b981; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>LoRA: Das Grundprinzip</h1>
+    <p>Training einer großen Matrix wird durch zwei kleine Matrizen ersetzt.</p>
+
+    <div class="matrix-flow">
+        <div>
+            <div class="matrix frozen">W</div>
+            <p><small>Eingefroren</small></p>
+        </div>
+        <div style="font-size: 2rem;">+</div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 5px;">
+            <div style="display: flex; align-items: center; gap: 5px;">
+                <div class="matrix lora-a" id="box-a">A</div>
+                <div style="font-size: 1.5rem;">×</div>
+                <div class="matrix lora-b" id="box-b">B</div>
+            </div>
+            <p><small>Trainierbar (LoRA Adapter)</small></p>
+        </div>
+    </div>
+
+    <div class="stat-box">
+        <label>Rang (Engpass) <strong id="rank-val">8</strong></label>
+        <input type="range" id="rank-slider" min="1" max="64" value="8">
+    </div>
+
+    <!-- Kurzfassung zum Rang -->
+    <div class="info-section">
+        <h3>Kurzfassung: Was bewirkt der Rang (r)?</h3>
+        <div class="info-grid">
+            <div>
+                <strong>Kapazität:</strong> Er bestimmt die Größe des „Engpasses“. Ein kleiner Rang zwingt das Modell, nur die wichtigsten Anpassungen zu lernen.
+            </div>
+            <div>
+                <strong>Faustregel:</strong> Oft reicht <strong>r = 8</strong> völlig aus. Höhere Werte kosten mehr VRAM, bringen aber nicht immer bessere Ergebnisse.
+            </div>
+        </div>
+    </div>
+
+    <div class="stats">
+        <div class="stat-box">
+            <p>Full Fine-Tuning</p>
+            <p class="math">Matrix 768 × 768</p>
+            <p class="highlight">589.824 Parameter</p>
+        </div>
+        <div class="stat-box">
+            <p>LoRA Adaptation</p>
+            <p class="math">(768 × r) + (r × 768)</p>
+            <p class="highlight" id="lora-params">12.288 Parameter</p>
+        </div>
+    </div>
+
+    <p id="savings" style="margin-top: 20px; color: #f59e0b; font-weight: bold;"></p>
+</div>
+
+<script>
+    const slider = document.getElementById('rank-slider');
+    const dim = 768;
+
+    function update() {
+        const r = parseInt(slider.value);
+        const full = dim * dim;
+        const lora = (dim * r) + (r * dim);
+        const saving = ((1 - lora / full) * 100).toFixed(2);
+
+        document.getElementById('rank-val').innerText = r;
+        document.getElementById('lora-params').innerText = lora.toLocaleString() + " Parameter";
+        document.getElementById('savings').innerText = `Ersparnis: ${saving}% weniger Speicherbedarf`;
+        
+        document.getElementById('box-a').style.width = (r + 15) + "px";
+        document.getElementById('box-b').style.height = (r + 15) + "px";
+    }
+
+    slider.addEventListener('input', update);
+    update();
+</script>
+
+</body>
+</html>
