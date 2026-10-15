@@ -107,7 +107,7 @@ Für die Praxis bedeutet das:
 
 # Interaktive Visualisierung
 
-- [LLM Sampling Simulator](https://editor.p5js.org/ralf.bendig.rb/full/LBc3t3yP4)
+- [LLM Sampling Simulator]({{ '/visualisierungen/llm_parameter/' | relative_url }}){:target="_blank" rel="noopener"}
 
 ---
 

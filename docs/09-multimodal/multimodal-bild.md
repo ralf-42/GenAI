@@ -90,7 +90,7 @@ Deep-Learning-Modelle werden auf große Datensätze trainiert, wodurch sie eine 
 
 Hintergründe zu CNNs: [A Comprehensive Guide to CNNs](https://towardsdatascience.com/a-comprehensive-guide-to-convolutional-neural-networks-the-eli5-way-3bd2b1164a53)
 
-Interaktive Demos: [Merkmals-Filter](https://editor.p5js.org/ralf.bendig.rb/full/zLXqi5u6f) · [Merkmals-Filter-Anwendung](https://editor.p5js.org/ralf.bendig.rb/full/Xi2uabjR9)
+Interaktive Demos: [Merkmals-Filter]({{ '/visualisierungen/cnn_filter/' | relative_url }}){:target="_blank" rel="noopener"} · [Merkmals-Filter-Anwendung]({{ '/visualisierungen/cnn_demo/' | relative_url }}){:target="_blank" rel="noopener"}
 
 
 # Bild-Modelle

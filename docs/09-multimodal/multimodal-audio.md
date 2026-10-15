@@ -37,7 +37,7 @@ Audio ist physikalisch betrachtet eine Schallwelle, die durch Druckschwankungen 
 2. **Quantisierung**: Jeder gemessene Wert wird in eine Zahl umgewandelt. Die **Bittiefe** bestimmt, wie genau diese Umwandlung ist. 16-Bit-Audio kann 65.536 verschiedene Lautstärkewerte darstellen.
 
 
-[Audio_Viz](https://editor.p5js.org/ralf.bendig.rb/full/_oMmtCprP)       
+[Audio_Viz]({{ '/visualisierungen/audio_viz/' | relative_url }}){:target="_blank" rel="noopener"}       
 [MediaPipe](https://mediapipe-studio.webapps.google.com/studio/demo/audio_classifier)
 
 ## Wie funktionieren Audio-KI-Modelle?

@@ -29,7 +29,7 @@ Einordnung von KI-Systemen, Lernparadigmen und Anwendungsbereichen
 
 | Thema                    | Beschreibung                                                                                          | Link                                                                              |
 | ------------------------ | ------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------- |
-| **Taxonomie AI-System**  | Mehrdimensionale Einordnung von KI-Systemen nach Lernparadigma, Funktion, Repräsentation und Anwendungsbereich | [Taxonomie AI-System](https://editor.p5js.org/ralf.bendig.rb/full/sgwVL8Ey9) |
+| **Taxonomie AI-System**  | Mehrdimensionale Einordnung von KI-Systemen nach Lernparadigma, Funktion, Repräsentation und Anwendungsbereich | [Taxonomie AI-System]({{ '/visualisierungen/taxonomy_ai_system/' | relative_url }}){:target="_blank" rel="noopener"} |
 
 ---
 
@@ -39,12 +39,12 @@ Transformer-Architektur, neuronale Netze und Modellvarianten
 
 | Thema                     | Beschreibung                                           | Link                                                                                        |
 | ------------------------- | ------------------------------------------------------ | ------------------------------------------------------------------------------------------- |
-| **Transformer**           | Interaktive Visualisierung der Transformer-Architektur | [Transformer](https://editor.p5js.org/ralf.bendig.rb/full/I1TTpJk-D)                        |
+| **Transformer**           | Interaktive Visualisierung der Transformer-Architektur | [Transformer]({{ '/visualisierungen/transformer/' | relative_url }}){:target="_blank" rel="noopener"}                        |
 | **Transformer Explainer** | GPT-2 Transformer interaktiv erklärt (Georgia Tech)    | [Transformer Explainer](https://poloclub.github.io/transformer-explainer/)                  |
-| **Self-Attention**        | Transformer Self-Attention Simulator                   | [Self-Attention Simulator](https://editor.p5js.org/ralf.bendig.rb/full/4X4ftP1Ev)          |
-| **Architektur-Explainer** | Transformer-Architektur interaktiv erklärt             | [Architektur-Explainer](https://editor.p5js.org/ralf.bendig.rb/full/RSI_9AiMJ)             |
-| **Neuronales Netz**       | Training eines neuronalen Netzes                       | [NN - Training](https://editor.p5js.org/ralf.bendig.rb/full/FsQx83Adk)                      |
-| **Mixture of Experts**    | MoE-Architektur für effiziente LLM-Skalierung          | [Mixture of Experts](https://editor.p5js.org/ralf.bendig.rb/full/GT2XfGGTo)                 |
+| **Self-Attention**        | Transformer Self-Attention Simulator                   | [Self-Attention Simulator]({{ '/visualisierungen/self_attention/' | relative_url }}){:target="_blank" rel="noopener"}          |
+| **Architektur-Explainer** | Transformer-Architektur interaktiv erklärt             | [Architektur-Explainer]({{ '/visualisierungen/transformer_architecture/' | relative_url }}){:target="_blank" rel="noopener"}             |
+| **Neuronales Netz**       | Training eines neuronalen Netzes                       | [NN - Training]({{ '/visualisierungen/nn_training_neu/' | relative_url }}){:target="_blank" rel="noopener"}                      |
+| **Mixture of Experts**    | MoE-Architektur für effiziente LLM-Skalierung          | [Mixture of Experts]({{ '/visualisierungen/moe_demo/' | relative_url }}){:target="_blank" rel="noopener"}                 |
 | **Diffusion Model**       | Chat-Interface für Mercury – Diffusion Language Model  | [Inception Labs Chat](https://chat.inceptionlabs.ai/)                                       |
 
 ---
@@ -57,9 +57,9 @@ Tokenisierung, Kontextfenster und Token-Kosten
 | ----------------------------- | ---------------------------------------------------- | ------------------------------------------------------------------------------------------- |
 | **Tokenizer**                 | OpenAI Tokenizer - Token-Visualisierung              | [OpenAI Tokenizer](https://platform.openai.com/tokenizer)                                   |
 | **Tokenizer Playground**      | Token-Visualisierung mit Kontextfenster              | [GPT Tokenizer Playground – Visualize Tokens for OpenAI Models](https://gpt-tokenizer.dev/) |
-| **Kontext-Management**        | Beispiel Kontext-Management                          | [Kontextfenster](https://editor.p5js.org/ralf.bendig.rb/full/tLnUgyZRK)                     |
-| **Token-Verbrauch & Caching** | Token-Kosten und Prompt Caching visualisiert         | [Token-Verbrauch & Caching](https://editor.p5js.org/ralf.bendig.rb/full/uAPjZBhtW)          |
-| **Caching**                   | LLM-Response-Caching (InMemory, SQLite) visualisiert | [Caching](https://editor.p5js.org/ralf.bendig.rb/full/3YjAbYaLb)                            |
+| **Kontext-Management**        | Beispiel Kontext-Management                          | [Kontextfenster]({{ '/visualisierungen/kontextfenster/' | relative_url }}){:target="_blank" rel="noopener"}                     |
+| **Token-Verbrauch & Caching** | Token-Kosten und Prompt Caching visualisiert         | [Token-Verbrauch & Caching]({{ '/visualisierungen/token_verbrauch_caching/' | relative_url }}){:target="_blank" rel="noopener"}          |
+| **Caching**                   | LLM-Response-Caching (InMemory, SQLite) visualisiert | [Caching]({{ '/visualisierungen/caching/' | relative_url }}){:target="_blank" rel="noopener"}                            |
 
 ---
 
@@ -69,8 +69,8 @@ Vektorräume und semantische Repräsentationen
 
 | Thema             | Beschreibung                           | Link                                                                                 |
 | ----------------- | -------------------------------------- | ------------------------------------------------------------------------------------ |
-| **Embeddings 2D** | Fahrzeug-Beispiel für Vektorräume - 2D | [Embedding-Beispiel Fahrzeug](https://editor.p5js.org/ralf.bendig.rb/full/LPjLkzWbE) |
-| **Embeddings 3D** | Fahrzeug-Beispiel für Vektorräume - 3D | [Embedding_Visual_3D](https://editor.p5js.org/ralf.bendig.rb/full/gFBwB2E8n)         |
+| **Embeddings 2D** | Fahrzeug-Beispiel für Vektorräume - 2D | [Embedding-Beispiel Fahrzeug]({{ '/visualisierungen/embedding_visual_2d/' | relative_url }}){:target="_blank" rel="noopener"} |
+| **Embeddings 3D** | Fahrzeug-Beispiel für Vektorräume - 3D | [Embedding_Visual_3D]({{ '/visualisierungen/embedding_visual_3d/' | relative_url }}){:target="_blank" rel="noopener"}         |
 
 ---
 
@@ -80,13 +80,13 @@ Steuerung, Parametrierung und Anpassung von Sprachmodellen
 
 | Thema                  | Beschreibung                                    | Link                                                                                 |
 | ---------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------ |
-| **Modellsteuerung**    | Möglichkeiten der Modellsteuerung               | [Modellsteuerung](https://editor.p5js.org/ralf.bendig.rb/full/um423ggnD)             |
-| **Entscheidungshilfe** | Entscheidungshilfe Modellsteuerung              | [Modellsteuerung](https://editor.p5js.org/ralf.bendig.rb/full/xb3zPgRSr)             |
-| **LLM Sampling Simulator** | Temperature, Top-p und Top-k interaktiv nachvollziehen | [LLM Sampling Simulator](https://editor.p5js.org/ralf.bendig.rb/full/LBc3t3yP4)     |
-| **Quantisierung LLM**  | Quantisierung von Sprachmodellen visualisiert   | [Quantisierung LLM](https://editor.p5js.org/ralf.bendig.rb/full/86TWKzi5c)           |
-| **Fine Tuning**        | Fine-Tuning von Sprachmodellen visualisiert     | [Fine Tuning](https://editor.p5js.org/ralf.bendig.rb/full/7JG_6J21e)                 |
-| **Fine-Tuning LoRA**   | Low-Rank Adaptation für effizientes Fine-Tuning | [LoRA-Grundprinzip](https://editor.p5js.org/ralf.bendig.rb/full/bFNH-Ija5))          |
-| **DSPy**               | Programmieren statt Prompten - DSPy als Kontrastfolie zu LangChain | [DSPy](https://editor.p5js.org/ralf.bendig.rb/full/Q_dUC2-lV)               |
+| **Modellsteuerung**    | Möglichkeiten der Modellsteuerung               | [Modellsteuerung]({{ '/visualisierungen/modellsteuerung_optimierung/' | relative_url }}){:target="_blank" rel="noopener"}             |
+| **Entscheidungshilfe** | Entscheidungshilfe Modellsteuerung              | [Modellsteuerung]({{ '/visualisierungen/modellsteuerung/' | relative_url }}){:target="_blank" rel="noopener"}             |
+| **LLM Sampling Simulator** | Temperature, Top-p und Top-k interaktiv nachvollziehen | [LLM Sampling Simulator]({{ '/visualisierungen/llm_parameter/' | relative_url }}){:target="_blank" rel="noopener"}     |
+| **Quantisierung LLM**  | Quantisierung von Sprachmodellen visualisiert   | [Quantisierung LLM]({{ '/visualisierungen/quantisierung_llm/' | relative_url }}){:target="_blank" rel="noopener"}           |
+| **Fine Tuning**        | Fine-Tuning von Sprachmodellen visualisiert     | [Fine Tuning]({{ '/visualisierungen/fine_tune_sftconfig/' | relative_url }}){:target="_blank" rel="noopener"}                 |
+| **Fine-Tuning LoRA**   | Low-Rank Adaptation für effizientes Fine-Tuning | [LoRA-Grundprinzip]({{ '/visualisierungen/lora_grundprinzip/' | relative_url }}){:target="_blank" rel="noopener"})          |
+| **DSPy**               | Programmieren statt Prompten - DSPy als Kontrastfolie zu LangChain | [DSPy]({{ '/visualisierungen/prompt_dspy/' | relative_url }}){:target="_blank" rel="noopener"}               |
 
 
 ---
@@ -97,9 +97,9 @@ Agentenbasierte KI-Systeme und deren Funktionsweise
 
 | Thema         | Beschreibung                                  | Link                                                                            |
 | ------------- | --------------------------------------------- | ------------------------------------------------------------------------------- |
-| **KI-Agent**  | Visualisierung eines LLM-basierten KI-Agenten | [KI_Agenten](https://editor.p5js.org/ralf.bendig.rb/full/u3Ee0jtFo)             |
-| **LangGraph** | Interaktiver Explainer zu LangGraph-Konzepten | [Interaktiver Explainer](https://editor.p5js.org/ralf.bendig.rb/full/EUzaFq4C4) |
-| **Trimming und Summary** | Context-Management-Strategien (Trimming, Summary) für LangGraph Memory | [Trimming und Summary](https://editor.p5js.org/ralf.bendig.rb/full/Xn-7mkuSM) |
+| **KI-Agent**  | Visualisierung eines LLM-basierten KI-Agenten | [KI_Agenten]({{ '/visualisierungen/ki_agenten/' | relative_url }}){:target="_blank" rel="noopener"}             |
+| **LangGraph** | Interaktiver Explainer zu LangGraph-Konzepten | [Interaktiver Explainer]({{ '/visualisierungen/langgraph_explainer/' | relative_url }}){:target="_blank" rel="noopener"} |
+| **Trimming und Summary** | Context-Management-Strategien (Trimming, Summary) für LangGraph Memory | [Trimming und Summary]({{ '/visualisierungen/trimming_summary/' | relative_url }}){:target="_blank" rel="noopener"} |
 
 ---
 
@@ -109,8 +109,8 @@ Bildverarbeitung und Computer Vision
 
 | Thema | Beschreibung | Link |
 |-------|--------------|------|
-| **Merkmals-Filter** | CNN-Filter und Kantendetektion | [Merkmals-Filter](https://editor.p5js.org/ralf.bendig.rb/full/zLXqi5u6f) |
-| **Filter-Anwendung** | Convolutional Filter in Aktion | [Merkmals-Filter-Anwendung](https://editor.p5js.org/ralf.bendig.rb/full/Xi2uabjR9) |
+| **Merkmals-Filter** | CNN-Filter und Kantendetektion | [Merkmals-Filter]({{ '/visualisierungen/cnn_filter/' | relative_url }}){:target="_blank" rel="noopener"} |
+| **Filter-Anwendung** | Convolutional Filter in Aktion | [Merkmals-Filter-Anwendung]({{ '/visualisierungen/cnn_demo/' | relative_url }}){:target="_blank" rel="noopener"} |
 | **CNN Explainer** | Convolutional Neural Networks interaktiv erklärt (Georgia Tech) | [CNN Explainer](https://poloclub.github.io/cnn-explainer/) |
 
 ---
@@ -121,8 +121,8 @@ Audioverarbeitung und Visualisierung
 
 | Thema | Beschreibung | Link |
 |-------|--------------|------|
-| **Audio-Visualisierung** | Wellenformen und Spektrogramme | [Audio_Viz](https://editor.p5js.org/ralf.bendig.rb/full/_oMmtCprP) |
-| **Quantisierung Audio** | Quantisierung von Audiosignalen visualisiert | [Quantisierung Audio](https://editor.p5js.org/ralf.bendig.rb/full/cErtgts5B) |
+| **Audio-Visualisierung** | Wellenformen und Spektrogramme | [Audio_Viz]({{ '/visualisierungen/audio_viz/' | relative_url }}){:target="_blank" rel="noopener"} |
+| **Quantisierung Audio** | Quantisierung von Audiosignalen visualisiert | [Quantisierung Audio]({{ '/visualisierungen/quantisierung_audio/' | relative_url }}){:target="_blank" rel="noopener"} |
 
 ---
 
@@ -132,7 +132,7 @@ Entscheidungshilfen für die richtige Modellwahl
 
 | Thema             | Beschreibung                   | Link                                                                   |
 | ----------------- | ------------------------------ | ---------------------------------------------------------------------- |
-| **Modellauswahl** | Interaktive Entscheidungshilfe | [Modellauswahl](https://editor.p5js.org/ralf.bendig.rb/full/8BbTi8Ico) |
+| **Modellauswahl** | Interaktive Entscheidungshilfe | [Modellauswahl]({{ '/visualisierungen/llm_selector/' | relative_url }}){:target="_blank" rel="noopener"} |
 
 ---
 
@@ -142,9 +142,9 @@ Retrieval Augmented Generation - Wissensabruf und Anreicherung
 
 | Thema                    | Beschreibung                                           | Link                                                                                        |
 | ------------------------ | ------------------------------------------------------ | ------------------------------------------------------------------------------------------- |
-| **RAG-Pipeline**         | Visualisierung der RAG-Architektur                     | [RAG](https://editor.p5js.org/ralf.bendig.rb/full/RrfB3nCwK)                                |
-| **Embeddings 2D**        | Fahrzeug-Beispiel für Vektorräume - 2D                 | [Embedding-Beispiel Fahrzeug](https://editor.p5js.org/ralf.bendig.rb/full/LPjLkzWbE)        |
-| **Embeddings 3D**        | Fahrzeug-Beispiel für Vektorräume - 3D                 | [Embedding_Visual_3D](https://editor.p5js.org/ralf.bendig.rb/full/gFBwB2E8n)                |
+| **RAG-Pipeline**         | Visualisierung der RAG-Architektur                     | [RAG]({{ '/visualisierungen/rag_prozess_visualisierung/' | relative_url }}){:target="_blank" rel="noopener"}                                |
+| **Embeddings 2D**        | Fahrzeug-Beispiel für Vektorräume - 2D                 | [Embedding-Beispiel Fahrzeug]({{ '/visualisierungen/embedding_visual_2d/' | relative_url }}){:target="_blank" rel="noopener"}        |
+| **Embeddings 3D**        | Fahrzeug-Beispiel für Vektorräume - 3D                 | [Embedding_Visual_3D]({{ '/visualisierungen/embedding_visual_3d/' | relative_url }}){:target="_blank" rel="noopener"}                |
 | **Embedding Projector**  | TensorFlow Embedding-Visualisierung (PCA, t-SNE, UMAP) | [TF Projector](https://projector.tensorflow.org/?hl=de)                                     |
 | **Tokenizer**            | OpenAI Tokenizer - Token-Visualisierung                | [OpenAI Tokenizer](https://platform.openai.com/tokenizer)                                   |
 | **Tokenizer Playground** | Token-Visualisierung mit Kontextfenster                | [GPT Tokenizer Playground – Visualize Tokens for OpenAI Models](https://gpt-tokenizer.dev/) |
@@ -158,9 +158,9 @@ Tools für KI-gestützte Prozessoptimierung und Entscheidungshilfen
 
 | Thema                          | Beschreibung                                          | Link                                                                                |
 | ------------------------------ | ----------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| **Checkliste Automatisierung** | Checkliste als  Entscheidungshilfe                    | [Checkliste_Automatisierung](https://editor.p5js.org/ralf.bendig.rb/full/ckiLlKrql) |
+| **Checkliste Automatisierung** | Checkliste als  Entscheidungshilfe                    | [Checkliste_Automatisierung]({{ '/visualisierungen/checkliste_automatisierung/' | relative_url }}){:target="_blank" rel="noopener"} |
 | **KI-Delegation-Poker**        | Entscheidungshilfe: Welche Aufgaben eignen sich für KI-Delegation? | [KI-Delegation-Poker](https://ki-delegation-poker.ralf42-2025.chatgpt.site/teilnehmen) |
-| **KI-Prozessoptimierung**      | KI-Prozessoptimierung - Schritt für Schritt Anleitung | [KI-Prozessoptimierung](https://editor.p5js.org/ralf.bendig.rb/full/xGKXCTR7T)      |
+| **KI-Prozessoptimierung**      | KI-Prozessoptimierung - Schritt für Schritt Anleitung | [KI-Prozessoptimierung]({{ '/visualisierungen/ki_prozessoptimierung/' | relative_url }}){:target="_blank" rel="noopener"}      |
 
 ---
 
@@ -170,7 +170,7 @@ Containerisierung und Betrieb von GenAI-Anwendungen
 
 | Thema      | Beschreibung                                                              | Link                                                                |
 | ---------- | --------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| **Docker** | Containerisierung einer Anwendung für reproduzierbares Deployment visualisiert | [Docker](https://editor.p5js.org/ralf.bendig.rb/full/dbBJ9BhRP) |
+| **Docker** | Containerisierung einer Anwendung für reproduzierbares Deployment visualisiert | [Docker]({{ '/visualisierungen/docker/' | relative_url }}){:target="_blank" rel="noopener"} |
 
 ---
 
@@ -189,8 +189,8 @@ Weitere interaktive Visualisierungen von externen Anbietern
 
 | Dokument | Frage |
 |---|---|
-| [Zuerst lesen](../zuerst-lesen.html) | Welche Dokumente sind vor dem ersten Kursprojekt am wichtigsten? |
-| [Lesepfade](../lesepfade.html) | Welche Reihenfolge passt zu Rolle, Ziel und Vorkenntnissen? |
+| [Zuerst lesen](../zuerst-lesen.html){:target="_blank" rel="noopener"} | Welche Dokumente sind vor dem ersten Kursprojekt am wichtigsten? |
+| [Lesepfade](../lesepfade.html){:target="_blank" rel="noopener"} | Welche Reihenfolge passt zu Rolle, Ziel und Vorkenntnissen? |
 
 ---
 
