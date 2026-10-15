@@ -100,6 +100,7 @@ Agentenbasierte KI-Systeme und deren Funktionsweise
 | **KI-Agent**  | Visualisierung eines LLM-basierten KI-Agenten | [KI_Agenten]({{ '/visualisierungen/ki_agenten/' | relative_url }}){:target="_blank" rel="noopener"}             |
 | **LangGraph** | Interaktiver Explainer zu LangGraph-Konzepten | [Interaktiver Explainer]({{ '/visualisierungen/langgraph_explainer/' | relative_url }}){:target="_blank" rel="noopener"} |
 | **Trimming und Summary** | Context-Management-Strategien (Trimming, Summary) für LangGraph Memory | [Trimming und Summary]({{ '/visualisierungen/trimming_summary/' | relative_url }}){:target="_blank" rel="noopener"} |
+| **Context Engineering** | Kontextfenster eines Agenten und vier Kontextfehler (Poisoning, Distraction, Confusion, Clash) mit passender Gegenmaßnahme | [Context Engineering]({{ '/visualisierungen/context_engineering/' | relative_url }}){:target="_blank" rel="noopener"} |
 
 ---
 
