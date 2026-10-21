@@ -36,6 +36,23 @@ MCP unterscheidet drei Rollen. Der **Host** ist die Anwendung, in der das Modell
 
 
 ```mermaid
+---
+config:
+  theme: base
+  look: classic
+  themeVariables:
+    primaryColor: '#e0f2fe'
+    primaryBorderColor: '#0284c7'
+    primaryTextColor: '#1e293b'
+    lineColor: '#64748b'
+    clusterBkg: '#f8fafc'
+    clusterBorder: '#cbd5e1'
+    noteBkgColor: '#fef3c7'
+    noteBorderColor: '#d97706'
+    noteTextColor: '#78350f'
+    edgeLabelBackground: '#ffffff'
+---
+
 graph TD
 
     %% Host / Client-Seite
@@ -85,16 +102,10 @@ graph TD
     Server2 --> F2
     Server2 --> F3
 
-    %% Styling
-    style App fill:#f9f,stroke:#333,stroke-width:2px
-    style LLM fill:#fdd,stroke:#333,stroke-width:2px
-    style Client fill:#bbf,stroke:#333,stroke-width:2px
-
-    style Server1 fill:#bfb,stroke:#333,stroke-width:2px
-    style Server2 fill:#bfb,stroke:#333,stroke-width:2px
-    style Server3 fill:#bfb,stroke:#333,stroke-width:2px
-
-    style MCP_Features fill:#fff,stroke:#333,stroke-dasharray: 5 5
+%% Funktionsfarben nach Mermaid_Best_Practices.md
+classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
+classDef target fill:#fae8ff,stroke:#c026d3,stroke-width:2px,color:#701a75;
+class Server1,Server2,Server3 target;
 ```
 
 
@@ -154,7 +165,22 @@ Der Vorteil entsteht erst, wenn diese Wiederverwendung gebraucht wird. Für eine
 
 
 ```mermaid
-%%{init: {'theme':'forest'}}%%
+---
+config:
+  theme: base
+  look: classic
+  themeVariables:
+    primaryColor: '#e0f2fe'
+    primaryBorderColor: '#0284c7'
+    primaryTextColor: '#1e293b'
+    lineColor: '#64748b'
+    clusterBkg: '#f8fafc'
+    clusterBorder: '#cbd5e1'
+    noteBkgColor: '#fef3c7'
+    noteBorderColor: '#d97706'
+    noteTextColor: '#78350f'
+    edgeLabelBackground: '#ffffff'
+---
 
 sequenceDiagram
     autonumber

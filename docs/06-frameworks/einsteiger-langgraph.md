@@ -124,13 +124,33 @@ display(Image(graph.get_graph().draw_mermaid_png()))
 So sieht der minimale Workflow aus:
 
 ```mermaid
+---
+config:
+  theme: base
+  look: classic
+  themeVariables:
+    primaryColor: '#e0f2fe'
+    primaryBorderColor: '#0284c7'
+    primaryTextColor: '#1e293b'
+    lineColor: '#64748b'
+    clusterBkg: '#f8fafc'
+    clusterBorder: '#cbd5e1'
+    noteBkgColor: '#fef3c7'
+    noteBorderColor: '#d97706'
+    noteTextColor: '#78350f'
+    edgeLabelBackground: '#ffffff'
+---
+
 flowchart LR
     START([START]) --> AGENT[agent_node]
     AGENT --> END([END])
 
-    style START fill:#90EE90
-    style END fill:#FFB6C1
-    style AGENT fill:#87CEEB
+%% Funktionsfarben nach Mermaid_Best_Practices.md
+classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
+classDef input fill:#e0e7ff,stroke:#6366f1,stroke-width:2px,color:#1e1b4b;
+classDef output fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d;
+class START input;
+class END output;
 ```
 
 ### Ausführen
@@ -157,6 +177,23 @@ Wenn dein erstes Beispiel steht, kannst du den Grundgedanken dahinter klarer mac
 - Reducer wie `add_messages` sorgen dafür, dass bestimmte Daten sinnvoll zusammengeführt werden.
 
 ```mermaid
+---
+config:
+  theme: base
+  look: classic
+  themeVariables:
+    primaryColor: '#e0f2fe'
+    primaryBorderColor: '#0284c7'
+    primaryTextColor: '#1e293b'
+    lineColor: '#64748b'
+    clusterBkg: '#f8fafc'
+    clusterBorder: '#cbd5e1'
+    noteBkgColor: '#fef3c7'
+    noteBorderColor: '#d97706'
+    noteTextColor: '#78350f'
+    edgeLabelBackground: '#ffffff'
+---
+
 flowchart TD
     %% Einstiegspunkt
     INVOKE([graph.invoke]) --> START
@@ -187,15 +224,12 @@ flowchart TD
     AGENT_NODE -->|Workflow beendet| END
     END --> RESULT([Finaler State])
 
-    %% Styling
-    style START fill:#90EE90,stroke:#333
-    style END fill:#FFB6C1,stroke:#333
-    style AGENT_NODE fill:#f9f9f9,stroke:#87CEEB,stroke-width:2px
-    style StateIn fill:#E1F5FE,stroke:#01579B
-    style LLM fill:#E1F5FE,stroke:#01579B
-    style Update fill:#E1F5FE,stroke:#01579B
-    style INVOKE fill:#eeeeee,stroke:#999,stroke-dasharray: 5 5
-    style RESULT fill:#eeeeee,stroke:#999,stroke-dasharray: 5 5
+%% Funktionsfarben nach Mermaid_Best_Practices.md
+classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
+classDef input fill:#e0e7ff,stroke:#6366f1,stroke-width:2px,color:#1e1b4b;
+classDef output fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d;
+class START input;
+class END,RESULT output;
 ```
 
 Kurz gesagt: **Nodes sind Funktionen – Edges sind der Ablauf.**
@@ -343,6 +377,23 @@ g.add_edge("tools", "agent")
 **Visualisierung des Tool-Loops:**
 
 ```mermaid
+---
+config:
+  theme: base
+  look: classic
+  themeVariables:
+    primaryColor: '#e0f2fe'
+    primaryBorderColor: '#0284c7'
+    primaryTextColor: '#1e293b'
+    lineColor: '#64748b'
+    clusterBkg: '#f8fafc'
+    clusterBorder: '#cbd5e1'
+    noteBkgColor: '#fef3c7'
+    noteBorderColor: '#d97706'
+    noteTextColor: '#78350f'
+    edgeLabelBackground: '#ffffff'
+---
+
 flowchart TB
     START([START]) --> AGENT[Agent Node]
     AGENT --> COND{Tool Calls?}
@@ -350,11 +401,16 @@ flowchart TB
     COND -->|No| END([END])
     TOOLS --> AGENT
 
-    style START fill:#90EE90
-    style END fill:#FFB6C1
-    style COND fill:#FFD700
-    style TOOLS fill:#FFA500
-    style AGENT fill:#87CEEB
+%% Funktionsfarben nach Mermaid_Best_Practices.md
+classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
+classDef input fill:#e0e7ff,stroke:#6366f1,stroke-width:2px,color:#1e1b4b;
+classDef metric fill:#fef3c7,stroke:#d97706,stroke-width:2px,color:#78350f;
+classDef output fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d;
+classDef target fill:#fae8ff,stroke:#c026d3,stroke-width:2px,color:#701a75;
+class START input;
+class COND metric;
+class END output;
+class TOOLS target;
 ```
 
 ### Typische Muster
@@ -401,6 +457,23 @@ for chunk in graph.stream(
 **Streaming-Prozess:**
 
 ```mermaid
+---
+config:
+  theme: base
+  look: classic
+  themeVariables:
+    primaryColor: '#e0f2fe'
+    primaryBorderColor: '#0284c7'
+    primaryTextColor: '#1e293b'
+    lineColor: '#64748b'
+    clusterBkg: '#f8fafc'
+    clusterBorder: '#cbd5e1'
+    noteBkgColor: '#fef3c7'
+    noteBorderColor: '#d97706'
+    noteTextColor: '#78350f'
+    edgeLabelBackground: '#ffffff'
+---
+
 sequenceDiagram
     autonumber
     participant User
@@ -459,6 +532,23 @@ Checkpointing lädt dabei den gespeicherten Zustand der `thread_id` und ergänzt
 **Session-Management mit Checkpointing:**
 
 ```mermaid
+---
+config:
+  theme: base
+  look: classic
+  themeVariables:
+    primaryColor: '#e0f2fe'
+    primaryBorderColor: '#0284c7'
+    primaryTextColor: '#1e293b'
+    lineColor: '#64748b'
+    clusterBkg: '#f8fafc'
+    clusterBorder: '#cbd5e1'
+    noteBkgColor: '#fef3c7'
+    noteBorderColor: '#d97706'
+    noteTextColor: '#78350f'
+    edgeLabelBackground: '#ffffff'
+---
+
 stateDiagram-v2
     [*] --> Session1: invoke(state, thread_id)
     Session1 --> Checkpoint: save state
@@ -504,6 +594,23 @@ result = graph.invoke(Command(resume="yes"), config)
 **Human-in-the-Loop Pattern:**
 
 ```mermaid
+---
+config:
+  theme: base
+  look: classic
+  themeVariables:
+    primaryColor: '#e0f2fe'
+    primaryBorderColor: '#0284c7'
+    primaryTextColor: '#1e293b'
+    lineColor: '#64748b'
+    clusterBkg: '#f8fafc'
+    clusterBorder: '#cbd5e1'
+    noteBkgColor: '#fef3c7'
+    noteBorderColor: '#d97706'
+    noteTextColor: '#78350f'
+    edgeLabelBackground: '#ffffff'
+---
+
 flowchart TB
     START([START]) --> NODE1[Process Data]
     NODE1 --> APPROVAL[👤 Approval Node]
@@ -514,12 +621,16 @@ flowchart TB
     EXECUTE --> END([END])
     REJECT --> END
 
-    style START fill:#90EE90
-    style END fill:#FFB6C1
-    style APPROVAL fill:#FFA500
-    style INTERRUPT fill:#FFD700
-    style EXECUTE fill:#87CEEB
-    style REJECT fill:#ff6b6b
+%% Funktionsfarben nach Mermaid_Best_Practices.md
+classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
+classDef input fill:#e0e7ff,stroke:#6366f1,stroke-width:2px,color:#1e1b4b;
+classDef metric fill:#fef3c7,stroke:#d97706,stroke-width:2px,color:#78350f;
+classDef output fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d;
+classDef stop fill:#fee2e2,stroke:#dc2626,stroke-width:2px,color:#7f1d1d;
+class START input;
+class APPROVAL,INTERRUPT,DECISION metric;
+class END output;
+class REJECT stop;
 ```
 
 Einsatzmöglichkeiten:
@@ -555,6 +666,23 @@ def supervisor(state: ChatState) -> Command:
 **Multi-Agent Supervisor Pattern:**
 
 ```mermaid
+---
+config:
+  theme: base
+  look: classic
+  themeVariables:
+    primaryColor: '#e0f2fe'
+    primaryBorderColor: '#0284c7'
+    primaryTextColor: '#1e293b'
+    lineColor: '#64748b'
+    clusterBkg: '#f8fafc'
+    clusterBorder: '#cbd5e1'
+    noteBkgColor: '#fef3c7'
+    noteBorderColor: '#d97706'
+    noteTextColor: '#78350f'
+    edgeLabelBackground: '#ffffff'
+---
+
 graph TB
     START([User Request]) --> SUPERVISOR[Supervisor Agent]
 
@@ -571,11 +699,14 @@ graph TB
     ITERCHECK -->|No| SUPERVISOR
     ITERCHECK -->|Yes| END([END])
 
-    style SUPERVISOR fill:#10a37f
-    style RESEARCH fill:#87CEEB
-    style WRITER fill:#FFB6C1
-    style ANALYST fill:#FFA500
-    style REVIEW fill:#FFD700
+%% Funktionsfarben nach Mermaid_Best_Practices.md
+classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
+classDef input fill:#e0e7ff,stroke:#6366f1,stroke-width:2px,color:#1e1b4b;
+classDef metric fill:#fef3c7,stroke:#d97706,stroke-width:2px,color:#78350f;
+classDef output fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d;
+class START input;
+class COND,REVIEW,ITERCHECK metric;
+class END output;
 ```
 
 Mögliche Erweiterungen:

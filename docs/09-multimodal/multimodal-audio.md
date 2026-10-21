@@ -71,6 +71,23 @@ Wie "verstehen" KI-Modelle Audioinhalte? Der Prozess umfasst mehrere Schritte:
 4. **Ausgabe-Generierung**: Erzeugung der Transkription oder der synthetisierten Sprache
 
 ```mermaid
+---
+config:
+  theme: base
+  look: classic
+  themeVariables:
+    primaryColor: '#e0f2fe'
+    primaryBorderColor: '#0284c7'
+    primaryTextColor: '#1e293b'
+    lineColor: '#64748b'
+    clusterBkg: '#f8fafc'
+    clusterBorder: '#cbd5e1'
+    noteBkgColor: '#fef3c7'
+    noteBorderColor: '#d97706'
+    noteTextColor: '#78350f'
+    edgeLabelBackground: '#ffffff'
+---
+
 flowchart LR
     A[Feature-Extraktion] --> B[Mustererkennung]
     B --> C[Kontext-Analyse]
@@ -81,10 +98,10 @@ flowchart LR
     C1[Attention-<br>Mechanismen] -.-> C
     D1[Transkription<br>Sprachsynthese] -.-> D
 
-    style A fill:#e3f2fd,stroke:#1976d2
-    style B fill:#fff3e0,stroke:#ff9800
-    style C fill:#f3e5f5,stroke:#9c27b0
-    style D fill:#c8e6c9,stroke:#388e3c
+%% Funktionsfarben nach Mermaid_Best_Practices.md
+classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
+classDef output fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d;
+class D,D1 output;
 ```
 
 Diese technischen Grundlagen erklären, warum moderne Audio-KI-Modelle so leistungsfähig sind und warum sie in der Lage sind, auch komplexe Audioinhalte zu verarbeiten und zu generieren.

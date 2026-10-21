@@ -32,7 +32,23 @@ Der Ausgangspunkt dafür ist auch eine grundlegende Asymmetrie: Europa verfügt 
 Für generative KI wird digitale Souveränität besonders greifbar. Eine GenAI-Anwendung hängt häufig gleichzeitig von Modellanbieter, Cloud-Infrastruktur, Embedding-Modell, Vektordatenbank, Logging, Tracing, Datenresidenz und API-Verträgen ab. Souveränität bedeutet deshalb nicht zwingend, jede Komponente selbst zu betreiben. Entscheidend ist vielmehr, bewusst steuern zu können, welche Daten und Funktionen in welcher Umgebung verarbeitet werden – und wie ein Wechsel des Anbieters auch tatsächlich möglich bleibt.
 
 ```mermaid
-%%{init: {'theme':'forest'}}%%
+---
+config:
+  theme: base
+  look: classic
+  themeVariables:
+    primaryColor: '#e0f2fe'
+    primaryBorderColor: '#0284c7'
+    primaryTextColor: '#1e293b'
+    lineColor: '#64748b'
+    clusterBkg: '#f8fafc'
+    clusterBorder: '#cbd5e1'
+    noteBkgColor: '#fef3c7'
+    noteBorderColor: '#d97706'
+    noteTextColor: '#78350f'
+    edgeLabelBackground: '#ffffff'
+---
+
 graph TD
     HW["Chips und Hardware"]
     DC["Cloud-Infrastruktur<br/>Compute · Storage · Netzwerk"]
@@ -47,12 +63,8 @@ graph TD
     INT -->|"integriert in"| APP
     APP -->|"erzeugt"| OPS
 
-    style HW fill:#1b4332,color:#ffffff
-    style DC fill:#2d6a4f,color:#ffffff
-    style MOD fill:#40916c,color:#ffffff
-    style INT fill:#52b788,color:#333333
-    style APP fill:#74c69d,color:#333333
-    style OPS fill:#95d5b2,color:#333333
+%% Funktionsfarben nach Mermaid_Best_Practices.md
+classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
 ```
 
 ## Konzeptionelle Grundlagen und Begriffsbestimmung
@@ -77,7 +89,23 @@ Eine saubere Trennung der Begriffe ist wichtig, um Fehlinterpretationen zu verme
    Autarkie meint eine vollständige Unabhängigkeit durch Selbstversorgung und Abkapselung. In der global vernetzten Digitalwirtschaft gilt Autarkie ökonomisch als wenig sinnvoll und technisch als nicht realistisch. Ein Streben nach Autarkie würde bedeuten, sämtliche Hard- und Software im eigenen Wirtschaftsraum selbst zu produzieren – mit massiven Effizienzverlusten, einem Innovationsstau und deutlichen Wohlstandseinbußen. Experten wie jene von Arvato Systems oder dem BWI warnen explizit davor, Souveränität mit Autarkie zu verwechseln: Das Ziel ist nicht, alles selbst zu bauen („Make“), sondern Teile zugekauft („Buy“) zu beziehen, solange die Kontrolle über die Wertschöpfungskette erhalten bleibt.6
 
 ```mermaid
-%%{init: {'theme':'forest'}}%%
+---
+config:
+  theme: base
+  look: classic
+  themeVariables:
+    primaryColor: '#e0f2fe'
+    primaryBorderColor: '#0284c7'
+    primaryTextColor: '#1e293b'
+    lineColor: '#64748b'
+    clusterBkg: '#f8fafc'
+    clusterBorder: '#cbd5e1'
+    noteBkgColor: '#fef3c7'
+    noteBorderColor: '#d97706'
+    noteTextColor: '#78350f'
+    edgeLabelBackground: '#ffffff'
+---
+
 graph LR
     S[“Souveränität<br/>Normativer Anspruch<br/>Regeln setzen und<br/>durchsetzen”]
     A[“Autonomie<br/>Strategische Grundlage<br/>Faktische Wahlfreiheit<br/>zwischen Alternativen”]
@@ -86,9 +114,10 @@ graph LR
     S -->|”erfordert als Grundlage”| A
     A -. “ist nicht” .-> X
 
-    style S fill:#1b4332,color:#ffffff
-    style A fill:#40916c,color:#ffffff
-    style X fill:#b91c1c,color:#ffffff
+%% Funktionsfarben nach Mermaid_Best_Practices.md
+classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
+classDef stop fill:#fee2e2,stroke:#dc2626,stroke-width:2px,color:#7f1d1d;
+class X stop;
 ```
 
 ### Das Spannungsfeld: Kontrolle versus Leistungsfähigkeit

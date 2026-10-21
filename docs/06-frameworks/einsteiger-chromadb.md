@@ -264,6 +264,23 @@ print(f"Anzahl Chunks: {len(chunks)}")
 ### Overlap visualisiert
 
 ```mermaid
+---
+config:
+  theme: base
+  look: classic
+  themeVariables:
+    primaryColor: '#e0f2fe'
+    primaryBorderColor: '#0284c7'
+    primaryTextColor: '#1e293b'
+    lineColor: '#64748b'
+    clusterBkg: '#f8fafc'
+    clusterBorder: '#cbd5e1'
+    noteBkgColor: '#fef3c7'
+    noteBorderColor: '#d97706'
+    noteTextColor: '#78350f'
+    edgeLabelBackground: '#ffffff'
+---
+
 flowchart TB
     subgraph "Ohne Overlap - Informationsverlust"
         DOC1[Dokument: AAAA BBBB CCCC DDDD]
@@ -293,8 +310,12 @@ flowchart TB
         OK1[✅ Kontext bleibt erhalten!]
     end
 
-    style WARN1 fill:#f8cecc
-    style OK1 fill:#d5e8d4
+%% Funktionsfarben nach Mermaid_Best_Practices.md
+classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
+classDef stop fill:#fee2e2,stroke:#dc2626,stroke-width:2px,color:#7f1d1d;
+classDef output fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d;
+class WARN1 stop;
+class OK1 output;
 ```
 
 **ASCII-Darstellung:**
@@ -317,6 +338,23 @@ Mit Overlap (25%):
 ### Vollständiger Indexierungs-Workflow
 
 ```mermaid
+---
+config:
+  theme: base
+  look: classic
+  themeVariables:
+    primaryColor: '#e0f2fe'
+    primaryBorderColor: '#0284c7'
+    primaryTextColor: '#1e293b'
+    lineColor: '#64748b'
+    clusterBkg: '#f8fafc'
+    clusterBorder: '#cbd5e1'
+    noteBkgColor: '#fef3c7'
+    noteBorderColor: '#d97706'
+    noteTextColor: '#78350f'
+    edgeLabelBackground: '#ffffff'
+---
+
 flowchart LR
     START([Dokument<br/>dokument.txt])
     LOAD[Document Loader<br/>TextLoader]
@@ -331,10 +369,14 @@ flowchart LR
     EMBED -->|vectors<br/>1536 dimensions| STORE
     STORE --> END
 
-    style LOAD fill:#e1f5ff
-    style SPLIT fill:#ffe6cc
-    style EMBED fill:#d5e8d4
-    style STORE fill:#dae8fc
+%% Funktionsfarben nach Mermaid_Best_Practices.md
+classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
+classDef input fill:#e0e7ff,stroke:#6366f1,stroke-width:2px,color:#1e1b4b;
+classDef output fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d;
+classDef target fill:#fae8ff,stroke:#c026d3,stroke-width:2px,color:#701a75;
+class START input;
+class END output;
+class STORE target;
 ```
 
 ```python
@@ -396,6 +438,23 @@ Die Suche in der Vektordatenbank findet die semantisch ähnlichsten Dokumente.
 ### Similarity Search Workflow
 
 ```mermaid
+---
+config:
+  theme: base
+  look: classic
+  themeVariables:
+    primaryColor: '#e0f2fe'
+    primaryBorderColor: '#0284c7'
+    primaryTextColor: '#1e293b'
+    lineColor: '#64748b'
+    clusterBkg: '#f8fafc'
+    clusterBorder: '#cbd5e1'
+    noteBkgColor: '#fef3c7'
+    noteBorderColor: '#d97706'
+    noteTextColor: '#78350f'
+    edgeLabelBackground: '#ffffff'
+---
+
 sequenceDiagram
     autonumber
     participant User
@@ -825,6 +884,23 @@ for query in test_queries:
 ### Typischer RAG-Workflow
 
 ```mermaid
+---
+config:
+  theme: base
+  look: classic
+  themeVariables:
+    primaryColor: '#e0f2fe'
+    primaryBorderColor: '#0284c7'
+    primaryTextColor: '#1e293b'
+    lineColor: '#64748b'
+    clusterBkg: '#f8fafc'
+    clusterBorder: '#cbd5e1'
+    noteBkgColor: '#fef3c7'
+    noteBorderColor: '#d97706'
+    noteTextColor: '#78350f'
+    edgeLabelBackground: '#ffffff'
+---
+
 flowchart TB
     LOAD[1. Dokumente laden<br/>TextLoader, PyPDFLoader]
     CHUNK[2. Chunking<br/>RecursiveCharacterTextSplitter<br/>chunk_size=500, overlap=100]
@@ -841,13 +917,10 @@ flowchart TB
     RETRIEVE --> CHAIN
     CHAIN --> AGENT
 
-    style LOAD fill:#e1f5ff
-    style CHUNK fill:#ffe6cc
-    style EMBED fill:#d5e8d4
-    style STORE fill:#dae8fc
-    style RETRIEVE fill:#e1f5ff
-    style CHAIN fill:#ffe6cc
-    style AGENT fill:#d5e8d4
+%% Funktionsfarben nach Mermaid_Best_Practices.md
+classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
+classDef target fill:#fae8ff,stroke:#c026d3,stroke-width:2px,color:#701a75;
+class STORE,RETRIEVE target;
 ```
 
 **Text-Version:**

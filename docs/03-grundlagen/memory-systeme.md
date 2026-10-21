@@ -106,6 +106,22 @@ Für Entwickler ist die Trennung zwischen Kurzzeit-Memory und persistentem Memor
 
 
 ```mermaid
+---
+config:
+  theme: base
+  look: classic
+  themeVariables:
+    primaryColor: '#e0f2fe'
+    primaryBorderColor: '#0284c7'
+    primaryTextColor: '#1e293b'
+    lineColor: '#64748b'
+    clusterBkg: '#f8fafc'
+    clusterBorder: '#cbd5e1'
+    noteBkgColor: '#fef3c7'
+    noteBorderColor: '#d97706'
+    noteTextColor: '#78350f'
+    edgeLabelBackground: '#ffffff'
+---
 
 flowchart TB
 
@@ -131,6 +147,8 @@ flowchart TB
 
     L --> L3["<b>Episodisch</b><br/>Conversational Memory"]
 
+%% Funktionsfarben nach Mermaid_Best_Practices.md
+classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
 ```
 
 
@@ -313,6 +331,22 @@ def ask_summary(thread_id: str, user_input: str) -> str:
 
 
 ```mermaid
+---
+config:
+  theme: base
+  look: classic
+  themeVariables:
+    primaryColor: '#e0f2fe'
+    primaryBorderColor: '#0284c7'
+    primaryTextColor: '#1e293b'
+    lineColor: '#64748b'
+    clusterBkg: '#f8fafc'
+    clusterBorder: '#cbd5e1'
+    noteBkgColor: '#fef3c7'
+    noteBorderColor: '#d97706'
+    noteTextColor: '#78350f'
+    edgeLabelBackground: '#ffffff'
+---
 
 flowchart LR
 
@@ -326,6 +360,10 @@ flowchart LR
 
     E --> F[Letzte Nachrichten bleiben voll erhalten]
 
+%% Funktionsfarben nach Mermaid_Best_Practices.md
+classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
+classDef metric fill:#fef3c7,stroke:#d97706,stroke-width:2px,color:#78350f;
+class B metric;
 ```
 
 
@@ -484,6 +522,22 @@ Workflow Memory speichert die geordnete Sequenz von Schritten, die ein System zu
 
 
 ```mermaid
+---
+config:
+  theme: base
+  look: classic
+  themeVariables:
+    primaryColor: '#e0f2fe'
+    primaryBorderColor: '#0284c7'
+    primaryTextColor: '#1e293b'
+    lineColor: '#64748b'
+    clusterBkg: '#f8fafc'
+    clusterBorder: '#cbd5e1'
+    noteBkgColor: '#fef3c7'
+    noteBorderColor: '#d97706'
+    noteTextColor: '#78350f'
+    edgeLabelBackground: '#ffffff'
+---
 
 flowchart LR
 
@@ -499,6 +553,14 @@ flowchart LR
 
     NEW --> DONE
 
+%% Funktionsfarben nach Mermaid_Best_Practices.md
+classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
+classDef input fill:#e0e7ff,stroke:#6366f1,stroke-width:2px,color:#1e1b4b;
+classDef metric fill:#fef3c7,stroke:#d97706,stroke-width:2px,color:#78350f;
+classDef output fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d;
+class ANFRAGE input;
+class MATCH metric;
+class DONE output;
 ```
 
 

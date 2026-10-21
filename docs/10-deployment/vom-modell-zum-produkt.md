@@ -196,6 +196,23 @@ Die Entscheidung ist selten endgültig. Ein Projekt kann mit `create_agent` begi
 Ein Customer-Support-System beginnt meist mit einem einfachen Agenten. Sobald reale Tickets, interne Daten und Eskalationen hinzukommen, entsteht eine Architektur mit mehreren Schichten: Retrieval für Wissenszugriff, Tools für Geschäftsprozesse, Graphsteuerung für Routing und Freigaben sowie LangSmith für Tracing und Evaluation.
 
 ```mermaid
+---
+config:
+  theme: base
+  look: classic
+  themeVariables:
+    primaryColor: '#e0f2fe'
+    primaryBorderColor: '#0284c7'
+    primaryTextColor: '#1e293b'
+    lineColor: '#64748b'
+    clusterBkg: '#f8fafc'
+    clusterBorder: '#cbd5e1'
+    noteBkgColor: '#fef3c7'
+    noteBorderColor: '#d97706'
+    noteTextColor: '#78350f'
+    edgeLabelBackground: '#ffffff'
+---
+
 flowchart TB
     USER[Support-Anfrage] --> AGENT[LangChain Agent]
     AGENT --> RETRIEVAL[RAG / File Search]
@@ -206,6 +223,17 @@ flowchart TB
     AGENT --> TRACE[LangSmith Traces]
     GRAPH --> TRACE
     TRACE --> EVAL[Evaluation & Regressionstests]
+
+%% Funktionsfarben nach Mermaid_Best_Practices.md
+classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
+classDef input fill:#e0e7ff,stroke:#6366f1,stroke-width:2px,color:#1e1b4b;
+classDef metric fill:#fef3c7,stroke:#d97706,stroke-width:2px,color:#78350f;
+classDef output fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d;
+classDef target fill:#fae8ff,stroke:#c026d3,stroke-width:2px,color:#701a75;
+class USER input;
+class APPROVAL,EVAL metric;
+class RESPONSE output;
+class TOOLS target;
 ```
 
 Diese Architektur ist nicht wegen der Anzahl der Bausteine produktionsreif. Sie wird produktionsnäher, weil jeder Baustein eine überprüfbare Aufgabe hat: Retrieval liefert Kontext, Tools verändern externe Systeme, LangGraph kontrolliert den Ablauf und LangSmith macht das Verhalten sichtbar.

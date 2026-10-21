@@ -43,6 +43,23 @@ Kernprinzip: **Jede Ausführung wird automatisch protokolliert und kann nachvoll
 ### LangSmith im Entwicklungs-Workflow
 
 ```mermaid
+---
+config:
+  theme: base
+  look: classic
+  themeVariables:
+    primaryColor: '#e0f2fe'
+    primaryBorderColor: '#0284c7'
+    primaryTextColor: '#1e293b'
+    lineColor: '#64748b'
+    clusterBkg: '#f8fafc'
+    clusterBorder: '#cbd5e1'
+    noteBkgColor: '#fef3c7'
+    noteBorderColor: '#d97706'
+    noteTextColor: '#78350f'
+    edgeLabelBackground: '#ffffff'
+---
+
 flowchart TB
     DEV[Development<br/>LangChain/LangGraph Code]
     RUN[Code Execution<br/>Chain/RAG/Tool Runs]
@@ -61,8 +78,10 @@ flowchart TB
         LANGSMITH
     end
 
-    style LANGSMITH fill:#d5e8d4
-    style UI fill:#dae8fc
+%% Funktionsfarben nach Mermaid_Best_Practices.md
+classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
+classDef target fill:#fae8ff,stroke:#c026d3,stroke-width:2px,color:#701a75;
+class LANGSMITH target;
 ```
 
 ---
@@ -155,6 +174,23 @@ print(response.content)
 LangSmith organisiert alle Daten in einer klaren Hierarchie:
 
 ```mermaid
+---
+config:
+  theme: base
+  look: classic
+  themeVariables:
+    primaryColor: '#e0f2fe'
+    primaryBorderColor: '#0284c7'
+    primaryTextColor: '#1e293b'
+    lineColor: '#64748b'
+    clusterBkg: '#f8fafc'
+    clusterBorder: '#cbd5e1'
+    noteBkgColor: '#fef3c7'
+    noteBorderColor: '#d97706'
+    noteTextColor: '#78350f'
+    edgeLabelBackground: '#ffffff'
+---
+
 flowchart TB
     PROJECT["Project<br>Container für alle Traces<br>z.B. 'M08-RAG-Chain'"]
     THREAD["Thread<br>Gesprächs-Sequenz<br>session_id / conversation_id"]
@@ -171,13 +207,8 @@ flowchart TB
     RUN -.-> META
     RUN -.-> FEEDBACK
 
-    style PROJECT fill:#e1f5ff
-    style THREAD fill:#fff3cd
-    style TRACE fill:#dae8fc
-    style RUN fill:#d5e8d4
-    style TAGS fill:#f5f5f5
-    style META fill:#f5f5f5
-    style FEEDBACK fill:#f5f5f5
+%% Funktionsfarben nach Mermaid_Best_Practices.md
+classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
 ```
 
 | Konzept | Bedeutung |
@@ -228,6 +259,23 @@ result = chain.invoke({"topic": "Vektordatenbanken"})
 **Im LangSmith-Trace sichtbar:**
 
 ```mermaid
+---
+config:
+  theme: base
+  look: classic
+  themeVariables:
+    primaryColor: '#e0f2fe'
+    primaryBorderColor: '#0284c7'
+    primaryTextColor: '#1e293b'
+    lineColor: '#64748b'
+    clusterBkg: '#f8fafc'
+    clusterBorder: '#cbd5e1'
+    noteBkgColor: '#fef3c7'
+    noteBorderColor: '#d97706'
+    noteTextColor: '#78350f'
+    edgeLabelBackground: '#ffffff'
+---
+
 graph TB
     CHAIN[Chain Run - Gesamt<br/>Latenz: 1.5s]
     PROMPT[Prompt Run<br/>Template-Formatierung<br/>0.1s]
@@ -238,10 +286,8 @@ graph TB
     CHAIN --> LLM
     CHAIN --> PARSER
 
-    style CHAIN fill:#e1f5ff
-    style PROMPT fill:#ffe6cc
-    style LLM fill:#d5e8d4
-    style PARSER fill:#dae8fc
+%% Funktionsfarben nach Mermaid_Best_Practices.md
+classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
 ```
 
 **ASCII-Darstellung:**
@@ -314,6 +360,23 @@ response = agent.invoke({
 **Im LangSmith-Trace wird sichtbar:**
 
 ```mermaid
+---
+config:
+  theme: base
+  look: classic
+  themeVariables:
+    primaryColor: '#e0f2fe'
+    primaryBorderColor: '#0284c7'
+    primaryTextColor: '#1e293b'
+    lineColor: '#64748b'
+    clusterBkg: '#f8fafc'
+    clusterBorder: '#cbd5e1'
+    noteBkgColor: '#fef3c7'
+    noteBorderColor: '#d97706'
+    noteTextColor: '#78350f'
+    edgeLabelBackground: '#ffffff'
+---
+
 sequenceDiagram
 	autonumber
     participant User
@@ -628,6 +691,23 @@ def my_rag_chain(question: str):
 ### Fehler debuggen
 
 ```mermaid
+---
+config:
+  theme: base
+  look: classic
+  themeVariables:
+    primaryColor: '#e0f2fe'
+    primaryBorderColor: '#0284c7'
+    primaryTextColor: '#1e293b'
+    lineColor: '#64748b'
+    clusterBkg: '#f8fafc'
+    clusterBorder: '#cbd5e1'
+    noteBkgColor: '#fef3c7'
+    noteBorderColor: '#d97706'
+    noteTextColor: '#78350f'
+    edgeLabelBackground: '#ffffff'
+---
+
 flowchart LR
     FAIL[Chain fails<br/>Wrong answer]
     OPEN[Open LangSmith UI<br/>Find failed run]
@@ -646,9 +726,14 @@ flowchart LR
     SUCCESS -->|No| INSPECT
     SUCCESS -->|Yes| END([Done])
 
-    style FAIL fill:#f8cecc
-    style SUCCESS fill:#d5e8d4
-    style COMPARE fill:#dae8fc
+%% Funktionsfarben nach Mermaid_Best_Practices.md
+classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
+classDef metric fill:#fef3c7,stroke:#d97706,stroke-width:2px,color:#78350f;
+classDef output fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d;
+classDef stop fill:#fee2e2,stroke:#dc2626,stroke-width:2px,color:#7f1d1d;
+class COMPARE,SUCCESS metric;
+class END output;
+class FAIL stop;
 ```
 
 **Typischer Workflow:**

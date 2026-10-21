@@ -391,6 +391,23 @@ print(structured.confidence)
 ### Agent-Tool-Interaktion
 
 ```mermaid
+---
+config:
+  theme: base
+  look: classic
+  themeVariables:
+    primaryColor: '#e0f2fe'
+    primaryBorderColor: '#0284c7'
+    primaryTextColor: '#1e293b'
+    lineColor: '#64748b'
+    clusterBkg: '#f8fafc'
+    clusterBorder: '#cbd5e1'
+    noteBkgColor: '#fef3c7'
+    noteBorderColor: '#d97706'
+    noteTextColor: '#78350f'
+    edgeLabelBackground: '#ffffff'
+---
+
 sequenceDiagram
     autonumber
     participant User
@@ -420,6 +437,23 @@ LangChain Expression Language (LCEL) ist die moderne Art, Chains zu bauen. Über
 ### LCEL Pipeline-Visualisierung
 
 ```mermaid
+---
+config:
+  theme: base
+  look: classic
+  themeVariables:
+    primaryColor: '#e0f2fe'
+    primaryBorderColor: '#0284c7'
+    primaryTextColor: '#1e293b'
+    lineColor: '#64748b'
+    clusterBkg: '#f8fafc'
+    clusterBorder: '#cbd5e1'
+    noteBkgColor: '#fef3c7'
+    noteBorderColor: '#d97706'
+    noteTextColor: '#78350f'
+    edgeLabelBackground: '#ffffff'
+---
+
 flowchart LR
     INPUT[Input Data<br/>input_text: ...]
     PROMPT[Prompt Template<br/>ChatPromptTemplate]
@@ -432,9 +466,12 @@ flowchart LR
     LLM -->|pipe operator| PARSER
     PARSER --> OUTPUT
 
-    style PROMPT fill:#ffe6cc
-    style LLM fill:#d5e8d4
-    style PARSER fill:#dae8fc
+%% Funktionsfarben nach Mermaid_Best_Practices.md
+classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
+classDef input fill:#e0e7ff,stroke:#6366f1,stroke-width:2px,color:#1e1b4b;
+classDef output fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d;
+class INPUT input;
+class OUTPUT output;
 ```
 
 ### Beispiel: Einfache LCEL-Chain für Textumformung
@@ -698,6 +735,23 @@ Retrieval‑Augmented Generation (RAG) ist ein zentraler Anwendungsfall für Lan
 ### RAG-Workflow Visualisierung
 
 ```mermaid
+---
+config:
+  theme: base
+  look: classic
+  themeVariables:
+    primaryColor: '#e0f2fe'
+    primaryBorderColor: '#0284c7'
+    primaryTextColor: '#1e293b'
+    lineColor: '#64748b'
+    clusterBkg: '#f8fafc'
+    clusterBorder: '#cbd5e1'
+    noteBkgColor: '#fef3c7'
+    noteBorderColor: '#d97706'
+    noteTextColor: '#78350f'
+    edgeLabelBackground: '#ffffff'
+---
+
 flowchart TB
 
 START([Benutzeranfrage])
@@ -737,11 +791,12 @@ subgraph "<b>LCEL Chain (Kette)</b>"
     LLM
 end
 
-style EMBED fill:#ffe6cc
-style RETRIEVE fill:#f8cecc
-style FORMAT fill:#d5e8d4
-style PROMPT fill:#dae8fc
-style LLM fill:#d5e8d4
+%% Funktionsfarben nach Mermaid_Best_Practices.md
+classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
+classDef input fill:#e0e7ff,stroke:#6366f1,stroke-width:2px,color:#1e1b4b;
+classDef output fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d;
+class START input;
+class FINISH output;
 ```
 
 **Beispiel: Minimaler RAG-Workflow mit LCEL**

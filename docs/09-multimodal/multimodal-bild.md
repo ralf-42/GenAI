@@ -34,6 +34,23 @@ Der Prozess der Bilderkennung umfasst folgende Schritte:
 4. **Klassifikation**: Basierend auf den extrahierten Merkmalen erfolgt eine Klassifikation des Bildes. Dies geschieht mithilfe von maschinellen Lernmodellen oder regelbasierten Systemen.
 
 ```mermaid
+---
+config:
+  theme: base
+  look: classic
+  themeVariables:
+    primaryColor: '#e0f2fe'
+    primaryBorderColor: '#0284c7'
+    primaryTextColor: '#1e293b'
+    lineColor: '#64748b'
+    clusterBkg: '#f8fafc'
+    clusterBorder: '#cbd5e1'
+    noteBkgColor: '#fef3c7'
+    noteBorderColor: '#d97706'
+    noteTextColor: '#78350f'
+    edgeLabelBackground: '#ffffff'
+---
+
 flowchart LR
     A[Bilderfassung] --> B[Vorverarbeitung]
     B --> C[Merkmalsextraktion]
@@ -44,10 +61,12 @@ flowchart LR
     C1[Kanten, Formen<br>Farbverteilung] -.-> C
     D1[ML-Modell oder<br>Regelsystem] -.-> D
 
-    style A fill:#e3f2fd,stroke:#1976d2
-    style B fill:#fff3e0,stroke:#ff9800
-    style C fill:#f3e5f5,stroke:#9c27b0
-    style D fill:#c8e6c9,stroke:#388e3c
+%% Funktionsfarben nach Mermaid_Best_Practices.md
+classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
+classDef input fill:#e0e7ff,stroke:#6366f1,stroke-width:2px,color:#1e1b4b;
+classDef output fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d;
+class A input;
+class D output;
 ```
 
 <div style="page-break-after: always;"></div>

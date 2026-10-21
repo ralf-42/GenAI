@@ -163,6 +163,23 @@ Dies ist die am wenigsten ausgereifte Schicht im Stack. Es gibt kein dominantes 
 Der Anwendungstyp bestimmt, in welche Schichten investiert wird und welche Werkzeuge jeweils gewählt werden:
 
 ```mermaid
+---
+config:
+  theme: base
+  look: classic
+  themeVariables:
+    primaryColor: '#e0f2fe'
+    primaryBorderColor: '#0284c7'
+    primaryTextColor: '#1e293b'
+    lineColor: '#64748b'
+    clusterBkg: '#f8fafc'
+    clusterBorder: '#cbd5e1'
+    noteBkgColor: '#fef3c7'
+    noteBorderColor: '#d97706'
+    noteTextColor: '#78350f'
+    edgeLabelBackground: '#ffffff'
+---
+
 flowchart TD
     START{{Was wird gebaut?}}
 
@@ -181,15 +198,14 @@ flowchart TD
     T3 --> R3([Schwierigste Speicherfrage<br>Orchestrierung ist einfach])
     T4 --> R4([Höchste Komplexität<br>Eval zuerst bauen])
 
-    classDef question fill:#dbeafe,stroke:#3b82f6,stroke-width:2px
-    classDef agenttype fill:#f0fdf4,stroke:#22c55e,stroke-width:1px
-    classDef stack fill:#fefce8,stroke:#eab308,stroke-width:1px
-    classDef result fill:#f3f4f6,stroke:#9ca3af,stroke-width:1px
-
-    class START question
-    class S1,S2,S3,S4 agenttype
-    class T1,T2,T3,T4 stack
-    class R1,R2,R3,R4 result
+%% Funktionsfarben nach Mermaid_Best_Practices.md
+classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
+classDef metric fill:#fef3c7,stroke:#d97706,stroke-width:2px,color:#78350f;
+classDef output fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d;
+classDef target fill:#fae8ff,stroke:#c026d3,stroke-width:2px,color:#701a75;
+class START metric;
+class R1,R2,R3,R4 output;
+class T1,T2,T3,T4 target;
 ```
 
 | Anwendungstyp | Beispiele | Stack |

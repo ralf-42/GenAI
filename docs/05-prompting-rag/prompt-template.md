@@ -352,6 +352,23 @@ print(p)  # Prompt-Text prüfen
 ## Entscheidungshilfe
 
 ```mermaid
+---
+config:
+  theme: base
+  look: classic
+  themeVariables:
+    primaryColor: '#e0f2fe'
+    primaryBorderColor: '#0284c7'
+    primaryTextColor: '#1e293b'
+    lineColor: '#64748b'
+    clusterBkg: '#f8fafc'
+    clusterBorder: '#cbd5e1'
+    noteBkgColor: '#fef3c7'
+    noteBorderColor: '#d97706'
+    noteTextColor: '#78350f'
+    edgeLabelBackground: '#ffffff'
+---
+
 flowchart TD
     A[Neuer Prompt] --> B{Platzhalter nötig?}
     B -->|Nein| C{Beispiele zeigen?}
@@ -361,8 +378,14 @@ flowchart TD
     F -->|Ja| G([Typ 1 + XML-Tags])
     F -->|Nein| H([Typ 1: System-only<br>variables: empty])
 
-    classDef solution fill:#bbf,stroke:#333,stroke-width:1px
-    class D,E,G,H solution
+%% Funktionsfarben nach Mermaid_Best_Practices.md
+classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
+classDef input fill:#e0e7ff,stroke:#6366f1,stroke-width:2px,color:#1e1b4b;
+classDef metric fill:#fef3c7,stroke:#d97706,stroke-width:2px,color:#78350f;
+classDef output fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d;
+class A input;
+class B,C,F metric;
+class D,E,G,H output;
 ```
 
 ---

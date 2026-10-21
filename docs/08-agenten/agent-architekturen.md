@@ -54,10 +54,29 @@ Einige Begriffe tauchen in Agenten-Architekturen immer wieder auf. Für dieses D
 Die Architekturen in diesem Dokument bauen aufeinander auf. Jede Stufe erhöht die Flexibilität — und gleichzeitig den Koordinationsaufwand:
 
 ```mermaid
-%%{init: {'theme':'forest'}}%%
+---
+config:
+  theme: base
+  look: classic
+  themeVariables:
+    primaryColor: '#e0f2fe'
+    primaryBorderColor: '#0284c7'
+    primaryTextColor: '#1e293b'
+    lineColor: '#64748b'
+    clusterBkg: '#f8fafc'
+    clusterBorder: '#cbd5e1'
+    noteBkgColor: '#fef3c7'
+    noteBorderColor: '#d97706'
+    noteTextColor: '#78350f'
+    edgeLabelBackground: '#ffffff'
+---
+
 flowchart LR
     A["1 · Tool-Calling\nein Werkzeug,\neine Entscheidung"] --> B["2 · Single-Agent\nmehrere Schritte,\nein Agent"]
     B --> C["3 · Multi-Agent\nSpezialisierung,\nKoordination"]
+
+%% Funktionsfarben nach Mermaid_Best_Practices.md
+classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
 ```
 
 | Stufe | Muster | Wann sinnvoll |
@@ -136,7 +155,23 @@ Wenn Aufgaben für einen einzelnen Agenten zu komplex werden, kommen spezialisie
 Ein zentraler Chef-Agent (Supervisor) koordiniert mehrere spezialisierte Unter-Agenten. Der Chef delegiert die Teilaufgaben, behält den Überblick und führt die Ergebnisse zusammen.
 
 ```mermaid
-%%{init: {'theme':'forest'}}%%
+---
+config:
+  theme: base
+  look: classic
+  themeVariables:
+    primaryColor: '#e0f2fe'
+    primaryBorderColor: '#0284c7'
+    primaryTextColor: '#1e293b'
+    lineColor: '#64748b'
+    clusterBkg: '#f8fafc'
+    clusterBorder: '#cbd5e1'
+    noteBkgColor: '#fef3c7'
+    noteBorderColor: '#d97706'
+    noteTextColor: '#78350f'
+    edgeLabelBackground: '#ffffff'
+---
+
 flowchart TD
     A[Aufgabe] --> S[Supervisor]
     S --> R[Research-Agent]
@@ -146,6 +181,9 @@ flowchart TD
     W --> S
     C --> S
     S --> E[Finale Antwort]
+
+%% Funktionsfarben nach Mermaid_Best_Practices.md
+classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
 ```
 
 Supervisor passt, wenn parallele Teilaufgaben koordiniert und zu einem Gesamtergebnis zusammengeführt werden müssen. Die Struktur lässt sich verschachteln (Team-Supervisoren unter einem Top-Level-Supervisor), wird dann aber schnell komplex. Hauptrisiko: Der Supervisor selbst wird zum Engpass.
@@ -154,7 +192,23 @@ Supervisor passt, wenn parallele Teilaufgaben koordiniert und zu einem Gesamterg
 Ein Routing-Schritt klassifiziert die Benutzereingabe und leitet sie direkt an den am besten geeigneten Spezialagenten weiter, dessen Antwort anschließend synthetisiert wird. Dies schont das Kontextfenster und spart Latenz und Kosten, da nur der jeweils benötigte Agent aufgerufen wird.
 
 ```mermaid
-%%{init: {'theme':'forest'}}%%
+---
+config:
+  theme: base
+  look: classic
+  themeVariables:
+    primaryColor: '#e0f2fe'
+    primaryBorderColor: '#0284c7'
+    primaryTextColor: '#1e293b'
+    lineColor: '#64748b'
+    clusterBkg: '#f8fafc'
+    clusterBorder: '#cbd5e1'
+    noteBkgColor: '#fef3c7'
+    noteBorderColor: '#d97706'
+    noteTextColor: '#78350f'
+    edgeLabelBackground: '#ffffff'
+---
+
 flowchart TD
     A[Benutzereingabe] --> B[Router / Klassifizierer]
     B -->|Kategorie A| C[Spezialagent A]
@@ -162,6 +216,11 @@ flowchart TD
     C --> E[Antwort-Synthese]
     D --> E
     E --> F[Ausgabe]
+
+%% Funktionsfarben nach Mermaid_Best_Practices.md
+classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
+classDef output fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d;
+class E,F output;
 ```
 
 Router passt, wenn Anfragen klar klassifizierbar sind und jede Kategorie einen anderen Spezialisten braucht. Das Muster ist effizient, aber empfindlich: Eine falsche Klassifikation leitet die gesamte Anfrage in die falsche Richtung.
@@ -170,7 +229,23 @@ Router passt, wenn Anfragen klar klassifizierbar sind und jede Kategorie einen a
 Ein Agent arbeitet an einer Aufgabe und übergibt die Kontrolle bei Bedarf direkt an einen anderen Agenten weiter, inklusive des bisherigen Kontextes. Dies ist typisch für kollaborative Netzwerke (Network / Collaborative), in denen die Agenten sich einen gemeinsamen State teilen und dynamisch entscheiden, wer das Problem als Nächstes fortführt.
 
 ```mermaid
-%%{init: {'theme':'forest'}}%%
+---
+config:
+  theme: base
+  look: classic
+  themeVariables:
+    primaryColor: '#e0f2fe'
+    primaryBorderColor: '#0284c7'
+    primaryTextColor: '#1e293b'
+    lineColor: '#64748b'
+    clusterBkg: '#f8fafc'
+    clusterBorder: '#cbd5e1'
+    noteBkgColor: '#fef3c7'
+    noteBorderColor: '#d97706'
+    noteTextColor: '#78350f'
+    edgeLabelBackground: '#ffffff'
+---
+
 flowchart LR
     subgraph Shared["Gemeinsamer State"]
         S[(State / Scratchpad)]
@@ -181,6 +256,9 @@ flowchart LR
     A -. Handoff .-> B
     B -. Handoff .-> C
     C -. Handoff .-> A
+
+%% Funktionsfarben nach Mermaid_Best_Practices.md
+classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
 ```
 
 Handoffs passen, wenn der Gesprächsverlauf bestimmt, wer als Nächstes zuständig ist. Das Muster ist flexibel, birgt aber das Risiko unklarer Verantwortung, wenn kein Agent das Gesamtergebnis koordiniert.
@@ -189,7 +267,23 @@ Handoffs passen, wenn der Gesprächsverlauf bestimmt, wer als Nächstes zuständ
 Ein einziger Agent nutzt progressive Erweiterung. Er lädt bei Bedarf spezifisches Fachwissen (Skills) und spezialisierte System-Prompts, je nachdem, was die aktuelle Situation erfordert. Dies verbindet die Einfachheit eines Single-Agent-Systems mit der fachlichen Tiefe spezialisierter Agenten.
 
 ```mermaid
-%%{init: {'theme':'forest'}}%%
+---
+config:
+  theme: base
+  look: classic
+  themeVariables:
+    primaryColor: '#e0f2fe'
+    primaryBorderColor: '#0284c7'
+    primaryTextColor: '#1e293b'
+    lineColor: '#64748b'
+    clusterBkg: '#f8fafc'
+    clusterBorder: '#cbd5e1'
+    noteBkgColor: '#fef3c7'
+    noteBorderColor: '#d97706'
+    noteTextColor: '#78350f'
+    edgeLabelBackground: '#ffffff'
+---
+
 flowchart TD
     A[Anfrage] --> AG[Agent]
     AG --> S1[Skill: Recherche]
@@ -199,6 +293,13 @@ flowchart TD
     S2 --> AG
     S3 --> AG
     AG --> E[Antwort]
+
+%% Funktionsfarben nach Mermaid_Best_Practices.md
+classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
+classDef input fill:#e0e7ff,stroke:#6366f1,stroke-width:2px,color:#1e1b4b;
+classDef output fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d;
+class A input;
+class E output;
 ```
 
 Skills sind sinnvoll, wenn ein einzelner Agent die Kontrolle behalten soll, aber je nach Aufgabe anderes Fachwissen braucht. Wenn Rollen unabhängig arbeiten oder getrennt geprüft werden müssen, ist ein echtes Multi-Agent-Muster klarer.
@@ -207,7 +308,23 @@ Skills sind sinnvoll, wenn ein einzelner Agent die Kontrolle behalten soll, aber
 Bei einer Swarm- oder Peer-to-Peer-Architektur arbeiten mehrere Agenten ohne festen zentralen Supervisor zusammen. Jeder Agent kann Beiträge liefern, andere Agenten anstoßen oder auf neue Informationen reagieren. Die Koordination entsteht durch Regeln, geteilten State oder ein Kommunikationsprotokoll, nicht durch eine einzelne Chef-Instanz.
 
 ```mermaid
-%%{init: {'theme':'forest'}}%%
+---
+config:
+  theme: base
+  look: classic
+  themeVariables:
+    primaryColor: '#e0f2fe'
+    primaryBorderColor: '#0284c7'
+    primaryTextColor: '#1e293b'
+    lineColor: '#64748b'
+    clusterBkg: '#f8fafc'
+    clusterBorder: '#cbd5e1'
+    noteBkgColor: '#fef3c7'
+    noteBorderColor: '#d97706'
+    noteTextColor: '#78350f'
+    edgeLabelBackground: '#ffffff'
+---
+
 flowchart TD
     A[Aufgabe] --> R[Research-Agent]
     A --> W[Writer-Agent]
@@ -218,6 +335,9 @@ flowchart TD
     R --> E[Gemeinsames Ergebnis]
     W --> E
     C --> E
+
+%% Funktionsfarben nach Mermaid_Best_Practices.md
+classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
 ```
 
 Dieses Muster ist flexibel, aber schwerer zu kontrollieren als Supervisor oder Pipeline. In Kurs- und Produktkontexten ist es vor allem als Gegenmodell wichtig: Nicht jede Zusammenarbeit braucht einen zentralen Supervisor, aber ohne klare Regeln entstehen schnell doppelte Arbeit, widersprüchliche Entscheidungen und hohe Kosten.
@@ -228,7 +348,23 @@ Swarm passt zu Aufgaben, bei denen mehrere Agenten gleichberechtigt Ideen, Hypot
 Beim Planner-Executor-Muster trennt ein Planungsagent die Aufgabe in Schritte, während ein oder mehrere ausführende Agenten oder Tools diese Schritte abarbeiten. Der Planner entscheidet also nicht unbedingt selbst jedes Detail der Ausführung, sondern erzeugt eine kontrollierbare Aufgabenliste.
 
 ```mermaid
-%%{init: {'theme':'forest'}}%%
+---
+config:
+  theme: base
+  look: classic
+  themeVariables:
+    primaryColor: '#e0f2fe'
+    primaryBorderColor: '#0284c7'
+    primaryTextColor: '#1e293b'
+    lineColor: '#64748b'
+    clusterBkg: '#f8fafc'
+    clusterBorder: '#cbd5e1'
+    noteBkgColor: '#fef3c7'
+    noteBorderColor: '#d97706'
+    noteTextColor: '#78350f'
+    edgeLabelBackground: '#ffffff'
+---
+
 flowchart TD
     A[Aufgabe] --> P[Planner]
     P --> L[Schrittplan]
@@ -239,6 +375,9 @@ flowchart TD
     E2 --> P
     E3 --> P
     P --> F[Finale Antwort]
+
+%% Funktionsfarben nach Mermaid_Best_Practices.md
+classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
 ```
 
 Der Vorteil liegt in der Trennung von Strategie und Ausführung. Der Plan kann angezeigt, geprüft oder angepasst werden, bevor riskante Schritte ausgeführt werden. Das Muster passt deshalb gut zu LangGraph-Workflows, weil Planung, Ausführung und Prüfung als eigene Nodes modelliert werden können.
@@ -251,7 +390,23 @@ Der Unterschied zu Swarm: Beim Blackboard kommunizieren Agenten nicht direkt mit
 Zwischenergebnisse, Quellen, Pläne oder offene Fragen landen im geteilten State. Andere Agenten lesen diesen Arbeitsbereich und ergänzen oder korrigieren ihn.
 
 ```mermaid
-%%{init: {'theme':'forest'}}%%
+---
+config:
+  theme: base
+  look: classic
+  themeVariables:
+    primaryColor: '#e0f2fe'
+    primaryBorderColor: '#0284c7'
+    primaryTextColor: '#1e293b'
+    lineColor: '#64748b'
+    clusterBkg: '#f8fafc'
+    clusterBorder: '#cbd5e1'
+    noteBkgColor: '#fef3c7'
+    noteBorderColor: '#d97706'
+    noteTextColor: '#78350f'
+    edgeLabelBackground: '#ffffff'
+---
+
 flowchart TB
     B[(Shared Workspace / Blackboard)]
     R[Research-Agent] <--> B
@@ -259,6 +414,9 @@ flowchart TB
     W[Writer-Agent] <--> B
     Q[Reviewer-Agent] <--> B
     B --> E[Finales Ergebnis]
+
+%% Funktionsfarben nach Mermaid_Best_Practices.md
+classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
 ```
 
 Dieses Muster ist besonders nützlich, wenn Agenten an gemeinsamen Artefakten arbeiten: Recherche-Notizen, Dateien, Tabellen, Pläne oder Entwürfe. Es ähnelt einem gemeinsamen Projektordner oder Scratchpad und macht Zusammenarbeit nachvollziehbarer als reine Chat-Übergaben.
@@ -269,13 +427,32 @@ Blackboard eignet sich, wenn mehrere Agenten Zwischenergebnisse teilen und gemei
 Bei einer Pipeline arbeiten mehrere Agenten in einer festen Reihenfolge. Jeder Agent übernimmt eine klar definierte Stufe und gibt sein Ergebnis an die nächste Stufe weiter. Anders als beim Router wird nicht dynamisch entschieden, wer zuständig ist; die Reihenfolge ist Teil des Designs.
 
 ```mermaid
-%%{init: {'theme':'forest'}}%%
+---
+config:
+  theme: base
+  look: classic
+  themeVariables:
+    primaryColor: '#e0f2fe'
+    primaryBorderColor: '#0284c7'
+    primaryTextColor: '#1e293b'
+    lineColor: '#64748b'
+    clusterBkg: '#f8fafc'
+    clusterBorder: '#cbd5e1'
+    noteBkgColor: '#fef3c7'
+    noteBorderColor: '#d97706'
+    noteTextColor: '#78350f'
+    edgeLabelBackground: '#ffffff'
+---
+
 flowchart LR
     A[Aufgabe] --> R[Recherche]
     R --> S[Analyse]
     S --> W[Entwurf]
     W --> Q[Review]
     Q --> E[Finale Ausgabe]
+
+%% Funktionsfarben nach Mermaid_Best_Practices.md
+classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
 ```
 
 Dieses Muster ist oft die pragmatischste Multi-Agent-Architektur. Es ist leicht erklärbar, gut testbar und passt zu vielen realen Arbeitsabläufen: Recherche → Analyse → Bericht → Review. Der Nachteil ist die geringe Flexibilität, wenn ein späterer Schritt feststellt, dass frühere Informationen fehlen.
@@ -355,7 +532,23 @@ react_agent = create_agent(
 > Der Prompt beschreibt das gewünschte Verhalten; die Agenten-Logik setzt es um.
 
 ```mermaid
-%%{init: {'theme':'forest'}}%%
+---
+config:
+  theme: base
+  look: classic
+  themeVariables:
+    primaryColor: '#e0f2fe'
+    primaryBorderColor: '#0284c7'
+    primaryTextColor: '#1e293b'
+    lineColor: '#64748b'
+    clusterBkg: '#f8fafc'
+    clusterBorder: '#cbd5e1'
+    noteBkgColor: '#fef3c7'
+    noteBorderColor: '#d97706'
+    noteTextColor: '#78350f'
+    edgeLabelBackground: '#ffffff'
+---
+
 flowchart LR
     A[Aufgabe] --> B[Denken]
     B --> C[Handeln]
@@ -363,6 +556,13 @@ flowchart LR
     D --> E{Ziel erreicht?}
     E -->|Nein| B
     E -->|Ja| F[Antwort]
+
+%% Funktionsfarben nach Mermaid_Best_Practices.md
+classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
+classDef metric fill:#fef3c7,stroke:#d97706,stroke-width:2px,color:#78350f;
+classDef output fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d;
+class E metric;
+class A,F output;
 ```
 
 Ein typisches Beispiel ist eine Rechercheaufgabe. ReAct ist flexibel, kann aber teuer und langsam werden, wenn Schleifen nicht begrenzt sind.
@@ -383,9 +583,28 @@ Ein typisches Beispiel ist eine Rechercheaufgabe. ReAct ist flexibel, kann aber 
 Explore → Plan → Act ist kein eigenes Architekturmuster, sondern eine Sicherheitsstruktur für den ReAct-Zyklus: Sie legt fest, in welcher Reihenfolge ein Agent lesen, planen und schreiben darf. Für produktive Systeme wird der freie Zyklus so durch drei Phasen eingehegt:
 
 ```mermaid
-%%{init: {'theme':'forest'}}%%
+---
+config:
+  theme: base
+  look: classic
+  themeVariables:
+    primaryColor: '#e0f2fe'
+    primaryBorderColor: '#0284c7'
+    primaryTextColor: '#1e293b'
+    lineColor: '#64748b'
+    clusterBkg: '#f8fafc'
+    clusterBorder: '#cbd5e1'
+    noteBkgColor: '#fef3c7'
+    noteBorderColor: '#d97706'
+    noteTextColor: '#78350f'
+    edgeLabelBackground: '#ffffff'
+---
+
 flowchart LR
     E["Explore<br/>nur lesen"] --> P["Plan<br/>nur lesen"] --> A["Act<br/>voller Zugriff"]
+
+%% Funktionsfarben nach Mermaid_Best_Practices.md
+classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
 ```
 
 1. **Explore** — das System liest, sucht und sammelt Informationen (Dateien lesen, Suchen), ohne etwas zu verändern.
@@ -409,29 +628,44 @@ Explore → Plan → Act macht den ReAct-Zyklus sicherer, weil Lesen, Planen und
 Harness Engineering ist kein Pflichtbestandteil jeder Architektur. Es wird nötig, sobald ein Agent echte Aktionen mit Konsequenzen ausführt — Dateien schreiben, E-Mails senden, APIs aufrufen. Viele Probleme entstehen dann nicht, weil das Modell zu schwach ist oder die falsche Architektur gewählt wurde, sondern weil die Steuerungsschicht fehlt. Dieses Konzept trägt den Namen **Harness Engineering**.
 
 ```mermaid
-%%{init: {'theme':'forest'}}%%
+---
+config:
+  theme: base
+  look: classic
+  themeVariables:
+    primaryColor: '#e0f2fe'
+    primaryBorderColor: '#0284c7'
+    primaryTextColor: '#1e293b'
+    lineColor: '#64748b'
+    clusterBkg: '#f8fafc'
+    clusterBorder: '#cbd5e1'
+    noteBkgColor: '#fef3c7'
+    noteBorderColor: '#d97706'
+    noteTextColor: '#78350f'
+    edgeLabelBackground: '#ffffff'
+---
+
 flowchart TB
     subgraph Harness["Harness Engineering"]
         direction TB
         H_Info["Gesamte Steuerungsinfrastruktur"]
-        
+
         subgraph Context["Context Engineering"]
             direction TB
             C_Info["Kontextzusammenstellung & Retrieval"]
-            
+
             subgraph Prompt["Prompt Engineering"]
                 P_Info["Instruktionen an das Modell"]
             end
-            
+
             C_Info --> P_Info
         end
-        
+
         H_Info --> C_Info
     end
 
-    style Harness fill:#f9f9f9,stroke:#333,stroke-width:2px
-    style Context fill:#e1f5fe,stroke:#01579b
-    style Prompt fill:#fff9c4,stroke:#fbc02d
+%% Funktionsfarben nach Mermaid_Best_Practices.md
+classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
 ```
 
 **Prompt Engineering** beschreibt die Instruktionen an das Modell. **Context Engineering** entscheidet, welche Informationen in den Kontext kommen. **Harness Engineering** steuert Tools, Speicher, Rechte, Fehlerpfade und Wiederherstellung.

@@ -268,6 +268,23 @@ Zum Abschluss geht es um die Rahmenbedingungen:
 ## Entscheidungsbaum
 
 ```mermaid
+---
+config:
+  theme: base
+  look: classic
+  themeVariables:
+    primaryColor: '#e0f2fe'
+    primaryBorderColor: '#0284c7'
+    primaryTextColor: '#1e293b'
+    lineColor: '#64748b'
+    clusterBkg: '#f8fafc'
+    clusterBorder: '#cbd5e1'
+    noteBkgColor: '#fef3c7'
+    noteBorderColor: '#d97706'
+    noteTextColor: '#78350f'
+    edgeLabelBackground: '#ffffff'
+---
+
 flowchart TD
     A[KI-Aufgabe vorhanden] --> B{Einmalig und persönlich?}
     B -->|Ja| B1([Chat])
@@ -283,10 +300,14 @@ flowchart TD
     G -->|Ja| G1([Agenten-System, <br>Python & APIs])
     G -->|Nein| H1([Custom GPT/Skill])
 
-    classDef start fill:#f9f,stroke:#333,stroke-width:2px
-    classDef solution fill:#bbf,stroke:#333,stroke-width:1px
-    class A start
-    class B1,C1,D1,E1,F1,G1,H1 solution
+%% Funktionsfarben nach Mermaid_Best_Practices.md
+classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
+classDef input fill:#e0e7ff,stroke:#6366f1,stroke-width:2px,color:#1e1b4b;
+classDef metric fill:#fef3c7,stroke:#d97706,stroke-width:2px,color:#78350f;
+classDef output fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d;
+class A input;
+class B,C,D,E,F,G metric;
+class B1,C1,D1,E1,F1,G1,H1 output;
 ```
 
 Und für jeden Pfad gilt danach: **Datenschutzprüfung → Cloud, self-hosted oder lokal.**

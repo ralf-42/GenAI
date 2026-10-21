@@ -74,6 +74,23 @@ Nicht jede Anwendung braucht alles davon. Entscheidend ist, wo tatsächlich Risi
 Eine gute Startarchitektur trennt vier Verantwortlichkeiten klar voneinander. Die Benutzeroberfläche sendet Anfragen an eine API. Die API validiert die Anfrage und entscheidet, welcher Dienst zuständig ist. Die GenAI-Logik ruft Modelle, Retrieval oder Agenten auf. Externe Tools werden über eine eigene Zugriffsschicht angebunden.
 
 ```mermaid
+---
+config:
+  theme: base
+  look: classic
+  themeVariables:
+    primaryColor: '#e0f2fe'
+    primaryBorderColor: '#0284c7'
+    primaryTextColor: '#1e293b'
+    lineColor: '#64748b'
+    clusterBkg: '#f8fafc'
+    clusterBorder: '#cbd5e1'
+    noteBkgColor: '#fef3c7'
+    noteBorderColor: '#d97706'
+    noteTextColor: '#78350f'
+    edgeLabelBackground: '#ffffff'
+---
+
 flowchart TD
     UI[UI oder Client] --> API[API-Schicht]
     API --> AUTH[Auth, Limits, Validierung]
@@ -84,6 +101,11 @@ flowchart TD
     GATEWAY --> SYSTEMS[CRM, Dateien, interne APIs]
     API --> LOGS[Logging, Tracing, Kosten]
     ROUTER --> QUEUE[Queue und Worker]
+
+%% Funktionsfarben nach Mermaid_Best_Practices.md
+classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
+classDef metric fill:#fef3c7,stroke:#d97706,stroke-width:2px,color:#78350f;
+class ROUTER metric;
 ```
 
 Mit dieser Aufteilung bleibt die Oberfläche schlank. Das Frontend braucht keine Provider-Keys, keine internen Tool-URLs und keine Promptdetails. Gleichzeitig bleibt die Modelllogik gut testbar, weil sie nicht direkt an HTTP-Statuscodes, Cookies oder UI-Zustand gekoppelt ist.

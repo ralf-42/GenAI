@@ -71,17 +71,19 @@ Ergänzend geht es um Modellauswahl, Evaluation, Sicherheit, Datenschutz, Govern
 ## Kursprogression
 
 ```mermaid
-%%{init: {
-  'theme': 'base',
-  'themeVariables': {
-    'timelineLineColor': '#2e7d32',
-    'sectionBkgColor': '#c8e6c9',
-    'sectionTextColor': '#1b5e20',
-    'containerBkgColor': '#f9f9f9',
-    'taskBkgColor': '#e8f5e9',
-    'taskTextColor': '#1b5e20'
-  }
-}}%%
+---
+config:
+  theme: base
+  look: classic
+  themeVariables:
+    timelineLineColor: '#2e7d32'
+    sectionBkgColor: '#c8e6c9'
+    sectionTextColor: '#1b5e20'
+    containerBkgColor: '#f9f9f9'
+    taskBkgColor: '#e8f5e9'
+    taskTextColor: '#1b5e20'
+---
+
 timeline
     title GenAI-Progression im Kursverlauf
     section Grundlagen

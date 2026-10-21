@@ -425,6 +425,23 @@ Grenze: Solche Prompts verbessern den Arbeitsrahmen, ersetzen aber kein gutes To
 ### Iteratives Prompt-Design
 
 ```mermaid
+---
+config:
+  theme: base
+  look: classic
+  themeVariables:
+    primaryColor: '#e0f2fe'
+    primaryBorderColor: '#0284c7'
+    primaryTextColor: '#1e293b'
+    lineColor: '#64748b'
+    clusterBkg: '#f8fafc'
+    clusterBorder: '#cbd5e1'
+    noteBkgColor: '#fef3c7'
+    noteBorderColor: '#d97706'
+    noteTextColor: '#78350f'
+    edgeLabelBackground: '#ffffff'
+---
+
 flowchart LR
     A[Erster Entwurf] --> B[Testen]
     B --> C{Ergebnis OK?}
@@ -432,6 +449,11 @@ flowchart LR
     D --> E[Anpassen]
     E --> B
     C -->|Ja| F[Dokumentieren]
+
+%% Funktionsfarben nach Mermaid_Best_Practices.md
+classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
+classDef metric fill:#fef3c7,stroke:#d97706,stroke-width:2px,color:#78350f;
+class C metric;
 ```
 
 **Empfohlener Workflow:**

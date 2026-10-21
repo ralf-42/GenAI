@@ -99,6 +99,23 @@ Grenze: Distillation übernimmt nicht nur Stärken, sondern auch Fehler und Verz
 # Fine-Tuning-Pipeline
 
 ```mermaid
+---
+config:
+  theme: base
+  look: classic
+  themeVariables:
+    primaryColor: '#e0f2fe'
+    primaryBorderColor: '#0284c7'
+    primaryTextColor: '#1e293b'
+    lineColor: '#64748b'
+    clusterBkg: '#f8fafc'
+    clusterBorder: '#cbd5e1'
+    noteBkgColor: '#fef3c7'
+    noteBorderColor: '#d97706'
+    noteTextColor: '#78350f'
+    edgeLabelBackground: '#ffffff'
+---
+
 flowchart TB
     A[1. Baseline und Evals] --> B[2. Trainingsdaten kuratieren]
     B --> C[3. Methode und Modell wählen]
@@ -110,6 +127,11 @@ flowchart TB
     H --> B
     G --> I[7. Drift und Regressionen prüfen]
     I --> A
+
+%% Funktionsfarben nach Mermaid_Best_Practices.md
+classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
+classDef metric fill:#fef3c7,stroke:#d97706,stroke-width:2px,color:#78350f;
+class F metric;
 ```
 
 Die Pipeline beginnt nicht mit dem Trainingsjob, sondern mit einer Baseline. Zuerst wird festgelegt, welche Fälle das aktuelle System nicht gut löst und welche Metriken diese Schwäche sichtbar machen. Erst danach lohnt sich Arbeit an Trainingsdaten, Hyperparametern und Modellvarianten.

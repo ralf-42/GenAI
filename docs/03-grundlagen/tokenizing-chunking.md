@@ -223,6 +223,23 @@ Ein KI-Agent analysiert den Text und trifft eigenständig Entscheidungen über C
 ### Strategie-Auswahl
 
 ```mermaid
+---
+config:
+  theme: base
+  look: classic
+  themeVariables:
+    primaryColor: '#e0f2fe'
+    primaryBorderColor: '#0284c7'
+    primaryTextColor: '#1e293b'
+    lineColor: '#64748b'
+    clusterBkg: '#f8fafc'
+    clusterBorder: '#cbd5e1'
+    noteBkgColor: '#fef3c7'
+    noteBorderColor: '#d97706'
+    noteTextColor: '#78350f'
+    edgeLabelBackground: '#ffffff'
+---
+
 flowchart TD
     START([Text analysieren]) --> Q1{Ist der Text<br>strukturiert?}
 
@@ -238,12 +255,14 @@ flowchart TD
     START --> Q4{Ist es Code?}
     Q4 -->|JA| AGENT[Agentisches oder<br>AST-basiertes Chunking]
 
-    style START fill:#e3f2fd,stroke:#1976d2
-    style DOK fill:#c8e6c9,stroke:#388e3c
-    style ZEICHEN fill:#c8e6c9,stroke:#388e3c
-    style EMBED fill:#c8e6c9,stroke:#388e3c
-    style REKURSIV fill:#c8e6c9,stroke:#388e3c
-    style AGENT fill:#c8e6c9,stroke:#388e3c
+%% Funktionsfarben nach Mermaid_Best_Practices.md
+classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
+classDef input fill:#e0e7ff,stroke:#6366f1,stroke-width:2px,color:#1e1b4b;
+classDef metric fill:#fef3c7,stroke:#d97706,stroke-width:2px,color:#78350f;
+classDef output fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d;
+class START input;
+class Q1,Q2,Q3,Q4 metric;
+class DOK,ZEICHEN,EMBED,REKURSIV,AGENT output;
 ```
 
 

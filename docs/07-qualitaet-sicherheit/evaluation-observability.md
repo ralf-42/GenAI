@@ -32,16 +32,34 @@ Typischer Fehler: Nur auf Uptime, Antwortzeit und Statuscodes zu schauen. Ein Ag
 
 
 ```mermaid
+---
+config:
+  theme: base
+  look: classic
+  themeVariables:
+    primaryColor: '#e0f2fe'
+    primaryBorderColor: '#0284c7'
+    primaryTextColor: '#1e293b'
+    lineColor: '#64748b'
+    clusterBkg: '#f8fafc'
+    clusterBorder: '#cbd5e1'
+    noteBkgColor: '#fef3c7'
+    noteBorderColor: '#d97706'
+    noteTextColor: '#78350f'
+    edgeLabelBackground: '#ffffff'
+---
+
 flowchart TD
     A["<b>Evaluation</b><br>War das Ergebnis gut?"] --> B["<b>Observability</b><br>Warum kam es dazu?"]
     B --> C["<b>Verbesserung</b><br>Prompt, Tool, State<br>oder Policy anpassen"]
     C -- "Optimierter Re-Run" --> A
-    
+
     %% Optisches Highlight für den Loop
-    
-    style A fill:#f9f9f9,stroke:#01579b,stroke-width:2px 
-    style B fill:#e1f5fe,stroke:#01579b,stroke-width:2px 
-    style C fill:#fff9c4,stroke:#fbc02d,stroke-width:2px
+
+%% Funktionsfarben nach Mermaid_Best_Practices.md
+classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
+classDef metric fill:#fef3c7,stroke:#d97706,stroke-width:2px,color:#78350f;
+class A metric;
 ```
 
 
@@ -84,6 +102,23 @@ Observability ergänzt dieses kleine Evaluationsset um die Spuren pro Anfrage: W
 Für eine GenAI-Anwendung reichen einige wenige Datentypen, um die meisten Fehler sichtbar zu machen. Am wichtigsten sind vollständige Prompt-Antwort-Paare, die Schrittfolge der Anwendung, Kosten- und Tokenwerte pro Durchlauf sowie das Verhalten der Tool-Aufrufe. Diese vier Ebenen decken viele Probleme auf, die in klassischem Monitoring unsichtbar bleiben.
 
 ```mermaid
+---
+config:
+  theme: base
+  look: classic
+  themeVariables:
+    primaryColor: '#e0f2fe'
+    primaryBorderColor: '#0284c7'
+    primaryTextColor: '#1e293b'
+    lineColor: '#64748b'
+    clusterBkg: '#f8fafc'
+    clusterBorder: '#cbd5e1'
+    noteBkgColor: '#fef3c7'
+    noteBorderColor: '#d97706'
+    noteTextColor: '#78350f'
+    edgeLabelBackground: '#ffffff'
+---
+
 flowchart TB
     L1["1. Prompt und Antwort\nFrage, Kontext, Systeminstruktion, Ausgabe"]
     L2["2. Schrittfolge\nReasoning, Retrieval, Tool Calls, Zwischenergebnisse"]
@@ -91,6 +126,11 @@ flowchart TB
     L4["4. Tool-Verhalten\nToolwahl, Parameter, Wiederholungen, Fehler"]
 
     L1 --> L2 --> L3 --> L4
+
+%% Funktionsfarben nach Mermaid_Best_Practices.md
+classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
+classDef stop fill:#fee2e2,stroke:#dc2626,stroke-width:2px,color:#7f1d1d;
+class L4 stop;
 ```
 
 Wer nur die fertige Antwort speichert, sieht häufig nur das Symptom. Wer auch Trajectory und Tool-Verhalten speichert, erkennt meist die eigentliche Ursache: falsches Tool, leerer Retrieval-Kontext, unnötige Schleife oder ein Prompt, der dem Modell zu viel Spielraum lässt.
@@ -255,6 +295,23 @@ Evaluation endet nicht mit dem ersten Release. In vielen Projekten zeigt sich er
 Der sinnvolle Kreislauf ist klein und konkret: Fehler im Betrieb beobachten, ausgewählte Fälle annotieren, dem Testset hinzufügen, Verbesserungen gegen dieses Set prüfen und erst danach erneut ausrollen. Teams, die diesen Schritt überspringen, reparieren häufig nur lokal und wiederholen denselben Fehler in anderer Form.
 
 ```mermaid
+---
+config:
+  theme: base
+  look: classic
+  themeVariables:
+    primaryColor: '#e0f2fe'
+    primaryBorderColor: '#0284c7'
+    primaryTextColor: '#1e293b'
+    lineColor: '#64748b'
+    clusterBkg: '#f8fafc'
+    clusterBorder: '#cbd5e1'
+    noteBkgColor: '#fef3c7'
+    noteBorderColor: '#d97706'
+    noteTextColor: '#78350f'
+    edgeLabelBackground: '#ffffff'
+---
+
 flowchart TD
     A["<b>Produktionsfall</b><br>Echtes Nutzerszenario"] --> B["<b>Trace prüfen</b><br>Schritte der Anwendung analysieren"]
     B --> C["<b>Fehlerklasse bestimmen</b><br>Logik-, Tool- oder Promptfehler?"]
@@ -262,9 +319,12 @@ flowchart TD
     D --> E["<b>Fix umsetzen</b><br>Code oder Prompt anpassen"]
     E --> F["<b>Baseline-Test</b><br>Regressionen ausschließen"]
     F --> G["<b>Deployment</b><br>Erneut ausrollen"]
-    
+
     %% Der Kreislauf zum nächsten Produktionsfall
     G -.-> A
+
+%% Funktionsfarben nach Mermaid_Best_Practices.md
+classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
 ```
 
 ## Konkrete Umsetzung mit LangSmith
