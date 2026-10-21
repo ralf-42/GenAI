@@ -511,6 +511,7 @@ Bevor du in Production gehst:
 - [ ] **Budget-Limits** gesetzt
 - [ ] **Team-Zugriff** konfiguriert
 - [ ] **Prompt Hub** für kritische Prompts verwendet
+- [ ] **Rate-Limit-Verhalten (HTTP 429) geprüft** — das SDK (`langsmith` ≥ 0.14) wiederholt 429/5xx automatisch und beachtet `Retry-After`; eigene API-Aufrufe brauchen eigenes Backoff
 
 ### OPTIONAL
 - [ ] **Custom Evaluators** für domänen-spezifische Metriken
@@ -755,6 +756,9 @@ client = Client(
 
 ## Changelog
 
+### Version 2.5 (2026-10-21)
+- ✅ Production-Checkliste um HTTP-429-/`Retry-After`-Punkt ergänzt; Sync mit `_docs/LangSmith_Best_Practices.md` v2.5
+
 ### Version 2.4 (2026-10-03)
 - ✅ Selektives Tracing für Kurs-Notebooks mit `tracing_v2_enabled(...)` als kanonisches Muster ergänzt
 - ✅ Älteren `ls.tracing_context()`-Workaround als Kompatibilitätslösung gekennzeichnet
@@ -827,6 +831,6 @@ client = Client(
 
 ---
 
-**Version:** 2.4<br>
+**Version:** 2.5<br>
 **Stand:** Oktober 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

@@ -220,6 +220,8 @@ Für lokale Demos reicht ein In-Memory-Checkpointer. Für produktive Systeme bra
 
 Nicht geeignet, wenn: Checkpointing als Ersatz für gutes State-Design verstanden wird. Persistenz macht unklare Zustände nicht besser, sondern nur langlebiger.
 
+**Checkpoints aufräumen (`PostgresSaver.prune`):** `checkpointer.prune(["thread-1"], strategy="keep_latest")` behält je Namespace nur den neuesten Checkpoint, `strategy="delete"` entfernt den Thread komplett. `"keep_latest"` verweigert Threads mit `DeltaChannel`.
+
 **Graceful Shutdown (ab v1.2.0):** `RunControl.request_drain()` beendet einen Run kontrolliert (z. B. bei Rolling-Deployments); der Graph wirft `GraphDrained` und lässt sich über den letzten Checkpoint nahtlos fortsetzen.
 
 ## Human-in-the-Loop
@@ -382,6 +384,9 @@ Migration sollte schrittweise erfolgen. Zuerst wird der bestehende Ablauf als Gr
 
 ## Changelog
 
+### Version 1.10 (2026-10-21)
+- `PostgresSaver.prune()` (`keep_latest`/`delete`) ergänzt; Sync mit `_docs/LangGraph_Best_Practices.md` v1.10 (LangGraph v1.2.16).
+
 ### Version 1.9 (2026-09-29)
 - ✅ Gegen `_docs/LangGraph_Best_Practices.md` v1.9 geprüft (LangGraph v1.2.9 → v1.2.12) — keine kaputten Code-Beispiele gefunden, `response_schema`/Subgraph-Bytecode-Fix als Advanced-Themen bewusst nicht in die kompakte Einsteiger-Fassung übernommen
 
@@ -405,6 +410,6 @@ Migration sollte schrittweise erfolgen. Zuerst wird der bestehende Ablauf als Gr
 
 ---
 
-**Version:** 1.9<br>
-**Stand:** 2026-09-29<br>
+**Version:** 1.10<br>
+**Stand:** 2026-10-21<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
