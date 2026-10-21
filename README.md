@@ -2,12 +2,12 @@
 
 <table>
   <tr>
-    <td><a href="./.claude/config/langchain-patterns.yaml"><img src="https://img.shields.io/badge/LangChain-%3E%3D1.3.13-brightgreen" alt="LangChain &gt;=1.3.13"></a></td>
-    <td><a href="./04_modul/requirements.txt"><img src="https://img.shields.io/badge/LangGraph-%3E%3D1.2.4-brightgreen" alt="LangGraph &gt;=1.2.4"></a></td>
-    <td><a href="https://smith.langchain.com"><img src="https://img.shields.io/badge/LangSmith_SDK-0.8%2B-blue" alt="LangSmith SDK 0.8+"></a></td>
+    <td><a href="./.claude/config/langchain-patterns.yaml"><img src="https://img.shields.io/badge/LangChain-%3E%3D1.4.6-brightgreen" alt="LangChain &gt;=1.4.6"></a></td>
+    <td><a href="./04_modul/requirements.txt"><img src="https://img.shields.io/badge/LangGraph-%3E%3D1.2.16-brightgreen" alt="LangGraph &gt;=1.2.16"></a></td>
+    <td><a href="https://smith.langchain.com"><img src="https://img.shields.io/badge/LangSmith_SDK-0.14.11%2B-blue" alt="LangSmith SDK 0.14.11+"></a></td>
     <td><a href="../_docs/LangChain_Audit_Report_2026-09-29.md"><img src="https://img.shields.io/badge/Compliance-100%25-success" alt="Compliance 100%"></a></td>
     <td><a href="../_docs/LangChain_Audit_Report_2026-09-29.md"><img src="https://img.shields.io/badge/Audit-Sep_2026-success" alt="Audit Sep 2026"></a></td>
-    <td><a href="./.claude/config/langchain-patterns.yaml"><img src="https://img.shields.io/badge/Patterns-Sep_2026-success" alt="Patterns Sep 2026"></a></td>
+    <td><a href="./.claude/config/langchain-patterns.yaml"><img src="https://img.shields.io/badge/Patterns-Okt_2026-success" alt="Patterns Okt 2026"></a></td>
     <td><a href="https://www.python.org/"><img src="https://img.shields.io/badge/Python-3.11%2B-blue" alt="Python 3.11+"></a></td>
   </tr>
 </table>
@@ -42,9 +42,9 @@ GenAI/
 
 ### Kernframeworks
 - **OpenAI API** (>=1.0.0) - GPT-Modelle, Embeddings und multimodale APIs
-- **LangChain** (>=1.3.13) - Orchestrierung, Chains, Agents und RAG
-- **LangGraph** (>=1.2.4) - zustandsbasierte Workflows und Multi-Agent-Systeme
-- **LangSmith SDK** (>=0.8.0) - Tracing, Evaluation und Production-Monitoring
+- **LangChain** (>=1.4.6) - Orchestrierung, Chains, Agents und RAG
+- **LangGraph** (>=1.2.16) - zustandsbasierte Workflows und Multi-Agent-Systeme
+- **LangSmith SDK** (>=0.14.11) - Tracing, Evaluation und Production-Monitoring
 - **Hugging Face** - Transformers und Community-Modelle
 
 ### Spezialisierte Tools
@@ -170,5 +170,5 @@ Die ausführliche Lizenzzuordnung für die Kurs-Website steht unter [Rechtliches
 
 ---
 
-**Letzte Aktualisierung:** Juli 2026         
-**Version:** 3.1          
+**Letzte Aktualisierung:** Oktober 2026         
+**Version:** 3.2          
