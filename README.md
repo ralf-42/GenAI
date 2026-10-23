@@ -116,6 +116,7 @@ Die Notebooks sind nach Themen geordnet. Einzelne Aufgaben können je nach Kursv
 | `M16_Multimodal_Bild.ipynb`                 | Multimodale Bildverarbeitung                                                     |
 | `M17_Multimodal_RAG.ipynb`                  | Multimodales RAG mit Text und Bild                                               |
 | `M18_Multimodal_Audio.ipynb`                | Audio, Speech-to-Text und Text-to-Speech                                         |
+| `M90_API_Keys_einrichten_und_testen.ipynb`  | Secrets in Colab anlegen und OpenAI- und Hugging-Face-Zugang testen              |
 | `A00_snippets_genai.ipynb`                  | Wiederverwendbare Snippets und Referenzbausteine                                 |
 | `quick_template.ipynb`                      | Vorlage für Aufgaben und neue Notebook-Bausteine                                 |
 
