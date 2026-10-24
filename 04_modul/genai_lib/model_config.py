@@ -45,7 +45,7 @@ Stattdessen reasoning.effort und text.verbosity verwenden.
 temperature ist nur in bestimmten Konfigurationen mit reasoning.effort="none" erlaubt.
 
 Multimodale Notebooks sind eine bewusste Ausnahme von der Textrollen-Logik:
-M16 nutzt Bildgenerierung, M18 nutzt Transkription. Diese Modelle werden teils
+Das Bild-Notebook nutzt Bildgenerierung, das Audio-Notebook Transkription. Diese Modelle werden teils
 direkt über die OpenAI-API verwendet, weil LangChain nicht alle Medien-Endpunkte
 abbildet.
 """

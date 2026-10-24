@@ -1,5 +1,5 @@
 ---
-name: audio_analyse
+name: m16_audio_analyse
 description: Analysiert Audio-/Sprachinhalt auf Basis eines Transkripts (6 Dimensionen)
 variables: [transcribed_text]
 ---

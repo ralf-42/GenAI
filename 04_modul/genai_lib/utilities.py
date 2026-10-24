@@ -574,7 +574,7 @@ def show_trace(project_name: str, limit: int = 5, show_steps: bool = False, days
     Parameter:
     ----------
     project_name : str
-        Name des LangSmith-Projekts (z.B. "M32-DeepAgents-Harness")
+        Name des LangSmith-Projekts (identisch zu LANGSMITH_PROJECT)
     limit : int, optional
         Anzahl der anzuzeigenden Runs (Standard: 5)
     show_steps : bool, optional
@@ -592,8 +592,8 @@ def show_trace(project_name: str, limit: int = 5, show_steps: bool = False, days
     Beispiel:
     ---------
     >>> from genai_lib.utilities import show_trace
-    >>> show_trace("M32-DeepAgents-Harness", limit=3)
-    >>> show_trace("M32-DeepAgents-Harness", show_steps=True)
+    >>> show_trace("m08_agenten", limit=3)
+    >>> show_trace("m08_agenten", show_steps=True)
     """
     try:
         from langsmith import Client
@@ -817,7 +817,7 @@ def load_prompt(path, mode="T"):
         Bitte fasse folgenden Text zusammen: {text}
 
     Unterstützt:
-      - lokale Pfade (z. B. '05_prompt/sql_prompt.md')
+      - lokale Pfade (z. B. '05_prompt/m07_sql_prompt.md')
       - GitHub-Tree-Links (automatische Umwandlung in Raw-Link)
       - GitHub-Blob-Links (automatische Umwandlung in Raw-Link)
       - direkte Raw-Links

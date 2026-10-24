@@ -1,5 +1,5 @@
 ---
-name: sql_generierung
+name: m07_sql_prompt
 description: Übersetzt natürliche Sprachabfragen in korrekte SQL-Abfragen (SQLite-Syntax)
 variables: [schema, query]
 ---

@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Vom Modell zur Anwendung
 parent: Deployment
@@ -165,7 +165,7 @@ Das passiert nicht automatisch nur dadurch, dass LangChain oder LangGraph import
 ```bash
 export LANGSMITH_TRACING=true
 export LANGSMITH_API_KEY="..."
-export LANGSMITH_PROJECT="support-agent"
+export LANGSMITH_PROJECT="m##_support_agent"
 ```
 
 Im Kurskontext ist LangSmith besonders nützlich, wenn ein Notebook „funktioniert“, aber nicht klar ist, warum. Traces zeigen, ob der Retriever falsche Dokumente liefert, ob ein Tool zu oft aufgerufen wird oder ob ein Prompt bei bestimmten Testfällen systematisch ausweicht.

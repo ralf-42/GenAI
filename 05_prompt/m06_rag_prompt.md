@@ -1,5 +1,5 @@
 ---
-name: rag_prompt
+name: m06_rag_prompt
 description: Standard RAG-Prompt für Question-Answering
 variables: [context, question]
 ---

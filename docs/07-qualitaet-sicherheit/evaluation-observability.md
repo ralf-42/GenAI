@@ -337,7 +337,7 @@ Ein einfaches Dataset kann direkt per SDK angelegt werden:
 LangSmith-Dataset anlegen:
 
 Dataset:
-- Name: Agent-Evaluation-v1
+- Name: m##_agent_evaluation_v1
 - Beschreibung: Testfälle für die Support-Anwendung
 
 Ablauf:
@@ -358,7 +358,7 @@ Evaluator:
 4. Gibt einen Score für contains_answer zurück.
 
 Experiment:
-1. Agent auf dem Dataset Agent-Evaluation-v1 ausführen.
+1. Agent auf dem Dataset m##_agent_evaluation_v1 ausführen.
 2. Evaluator auf jede Antwort anwenden.
 3. Ergebnisse unter einem Experimentnamen speichern.
 ```

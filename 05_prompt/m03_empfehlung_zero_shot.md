@@ -1,5 +1,5 @@
 ---
-name: empfehlung_zero_shot
+name: m03_empfehlung_zero_shot
 description: Zero-Shot Prompt für ein akademisches Empfehlungsschreiben
 variables: []
 ---

@@ -1,5 +1,5 @@
 ---
-name: empfehlung_one_shot
+name: m03_empfehlung_one_shot
 description: One-Shot Prompt für ein akademisches Empfehlungsschreiben mit Beispiel
 variables: []
 ---

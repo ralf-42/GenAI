@@ -101,11 +101,11 @@ thinking, answer = extract_thinking(response)
 from genai_lib.utilities import load_prompt
 
 # ChatPromptTemplate aus Markdown-Datei laden
-template = load_prompt("05_prompt/mein_prompt.md")           # lokal
+template = load_prompt("05_prompt/mXX_mein_prompt.md")           # lokal
 template = load_prompt("https://github.com/.../prompt.md")  # GitHub-URL
 
 # Als reinen String laden
-text = load_prompt("05_prompt/mein_prompt.md", mode="S")
+text = load_prompt("05_prompt/mXX_mein_prompt.md", mode="S")
 ```
 
 - `load_prompt(path, mode="T")` - Lädt Markdown-Prompt-Templates (lokal oder GitHub-URL)
@@ -147,7 +147,7 @@ llm = init_chat_model(BASELINE)
 from genai_lib.utilities import load_prompt
 from langchain_core.output_parsers import StrOutputParser
 
-template = load_prompt("05_prompt/zusammenfassung.md")
+template = load_prompt("05_prompt/m02_text_zusammenfassung.md")
 chain = template | llm | StrOutputParser()
 result = chain.invoke({"text": "..."})
 

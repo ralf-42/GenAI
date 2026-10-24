@@ -1,5 +1,5 @@
 ---
-name: sql_rag_generator
+name: m07_sql_rag_generator
 description: Übersetzt natürliche Sprachanfragen in SQL-Abfragen (SQLite-Syntax)
 variables: [schema, query]
 ---

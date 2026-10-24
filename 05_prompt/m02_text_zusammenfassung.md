@@ -1,5 +1,5 @@
 ---
-name: text_zusammenfassung
+name: m02_text_zusammenfassung
 description: Erstellt prägnante und informative Zusammenfassungen von Texten
 variables: [text]
 ---

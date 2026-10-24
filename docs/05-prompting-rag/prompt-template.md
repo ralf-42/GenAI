@@ -194,7 +194,7 @@ Antworte immer präzise und auf Deutsch.
 ```python
 from genai_lib.utilities import load_prompt
 
-system_text = load_prompt("05_prompt/assistent_prompt.md", mode="S")
+system_text = load_prompt("05_prompt/mXX_assistent_prompt.md", mode="S")
 # Rückgabe: String → direkt an create_agent() übergeben
 ```
 
@@ -228,7 +228,7 @@ Frage: {question}
 ```python
 from genai_lib.utilities import load_prompt
 
-prompt = load_prompt("05_prompt/rag_prompt.md", mode="T")
+prompt = load_prompt("05_prompt/m06_rag_prompt.md", mode="T")
 # Rückgabe: ChatPromptTemplate → in LCEL-Chain einsetzbar
 chain = prompt | llm | StrOutputParser()
 antwort = chain.invoke({"context": "...", "question": "Was ist RAG?"})
@@ -278,7 +278,7 @@ Ticket: {ticket}
 > Das Modell lernt das gewünschte Ausgabeformat aus den Beispielpaaren.
 
 ```python
-prompt = load_prompt("05_prompt/klassifikation_few_shot.md", mode="T")
+prompt = load_prompt("05_prompt/mXX_klassifikation_few_shot.md", mode="T")
 chain = prompt | llm | StrOutputParser()
 ergebnis = chain.invoke({"ticket": "Ich kann mich nicht einloggen."})
 ```
@@ -308,10 +308,10 @@ Die Datei-Sektionen sind eine vereinfachte Schreibweise — unter der Haube erze
 from genai_lib.utilities import load_prompt
 
 # mode="S" → String (für system_prompt in create_agent)
-system_text = load_prompt("05_prompt/mein_prompt.md", mode="S")
+system_text = load_prompt("05_prompt/mXX_mein_prompt.md", mode="S")
 
 # mode="T" → ChatPromptTemplate (für LCEL-Chains)
-prompt_template = load_prompt("05_prompt/mein_prompt.md", mode="T")
+prompt_template = load_prompt("05_prompt/mXX_mein_prompt.md", mode="T")
 ```
 
 | `mode` | Rückgabetyp          | Wann verwenden                                 |
@@ -406,11 +406,11 @@ class D,E,G,H output;
 
 | Typ | Datei | Modul |
 |---|---|---|
-| System-only | `m08_tool_agent_system.md` | M08 Agenten |
-| Template mit Variablen | `m06_rag_prompt.md` | M06 RAG |
-| Template mit Variablen | `m07_sql_prompt.md` | M07 SQL-RAG |
-| Few-Shot (One-Shot) | `m03_empfehlung_one_shot.md` | M03 LLM |
-| Few-Shot (Zero-Shot) | `m03_empfehlung_zero_shot.md` | M03 LLM |
+| System-only | `m08_tool_agent_system.md` | Agenten |
+| Template mit Variablen | `m06_rag_prompt.md` | RAG |
+| Template mit Variablen | `m07_sql_prompt.md` | SQL-RAG |
+| Few-Shot (One-Shot) | `m03_empfehlung_one_shot.md` | LLM |
+| Few-Shot (Zero-Shot) | `m03_empfehlung_zero_shot.md` | LLM |
 
 > Alle Prompt-Dateien liegen in `GenAI/05_prompt/`.
 

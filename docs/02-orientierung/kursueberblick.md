@@ -88,22 +88,16 @@ timeline
     title GenAI-Progression im Kursverlauf
     section Grundlagen
         Erste GenAI-Anwendung : Generative KI, Modellsteuerung, erste LangChain-Einordnung
-                              : M01
     section Framework & Patterns
         Robuste Workflows     : Chains, Structured Output, Memory, Best Practices
-                              : M02-M05
     section RAG
         Retrieval und SQL-RAG : Embeddings, Vektordatenbanken, Fragen beantworten
-                              : M06-M07
     section Agenten & Orchestrierung
         Agenten und Kontrolle : Tool Use, Middleware, MCP
-                              : M08-M10
     section Deployment & Optimierung
         Betrieb und Skalierung : Gradio, lokale Modelle, Fine-Tuning, Routing und Kosten
-                              : M11-M15
     section Multimodal
         Bild, RAG und Audio   : Bildverarbeitung, multimodales RAG, Audio
-                              : M16-M18
 ```
 
 ## Modulübersicht
@@ -131,16 +125,16 @@ Die Module sind in thematische Blöcke gegliedert:
 |  17   | Multimodal               | Multimodal RAG                 | Dokumente mit Text- und Bildanteilen erschließen                                    |
 |  18   | Multimodal               | Audio                          | Speech-to-Text, Text-to-Speech, Audioanalyse und Podcast-Pipelines                  |
 
-M05 liegt im Kursmaterial in zwei Varianten vor: eine einfachere Umsetzung mit Listen und Dictionaries und eine StateGraph-Variante. Welche Variante genutzt wird, hängt vom Kursformat und vom Lerntempo ab.
+Das Notebook zu Chat-Memory liegt im Kursmaterial in zwei Varianten vor: eine einfachere Umsetzung mit Listen und Dictionaries und eine StateGraph-Variante. Welche Variante genutzt wird, hängt vom Kursformat und vom Lerntempo ab.
 
 | Kursblock | Ausbau an der Legal-RAG-Anwendung |
 |---|---|
-| **M01: Grundlagen** | Die Anwendung bekommt ein Zielbild, erste Modellaufrufe und eine realistische Einordnung von GenAI-Grenzen. |
-| **M02-M05: Framework & Patterns** | LangChain, Prompts, strukturierte Antworten, Chat-Verläufe und Memory machen die Anwendung kontrollierbarer. |
-| **M06-M07: RAG** | Eigene Dokumente, Embeddings, ChromaDB und SQL-Abfragen schaffen die Grundlage für quellengebundene Antworten. |
-| **M08-M10: Agenten & Orchestrierung** | Tools, Agentenarchitekturen, Middleware und MCP erweitern die Anwendung um kontrollierte Handlungsschritte. |
-| **M11-M15: Deployment & Optimierung** | UI, lokale Modelle, Fine-Tuning, Modellrouting und Kostenanalyse machen aus dem Notebook einen belastbareren Prototyp. |
-| **M16-M18: Multimodal** | Bild-, Dokument- und Audiodaten erweitern die Legal-RAG-Idee über reinen Text hinaus. |
+| **Grundlagen** | Die Anwendung bekommt ein Zielbild, erste Modellaufrufe und eine realistische Einordnung von GenAI-Grenzen. |
+| **Framework & Patterns** | LangChain, Prompts, strukturierte Antworten, Chat-Verläufe und Memory machen die Anwendung kontrollierbarer. |
+| **RAG** | Eigene Dokumente, Embeddings, ChromaDB und SQL-Abfragen schaffen die Grundlage für quellengebundene Antworten. |
+| **Agenten & Orchestrierung** | Tools, Agentenarchitekturen, Middleware und MCP erweitern die Anwendung um kontrollierte Handlungsschritte. |
+| **Deployment & Optimierung** | UI, lokale Modelle, Fine-Tuning, Modellrouting und Kostenanalyse machen aus dem Notebook einen belastbareren Prototyp. |
+| **Multimodal** | Bild-, Dokument- und Audiodaten erweitern die Legal-RAG-Idee über reinen Text hinaus. |
 
 Einige Begriffe sind bewusst knapp gehalten. **Structured Output** meint maschinenlesbare Antwortformate wie JSON. **SQL-RAG** verbindet Modellantworten mit strukturierten Datenbankabfragen. **MCP** steht für Model Context Protocol und beschreibt eine standardisierte Tool-Integration. **Circuit Breaker** bezeichnet eine Schutzschaltung, die Abläufe bei Fehlern, Kosten- oder Qualitätsgrenzen stoppt.
 

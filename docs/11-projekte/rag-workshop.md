@@ -11,7 +11,7 @@ has_toc: true
 {: .no_toc }
 
 > **Juristischen KI-Assistenten bauen**
-> Schrittweise Entwicklung vom einfachen Chatbot zu einem RAG-basierten Rechtssystem mit kontrolliertem Kontext, Quellenangaben, Agent, Middleware, UI und lokalem Modellbetrieb (Module M02-M12)
+> Schrittweise Entwicklung vom einfachen Chatbot zu einem RAG-basierten Rechtssystem mit kontrolliertem Kontext, Quellenangaben, Agent, Middleware, UI und lokalem Modellbetrieb (Notebooks zu LangChain, RAG, Agenten, UI und lokalen Modellen)
 
 ---
 
@@ -52,7 +52,7 @@ KI-generiertes Bild
 - Aufbau einer GenAI-Anwendung für juristische Recherche von Grund auf
 - Schrittweise Integration von LangChain-Features
 - Umsetzung eines RAG-Systems mit kontrollierter Quellenbasis
-- Praktische Anwendung der Module M02-M12 mit lokaler und Open-Source-Modellvariante
+- Praktische Anwendung der Kursmodule zu LangChain, RAG, Agenten, UI und lokalen Modellen mit lokaler und Open-Source-Modellvariante
 - Best Practices für strukturierten Notebook-Code, Quellenangaben und Qualitätssicherung
 
 **Arbeitsumgebung:** Google Colab oder Jupyter Notebook
@@ -73,16 +73,16 @@ Vorgesehen ist **ein Notebook** mit **zehn aufbauenden Kapiteln**. Alternativ ka
 
 ```text
 Legal_Assistant.ipynb
-   ├── Kapitel 1: Basis-Chatbot (M02)
-   ├── Kapitel 2: Token-Optimierung (M03)
-   ├── Kapitel 3: Strukturierte Ausgaben (M04)
-   ├── Kapitel 4: Chat-History & Memory (M05)
-   ├── Kapitel 5: Legal RAG (M06)
-   ├── Kapitel 6: SQL RAG für Rechtsmetadaten (M07)
-   ├── Kapitel 7: Agent mit juristischen Tools (M08)
-   ├── Kapitel 8: Middleware, Sicherheit & Freigabe (M09)
-   ├── Kapitel 9: Gradio-UI (M11)
-   └── Kapitel 10: Lokale Modelle & Open Source (M12)
+   ├── Kapitel 1: Basis-Chatbot
+   ├── Kapitel 2: Token-Optimierung
+   ├── Kapitel 3: Strukturierte Ausgaben
+   ├── Kapitel 4: Chat-History & Memory
+   ├── Kapitel 5: Legal RAG
+   ├── Kapitel 6: SQL RAG für Rechtsmetadaten
+   ├── Kapitel 7: Agent mit juristischen Tools
+   ├── Kapitel 8: Middleware, Sicherheit & Freigabe
+   ├── Kapitel 9: Gradio-UI
+   └── Kapitel 10: Lokale Modelle & Open Source
 ```
 
 **Empfehlung:** Für den Einstieg reicht ein gemeinsames Notebook. Eine klare Trennung per Markdown-Zelle hält den Verlauf nachvollziehbar.
@@ -159,7 +159,7 @@ install_packages([
 
 ---
 
-## Kapitel 1: Basis-Chatbot (Modul M02)
+## Kapitel 1: Basis-Chatbot
 
 **Ziel:** LangChain-Grundlagen, Prompt-Templates, einfache LLM-Interaktion
 
@@ -169,7 +169,7 @@ In diesem Kapitel entsteht ein erster juristischer Assistent ohne externe Quelle
 
 ```python
 # ═══════════════════════════════════════════════════
-# KAPITEL 1: BASIS-CHATBOT (M02)
+# KAPITEL 1: BASIS-CHATBOT
 # ═══════════════════════════════════════════════════
 
 from langchain.chat_models import init_chat_model
@@ -206,7 +206,7 @@ def legal_chat():
 
 ---
 
-## Kapitel 2: Token-Optimierung (Modul M03)
+## Kapitel 2: Token-Optimierung
 
 **Ziel:** Transformer-Konzepte verstehen, Token-Zählung, Kontext-Management
 
@@ -216,7 +216,7 @@ Juristische Texte sind oft lang: Gesetze, Urteile, Kommentare und Schriftsätze 
 
 ```python
 # ═══════════════════════════════════════════════════
-# KAPITEL 2: TOKEN-OPTIMIERUNG (M03)
+# KAPITEL 2: TOKEN-OPTIMIERUNG
 # ═══════════════════════════════════════════════════
 
 import tiktoken
@@ -252,7 +252,7 @@ def legal_chat_mit_tokens():
 
 ---
 
-## Kapitel 3: Strukturierte Ausgaben (Modul M04)
+## Kapitel 3: Strukturierte Ausgaben
 
 **Ziel:** Pydantic-Modelle, `with_structured_output()`, JSON-Schema
 
@@ -262,7 +262,7 @@ Juristische Antworten sollen nicht nur frei formuliert sein. Häufig braucht die
 
 ```python
 # ═══════════════════════════════════════════════════
-# KAPITEL 3: STRUKTURIERTE AUSGABEN (M04)
+# KAPITEL 3: STRUKTURIERTE AUSGABEN
 # ═══════════════════════════════════════════════════
 
 from pydantic import BaseModel, Field
@@ -308,7 +308,7 @@ def create_case_notes():
 
 ---
 
-## Kapitel 4: Chat-History & Memory (Modul M05)
+## Kapitel 4: Chat-History & Memory
 
 **Ziel:** Konversationskontext verwalten, Chat-History nutzen
 
@@ -318,7 +318,7 @@ Juristische Rückfragen beziehen sich oft auf denselben Sachverhalt. Der Assiste
 
 ```python
 # ═══════════════════════════════════════════════════
-# KAPITEL 4: CHAT-HISTORY & MEMORY (M05)
+# KAPITEL 4: CHAT-HISTORY & MEMORY
 # ═══════════════════════════════════════════════════
 
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
@@ -362,7 +362,7 @@ def legal_chat_mit_memory():
 
 ---
 
-## Kapitel 5: Legal RAG (Modul M06)
+## Kapitel 5: Legal RAG
 
 **Ziel:** Retrieval-Augmented Generation, Vektordatenbank, Embeddings, kontrollierter Kontext, einfache RAG-Evaluation
 
@@ -379,7 +379,7 @@ Die Dateien sollten nur frei nutzbare oder selbst erstellte Inhalte enthalten. K
 
 ```python
 # ═══════════════════════════════════════════════════
-# KAPITEL 5: LEGAL RAG (M06)
+# KAPITEL 5: LEGAL RAG
 # ═══════════════════════════════════════════════════
 
 from google.colab import files
@@ -474,7 +474,7 @@ eval_set = [
 
 ---
 
-## Kapitel 6: SQL RAG für Rechtsmetadaten (Modul M07)
+## Kapitel 6: SQL RAG für Rechtsmetadaten
 
 **Ziel:** Strukturierte Daten mit RAG abfragen, SQL-Generierung durch LLMs
 
@@ -484,7 +484,7 @@ Neben Volltextquellen braucht ein juristisches System strukturierte Metadaten: N
 
 ```python
 # ═══════════════════════════════════════════════════
-# KAPITEL 6: SQL RAG FÜR RECHTSMETADATEN (M07)
+# KAPITEL 6: SQL RAG FÜR RECHTSMETADATEN
 # ═══════════════════════════════════════════════════
 
 import sqlite3
@@ -534,7 +534,7 @@ def hybrid_legal_chat():
 
 ---
 
-## Kapitel 7: Agent mit juristischen Tools (Modul M08)
+## Kapitel 7: Agent mit juristischen Tools
 
 **Ziel:** LangChain Agents, Tool-Definition, Function Calling
 
@@ -544,7 +544,7 @@ Der Agent entscheidet, wann er Retrieval, Metadatensuche oder Qualitätsprüfung
 
 ```python
 # ═══════════════════════════════════════════════════
-# KAPITEL 7: AGENT MIT JURISTISCHEN TOOLS (M08)
+# KAPITEL 7: AGENT MIT JURISTISCHEN TOOLS
 # ═══════════════════════════════════════════════════
 
 from langchain_core.tools import tool
@@ -610,7 +610,7 @@ def legal_agent_chat():
 
 ---
 
-## Kapitel 8: Middleware, Sicherheit & Freigabe (Modul M09)
+## Kapitel 8: Middleware, Sicherheit & Freigabe
 
 **Ziel:** Agent-Ausführung kontrollieren mit Middleware und Human-in-the-loop
 
@@ -620,7 +620,7 @@ Juristische KI-Systeme brauchen klare Kontrollpunkte. Logging, Retry-Logik und m
 
 ```python
 # ═══════════════════════════════════════════════════
-# KAPITEL 8: MIDDLEWARE, SICHERHEIT & FREIGABE (M09)
+# KAPITEL 8: MIDDLEWARE, SICHERHEIT & FREIGABE
 # ═══════════════════════════════════════════════════
 
 from langchain.agents import AgentState
@@ -686,7 +686,7 @@ from langchain.agents.middleware import ModelRetryMiddleware, ToolRetryMiddlewar
 
 ---
 
-## Kapitel 9: Gradio-UI (Modul M11)
+## Kapitel 9: Gradio-UI
 
 **Ziel:** Web-Interface mit Gradio, State-Management, Event-Handling
 
@@ -696,7 +696,7 @@ Die UI bildet die Schichten des Systems ab: Chat, Dokumenten-Upload, Recherchemo
 
 ```python
 # ═══════════════════════════════════════════════════
-# KAPITEL 9: GRADIO-UI (M11)
+# KAPITEL 9: GRADIO-UI
 # ═══════════════════════════════════════════════════
 
 import gradio as gr
@@ -750,7 +750,7 @@ with gr.Blocks(title="Juristischer KI-Assistent") as demo:
 
 ---
 
-## Kapitel 10: Lokale Modelle & Open Source (Modul M12)
+## Kapitel 10: Lokale Modelle & Open Source
 
 **Ziel:** Lokale und Open-Source-Modelle als Betriebsoption einordnen, testen und gegen API-Modelle vergleichen
 
@@ -762,7 +762,7 @@ Für lokale Tests eignet sich zum Beispiel Ollama. Das Modell muss bereits lokal
 
 ```python
 # ═══════════════════════════════════════════════════
-# KAPITEL 10: LOKALE MODELLE & OPEN SOURCE (M12)
+# KAPITEL 10: LOKALE MODELLE & OPEN SOURCE
 # ═══════════════════════════════════════════════════
 
 from langchain.chat_models import init_chat_model
@@ -827,7 +827,7 @@ Ergänze im Notebook eine kurze Entscheidungsmatrix:
 - Quellengewichtung nach Dokumenttyp
 - Trennung von Normtext, Urteil und eigener Zusammenfassung
 
-### Erweiterung 3: MCP-Integration (M10)
+### Erweiterung 3: MCP-Integration
 
 - MCP-Server für eine kleine Rechtsquellen-Sammlung erstellen
 - Agent über MCP-Client mit externen Tools verbinden
@@ -840,7 +840,7 @@ Ergänze im Notebook eine kurze Entscheidungsmatrix:
 - Halluzinations-Check vor der UI-Ausgabe ausführen
 - Antwort als PDF oder Markdown exportieren
 
-### Erweiterung 5: Lokaler Betrieb vertiefen (M12)
+### Erweiterung 5: Lokaler Betrieb vertiefen
 
 - Embeddings und Chat-Modell lokal betreiben
 - API- und lokales Modell mit derselben Evaluation vergleichen
@@ -853,16 +853,16 @@ Ergänze im Notebook eine kurze Entscheidungsmatrix:
 
 | Kapitel                         | Punkte  | Kriterien                                                     |
 | ------------------------------- | ------- | ------------------------------------------------------------- |
-| 1: Basis-Chatbot (M02)          | 10      | Funktionalität, klare Grenzen, LCEL-Nutzung                   |
-| 2: Token-Optimierung (M03)      | 10      | Korrekte Zählung, Statistiken, Kontextbewusstsein             |
-| 3: Strukturierte Ausgaben (M04) | 10      | Pydantic-Modelle, Validierung, juristische Felder             |
-| 4: Chat-Memory (M05)            | 10      | Sachverhaltskontext, Memory-Management                        |
-| 5: Legal RAG (M06)              | 15      | Retrieval-Qualität, Quellenangaben, Mini-Evaluation           |
-| 6: SQL RAG (M07)                | 10      | Rechtsmetadaten, SQL-Generierung, Hybrid-Modus                |
-| 7: Agent mit Tools (M08)        | 15      | Tool-Implementation, Agent-Logik, Zitierprüfung               |
-| 8: Middleware (M09)             | 10      | Logging, HITL, Retry-Stack, Kontrollpunkte                    |
-| 9: Gradio-UI (M11)              | 10      | Usability, Quellenanzeige, sensible Veröffentlichung          |
-| 10: Lokale Modelle (M12)        | 10      | Vergleich API-Modell vs. lokales Modell, Betriebsentscheidung |
+| 1: Basis-Chatbot          | 10      | Funktionalität, klare Grenzen, LCEL-Nutzung                   |
+| 2: Token-Optimierung      | 10      | Korrekte Zählung, Statistiken, Kontextbewusstsein             |
+| 3: Strukturierte Ausgaben | 10      | Pydantic-Modelle, Validierung, juristische Felder             |
+| 4: Chat-Memory            | 10      | Sachverhaltskontext, Memory-Management                        |
+| 5: Legal RAG              | 15      | Retrieval-Qualität, Quellenangaben, Mini-Evaluation           |
+| 6: SQL RAG                | 10      | Rechtsmetadaten, SQL-Generierung, Hybrid-Modus                |
+| 7: Agent mit Tools        | 15      | Tool-Implementation, Agent-Logik, Zitierprüfung               |
+| 8: Middleware             | 10      | Logging, HITL, Retry-Stack, Kontrollpunkte                    |
+| 9: Gradio-UI              | 10      | Usability, Quellenanzeige, sensible Veröffentlichung          |
+| 10: Lokale Modelle        | 10      | Vergleich API-Modell vs. lokales Modell, Betriebsentscheidung |
 | **Gesamt**                      | **110** |                                                               |
 
 
@@ -893,7 +893,7 @@ Ergänze im Notebook eine kurze Entscheidungsmatrix:
 - **Rechtsquellen-Dateien** mit drei bis fünf `.md`-Dateien für den RAG-Teil
 - **SQLite-Datenbank** mit Metadaten zu Normen, Urteilen oder Beispielquellen
 - **README.md** mit Kurzbeschreibung, Setup-Hinweisen, Quellenbasis und Screenshot der Gradio-Oberfläche
-- Eine **M12-Entscheidungsmatrix** zum Vergleich von API-Modell und lokalem Modell
+- Eine **Entscheidungsmatrix für die Modellwahl** zum Vergleich von API-Modell und lokalem Modell
 - Ein **Demo-Video** oder ein **Colab-Link**
 
 
@@ -927,7 +927,7 @@ A: Nutze selbst erstellte Texte, frei verfügbare Gesetzestexte oder kurze didak
 **Q: Welches LLM-Modell soll ich verwenden?**  
 A: Für Kapitel 6 (SQL RAG) ist `gpt-5.4-mini` oder größer die robustere Wahl. `gpt-5.6-luna` ist für einfache Demos okay, scheitert aber bei komplexeren Schemata und längeren SQL-Statements häufiger. Für Kapitel 7 (Agent) ist `gpt-5.6-luna` weiterhin für einfache Function-Calling-Beispiele brauchbar.
 
-**Q: Muss ich für M12 ein lokales Modell installieren?**  
+**Q: Muss ich für die lokale Modellvariante ein lokales Modell installieren?**  
 A: Wer lokal arbeiten kann, vergleicht ein Open-Source-Modell mit dem API-basierten RAG-System. Wer in Colab oder auf schwacher Hardware arbeitet, dokumentiert stattdessen, warum lokaler Betrieb für diesen Prototyp nicht sinnvoll ist.
 
 **Q: Kann ich andere Vektordatenbanken nutzen?**  

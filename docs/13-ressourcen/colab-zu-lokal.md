@@ -93,11 +93,11 @@ check_environment()
 
 | Modul | Besonderheit | Lokale Anpassung |
 |---|---|---|
-| **M06** (RAG) | ChromaDB, Embeddings | `pip install chromadb langchain-community langchain-openai` |
-| **M10** (MCP) | `!uv pip install fastmcp langchain-mcp-adapters nest_asyncio uvicorn` | `pip install fastmcp langchain-mcp-adapters nest_asyncio uvicorn` |
-| **M11** (Gradio) | `demo.launch()` | Bleibt unverändert — öffnet lokal eine Browser-URL |
-| **M12** (Lokale Modelle) | Benötigt [Ollama](https://ollama.com) als lokalen LLM-Server | Ollama separat installieren und Modell laden: `ollama pull llama3` |
-| **M17** (Multimodal RAG) | CLIP/Sentence Transformers und ggf. `HF_TOKEN` für Hugging Face | Zusatzpakete installieren und `HF_TOKEN` bei Bedarf in `.env` setzen |
+| **RAG** | ChromaDB, Embeddings | `pip install chromadb langchain-community langchain-openai` |
+| **MCP** | `!uv pip install fastmcp langchain-mcp-adapters nest_asyncio uvicorn` | `pip install fastmcp langchain-mcp-adapters nest_asyncio uvicorn` |
+| **Gradio** | `demo.launch()` | Bleibt unverändert — öffnet lokal eine Browser-URL |
+| **Lokale Modelle** | Benötigt [Ollama](https://ollama.com) als lokalen LLM-Server | Ollama separat installieren und Modell laden: `ollama pull llama3` |
+| **Multimodal RAG** | CLIP/Sentence Transformers und ggf. `HF_TOKEN` für Hugging Face | Zusatzpakete installieren und `HF_TOKEN` bei Bedarf in `.env` setzen |
 
 ---
 
@@ -120,8 +120,8 @@ check_environment()
 - [ ] `genai_lib` installiert? (`pip show genai-lib`)
 - [ ] `OPENAI_API_KEY` gesetzt? (`echo %OPENAI_API_KEY%`)
 - [ ] Colab-Metadatenzeilen wie `#@title` und optionale `get_ipinfo()`-Aufrufe entfernt?
-- [ ] Notebook-spezifische Zusatzpakete installiert (M06, M10, M11, M12, M17)?
-- [ ] Für M12: Ollama installiert und gestartet?
+- [ ] Notebook-spezifische Zusatzpakete installiert (RAG, MCP, Gradio, Lokale Modelle, Multimodal RAG)?
+- [ ] Für lokale Modelle: Ollama installiert und gestartet?
 
 
 ## Abgrenzung zu verwandten Dokumenten

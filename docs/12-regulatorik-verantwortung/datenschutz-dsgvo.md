@@ -99,10 +99,9 @@ Je früher sensible Inhalte im Logging und Tracing berücksichtigt werden, desto
 
 ```python
 run_cfg = {
-    "run_name": "M13_RAG_Query",
-    "tags": ["rag", "m13"],
+    "run_name": "m13_rag_query",
+    "tags": ["rag"],
     "metadata": {
-        "modul": "M13",
         "anfrage_typ": "fachfrage",
         # Kein echter Nutzername, keine E-Mail in Metadaten
     }

@@ -195,14 +195,14 @@ Lädt Prompt-Templates aus Markdown-Dateien (.md) und gibt sie als ChatPromptTem
 from genai_lib.utilities import load_prompt
 
 # ChatPromptTemplate (default, mode="T")
-prompt = load_prompt('05_prompt/sql_prompt.md')
+prompt = load_prompt('05_prompt/m07_sql_prompt.md')
 
 # Nur als String ohne Frontmatter (mode="S")
-text = load_prompt('05_prompt/sql_prompt.md', mode="S")
+text = load_prompt('05_prompt/m07_sql_prompt.md', mode="S")
 
 # Von GitHub (tree oder blob URLs werden automatisch konvertiert)
 prompt = load_prompt(
-    'https://github.com/ralf-42/GenAI/blob/main/05_prompt/text_zusammenfassung.md'
+    'https://github.com/ralf-42/GenAI/blob/main/05_prompt/m02_text_zusammenfassung.md'
 )
 ```
 
@@ -424,19 +424,20 @@ copy_from_github("myorg/private-repo", "./ziel", token="ghp_...")
 
 #### . `show_trace(project_name, limit=5, show_steps=False)` 🆕
 Zeigt die letzten LangSmith-Runs eines Projekts als formatierte Markdown-Tabelle direkt im Notebook an.
+Der Projektname muss exakt dem Wert von `LANGSMITH_PROJECT` entsprechen.
 
 ```python
 from genai_lib.utilities import show_trace
 
 # Letzte 5 Runs als Tabelle
-show_trace("M08-RAG-Projekt")
+show_trace("m08_rag_projekt")
 
 # Mit Step-Analyse des letzten Runs
-show_trace("M08-RAG-Projekt", limit=3, show_steps=True)
+show_trace("m08_rag_projekt", limit=3, show_steps=True)
 ```
 
 **Parameter:**
-- `project_name` (str): Name des LangSmith-Projekts (z.B. `"M08-RAG-Projekt"`)
+- `project_name` (str): Name des LangSmith-Projekts (identisch zu `LANGSMITH_PROJECT`)
 - `limit` (int): Anzahl der anzuzeigenden Runs (Standard: 5)
 - `show_steps` (bool): Child-Runs (Tool-Calls, LLM-Calls) des letzten Runs anzeigen (Standard: False)
 
@@ -706,10 +707,10 @@ setup_api_keys(["OPENAI_API_KEY"])
 from genai_lib.utilities import show_trace
 
 # Letzte Runs prüfen
-show_trace("M08-RAG-Projekt")
+show_trace("m08_rag_projekt")
 
 # Step-Analyse für Debugging
-show_trace("M08-RAG-Projekt", show_steps=True)
+show_trace("m08_rag_projekt", show_steps=True)
 ```
 
 ### . Multimodales RAG-System

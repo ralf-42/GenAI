@@ -1,5 +1,5 @@
 ---
-name: sql_rag_analysis
+name: m07_sql_rag_analysis
 description: Interpretiert SQL-Abfrageergebnisse als Business-Analyst
 variables: [query, sql_query, results]
 ---

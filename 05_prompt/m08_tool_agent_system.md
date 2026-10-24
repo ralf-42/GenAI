@@ -1,5 +1,5 @@
 ---
-name: agent_prompt
+name: m08_tool_agent_system
 description: Basis-System-Prompt für Agenten mit Tool-Zugriff
 variables: []
 ---
