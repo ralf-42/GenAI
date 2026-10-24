@@ -28,7 +28,7 @@ has_toc: true
 - **LangGraph** - Kontrolle (Workflows, State Machines, Multi-Agent)
 - **LangSmith** - Observability (Monitoring, Debugging, Evaluation)
 
-> **📘 Referenz:** Das Zusammenspiel findest du in `docs/10-deployment/vom-modell-zum-produkt.md`.
+> **📘 Referenz:** Das Zusammenspiel steht in `docs/10-deployment/vom-modell-zum-produkt.md`.
 
 ---
 
@@ -76,7 +76,7 @@ response = agent.invoke({"messages": [...]})
 - Gibt Input/Output je Komponente transparent wieder
 
 **Wann nutzen:**
-- ✅ Wenn du komplexe Agent-Workflows sauber debuggen willst
+- ✅ Bei komplexen Agent-Workflows, die sauber debuggt werden sollen
 - ✅ Um nachzuvollziehen, warum ein Agent „danebenliegt“
 - ✅ Um Performance-Bottlenecks zu finden (wer braucht wie lange?)
 
@@ -111,7 +111,7 @@ LangSmith unterscheidet 7 `run_type`-Werte. Diese Typen bestimmen, wie ein Schri
 
 **`.with_config()` – Traces benennen und taggen:**
 
-Mit `.with_config()` gibst du einzelnen Chains und Aufrufen einen klaren Namen in LangSmith. So erkennst du im Trace-Tree schneller, was zu welchem Teil gehört.
+Mit `.with_config()` erhalten einzelne Chains und Aufrufe einen klaren Namen in LangSmith. So ist im Trace-Tree schneller erkennbar, was zu welchem Teil gehört.
 
 **Pattern: Konfiguration vorab in Variable – dann `.with_config(**run_cfg)` anwenden:**
 
@@ -157,7 +157,7 @@ result = traced_chain.invoke({"input": "..."})
 Beide Wege sind komplementär: `.with_config(...)` setzt die Basis-Konfiguration einer Chain-Variante, `invoke(..., config=...)` eignet sich für laufzeitspezifische Angaben pro Aufruf.
 
 **Wann `.with_config()` einsetzen:**
-- ✅ Wenn in einem Projekt viele Chains parallel laufen und du sie unterscheiden musst
+- ✅ Wenn in einem Projekt viele Chains parallel laufen und unterschieden werden müssen
 - ✅ Bei parallelen Chains (`RunnableParallel`) – jede Teilkette separat benennen
 - ✅ Bei Streaming – auch `stream()` wird getraced
 - ❌ Bei reinen Python-Funktionen ohne LLM (`RunnableLambda` ohne LLM)
@@ -184,11 +184,11 @@ tags=["lcel", "parallel"]
 tags=["production", "rag", "v2"]
 ```
 
-> ⚠️ **Regel:** `.with_config()` gehört in den Abschnitt, der Tracing *erklärt*. In Lehr-Notebooks sollte es einmalig gezeigt werden (z. B. im „LangSmith“-Kapitel). In vorherigen LCEL-Beispielen lässt du es besser weg.
+> ⚠️ **Regel:** `.with_config()` gehört in den Abschnitt, der Tracing *erklärt*. In Lehr-Notebooks sollte es einmalig gezeigt werden (z. B. im „LangSmith“-Kapitel). In vorherigen LCEL-Beispielen entfällt es besser.
 
 **`.func()` – Tool-Tests ohne Tracing:**
 
-Wenn du eine Tool-Funktion isoliert testen willst, rufst du sie direkt über `.func()` auf. Damit gehst du am Runnable-Framework vorbei und es entsteht kein Trace.
+Soll eine Tool-Funktion isoliert getestet werden, wird sie direkt über `.func()` aufgerufen. Damit geht der Aufruf am Runnable-Framework vorbei und es entsteht kein Trace.
 
 ```python
 from langchain_core.tools import tool
@@ -208,7 +208,7 @@ ergebnis = celsius_nach_fahrenheit.invoke({"temperatur": 37.0})
 **Wann `.func()` einsetzen:**
 - ✅ Für isolierte Unit-Tests von Tool-Funktionen (Kapitel vor der LangSmith-Demo)
 - ✅ Wenn Tracing-Unterdrückung via Context Manager nicht zuverlässig funktioniert
-- ❌ Nicht verwenden, wenn du gerade das Runnable-Verhalten testen willst (Schema-Validierung, Callbacks)
+- ❌ Nicht verwenden, wenn gerade das Runnable-Verhalten getestet werden soll (Schema-Validierung, Callbacks)
 
 > 💡 **Didaktischer Mehrwert:** Der Unterschied zwischen `.func()` und `.invoke()` macht sichtbar, was das Runnable-Framework zusätzlich übernimmt. Genau das hilft beim Verstehen in Lehr-Notebooks.
 
@@ -217,7 +217,7 @@ ergebnis = celsius_nach_fahrenheit.invoke({"temperatur": 37.0})
 ### 2. Datasets & Evaluation
 
 **Was es macht:**
-- Erlaubt dir, Test-Datasets für LLM-Anwendungen anzulegen
+- Erlaubt, Test-Datasets für LLM-Anwendungen anzulegen
 - Unterstützt automatisierte Evaluierungen vor dem Deployment
 - Macht Benchmark-Vergleiche über mehrere Versionen hinweg möglich
 
@@ -258,7 +258,7 @@ results = evaluate(
 
 **Baseline-Experiment fixieren** *(neu: Feb 2026)*
 
-Seit Februar 2026 kannst du ein Experiment als **Baseline** festlegen. Alle danach folgenden Runs werden automatisch gegen diese Baseline verglichen.
+Seit Februar 2026 lässt sich ein Experiment als **Baseline** festlegen. Alle danach folgenden Runs werden automatisch gegen diese Baseline verglichen.
 
 ```python
 # Im LangSmith Dashboard: Experiments → Run auswählen → "Pin as Baseline"
@@ -496,7 +496,7 @@ response = agent.invoke({"messages": [...]})
 
 ## Production-Checkliste
 
-Bevor du in Production gehst:
+Vor dem Produktivbetrieb:
 
 ### MUST-HAVES
 - [ ] **LangSmith aktiviert** (`LANGSMITH_TRACING=true`)
@@ -637,11 +637,11 @@ def chatbot_with_feedback(message: str, session_id: str):
 
 ### Problem: Traces landen in falschem Projekt (`default` statt Modulname)
 
-**Ursache:** `LANGSMITH_PROJECT` wurde in der Setup-Cell auf `"m##_default"` gesetzt (oder gar nicht). Später versuchst du es im Notebook über `os.environ` zu ändern. Das klappt nicht zuverlässig — der Projektnamen wird beim ersten Trace eingefroren.
+**Ursache:** `LANGSMITH_PROJECT` wurde in der Setup-Cell auf `"m##_default"` gesetzt (oder gar nicht). Später wird versucht, ihn im Notebook über `os.environ` zu ändern. Das klappt nicht zuverlässig — der Projektnamen wird beim ersten Trace eingefroren.
 
-**Symptom:** Du siehst zwar, dass `os.environ["LANGSMITH_PROJECT"] = "m06_structured_output"` den richtigen Wert hat, aber Traces landen trotzdem in `default`.
+**Symptom:** `os.environ["LANGSMITH_PROJECT"] = "m06_structured_output"` hat zwar den richtigen Wert, aber Traces landen trotzdem in `default`.
 
-**Lösung:** Modulnamen direkt in der Setup-Cell setzen — also bevor du irgendetwas aus LangChain importierst:
+**Lösung:** Modulnamen direkt in der Setup-Cell setzen — also vor jedem Import aus LangChain:
 ```python
 # ✅ Einmal korrekt in der Setup-Cell – funktioniert zuverlässig
 os.environ["LANGSMITH_PROJECT"] = "m06_structured_output"
@@ -673,7 +673,7 @@ print(os.getenv("LANGSMITH_API_KEY"))     # Sollte gesetzt sein
 
 ### Problem: 403 Forbidden beim Tracing (EU-Account)
 
-**Ursache:** Ein EU-API-Key wird gegen den US-Default-Endpoint `api.smith.langchain.com` verwendet. Ursache ist fehlendes `LANGSMITH_ENDPOINT` oder dass du die Variable erst nach dem ersten LangChain-Import gesetzt hast.
+**Ursache:** Ein EU-API-Key wird gegen den US-Default-Endpoint `api.smith.langchain.com` verwendet. Ursache ist fehlendes `LANGSMITH_ENDPOINT` oder dass die Variable erst nach dem ersten LangChain-Import gesetzt wurde.
 
 **Symptom:**
 ```

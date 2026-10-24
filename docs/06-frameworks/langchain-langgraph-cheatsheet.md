@@ -174,7 +174,7 @@ def classify_node(state: RouterState) -> dict:
     return {"intent": result.intent}
 
 
-def route_by_intent(state: RouterState) -> str:
+def router(state: RouterState) -> str:
     return state["intent"] or "chat"
 
 
@@ -195,7 +195,7 @@ builder.add_node("code", code_node)
 builder.add_edge(START, "classify")
 builder.add_conditional_edges(
     "classify",
-    route_by_intent,
+    router,
     {
         "chat": "chat",
         "wissen": "wissen",

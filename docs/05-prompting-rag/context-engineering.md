@@ -63,7 +63,7 @@ Viele Probleme, die man zunächst für „Modellfehler“ hält, lassen sich auf
 Viele Verbesserungen entstehen nicht durch „noch besseren Prompt“. Sobald Dokumente, Memory, Tools oder externe Datenquellen ins Spiel kommen, verschiebt sich der Hebel Richtung Kontextarchitektur. Dort wird entschieden, welche Informationen überhaupt ins Modell gelangen – und in welcher Form.
 
 > [!TIP] Startpunkt<br>
-> Starte mit einer kleinen, messbaren Kontext-Checkliste. Erst wenn Auswahl, Struktur und Aktualität zuverlässig funktionieren, lohnt sich zusätzliche Komplexität.
+> Am Anfang steht eine kleine, messbare Kontext-Checkliste. Erst wenn Auswahl, Struktur und Aktualität zuverlässig funktionieren, lohnt sich zusätzliche Komplexität.
 
 
 
@@ -355,7 +355,7 @@ Kundenzufriedenheit: +30%
 
 # Sofort umsetzbare Tipps
 ## Do's
-- Starte mit einfachen Kontext-Checklisten
+- Mit einfachen Kontext-Checklisten beginnen
 - Feedback gezielt einsammeln
 - Erfolgreiche Kontextmuster dokumentieren
 - Mit den häufigsten Anwendungsfällen beginnen

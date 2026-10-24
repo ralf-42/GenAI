@@ -641,7 +641,7 @@ print(f"Bildbeschreibungen: {status['image_descriptions']}")
 - `total_documents`: Gesamtanzahl aller Einträge
 
 #### . `cleanup_database(db_path)`
-Löscht die Datenbank komplett, damit du für einen Neustart wieder bei Null anfängst.
+Löscht die Datenbank komplett, damit ein Neustart wieder bei Null beginnt.
 
 ```python
 from genai_lib.multimodal_rag import cleanup_database
@@ -774,7 +774,7 @@ langsmith>=0.1.0
 ### Überblick
 
 > [!NOTE] model_config.py auf einen Blick<br>
-> Das `model_config`-Modul legt Modell-IDs als benannte Konstanten fest, aufgeteilt nach Rolle. Die Instanziierung machst du dann im Notebook mit `init_chat_model()`, damit die API-Keys bereits gesetzt sind.
+> Das `model_config`-Modul legt Modell-IDs als benannte Konstanten fest, aufgeteilt nach Rolle. Die Instanziierung erfolgt dann im Notebook mit `init_chat_model()`, damit die API-Keys bereits gesetzt sind.
 
 ```python
 from genai_lib.model_config import BASELINE, WORKER, JUDGE, FRONTIER

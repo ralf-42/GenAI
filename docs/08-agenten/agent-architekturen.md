@@ -524,7 +524,7 @@ react_agent = create_agent(
 ```
 
 > [!NOTE]
-> Die Ausführungslogik kannst du auf zwei Arten festlegen:  
+> Die Ausführungslogik lässt sich auf zwei Arten festlegen:  
 > entweder 
 > + implizit über `create_agent()` zusammen mit dem `system_prompt`, oder 
 > + explizit mit `LangGraph` über Nodes, Edges und bedingte Übergänge.  

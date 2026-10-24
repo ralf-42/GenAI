@@ -11,7 +11,7 @@ has_toc: true
 {: .no_toc }
 
 > **Die Aufgabe entscheidet das Tool.**
-> Erst klären, was genau du erreichen willst. Danach schauen, wie es mit Datenschutz aussieht (Cloud vs. lokal). Zum Schluss geht es um Kosten und Betrieb.
+> Erst klären, was genau erreicht werden soll. Danach schauen, wie es mit Datenschutz aussieht (Cloud vs. lokal). Zum Schluss geht es um Kosten und Betrieb.
 
 ---
 
@@ -26,7 +26,7 @@ has_toc: true
 
 ## Kernprinzip
 
-Es gibt nicht den einen „besten“ Weg für GenAI. Je nachdem, welche Art Aufgabe du hast, passt ein anderer Ansatz: Chat, Workflows, App-Builder, Python, Agentensysteme oder lokale Modelle. Wenn man das falsche Setup wählt, wird es oft unnötig kompliziert oder es passt datenschutzseitig nicht.
+Es gibt nicht den einen „besten“ Weg für GenAI. Je nachdem, welche Art Aufgabe vorliegt, passt ein anderer Ansatz: Chat, Workflows, App-Builder, Python, Agentensysteme oder lokale Modelle. Wenn man das falsche Setup wählt, wird es oft unnötig kompliziert oder es passt datenschutzseitig nicht.
 
 **Darum lieber aufgabengetrieben entscheiden:**
 
@@ -54,7 +54,7 @@ Im nächsten Schritt immer kurz gegenchecken: **Cloud vs. lokal**.
 
 ### 1) Aufgabentyp (Primärkriterium)
 
-Je nachdem, welche Aufgabe du hast, ergibt sich oft der passende Lösungsweg bereits:
+Je nach Aufgabe ergibt sich oft der passende Lösungsweg bereits:
 
 - **Einmalige Wissens- oder Schreibaufgabe:** Chat
 - **Prozessautomatisierung mit klaren Regeln:** Workflow

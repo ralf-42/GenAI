@@ -25,7 +25,7 @@ has_toc: true
 
 ## Kurzüberblick: Warum LangGraph?
 
-LangChain liefert Modelle, Tools und erste Agenten. LangGraph baut genau darauf auf, aber es geht einen Schritt weiter: Du bekommst einen Workflow, der aus mehreren Schritten bestehen kann und dabei klar steuert, wie es weitergeht.
+LangChain liefert Modelle, Tools und erste Agenten. LangGraph baut genau darauf auf, aber es geht einen Schritt weiter: Es entsteht ein Workflow, der aus mehreren Schritten bestehen kann und dabei klar steuert, wie es weitergeht.
 
 Typische Vorteile sind:
 - **Abläufe in mehreren Schritten**
@@ -50,7 +50,7 @@ KI-generiertes Bild
 
 ## Lernpfad: Von einfach zu agentisch
 
-LangGraph lernt sich am besten in kleinen Schritten. Nicht jedes Thema brauchst du sofort, und es ist hilfreich, zuerst die Grundlagen sauber zu verstehen.
+LangGraph lernt sich am besten in kleinen Schritten. Nicht jedes Thema wird sofort gebraucht, und es ist hilfreich, zuerst die Grundlagen sauber zu verstehen.
 
 | Stufe | Thema | Ziel |
 |---|---|---|
@@ -65,7 +65,7 @@ LangGraph lernt sich am besten in kleinen Schritten. Nicht jedes Thema brauchst 
 | 9 | Subgraphs / Multi-Agent | größere Workflows modularisieren |
 | 10 | Agentic RAG | Retrieval, Tools und Routing in einem Graph kombinieren |
 
-Für Einsteiger reichen die Stufen 1-5 als solide Grundlage. Sobald du aber aus einem Demo-Workflow ein interaktives oder näher an die Produktion gebrachtes System machen willst, werden die Stufen 6-10 wichtig.
+Für Einsteiger reichen die Stufen 1-5 als solide Grundlage. Soll aus einem Demo-Workflow aber ein interaktives oder produktionsnäheres System werden, sind die Stufen 6-10 wichtig.
 
 ---
 
@@ -163,13 +163,13 @@ result = graph.invoke(initial_state)
 result
 ```
 
-**Ergebnis:** Ein vollständiger erster Workflow – bevor du irgendwelche abstrakten Konzepte erklären musst.
+**Ergebnis:** Ein vollständiger erster Workflow – bevor irgendwelche abstrakten Konzepte erklärt werden müssen.
 
 ---
 
 ## Grundaufbau: Workflows als State Machine
 
-Wenn dein erstes Beispiel steht, kannst du den Grundgedanken dahinter klarer machen:
+Steht das erste Beispiel, lässt sich der Grundgedanke dahinter klarer machen:
 
 - Ein Workflow besteht aus klaren Schritten (*Nodes*).
 - Der Zustand wird im *State* abgelegt und läuft durch den Workflow mit.
@@ -255,11 +255,11 @@ class ChatState(TypedDict):
 ```
 
 Ein paar klare Regeln:
-- Speichere nur das, was du später wirklich brauchst.
+- Nur speichern, was später wirklich gebraucht wird.
 - Typisierung hilft, den Flow schneller zu verstehen und Fehler leichter zu finden.
 - Reducer stellen sicher, dass Listen (z. B. Nachrichten) korrekt zusammengeführt werden.
 
-Ohne Reducer überschreibt ein Node einfach den alten Wert eines Feldes. Mit Reducer legst du fest, wie alte und neue Werte zusammenkommen sollen. Für Chat-Verläufe ist `add_messages` deshalb meist die passende Wahl.
+Ohne Reducer überschreibt ein Node einfach den alten Wert eines Feldes. Mit Reducer wird festgelegt, wie alte und neue Werte zusammenkommen sollen. Für Chat-Verläufe ist `add_messages` deshalb meist die passende Wahl.
 
 ```python
 from typing import Annotated, TypedDict
@@ -339,7 +339,7 @@ Die folgenden Abschnitte zeigen die wichtigsten Einsteiger-Workflows: lineare Gr
 
 ## Edges & Conditional Routing
 
-Jetzt kommt das Routing dazu – **erst nachdem du Nodes und State verstanden hast**.
+Jetzt kommt das Routing dazu – **erst nach dem Verständnis von Nodes und State**.
 
 ### Lineare Edges
 
@@ -433,13 +433,13 @@ def classify_node(state: ChatState) -> Command[Literal["tools", "answer"]]:
     return Command(update={"step": state["step"] + 1}, goto="answer")
 ```
 
-Für Einsteiger gilt: Nutze erst einfache Verzweigungen mit `add_conditional_edges()`. `Command` lohnt sich besonders dann, wenn Update und Routing fachlich zusammengehören.
+Zum Einstieg gilt: Zuerst genügen einfache Verzweigungen mit `add_conditional_edges()`. `Command` lohnt sich besonders dann, wenn Update und Routing fachlich zusammengehören.
 
 ---
 
 ## Streaming: Schritte sichtbar machen
 
-Streaming hilft enorm, weil du während der Ausführung siehst, was gerade passiert.
+Streaming hilft enorm, weil sich während der Ausführung beobachten lässt, was gerade passiert.
 
 ```python
 config = {"configurable": {"thread_id": "demo"}}
@@ -642,7 +642,7 @@ Einsatzmöglichkeiten:
 
 ## Multi-Agent-Workflows (Fortgeschritten)
 
-Dieses Thema kommt bewusst erst am Ende. Wenn du die Grundlagen schon sicher beherrschst, wird die Idee von Multi-Agenten deutlich einfacher.
+Dieses Thema kommt bewusst erst am Ende. Mit sicheren Grundlagen wird die Idee von Multi-Agenten deutlich einfacher.
 
 ### Agenten definieren
 
@@ -723,8 +723,8 @@ Mögliche Erweiterungen:
 - Modelliere Routing als Funktion statt es in Prompt-Text zu verstecken.
 - Denke an `Graph State` (Datenschema) und `StateGraph` (Ablaufstruktur) als getrennte Dinge.
 - Reducer bewusst nutzen: Bei `messages` oft anhängen, bei einzelnen Feldern gezielt ersetzen.
-- Stelle sicher, dass jeder Pfad am Ende bei einem gültigen Node oder bei `END` landet.
-- Nutze `Command(update=..., goto=...)`, wenn Update und Routing inhaltlich zusammengehören.
+- Jeder Pfad muss am Ende bei einem gültigen Node oder bei `END` landen.
+- `Command(update=..., goto=...)` eignet sich, wenn Update und Routing inhaltlich zusammengehören.
 - Visualisiere den Graph nach dem Kompilieren.
 - Checkpointing verwenden, sobald Sessions wiederaufgenommen werden sollen.
 - Human-in-the-Loop mit Interrupts technisch erzwingen.
@@ -735,15 +735,15 @@ Mögliche Erweiterungen:
 
 ### Graph endet zu früh
 
-Prüfe Edges und Rückgabewerte der Routing-Funktion. Jeder mögliche Rückgabewert muss auf einen gültigen Zielknoten oder `END` zeigen.
+Zu prüfen sind Edges und Rückgabewerte der Routing-Funktion. Jeder mögliche Rückgabewert muss auf einen gültigen Zielknoten oder `END` zeigen.
 
 ### State wird überschrieben
 
-Nutze Reducer wie `add_messages`, wenn Listen über mehrere Schritte hinweg erweitert statt ersetzt werden sollen.
+Reducer wie `add_messages` eignen sich, wenn Listen über mehrere Schritte hinweg erweitert statt ersetzt werden sollen.
 
 ### Human-in-the-Loop läuft nicht weiter
 
-Verwende eine stabile `thread_id` und setze `Command(resume=...)`, um nach einem Interrupt fortzufahren.
+Nach einem Interrupt geht es mit einer stabilen `thread_id` und `Command(resume=...)` weiter.
 
 ---
 
@@ -772,7 +772,7 @@ Diese Konzepte gehören nicht in den ersten Minimalgraph, erklären aber die pro
 
 ## Zusammenfassung
 
-LangGraph lohnt sich, wenn dein LLM-Workflow echten Zustand, Routing oder Unterbrechungen braucht. Der beste Einstieg ist ein minimaler Graph aus State, Node und Edge. Danach kommen Conditional Routing, Streaming, Checkpointing und Human-in-the-Loop dazu.
+LangGraph lohnt sich, wenn ein LLM-Workflow echten Zustand, Routing oder Unterbrechungen braucht. Der beste Einstieg ist ein minimaler Graph aus State, Node und Edge. Danach kommen Conditional Routing, Streaming, Checkpointing und Human-in-the-Loop dazu.
 
 ---
 

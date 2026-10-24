@@ -76,7 +76,7 @@ Der Quickstart zeigt das typische Basis-Muster: Prompt vorbereiten, Modell initi
 
 ## Prompts mit `ChatPromptTemplate`
 
-Wenn du Prompts wiederverwenden und sauber strukturieren willst, ist `ChatPromptTemplate` in LangChain 1.0 die richtige Wahl. Du definierst dabei, welche Nachrichtenrollen im Dialog vorkommen und welche Platzhalter zur Laufzeit gefüllt werden.
+Sollen Prompts wiederverwendet und sauber strukturiert werden, ist `ChatPromptTemplate` in LangChain 1.0 die richtige Wahl. Dabei wird definiert, welche Nachrichtenrollen im Dialog vorkommen und welche Platzhalter zur Laufzeit gefüllt werden.
 
 **Wichtige Punkte:**
 
@@ -120,7 +120,7 @@ msgs = rag_prompt.format_messages(
 
 ## Einheitliche Modell-Initialisierung: `init_chat_model()`
 
-Damit dein Modellzugriff stabil bleibt, ist `init_chat_model()` die Basis. Es sorgt dafür, dass du verschiedene Anbieter konsistent ansprechen kannst – ohne dass du überall im Code herumfummeln musst.
+Damit der Modellzugriff stabil bleibt, ist `init_chat_model()` die Basis. Es sorgt dafür, dass sich verschiedene Anbieter konsistent ansprechen lassen – ohne dass im Code überall nachgebessert werden muss.
 
 **Beispiel: Standard-Setup für den Kurs**
 
@@ -144,7 +144,7 @@ print(response.content)
 
 ## Strukturierte Ausgaben: `with_structured_output()`
 
-Viele Aufgaben brauchen keine „schöne Antwort“, sondern konkrete Felder – zum Beispiel bei Extraktion, Bewertungen oder Metadaten. Mit `with_structured_output()` kannst du Antworten direkt an Pydantic-Modelle koppeln und danach validieren lassen.
+Viele Aufgaben brauchen keine „schöne Antwort“, sondern konkrete Felder – zum Beispiel bei Extraktion, Bewertungen oder Metadaten. Mit `with_structured_output()` lassen sich Antworten direkt an Pydantic-Modelle koppeln und danach validieren.
 
 **Beispiel: Einfache Entity-Extraktion in ein Pydantic-Modell**
 
@@ -225,7 +225,7 @@ Gute Docstrings und Grenzen helfen dem Modell: „nur bei Bestellnummer“, „n
 
 ### Wichtige `@tool`-Parameter
 
-Für die meisten Einsteigerbeispiele reichen `@tool`, Type Hints und ein klarer Docstring. Zusätzliche Parameter setzt du nur, wenn du bewusst vom Standard abweichen willst:
+Für die meisten Einsteigerbeispiele reichen `@tool`, Type Hints und ein klarer Docstring. Zusätzliche Parameter werden nur gesetzt, wenn bewusst vom Standard abgewichen werden soll:
 
 | Parameter | Wann sinnvoll? |
 |---|---|
@@ -251,7 +251,7 @@ def weather_lookup(city: str) -> str:
 
 ### Tool Extras für Provider-spezifische Features (NEU v1.2.0)
 
-Mit dem `extras`‑Parameter beim `@tool`‑Decorator kannst du provider‑spezifische Features und Flags an ein Tool übergeben. Standardmäßig werden solche Optionen nicht über die normale Tool-API abgedeckt. Diese Extras werden nur dann wirksam, wenn der jeweilige Provider-Adapter sie auch wirklich auswertet; ansonsten bleibt es ohne Effekt.
+Mit dem `extras`‑Parameter beim `@tool`‑Decorator lassen sich provider‑spezifische Features und Flags an ein Tool übergeben. Standardmäßig werden solche Optionen nicht über die normale Tool-API abgedeckt. Diese Extras werden nur dann wirksam, wenn der jeweilige Provider-Adapter sie auch wirklich auswertet; ansonsten bleibt es ohne Effekt.
 
 ```python
 from langchain_core.tools import tool
@@ -305,7 +305,7 @@ def take_screenshot() -> str:
 
 ## Agenten erstellen: `create_agent()`
 
-Mit `create_agent()` fügst du Modell, Tools, Systemprompt und optional Middleware zu einer Einheit zusammen. Intern basiert das auf einer klaren State-Struktur, die sich über LangGraph abbilden lässt.
+Mit `create_agent()` werden Modell, Tools, Systemprompt und optional Middleware zu einer Einheit zusammengefügt. Intern basiert das auf einer klaren State-Struktur, die sich über LangGraph abbilden lässt.
 
 **Beispiel: Kleinstmöglicher Tool-Agent**
 
@@ -432,7 +432,7 @@ sequenceDiagram
 
 ## Moderne Kettensyntax: LCEL `|`
 
-LangChain Expression Language (LCEL) ist die moderne Art, Chains zu bauen. Über den Pipe‑Operator `|` verknüpfst du Verarbeitungsschritte in einer logischen Reihenfolge.
+LangChain Expression Language (LCEL) ist die moderne Art, Chains zu bauen. Über den Pipe‑Operator `|` werden Verarbeitungsschritte in einer logischen Reihenfolge verknüpft.
 
 ### LCEL Pipeline-Visualisierung
 
@@ -492,7 +492,7 @@ print(output)
 
 ### Mehrere Aufrufe: `batch()`, `batch_as_completed()` und `max_concurrency`
 
-Wenn du mehrere Aufgaben hast, die unabhängig voneinander sind, ist `batch()` meist die bequemste Variante statt einer Schleife mit vielen einzelnen `invoke()`-Aufrufen.
+Bei mehreren voneinander unabhängigen Aufgaben ist `batch()` meist die bequemste Variante statt einer Schleife mit vielen einzelnen `invoke()`-Aufrufen.
 
 ```python
 fragen = [
@@ -510,9 +510,9 @@ for antwort in antworten:
     print(antwort)
 ```
 
-Mit `max_concurrency` steuerst du, wie viele Anfragen parallel laufen. Das hilft, Rate Limits, Kosten und Systemlast im Griff zu behalten.
+Mit `max_concurrency` lässt sich steuern, wie viele Anfragen parallel laufen. Das hilft, Rate Limits, Kosten und Systemlast im Griff zu behalten.
 
-Wenn du Ergebnisse lieber „as soon as ready“ weiterverarbeiten willst, nimm `batch_as_completed()`:
+Sollen Ergebnisse „as soon as ready“ weiterverarbeitet werden, eignet sich `batch_as_completed()`:
 
 ```python
 for index, antwort in rewrite_chain.batch_as_completed(fragen):
@@ -530,7 +530,7 @@ for chunk in rewrite_chain.stream({"input_text": "Erkläre RAG ausführlich."}):
 
 ### Beispiel: LCEL-Chain mit zusätzlicher Eingabe (Pass-Through)
 
-`RunnablePassthrough` ergänzt innerhalb einer Chain zusätzliche Felder, ohne den ursprünglichen Input zu verändern. Damit kannst du z. B. Kontext oder Metadaten einfach „nachreichen“.
+`RunnablePassthrough` ergänzt innerhalb einer Chain zusätzliche Felder, ohne den ursprünglichen Input zu verändern. Damit lassen sich z. B. Kontext oder Metadaten einfach „nachreichen“.
 
 ```python
 from langchain_core.runnables import RunnablePassthrough
@@ -664,7 +664,7 @@ for block in vision_response.content_blocks:
         print("Antwort:", block["text"])
 ```
 
-Dieses Muster kannst du später auch in multimodalen RAG-Notebooks wiederverwenden.
+Dieses Muster lässt sich später auch in multimodalen RAG-Notebooks wiederverwenden.
 
 ---
 
@@ -689,7 +689,7 @@ print(len(chunks))
 print(chunks[0][:200])
 ```
 
-Im Kurs lohnt es sich, mit unterschiedlichen Chunk‑Größen und Overlaps zu experimentieren – so siehst du schnell, wie stark das Retrieval und die Antwortqualität beeinflusst.
+Es lohnt sich, mit unterschiedlichen Chunk‑Größen und Overlaps zu experimentieren – so zeigt sich schnell, wie stark das Retrieval und die Antwortqualität beeinflusst werden.
 
 ---
 
@@ -847,7 +847,7 @@ antwort = rag_chain.invoke(frage)
 print(antwort)
 ```
 
-Dieses Pattern ist die Grundlage für Wissens‑Chatbots, Dokumenten‑Assistenten oder interne Suchsysteme. Danach kannst du es Schritt für Schritt erweitern – zum Beispiel um Evaluierung, Feedback‑Schleifen oder um LangGraph‑Workflows.
+Dieses Pattern ist die Grundlage für Wissens‑Chatbots, Dokumenten‑Assistenten oder interne Suchsysteme. Danach lässt es sich Schritt für Schritt erweitern – zum Beispiel um Evaluierung, Feedback‑Schleifen oder um LangGraph‑Workflows.
 
 ---
 
@@ -869,11 +869,11 @@ Dieses Pattern ist die Grundlage für Wissens‑Chatbots, Dokumenten‑Assistent
 
 ### Import funktioniert nicht
 
-Prüfe, ob die benötigten Pakete installiert sind und ob du die aktuellen LangChain-Importpfade nutzt.
+Zu prüfen ist, ob die benötigten Pakete installiert sind und ob die aktuellen LangChain-Importpfade verwendet werden.
 
 ### Modell liefert Freitext statt Schema
 
-Nutze `with_structured_output()` mit einem Pydantic-Modell. Prompt-Anweisungen allein reichen für robuste strukturierte Daten nicht aus.
+Empfohlen ist `with_structured_output()` mit einem Pydantic-Modell. Prompt-Anweisungen allein reichen für robuste strukturierte Daten nicht aus.
 
 ### RAG-Antworten sind ungenau
 
@@ -885,7 +885,7 @@ Checke zuerst Chunk-Größe, Overlap, Embedding-Modell und Retriever-Parameter. 
 
 ### Ausblick auf Best Practices
 
-Diese Begriffe musst du für die ersten Beispiele nicht aktiv verwenden, sie erklären aber einige Muster aus den Best-Practice-Seiten:
+Diese Begriffe müssen für die ersten Beispiele nicht aktiv verwendet werden, sie erklären aber einige Muster aus den Best-Practice-Seiten:
 
 | Konzept | Kurz erklärt |
 |---|---|
@@ -906,7 +906,7 @@ Diese Begriffe musst du für die ersten Beispiele nicht aktiv verwenden, sie erk
 
 ## Zusammenfassung
 
-LangChain liefert dir die Bausteine für LLM-Anwendungen: Prompts, Modelle, strukturierte Ausgaben, Tools, Chains, Agents und RAG. Für den Einstieg ist die Reihenfolge entscheidend: erst einen einfachen Modellaufruf sauber stabil bekommen, dann LCEL-Chains bauen, anschließend Tools und Retrieval ergänzen.
+LangChain liefert die Bausteine für LLM-Anwendungen: Prompts, Modelle, strukturierte Ausgaben, Tools, Chains, Agents und RAG. Für den Einstieg ist die Reihenfolge entscheidend: erst einen einfachen Modellaufruf sauber stabil bekommen, dann LCEL-Chains bauen, anschließend Tools und Retrieval ergänzen.
 
 ---
 

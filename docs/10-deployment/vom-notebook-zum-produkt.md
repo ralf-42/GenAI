@@ -30,7 +30,7 @@ Notebook
   -> Monitoring und Betrieb
 ```
 
-Die wichtigste Entscheidung kommt noch bevor du das erste Dockerfile schreibst: Soll die Anwendung als API laufen, als Batch-Job, als interner Worker oder als interaktive Demo? Davon hängen Projektstruktur, Startkommando, Secrets-Verwaltung und Skalierung direkt ab.
+Die wichtigste Entscheidung kommt noch vor dem ersten Dockerfile: Soll die Anwendung als API laufen, als Batch-Job, als interner Worker oder als interaktive Demo? Davon hängen Projektstruktur, Startkommando, Secrets-Verwaltung und Skalierung direkt ab.
 
 > [!WARNING] Architektur-Entscheidung<br>
 > Die gewählte Deployment-Variante beeinflusst Projektstruktur, CI/CD und wer später für den Betrieb verantwortlich ist. Managed Plattformen helfen beim schnellen Start. Container sorgen für reproduzierbare Builds und mehr Portabilität.
@@ -45,11 +45,11 @@ Bei GenAI-Projekten treffen typischerweise drei Betriebsmodelle aufeinander. Ein
 | Worker oder Batch | Indexierung, Evaluation, periodische Verarbeitung | Container Jobs, GitHub Actions, Airflow, Prefect | Nicht für interaktive Nutzung geeignet |
 | Demo-Service | Kursdemos, Prototypen, interne Abstimmung | Hugging Face Spaces, Streamlit Community Cloud, Gradio | Nicht automatisch produktionsreif |
 
-Container sind kein Muss. Für Team-Setups sind sie aber oft der „Standard“, weil sie Python-Version, Systemabhängigkeiten und das Startkommando festziehen. Managed Runtimes sind besonders dann praktisch, wenn du schneller in den Betrieb willst als maximale Kontrolle benötigst.
+Container sind kein Muss. Für Team-Setups sind sie aber oft der „Standard“, weil sie Python-Version, Systemabhängigkeiten und das Startkommando festziehen. Managed Runtimes sind besonders dann praktisch, wenn schneller Betrieb wichtiger ist als maximale Kontrolle.
 
 ## Phase 1: Notebook bereinigen
 
-Bevor du etwas extrahierst, mach das Notebook einmal „von oben nach unten“ vollständig durchführbar. Experimentelle Zellen, doppelte Imports und alte Promptvarianten fliegen raus. Hardcodierte API-Keys, lokale Pfade und Modellnamen solltest du markieren—die gehören später in Umgebungsvariablen.
+Vor dem Extrahieren wird das Notebook einmal „von oben nach unten“ vollständig durchführbar gemacht. Experimentelle Zellen, doppelte Imports und alte Promptvarianten fliegen raus. Hardcodierte API-Keys, lokale Pfade und Modellnamen sollten markiert werden—die gehören später in Umgebungsvariablen.
 
 **Mindestcheck vor der Extraktion:**
 
@@ -85,7 +85,7 @@ mein-genai-projekt/
 
 ## Phase 3: Code extrahieren
 
-Im Notebook ist direkter API-Code noch okay. In einer Anwendung solltest du den Provider-Zugriff kapseln—damit Modellname, Fehlerbehandlung und Tests an einer Stelle bleiben.
+Im Notebook ist direkter API-Code noch okay. In einer Anwendung sollte der Provider-Zugriff gekapselt werden—damit Modellname, Fehlerbehandlung und Tests an einer Stelle bleiben.
 
 **Vorher im Notebook:**
 
@@ -266,7 +266,7 @@ def health_check() -> dict[str, str]:
     return {"status": "ok"}
 ```
 
-Lokal startest du die API aus dem Projektverzeichnis:
+Lokal wird die API aus dem Projektverzeichnis gestartet:
 
 ```bash
 uvicorn src.main:app --reload
@@ -316,7 +316,7 @@ In Cloud-Deployments taucht der API-Key nicht in Shell-Historien oder Build-Logs
 
 ## Phase 9: Deployment auf der Zielplattform
 
-Die Plattform wählst du nach dem Betriebsmodell—nicht nur nach „was ist gerade beliebt“. Für Demos reichen häufig Spaces, Streamlit oder Gradio. Für APIs mit planbarem Traffic sind Cloud Run, Azure Container Apps, Render oder Railway oft schneller und einfacher als ein eigenes Kubernetes-Cluster. Kubernetes lohnt sich meistens erst, wenn mehrere Services, eigene Netzwerkanforderungen, interne Plattformteams oder sehr strenge Betriebsstandards vorhanden sind.
+Die Plattform richtet sich nach dem Betriebsmodell—nicht nur nach „was ist gerade beliebt“. Für Demos reichen häufig Spaces, Streamlit oder Gradio. Für APIs mit planbarem Traffic sind Cloud Run, Azure Container Apps, Render oder Railway oft schneller und einfacher als ein eigenes Kubernetes-Cluster. Kubernetes lohnt sich meistens erst, wenn mehrere Services, eigene Netzwerkanforderungen, interne Plattformteams oder sehr strenge Betriebsstandards vorhanden sind.
 
 | Ziel | Passende Option | Mindestanforderung |
 |---|---|---|
@@ -329,7 +329,7 @@ Grenze: Ein gebautes Image ist noch kein produktionsreifes System. Betrieb start
 
 ## Go-Live-Check
 
-Vor dem ersten produktiven Start solltest du ein paar Dinge konsequent prüfen. Diese Liste ersetzt keine Security-Prüfung, hilft aber dabei, die häufigsten Deployment-Probleme in kleinen GenAI-Projekten zu vermeiden.
+Vor dem ersten produktiven Start sind ein paar Dinge konsequent zu prüfen. Diese Liste ersetzt keine Security-Prüfung, hilft aber dabei, die häufigsten Deployment-Probleme in kleinen GenAI-Projekten zu vermeiden.
 
 > [!WARNING] Go-Live-Regel<br>
 > Kein Produktionsstart, wenn Secrets, Health Check oder Basis-Tests noch offen sind.

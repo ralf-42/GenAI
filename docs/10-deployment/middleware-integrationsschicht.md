@@ -126,7 +126,7 @@ Faustregel: Middleware kommt dann dazu, wenn eine Verantwortung mindestens zweim
 
 ## Entscheidungsfragen
 
-Bevor du eine Integrationsschicht baust, helfen ein paar kurze technische Fragen. Sie verhindern, dass aus einem einfachen Modellaufruf zu früh eine „Plattform“ wird.
+Vor dem Bau einer Integrationsschicht helfen ein paar kurze technische Fragen. Sie verhindern, dass aus einem einfachen Modellaufruf zu früh eine „Plattform“ wird.
 
 | Frage | Konsequenz |
 |---|---|
