@@ -657,7 +657,7 @@ from genai_lib.multimodal_rag import (
     process_directory,
     multimodal_search,
     search_similar_images,
-    get_system_status
+    get_system_status,
 )
 
 # . System initialisieren
@@ -719,7 +719,7 @@ from genai_lib.multimodal_rag import (
     init_rag_system,
     RAGConfig,
     process_directory,
-    multimodal_search
+    multimodal_search,
 )
 
 # Custom Konfiguration für große Dokumente

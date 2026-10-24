@@ -121,7 +121,7 @@ from genai_lib.utilities import (
     mermaid,
     get_model_profile,
     extract_thinking,
-    load_prompt
+    load_prompt,
 )
 
 # API-Key laden (sucht automatisch in Colab Secrets, Umgebungsvariablen oder fragt interaktiv)
