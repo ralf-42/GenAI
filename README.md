@@ -10,8 +10,13 @@
 
 Ein deutschsprachiger, praxisorientierter Einsteigerkurs zu Generative-KI-Technologien mit Fokus auf OpenAI GPT-Modelle, LangChain, RAG-Systeme, Agenten und multimodale Anwendungen.
 
-Die primäre Entwicklungsumgebung ist **Google Colab**; dort steht **Gemini** als integrierte Unterstützung für Verständnisfragen, Code-Erklärungen, Debugging und Variantenbildung zur Verfügung. Gemini ist als Lern- und Arbeitsassistenz vorgesehen, ersetzt aber nicht die gemeinsame Einordnung, Diskussion und Reflexion im Kurs.  
+Die primäre Entwicklungsumgebung ist **Google Colab**; dort steht **Gemini** als integrierte Unterstützung für Verständnisfragen, Code-Erklärungen, Debugging und Variantenbildung zur Verfügung. Gemini ist als Lern- und Arbeitsassistenz vorgesehen, ersetzt aber nicht die gemeinsame Einordnung, Diskussion und Reflexion im Kurs.
 
+## 🌐 Kurs-Website
+
+**[→ GenAI Kurs-Website (GitHub Pages)](https://ralf-42.github.io/GenAI/)**
+
+Die Kursdokumentation mit Konzepten, Frameworks-Guides und Ressourcen zu Generativer KI ist als interaktive Website verfügbar.
 
 ## 🎯 Zielgruppe
 
@@ -34,8 +39,6 @@ GenAI/
 └── docs/           # Projektdokumentation
 ```
 
-
-
 ## 🛠️ Technologie-Stack
 
 ### Kernframeworks
@@ -46,8 +49,8 @@ GenAI/
 - **Hugging Face** - Transformers und Community-Modelle
 
 ### Spezialisierte Tools
-- **ChromaDB** (>=0.5.0) - Vektordatenbank für RAG-Systeme
-- **Sentence Transformers** (>=3.0.0) - CLIP für multimodale Embeddings
+- **ChromaDB** (>=1.0.0) - Vektordatenbank für RAG-Systeme
+- **Sentence Transformers** (>=5.0.0) - CLIP für multimodale Embeddings
 - **Gradio** (>=3.x) - UI-Entwicklung für KI-Apps
 - **Ollama** - Lokale Open-Source-Modelle
 - **genai_lib** (eigene Module in `04_modul/genai_lib/`) - Projektspezifische Bibliothek für Kursanwendungen
@@ -91,32 +94,53 @@ Die Modellwahl richtet sich nach der Rolle im Workflow. Die Tabelle dient als Or
 
 ## 📚 Kursmodule
 
-Die Notebooks sind nach Themen geordnet. Einzelne Aufgaben können je nach Kursverlauf, Zeitbudget und Vorwissen unterschiedlich tief bearbeitet werden.
+Die Notebooks sind nach Themen geordnet. Einzelne Aufgaben können je nach Kursverlauf, Zeitbudget und Vorwissen unterschiedlich tief bearbeitet werden. Die Nr. entspricht der Modul-ID im Dateinamen des Notebooks (z. B. `M01_GenAI_Intro.ipynb`).
 
-| Datei                                       | Thema                                                                            |
-| ------------------------------------------- | -------------------------------------------------------------------------------- |
-| `M01_GenAI_Intro.ipynb`                     | Grundlagen Generative KI, OpenAI, Hugging Face, LangChain-Warm-up                |
-| `M02_LangChain101.ipynb`                    | LangChain-Grundlagen, Prompts, Chains, Tools                                     |
-| `M03_LLM_Text.ipynb`                        | Textgenerierung, Textklassifizierung, Textzusammenfassung, LangChain-Grundmuster |
-| `M04_OutputParser.ipynb`                    | Strukturierte Ausgaben und `with_structured_output()`                            |
-| `M05_Chat_Memory_Patterns_stategraph.ipynb` | Chat-Verläufe, Memory-Patterns (LangGraph/StateGraph)                            |
-| `M05_Chat_Memory_Patterns_list_dict.ipynb`  | Chat-Verläufe, Memory-Patterns (Python-Listen/Dict)                              |
-| `M06_RAG_LangChain.ipynb`                   | Retrieval Augmented Generation mit LangChain                                     |
-| `M07_SQL_RAG.ipynb`                         | SQL-RAG und Datenbankintegration                                                 |
-| `M08_Agenten_LangChain.ipynb`               | Agenten mit LangChain                                                            |
-| `M09_Middleware.ipynb`                      | Middleware, Guardrails, Human-in-the-Loop                                        |
-| `M10_MCP_LangChain_Agent.ipynb`             | Model Context Protocol und Agent-Tools                                           |
-| `M11_Gradio.ipynb`                          | Gradio-Oberflächen für KI-Anwendungen                                            |
-| `M12_Lokale_Open_Source_Modelle.ipynb`      | Lokale und Open-Source-Modelle, Ollama                                           |
-| `M13_Fine_Tuning_Unsloth.ipynb`             | Fine-Tuning und Modellanpassung                                                  |
-| `M14_Modell_Router.ipynb`                   | LLM-Routing, Provider-Failover und Circuit Breaker                               |
-| `M15_Modell_Kosten.ipynb`                   | Kostenermittlung: Tokens, Preise und LangSmith                                   |
-| `M16_Multimodal_Bild.ipynb`                 | Multimodale Bildverarbeitung                                                     |
-| `M17_Multimodal_RAG.ipynb`                  | Multimodales RAG mit Text und Bild                                               |
-| `M18_Multimodal_Audio.ipynb`                | Audio, Speech-to-Text und Text-to-Speech                                         |
-| `M90_API_Keys_einrichten_und_testen.ipynb`  | Secrets in Colab anlegen und OpenAI- und Hugging-Face-Zugang testen              |
-| `A00_snippets_genai.ipynb`                  | Wiederverwendbare Snippets und Referenzbausteine                                 |
-| `quick_template.ipynb`                      | Vorlage für Aufgaben und neue Notebook-Bausteine                                 |
+### Block 1: Grundlagen
+| Nr. | Modul | Thema | Beschreibung |
+| ---: | ----- | ----- | ------------ |
+| 1 | GenAI Intro | Einstieg in Generative KI | Grundlagen Generative KI, OpenAI, Hugging Face, LangChain-Warm-up |
+| 2 | LangChain101 | LangChain-Grundlagen | LangChain-Grundlagen, Prompts, Chains, Tools |
+| 3 | LLM Text | Textverarbeitung mit LLMs | Textgenerierung, Textklassifizierung, Textzusammenfassung, LangChain-Grundmuster |
+| 4 | OutputParser | Strukturierte Ausgaben | Strukturierte Ausgaben und `with_structured_output()` |
+| 5 | Chat Memory Patterns (StateGraph) | Chat-Verläufe und Memory | Chat-Verläufe, Memory-Patterns (LangGraph/StateGraph) |
+| 5 | Chat Memory Patterns (Liste/Dict) | Chat-Verläufe und Memory | Chat-Verläufe, Memory-Patterns (Python-Listen/Dict) |
+
+### Block 2: Wissensbasierte Anwendungen
+| Nr. | Modul | Thema | Beschreibung |
+| ---: | ----- | ----- | ------------ |
+| 6 | RAG LangChain | Retrieval Augmented Generation | Retrieval Augmented Generation mit LangChain |
+| 7 | SQL RAG | SQL-RAG | SQL-RAG und Datenbankintegration |
+
+### Block 3: Agenten und Integration
+| Nr. | Modul | Thema | Beschreibung |
+| ---: | ----- | ----- | ------------ |
+| 8 | Agenten LangChain | Agenten | Agenten mit LangChain |
+| 9 | Middleware | Middleware und Guardrails | Middleware, Guardrails, Human-in-the-Loop |
+| 10 | MCP LangChain Agent | Model Context Protocol | Model Context Protocol und Agent-Tools |
+| 11 | Gradio | Benutzeroberflächen | Gradio-Oberflächen für KI-Anwendungen |
+
+### Block 4: Lokale Modelle und Optimierung
+| Nr. | Modul | Thema | Beschreibung |
+| ---: | ----- | ----- | ------------ |
+| 12 | Lokale Open Source Modelle | Lokale Modelle | Lokale und Open-Source-Modelle, Ollama |
+| 13 | Fine Tuning Unsloth | Fine-Tuning | Fine-Tuning und Modellanpassung |
+| 14 | Modell Router | LLM-Routing | LLM-Routing, Provider-Failover und Circuit Breaker |
+| 15 | Modell Kosten | Kostenermittlung | Kostenermittlung: Tokens, Preise und LangSmith |
+
+### Block 5: Multimodal
+| Nr. | Modul | Thema | Beschreibung |
+| ---: | ----- | ----- | ------------ |
+| 16 | Multimodal Bild | Bildverarbeitung | Multimodale Bildverarbeitung |
+| 17 | Multimodal RAG | Multimodales RAG | Multimodales RAG mit Text und Bild |
+| 18 | Multimodal Audio | Audio | Audio, Speech-to-Text und Text-to-Speech |
+
+### Hilfs-Notebooks
+| Datei | Zweck |
+| ----- | ----- |
+| `M90_API_Keys_einrichten_und_testen.ipynb` | Secrets in Colab anlegen und OpenAI- und Hugging-Face-Zugang testen |
+| `A00_snippets_genai.ipynb` | Wiederverwendbare Snippets und Referenzbausteine |
+| `quick_template.ipynb` | Vorlage für Aufgaben und neue Notebook-Bausteine |
 
 ## 🔑 Voraussetzungen
 
@@ -139,12 +163,13 @@ pip install git+https://github.com/ralf-42/GenAI.git#subdirectory=04_modul
 uv pip install --system git+https://github.com/ralf-42/GenAI.git#subdirectory=04_modul
 ```
 
+## 💡 Nutzung
 
+Alle Notebooks sind eigenständig lauffähig und für Google Colab optimiert. Das `genai_lib` Utility-Paket übernimmt das automatische Setup der Umgebung.
 
 ## 📖 Dokumentation
 
 - **Kurs-Website:** [https://ralf-42.github.io/GenAI/](https://ralf-42.github.io/GenAI/)
-
 
 ## ⚖️ Lizenzen
 
@@ -162,12 +187,10 @@ Die ausführliche Lizenzzuordnung für die Kurs-Website steht unter [Rechtliches
 
 © 2025-2026 Ralf-42     
 
-
 > [!NOTE]
 > **Hinweis zur Entstehung:** Bei der Erstellung dieser Unterlagen wurden KI-Werkzeuge unterstützend eingesetzt, unter anderem für Recherche, Strukturierung, Formulierung und einzelne Medien. Die Inhalte wurden anschließend fachlich geprüft, eingeordnet und redaktionell überarbeitet.
 
-
 ---
 
-**Letzte Aktualisierung:** Oktober 2026         
-**Version:** 3.2          
+**Stand:** Oktober 2026     
+**Version:** 3.2     
