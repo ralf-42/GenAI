@@ -29,11 +29,18 @@ Die primäre Entwicklungsumgebung ist **Google Colab**; dort steht **Gemini** al
 
 ```
 GenAI/
+├── 00_admin/       # Kursplanung und Administration
 ├── 01_notebook/    # Jupyter Notebooks (Kursmaterialien)
 ├── 02_daten/       # Trainingsdaten und Beispieldateien
 ├── 03_skript/      # Ergänzende Unterlagen zum Kurs
 ├── 04_modul/       # Python-Module und Bibliotheken
-└── 05_prompt/      # Prompt-Templates (Markdown-Format)
+├── 05_prompt/      # Prompt-Templates (Markdown-Format)
+├── 06_skill/       # Wiederverwendbare Agenten-Skills
+├── 07_image/       # Bild- und Visualisierungsmaterial
+├── 08_podcast/     # Podcast- und Audio-Material
+├── 09_courses/     # Externe Kursmaterialien
+├── 10_misc/        # Sonstige und experimentelle Materialien
+└── docs/           # Projektdokumentation
 ```
 
 
