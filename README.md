@@ -71,9 +71,9 @@ Für einfache Agenten reicht `create_agent()`. Ein eigener `StateGraph` wird gen
 
 ### Modell-Auswahl
 
-Die Modellwahl richtet sich nach der Rolle im Workflow:
+Die Modellwahl richtet sich nach der Rolle im Workflow. Die Tabelle dient als Orientierung; maßgeblich ist die Konfiguration in [`model_config.py`](./04_modul/genai_lib/model_config.py).
 
-| Rolle (Konstante in `model_config.py`) | Modell | Hinweis |
+| Rolle (Konstante in `model_config.py`) | Modell | Einsatz |
 |-------|----------------|---------|
 | Baseline / Demo (`BASELINE`) | `gpt-5.6-luna` | kein `temperature`; Konzept vor Ausgabequalität |
 | Router (`ROUTER`) | `gpt-5.6-luna` | `reasoning.effort="low"` bei einfachen Routing-Entscheidungen |
@@ -83,10 +83,10 @@ Die Modellwahl richtet sich nach der Rolle im Workflow:
 | Planner (`PLANNER`) | `gpt-5.4` | Aufgabenzerlegung, Schritt-Planung, Agentic RAG |
 | Worker Premium (`WORKER_PREMIUM`) | `gpt-5.6-terra` | komplexe RAG, finale Reports |
 | Frontier (`FRONTIER`) | `gpt-5.6-sol` | maximale Qualität, kritische Demos, Benchmark-Vergleiche |
+| Embeddings (`EMBEDDINGS`) | `text-embedding-3-small` | RAG, ChromaDB, Vektorindizes |
 | Bildgenerierung (`IMAGE_GENERATION`) | `gpt-image-2` | direkte OpenAI Images API, ohne Provider-Präfix |
 | Transkription (`TRANSCRIPTION`) | `gpt-4o-mini-transcribe` | Standard-Audiotranskription |
 | Transkription mit Segmenten (`TRANSCRIPTION_SEGMENTS`) | `whisper-1` | Zeitstempel/Segmente über `verbose_json` |
-| Embeddings (`EMBEDDINGS`) | `text-embedding-3-small` | RAG, ChromaDB, Vektorindizes |
 
 
 ## 📚 Kursmodule
