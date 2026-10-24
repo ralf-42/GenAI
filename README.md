@@ -2,12 +2,8 @@
 
 <table>
   <tr>
-    <td><a href="./.claude/config/langchain-patterns.yaml"><img src="https://img.shields.io/badge/LangChain-%3E%3D1.4.6-brightgreen" alt="LangChain &gt;=1.4.6"></a></td>
     <td><a href="./04_modul/requirements.txt"><img src="https://img.shields.io/badge/LangGraph-%3E%3D1.2.16-brightgreen" alt="LangGraph &gt;=1.2.16"></a></td>
     <td><a href="https://smith.langchain.com"><img src="https://img.shields.io/badge/LangSmith_SDK-0.14.11%2B-blue" alt="LangSmith SDK 0.14.11+"></a></td>
-    <td><a href="../_docs/LangChain_Audit_Report_2026-10-21.md"><img src="https://img.shields.io/badge/Compliance-100%25-success" alt="Compliance 100%"></a></td>
-    <td><a href="../_docs/LangChain_Audit_Report_2026-10-21.md"><img src="https://img.shields.io/badge/Audit-Okt_2026-success" alt="Audit Okt 2026"></a></td>
-    <td><a href="./.claude/config/langchain-patterns.yaml"><img src="https://img.shields.io/badge/Patterns-Okt_2026-success" alt="Patterns Okt 2026"></a></td>
     <td><a href="https://www.python.org/"><img src="https://img.shields.io/badge/Python-3.11%2B-blue" alt="Python 3.11+"></a></td>
   </tr>
 </table>
@@ -29,17 +25,12 @@ Die primäre Entwicklungsumgebung ist **Google Colab**; dort steht **Gemini** al
 
 ```
 GenAI/
-├── 00_admin/       # Kursplanung und Administration
 ├── 01_notebook/    # Jupyter Notebooks (Kursmaterialien)
 ├── 02_daten/       # Trainingsdaten und Beispieldateien
 ├── 03_skript/      # Ergänzende Unterlagen zum Kurs
 ├── 04_modul/       # Python-Module und Bibliotheken
 ├── 05_prompt/      # Prompt-Templates (Markdown-Format)
-├── 06_skill/       # Wiederverwendbare Agenten-Skills
 ├── 07_image/       # Bild- und Visualisierungsmaterial
-├── 08_podcast/     # Podcast- und Audio-Material
-├── 09_courses/     # Externe Kursmaterialien
-├── 10_misc/        # Sonstige und experimentelle Materialien
 └── docs/           # Projektdokumentation
 ```
 
