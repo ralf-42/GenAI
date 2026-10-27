@@ -54,7 +54,7 @@ GenAI/
 - **Gradio** (>=3.x) - UI-Entwicklung für KI-Apps
 - **Ollama** - Lokale Open-Source-Modelle
 - **genai_lib** (eigene Module in `04_modul/genai_lib/`) - Projektspezifische Bibliothek für Kursanwendungen
-  - **model_config.py** - Rollenbasierte Modell-Konstanten (`BASELINE`, `ROUTER`, `WORKER`, `CODING`, `JUDGE`, `PLANNER`, `WORKER_PREMIUM`, `FRONTIER` u. a.) für `init_chat_model()`; deckt alle Tier-Stufen von Luna bis Frontier ab
+  - **model_config.py** - Rollenbasierte Modell-Konstanten (`BASELINE`, `ROUTER`, `WORKER`, `CODING`, `JUDGE`, `PLANNER`, `WORKER_PREMIUM`, `FRONTIER` u. a.) für `init_chat_model()`; deckt die Stufen Luna, Terra, Sol und Astra ab
   - **multimodal_rag.py** - Multimodales RAG-System mit Bild-zu-Bild und Bild-zu-Text Suche
   - **utilities.py** - Hilfsfunktionen für Environment-Checks, Paket-Installation, API-Keys, Prompt-Templates, Model-Profiles (`get_model_profile()`) und LLM-Response-Parsing (`extract_thinking()`)
 
@@ -78,18 +78,20 @@ Die Modellwahl richtet sich nach der Rolle im Workflow. Die Tabelle dient als Or
 
 | Rolle (Konstante in `model_config.py`) | Modell | Einsatz |
 |-------|----------------|---------|
-| Baseline / Demo (`BASELINE`) | `gpt-5.6-luna` | kein `temperature`; Konzept vor Ausgabequalität |
-| Router (`ROUTER`) | `gpt-5.6-luna` | `reasoning.effort="low"` bei einfachen Routing-Entscheidungen |
-| Worker / Synthese (`WORKER`) | `gpt-5.4-mini` | RAG-Synthese, strukturierte Ausgaben; `reasoning.effort` low–medium |
-| Coding-Worker (`CODING`) | `gpt-5.4-mini` | Code-Generierung, Refactoring; `reasoning.effort` medium–high |
-| Judge / starker Reasoner (`JUDGE`) | `gpt-5.4` | Supervisor, Security, Evaluation; `reasoning.effort="high"` |
-| Planner (`PLANNER`) | `gpt-5.4` | Aufgabenzerlegung, Schritt-Planung, Agentic RAG |
-| Worker Premium (`WORKER_PREMIUM`) | `gpt-5.6-terra` | komplexe RAG, finale Reports |
-| Frontier (`FRONTIER`) | `gpt-5.6-sol` | maximale Qualität, kritische Demos, Benchmark-Vergleiche |
+| Baseline / Demo (`BASELINE`) | `gpt-6-luna` | kein `temperature`; Konzept vor Ausgabequalität |
+| Router (`ROUTER`) | `gpt-6-luna` | einfache Routing-Entscheidungen |
+| Worker / Synthese (`WORKER`) | `gpt-6.1-terra` | RAG-Synthese, strukturierte Ausgaben; `reasoning.effort` low–medium |
+| Coding-Worker (`CODING`) | `gpt-6.1-terra` | begrenzte Code-Generierung und Refactorings |
+| Judge / starker Reasoner (`JUDGE`) | `gpt-6.1-sol` | Supervisor, Security, Evaluation; `reasoning.effort` high–xhigh |
+| Planner (`PLANNER`) | `gpt-6.1-sol` | Aufgabenzerlegung, Schritt-Planung, Agentic RAG |
+| Worker Premium (`WORKER_PREMIUM`) | `gpt-6.1-sol` | komplexe RAG, finale Reports |
+| Frontier (`FRONTIER`) | `gpt-6-astra` | maximale Qualität für besonders schwierige Aufgaben |
 | Embeddings (`EMBEDDINGS`) | `text-embedding-3-small` | RAG, ChromaDB, Vektorindizes |
 | Bildgenerierung (`IMAGE_GENERATION`) | `gpt-image-2` | direkte OpenAI Images API, ohne Provider-Präfix |
-| Transkription (`TRANSCRIPTION`) | `gpt-4o-mini-transcribe` | Standard-Audiotranskription |
-| Transkription mit Segmenten (`TRANSCRIPTION_SEGMENTS`) | `whisper-1` | Zeitstempel/Segmente über `verbose_json` |
+| Transkription (`TRANSCRIPTION`) | `gpt-transcribe` | Datei-Audiotranskription |
+| Transkription mit Segmenten (`TRANSCRIPTION_SEGMENTS`) | `whisper-1` | Legacy: Zeitstempel/Segmente; Ablösung bis 26.02.2027 erforderlich |
+
+GPT-6-Modelle mit Tool-Aufrufen werden mit `langchain-openai` ab Version 1.7.2 über die Responses API geroutet. Bei einer eigenen `ChatOpenAI`-Konfiguration kann `use_responses_api=True` explizit gesetzt werden. `whisper-1` wird am 26. Februar 2027 abgeschaltet; die Segment-Zeitstempel benötigen eine gesonderte Migration.
 
 
 ## 📚 Kursmodule

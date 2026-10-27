@@ -173,18 +173,18 @@ Wichtig ist die Grenze: KI ersetzt nicht das eigene Verständnis. Der Schwerpunk
 
 ## Kompetenzillusion vermeiden
 
-GenAI-Werkzeuge können überzeugend erklären und formulieren. Dadurch entsteht leicht der Eindruck, ein Thema sei verstanden, obwohl nur die Antwort plausibel klingt. Nachvollziehen, Testen, Vergleichen und eigenes Umsetzen gehören deshalb fest zum Kurs.
+Bei den Teilnehmenden kann eine Kompetenzillusion entstehen, wenn GenAI-Werkzeuge überzeugend erklären und formulieren: Eine plausible Antwort fühlt sich schnell wie eigenes Verständnis an. Auch eine mit KI-Hilfe erstellte Lösung zeigt noch nicht, dass die zugrunde liegenden Schritte selbst erklärt, geprüft oder auf neue Aufgaben übertragen werden können.
 
 <img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/kompetenzillusion.png" alt="Kompetenzillusion beim Lernen mit KI" width="700">
 <p><small>KI-generiertes Bild</small></p>
 
-Deshalb gehören im Kurs immer drei Prüfbewegungen dazu:
+Deshalb prüfen die Teilnehmenden ihr eigenes Verständnis im Kurs aktiv:
 
-- Tool-Aufrufe und Zwischenschritte sichtbar machen,
-- Quellen, State und Entscheidungen nachvollziehen,
-- Ergebnisse mit Tests, Human-in-the-Loop oder Evaluation prüfen.
+- vor der Antwort oder Ausführung eine eigene Erwartung formulieren und sie anschließend mit dem Ergebnis vergleichen,
+- Quellen, Tool-Aufrufe und Zwischenschritte nachvollziehen und in eigenen Worten erläutern,
+- Prompts oder Code selbst verändern, Varianten vergleichen und Ergebnisse mit Tests oder Evaluation prüfen.
 
-Konkret heißt das: Quellen anzeigen, Notebook-Ausgaben prüfen, Varianten vergleichen und bei Bedarf Kosten, Qualität oder Antwortstabilität messen.
+Konkret heißt das: Quellen selbst nachschlagen, Notebook-Ausgaben prüfen, Varianten begründet vergleichen und bei Bedarf Kosten, Qualität oder Antwortstabilität messen.
 
 ## Aufgaben nach Vorkenntnissen und Lerntempo bearbeiten
 

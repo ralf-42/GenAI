@@ -34,18 +34,20 @@ Die folgende Tabelle zeigt die zentralen Modellrollen aus `model_config.py`. Die
 
 | Rolle in `model_config.py` | Kursmodell               | Einsatz im Kurs                                                  |
 | -------------------------- | ------------------------ | ---------------------------------------------------------------- |
-| `BASELINE`                 | `openai:gpt-5.6-luna`    | Grundlagen, Demos, kurze Antworten, kostengünstige Experimente   |
-| `ROUTER`                   | `openai:gpt-5.6-luna`    | einfache Routing- und Auswahlentscheidungen                      |
-| `WORKER`                   | `openai:gpt-5.4-mini`    | RAG-Synthese, strukturierte Ausgaben, Standardaufgaben           |
-| `CODING`                   | `openai:gpt-5.4-mini`    | Codegenerierung, Refactoring, technische Assistenz               |
-| `JUDGE`                    | `openai:gpt-5.4`         | Evaluation, Compliance, Sicherheits- und Qualitätsentscheidungen |
-| `PLANNER`                  | `openai:gpt-5.4`         | Aufgabenzerlegung, Agentenplanung, komplexe Workflows            |
-| `WORKER_PREMIUM`           | `openai:gpt-5.6-terra`   | hochwertige Synthese, komplexe RAG-Aufgaben, finale Reports      |
-| `FRONTIER`                 | `openai:gpt-5.6-sol`     | maximale Qualität für schwierige Coding-, Judge- und Agenten-Aufgaben |
+| `BASELINE`                 | `openai:gpt-6-luna`      | Grundlagen, Demos, kurze Antworten, kostengünstige Experimente   |
+| `ROUTER`                   | `openai:gpt-6-luna`      | einfache Routing- und Auswahlentscheidungen                      |
+| `WORKER`                   | `openai:gpt-6.1-terra`   | RAG-Synthese, strukturierte Ausgaben, Standardaufgaben           |
+| `CODING`                   | `openai:gpt-6.1-terra`   | begrenzte Codegenerierung, Refactoring, technische Assistenz     |
+| `JUDGE`                    | `openai:gpt-6.1-sol`     | Evaluation, Compliance, Sicherheits- und Qualitätsentscheidungen |
+| `PLANNER`                  | `openai:gpt-6.1-sol`     | Aufgabenzerlegung, Agentenplanung, komplexe Workflows            |
+| `WORKER_PREMIUM`           | `openai:gpt-6.1-sol`     | hochwertige Synthese, komplexe RAG-Aufgaben, finale Reports      |
+| `FRONTIER`                 | `openai:gpt-6-astra`     | maximale Qualität für schwierige Coding-, Judge- und Agenten-Aufgaben |
 | `IMAGE_GENERATION`         | `gpt-image-2`            | Bildgenerierung                                                  |
-| `TRANSCRIPTION`            | `gpt-4o-mini-transcribe` | Audio-Transkription                                              |
-| `TRANSCRIPTION_SEGMENTS`   | `whisper-1`              | Audio-Transkription mit `verbose_json` und Segment-Zeitstempeln  |
+| `TRANSCRIPTION`            | `gpt-transcribe`          | Datei-Audiotranskription                                         |
+| `TRANSCRIPTION_SEGMENTS`   | `whisper-1`                | Legacy: `verbose_json` mit Segment-Zeitstempeln; Migration nötig |
 | `EMBEDDINGS`               | `text-embedding-3-small` | Vektorsuche und RAG                                              |
+
+GPT-6-Modelle mit Tool-Aufrufen werden mit `langchain-openai` ab Version 1.7.2 über die Responses API geroutet. Bei einer eigenen `ChatOpenAI`-Konfiguration lässt sich `use_responses_api=True` explizit setzen. `whisper-1` wird am 26. Februar 2027 abgeschaltet; die Segment-Zeitstempel benötigen eine gesonderte Migration.
 
 
 
@@ -54,15 +56,28 @@ Die folgende Tabelle zeigt die zentralen Modellrollen aus `model_config.py`. Die
 
 
 
-## Modelsteckbrief - Beispiel
+## Aktueller Modellsteckbrief: GPT-6.1 Terra
 
-<br>
+`gpt-6.1-terra` ist im Kurs das Standardmodell für Worker- und Coding-Aufgaben. OpenAI beschreibt es als schnelles, effizientes Modell für visuelles Reasoning, präzise Computerbedienung und klare, natürliche Texte.
 
+| Merkmal | Angabe |
+|---|---|
+| Modell-ID | [`gpt-6.1-terra`](https://developers.openai.com/api/docs/models/gpt-6.1-terra) |
+| Veröffentlichung | 26. Oktober 2026 |
+| Kursrollen | `WORKER`, `CODING` |
+| Eingabe und Ausgabe | Text und Bilder als Eingabe; Text als Ausgabe; kein Audio oder Video |
+| Kontextfenster / maximale Ausgabe | 1.050.000 / 128.000 Tokens |
+| Wissensstand | 1. Juni 2026 |
+| Reasoning-Stufen | `none`, `low`, `medium` (Standard), `high`, `xhigh`, `max` |
+| Prompt Caching | Unterstützt |
+| Funktionen | Function Calling, strukturierte Ausgaben, Web- und File Search, Code Interpreter, Computer Use und MCP |
+| API für Tool-Aufrufe | Responses API erforderlich |
+| Fine-Tuning | Nicht unterstützt |
+| Standardpreis pro 1 Mio. Tokens (27. Oktober 2026) | Input 1 USD; gecachter Input 0,05 USD; Output 5 USD |
 
-<img src="https://raw.githubusercontent.com/ralf-42/GenAI/main/07_image/modellsteckbrief_gpt_5.4_mini.png" class="logo" width="750"/>
-<p><font color='black' size="2">
-KI-generiertes Bild
-</font></p>
+**Stärken und passende Aufgaben:** visuelle Analyse, klar umrissene Computerbedienung, Textentwürfe und -überarbeitung sowie häufige Alltags-Workflows. Im Kurs dient es außerdem als Standard-Worker und Coding-Worker. Für besonders komplexe Coding-Aufgaben empfiehlt OpenAI GPT-6.1 Sol oder GPT-6 Astra.
+
+**Grenzen:** keine Audio- oder Videoverarbeitung und kein Fine-Tuning. Bei Anfragen mit mehr als 272.000 Input-Tokens gelten höhere Tokenpreise. Die Preise und Modellfunktionen sind eine Momentaufnahme vom 27. Oktober 2026; prüfe vor einer produktiven Nutzung die [aktuelle Modellkarte](https://developers.openai.com/api/docs/models/gpt-6.1-terra) und [Preise](https://platform.openai.com/pricing).
 
 **Modellübersichten:**      
 + [Models.dev]([Models.dev — An open-source database of AI models](https://models.dev/))
@@ -208,7 +223,7 @@ Grenze: Kaskaden erhöhen die Komplexität. Jede zusätzliche Modellrolle brauch
 | Fehler | Folge | Bessere Entscheidung |
 |---|---|---|
 | stärkstes Modell ohne Test einsetzen | unnötige Kosten und langsame Demos | erst `BASELINE`, dann gezielt upgraden |
-| `temperature` aus alten Beispielen übernehmen | API-Fehler oder inkonsistentes Verhalten | GPT-5.x-Rollen ohne `temperature` initialisieren |
+| `temperature` aus alten Beispielen übernehmen | API-Fehler oder inkonsistentes Verhalten | GPT-6.x-Rollen ohne `temperature` initialisieren |
 | Chat-Modell und Embedding-Modell vermischen | defekte RAG-Indizes oder Dimensionskonflikte | `EMBEDDINGS` separat behandeln |
 | Benchmarks statt Kursaufgaben bewerten | falsche Entscheidung für den konkreten Workflow | kleines kursnahes Testset verwenden |
 
@@ -223,6 +238,6 @@ Grenze: Kaskaden erhöhen die Komplexität. Jede zusätzliche Modellrolle brauch
 
 ---
 
-**Version:** 1.4<br>
-**Stand:** Juli 2026<br>
+**Version:** 1.5<br>
+**Stand:** Oktober 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
