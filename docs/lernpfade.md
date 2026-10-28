@@ -105,7 +105,6 @@ Empfohlener Einstieg:
 2. [RAG-Konzepte](./05-prompting-rag/rag-konzepte.html)
 3. [LangSmith Best Practices](./06-frameworks/langsmith-best-practices.html)
 4. [LangGraph Best Practices](./06-frameworks/langgraph-best-practices.html)
-5. [Troubleshooting](./13-ressourcen/troubleshooting.html)
 
 ### Multimodalität
 
