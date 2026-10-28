@@ -48,7 +48,7 @@ Der AI Act ist am **1. August 2024** in Kraft getreten. Die Pflichten gelten nic
 
 Im November 2025 hat die Europäische Kommission im Rahmen des **Digital Omnibus** vorgeschlagen, die Anwendung bestimmter Hochrisiko-Pflichten stärker an verfügbare Unterstützungsinstrumente wie harmonisierte Standards, gemeinsame Spezifikationen oder Leitlinien zu koppeln. Am **13. März 2026** hat der Rat seine Position zu Vereinfachungen bestimmter AI-Act-Regeln festgelegt. Für die Planung ist das relevant, aber es ersetzt keinen geltenden Rechtsstand. Solange keine Änderung beschlossen und wirksam ist, bleibt der ursprüngliche Zeitplan der Verordnung maßgeblich.
 
-Typischer Fehler: Oft wird der Zeitplan nur mit „2026“ beschrieben. Das greift zu kurz, denn Verbote und AI-Literacy gelten bereits seit Februar 2025 und GPAI-Pflichten werden seit August 2025 relevant.
+**Typischer Fehler:** Oft wird der Zeitplan nur mit „2026“ beschrieben. Das greift zu kurz, denn Verbote und AI-Literacy gelten bereits seit Februar 2025 und GPAI-Pflichten werden seit August 2025 relevant.
 
 # 3 Risikoklassen
 
@@ -69,7 +69,7 @@ Hochrisiko-Systeme entstehen im AI Act im Wesentlichen auf zwei Wegen. Erstens k
 
 Besonders anschauliche Fälle aus Annex III sind: Bewerberauswahl, Leistungsbewertung am Arbeitsplatz, Zugang zu Bildung, Bewertung in Prüfungen, Kreditwürdigkeitsprüfung, Zugang zu öffentlichen Leistungen, bestimmte Formen der Strafverfolgung, Migration sowie Unterstützung bei der Rechtsauslegung. In solchen Konstellationen reicht ein funktionierender Prompt nicht aus. Gefordert sind nachvollziehbare Datenflüsse, dokumentierte Modell- und Prompt-Versionen, Logs, menschliche Aufsicht sowie ein belastbares Fehlerkonzept.
 
-Grenze: Ein Agent, der eine Entscheidung vorbereitet, ist nicht automatisch verboten. Relevant wird es insbesondere dann, wenn ein System faktisch entscheidet, Betroffene keine echte menschliche Prüfung erhalten oder die Entscheidungsgrundlage nicht nachvollziehbar bleibt.
+**Grenze:** Ein Agent, der eine Entscheidung vorbereitet, ist nicht automatisch verboten. Relevant wird es insbesondere dann, wenn ein System faktisch entscheidet, Betroffene keine echte menschliche Prüfung erhalten oder die Entscheidungsgrundlage nicht nachvollziehbar bleibt.
 
 # 5 General Purpose AI
 
@@ -101,7 +101,7 @@ Der AI Act ist kein einzelnes Rechtskapitel, das man „abheftet“. Er betrifft
 
 Ein Research Assistant für Fachartikel wird zunächst oft eher als niedriges oder begrenztes Risiko betrachtet. Er durchsucht bereitgestellte Dokumente, fasst Quellen zusammen und verweist auf Citations. Das kann sich jedoch ändern, sobald er in regulierten Branchen eingesetzt wird, etwa für medizinische Einschätzungen, rechtliche Bewertungen, Kreditentscheidungen oder Bewerberauswahl. Dann ist der gleiche technische Bauplan nicht automatisch ausreichend. Es braucht zusätzliche Validierung, Rollenklärung, Freigaben und Dokumentation.
 
-Typischer Fehler: Ein Prototyp wird in einen produktiven Kontext übertragen, ohne die Risikoklasse erneut zu prüfen. Unerwartet kann es passieren, dass dieselbe Architektur je nach Einsatzkontext unterschiedlich eingeordnet wird, etwa als harmlos, transparenzpflichtig oder hochriskant.
+**Typischer Fehler:** Ein Prototyp wird in einen produktiven Kontext übertragen, ohne die Risikoklasse erneut zu prüfen. Unerwartet kann es passieren, dass dieselbe Architektur je nach Einsatzkontext unterschiedlich eingeordnet wird, etwa als harmlos, transparenzpflichtig oder hochriskant.
 
 # 8 Herausforderungen
 

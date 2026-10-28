@@ -70,7 +70,7 @@ AUSGABEFORMAT:
 
 Bei komplexen Prompts können klare Abschnittsnamen oder XML-ähnliche Tags helfen, etwa `<instructions>`, `<context>`, `<examples>` und `<input>`. Entscheidend ist nicht das Tag selbst, sondern die eindeutige Trennung der Funktionen.
 
-Typischer Fehler: Beispiele, Kontext und eigentliche Aufgabe in einem Fließtext zu mischen. Das Modell muss dann erraten, welche Teile Anweisung sind und welche Teile nur Daten darstellen.
+**Typischer Fehler:** Beispiele, Kontext und eigentliche Aufgabe in einem Fließtext zu mischen. Das Modell muss dann erraten, welche Teile Anweisung sind und welche Teile nur Daten darstellen.
 
 ## Zero-Shot, Few-Shot und Reasoning
 
@@ -406,7 +406,7 @@ Ein guter Coding-Agent-Prompt legt fest:
 - welche Tests nach Änderungen laufen sollen,
 - wie Ergebnisse knapp und nachvollziehbar berichtet werden.
 
-Grenze: Solche Prompts verbessern den Arbeitsrahmen, ersetzen aber kein gutes Tooling. Für zuverlässige Codeänderungen braucht der Agent passende Datei-, Patch-, Test- und Suchwerkzeuge.
+**Grenze:** Solche Prompts verbessern den Arbeitsrahmen, ersetzen aber kein gutes Tooling. Für zuverlässige Codeänderungen braucht der Agent passende Datei-, Patch-, Test- und Suchwerkzeuge.
 
 ---
 

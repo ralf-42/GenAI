@@ -59,7 +59,7 @@ Vor dem Extrahieren wird das Notebook einmal „von oben nach unten“ vollstän
 - Secrets, lokale Dateipfade und Modellnamen externalisieren
 - Große Testdaten aus dem Notebook entfernen
 
-Typischer Fehler: Man kopiert Notebook-Zellen 1:1 in eine Python-Datei. Dabei bleiben globale Zustände, versteckte Nebeneffekte und zufällige Ausführungsreihenfolgen erhalten.
+**Typischer Fehler:** Man kopiert Notebook-Zellen 1:1 in eine Python-Datei. Dabei bleiben globale Zustände, versteckte Nebeneffekte und zufällige Ausführungsreihenfolgen erhalten.
 
 ## Phase 2: Projektstruktur anlegen
 
@@ -272,7 +272,7 @@ Lokal wird die API aus dem Projektverzeichnis gestartet:
 uvicorn src.main:app --reload
 ```
 
-Typischer Fehler: Das Startkommando passt nicht zur Paketstruktur. Wenn die Datei unter `src/main.py` liegt, muss auch der Importpfad `src.main:app` heißen.
+**Typischer Fehler:** Das Startkommando passt nicht zur Paketstruktur. Wenn die Datei unter `src/main.py` liegt, muss auch der Importpfad `src.main:app` heißen.
 
 ## Phase 8: Containerisierung
 
@@ -325,7 +325,7 @@ Die Plattform richtet sich nach dem Betriebsmodell—nicht nur nach „was ist g
 | Interner Produktivdienst | Container-Plattform oder Kubernetes | Authentifizierung, Monitoring, Rollback |
 | Regelmäßige Verarbeitung | Container Job, GitHub Actions, Airflow, Prefect | Wiederholbarkeit und Fehlerstatus |
 
-Grenze: Ein gebautes Image ist noch kein produktionsreifes System. Betrieb startet erst, wenn Logs, Metriken, Alarme, Fehlerbehandlung und ein dokumentierter Rollback-Prozess vorhanden sind.
+**Grenze:** Ein gebautes Image ist noch kein produktionsreifes System. Betrieb startet erst, wenn Logs, Metriken, Alarme, Fehlerbehandlung und ein dokumentierter Rollback-Prozess vorhanden sind.
 
 ## Go-Live-Check
 

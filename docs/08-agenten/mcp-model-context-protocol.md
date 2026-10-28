@@ -123,7 +123,7 @@ MCP-Server können drei zentrale Arten von Fähigkeiten anbieten:
 
 Tools ähneln Function Calling am stärksten. Der Unterschied liegt in der Bereitstellung: Beim klassischen Function Calling ist das Tool meist Teil der Anwendung. Bei MCP kann ein externer Server mehrere Tools verwalten und verschiedenen Clients anbieten. Resources sind dagegen kein Funktionsaufruf, sondern Kontext. Prompts liefern strukturierte Vorlagen, die ein Host als Startpunkt für Interaktionen nutzen kann.
 
-Typischer Fehler: MCP nur als neue Schreibweise für Function Calling zu behandeln. MCP standardisiert nicht den Modellaufruf selbst, sondern die Verbindung zwischen KI-Anwendung und externen Fähigkeiten.
+**Typischer Fehler:** MCP nur als neue Schreibweise für Function Calling zu behandeln. MCP standardisiert nicht den Modellaufruf selbst, sondern die Verbindung zwischen KI-Anwendung und externen Fähigkeiten.
 
 ## Abgrenzung zu Function Calling
 
@@ -147,7 +147,7 @@ MCP macht externe Fähigkeiten leichter anschließbar. Genau deshalb wird Sicher
 
 Für Kurs- und Projektkontexte reichen drei Regeln als Mindeststandard. Erstens werden nur MCP-Server verbunden, deren Zweck und Rechte nachvollziehbar sind. Zweitens bekommen Server nur die Datenräume, die für die Aufgabe nötig sind. Drittens brauchen riskante Aktionen eine Freigabe, bevor Dateien verändert, externe Systeme angesprochen oder sensible Daten weitergegeben werden.
 
-Grenze: MCP selbst erzwingt diese Regeln nicht vollständig. Die Spezifikation beschreibt Sicherheitsprinzipien; die konkrete Anwendung muss Zugriffskontrollen, Bestätigungsdialoge, Logging und Datenminimierung umsetzen.
+**Grenze:** MCP selbst erzwingt diese Regeln nicht vollständig. Die Spezifikation beschreibt Sicherheitsprinzipien; die konkrete Anwendung muss Zugriffskontrollen, Bestätigungsdialoge, Logging und Datenminimierung umsetzen.
 
 ## Mini-Beispiel
 

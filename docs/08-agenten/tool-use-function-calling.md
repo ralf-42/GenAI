@@ -166,7 +166,7 @@ Für das Modell ist ein Tool letztlich ein Schema mit Name, Beschreibung und Par
 
 
 
-Typischer Fehler: Zu denken, dass das Modell damit bereits sicher und korrekt gehandelt hat. In Wahrheit beginnt Sicherheit erst bei Validierung, Begrenzung und kontrollierter Ausführung.
+**Typischer Fehler:** Zu denken, dass das Modell damit bereits sicher und korrekt gehandelt hat. In Wahrheit beginnt Sicherheit erst bei Validierung, Begrenzung und kontrollierter Ausführung.
 
 
 
@@ -334,7 +334,7 @@ def search_database(query: str) -> str:
 
 
 
-Typischer Fehler: Nur einen technischen Fehlerstring zurückzugeben. Ein Agent braucht eine informative Fehlermeldung, sonst kann er weder sinnvoll erklären noch sinnvoll weiterfragen.
+**Typischer Fehler:** Nur einen technischen Fehlerstring zurückzugeben. Ein Agent braucht eine informative Fehlermeldung, sonst kann er weder sinnvoll erklären noch sinnvoll weiterfragen.
 
 
 

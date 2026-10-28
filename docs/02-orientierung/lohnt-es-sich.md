@@ -28,7 +28,7 @@ Viele starten zu früh: mit Modellen, Prompts, Vektordatenbanken oder Frameworks
 
 Genau deshalb bewertet diese Seite nicht, ob LangChain, RAG, Fine-Tuning oder ein Agent Builder gewählt werden sollte. Sie setzt davor an: Lässt sich das Vorhaben so begründen, dass diese Entscheidungen später gerechtfertigt sind?
 
-Typischer Fehler: `Wir wollen GenAI einsetzen` als Projektziel behandeln. Das ist höchstens eine Idee, aber noch kein klarer Nutzen für ein konkretes Problem.
+**Typischer Fehler:** `Wir wollen GenAI einsetzen` als Projektziel behandeln. Das ist höchstens eine Idee, aber noch kein klarer Nutzen für ein konkretes Problem.
 
 ## Problemklärung zuerst
 

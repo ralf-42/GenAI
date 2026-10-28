@@ -84,6 +84,18 @@ LangChain, LangGraph, LangSmith und verwandte Tools.
 
 ---
 
+## RAG & Chunking
+
+Tools zum Anzeigen und Evaluieren von Chunking-Strategien für Retrieval-Augmented Generation.
+
+| Ressource | Beschreibung |
+|-----------|--------------|
+| [Chunkwise](https://chunkwise.github.io/) | Open-Source-Plattform zur Visualisierung, Evaluation und zum Vergleich von Chunking-Workflows für RAG; selbstverwalteter AWS-Deploy, Projektseite mit Walkthrough |
+| [Open RAG Eval (GitHub)](https://github.com/vectara/open-rag-eval) | Open-Source-Python-Toolkit zur Evaluation von RAG-Pipelines und zum Vergleich von Chunk-Größen und Überlappungen; lokale Ausführung erforderlich |
+| [RAG Chunking Simulator](https://a2z.tools/rag-chunking-simulator) | Frei zugänglicher Browser-Visualizer für einfache Chunking-Strategien; zeigt Chunk-Grenzen und Tokenverteilung, ersetzt keine Retrieval-Evaluation |
+
+---
+
 ## Model Context Protocol (MCP)
 
 Standard-Protokoll für die Kommunikation zwischen LLMs und externen Tools/Datenquellen.

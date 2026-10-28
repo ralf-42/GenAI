@@ -286,6 +286,13 @@ Geeignete Messgrößen sind:
 - Retrieval-Geschwindigkeit
 - Kosten (API-Calls, Compute)
 
+### Tools zum Vergleichen von Chunking-Strategien
+
+- [Chunkwise](https://chunkwise.github.io/) visualisiert Dokument-Chunks und vergleicht mehrere Workflows anhand von Chunk-Metriken und Retrieval-Evaluation. Für eigene Dokumente ist ein Ground-Truth-Datensatz hilfreich. Das Projekt ist Open Source und selbstverwaltet; die dokumentierte Bereitstellung richtet eine AWS-Infrastruktur ein. Die Projektseite bietet einen Walkthrough, aber keine frei nutzbare, gehostete interaktive Demo.
+- [Open RAG Eval](https://github.com/vectara/open-rag-eval) ist ein Open-Source-Python-Toolkit zur Evaluation von RAG-Pipelines. Es unterstützt unter anderem LangChain- und LlamaIndex-Connectoren und kann mehrere Chunk-Größen und Überlappungen vergleichen. Die Evaluation wird lokal ausgeführt; je nach Metrik und Konfiguration werden API-Zugangsdaten oder zusätzliche Modelle benötigt.
+
+Wer zunächst nur Chunk-Grenzen an Beispieldokumenten ansehen möchte, kann den [RAG Chunking Simulator](https://a2z.tools/rag-chunking-simulator) direkt im Browser verwenden. Er zeigt einfache Strategien wie rekursives, satz- und absatzbasiertes Chunking, bewertet aber nicht die Retrieval-Qualität. Für einen belastbaren Vergleich müssen repräsentative Fragen und relevante Zielpassagen in eine Evaluation einfließen.
+
 
 ## Implementierungs-Beispiel
 

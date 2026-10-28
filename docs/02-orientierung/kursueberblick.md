@@ -169,7 +169,7 @@ Sinnvoll ist es, eigene Fragestellungen oder Arbeitsaufgaben mitzubringen. Dadur
 
 Generative KI darf im Kurs als Lern- und Entwicklungshilfe eingesetzt werden. Wenn eine Aufgabe festhängt, kann ein Modell Fehlermeldungen erklären, Teilschritte vorschlagen oder Codevarianten vergleichen.
 
-Wichtig ist die Grenze: KI ersetzt nicht das eigene Verständnis. Der Schwerpunkt bleibt darauf, GenAI-Systeme selbst zu verstehen, aufzubauen, zu prüfen und weiterzuentwickeln.
+Wichtig ist die **Grenze:** KI ersetzt nicht das eigene Verständnis. Der Schwerpunkt bleibt darauf, GenAI-Systeme selbst zu verstehen, aufzubauen, zu prüfen und weiterzuentwickeln.
 
 ## Kompetenzillusion vermeiden
 

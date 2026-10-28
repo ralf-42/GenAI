@@ -34,7 +34,7 @@ Die Entscheidung zwischen Python und einer No-Code-Plattform ist keine Geschmack
 
 Python zeigt bei GenAI mehr als die Bedienoberfläche. Ein API-Call macht sichtbar, welche Eingabe das Modell bekommt, welche Antwortstruktur erwartet wird und wo Fehler entstehen können. Beim Parsen einer JSON-Antwort wird schnell klar: Eine Modellantwort ist noch kein verlässliches Datenobjekt. Das gewünschte Format muss angefordert, geprüft und manchmal erneut erzeugt werden.
 
-Typischer Fehler: No-Code und Python als Entweder-oder behandeln. Sinnvoller ist die Reihenfolge: No-Code kann einen Ablauf sichtbar machen; Python erklärt und erweitert ihn.
+**Typischer Fehler:** No-Code und Python als Entweder-oder behandeln. Sinnvoller ist die Reihenfolge: No-Code kann einen Ablauf sichtbar machen; Python erklärt und erweitert ihn.
 
 ## Wann No-Code die bessere erste Wahl ist
 
@@ -91,7 +91,7 @@ Python sollte nicht als Selbstzweck begründet werden. Entscheidend ist nicht di
 
 Dadurch entsteht eine andere Art von Sicherheit. Entwickler lernen nicht nur, welches Tool welchen Button bietet, sondern welche Aufgabe hinter dem Button liegt. Genau dieses Wissen überträgt sich: auf No-Code-Tools, Frameworks, Agent Builder, eigene APIs und spätere Plattformen.
 
-Grenze: Für reine Büroautomatisierung ohne Lernziel zur Systemarchitektur kann No-Code die bessere erste Wahl sein. Python wird dann sinnvoll, wenn Kontrolle, Erweiterbarkeit, Debugging oder eigene Qualitätsprüfung wichtiger werden als der schnellste erste Ablauf.
+**Grenze:** Für reine Büroautomatisierung ohne Lernziel zur Systemarchitektur kann No-Code die bessere erste Wahl sein. Python wird dann sinnvoll, wenn Kontrolle, Erweiterbarkeit, Debugging oder eigene Qualitätsprüfung wichtiger werden als der schnellste erste Ablauf.
 
 ## Abgrenzung zu verwandten Dokumenten
 

@@ -208,7 +208,7 @@ Benchmarks helfen bei der Vorauswahl, ersetzen aber keine Tests mit eigenen Aufg
 | Braucht die Aufgabe Kontrolle? | `JUDGE` gegen Fehlerfälle und Grenzfälle prüfen |
 | Ist eine Medienrolle nötig? | Bild, Audio oder Embeddings getrennt vom Textmodell prüfen |
 
-Typischer Fehler: Benchmarkwerte als endgültige Entscheidung lesen. Ein Modell mit starkem allgemeinen Benchmark kann bei einem kleinen, klar strukturierten Kursworkflow schlechter abschneiden als ein günstigeres Modell mit besser passender Rolle.
+**Typischer Fehler:** Benchmarkwerte als endgültige Entscheidung lesen. Ein Modell mit starkem allgemeinen Benchmark kann bei einem kleinen, klar strukturierten Kursworkflow schlechter abschneiden als ein günstigeres Modell mit besser passender Rolle.
 
 ## Modellkaskaden
 
@@ -216,7 +216,7 @@ Eine Modellkaskade kombiniert mehrere Rollen in einem Workflow. Ein günstiges M
 
 Ein typisches Kursmuster sieht so aus: `BASELINE` klassifiziert die Anfrage, `WORKER` erzeugt die Antwort aus den gefundenen Dokumenten, `JUDGE` prüft Quellenbindung und Sicherheit. Diese Trennung ist oft stabiler als ein einzelnes großes Modell, das alle Schritte gleichzeitig erledigen soll.
 
-Grenze: Kaskaden erhöhen die Komplexität. Jede zusätzliche Modellrolle braucht Logging, Fehlerbehandlung und Tests. Für kurze Demos ist eine Kaskade meist überdimensioniert.
+**Grenze:** Kaskaden erhöhen die Komplexität. Jede zusätzliche Modellrolle braucht Logging, Fehlerbehandlung und Tests. Für kurze Demos ist eine Kaskade meist überdimensioniert.
 
 ## Typische Fehler
 

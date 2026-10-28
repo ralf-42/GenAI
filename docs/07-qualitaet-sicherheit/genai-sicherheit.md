@@ -28,7 +28,7 @@ Ein Chatmodell, das nur Text beantwortet, kann falsche oder problematische Aussa
 
 Agent Security meint deshalb nicht nur Inhaltsfilter, sondern die Absicherung des gesamten Agentensystems. Welche Eingaben gelten als vertrauenswürdig? Welche Tools darf ein Agent überhaupt nutzen? Welche Daten dürfen in Prompts, Logs oder externe Dienste gelangen? Diese Fragen gehören nicht ans Ende eines Projekts, sondern an den Anfang.
 
-Typischer Fehler: Nur auf Modell-Sicherheit des Anbieters zu vertrauen. Inhaltsfilter und RLHF helfen, ersetzen aber keine sichere Systemarchitektur.
+**Typischer Fehler:** Nur auf Modell-Sicherheit des Anbieters zu vertrauen. Inhaltsfilter und RLHF helfen, ersetzen aber keine sichere Systemarchitektur.
 
 ## Ein einfaches Beispiel
 
@@ -126,7 +126,7 @@ Erlaubte Tools:
 - write_report
 ```
 
-Typischer Fehler: Einen einzigen Generalisten mit zu vielen mächtigen Werkzeugen auszustatten, statt Rollen sauber zu trennen.
+**Typischer Fehler:** Einen einzigen Generalisten mit zu vielen mächtigen Werkzeugen auszustatten, statt Rollen sauber zu trennen.
 
 ## Eingaben an Systemgrenzen validieren
 
@@ -134,7 +134,7 @@ Alles, was von außen kommt, muss als potenziell unsicher behandelt werden. Dazu
 
 Längenbegrenzung, Vorfilterung typischer Injektionsmuster, Markierung untrusted sources und Rollenprüfung vor Tool-Aufrufen sind keine kosmetischen Zusatzmaßnahmen. Sie sind die erste Schutzschicht gegen missbräuchliche Eingaben.
 
-Grenze: Validierung allein erkennt nicht jede raffinierte Injection. Sie reduziert das Risiko, ersetzt aber keine Rechtebegrenzung und keine saubere Tool-Architektur.
+**Grenze:** Validierung allein erkennt nicht jede raffinierte Injection. Sie reduziert das Risiko, ersetzt aber keine Rechtebegrenzung und keine saubere Tool-Architektur.
 
 ## PII und sensible Daten dürfen nicht unkontrolliert wandern
 
@@ -193,7 +193,7 @@ Modell-Sicherheit betrifft das Verhalten des zugrunde liegenden LLMs, etwa Inhal
 | Modell-Sicherheit | Verhalten des LLM selbst | Modellanbieter |
 | System-Sicherheit | Architektur, Rechte, Validierung, Tools | Entwickler und Betreiber |
 
-Typischer Fehler: Sicherheitsprobleme als Modellproblem zu behandeln, obwohl sie durch zu breite Rechte oder zu schwache Tool-Grenzen entstehen.
+**Typischer Fehler:** Sicherheitsprobleme als Modellproblem zu behandeln, obwohl sie durch zu breite Rechte oder zu schwache Tool-Grenzen entstehen.
 
 ## Was für Entwickler zuerst wichtig ist
 
