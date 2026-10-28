@@ -42,7 +42,7 @@ GenAI/
 ## 🛠️ Technologie-Stack
 
 ### Kernframeworks
-- **OpenAI API** (>=1.0.0) - GPT-Modelle, Embeddings und multimodale APIs
+- **OpenAI API** (>=2.0.0) - GPT-Modelle, Embeddings und multimodale APIs
 - **LangChain** (>=1.4.6) - Orchestrierung, Chains, Agents und RAG
 - **LangGraph** (>=1.2.16) - zustandsbasierte Workflows und Multi-Agent-Systeme
 - **LangSmith SDK** (>=0.14.11) - Tracing, Evaluation und Production-Monitoring
@@ -51,7 +51,7 @@ GenAI/
 ### Spezialisierte Tools
 - **ChromaDB** (>=1.0.0) - Vektordatenbank für RAG-Systeme
 - **Sentence Transformers** (>=5.0.0) - CLIP für multimodale Embeddings
-- **Gradio** (>=3.x) - UI-Entwicklung für KI-Apps
+- **Gradio** (optional, Modul M11) - UI-Entwicklung für KI-Apps
 - **Ollama** - Lokale Open-Source-Modelle
 - **genai_lib** (eigene Module in `04_modul/genai_lib/`) - Projektspezifische Bibliothek für Kursanwendungen
   - **model_config.py** - Rollenbasierte Modell-Konstanten (`BASELINE`, `ROUTER`, `WORKER`, `CODING`, `JUDGE`, `PLANNER`, `WORKER_PREMIUM`, `FRONTIER` u. a.) für `init_chat_model()`; deckt die Stufen Luna, Terra, Sol und Astra ab
