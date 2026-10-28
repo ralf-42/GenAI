@@ -139,11 +139,10 @@ Sobald GenAI-Systeme in Bildung, Verwaltung oder Unternehmen eingesetzt werden, 
 
 Empfohlener Einstieg:
 
-1. [Digitale Souveränität](./12-regulatorik-verantwortung/digitale-souveraenitaet.html)
-2. [Ethik und GenAI](./12-regulatorik-verantwortung/ethik-und-genai.html)
-3. [EU AI Act](./12-regulatorik-verantwortung/eu-ai-act.html)
-4. [Datenschutz & DSGVO](./12-regulatorik-verantwortung/datenschutz-dsgvo.html)
-5. [KI-Reifegradmodell](./02-orientierung/ki-reifegradmodell.html)
+1. [EU AI Act](./12-regulatorik-verantwortung/eu-ai-act.html)
+2. [Datenschutz & DSGVO](./12-regulatorik-verantwortung/datenschutz-dsgvo.html)
+3. [Digitale Souveränität](./12-regulatorik-verantwortung/digitale-souveraenitaet.html)
+4. [KI-Reifegradmodell](./02-orientierung/ki-reifegradmodell.html)
 
 
 ## Acht Dokumente für *fast* jeden Start

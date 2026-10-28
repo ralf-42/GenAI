@@ -81,6 +81,8 @@ LangChain, LangGraph, LangSmith und verwandte Tools.
 | [LangSmith](https://eu.smith.langchain.com/) | Monitoring & Debugging Platform |
 | [LangSmith Hub](https://smith.langchain.com/hub) | Community Prompts und Chains |
 | [Open Canvas](https://opencanvas.langchain.com/) | Visueller Workflow-Editor |
+| [ChromaDB-Dokumentation](https://docs.trychroma.com/) | Collections, Embeddings, Suche und lokale Persistenz für RAG |
+| [Pydantic-Dokumentation](https://docs.pydantic.dev/latest/) | Datenmodelle, Felder und Validierung für strukturierte Ausgaben |
 
 ---
 
@@ -122,6 +124,17 @@ Ressourcen für Tool Use, Agenten-Patterns und agentische GenAI-Systeme.
 | [Self-RAG](https://arxiv.org/abs/2310.11511) | Retrieval, Generierung und Selbstkritik in einem RAG-nahen Verfahren |
 | [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/) | OpenAI-Framework für agentische Anwendungen |
 | [KI-Agenten-Orchestrierung]({{ '/visualisierungen/ki_agent_architektur/' | relative_url }}){:target="_blank" rel="noopener"} | Interaktive Visualisierung zur Funktionsweise von KI-Agenten |
+
+---
+
+## Sicherheit & Governance
+
+Rahmenwerke und Empfehlungen für Sicherheitsrisiken und verantwortungsvolle Entwicklung generativer KI.
+
+| Ressource | Beschreibung |
+|-----------|--------------|
+| [OWASP GenAI LLM Top 10 (2026)](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/) | Aktuelle Übersicht zentraler Sicherheitsrisiken in LLM-Anwendungen |
+| [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) | Freiwilliger Rahmen für KI-Risikomanagement und Governance |
 
 ---
 
@@ -178,6 +191,6 @@ Ressourcen zur Anpassung von Sprachmodellen auf eigene Daten.
 
 ---
 
-**Version:** 1.3<br>
-**Stand:** Juni 2026<br>
+**Version:** 1.4<br>
+**Stand:** Oktober 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

@@ -42,7 +42,7 @@ Der AI Act ist am **1. August 2024** in Kraft getreten. Die Pflichten gelten nic
 |---|---|
 | **2. Februar 2025** | Verbote nach Art. 5, Definitionen und AI-Literacy-Pflichten gelten |
 | **2. August 2025** | GPAI-Regeln und Governance-Strukturen gelten; nationale Behörden und Sanktionen müssen vorbereitet sein |
-| **2. August 2026** | Der Großteil der Verordnung wird anwendbar, darunter Transparenzpflichten nach Art. 50 und Hochrisiko-Systeme aus Annex III |
+| **2. August 2026** | Der Großteil der Verordnung gilt, darunter Transparenzpflichten nach Art. 50 und Hochrisiko-Systeme aus Annex III |
 | **2. August 2027** | Hochrisiko-KI als Sicherheitskomponente in regulierten Produkten wird anwendbar |
 | **31. Dezember 2030** | Sonderfristen für bestimmte bereits bestehende große IT-Systeme und einzelne Bestandssysteme |
 
@@ -95,6 +95,15 @@ Daraus ergeben sich für die Praxis fünf Mindestmuster:
 
 Nicht sinnvoll ist ein automatischer Entscheidungs-Loop mit Außenwirkung, wenn keine menschliche Freigabe vorgesehen ist, keine Dokumentation gemacht wird und keine überprüfbaren Kriterien existieren. Gerade in Bereichen wie Legal, Medizin, HR und Finanzwesen lohnt es sich, GenAI zunächst als Assistenzsystem zu entwerfen, statt als autonomer Entscheider.
 
+Damit verschiebt sich bei toolgestützten GenAI-Systemen auch die ethische und organisatorische Grundfrage von der bloßen Antwortqualität zur **Handlungsverantwortung**: Ein KI-System darf nicht zum Verantwortungsloch zwischen Entwickler, Betreiber, Fachabteilung und Modellanbieter werden (*Verantwortungsdiffusion*). Für die Einordnung, ob eine Anwendung noch als unkritische Assistenz oder bereits im regulierten Bereich arbeitet, hilft eine pragmatische Abgrenzung:
+
+| Leitfrage | Indikator für unkritische Assistenz | Indikator für regulierten / freigabepflichtigen Einsatz |
+|---|---|---|
+| **Was tut das System?** | Zusammenfassen, strukturieren, recherchieren | Empfehlen, entscheiden, bewerten im Einzelfall |
+| **Wer sind die Betroffenen?** | Entwickler, interne Nutzer ohne direkten Schaden | Bewerber, Patienten, Mandanten, Kreditnehmer |
+| **Wie wird die Ausgabe genutzt?** | Als Ausgangspunkt für weitere fachliche Prüfung | Als direkte Handlungsgrundlage mit Außenwirkung |
+| **Gibt es einen menschlichen Entscheid danach?** | Ja, verbindlich vorgesehen | Nein oder organisatorisch unklar |
+
 # 7 Umsetzung in der Praxis
 
 Der AI Act ist kein einzelnes Rechtskapitel, das man „abheftet“. Er betrifft mehrere technische Bausteine: Tool Use, RAG, Human-in-the-Loop, Evaluation, Security, Observability und Deployment. Die regulatorische Sicht erklärt so, warum diese Module nicht nur Architekturthemen sind, sondern auch als Kontrollmechanismen verstanden werden müssen.
@@ -119,13 +128,13 @@ Für Prototypen und Lernsysteme empfiehlt sich ein Mindeststandard, auch wenn im
 
 | Dokument | Frage |
 |---|---|
-| [Ethik und GenAI](./ethik-und-genai.html) | Welche Verantwortung entsteht jenseits rechtlicher Mindestpflichten? |
+| [Datenschutz & DSGVO](./datenschutz-dsgvo.html) | Wie werden personenbezogene Daten in Prompts, Tools, RAG und Traces geschützt? |
 | [Digitale Souveränität](./digitale-souveraenitaet.html) | Wie abhängig ist ein KI-System von Cloud, Plattformen und außereuropäischer Infrastruktur? |
 | [Agent Security](../07-qualitaet-sicherheit/genai-sicherheit.html) | Welche technischen Risiken entstehen durch Tools, Prompts, Daten und Systemverhalten? |
 | [Evaluation & Observability](../07-qualitaet-sicherheit/evaluation-observability.html) | Wie werden Qualität, Fehler und Drift in KI-Systemen messbar? |
 
 ---
 
-**Version:** 1.1<br>
-**Stand:** Mai 2026<br>
+**Version:** 1.2<br>
+**Stand:** Oktober 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

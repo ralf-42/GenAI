@@ -2,7 +2,7 @@
 layout: default
 title: Digitale Souveränität
 parent: Regulatorik & Verantwortung
-nav_order: 4
+nav_order: 3
 description: "Digitale Souveränität im KI-Kontext: Infrastruktur, Daten, Anbieter und Abhängigkeiten"
 has_toc: true
 ---
@@ -79,12 +79,12 @@ Eine saubere Trennung der Begriffe ist wichtig, um Fehlinterpretationen zu verme
 
 ```mermaid
 graph LR
-    S[“Souveränität<br/>Normativer Anspruch<br/>Regeln setzen und<br/>durchsetzen”]
-    A[“Autonomie<br/>Strategische Grundlage<br/>Faktische Wahlfreiheit<br/>zwischen Alternativen”]
-    X[“Autarkie<br/>Vollständige Isolation<br/>kein realistisches Ziel”]
+    S["Souveränität<br/>Normativer Anspruch<br/>Regeln setzen und<br/>durchsetzen"]
+    A["Autonomie<br/>Strategische Grundlage<br/>Faktische Wahlfreiheit<br/>zwischen Alternativen"]
+    X["Autarkie<br/>Vollständige Isolation<br/>kein realistisches Ziel"]
 
-    S -->|”erfordert als Grundlage”| A
-    A -. “ist nicht” .-> X
+    S -->|"erfordert als Grundlage"| A
+    A -. "ist nicht" .-> X
 
 %% Funktionsfarben nach Mermaid_Best_Practices.md
 classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;

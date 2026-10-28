@@ -1,21 +1,20 @@
-﻿---
+---
 layout: default
 title: Von Colab zu Local
 parent: Ressourcen
 nav_order: 3
-description: Anleitung zur Ausführung der Kurs-Notebooks in einer lokalen Jupyter-Umgebung
+description: GenAI-Kursnotebooks in einer lokalen Jupyter-Umgebung ausführen
 has_toc: true
 ---
 
 # Von Colab zur lokalen Umgebung
 {: .no_toc }
 
-> [!NOTE] Lokale Ausführung<br>
-> Colab-spezifische Setup-Zeilen werden lokal durch eine virtuelle Umgebung, installierte Pakete und gesetzte Umgebungsvariablen ersetzt.
+Diese Anleitung beschreibt zwei Wege: Notebooks direkt in lokalem Jupyter ausführen oder die Colab-Oberfläche mit einem lokalen Jupyter-Runtime verbinden.
 
 ---
 
-# Inhaltsverzeichnis
+## Inhaltsverzeichnis
 {: .no_toc .text-delta }
 
 1. TOC
@@ -23,116 +22,162 @@ has_toc: true
 
 ---
 
-## Einmalige Einrichtung
+## Weg 1: Notebooks in lokalem Jupyter ausführen
 
-### Python-Umgebung & genai_lib
+### 1. Repository und Python-Umgebung vorbereiten
 
-```bash
-# Virtuelle Umgebung erstellen (empfohlen)
-python -m venv .venv
-.venv\Scripts\activate        # Windows
-source .venv/bin/activate     # Mac/Linux
+Die Kursbibliothek `genai_lib` benötigt Python 3.11 oder neuer. Öffne ein Terminal im geklonten Repository `GenAI`.
 
-# genai_lib installieren (ersetzt !uv pip install --system in Colab)
-pip install git+https://github.com/ralf-42/GenAI.git#subdirectory=04_modul
+**Windows PowerShell:**
+
+```powershell
+py -3.11 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+python -m pip install jupyterlab ipykernel python-dotenv
+python -m pip install -e .\04_modul
+python -m ipykernel install --user --name genai --display-name "Python (GenAI)"
+jupyter lab
 ```
 
-### API-Keys einrichten
-
-In Colab übernimmt `setup_api_keys()` die Keys aus dem Colab-Secret-Manager. Lokal müssen die Keys vorab gesetzt werden. Für lokale Kursläufe eignet sich eine `.env`-Datei im Projektverzeichnis, sofern sie nicht versioniert wird:
+**macOS oder Linux:**
 
 ```bash
-# Datei: GenAI/.env
-OPENAI_API_KEY=sk-...
-HF_TOKEN=hf_...          # optional, z. B. für Hugging-Face-Modelle oder multimodale Demos
-LANGSMITH_API_KEY=ls__...  # optional, für LangSmith-Tracing
+python3.11 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install jupyterlab ipykernel python-dotenv
+python -m pip install -e ./04_modul
+python -m ipykernel install --user --name genai --display-name "Python (GenAI)"
+jupyter lab
 ```
+
+Die Installation von `genai_lib` lädt die Basisabhängigkeiten aus `04_modul/requirements.txt`. Wähle in Jupyter den Kernel **Python (GenAI)** und öffne ein Notebook aus `01_notebook`.
+
+Starte Jupyter aus dem Repository-Verzeichnis `GenAI`, damit relative Pfade zu `02_daten`, `files` und weiteren Kursdateien aufgelöst werden.
+
+### 2. API-Schlüssel lokal bereitstellen
+
+`setup_api_keys()` liest Schlüssel aus dem Colab-Secret-Manager und ist für Colab gedacht. Lokal lädt `python-dotenv` die Werte aus einer `.env`-Datei im Repository-Verzeichnis.
+
+Lege lokal eine `.env`-Datei an:
+
+```text
+OPENAI_API_KEY=dein-openai-schluessel
+LANGSMITH_API_KEY=dein-langsmith-schluessel
+HF_TOKEN=dein-huggingface-token
+```
+
+Ergänze nur die Schlüssel, die das ausgewählte Notebook verwendet. Lade sie in der ersten Setup-Zelle:
 
 ```python
-# Alternativ: direkt in der ersten Notebook-Zelle setzen
 import os
-os.environ["OPENAI_API_KEY"] = "sk-..."
+
+from dotenv import load_dotenv
+
+load_dotenv()
+
+print({
+    name: bool(os.getenv(name))
+    for name in ("OPENAI_API_KEY", "LANGSMITH_API_KEY", "HF_TOKEN")
+})
 ```
 
-> [!WARNING] Schlüsseldateien<br>
-> `.env`-Datei niemals in Git einchecken. Der Eintrag in `.gitignore` muss vor dem ersten Commit geprüft werden.
+Die `.env`-Datei ist im GenAI-Repository durch `.gitignore` ausgeschlossen. Die Prüfung zeigt nur, ob die Variablen vorhanden sind; sie gibt ihre Werte nicht aus.
 
----
+### 3. Colab-spezifische Setup-Zellen anpassen
 
-## Anpassungen in der Setup-Zelle
-
-Jedes Notebook enthält eine erste Zelle mit Colab-spezifischem Code. Diese Zeilen müssen angepasst werden:
-
-| Colab-Code | Lokal ersetzen durch | Aufwand |
-|---|---|---|
-| `!uv pip install --system -q <paket>` | Einmalig im Terminal: `pip install <paket>` | Einmalig |
-| `#@title 🔧 Umgebung einrichten{ display-mode: "form" }` | Zeile löschen | Kosmetik |
-| `#@markdown <p><font ...>...</font></p>` | Zeile löschen | Kosmetik |
-| `get_ipinfo()` | Zeile auskommentieren | Optional |
-
-**Beispiel: Colab → Lokal**
-
-```python
-# ❌ Colab (original)
-#@title 🔧 Umgebung einrichten{ display-mode: "form" }
-!uv pip install --system -q git+https://github.com/ralf-42/GenAI.git#subdirectory=04_modul
-from genai_lib.utilities import check_environment, setup_api_keys, mprint, mermaid
-setup_api_keys(['OPENAI_API_KEY'])
-check_environment()
-get_ipinfo()
-
-# ✅ Lokal (angepasst)
-from genai_lib.utilities import check_environment, setup_api_keys, mprint, mermaid
-setup_api_keys(['OPENAI_API_KEY'])
-check_environment()
-```
-
----
-
-## Besonderheiten einzelner Module
-
-| Modul | Besonderheit | Lokale Anpassung |
-|---|---|---|
-| **RAG** | ChromaDB, Embeddings | `pip install chromadb langchain-community langchain-openai` |
-| **MCP** | `!uv pip install fastmcp langchain-mcp-adapters nest_asyncio uvicorn` | `pip install fastmcp langchain-mcp-adapters nest_asyncio uvicorn` |
-| **Gradio** | `demo.launch()` | Bleibt unverändert — öffnet lokal eine Browser-URL |
-| **Lokale Modelle** | Benötigt [Ollama](https://ollama.com) als lokalen LLM-Server | Ollama separat installieren und Modell laden: `ollama pull llama3` |
-| **Multimodal RAG** | CLIP/Sentence Transformers und ggf. `HF_TOKEN` für Hugging Face | Zusatzpakete installieren und `HF_TOKEN` bei Bedarf in `.env` setzen |
-
----
-
-## Was sich nicht ändert
-
-> [!NOTE] Colab-Abhängigkeiten<br>
-> Die Notebooks haben minimale Colab-Abhängigkeiten. Der Großteil läuft lokal ohne Änderung.
-
-- Alle LangChain / LangGraph Patterns
-- Alle relativen Dateipfade (keine `/content/`-Pfade in den Notebooks)
-- Kein Google Drive Mounting erforderlich (Notebooks sind selbst-contained)
-- `mprint()`, `mermaid()`, `load_prompt()` aus genai_lib
-- LangSmith-Umgebungsvariablen (`os.environ["LANGSMITH_TRACING"]` etc.)
-
----
-
-## Kurzcheck vor dem ersten Start
-
-- [ ] Virtuelle Umgebung aktiv? (`.venv\Scripts\activate`)
-- [ ] `genai_lib` installiert? (`pip show genai-lib`)
-- [ ] `OPENAI_API_KEY` gesetzt? (`echo %OPENAI_API_KEY%`)
-- [ ] Colab-Metadatenzeilen wie `#@title` und optionale `get_ipinfo()`-Aufrufe entfernt?
-- [ ] Notebook-spezifische Zusatzpakete installiert (RAG, MCP, Gradio, Lokale Modelle, Multimodal RAG)?
-- [ ] Für lokale Modelle: Ollama installiert und gestartet?
-
-
-## Abgrenzung zu verwandten Dokumenten
-
-| Dokument | Frage |
+| Colab-Element | Lokaler Ablauf |
 |---|---|
-| [Zuerst lesen](../zuerst-lesen.html) | Welche Dokumente sind vor dem ersten Kursprojekt am wichtigsten? |
-| [Lernpfade](../lernpfade.html) | Welche Reihenfolge passt zu Rolle, Ziel und Vorkenntnissen? |
+| `!uv pip install --system ...` | Installiere Pakete in der aktivierten Umgebung mit `python -m pip install <paket>` oder in einer Notebook-Zelle mit `%pip install <paket>`. |
+| `install_packages([...])` aus `genai_lib.utilities` | Installiere die aufgeführten Pakete einmalig in der aktiven Umgebung; der Helper nutzt `uv` für Colab. |
+| `setup_api_keys([...])` | Lade die Schlüssel mit `load_dotenv()` oder setze sie in der Terminal-Umgebung. |
+| `#@title` und `#@markdown` | Die Zeilen bleiben in Python gültige Kommentare. In Jupyter erscheinen sie nicht als Colab-Formulare. |
+| `get_ipinfo()` | Die Funktion fragt externe Netzwerkinformationen ab. Führe sie nur aus, wenn du diese Diagnose benötigst. |
+| `drive.mount(...)` | Verwende lokale Datenpfade und lokale Persistenz. Colabs Drive-Mount steht lokal nicht zur Verfügung. |
+
+Führe die Zellen nach der Einrichtung in einem frischen Kernel der Reihe nach von oben nach unten aus.
+
+### Notebook-spezifische Zusatzpakete
+
+Die Basisabhängigkeiten stehen in `04_modul/requirements.txt`. Diese Notebooks benötigen zusätzliche Komponenten:
+
+| Notebook | Zusatzpakete oder externe Voraussetzung |
+|---|---|
+| `M06_RAG_LangChain.ipynb` | `langchain-huggingface`; `markitdown[all]` ist in der Basisumgebung enthalten. |
+| `M10_MCP_LangChain_Agent.ipynb` | `fastmcp`, `langchain-mcp-adapters`, `uvicorn` |
+| `M11_Gradio.ipynb` | `gradio` |
+| `M12_Lokale_Open_Source_Modelle.ipynb` | Ollama separat installieren und ein im Notebook verwendetes Modell laden. |
+| `M13_Fine_Tuning_Unsloth.ipynb` | `unsloth`, `transformers` und eine kompatible NVIDIA-GPU/CUDA-Umgebung; nach der Installation ist ein Kernel-Neustart erforderlich. |
+| `M16_Multimodal_Bild.ipynb` | `ultralytics` für die YOLO-Objekterkennung. |
+| `M17_Multimodal_RAG.ipynb` | `markitdown[all]` ist in der Basisumgebung enthalten. |
+
+Installiere nur die Pakete für das jeweilige Notebook:
+
+```powershell
+python -m pip install langchain-huggingface "markitdown[all]"
+python -m pip install fastmcp langchain-mcp-adapters uvicorn
+python -m pip install gradio
+python -m pip install ultralytics
+```
+
+Die Fine-Tuning-Umgebung hängt von Betriebssystem, CUDA und GPU ab. Installiere Unsloth und Transformers nach der [aktuellen Unsloth-Installationsanleitung](https://docs.unsloth.ai/get-started/installing-%2B-updating/pip-install). Für Inferenz mit lokalen Modellen wird Ollama als eigener Dienst benötigt; installiere Ollama nach dessen [aktueller Dokumentation](https://ollama.com/download) und lade anschließend das Modell aus dem Notebook.
+
+### Lokale Dateien und Google Drive
+
+Die meisten GenAI-Notebooks greifen auf Dateien relativ zum Arbeitsverzeichnis zu. Lege die erforderlichen Eingaben dort ab und starte Jupyter aus dem Repository-Verzeichnis.
+
+| Notebook | Lokale Anpassung |
+|---|---|
+| `M06_RAG_LangChain.ipynb` | Die Kursdokumente und Chroma-Datenbanken werden lokal im Arbeitsverzeichnis angelegt. Die Datenbankordner heißen unter anderem `chroma_demo` und `chroma_db`. |
+| `M10_MCP_LangChain_Agent.ipynb` | Ersetze den Drive-Root `/content/drive/MyDrive` durch den Pfad zum lokalen GenAI-Repository. `NOTEBOOK_ROOT` muss auf die lokalen Notebook-Dateien zeigen. |
+| `M13_Fine_Tuning_Unsloth.ipynb` | Lege die Trainingsdatei `pneumatische_plastologie_trainset_en_clean_reinforced.json` im erwarteten lokalen Datenpfad ab. |
+| `M16_Multimodal_Bild.ipynb` | Lege die Eingabebilder im verwendeten lokalen Ordner `files` ab. |
+| `M17_Multimodal_RAG.ipynb` | Lege die Text- und Bilddateien im Ordner `files` ab. Der persistente Vektorstore liegt standardmäßig unter `multimodal_rag_db`. |
+| `M18_Multimodal_Audio.ipynb` | Lege die verwendeten Audiodateien im Arbeitsverzeichnis ab. |
+
+Google Drive wird in den aktiven Kursnotebooks nur für den Datei-Zugriff im MCP-Beispiel M10 eingebunden. Für die lokale Ausführung zeige `NOTEBOOK_ROOT` auf den geklonten Ordner. Die übrigen genannten Datenpfade werden lokal verwaltet.
+
+### GPU und lokale Modelle
+
+Die OpenAI-API-Notebooks benötigen keine lokale GPU. Das Modell-Notebook M12 nutzt lokal ausgeführte Ollama-Modelle; passende Hardware beschleunigt die Inferenz. M13 Fine-Tuning setzt eine kompatible NVIDIA-GPU mit CUDA und ausreichend Speicher voraus. Für weitere Bild- und Embedding-Aufgaben hängt eine GPU-Empfehlung vom jeweiligen Arbeitsschritt ab.
+
+## Weg 2: Colab-Oberfläche mit lokalem Jupyter verbinden
+
+Bei diesem Weg bleibt die Colab-Oberfläche geöffnet, während der Code auf dem eigenen Rechner läuft. Installiere zusätzlich `notebook` in der aktivierten Umgebung:
+
+```powershell
+python -m pip install notebook
+jupyter notebook --NotebookApp.allow_origin="https://colab.research.google.com" --port=8888 --NotebookApp.port_retries=0 --NotebookApp.allow_credentials=True
+```
+
+Kopiere die beim Start ausgegebene Runtime-URL. Wähle in Colab **Connect** → **Connect to local runtime...** und füge die URL ein. Die Oberfläche kann sich ändern; die aktuelle Anleitung steht bei [Google Colab: Local runtimes](https://research.google.com/colaboratory/local-runtimes.html).
+
+Eine lokale Runtime gibt Notebook-Code Zugriff auf Dateien und Ressourcen des Rechners. Führe dort nur Notebooks aus, deren Inhalte du geprüft hast. Code-Zellenausgaben werden bei diesem Verbindungsweg standardmäßig in Google Drive gespeichert; die lokale Runtime wird beim Teilen des Notebooks nicht mitgeteilt. [Google Colab FAQ](https://research.google.com/colaboratory/faq.html)
+
+Für dauerhaft lokale Daten und Datei-Pfade ist Weg 1 meist einfacher.
+
+## Kurzcheck
+
+- Python 3.11 oder neuer ist aktiv.
+- `genai_lib` ist in der virtuellen Umgebung installiert.
+- Jupyter verwendet den Kernel **Python (GenAI)**.
+- API-Schlüssel sind als Umgebungsvariablen geladen.
+- Zusatzpakete des ausgewählten Notebooks sind installiert.
+- Lokale Dateien liegen an den erwarteten Pfaden.
+- Jupyter wurde aus dem GenAI-Repository-Verzeichnis gestartet.
+
+## Weiterführende Dokumente
+
+- [Zuerst lesen]({{ '/zuerst-lesen.html' | relative_url }})
+- [Lernpfade]({{ '/lernpfade.html' | relative_url }})
+- [LangSmith Best Practices]({{ '/06-frameworks/langsmith-best-practices.html' | relative_url }})
+- [Google Colab: lokale Runtimes](https://research.google.com/colaboratory/local-runtimes.html)
+- [JupyterLab installieren](https://jupyter.org/install)
+- [IPython-Kernel in Jupyter installieren](https://ipython.readthedocs.io/en/stable/install/kernel_install.html)
 
 ---
 
-**Version:** 1.1<br>
-**Stand:** Mai 2026<br>
+**Version:** 1.2<br>
+**Stand:** Oktober 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
