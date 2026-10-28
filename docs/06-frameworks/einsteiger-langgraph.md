@@ -95,7 +95,7 @@ class ChatState(TypedDict):
 from langchain.chat_models import init_chat_model
 llm = init_chat_model("openai:gpt-5.6-luna")
 
-def agent_node(state: ChatState) -> ChatState:
+def agent_node(state: ChatState) -> dict:
     response = llm.invoke(state["messages"])
     return {"messages": [response], "step": state["step"] + 1}
 ```
@@ -105,12 +105,12 @@ def agent_node(state: ChatState) -> ChatState:
 ```python
 from langgraph.graph import StateGraph, START, END
 
-g = StateGraph(ChatState)
-g.add_node("agent", agent_node)
-g.add_edge(START, "agent")
-g.add_edge("agent", END)
+chat_builder = StateGraph(ChatState)
+chat_builder.add_node("agent", agent_node)
+chat_builder.add_edge(START, "agent")
+chat_builder.add_edge("agent", END)
 
-graph = g.compile()
+chat_agent = chat_builder.compile()
 ```
 
 ### Graphen visualisieren
@@ -118,7 +118,7 @@ graph = g.compile()
 ```python
 from IPython.display import Image
 
-display(Image(graph.get_graph().draw_mermaid_png()))
+display(Image(chat_agent.get_graph().draw_mermaid_png()))
 ```
 
 So sieht der minimale Workflow aus:
@@ -142,7 +142,7 @@ class END output;
 from langchain_core.messages import HumanMessage
 
 initial_state = {"messages": [("human", "Was ist LangGraph?")], "step": 0}
-result = graph.invoke(initial_state)
+result = chat_agent.invoke(initial_state)
 result
 ```
 
@@ -162,7 +162,7 @@ Steht das erste Beispiel, lässt sich der Grundgedanke dahinter klarer machen:
 ```mermaid
 flowchart TD
     %% Einstiegspunkt
-    INVOKE([graph.invoke]) --> START
+    INVOKE([chat_agent.invoke]) --> START
 
     %% Hauptknoten
     subgraph START_NODE [ ]
@@ -253,7 +253,7 @@ Nodes sollten klein, fokussiert und möglichst gut nachvollziehbar sein.
 ### Typ 1: LLM-Node
 
 ```python
-def summarize_node(state: ChatState) -> ChatState:
+def summarize_node(state: ChatState) -> dict:
     text = "\n".join([m.content for m in state["messages"]])
     summary = llm.invoke([{"role": "human", "content": f"Fasse zusammen: {text}"}])
     return {"messages": [summary]}
@@ -270,7 +270,7 @@ def suche(query: str) -> str:
     """Führt eine Websuche durch."""
     return f"Ergebnis für: {query}"
 
-def tool_node(state: ChatState) -> ChatState:
+def tool_node(state: ChatState) -> dict:
     result = suche.invoke({"query": state["messages"][-1].content})
     return {"messages": [AIMessage(content=result)]}
 ```
@@ -288,7 +288,7 @@ research_agent = create_agent(
     system_prompt="Du bist ein Research-Spezialist. Recherchiere gründlich.",
 )
 
-def research_node(state: ChatState) -> ChatState:
+def research_node(state: ChatState) -> dict:
     result = research_agent.invoke({"messages": state["messages"]})
     return {"messages": result["messages"]}
 ```
@@ -310,8 +310,8 @@ Jetzt kommt das Routing dazu – **erst nach dem Verständnis von Nodes und Stat
 ### Lineare Edges
 
 ```python
-g.add_edge(START, "agent")
-g.add_edge("agent", END)
+chat_builder.add_edge(START, "agent")
+chat_builder.add_edge("agent", END)
 ```
 
 `START` ist der technische Einstiegspunkt des Graphen, `END` der technische Endpunkt. Jeder Pfad muss am Ende bei einem gültigen Node landen oder direkt bei `END`. Ansonsten gibt es ein Dead-End.
@@ -331,13 +331,14 @@ def routing_after_agent(state: ChatState) -> str:
 ```
 
 ```python
-g.add_node("tools", tool_node)
-g.add_conditional_edges(
+chat_builder.add_node("tools", tool_node)
+chat_builder.add_conditional_edges(
     "agent",
     routing_after_agent,
     {"tools": "tools", END: END},
 )
-g.add_edge("tools", "agent")
+chat_builder.add_edge("tools", "agent")
+chat_agent = chat_builder.compile()
 ```
 
 **Visualisierung des Tool-Loops:**
@@ -393,7 +394,7 @@ Streaming hilft enorm, weil sich während der Ausführung beobachten lässt, was
 ```python
 config = {"configurable": {"thread_id": "demo"}}
 
-for chunk in graph.stream(
+for chunk in chat_agent.stream(
     initial_state,
     config=config,
     stream_mode="updates",
@@ -429,7 +430,7 @@ Streaming-Varianten:
 
 Empfehlung: **updates**.
 
-**Tipp für später:** Ab LangGraph v1.2.0 gibt es zusätzlich `stream_events(version="v3")` mit getrennten Kanälen (`run.values`, `run.messages`, `run.lifecycle`, `run.subgraphs`). Für den Einstieg reicht `stream(..., stream_mode=...)` völlig aus.
+**Tipp für später:** Ab LangGraph v1.2 gibt es zusätzlich `stream_events(version="v3")` mit getrennten Kanälen (`run.values`, `run.messages`, `run.lifecycle`, `run.subgraphs`). Die v3-API ist experimentell und kann sich ändern; für den Einstieg reicht `stream(..., stream_mode=...)` aus. [LangGraph-Referenz: `stream_events`](https://reference.langchain.com/python/langgraph/pregel/main/Pregel/stream_events)
 
 ---
 
@@ -443,10 +444,10 @@ Checkpointing macht mehrere Dinge möglich:
 ```python
 from langgraph.checkpoint.memory import InMemorySaver
 checkpointer = InMemorySaver()
-graph = g.compile(checkpointer=checkpointer)
+chat_agent = chat_builder.compile(checkpointer=checkpointer)
 
 config = {"configurable": {"thread_id": "session-01"}}
-result1 = graph.invoke(initial_state, config)
+result1 = chat_agent.invoke(initial_state, config)
 ```
 
 Später:
@@ -456,7 +457,7 @@ new_input = {
     "messages": [("human", "Fahre mit der nächsten Frage fort.")],
     "step": 0,
 }
-result2 = graph.invoke(new_input, config)
+result2 = chat_agent.invoke(new_input, config)
 ```
 
 Checkpointing lädt dabei den gespeicherten Zustand der `thread_id` und ergänzt ihn um den neuen Input. Bei Unterbrechungen für Human-in-the-Loop wird dagegen nicht einfach ein neuer State übergeben, sondern `Command(resume=...)`.
@@ -492,19 +493,46 @@ Human-in-the-Loop ist ein wichtiges Thema. Es lohnt sich aber wirklich erst spä
 ### Interrupt
 
 ```python
-from langgraph.types import interrupt
+from typing import TypedDict
 
-def approval_node(state: ChatState) -> ChatState:
-    decision = interrupt("Aktion ausführen? yes/no")
+from langgraph.checkpoint.memory import InMemorySaver
+from langgraph.graph import END, START, StateGraph
+from langgraph.types import Command, interrupt
+
+
+class ApprovalState(TypedDict):
+    draft: str
+    approved: bool
+
+
+def approval_node(state: ApprovalState) -> dict:
+    decision = interrupt({"draft": state["draft"], "question": "Freigeben? yes/no"})
     return {"approved": decision == "yes"}
+
+
+approval_builder = StateGraph(ApprovalState)
+approval_builder.add_node("approval_node", approval_node)
+approval_builder.add_edge(START, "approval_node")
+approval_builder.add_edge("approval_node", END)
+approval_agent = approval_builder.compile(checkpointer=InMemorySaver())
+
+approval_config = {"configurable": {"thread_id": "approval-001"}}
+approval_agent.invoke(
+    {"draft": "Vorgang freigeben", "approved": False},
+    config=approval_config,
+)
 ```
 
 ### Weiterführen
 
 ```python
-from langgraph.types import Command
-result = graph.invoke(Command(resume="yes"), config)
+result = approval_agent.invoke(
+    Command(resume="yes"),
+    config=approval_config,
+)
 ```
+
+Der Checkpointer hält den unterbrochenen Zustand. Zum Fortsetzen verwendet der Lauf dieselbe thread_id.
 
 **Human-in-the-Loop Pattern:**
 

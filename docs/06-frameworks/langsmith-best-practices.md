@@ -24,17 +24,38 @@ LangSmith macht Modell- und Agentenläufe nachvollziehbar. Traces helfen beim Un
 
 ## Tracing einrichten
 
-Aktiviere Tracing mit Umgebungsvariablen. API-Schlüssel werden sicher in der lokalen Umgebung oder einem Secret Store verwaltet und nicht in Notebooks oder Quellcode geschrieben.
+Wähle, ob alle unterstützten Aufrufe oder nur einzelne Referenzläufe erfasst werden sollen. API-Schlüssel werden sicher in der lokalen Umgebung oder einem Secret Store verwaltet.
+
+### Globales Tracing
+
+Mit `LANGSMITH_TRACING="true"` werden unterstützte LangChain- und LangGraph-Aufrufe erfasst.
 
 ~~~python
 import os
 
 os.environ["LANGSMITH_TRACING"] = "true"
-os.environ["LANGSMITH_PROJECT"] = "m06_structured_output"
+os.environ["LANGSMITH_PROJECT"] = "m02_langchain101"
 # LANGSMITH_API_KEY wird sicher über die Umgebung bereitgestellt
 ~~~
 
 Projekt-, Run-, Experiment-, Dataset- und Prompt-Namen folgen im Kurs dem Muster m##_snake_case. Verwende die Modul-ID des Notebooks. Für EU- und APAC-Accounts wird zusätzlich der passende LANGSMITH_ENDPOINT gesetzt, etwa https://eu.api.smith.langchain.com oder https://ap.api.smith.langchain.com.
+
+Das Beispiel verwendet das LangChain-Notebook M02 und setzt daher LANGSMITH_PROJECT auf m02_langchain101.
+
+### Selektives Tracing
+
+Mit `LANGSMITH_TRACING="false"` bleibt das globale Tracing aus. `tracing_context` aktiviert nur den umschlossenen Lauf.
+
+~~~python
+import os
+from langsmith import tracing_context
+
+os.environ["LANGSMITH_TRACING"] = "false"
+os.environ["LANGSMITH_PROJECT"] = "m02_langchain101"
+
+with tracing_context(enabled=True):
+    result = chain.invoke({"question": "Was ist ein StateGraph?"})
+~~~
 
 ## Runs benennen
 
@@ -42,9 +63,9 @@ Run-Namen, Tags und Metadaten erleichtern das Filtern und Vergleichen von Ausfü
 
 ~~~python
 run_config = {
-    "run_name": "m06_structured_output",
-    "tags": ["structured_output", "course"],
-    "metadata": {"module": "m06"},
+    "run_name": "m02_langchain_chain",
+    "tags": ["langchain", "course"],
+    "metadata": {"module": "m02"},
 }
 
 result = chain.invoke(

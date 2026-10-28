@@ -52,7 +52,7 @@ def general_node(state: ResearchState) -> dict:
     return {"answer": f"Antwortauftrag: {state['query']}"}
 
 
-def research_router(state: ResearchState) -> Literal["research_node", "general_node"]:
+def research_router(state: ResearchState) -> Literal["research", "general"]:
     return state["category"]
 
 
@@ -65,8 +65,8 @@ research_builder.add_conditional_edges(
     "classify_node",
     research_router,
     {
-        "research_node": "research_node",
-        "general_node": "general_node",
+        "research": "research_node",
+        "general": "general_node",
     },
 )
 research_builder.add_edge("research_node", END)
