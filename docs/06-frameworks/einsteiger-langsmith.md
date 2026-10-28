@@ -43,23 +43,6 @@ Kernprinzip: **Jede Ausführung wird automatisch protokolliert und kann nachvoll
 ### LangSmith im Entwicklungs-Workflow
 
 ```mermaid
----
-config:
-  theme: base
-  look: classic
-  themeVariables:
-    primaryColor: '#e0f2fe'
-    primaryBorderColor: '#0284c7'
-    primaryTextColor: '#1e293b'
-    lineColor: '#64748b'
-    clusterBkg: '#f8fafc'
-    clusterBorder: '#cbd5e1'
-    noteBkgColor: '#fef3c7'
-    noteBorderColor: '#d97706'
-    noteTextColor: '#78350f'
-    edgeLabelBackground: '#ffffff'
----
-
 flowchart TB
     DEV[Development<br/>LangChain/LangGraph Code]
     RUN[Code Execution<br/>Chain/RAG/Tool Runs]
@@ -174,23 +157,6 @@ print(response.content)
 LangSmith organisiert alle Daten in einer klaren Hierarchie:
 
 ```mermaid
----
-config:
-  theme: base
-  look: classic
-  themeVariables:
-    primaryColor: '#e0f2fe'
-    primaryBorderColor: '#0284c7'
-    primaryTextColor: '#1e293b'
-    lineColor: '#64748b'
-    clusterBkg: '#f8fafc'
-    clusterBorder: '#cbd5e1'
-    noteBkgColor: '#fef3c7'
-    noteBorderColor: '#d97706'
-    noteTextColor: '#78350f'
-    edgeLabelBackground: '#ffffff'
----
-
 flowchart TB
     PROJECT["Project<br>Container für alle Traces<br>z.B. 'm08_rag_chain'"]
     THREAD["Thread<br>Gesprächs-Sequenz<br>session_id / conversation_id"]
@@ -208,7 +174,13 @@ flowchart TB
     RUN -.-> FEEDBACK
 
 %% Funktionsfarben nach Mermaid_Best_Practices.md
-classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
+
+    classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
+    classDef input fill:#e0e7ff,stroke:#6366f1,stroke-width:2px,color:#1e1b4b;
+    classDef output fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d;
+
+    class PROJECT input;
+    class TAGS,META,FEEDBACK output;
 ```
 
 | Konzept | Bedeutung |
@@ -259,23 +231,6 @@ result = chain.invoke({"topic": "Vektordatenbanken"})
 **Im LangSmith-Trace sichtbar:**
 
 ```mermaid
----
-config:
-  theme: base
-  look: classic
-  themeVariables:
-    primaryColor: '#e0f2fe'
-    primaryBorderColor: '#0284c7'
-    primaryTextColor: '#1e293b'
-    lineColor: '#64748b'
-    clusterBkg: '#f8fafc'
-    clusterBorder: '#cbd5e1'
-    noteBkgColor: '#fef3c7'
-    noteBorderColor: '#d97706'
-    noteTextColor: '#78350f'
-    edgeLabelBackground: '#ffffff'
----
-
 graph TB
     CHAIN[Chain Run - Gesamt<br/>Latenz: 1.5s]
     PROMPT[Prompt Run<br/>Template-Formatierung<br/>0.1s]
@@ -287,7 +242,13 @@ graph TB
     CHAIN --> PARSER
 
 %% Funktionsfarben nach Mermaid_Best_Practices.md
-classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
+
+    classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
+    classDef input fill:#e0e7ff,stroke:#6366f1,stroke-width:2px,color:#1e1b4b;
+    classDef output fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d;
+
+    class CHAIN input;
+    class PROMPT,LLM,PARSER output;
 ```
 
 **ASCII-Darstellung:**
@@ -360,23 +321,6 @@ response = agent.invoke({
 **Im LangSmith-Trace wird sichtbar:**
 
 ```mermaid
----
-config:
-  theme: base
-  look: classic
-  themeVariables:
-    primaryColor: '#e0f2fe'
-    primaryBorderColor: '#0284c7'
-    primaryTextColor: '#1e293b'
-    lineColor: '#64748b'
-    clusterBkg: '#f8fafc'
-    clusterBorder: '#cbd5e1'
-    noteBkgColor: '#fef3c7'
-    noteBorderColor: '#d97706'
-    noteTextColor: '#78350f'
-    edgeLabelBackground: '#ffffff'
----
-
 sequenceDiagram
 	autonumber
     participant User
@@ -691,23 +635,6 @@ def my_rag_chain(question: str):
 ### Fehler debuggen
 
 ```mermaid
----
-config:
-  theme: base
-  look: classic
-  themeVariables:
-    primaryColor: '#e0f2fe'
-    primaryBorderColor: '#0284c7'
-    primaryTextColor: '#1e293b'
-    lineColor: '#64748b'
-    clusterBkg: '#f8fafc'
-    clusterBorder: '#cbd5e1'
-    noteBkgColor: '#fef3c7'
-    noteBorderColor: '#d97706'
-    noteTextColor: '#78350f'
-    edgeLabelBackground: '#ffffff'
----
-
 flowchart LR
     FAIL[Chain fails<br/>Wrong answer]
     OPEN[Open LangSmith UI<br/>Find failed run]

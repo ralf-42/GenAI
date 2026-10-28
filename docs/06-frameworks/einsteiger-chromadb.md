@@ -264,23 +264,6 @@ print(f"Anzahl Chunks: {len(chunks)}")
 ### Overlap visualisiert
 
 ```mermaid
----
-config:
-  theme: base
-  look: classic
-  themeVariables:
-    primaryColor: '#e0f2fe'
-    primaryBorderColor: '#0284c7'
-    primaryTextColor: '#1e293b'
-    lineColor: '#64748b'
-    clusterBkg: '#f8fafc'
-    clusterBorder: '#cbd5e1'
-    noteBkgColor: '#fef3c7'
-    noteBorderColor: '#d97706'
-    noteTextColor: '#78350f'
-    edgeLabelBackground: '#ffffff'
----
-
 flowchart TB
     subgraph "Ohne Overlap - Informationsverlust"
         DOC1[Dokument: AAAA BBBB CCCC DDDD]
@@ -338,23 +321,6 @@ Mit Overlap (25%):
 ### Vollständiger Indexierungs-Workflow
 
 ```mermaid
----
-config:
-  theme: base
-  look: classic
-  themeVariables:
-    primaryColor: '#e0f2fe'
-    primaryBorderColor: '#0284c7'
-    primaryTextColor: '#1e293b'
-    lineColor: '#64748b'
-    clusterBkg: '#f8fafc'
-    clusterBorder: '#cbd5e1'
-    noteBkgColor: '#fef3c7'
-    noteBorderColor: '#d97706'
-    noteTextColor: '#78350f'
-    edgeLabelBackground: '#ffffff'
----
-
 flowchart LR
     START([Dokument<br/>dokument.txt])
     LOAD[Document Loader<br/>TextLoader]
@@ -438,23 +404,6 @@ Die Suche in der Vektordatenbank findet die semantisch ähnlichsten Dokumente.
 ### Similarity Search Workflow
 
 ```mermaid
----
-config:
-  theme: base
-  look: classic
-  themeVariables:
-    primaryColor: '#e0f2fe'
-    primaryBorderColor: '#0284c7'
-    primaryTextColor: '#1e293b'
-    lineColor: '#64748b'
-    clusterBkg: '#f8fafc'
-    clusterBorder: '#cbd5e1'
-    noteBkgColor: '#fef3c7'
-    noteBorderColor: '#d97706'
-    noteTextColor: '#78350f'
-    edgeLabelBackground: '#ffffff'
----
-
 sequenceDiagram
     autonumber
     participant User
@@ -884,23 +833,6 @@ for query in test_queries:
 ### Typischer RAG-Workflow
 
 ```mermaid
----
-config:
-  theme: base
-  look: classic
-  themeVariables:
-    primaryColor: '#e0f2fe'
-    primaryBorderColor: '#0284c7'
-    primaryTextColor: '#1e293b'
-    lineColor: '#64748b'
-    clusterBkg: '#f8fafc'
-    clusterBorder: '#cbd5e1'
-    noteBkgColor: '#fef3c7'
-    noteBorderColor: '#d97706'
-    noteTextColor: '#78350f'
-    edgeLabelBackground: '#ffffff'
----
-
 flowchart TB
     LOAD[1. Dokumente laden<br/>TextLoader, PyPDFLoader]
     CHUNK[2. Chunking<br/>RecursiveCharacterTextSplitter<br/>chunk_size=500, overlap=100]

@@ -74,23 +74,6 @@ Nicht jede Anwendung braucht alles davon. Entscheidend ist, wo tatsächlich Risi
 Eine gute Startarchitektur trennt vier Verantwortlichkeiten klar voneinander. Die Benutzeroberfläche sendet Anfragen an eine API. Die API validiert die Anfrage und entscheidet, welcher Dienst zuständig ist. Die GenAI-Logik ruft Modelle, Retrieval oder Agenten auf. Externe Tools werden über eine eigene Zugriffsschicht angebunden.
 
 ```mermaid
----
-config:
-  theme: base
-  look: classic
-  themeVariables:
-    primaryColor: '#e0f2fe'
-    primaryBorderColor: '#0284c7'
-    primaryTextColor: '#1e293b'
-    lineColor: '#64748b'
-    clusterBkg: '#f8fafc'
-    clusterBorder: '#cbd5e1'
-    noteBkgColor: '#fef3c7'
-    noteBorderColor: '#d97706'
-    noteTextColor: '#78350f'
-    edgeLabelBackground: '#ffffff'
----
-
 flowchart TD
     UI[UI oder Client] --> API[API-Schicht]
     API --> AUTH[Auth, Limits, Validierung]

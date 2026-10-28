@@ -32,23 +32,6 @@ Auf dem ersten Blick wirkt beides zunächst ähnlich, weil in beiden Fällen Log
 
 
 ```mermaid
----
-config:
-  theme: base
-  look: classic
-  themeVariables:
-    primaryColor: '#e0f2fe'
-    primaryBorderColor: '#0284c7'
-    primaryTextColor: '#1e293b'
-    lineColor: '#64748b'
-    clusterBkg: '#f8fafc'
-    clusterBorder: '#cbd5e1'
-    noteBkgColor: '#fef3c7'
-    noteBorderColor: '#d97706'
-    noteTextColor: '#78350f'
-    edgeLabelBackground: '#ffffff'
----
-
 flowchart TD
     A["<b>Evaluation</b><br>War das Ergebnis gut?"] --> B["<b>Observability</b><br>Warum kam es dazu?"]
     B --> C["<b>Verbesserung</b><br>Prompt, Tool, State<br>oder Policy anpassen"]
@@ -102,23 +85,6 @@ Observability ergänzt dieses kleine Evaluationsset um die Spuren pro Anfrage: W
 Für eine GenAI-Anwendung reichen einige wenige Datentypen, um die meisten Fehler sichtbar zu machen. Am wichtigsten sind vollständige Prompt-Antwort-Paare, die Schrittfolge der Anwendung, Kosten- und Tokenwerte pro Durchlauf sowie das Verhalten der Tool-Aufrufe. Diese vier Ebenen decken viele Probleme auf, die in klassischem Monitoring unsichtbar bleiben.
 
 ```mermaid
----
-config:
-  theme: base
-  look: classic
-  themeVariables:
-    primaryColor: '#e0f2fe'
-    primaryBorderColor: '#0284c7'
-    primaryTextColor: '#1e293b'
-    lineColor: '#64748b'
-    clusterBkg: '#f8fafc'
-    clusterBorder: '#cbd5e1'
-    noteBkgColor: '#fef3c7'
-    noteBorderColor: '#d97706'
-    noteTextColor: '#78350f'
-    edgeLabelBackground: '#ffffff'
----
-
 flowchart TB
     L1["1. Prompt und Antwort\nFrage, Kontext, Systeminstruktion, Ausgabe"]
     L2["2. Schrittfolge\nReasoning, Retrieval, Tool Calls, Zwischenergebnisse"]
@@ -295,23 +261,6 @@ Evaluation endet nicht mit dem ersten Release. In vielen Projekten zeigt sich er
 Der sinnvolle Kreislauf ist klein und konkret: Fehler im Betrieb beobachten, ausgewählte Fälle annotieren, dem Testset hinzufügen, Verbesserungen gegen dieses Set prüfen und erst danach erneut ausrollen. Teams, die diesen Schritt überspringen, reparieren häufig nur lokal und wiederholen denselben Fehler in anderer Form.
 
 ```mermaid
----
-config:
-  theme: base
-  look: classic
-  themeVariables:
-    primaryColor: '#e0f2fe'
-    primaryBorderColor: '#0284c7'
-    primaryTextColor: '#1e293b'
-    lineColor: '#64748b'
-    clusterBkg: '#f8fafc'
-    clusterBorder: '#cbd5e1'
-    noteBkgColor: '#fef3c7'
-    noteBorderColor: '#d97706'
-    noteTextColor: '#78350f'
-    edgeLabelBackground: '#ffffff'
----
-
 flowchart TD
     A["<b>Produktionsfall</b><br>Echtes Nutzerszenario"] --> B["<b>Trace prüfen</b><br>Schritte der Anwendung analysieren"]
     B --> C["<b>Fehlerklasse bestimmen</b><br>Logik-, Tool- oder Promptfehler?"]

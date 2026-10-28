@@ -124,23 +124,6 @@ display(Image(graph.get_graph().draw_mermaid_png()))
 So sieht der minimale Workflow aus:
 
 ```mermaid
----
-config:
-  theme: base
-  look: classic
-  themeVariables:
-    primaryColor: '#e0f2fe'
-    primaryBorderColor: '#0284c7'
-    primaryTextColor: '#1e293b'
-    lineColor: '#64748b'
-    clusterBkg: '#f8fafc'
-    clusterBorder: '#cbd5e1'
-    noteBkgColor: '#fef3c7'
-    noteBorderColor: '#d97706'
-    noteTextColor: '#78350f'
-    edgeLabelBackground: '#ffffff'
----
-
 flowchart LR
     START([START]) --> AGENT[agent_node]
     AGENT --> END([END])
@@ -177,23 +160,6 @@ Steht das erste Beispiel, lässt sich der Grundgedanke dahinter klarer machen:
 - Reducer wie `add_messages` sorgen dafür, dass bestimmte Daten sinnvoll zusammengeführt werden.
 
 ```mermaid
----
-config:
-  theme: base
-  look: classic
-  themeVariables:
-    primaryColor: '#e0f2fe'
-    primaryBorderColor: '#0284c7'
-    primaryTextColor: '#1e293b'
-    lineColor: '#64748b'
-    clusterBkg: '#f8fafc'
-    clusterBorder: '#cbd5e1'
-    noteBkgColor: '#fef3c7'
-    noteBorderColor: '#d97706'
-    noteTextColor: '#78350f'
-    edgeLabelBackground: '#ffffff'
----
-
 flowchart TD
     %% Einstiegspunkt
     INVOKE([graph.invoke]) --> START
@@ -377,23 +343,6 @@ g.add_edge("tools", "agent")
 **Visualisierung des Tool-Loops:**
 
 ```mermaid
----
-config:
-  theme: base
-  look: classic
-  themeVariables:
-    primaryColor: '#e0f2fe'
-    primaryBorderColor: '#0284c7'
-    primaryTextColor: '#1e293b'
-    lineColor: '#64748b'
-    clusterBkg: '#f8fafc'
-    clusterBorder: '#cbd5e1'
-    noteBkgColor: '#fef3c7'
-    noteBorderColor: '#d97706'
-    noteTextColor: '#78350f'
-    edgeLabelBackground: '#ffffff'
----
-
 flowchart TB
     START([START]) --> AGENT[Agent Node]
     AGENT --> COND{Tool Calls?}
@@ -457,23 +406,6 @@ for chunk in graph.stream(
 **Streaming-Prozess:**
 
 ```mermaid
----
-config:
-  theme: base
-  look: classic
-  themeVariables:
-    primaryColor: '#e0f2fe'
-    primaryBorderColor: '#0284c7'
-    primaryTextColor: '#1e293b'
-    lineColor: '#64748b'
-    clusterBkg: '#f8fafc'
-    clusterBorder: '#cbd5e1'
-    noteBkgColor: '#fef3c7'
-    noteBorderColor: '#d97706'
-    noteTextColor: '#78350f'
-    edgeLabelBackground: '#ffffff'
----
-
 sequenceDiagram
     autonumber
     participant User
@@ -532,23 +464,6 @@ Checkpointing lädt dabei den gespeicherten Zustand der `thread_id` und ergänzt
 **Session-Management mit Checkpointing:**
 
 ```mermaid
----
-config:
-  theme: base
-  look: classic
-  themeVariables:
-    primaryColor: '#e0f2fe'
-    primaryBorderColor: '#0284c7'
-    primaryTextColor: '#1e293b'
-    lineColor: '#64748b'
-    clusterBkg: '#f8fafc'
-    clusterBorder: '#cbd5e1'
-    noteBkgColor: '#fef3c7'
-    noteBorderColor: '#d97706'
-    noteTextColor: '#78350f'
-    edgeLabelBackground: '#ffffff'
----
-
 stateDiagram-v2
     [*] --> Session1: invoke(state, thread_id)
     Session1 --> Checkpoint: save state
@@ -594,23 +509,6 @@ result = graph.invoke(Command(resume="yes"), config)
 **Human-in-the-Loop Pattern:**
 
 ```mermaid
----
-config:
-  theme: base
-  look: classic
-  themeVariables:
-    primaryColor: '#e0f2fe'
-    primaryBorderColor: '#0284c7'
-    primaryTextColor: '#1e293b'
-    lineColor: '#64748b'
-    clusterBkg: '#f8fafc'
-    clusterBorder: '#cbd5e1'
-    noteBkgColor: '#fef3c7'
-    noteBorderColor: '#d97706'
-    noteTextColor: '#78350f'
-    edgeLabelBackground: '#ffffff'
----
-
 flowchart TB
     START([START]) --> NODE1[Process Data]
     NODE1 --> APPROVAL[👤 Approval Node]
@@ -666,23 +564,6 @@ def supervisor(state: ChatState) -> Command:
 **Multi-Agent Supervisor Pattern:**
 
 ```mermaid
----
-config:
-  theme: base
-  look: classic
-  themeVariables:
-    primaryColor: '#e0f2fe'
-    primaryBorderColor: '#0284c7'
-    primaryTextColor: '#1e293b'
-    lineColor: '#64748b'
-    clusterBkg: '#f8fafc'
-    clusterBorder: '#cbd5e1'
-    noteBkgColor: '#fef3c7'
-    noteBorderColor: '#d97706'
-    noteTextColor: '#78350f'
-    edgeLabelBackground: '#ffffff'
----
-
 graph TB
     START([User Request]) --> SUPERVISOR[Supervisor Agent]
 

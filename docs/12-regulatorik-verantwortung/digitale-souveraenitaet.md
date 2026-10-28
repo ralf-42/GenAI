@@ -32,23 +32,6 @@ Der Ausgangspunkt dafür ist auch eine grundlegende Asymmetrie: Europa verfügt 
 Für generative KI wird digitale Souveränität besonders greifbar. Eine GenAI-Anwendung hängt häufig gleichzeitig von Modellanbieter, Cloud-Infrastruktur, Embedding-Modell, Vektordatenbank, Logging, Tracing, Datenresidenz und API-Verträgen ab. Souveränität bedeutet deshalb nicht zwingend, jede Komponente selbst zu betreiben. Entscheidend ist vielmehr, bewusst steuern zu können, welche Daten und Funktionen in welcher Umgebung verarbeitet werden – und wie ein Wechsel des Anbieters auch tatsächlich möglich bleibt.
 
 ```mermaid
----
-config:
-  theme: base
-  look: classic
-  themeVariables:
-    primaryColor: '#e0f2fe'
-    primaryBorderColor: '#0284c7'
-    primaryTextColor: '#1e293b'
-    lineColor: '#64748b'
-    clusterBkg: '#f8fafc'
-    clusterBorder: '#cbd5e1'
-    noteBkgColor: '#fef3c7'
-    noteBorderColor: '#d97706'
-    noteTextColor: '#78350f'
-    edgeLabelBackground: '#ffffff'
----
-
 graph TD
     HW["Chips und Hardware"]
     DC["Cloud-Infrastruktur<br/>Compute · Storage · Netzwerk"]
@@ -64,7 +47,13 @@ graph TD
     APP -->|"erzeugt"| OPS
 
 %% Funktionsfarben nach Mermaid_Best_Practices.md
-classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
+
+    classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
+    classDef input fill:#e0e7ff,stroke:#6366f1,stroke-width:2px,color:#1e1b4b;
+    classDef output fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d;
+
+    class HW input;
+    class OPS output;
 ```
 
 ## Konzeptionelle Grundlagen und Begriffsbestimmung
@@ -89,23 +78,6 @@ Eine saubere Trennung der Begriffe ist wichtig, um Fehlinterpretationen zu verme
    Autarkie meint eine vollständige Unabhängigkeit durch Selbstversorgung und Abkapselung. In der global vernetzten Digitalwirtschaft gilt Autarkie ökonomisch als wenig sinnvoll und technisch als nicht realistisch. Ein Streben nach Autarkie würde bedeuten, sämtliche Hard- und Software im eigenen Wirtschaftsraum selbst zu produzieren – mit massiven Effizienzverlusten, einem Innovationsstau und deutlichen Wohlstandseinbußen. Experten wie jene von Arvato Systems oder dem BWI warnen explizit davor, Souveränität mit Autarkie zu verwechseln: Das Ziel ist nicht, alles selbst zu bauen („Make“), sondern Teile zugekauft („Buy“) zu beziehen, solange die Kontrolle über die Wertschöpfungskette erhalten bleibt.6
 
 ```mermaid
----
-config:
-  theme: base
-  look: classic
-  themeVariables:
-    primaryColor: '#e0f2fe'
-    primaryBorderColor: '#0284c7'
-    primaryTextColor: '#1e293b'
-    lineColor: '#64748b'
-    clusterBkg: '#f8fafc'
-    clusterBorder: '#cbd5e1'
-    noteBkgColor: '#fef3c7'
-    noteBorderColor: '#d97706'
-    noteTextColor: '#78350f'
-    edgeLabelBackground: '#ffffff'
----
-
 graph LR
     S[“Souveränität<br/>Normativer Anspruch<br/>Regeln setzen und<br/>durchsetzen”]
     A[“Autonomie<br/>Strategische Grundlage<br/>Faktische Wahlfreiheit<br/>zwischen Alternativen”]

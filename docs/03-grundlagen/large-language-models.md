@@ -83,23 +83,6 @@ Nicht jedes Foundation Model ist ein Sprachmodell: Es gibt auch Basismodelle fü
 Die folgende Übersicht zeigt die Begriffsebenen:
 
 ```mermaid
----
-config:
-  theme: base
-  look: classic
-  themeVariables:
-    primaryColor: '#e0f2fe'
-    primaryBorderColor: '#0284c7'
-    primaryTextColor: '#1e293b'
-    lineColor: '#64748b'
-    clusterBkg: '#f8fafc'
-    clusterBorder: '#cbd5e1'
-    noteBkgColor: '#fef3c7'
-    noteBorderColor: '#d97706'
-    noteTextColor: '#78350f'
-    edgeLabelBackground: '#ffffff'
----
-
 flowchart TD
     FM[Foundation Model<br>breit vortrainiertes Basismodell]
     LLM[Large Language Model<br>Sprachmodell]
@@ -121,7 +104,13 @@ flowchart TD
     ATT --> MULTI
 
 %% Funktionsfarben nach Mermaid_Best_Practices.md
-classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
+
+    classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
+    classDef input fill:#e0e7ff,stroke:#6366f1,stroke-width:2px,color:#1e1b4b;
+    classDef output fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d;
+
+    class FM input;
+    class MM,TOK,EMB,SELF,MULTI output;
 ```
 
 # Training und Inferenz
@@ -140,23 +129,6 @@ Bei der **Inferenz** werden diese gelernten Parameter nur noch angewendet. Das M
 So sieht der Ablauf bei einer normalen Anfrage aus:
 
 ```mermaid
----
-config:
-  theme: base
-  look: classic
-  themeVariables:
-    primaryColor: '#e0f2fe'
-    primaryBorderColor: '#0284c7'
-    primaryTextColor: '#1e293b'
-    lineColor: '#64748b'
-    clusterBkg: '#f8fafc'
-    clusterBorder: '#cbd5e1'
-    noteBkgColor: '#fef3c7'
-    noteBorderColor: '#d97706'
-    noteTextColor: '#78350f'
-    edgeLabelBackground: '#ffffff'
----
-
 flowchart LR
     P[Prompt<br>Eingabe des Nutzers] --> T[Tokenisierung<br>Text wird in Tokens zerlegt]
     T --> E[Embeddings<br>Tokens werden zu Zahlenvektoren]

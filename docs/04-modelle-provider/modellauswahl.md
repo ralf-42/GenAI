@@ -110,23 +110,6 @@ Multimodale Aufgaben sind eine eigene Entscheidung. Ein Textmodell darf nicht pa
 ## Entscheidungsbaum
 
 ```mermaid
----
-config:
-  theme: base
-  look: classic
-  themeVariables:
-    primaryColor: '#e0f2fe'
-    primaryBorderColor: '#0284c7'
-    primaryTextColor: '#1e293b'
-    lineColor: '#64748b'
-    clusterBkg: '#f8fafc'
-    clusterBorder: '#cbd5e1'
-    noteBkgColor: '#fef3c7'
-    noteBorderColor: '#d97706'
-    noteTextColor: '#78350f'
-    edgeLabelBackground: '#ffffff'
----
-
 flowchart TD
     START(["Welche Aufgabe hat der Modellaufruf?"])
 

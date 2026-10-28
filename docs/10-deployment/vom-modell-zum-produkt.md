@@ -196,23 +196,6 @@ Die Entscheidung ist selten endgültig. Ein Projekt kann mit `create_agent` begi
 Ein Customer-Support-System beginnt meist mit einem einfachen Agenten. Sobald reale Tickets, interne Daten und Eskalationen hinzukommen, entsteht eine Architektur mit mehreren Schichten: Retrieval für Wissenszugriff, Tools für Geschäftsprozesse, Graphsteuerung für Routing und Freigaben sowie LangSmith für Tracing und Evaluation.
 
 ```mermaid
----
-config:
-  theme: base
-  look: classic
-  themeVariables:
-    primaryColor: '#e0f2fe'
-    primaryBorderColor: '#0284c7'
-    primaryTextColor: '#1e293b'
-    lineColor: '#64748b'
-    clusterBkg: '#f8fafc'
-    clusterBorder: '#cbd5e1'
-    noteBkgColor: '#fef3c7'
-    noteBorderColor: '#d97706'
-    noteTextColor: '#78350f'
-    edgeLabelBackground: '#ffffff'
----
-
 flowchart TB
     USER[Support-Anfrage] --> AGENT[LangChain Agent]
     AGENT --> RETRIEVAL[RAG / File Search]

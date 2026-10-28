@@ -62,23 +62,6 @@ Die Datensammlung ist die Basis jedes RAG-Systems (Retrieval-Augmented Generatio
 Wie gut das System später Treffer liefert, hängt stark von drei Dingen ab: **Welche Quellen** genutzt werden, **wie aktuell** sie sind und **wie sauber** die Daten strukturiert werden. Selbst kleine Ungenauigkeiten in dieser Phase wirken sich auf die Antwortqualität aus.
 
 ```mermaid
----
-config:
-  theme: base
-  look: classic
-  themeVariables:
-    primaryColor: '#e0f2fe'
-    primaryBorderColor: '#0284c7'
-    primaryTextColor: '#1e293b'
-    lineColor: '#64748b'
-    clusterBkg: '#f8fafc'
-    clusterBorder: '#cbd5e1'
-    noteBkgColor: '#fef3c7'
-    noteBorderColor: '#d97706'
-    noteTextColor: '#78350f'
-    edgeLabelBackground: '#ffffff'
----
-
 flowchart LR
     A[Dokumente] --> B[Laden]
     B --> C[Chunking]
@@ -86,7 +69,13 @@ flowchart LR
     D --> E[Vektordatenbank]
 
 %% Funktionsfarben nach Mermaid_Best_Practices.md
-classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
+
+    classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
+    classDef input fill:#e0e7ff,stroke:#6366f1,stroke-width:2px,color:#1e1b4b;
+    classDef output fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d;
+
+    class A input;
+    class E output;
 ```
 
 | Schritt       | Beschreibung                                 | Typische Tools                          |
@@ -101,23 +90,6 @@ classDef default fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e;
 In der Phase „Abruf & Erweiterung“ holt sich das RAG-System gezielt Informationen aus der Wissensbasis. Die Benutzeranfrage wird dazu mit den gespeicherten Dokumenten verglichen – meist über semantische Suche anhand von Embeddings. Die gefundenen Inhalte werden dann dem Sprachmodell als Kontext bereitgestellt. Dadurch kann das Modell fundierter, näher am Dokument und stärker quellenbezogen antworten.
 
 ```mermaid
----
-config:
-  theme: base
-  look: classic
-  themeVariables:
-    primaryColor: '#e0f2fe'
-    primaryBorderColor: '#0284c7'
-    primaryTextColor: '#1e293b'
-    lineColor: '#64748b'
-    clusterBkg: '#f8fafc'
-    clusterBorder: '#cbd5e1'
-    noteBkgColor: '#fef3c7'
-    noteBorderColor: '#d97706'
-    noteTextColor: '#78350f'
-    edgeLabelBackground: '#ffffff'
----
-
 flowchart LR
     A[Frage] --> B[Embedding]
     B --> C[Similarity Search]

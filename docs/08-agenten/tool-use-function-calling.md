@@ -110,23 +110,6 @@ if response.tool_calls:
 
 
 ```mermaid
----
-config:
-  theme: base
-  look: classic
-  themeVariables:
-    primaryColor: '#e0f2fe'
-    primaryBorderColor: '#0284c7'
-    primaryTextColor: '#1e293b'
-    lineColor: '#64748b'
-    clusterBkg: '#f8fafc'
-    clusterBorder: '#cbd5e1'
-    noteBkgColor: '#fef3c7'
-    noteBorderColor: '#d97706'
-    noteTextColor: '#78350f'
-    edgeLabelBackground: '#ffffff'
----
-
 sequenceDiagram
 
     autonumber
@@ -206,7 +189,7 @@ def search_documents(query: str, max_results: int = 5) -> str:
 
 
 
-Dieses Minimalprinzip zeigt bereits zwei Grundregeln: Das Tool-Schema ist ein Vertrag, und die Beschreibung ist Steuerungsinformation für das Modell.
+Dieses Minimalprinzip zeigt bereits zwei Grundregeln: Das Tool-Schema ist eine Spezifikation, und die Beschreibung ist Steuerungsinformation für das Modell.
 
 
 
@@ -274,11 +257,11 @@ Ohne klares Schema weiß das Modell nicht zuverlässig, welche Parameter es lief
 
 
 
-## Pydantic als Vertrags-Schicht
+## Pydantic als Spezifikations-Schicht
 
 
 
-Bei produktionsnäheren Tools reicht eine einfache Beschreibung oft nicht aus. Dann wird ein explizites Datenmodell zur eigentlichen Contract-Schicht. Es definiert zugleich das Schema, validiert die Eingaben und macht Übergaben zwischen Komponenten konsistent.
+Bei produktionsnäheren Tools reicht eine einfache Beschreibung oft nicht aus. Dann wird ein explizites Datenmodell zur eigentlichen Spezifikations-Schicht. Es definiert zugleich das Schema, validiert die Eingaben und macht Übergaben zwischen Komponenten konsistent.
 
 
 
@@ -291,7 +274,7 @@ Bei produktionsnäheren Tools reicht eine einfache Beschreibung oft nicht aus. D
 
 
 
-Der Vorteil liegt darin, dass Schema und Validierung nicht auseinanderdriften. Genau deshalb ist eine explizite Vertrags-Schicht für höherwertige Tool-Schnittstellen oft sinnvoll.
+Der Vorteil liegt darin, dass Schema und Validierung nicht auseinanderdriften. Genau deshalb ist eine explizite Spezifikations-Schicht für höherwertige Tool-Schnittstellen oft sinnvoll.
 
 
 

@@ -99,23 +99,6 @@ Modell-Distillation nutzt Ausgaben eines größeren Modells, um ein kleineres Mo
 # Fine-Tuning-Pipeline
 
 ```mermaid
----
-config:
-  theme: base
-  look: classic
-  themeVariables:
-    primaryColor: '#e0f2fe'
-    primaryBorderColor: '#0284c7'
-    primaryTextColor: '#1e293b'
-    lineColor: '#64748b'
-    clusterBkg: '#f8fafc'
-    clusterBorder: '#cbd5e1'
-    noteBkgColor: '#fef3c7'
-    noteBorderColor: '#d97706'
-    noteTextColor: '#78350f'
-    edgeLabelBackground: '#ffffff'
----
-
 flowchart TB
     A[1. Baseline und Evals] --> B[2. Trainingsdaten kuratieren]
     B --> C[3. Methode und Modell wählen]

@@ -223,23 +223,6 @@ Ein KI-Agent analysiert den Text und trifft eigenständig Entscheidungen über C
 ### Strategie-Auswahl
 
 ```mermaid
----
-config:
-  theme: base
-  look: classic
-  themeVariables:
-    primaryColor: '#e0f2fe'
-    primaryBorderColor: '#0284c7'
-    primaryTextColor: '#1e293b'
-    lineColor: '#64748b'
-    clusterBkg: '#f8fafc'
-    clusterBorder: '#cbd5e1'
-    noteBkgColor: '#fef3c7'
-    noteBorderColor: '#d97706'
-    noteTextColor: '#78350f'
-    edgeLabelBackground: '#ffffff'
----
-
 flowchart TD
     START([Text analysieren]) --> Q1{Ist der Text<br>strukturiert?}
 
@@ -292,6 +275,8 @@ Geeignete Messgrößen sind:
 - [Open RAG Eval](https://github.com/vectara/open-rag-eval) ist ein Open-Source-Python-Toolkit zur Evaluation von RAG-Pipelines. Es unterstützt unter anderem LangChain- und LlamaIndex-Connectoren und kann mehrere Chunk-Größen und Überlappungen vergleichen. Die Evaluation wird lokal ausgeführt; je nach Metrik und Konfiguration werden API-Zugangsdaten oder zusätzliche Modelle benötigt.
 
 Wer zunächst nur Chunk-Grenzen an Beispieldokumenten ansehen möchte, kann den [RAG Chunking Simulator](https://a2z.tools/rag-chunking-simulator) direkt im Browser verwenden. Er zeigt einfache Strategien wie rekursives, satz- und absatzbasiertes Chunking, bewertet aber nicht die Retrieval-Qualität. Für einen belastbaren Vergleich müssen repräsentative Fragen und relevante Zielpassagen in eine Evaluation einfließen.
+
+Eine Übersicht weiterer kostenloser Browser-Tools für KI-Anwendungen bietet [apprun.icu AI-Tools](https://apprun.icu/ai-tools/); darunter ist auch der Chunking Strategy Comparator.
 
 
 ## Implementierungs-Beispiel
