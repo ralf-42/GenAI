@@ -126,6 +126,8 @@ Beim **Training** sieht das Modell sehr viele Beispiele und korrigiert seine int
 
 Bei der **Inferenz** werden diese gelernten Parameter nur noch angewendet. Das Modell bekommt einen Prompt, verarbeitet den Kontext und erzeugt Token für Token eine Antwort. Die Gewichte des Modells bleiben dabei unverändert.
 
+Interaktive Demo: [LLM-Training (Pre-Training, SFT, RL & Evaluation)]({{ '/visualisierungen/llm_training/' | relative_url }}){:target="_blank" rel="noopener"} und [LLM-Inferenz (Tokenisierung, Prefill, KV-Cache & Decode)]({{ '/visualisierungen/llm_inferenz/' | relative_url }}){:target="_blank" rel="noopener"} – zeigen einerseits den Trainingsweg vom Textkorpus über SFT und RL bis zum Assistenten und andererseits die gesamte Inferenz-Pipeline von der Subword-Tokenisierung über Continuous Batching und den KV-Cache bis zu TTFT- und ITL-Latenzmetriken.
+
 So sieht der Ablauf bei einer normalen Anfrage aus:
 
 ```mermaid

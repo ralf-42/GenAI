@@ -271,6 +271,8 @@ Geeignete Messgrößen sind:
 
 ### Tools zum Vergleichen von Chunking-Strategien
 
+Interaktive Demos: [RAG Chunking Explorer]({{ '/visualisierungen/rag_chunking_explorer/' | relative_url }}){:target="_blank" rel="noopener"} (Vergleich verschiedener Chunking-Strategien und Parameter) sowie [LLM-Inferenz (Tokenisierung & Pipeline)]({{ '/visualisierungen/llm_inferenz/' | relative_url }}){:target="_blank" rel="noopener"} (Subword-Tokenisierung in Token-IDs und Weiterverarbeitung in der Inferenz-Pipeline).
+
 - [Chunkwise](https://chunkwise.github.io/) visualisiert Dokument-Chunks und vergleicht mehrere Workflows anhand von Chunk-Metriken und Retrieval-Evaluation. Für eigene Dokumente ist ein Ground-Truth-Datensatz hilfreich. Das Projekt ist Open Source und selbstverwaltet; die dokumentierte Bereitstellung richtet eine AWS-Infrastruktur ein. Die Projektseite bietet einen Walkthrough, aber keine frei nutzbare, gehostete interaktive Demo.
 - [Open RAG Eval](https://github.com/vectara/open-rag-eval) ist ein Open-Source-Python-Toolkit zur Evaluation von RAG-Pipelines. Es unterstützt unter anderem LangChain- und LlamaIndex-Connectoren und kann mehrere Chunk-Größen und Überlappungen vergleichen. Die Evaluation wird lokal ausgeführt; je nach Metrik und Konfiguration werden API-Zugangsdaten oder zusätzliche Modelle benötigt.
 

@@ -45,6 +45,7 @@ Transformer-Architektur, neuronale Netze und Modellvarianten
 | **Architektur-Explainer** | Transformer-Architektur interaktiv erklärt             | [Architektur-Explainer]({{ '/visualisierungen/transformer_architecture/' | relative_url }}){:target="_blank" rel="noopener"}             |
 | **Neuronales Netz**       | Training eines neuronalen Netzes                       | [NN - Training]({{ '/visualisierungen/nn_training_neu/' | relative_url }}){:target="_blank" rel="noopener"}                      |
 | **Mixture of Experts**    | MoE-Architektur für effiziente LLM-Skalierung          | [Mixture of Experts]({{ '/visualisierungen/moe_demo/' | relative_url }}){:target="_blank" rel="noopener"}                 |
+| **LLM-Inferenz**          | Tokenisierung, Continuous Batching, Prefill & KV-Cache, Decode-Loop sowie TTFT/ITL-Latenz interaktiv erklärt | [LLM-Inferenz]({{ '/visualisierungen/llm_inferenz/' | relative_url }}){:target="_blank" rel="noopener"} |
 | **Diffusion Model**       | Chat-Interface für Mercury – Diffusion Language Model  | [Inception Labs Chat](https://chat.inceptionlabs.ai/)                                       |
 
 ---
@@ -84,6 +85,7 @@ Steuerung, Parametrierung und Anpassung von Sprachmodellen
 | **Entscheidungshilfe** | Entscheidungshilfe Modellsteuerung              | [Modellsteuerung]({{ '/visualisierungen/modellsteuerung/' | relative_url }}){:target="_blank" rel="noopener"}             |
 | **LLM Sampling Simulator** | Temperature, Top-p und Top-k interaktiv nachvollziehen | [LLM Sampling Simulator]({{ '/visualisierungen/llm_parameter/' | relative_url }}){:target="_blank" rel="noopener"}     |
 | **Quantisierung LLM**  | Quantisierung von Sprachmodellen visualisiert   | [Quantisierung LLM]({{ '/visualisierungen/quantisierung_llm/' | relative_url }}){:target="_blank" rel="noopener"}           |
+| **LLM-Training**       | Pre-Training, SFT, RL und Evaluation im Überblick | [LLM-Training]({{ '/visualisierungen/llm_training/' | relative_url }}){:target="_blank" rel="noopener"}               |
 | **Fine Tuning**        | Fine-Tuning von Sprachmodellen visualisiert     | [Fine Tuning]({{ '/visualisierungen/fine_tune_sftconfig/' | relative_url }}){:target="_blank" rel="noopener"}                 |
 | **Fine-Tuning LoRA**   | Low-Rank Adaptation für effizientes Fine-Tuning | [LoRA-Grundprinzip]({{ '/visualisierungen/lora_grundprinzip/' | relative_url }}){:target="_blank" rel="noopener"})          |
 | **DSPy**               | Programmieren statt Prompten - DSPy als Kontrastfolie zu LangChain | [DSPy]({{ '/visualisierungen/prompt_dspy/' | relative_url }}){:target="_blank" rel="noopener"}               |
