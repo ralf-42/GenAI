@@ -85,7 +85,7 @@ from langchain_core.tools import tool
 from langchain_core.messages import HumanMessage
 from pydantic import BaseModel, Field
 
-llm = init_chat_model("openai:gpt-5.6-luna")
+llm = init_chat_model("openai:gpt-6-luna")
 
 class MultiplyInput(BaseModel):
     a: int = Field(description="Erster Faktor")
@@ -409,7 +409,7 @@ from langchain_core.tools import tool
 from langchain_core.messages import HumanMessage
 from datetime import date
 
-llm = init_chat_model("openai:gpt-5.6-luna")
+llm = init_chat_model("openai:gpt-6-luna")
 
 @tool
 def get_current_date() -> str:
@@ -532,7 +532,7 @@ from langchain.agents import create_agent
 from langchain_core.tools import tool
 
 from langchain_core.messages import HumanMessage
-llm = init_chat_model("openai:gpt-5.6-luna")
+llm = init_chat_model("openai:gpt-6-luna")
 
 @tool
 def choose_domain(domain: str) -> str:

@@ -96,7 +96,7 @@ client = OpenAI(api_key="sk-abc123...")
 
 def frage_llm(prompt):
     response = client.responses.create(
-        model="gpt-5.4-mini",
+        model="gpt-6.1-terra",
         input=prompt,
     )
     return response.output_text
@@ -145,7 +145,7 @@ Konfiguration gehört nicht in Code und nicht in Notebooks. Lokal kann eine `.en
 ```bash
 # .env.example
 OPENAI_API_KEY=OPENAI_API_KEY_HIER_EINTRAGEN
-MODEL_NAME=gpt-5.4-mini
+MODEL_NAME=gpt-6.1-terra
 LOG_LEVEL=INFO
 ```
 
@@ -308,7 +308,7 @@ docker build -t meine-genai-app .
 
 docker run -p 8000:8000 \
   -e OPENAI_API_KEY="OPENAI_API_KEY_HIER_EINTRAGEN" \
-  -e MODEL_NAME="gpt-5.4-mini" \
+  -e MODEL_NAME="gpt-6.1-terra" \
   meine-genai-app
 ```
 

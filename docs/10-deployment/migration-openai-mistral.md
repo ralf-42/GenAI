@@ -58,10 +58,10 @@ Für den Kurs ist es besser, nicht einfach „irgendeinen“ OpenAI-Modellnamen 
 
 | Rolle | OpenAI-Beispiel | Mistral-Beispiel | Prüfung |
 |---|---|---|---|
-| Baseline | `openai:gpt-5.6-luna` | `mistral-small-2603` | kurze Antworten, Kosten, Latenz |
-| Standard | `openai:gpt-5.4-mini` | `mistral-medium-3.5` | RAG-Synthese, Tool-Nutzung, strukturierte Ausgabe |
-| Starkes Modell | `openai:gpt-5.4` | `mistral-large-2512` | komplexe Aufgaben, längere Kontexte |
-| Code | `openai:gpt-5.4-mini` | Devstral- oder Codestral-Modell nach aktueller Modellliste | Codeaufgaben und Repository-Kontext |
+| Baseline | `openai:gpt-6-luna` | `mistral-small-2603` | kurze Antworten, Kosten, Latenz |
+| Standard | `openai:gpt-6.1-terra` | `mistral-medium-3.5` | RAG-Synthese, Tool-Nutzung, strukturierte Ausgabe |
+| Starkes Modell | `openai:gpt-6.1-sol` | `mistral-large-2512` | komplexe Aufgaben, längere Kontexte |
+| Code | `openai:gpt-6.1-terra` | Devstral- oder Codestral-Modell nach aktueller Modellliste | Codeaufgaben und Repository-Kontext |
 | Embeddings | `text-embedding-3-small` | `mistral-embed` oder `codestral-embed` | Vektordimension, Retrievalqualität, Index-Neuaufbau |
 
 Die Mistral-Modellpalette verändert sich laufend. Deshalb sind die konkreten Modellnamen als momentaner Stand zu verstehen – vor einem produktiven Einsatz lohnt sich immer der Blick auf die aktuelle Mistral-Modellseite.
@@ -77,8 +77,8 @@ from langchain.chat_models import init_chat_model
 
 MODEL_CONFIG = {
     "openai": {
-        "baseline": "openai:gpt-5.6-luna",
-        "standard": "openai:gpt-5.4-mini",
+        "baseline": "openai:gpt-6-luna",
+        "standard": "openai:gpt-6.1-terra",
     },
     "mistral": {
         "baseline": "mistral:mistral-small-2603",

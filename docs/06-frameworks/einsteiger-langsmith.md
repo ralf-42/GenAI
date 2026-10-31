@@ -133,7 +133,7 @@ Der schnellste Weg zum Verständnis: ein einfacher LLM-Aufruf. Unterstützte Lan
 from langchain.chat_models import init_chat_model
 
 # Normaler LLM-Setup (wie gewohnt)
-llm = init_chat_model("openai:gpt-5.6-luna")
+llm = init_chat_model("openai:gpt-6-luna")
 
 # Einfacher Aufruf – wird bei aktivem Tracing erfasst.
 response = llm.invoke("Erkläre LangSmith in einem Satz.")
@@ -233,7 +233,7 @@ result = chain.invoke({"topic": "Vektordatenbanken"})
 graph TB
     CHAIN[Chain Run - Gesamt<br/>Latenz: 1.5s]
     PROMPT[Prompt Run<br/>Template-Formatierung<br/>0.1s]
-    LLM[LLM Run - WORKER / gpt-5.4-mini<br/>Input: 'Erkläre Vektordatenbanken...'<br/>Output: 'Vektordatenbanken speichern...'<br/>Tokens: 245 in=12, out=233<br/>Latenz: 1.2s]
+    LLM[LLM Run - WORKER / gpt-6.1-terra<br/>Input: 'Erkläre Vektordatenbanken...'<br/>Output: 'Vektordatenbanken speichern...'<br/>Tokens: 245 in=12, out=233<br/>Latenz: 1.2s]
     PARSER[Parser Run<br/>String-Extraktion<br/>0.2s]
 
     CHAIN --> PROMPT
@@ -254,7 +254,7 @@ graph TB
 ```
 Chain Run (Gesamt)
 ├─ Prompt Run (Template-Formatierung)
-├─ LLM Run (WORKER / gpt-5.4-mini Call)
+├─ LLM Run (WORKER / gpt-6.1-terra Call)
 │  ├─ Input: "Erkläre Vektordatenbanken für Einsteiger."
 │  ├─ Output: "Vektordatenbanken speichern..."
 │  ├─ Tokens: 245 (Input: 12, Output: 233)

@@ -93,7 +93,7 @@ class ChatState(TypedDict):
 
 ```python
 from langchain.chat_models import init_chat_model
-llm = init_chat_model("openai:gpt-5.6-luna")
+llm = init_chat_model("openai:gpt-6-luna")
 
 def agent_node(state: ChatState) -> dict:
     response = llm.invoke(state["messages"])

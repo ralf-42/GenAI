@@ -221,10 +221,12 @@ Juristische Texte sind oft lang: Gesetze, Urteile, Kommentare und Schriftsätze 
 
 import tiktoken
 
-def count_tokens(text: str, model: str = "gpt-5.6-luna") -> int:
+def count_tokens(text: str, model: str = "gpt-6-luna") -> int:
     """Zählt Tokens für ein gegebenes Modell."""
     # TODO:
     # - Encoding für das Modell laden
+    #   Hinweis: tiktoken kennt neue Modellnamen oft nicht (KeyError);
+    #   dann tiktoken.get_encoding("o200k_base") verwenden
     # - Text encodieren
     # - Anzahl der Tokens zurückgeben
     pass
@@ -499,7 +501,7 @@ import sqlite3
 
 ### Aufgabe 6.2: SQL-Chain mit LangChain
 
-Für die SQL-Generierung ist `gpt-5.4-mini` meist die stabilere Wahl als `gpt-5.6-luna`, besonders bei komplexeren Schemata oder wenn die Abfrage mehrere Bedingungen kombinieren muss.
+Für die SQL-Generierung ist das WORKER-Modell (`gpt-6.1-terra`) meist die stabilere Wahl als das BASELINE-Modell (`gpt-6-luna`), besonders bei komplexeren Schemata oder wenn die Abfrage mehrere Bedingungen kombinieren muss.
 
 ```python
 from langchain_community.utilities import SQLDatabase
@@ -925,7 +927,7 @@ A: Nein. Das Projekt ist eine technische Übung. Der Assistent arbeitet mit Beis
 A: Nutze selbst erstellte Texte, frei verfügbare Gesetzestexte oder kurze didaktische Auszüge. Kommerzielle Kommentare, Handbücher und Fachdatenbanken dürfen nur verwendet werden, wenn die Nutzungsrechte das erlauben.
 
 **Q: Welches LLM-Modell soll ich verwenden?**  
-A: Für Kapitel 6 (SQL RAG) ist `gpt-5.4-mini` oder größer die robustere Wahl. `gpt-5.6-luna` ist für einfache Demos okay, scheitert aber bei komplexeren Schemata und längeren SQL-Statements häufiger. Für Kapitel 7 (Agent) ist `gpt-5.6-luna` weiterhin für einfache Function-Calling-Beispiele brauchbar.
+A: Für Kapitel 6 (SQL RAG) ist das WORKER-Modell (`gpt-6.1-terra`) oder ein stärkeres Modell die robustere Wahl. Das BASELINE-Modell (`gpt-6-luna`) reicht für einfache Demos, ist bei komplexeren Schemata und längeren SQL-Statements aber fehleranfälliger. Für Kapitel 7 (Agent) genügt das BASELINE-Modell für einfache Function-Calling-Beispiele. Maßgeblich sind die Rollen in `genai_lib/model_config.py`.
 
 **Q: Muss ich für die lokale Modellvariante ein lokales Modell installieren?**  
 A: Wer lokal arbeiten kann, vergleicht ein Open-Source-Modell mit dem API-basierten RAG-System. Wer in Colab oder auf schwacher Hardware arbeitet, dokumentiert stattdessen, warum lokaler Betrieb für diesen Prototyp nicht sinnvoll ist.

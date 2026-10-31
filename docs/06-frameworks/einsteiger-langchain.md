@@ -60,7 +60,7 @@ from langchain.chat_models import init_chat_model
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 
-llm = init_chat_model("openai:gpt-5-nano")
+llm = init_chat_model("openai:gpt-6-luna")
 prompt = ChatPromptTemplate.from_template("Erkläre {thema} in drei Sätzen.")
 chain = prompt | llm | StrOutputParser()
 
@@ -128,7 +128,7 @@ Damit der Modellzugriff stabil bleibt, ist `init_chat_model()` die Basis. Es sor
 from langchain.chat_models import init_chat_model
 
 # Kurznotation "provider:model"
-llm = init_chat_model("openai:gpt-5-nano")
+llm = init_chat_model("openai:gpt-6-luna")
 
 # Weitere Beispiele:
 # llm = init_chat_model("anthropic:claude-sonnet-4-5")
@@ -590,7 +590,7 @@ agent_summarize = create_agent(
 
 # Ansatz 2: OpenAI Server-Side Compaction (nur OpenAI, wenn vom Modell unterstützt)
 llm_compact = init_chat_model(
-    "openai:gpt-5-nano",
+    "openai:gpt-6-luna",
     context_management=[{"type": "compaction", "compact_threshold": 10_000}]
 )
 agent_compact = create_agent(model=llm_compact, tools=tools)

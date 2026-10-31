@@ -728,7 +728,7 @@ RAG verbindet die Stärken von Retrieval-Systemen mit generativen LLMs:
 | **Embedding Model** | Text → Vektor | OpenAIEmbeddings |
 | **Vector Store** | Speicherung & Suche | ChromaDB, FAISS |
 | **Retriever** | Relevante Chunks finden | Retriever-Schnittstelle |
-| **LLM** | Antwort generieren | `WORKER` (`gpt-5.4-mini`) |
+| **LLM** | Antwort generieren | `WORKER` (`gpt-6.1-terra`) |
 
 **Typischer Workflow:**
 

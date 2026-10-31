@@ -67,7 +67,7 @@ def lookup_order(order_id: str) -> str:
 
 
 agent = create_agent(
-    model="openai:gpt-5.4-mini",
+    model="openai:gpt-6.1-terra",
     tools=[lookup_order],
     system_prompt=(
         "Du bist ein Support-Agent. Nutze Tools nur, wenn konkrete "

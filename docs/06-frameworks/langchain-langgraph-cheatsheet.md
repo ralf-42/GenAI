@@ -67,7 +67,7 @@ from langgraph.types import interrupt, Command
 ## Minimaler LangChain-Baustein
 
 ```python
-llm = init_chat_model("openai:gpt-5.6-luna")
+llm = init_chat_model("openai:gpt-6-luna")
 
 prompt = ChatPromptTemplate([
     ("system", "Antworte kurz und konkret."),

@@ -25,6 +25,14 @@ Version: 3.1 - LangChain 1.0+ Migration (init_chat_model, HumanMessage Content B
 
 from pathlib import Path
 import uuid
+
+# Modellrolle aus der zentralen Konfiguration; Fallback, wenn das Modul
+# ohne Paket genai_lib (z. B. als einzelne Colab-Zelle) geladen wird.
+try:
+    from genai_lib.model_config import WORKER_PREMIUM
+except ImportError:  # pragma: no cover
+    WORKER_PREMIUM = "openai:gpt-6.1-sol"
+_DEFAULT_LLM = WORKER_PREMIUM.split(":", 1)[-1]
 import base64
 import shutil
 from dataclasses import dataclass
@@ -54,8 +62,8 @@ class RAGConfig:
     image_threshold: float = 0.8
     clip_model: str = 'clip-ViT-B-32'
     text_model: str = 'text-embedding-3-small'
-    llm_model: str = 'gpt-5.6-terra'
-    vision_model: str = 'gpt-5.6-terra'
+    llm_model: str = _DEFAULT_LLM  # WORKER_PREMIUM aus model_config
+    vision_model: str = _DEFAULT_LLM  # WORKER_PREMIUM aus model_config
     db_path: str = './multimodal_rag_db'
 
 

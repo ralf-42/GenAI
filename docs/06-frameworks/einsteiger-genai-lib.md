@@ -277,10 +277,10 @@ Ruft Model-Profile von models.dev ab und zeigt die wichtigsten Capabilities eine
 from genai_lib.utilities import get_model_profile
 
 # Formatierte Ausgabe aller wichtigen Capabilities
-profile = get_model_profile("openai:gpt-5.6-luna")
+profile = get_model_profile("openai:gpt-6-luna")
 
 # Output:
-# 🔍 Model Profile: openai:gpt-5.6-luna
+# 🔍 Model Profile: openai:gpt-6-luna
 # ============================================================
 #
 # 📋 Core Capabilities:
@@ -307,10 +307,10 @@ profile = get_model_profile("openai:gpt-5.6-luna")
 # ============================================================
 
 # Ohne Ausgabe (nur Profile-Dict zurückgeben)
-profile = get_model_profile("openai:gpt-5.4-mini", print_profile=False)
+profile = get_model_profile("openai:gpt-6.1-terra", print_profile=False)
 
 # Verschiedene Models vergleichen (mit Fehlerbehandlung)
-for model in ["openai:gpt-5.6-luna", "openai:gpt-5.4-mini", "openai:gpt-5.4", "openai:gpt-5.6-terra", "openai:gpt-5.6-sol"]:
+for model in ["openai:gpt-6-luna", "openai:gpt-6.1-terra", "openai:gpt-6.1-sol", "openai:gpt-6-astra"]:
     print(f"\n{model}:")
     profile = get_model_profile(model, print_profile=False)
 
@@ -477,7 +477,7 @@ Das `multimodal_rag`-Modul stellt ein vollständiges RAG-System bereit – mit U
 multimodal_rag
 ├── Text-Pipeline: OpenAI Embeddings + ChromaDB
 ├── Bild-Pipeline: CLIP Embeddings + ChromaDB
-├── Vision-LLM: gpt-5.4-mini für Bildbeschreibungen (via init_chat_model)
+├── Vision-LLM: gpt-6.1-sol (Rolle WORKER_PREMIUM) für Bildbeschreibungen (via init_chat_model)
 └── Hybride Suche: Text ↔ Bild ↔ Bild
 ```
 
@@ -503,8 +503,8 @@ config = RAGConfig(
     chunk_size=300,
     chunk_overlap=50,
     clip_model='clip-ViT-B-32',
-    llm_model='gpt-5.4-mini',
-    vision_model='gpt-5.4-mini',
+    llm_model='gpt-6.1-sol',      # Standard: WORKER_PREMIUM aus model_config
+    vision_model='gpt-6.1-sol',
     db_path='./my_rag_db'
 )
 rag = init_rag_system(config)
@@ -513,7 +513,7 @@ rag = init_rag_system(config)
 **Was wird initialisiert:**
 - OpenAI Text-Embeddings
 - CLIP-Modell für Bild-Embeddings
-- `gpt-5.4-mini` für Text und Vision (via `init_chat_model()` - LangChain 1.0+)
+- `gpt-6.1-sol` (Rolle `WORKER_PREMIUM`) für Text und Vision (via `init_chat_model()` - LangChain 1.0+)
 - ChromaDB mit zwei Collections (texts, images)
 - MarkItDown für Dokumentenkonvertierung
 
@@ -552,7 +552,7 @@ process_directory(rag, './files', auto_describe_images=False)
 **Features:**
 - automatische Dokumentenkonvertierung mit MarkItDown
 - Text-Chunking mit RecursiveCharacterTextSplitter
-- automatische Bildbeschreibung mit `gpt-5.4-mini`
+- automatische Bildbeschreibung mit `gpt-6.1-sol` (Rolle `WORKER_PREMIUM`)
 - CLIP-Embeddings für Bilder
 - Fortschrittsanzeige
 
@@ -784,16 +784,16 @@ from genai_lib.model_config import BASELINE, WORKER, JUDGE, FRONTIER
 
 | Konstante | Modell | Typischer Einsatz |
 |---|---|---|
-| `BASELINE` | `gpt-5.6-luna` | Grundlagen, günstige Demos, kurze Modellaufrufe |
-| `ROUTER` | `gpt-5.6-luna` | Einfache Routing- und Auswahlentscheidungen |
-| `WORKER` | `gpt-5.4-mini` | RAG-Synthese, strukturierte Ausgaben, Tool-Agenten |
-| `CODING` | `gpt-5.4-mini` | Code-Generierung, Refactoring, technische Agenten |
-| `JUDGE` | `gpt-5.4` | Evaluation, Bewertung, LLM-as-Judge |
-| `PLANNER` | `gpt-5.4` | Aufgabenzerlegung, Supervisor-Logik, Agentic RAG |
-| `WORKER_PREMIUM` | `gpt-5.6-terra` | Komplexe RAG, finale Reports |
-| `FRONTIER` | `gpt-5.6-sol` | Schwierige Coding-, Judge- und Agenten-Aufgaben |
+| `BASELINE` | `gpt-6-luna` | Grundlagen, günstige Demos, kurze Modellaufrufe |
+| `ROUTER` | `gpt-6-luna` | Einfache Routing- und Auswahlentscheidungen |
+| `WORKER` | `gpt-6.1-terra` | RAG-Synthese, strukturierte Ausgaben, Tool-Agenten |
+| `CODING` | `gpt-6.1-terra` | Code-Generierung, Refactoring, technische Agenten |
+| `JUDGE` | `gpt-6.1-sol` | Evaluation, Bewertung, LLM-as-Judge |
+| `PLANNER` | `gpt-6.1-sol` | Aufgabenzerlegung, Supervisor-Logik, Agentic RAG |
+| `WORKER_PREMIUM` | `gpt-6.1-sol` | Komplexe RAG, finale Reports |
+| `FRONTIER` | `gpt-6-astra` | Schwierige Coding-, Judge- und Agenten-Aufgaben |
 | `IMAGE_GENERATION` | `gpt-image-2` | Bildgenerierung |
-| `TRANSCRIPTION` | `gpt-4o-mini-transcribe` | Audio-Transkription |
+| `TRANSCRIPTION` | `gpt-transcribe` | Audio-Transkription |
 | `TRANSCRIPTION_SEGMENTS` | `whisper-1` | Audio-Transkription mit `verbose_json` und Segment-Zeitstempeln |
 | `EMBEDDINGS` | `text-embedding-3-small` | Retrieval, Chunk-Suche, Vektorindizes |
 
