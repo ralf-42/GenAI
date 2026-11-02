@@ -30,12 +30,17 @@ Die Kursdokumentation mit Konzepten, Frameworks-Guides und Ressourcen zu Generat
 
 ```
 GenAI/
+├── 00_admin/       # Kursorganisation und Planung
 ├── 01_notebook/    # Jupyter Notebooks (Kursmaterialien)
 ├── 02_daten/       # Trainingsdaten und Beispieldateien
 ├── 03_skript/      # Ergänzende Unterlagen zum Kurs
 ├── 04_modul/       # Python-Module und Bibliotheken
 ├── 05_prompt/      # Prompt-Templates (Markdown-Format)
+├── 06_skill/       # Agent Skills
 ├── 07_image/       # Bild- und Visualisierungsmaterial
+├── 08_podcast/     # Audio und Podcasts
+├── 09_courses/     # Ergänzende Kursmaterialien
+├── 10_misc/        # Projektspezifische Ablage
 └── docs/           # Projektdokumentation
 ```
 
