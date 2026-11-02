@@ -254,7 +254,7 @@ Nodes sollten klein, fokussiert und möglichst gut nachvollziehbar sein.
 
 ```python
 def summarize_node(state: ChatState) -> dict:
-    text = "\n".join([m.content for m in state["messages"]])
+    text = "\n".join([m.text for m in state["messages"]])
     summary = llm.invoke([{"role": "human", "content": f"Fasse zusammen: {text}"}])
     return {"messages": [summary]}
 ```
@@ -271,7 +271,7 @@ def suche(query: str) -> str:
     return f"Ergebnis für: {query}"
 
 def tool_node(state: ChatState) -> dict:
-    result = suche.invoke({"query": state["messages"][-1].content})
+    result = suche.invoke({"query": state["messages"][-1].text})
     return {"messages": [AIMessage(content=result)]}
 ```
 
@@ -378,7 +378,7 @@ from typing import Literal
 from langgraph.types import Command
 
 def classify_node(state: ChatState) -> Command[Literal["tools", "answer"]]:
-    if "suche" in state["messages"][-1].content.lower():
+    if "suche" in state["messages"][-1].text.lower():
         return Command(update={"step": state["step"] + 1}, goto="tools")
     return Command(update={"step": state["step"] + 1}, goto="answer")
 ```
@@ -695,6 +695,6 @@ LangGraph lohnt sich, wenn ein LLM-Workflow echten Zustand, Routing oder Unterbr
 
 ---
 
-**Version:** 2.1<br>
-**Stand:** Mai 2026<br>
+**Version:** 2.2<br>
+**Stand:** November 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

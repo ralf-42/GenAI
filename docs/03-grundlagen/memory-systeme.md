@@ -252,7 +252,7 @@ def ask(thread_id: str, user_input: str) -> str:
     window = sessions[thread_id][-MAX_MESSAGES:]
     response = llm.invoke([SystemMessage(content=system_prompt)] + window)
     sessions[thread_id].append(response)
-    return response.content
+    return response.text
 ```
 
 
@@ -304,7 +304,7 @@ def ask_summary(thread_id: str, user_input: str) -> str:
                   if summaries[thread_id] else [])
         summaries[thread_id] = llm.invoke(
             [SystemMessage(content="Fasse diese Konversation kurz zusammen:")] + prefix + to_summarize
-        ).content
+        ).text
         summary_sessions[thread_id] = summary_sessions[thread_id][-KEEP_RECENT:]
 
     context = [SystemMessage(content=system_prompt)]
@@ -314,7 +314,7 @@ def ask_summary(thread_id: str, user_input: str) -> str:
 
     response = llm.invoke(context)
     summary_sessions[thread_id].append(response)
-    return response.content
+    return response.text
 ```
 
 
@@ -699,8 +699,8 @@ Entwickler unterschätzen oft, dass Memory nicht nur eine Komfortfunktion ist. O
 
 
 
-**Version:** 1.6<br>
+**Version:** 1.7<br>
 
-**Stand:** Mai 2026<br>
+**Stand:** November 2026<br>
 
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

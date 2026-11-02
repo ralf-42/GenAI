@@ -137,7 +137,7 @@ llm = init_chat_model("openai:gpt-6-luna")
 
 # Einfacher Aufruf – wird bei aktivem Tracing erfasst.
 response = llm.invoke("Erkläre LangSmith in einem Satz.")
-print(response.content)
+print(response.text)
 ```
 
 **Was passiert im Hintergrund:**
@@ -400,7 +400,7 @@ def predict(inputs: dict) -> dict:
         "messages": [{"role": "human", "content": inputs["question"]}]
     })
     # Antwort aus letzter Message extrahieren
-    return {"answer": response["messages"][-1].content}
+    return {"answer": response["messages"][-1].text}
 
 # Evaluierung starten
 results = evaluate(
@@ -447,7 +447,7 @@ def agent_ausfuehren(frage: str) -> dict:
     if run is None:
         raise RuntimeError("Für diese Funktion ist kein LangSmith-Run aktiv.")
     return {
-        "answer": response["messages"][-1].content,
+        "answer": response["messages"][-1].text,
         "run_id": str(run.id),
     }
 
@@ -490,7 +490,7 @@ def llm_judge(run, example) -> dict:
         f"Antworte nur mit einer Zahl zwischen 0 und 1."
     )
     try:
-        score = float(llm.invoke(prompt).content.strip())
+        score = float(llm.invoke(prompt).text.strip())
     except ValueError:
         score = 0.0
     return {"key": "quality", "score": score}
@@ -1008,6 +1008,6 @@ setup_api_keys(['OPENAI_API_KEY', 'LANGSMITH_API_KEY'], create_globals=False)
 
 ---
 
-**Version:** 1.1<br>
-**Stand:** Oktober 2026<br>
+**Version:** 1.2<br>
+**Stand:** November 2026<br>
 **Kurs:** Generative KI mit LangChain 1.1+

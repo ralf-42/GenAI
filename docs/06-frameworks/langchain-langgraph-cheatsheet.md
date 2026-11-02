@@ -89,7 +89,7 @@ from langchain_core.globals import set_llm_cache
 set_llm_cache(InMemoryCache())
 
 antwort = llm.invoke("Erkläre RAG in einem Satz.")
-print(antwort.content)
+print(antwort.text)
 ```
 
 **Regel:** Caching spart Kosten und Laufzeit bei identischen Modellaufrufen. Es ist kein Memory: Cache speichert Modellantworten zu gleichen Requests, Checkpointing speichert Session- oder Graph-Zustand. Sensitive Inhalte nicht unbedacht persistent cachen.
@@ -157,7 +157,7 @@ result = graph.invoke({
     "messages": [("human", "Was ist LangGraph?")],
     "intent": None,
 })
-print(result["messages"][-1].content)
+print(result["messages"][-1].text)
 ```
 
 ## Routing mit Conditional Edges
@@ -170,7 +170,7 @@ class RouterState(TypedDict):
 
 def classify_node(state: RouterState) -> dict:
     structured_llm = llm.with_structured_output(AnfrageTyp)
-    result = structured_llm.invoke(state["messages"][-1].content)
+    result = structured_llm.invoke(state["messages"][-1].text)
     return {"intent": result.intent}
 
 
@@ -255,7 +255,7 @@ result = graph.invoke(
 
 ```python
 def approval_node(state: RouterState) -> dict:
-    letzte_anfrage = state["messages"][-1].content
+    letzte_anfrage = state["messages"][-1].text
     decision = interrupt({
         "frage": "Aktion ausführen?",
         "anfrage": letzte_anfrage,
@@ -287,7 +287,7 @@ class RagState(TypedDict):
 
 
 def retrieve_node(state: RagState) -> dict:
-    frage = state["messages"][-1].content
+    frage = state["messages"][-1].text
     # Der Retriever wird vorher aus einem Vektorstore erzeugt,
     # zum Beispiel mit Chroma: vectorstore.as_retriever(...)
     docs = retriever.invoke(frage)
@@ -303,7 +303,7 @@ def answer_node(state: RagState) -> dict:
     chain = prompt | llm | StrOutputParser()
     answer = chain.invoke({
         "context": state["context"],
-        "frage": state["messages"][-1].content,
+        "frage": state["messages"][-1].text,
     })
     return {"messages": [AIMessage(content=answer)]}
 ```
@@ -349,7 +349,7 @@ def answer_node(state: RagState) -> dict:
 
 ---
 
-**Version:** 1.0<br>
-**Stand:** Juni 2026<br>
+**Version:** 1.1<br>
+**Stand:** November 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
 

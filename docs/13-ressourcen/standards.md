@@ -291,7 +291,7 @@ def test_agent_with_tools():
         "messages": [{"role": "human", "content": "Weather in Berlin?"}]
     })
 
-    assert "Berlin" in response["messages"][-1].content
+    assert "Berlin" in response["messages"][-1].text
 ```
 
 ---
@@ -318,6 +318,6 @@ def test_agent_with_tools():
 
 ---
 
-**Version:** 2.1<br>
-**Stand:** Mai 2026<br>
+**Version:** 2.2<br>
+**Stand:** November 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

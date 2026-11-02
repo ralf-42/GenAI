@@ -86,7 +86,7 @@ result = agent.invoke(
     }
 )
 
-print(result["messages"][-1].content)
+print(result["messages"][-1].text)
 ```
 
 > [!WARNING] Typischer Fehler<br>
@@ -278,6 +278,6 @@ Der Weg vom Modell zur Anwendung führt über Architektur. LangChain macht Agent
 
 ---
 
-**Version:** 1.1<br>
-**Stand:** Mai 2026<br>
+**Version:** 1.2<br>
+**Stand:** November 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
