@@ -54,6 +54,17 @@ structured_llm = llm.with_structured_output(AnswerResult)
 result = structured_llm.invoke("Was ist ein StateGraph?")
 ~~~
 
+Lehnt das Modell ab, kann es kein schemakonformes Objekt liefern. `with_structured_output` löst dann einen `ModelRefusalError` aus — bei OpenAI die Unterklasse `OpenAIRefusalError`, ebenso bei einem Content-Filter. Bei freien Nutzereingaben gehört ein `try`/`except` um den Aufruf; mit `include_raw=True` erscheint die Absage stattdessen im Feld `parsing_error`.
+
+~~~python
+from langchain_core.exceptions import ModelRefusalError
+
+try:
+    result = structured_llm.invoke(user_input)
+except ModelRefusalError:
+    result = None
+~~~
+
 ## Tools und Agenten
 
 Tools erhalten klare Typen und eine kurze Beschreibung. create_agent verbindet Modell und Tools zu einem Agentenlauf.
@@ -116,7 +127,9 @@ agent = create_agent(
 )
 ~~~
 
-Für multimodale Eingaben werden Nachrichten mit standardisierten Content Blocks aufgebaut. Der konkrete Block hängt vom unterstützten Modell und der Aufgabe ab.
+`ModelRefusalMiddleware()` behandelt eine Provider-Absage als Fehler statt als finale Antwort. Sie wird ohne Argumente eingehängt und muss in der Liste nach `ModelFallbackMiddleware` stehen, damit der Fallback den Fehler abfangen kann.
+
+Für multimodale Eingaben werden Nachrichten mit standardisierten Content Blocks aufgebaut. Der konkrete Block hängt vom unterstützten Modell und der Aufgabe ab. Eine ausdrückliche Absage des Providers erscheint dort als Block mit `type` gleich `refusal`.
 
 ## Robuste Ausführung
 
@@ -162,6 +175,6 @@ Die Wiederholungszahl und Fallback-Auswahl richten sich nach den Fehlertypen und
 
 ---
 
-**Version:** 2.0<br>
-**Stand:** Oktober 2026<br>
+**Version:** 2.1<br>
+**Stand:** November 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.

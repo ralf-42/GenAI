@@ -88,7 +88,7 @@ install_packages([
 ])
 
 # Versionspins erzwingen: immer installieren/aktualisieren
-install_packages(['langchain-core>=1.3.0'], upgrade=True)
+install_packages(['langchain-core>=1.7.6'], upgrade=True)
 ```
 
 **Parameter:**
@@ -740,32 +740,45 @@ process_directory(rag, './docs', auto_describe_images=True)
 ## Abhängigkeiten
 
 ### Kern-Abhängigkeiten
-```python
+```text
 # LangChain Stack
-langchain>=1.1.0
-langchain-core>=1.3.0
-langchain-openai>=1.0.0
-langgraph>=1.0.0
-langchain-community>=0.3.0
-langchain-text-splitters>=1.1.0
-langchain-chroma>=0.1.0
-langchain-ollama>=0.2.0
+langchain>=1.4.9
+langchain-core>=1.7.6
+langchain-openai>=1.7.4
+langchain-text-splitters>=1.1.3
+langchain-chroma>=1.1.0
+langchain-ollama>=1.1.0
+pypdf>=7.0.0
+
+# LangGraph Stack
+langgraph>=1.2.20
+langgraph-checkpoint>=4.3.1
+langgraph-checkpoint-sqlite>=3.1.3
+langgraph-prebuilt>=1.1.1
+langgraph-sdk>=0.4.14
+
+# LangSmith
+langsmith>=0.14.17
 
 # OpenAI
-openai>=1.0.0
-
-# Multimodal
-sentence-transformers>=3.0.0
-pillow>=10.0.0
-markitdown>=0.0.1
+openai>=2.45.0
 
 # Vektordatenbank
-chromadb>=0.5.0
+chromadb>=1.5.9
+
+# Multimodal
+sentence-transformers>=6.2.0
+pillow>=11.0.0,<12.0.0
+markitdown[all]>=0.1.9
 
 # Utilities
-requests>=2.31.0
-langsmith>=0.1.0
+requests>=2.34.2
+
+# Notebook-Tooling
+nbformat>=5.11.1
 ```
+
+Maßgeblich ist immer `04_modul/requirements.txt` im Repository; die Liste hier ist eine Abschrift mit Stand November 2026.
 
 ---
 
@@ -840,6 +853,6 @@ Die Module stehen unter der MIT-Lizenz und können frei für eigene Projekte ver
 
 ---
 
-**Version:** 3.3<br>
-**Stand:** Mai 2026<br>
+**Version:** 3.4<br>
+**Stand:** November 2026<br>
 **Kurs:** Generative KI. Verstehen. Anwenden. Gestalten.
