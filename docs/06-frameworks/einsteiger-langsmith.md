@@ -75,7 +75,8 @@ class LANGSMITH target;
 
 1. Kostenlosen Account anlegen: [eu.smith.langchain.com](https://eu.smith.langchain.com/)
 2. API-Key generieren: Settings → API Keys → Create API Key (im **EU-Workspace**)
-3. Optional: Organisation und Projekte anlegen
+3. Klassische Projektansicht aktivieren: Settings → General → **Switch to classic experience** (neue Cloud-Workspaces starten in der agentenbasierten Ansicht, erkennbar am Workspace-Namen oben links statt des LangSmith-Logos; die Umschaltung ist seit Ende Oktober 2026 in beide Richtungen möglich, Quelle: [LangSmith Changelog](https://docs.langchain.com/langsmith/changelog))
+4. Optional: Organisation und Projekte anlegen
 
 > [!WARNING] EU-Endpoint verwenden<br>
 > Für diesen Kurs immer den EU-Endpoint verwenden: `https://eu.api.smith.langchain.com`.
@@ -146,7 +147,7 @@ print(response.text)
 3. Kein zusätzlicher Code nötig – funktioniert "out of the box"
 
 **Nächster Schritt:** LangSmith-Dashboard öffnen und den Trace inspizieren
-- URL: [eu.smith.langchain.com/projects](https://eu.smith.langchain.com/projects)
+- URL: [eu.smith.langchain.com/projects](https://eu.smith.langchain.com/projects) (in der *Classic Experience*; steht oben links statt des LangSmith-Logos der Workspace-Name, liegen über `LANGSMITH_PROJECT` gesendete Traces im Agent-Picker unter `Production` oder nach Umschaltung über Settings → General → **Switch to classic experience** unter `Projects`)
 - Projekt auswählen: `"m02_langsmith_setup"`
 - Ersten Trace anklicken → vollständige Details sehen
 
@@ -1008,6 +1009,6 @@ setup_api_keys(['OPENAI_API_KEY', 'LANGSMITH_API_KEY'], create_globals=False)
 
 ---
 
-**Version:** 1.2<br>
+**Version:** 1.3<br>
 **Stand:** November 2026<br>
 **Kurs:** Generative KI mit LangChain 1.1+
